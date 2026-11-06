@@ -1,0 +1,28 @@
+[
+  {
+    "key": "facebook:1704381977713057",
+    "source": "facebook",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02kBj3Uxp5CURaSThii1CG1Y7ujWoYAVTKv7ZcE4zE7otPMcLGRX7E9wp1aH65jen5l",
+    "display_time": "2026-11-06T22:03:04+08:00",
+    "text": "今天兩好一壞\n壞的是我停損的部分鐵定虧錢\n\n好的是G-Shock 新出的計時錶GST-W1000我拿到了\n再來就是國安基金進場了！ \n\n雖然白白浮虧10%， 但是下週我可以大手筆進場了！\n今天小編推薦我一隻最近復古紅起來的kpop舞， 看來可以趁週末學一下了👍👍👍👍",
+    "analysis": {
+      "status": "retry",
+      "reason": "判讀或附件讀取失敗；待重試，不產生訊號",
+      "attempts": 1,
+      "error_type": "URLError"
+    }
+  },
+  {
+    "key": "threads:4024468641932717746",
+    "source": "threads",
+    "url": "https://www.threads.com/t/DfZyOhEGS6y",
+    "display_time": "2026-11-06T22:07:49+08:00",
+    "text": "沒事， 就是給大家看看我的新GShock\n然後跟大家說， 看來下週穩了",
+    "analysis": {
+      "status": "retry",
+      "reason": "判讀或附件讀取失敗；待重試，不產生訊號",
+      "attempts": 1,
+      "error_type": "ValueError"
+    }
+  }
+]

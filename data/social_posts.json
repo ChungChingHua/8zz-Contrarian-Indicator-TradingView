@@ -32,10 +32,13 @@
     "quoted_content": {},
     "quote_flag": null,
     "analysis": {
-      "status": "pending",
-      "reason": "尚未判讀；不產生訊號"
+      "status": "retry",
+      "reason": "判讀或附件讀取失敗；待重試，不產生訊號",
+      "attempts": 1,
+      "error_type": "URLError"
     },
-    "content_hash": "9475a0593241dfb1d950a2f62be3b401f57c88f64b80d9a847f544b0ebe26ce2"
+    "content_hash": "9475a0593241dfb1d950a2f62be3b401f57c88f64b80d9a847f544b0ebe26ce2",
+    "_image_evidence": []
   },
   "facebook:1703792734438648": {
     "key": "facebook:1703792734438648",
@@ -16989,10 +16992,13 @@
     "quoted_content": {},
     "quote_flag": null,
     "analysis": {
-      "status": "pending",
-      "reason": "尚未判讀；不產生訊號"
+      "status": "retry",
+      "reason": "判讀或附件讀取失敗；待重試，不產生訊號",
+      "attempts": 1,
+      "error_type": "ValueError"
     },
-    "content_hash": "d7f59c80e61dd5ecb70e444bf605e190e9ea484356a9156741af17f04a6bad70"
+    "content_hash": "d7f59c80e61dd5ecb70e444bf605e190e9ea484356a9156741af17f04a6bad70",
+    "_image_evidence": []
   },
   "threads:4024396519826903198": {
     "key": "threads:4024396519826903198",

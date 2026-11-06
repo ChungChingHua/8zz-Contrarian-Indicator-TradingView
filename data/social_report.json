@@ -3,6 +3,10 @@
   "signals": 0,
   "attempted": 0,
   "pending": 659,
+  "review": 0,
+  "usage": [],
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
   "completed": 0,
   "image_successes": 0
 }
