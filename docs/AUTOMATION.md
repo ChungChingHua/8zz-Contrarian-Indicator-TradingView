@@ -1,3 +1,5 @@
+> 目前 PR 使用獨立 ChatAnywhere 免費版設定，僅允許兩筆 smoke、無排程及批次。見[目前供應商設定](CHATANYWHERE.md)；先前 OpenAI 官方說明保留作歷史參考。
+
 # Facebook + Threads 更新操作
 
 © hansai-art，保留原指標與 Mozilla Public License 2.0；新增程式同採 MPL-2.0。

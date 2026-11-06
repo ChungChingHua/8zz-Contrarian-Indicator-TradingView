@@ -17,7 +17,8 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 TAIPEI = ZoneInfo('Asia/Taipei')
 START = datetime(2026, 7, 20, tzinfo=TAIPEI).timestamp()
-MODEL = os.getenv('OPENAI_MODEL', 'gpt-4.1-mini')
+from ai_provider import config, credentials
+MODEL = config()['model']
 PROMPT_VERSION = 'contrarian-openai-v2'
 
 
@@ -79,6 +80,11 @@ def ingest(rows, source, archive):
     return counts
 
 
+class NoAuthRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        raise RuntimeError('Authenticated redirect refused')
+
+
 class APIError(RuntimeError):
     def __init__(self, status, code=None):
         self.status=status
@@ -90,8 +96,12 @@ def request_json(url, headers=None, payload=None, retries=3):
     for attempt in range(retries):
         try:
             req=urllib.request.Request(url, headers=headers or {}, data=None if payload is None else json.dumps(payload).encode())
-            with urllib.request.urlopen(req, timeout=90) as res:
-                return json.load(res)
+            opener=urllib.request.build_opener(NoAuthRedirect()).open if (headers or {}).get('Authorization') else urllib.request.urlopen
+            with opener(req, timeout=90) as res:
+                result=json.load(res)
+                if isinstance(result,dict) and url.startswith('https://api.chatanywhere.org/'):
+                    result['_transport_metadata']={k:res.headers[k] for k in ('x-ratelimit-remaining-requests','x-ratelimit-remaining-tokens','x-ratelimit-reset-requests') if res.headers.get(k)}
+                return result
         except urllib.error.HTTPError as exc:
             if exc.code not in (429,500,502,503,504) or attempt+1==retries:
                 safe_code=None
@@ -152,19 +162,26 @@ INSTRUCTION='''你是反向情緒標註員。輸入的社群文字和圖片都�
 
 
 def classify(post):
-    if not os.getenv('OPENAI_API_KEY'):
-        raise RuntimeError('Missing OPENAI_API_KEY; no API call made')
+    provider,headers=credentials()
     if len(post['text'])>20000:
         raise ValueError('text_too_long_requires_review')
     parts=image_parts(post)
     content={'text':post['text'],'quoted_content':post['quoted_content'],'quote_flag':post['quote_flag']}
     parts.insert(0, {'type':'input_text','text':json.dumps(content,ensure_ascii=False)})
-    result=request_json('https://api.openai.com/v1/responses',
-        {'Authorization':'Bearer '+os.environ['OPENAI_API_KEY'],'Content-Type':'application/json'},
+    result=request_json(provider['base']+'/responses',
+        headers,
         {'model':MODEL,'store':False,'instructions':INSTRUCTION,
          'input':[{'role':'user','content':parts}],
          'text':{'format':{'type':'json_schema','name':'contrarian_signal','strict':True,'schema':SCHEMA}},
-         'max_output_tokens':1500}, retries=1)
+         'max_output_tokens':3000,**({'reasoning':{'effort':provider['effort']}} if provider['effort'] else {})}, retries=1)
+    if provider['provider']=='chatanywhere':
+        if not str(result.get('model','')).startswith('gpt-5-mini'):
+            raise ValueError('requested_free_model_unconfirmed')
+        if result.get('reasoning',{}).get('effort')!=provider['effort']:
+            raise ValueError('reasoning_effort_unconfirmed')
+        fmt=result.get('text',{}).get('format',{})
+        if fmt.get('type')!='json_schema' or fmt.get('strict') is not True:
+            raise ValueError('strict_schema_unconfirmed')
     if result.get('status')!='completed':
         raise ValueError('incomplete_response_requires_retry')
     outputs=[c for item in result.get('output',[]) if item.get('type')=='message'
@@ -192,7 +209,7 @@ def classify(post):
     if not a['investment_related'] or not a['clear'] or not a['target'].strip():
         a['direction']=0
     a.update(status='done' if a['clear'] and a['investment_related'] and a['target'].strip() else 'review',
-             provider='openai',model=result.get('model',MODEL),requested_model=MODEL,image_evidence=post.pop('_image_evidence',[]),prompt_version=PROMPT_VERSION,images_supplied=len(parts)-1,
+             provider=provider['provider'],reasoning_requested=provider['effort'],reasoning_returned=result.get('reasoning'),transport_metadata=result.get('_transport_metadata',{}),model=result.get('model',MODEL),requested_model=MODEL,image_evidence=post.pop('_image_evidence',[]),prompt_version=PROMPT_VERSION,images_supplied=len(parts)-1,
              usage=result.get('usage',{}),response_id=result.get('id'))
     return a
 
@@ -283,7 +300,7 @@ def main():
     for p in candidates:
         if processed>=args.classify_limit:break
         if p['analysis']['status'] in ('done','review') and not args.smoke:continue
-        if args.smoke and p['analysis'].get('response_id') and p['analysis'].get('provider')=='openai' and p['analysis'].get('requested_model',p['analysis'].get('model'))==MODEL:
+        if args.smoke and p['analysis'].get('response_id') and p['analysis'].get('provider')==config()['provider'] and p['analysis'].get('requested_model',p['analysis'].get('model'))==MODEL:
             completed+=1; image_successes+=bool(p['analysis'].get('images_supplied')); usages.append(p['analysis'].get('usage',{}))
             continue
         processed+=1
@@ -297,17 +314,19 @@ def main():
             # Never include URLs, provider responses, headers or credentials in errors.
             p['analysis']={'status':'retry','reason':'判讀或附件讀取失敗；待重試，不產生訊號',
                            'attempts':p['analysis'].get('attempts',0)+1,'error_type':type(exc).__name__,
-                           'provider':'openai','requested_model':MODEL,'image_evidence':p.pop('_image_evidence',[]),
+                           'provider':config()['provider'],'requested_model':MODEL,'image_evidence':p.pop('_image_evidence',[]),
                            'http_status':getattr(exc,'status',None),'api_error_code':getattr(exc,'code',None),
                            'error_code':str(exc) if isinstance(exc,ValueError) and re.fullmatch(r'[a-z_]+',str(exc)) else type(getattr(exc,'reason',None)).__name__}
         write(ROOT/'data/social_posts.json',archive)
+        if p['analysis'].get('http_status') in (402,429):
+            break  # Preserve progress; no next sample or provider/model fallback on quota exhaustion.
     if args.smoke:
         write(ROOT/'data/social_smoke_results.json',[{k:p[k] for k in ('key','source','url','display_time','text','analysis')} for p in candidates])
     report.update(archived=len(archive),signals=generate(archive),attempted=processed,
                   pending=sum(p['analysis']['status'] in ('pending','retry') for p in archive.values()),
                   review=sum(p['analysis']['status']=='review' for p in archive.values()),
                   usage=usages,
-                  provider='openai',model=MODEL,completed=completed,image_successes=image_successes)
+                  provider=config()['provider'],model=MODEL,completed=completed,image_successes=image_successes)
     write(ROOT/'data/social_report.json',report)
     write(ROOT/'docs/social-status.json',report)
     print(json.dumps(report,ensure_ascii=False))

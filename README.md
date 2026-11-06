@@ -1,3 +1,5 @@
+> 目前 PR 使用獨立 ChatAnywhere 免費版設定，僅允許兩筆 smoke、無排程及批次。見[目前供應商設定](docs/CHATANYWHERE.md)；先前 OpenAI 官方說明保留作歷史參考。
+
 # 8zz 巴逆逆反指標 (8zz Banini Reverse Indicator)
 
 > **免責聲明：本指標僅供娛樂參考，不構成任何投資建議。**  

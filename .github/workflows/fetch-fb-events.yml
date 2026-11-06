@@ -1,10 +1,13 @@
 name: Social update (bounded)
 on:
+  push:
+    branches: [codex/social-pipeline-20261106]
+    paths: ['.github/workflows/fetch-fb-events.yml']
   workflow_dispatch:
     inputs:
       mode:
         type: choice
-        options: [smoke, update, classify-only]
+        options: [smoke]
         default: smoke
       max_posts:
         description: Posts per platform (1..50)
@@ -30,41 +33,24 @@ jobs:
       # Missing OpenAI key stops before any paid acquisition or classification.
       - name: Offline regression tests
         run: python -m unittest discover -s scripts -p 'test*.py' -v
-      - name: Check schedule gate
-        id: gate
-        env:
-          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-4.1-mini' }}
-          EVENT: ${{ github.event_name }}
-          MODE: ${{ inputs.mode || 'smoke' }}
-        run: |
-          python - <<'PY'
-          import json, os
-          from pathlib import Path
-          p=Path('data/social_validation.json')
-          v=json.loads(p.read_text()) if p.exists() else {}
-          valid=v.get('passed') is True and v.get('provider')=='openai' and v.get('model')==os.environ['OPENAI_MODEL']
-          active=os.environ['EVENT']!='schedule' or valid
-          if os.environ['MODE']!='smoke' and os.environ['EVENT']!='schedule' and not valid:
-              raise SystemExit('Run smoke successfully before paid updates')
-          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
-              f.write('active='+str(active).lower()+'\n')
-          PY
       - name: Bounded acquisition and multimodal classification
-        if: steps.gate.outputs.active == 'true'
+        if: github.event_name != 'schedule'
         env:
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-4.1-mini' }}
+          AI_PROVIDER: chatanywhere
+          CHATANYWHERE_API_KEY: ${{ secrets.CHATANYWHERE_API_KEY }}
+          CHATANYWHERE_MODEL: gpt-5-mini
+          CHATANYWHERE_REASONING_EFFORT: low
           MONTHLY_AI_LIMIT: ${{ vars.MONTHLY_AI_LIMIT || '400' }}
           MODE: ${{ github.event_name == 'schedule' && 'update' || inputs.mode || 'smoke' }}
           POST_LIMIT: ${{ inputs.max_posts || '5' }}
           AI_LIMIT: ${{ github.event_name == 'schedule' && '10' || inputs.ai_limit || '2' }}
         run: python scripts/run_social_update.py
       - name: Rebuild cached performance (no market API costs)
-        if: always() && steps.gate.outputs.active == 'true'
+        if: always()
         run: python scripts/social_pipeline.py && python scripts/build_site_data.py --offline
       - name: Persist checkpoints even on provider failure
-        if: always() && steps.gate.outputs.active == 'true'
+        if: always()
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
