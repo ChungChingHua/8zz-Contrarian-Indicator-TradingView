@@ -177,9 +177,9 @@ def classify(post):
     if provider['provider']=='chatanywhere':
         if not str(result.get('model','')).startswith('gpt-5-mini'):
             raise ValueError('requested_free_model_unconfirmed')
-        if result.get('reasoning',{}).get('effort')!=provider['effort']:
+        if (result.get('reasoning') or {}).get('effort')!=provider['effort']:
             raise ValueError('reasoning_effort_unconfirmed')
-        fmt=result.get('text',{}).get('format',{})
+        fmt=(result.get('text') or {}).get('format',{})
         if fmt.get('type')!='json_schema' or fmt.get('strict') is not True:
             raise ValueError('strict_schema_unconfirmed')
     if result.get('status')!='completed':
@@ -273,6 +273,8 @@ def main():
     parser.add_argument('--classify-limit',type=int,default=0)
     parser.add_argument('--smoke',action='store_true')
     args=parser.parse_args()
+    if config()['provider']=='chatanywhere' and args.classify_limit and not args.smoke:
+        parser.error('ChatAnywhere currently permits only two-post --smoke; no batch')
     if not 0<=args.classify_limit<=50:parser.error('classify-limit must be 0..50')
     archive=read(ROOT/'data/social_posts.json',{})
     report={}

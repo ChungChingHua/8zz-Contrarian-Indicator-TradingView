@@ -20,4 +20,10 @@
 - [官方 Responses API 文件](https://chatanywhere.apifox.cn/api-385209336)
 - [官方操作文件與查詢網站](https://docs.chatanywhere.tech/)
 
-目前離線測試 35 項通過；帳號模型、免費剩餘額度與四項功能的實測結果以本次 Actions 紀錄為準，不由文件支援宣稱推定。
+目前離線測試 37 項通過；帳號模型、免費剩餘額度與四項功能的實測結果以本次 Actions 紀錄為準，不由文件支援宣稱推定。
+
+## 本次 Actions 結果
+
+[PR 分支執行紀錄](https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/42256948503)確認 CHATANYWHERE_API_KEY 在 Actions 是空值。流程已在任何供應商呼叫前停止：模型清單查詢 0 次、生成 0 次、沒有動用官方金鑰。因此實際可用的 GPT-5 型號、剩餘額度與 Responses／圖片／嚴格 Schema／推理強度四項相容性均尚未實測；不能因文件有列出接口就宣稱帳號可用。
+
+最終離線測試 37 項通過，包含未提供第三方金鑰不可替用官方金鑰、模型未列出不生成、不選付費型號、額度錯誤立即保留進度並停止、認證轉址拒絕與相容性缺欄失敗。推送驗證觸發器已移除，未啟用 schedule、未批次或合併。

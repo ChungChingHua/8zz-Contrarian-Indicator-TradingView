@@ -40,6 +40,29 @@ class ProviderTests(unittest.TestCase):
         with patch.dict(os.environ,{'AI_PROVIDER':'chatanywhere','CHATANYWHERE_API_KEY':'third'},clear=True),patch.object(s,'request_json',return_value=response):
             with self.assertRaisesRegex(ValueError,'strict_schema_unconfirmed'):s.classify(post())
 
+    def test_model_preflight_lists_without_switching(self):
+        import tempfile
+        import check_chatanywhere as check
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as d,patch.dict(os.environ,{'AI_PROVIDER':'chatanywhere','CHATANYWHERE_API_KEY':'third'},clear=True),patch.object(check,'ROOT',Path(d)),patch.object(check,'request_json',return_value={'data':[{'id':'gpt-5-nano'},{'id':'gpt-5-pro'}]}):
+            with self.assertRaises(SystemExit):check.main()
+            report=s.read(Path(d)/'data/social_chatanywhere_preflight.json',{})
+            self.assertFalse(report['model_listed'])
+            self.assertFalse(report['preflight_passed'])
+            self.assertEqual(report['available_gpt5_models'],['gpt-5-nano','gpt-5-pro'])
+            self.assertEqual(report['generation_requests'],0)
+
+    def test_quota_exhaustion_stops_before_second_sample(self):
+        import tempfile
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as d,patch.object(s,'ROOT',Path(d)),patch.object(s,'generate',return_value=0),patch.object(s,'classify',side_effect=s.APIError(429)) as api,patch('sys.argv',['pipeline','--classify-limit','2']):
+            a=post(id='a');b=post(id='b')
+            a['analysis']={'status':'pending'};b['analysis']={'status':'pending'}
+            s.write(Path(d)/'data/social_posts.json',{a['key']:a,b['key']:b});s.main()
+            self.assertEqual(api.call_count,1)
+            archive=s.read(Path(d)/'data/social_posts.json',{})
+            self.assertEqual(archive[b['key']]['analysis']['status'],'pending')
+
     def test_authenticated_redirect_is_refused(self):
         with self.assertRaises(RuntimeError):s.NoAuthRedirect().redirect_request(None,None,302,'',{},'https://other.invalid')
 

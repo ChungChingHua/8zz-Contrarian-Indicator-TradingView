@@ -1,8 +1,5 @@
 name: Social update (bounded)
 on:
-  push:
-    branches: [codex/social-pipeline-20261106]
-    paths: ['.github/workflows/fetch-fb-events.yml']
   workflow_dispatch:
     inputs:
       mode:
