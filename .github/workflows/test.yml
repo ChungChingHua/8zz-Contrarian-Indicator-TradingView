@@ -1,0 +1,18 @@
+name: Offline pipeline tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s scripts -p 'test*.py' -v
+      - name: Verify deterministic complete Pine
+        run: |
+          cp 8zz-indicator.pine /tmp/before.pine
+          python scripts/social_pipeline.py
+          cmp /tmp/before.pine 8zz-indicator.pine

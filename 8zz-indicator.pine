@@ -854,6 +854,8 @@ if barstate.isfirst
     array.push(evt_str, 3)
     array.push(evt_tips, "虧損\n指標: 偏多 ▲ | 強度: ★★★\nFB 07/20 09:59 投的錢是3月的2倍 但是拿回來的錢只有3月的8成 怎麼可以天天跌⋯(;´༎ຶД༎ຶ`)")
     array.push(evt_ticker, "")
+    // BEGIN GENERATED SOCIAL EVENTS
+    // END GENERATED SOCIAL EVENTS
 
 var int currentDir = 0
 var int posCount = 0
@@ -1065,3 +1067,4 @@ alertcondition(flipSignalNow and alertDir == -1, "8zz 空頭翻轉", "8zz 社群
 alertcondition(addSignalNow, "8zz 同向加碼", "8zz 社群情緒反轉框架出現同向加碼訊號")
 alertcondition(filteredSignalNow, "8zz 原始事件遭濾網擋下", "有事件觸發，但被目前濾網條件擋下")
 alertcondition(expiredNow, "8zz 訊號失效", "目前有效訊號已過期，等待下一次翻轉")
+

@@ -22,13 +22,13 @@
 
 ## 📊 即時戰績看板
 
-**👉 [hansai-art.github.io/8zz-Contrarian-Indicator-TradingView](https://hansai-art.github.io/8zz-Contrarian-Indicator-TradingView/)**
+**👉 [ChungChingHua.github.io/8zz-Contrarian-Indicator-TradingView](https://ChungChingHua.github.io/8zz-Contrarian-Indicator-TradingView/)**
 
-書籤這個頁面就夠了。事件目前為手動更新（scripts/manual_add_events.py），自動抓取已於 2026-07-07 停用。
+已新增 Facebook＋Threads 有限額的雲端更新與完整 Pine 生成；請先閱讀[自動化操作與驗證狀態](docs/AUTOMATION.md)。上傳資料已匯入，未完成 AI／圖片辨識者保留待處理；小量驗證成功前不啟用付費排程。GitHub 更新後仍須手動貼入 TradingView。
 
 ### 目前戰績
 
-勝率、勝負與平均報酬會隨事件及行情更新，請以[即時戰績看板](https://hansai-art.github.io/8zz-Contrarian-Indicator-TradingView/)為準；README 不再硬編碼容易過期的數字。
+勝率、勝負與平均報酬會隨事件及行情更新，請以[即時戰績看板](https://ChungChingHua.github.io/8zz-Contrarian-Indicator-TradingView/)為準；README 不再硬編碼容易過期的數字。
 
 > **Mode B**：下一個方向翻轉訊號出現時平倉  
 > **Mode A**：進場後固定持有 17 根 30 分鐘K棒出場（≈ 8.5 小時 ≈ 2 個台股交易日）
@@ -40,9 +40,9 @@
 | 偏空 ▼（做空） | 價格下跌 ✓ | **勝** |
 | 偏空 ▼（做空） | 價格上漲 ✗ | **敗**（做空虧錢） |
 | 偏多 ▲（做多） | 價格上漲 ✓ | **勝** |
-| 偏多 ▲（做多） | 價格下跌 ✗ | **不計**（散戶止損 = 底部，短期回調不算失敗） |
+| 偏多 ▲（做多） | 價格下跌 ✗ | **敗**（做多虧錢） |
 
-> 偏多▲訊號的本質是「散戶最恐慌 = 底部附近」，即使追蹤的個股短期繼續跌，也不代表反指標失效。只有偏空▼訊號做空後市場反漲，才算真正研判錯誤。
+> 多空都計入虧損；勝率以已平倉非零交易為分母，持平、未平倉與行情不足另外列出。
 
 ---
 
@@ -107,3 +107,4 @@
 ## 授權
 
 [Mozilla Public License 2.0](https://mozilla.org/MPL/2.0/) — 可自由使用、修改、衍生，但衍生作品須保留原授權。
+

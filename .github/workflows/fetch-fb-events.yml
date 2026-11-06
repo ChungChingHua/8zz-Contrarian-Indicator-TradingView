@@ -1,130 +1,84 @@
-name: Fetch FB Events & Update Pine Script
-
-# ── Trigger policy ───────────────────────────────────────────────────────────
-# Auto schedule DISABLED (2026-07-07): Apify free quota exhausted (HTTP 402)
-# and scraping coverage was unreliable. Events are now added manually via
-# scripts/manual_add_events.py. This workflow remains dispatch-only as an
-# optional Apify backfill tool (costs Apify credits when run).
-# ─────────────────────────────────────────────────────────────────────────────
-
+name: Social update (bounded)
 on:
-  # Manual trigger only
   workflow_dispatch:
     inputs:
-      apify_max_posts:
-        description: "Max posts to ask Apify for"
-        required: false
-        default: "10"
-      apify_parse_all_results:
-        description: "Ask Apify to paginate all results"
-        required: false
-        type: boolean
-        default: false
-      apify_start_date:
-        description: "Optional backfill start date (YYYY-MM-DD)"
-        required: false
-        default: ""
-      apify_end_date:
-        description: "Optional backfill end date (YYYY-MM-DD)"
-        required: false
-        default: ""
-      fetch_ignore_state:
-        description: "Ignore saved timestamp and reprocess matching posts"
-        required: false
-        type: boolean
-        default: false
-      apify_run_timeout_seconds:
-        description: "Apify sync run timeout in seconds"
-        required: false
-        default: "120"
-      apify_memory_mb:
-        description: "Apify actor memory in MB"
-        required: false
-        default: "256"
-      skip_fb_fetch:
-        description: "Skip Apify/Gemini and rebuild dashboard data only"
-        required: false
-        type: boolean
-        default: false
-      runner:
-        description: "Runner for market-data rebuild (use macOS if Yahoo rate-limits Ubuntu)"
-        required: false
+      mode:
         type: choice
-        options:
-          - ubuntu-latest
-          - macos-latest
-        default: ubuntu-latest
-
+        options: [smoke, update, classify-only]
+        default: smoke
+      max_posts:
+        description: Posts per platform (1..50)
+        default: '5'
+      ai_limit:
+        description: Maximum AI attempts (0..50)
+        default: '2'
+  push:
+    branches: [codex/social-pipeline-20261106]
+    paths: ['.github/workflows/fetch-fb-events.yml']
+  schedule:
+    - cron: '17 0 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: social-data-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
-  update-pine:
-    name: Fetch & Inject FB Events
-    runs-on: ${{ inputs.runner || 'ubuntu-latest' }}
-    permissions:
-      contents: write   # needed to commit & push the updated .pine file
-
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      # ── 1. Checkout ──────────────────────────────────────────────────────────
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      # ── 2. Python setup ──────────────────────────────────────────────────────
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          cache: pip
-          cache-dependency-path: scripts/requirements.txt
-
-      - name: Install dependencies
-        run: pip install -r scripts/requirements.txt
-
-      # ── 3. Scrape & classify ─────────────────────────────────────────────────
-      - name: Fetch and classify FB posts
-        if: ${{ !inputs.skip_fb_fetch }}
+          python-version: '3.12'
+      - name: Offline regression tests
+        run: python -m unittest discover -s scripts -p 'test*.py' -v
+      - name: Check schedule gate
+        id: gate
         env:
-          APIFY_TOKEN:    ${{ secrets.APIFY_TOKEN }}
-          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-          APIFY_MAX_POSTS: ${{ inputs.apify_max_posts || '10' }}
-          APIFY_PARSE_ALL_RESULTS: ${{ inputs.apify_parse_all_results || false }}
-          APIFY_START_DATE: ${{ inputs.apify_start_date || '' }}
-          APIFY_END_DATE: ${{ inputs.apify_end_date || '' }}
-          FETCH_IGNORE_STATE: ${{ inputs.fetch_ignore_state || false }}
-          APIFY_RUN_TIMEOUT_SECONDS: ${{ inputs.apify_run_timeout_seconds || '120' }}
-          APIFY_MEMORY_MB: ${{ inputs.apify_memory_mb || '256' }}
-        run: python scripts/fetch_fb_events.py
-
-      # ── 4. Inject events into .pine ──────────────────────────────────────────
-      - name: Update Pine Script with new events
-        run: python scripts/update_pine_script.py
-
-      # ── 5. Build GitHub Pages site data ─────────────────────────────────────
-      - name: Build site data (docs/events.json)
-        run: python scripts/build_site_data.py
-
-      # ── 6. Commit & push (only when the .pine file actually changed) ─────────
-      - name: Commit and push changes
+          EVENT: ${{ github.event_name }}
+          MODE: ${{ inputs.mode || 'smoke' }}
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          # Stage every file the scripts may have touched
-          git add 8zz-indicator.pine data/last_event_timestamp.json data/market_prices_cache.json data/new_events.json docs/events.json
-
-          # Only commit when there is a real diff
-          if git diff --cached --quiet; then
-            echo "Nothing changed – skipping commit."
-          else
-            EVENT_COUNT=$(grep -c "array.push(evt_time," 8zz-indicator.pine || echo "?")
-            git commit -m "auto: inject new FB events (total events: ${EVENT_COUNT})"
-            # Pull --rebase first to avoid non-fast-forward failures caused by
-            # concurrent manual pushes, then push with retry logic.
-            git pull --rebase origin main
-            for attempt in 1 2 3; do
-              git push && break
-              echo "Push attempt ${attempt} failed, retrying in 10s…"
-              sleep 10
-              git pull --rebase origin main
-            done
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p=Path('data/social_validation.json')
+          valid=p.exists() and json.loads(p.read_text()).get('passed') is True
+          active=os.environ['EVENT']!='schedule' or valid
+          if os.environ['MODE']!='smoke' and os.environ['EVENT']!='schedule' and not valid:
+              raise SystemExit('Run smoke successfully before paid updates')
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              f.write('active='+str(active).lower()+'\n')
+          PY
+      - name: Bounded acquisition and multimodal classification
+        if: steps.gate.outputs.active == 'true'
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-3.8-flash' }}
+          MODE: ${{ github.event_name == 'schedule' && 'update' || inputs.mode || 'smoke' }}
+          POST_LIMIT: ${{ inputs.max_posts || '5' }}
+          AI_LIMIT: ${{ github.event_name == 'schedule' && '10' || inputs.ai_limit || '2' }}
+        run: python scripts/run_social_update.py
+      - name: Rebuild cached performance (no market API costs)
+        if: always() && steps.gate.outputs.active == 'true'
+        run: python scripts/social_pipeline.py && python scripts/build_site_data.py --offline
+      - name: Persist checkpoints even on provider failure
+        if: always() && steps.gate.outputs.active == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/social*.json data/acquisition.json data/usage.json 8zz-indicator.pine docs/events.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'data: persist social archive and processing checkpoints'
+            git push
           fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: social-update
+          path: |
+            8zz-indicator.pine
+            data/social_report.json
+            data/social_validation.json
+          retention-days: 14
