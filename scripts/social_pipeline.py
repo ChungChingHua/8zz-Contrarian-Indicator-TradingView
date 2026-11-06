@@ -258,7 +258,20 @@ def main():
     processed=0; completed=0; image_successes=0; usages=[]
     candidates=sorted(archive.values(),key=lambda x:(x['analysis'].get('attempts',0),x['unix_ms']))
     if args.smoke:
-        candidates=[max((p for p in archive.values() if p['source']==source and p['attachments']),key=lambda p:p['unix_ms']) for source in ('facebook','threads')]
+        candidates=[]
+        for source in ('facebook','threads'):
+            samples=sorted((p for p in archive.values() if p['source']==source and p['attachments']),key=lambda p:p['unix_ms'],reverse=True)[:5]
+            selected=samples[0]
+            for sample in samples:
+                if sample['analysis'].get('response_id') and sample['analysis'].get('provider')=='openai':
+                    selected=sample;break
+                try:
+                    image_parts(sample)  # Unpaid preflight; select reachable existing source media.
+                except (OSError,ValueError):
+                    sample.pop('_image_evidence',None)
+                    continue
+                selected=sample;break
+            candidates.append(selected)
     for p in candidates:
         if processed>=args.classify_limit:break
         if p['analysis']['status'] in ('done','review') and not args.smoke:continue
@@ -276,6 +289,7 @@ def main():
             # Never include URLs, provider responses, headers or credentials in errors.
             p['analysis']={'status':'retry','reason':'判讀或附件讀取失敗；待重試，不產生訊號',
                            'attempts':p['analysis'].get('attempts',0)+1,'error_type':type(exc).__name__,
+                           'http_status':getattr(exc,'status',None),
                            'error_code':str(exc) if isinstance(exc,ValueError) and re.fullmatch(r'[a-z_]+',str(exc)) else type(getattr(exc,'reason',None)).__name__}
         write(ROOT/'data/social_posts.json',archive)
     if args.smoke:
