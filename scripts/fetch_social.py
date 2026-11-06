@@ -88,6 +88,8 @@ def fetch(source, limit, smoke=False):
     s.pop('run_id',None)
     s['last_counts']=counts
     s['last_run_id']=run['id']
+    s['reported_cost']={k:run[k] for k in ('usageTotalUsd','externalChargedTotalUsd') if isinstance(run.get(k),(int,float))}
+    s.pop('last_rejected_http_status',None)
     s['saturated']=saturated
     write(state_path,state)
     print(source,counts,'saturated=',saturated)

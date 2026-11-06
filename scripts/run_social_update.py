@@ -19,8 +19,10 @@ def main():
         raise SystemExit('Missing GitHub Secret APIFY_TOKEN')
     reserved_ai=ai if os.getenv('GOOGLE_API_KEY') else 0
     # Reserve attempts before network calls: crashes consume budget conservatively.
-    if budget['apify_runs']+runs>70 or budget['ai_attempts']+reserved_ai>400:
-        raise SystemExit('Monthly budget exhausted (70 Apify runs / 400 AI attempts)')
+    ai_budget=int(os.getenv('MONTHLY_AI_LIMIT','400'))
+    if not 1<=ai_budget<=2000:raise SystemExit('MONTHLY_AI_LIMIT must be 1..2000')
+    if budget['apify_runs']+runs>70 or budget['ai_attempts']+reserved_ai>ai_budget:
+        raise SystemExit(f'Monthly budget exhausted (70 Apify runs / {ai_budget} AI attempts)')
     budget['apify_runs']+=runs;budget['ai_attempts']+=reserved_ai
     write(ROOT/'data/usage.json',usage)
     if mode!='classify-only':
