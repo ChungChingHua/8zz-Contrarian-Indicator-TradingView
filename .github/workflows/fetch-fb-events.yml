@@ -52,24 +52,6 @@ jobs:
           with open(os.environ['GITHUB_OUTPUT'],'a') as f:
               f.write('active='+str(active).lower()+'\n')
           PY
-      - name: Inspect smoke image metadata without secrets or paid API calls
-        run: |
-          python - <<'PY'
-          import sys, json, urllib.parse, urllib.request
-          sys.path.insert(0,'scripts')
-          from social_pipeline import read, ROOT
-          a=read(ROOT/'data/social_posts.json',{})
-          for source in ('facebook','threads'):
-              p=max((p for p in a.values() if p['source']==source and p['attachments']),key=lambda p:p['unix_ms'])
-              for m in p['attachments']:
-                  url=m.get('photo_image',{}).get('uri') or m.get('url')
-                  print(source,'media_keys',list(m),'type',m.get('type') or m.get('__typename'),'host',urllib.parse.urlparse(url or '').hostname)
-                  try:
-                      with urllib.request.urlopen(url,timeout=30) as res:
-                          print('download',res.status,res.headers.get_content_type(),len(res.read(8000001)))
-                  except Exception as e:
-                      print('image_error',type(e).__name__,'reason_type',type(getattr(e,'reason',None)).__name__,'errno',getattr(getattr(e,'reason',None),'errno',None))
-          PY
       - name: Bounded acquisition and multimodal classification
         if: steps.gate.outputs.active == 'true'
         env:

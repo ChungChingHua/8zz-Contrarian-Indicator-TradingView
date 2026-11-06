@@ -105,19 +105,27 @@ def image_parts(post):
         raise ValueError('too_many_images_requires_review')
     parts=[]
     post['_image_evidence']=[]
-    for m in post['attachments']:
+    for media_index,m in enumerate(post['attachments']):
         kind=m.get('type') or m.get('__typename')
-        if kind not in ('image','Photo'):
+        if kind not in ('image','photo','Photo'):
             raise ValueError('video_or_unknown_media_requires_review')
         url=m.get('photo_image',{}).get('uri') or m.get('url')
-        parsed=urllib.parse.urlparse(url or '')
-        # Only Meta CDN assets; never fetch arbitrary post-supplied destinations.
-        if parsed.scheme!='https' or not any((parsed.hostname or '').endswith('.'+d) for d in ('fbcdn.net','cdninstagram.com')):
-            raise ValueError('unsupported_image_host')
-        req=urllib.request.Request(url)
-        with urllib.request.urlopen(req,timeout=30) as res:
-            mime=res.headers.get_content_type()
-            data=res.read(8_000_001)
+        urls=list(dict.fromkeys([url,m.get('thumbnail')]))
+        last_error=None
+        for candidate in urls:
+            if not candidate:continue
+            parsed=urllib.parse.urlparse(candidate)
+            if parsed.scheme!='https' or not any((parsed.hostname or '').endswith('.'+d) for d in ('fbcdn.net','cdninstagram.com')):
+                last_error=ValueError('unsupported_image_host');continue
+            try:
+                with urllib.request.urlopen(urllib.request.Request(candidate),timeout=30) as res:
+                    mime=res.headers.get_content_type()
+                    data=res.read(8_000_001)
+                break
+            except (OSError,urllib.error.URLError) as exc:
+                last_error=exc
+        else:
+            raise last_error or ValueError('missing_image_url')
         if mime not in ('image/jpeg','image/png','image/webp') or len(data)>8_000_000:
             raise ValueError('unsupported_image_or_size')
         post['_image_evidence'].append({'sha256':hashlib.sha256(data).hexdigest(),'bytes':len(data),'mime':mime})
@@ -254,6 +262,9 @@ def main():
     for p in candidates:
         if processed>=args.classify_limit:break
         if p['analysis']['status'] in ('done','review') and not args.smoke:continue
+        if args.smoke and p['analysis'].get('response_id') and p['analysis'].get('provider')=='openai' and p['analysis'].get('requested_model',p['analysis'].get('model'))==MODEL:
+            completed+=1; image_successes+=bool(p['analysis'].get('images_supplied')); usages.append(p['analysis'].get('usage',{}))
+            continue
         processed+=1
         try:
             p['analysis']=classify(p)
