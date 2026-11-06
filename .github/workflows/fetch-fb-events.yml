@@ -45,6 +45,9 @@ jobs:
         run: python scripts/run_social_update.py
       - name: Rebuild cached performance (no market API costs)
         if: always()
+        env:
+          AI_PROVIDER: chatanywhere
+          CHATANYWHERE_MODEL: gpt-5-mini
         run: python scripts/social_pipeline.py && python scripts/build_site_data.py --offline
       - name: Persist checkpoints even on provider failure
         if: always()
