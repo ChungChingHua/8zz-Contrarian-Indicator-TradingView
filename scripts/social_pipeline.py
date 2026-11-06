@@ -80,8 +80,9 @@ def ingest(rows, source, archive):
 
 
 class APIError(RuntimeError):
-    def __init__(self, status):
+    def __init__(self, status, code=None):
         self.status=status
+        self.code=code
         super().__init__(f'API HTTP {status}; response omitted')
 
 
@@ -93,7 +94,14 @@ def request_json(url, headers=None, payload=None, retries=3):
                 return json.load(res)
         except urllib.error.HTTPError as exc:
             if exc.code not in (429,500,502,503,504) or attempt+1==retries:
-                raise APIError(exc.code) from None
+                safe_code=None
+                try:
+                    code=json.loads(exc.read(65536)).get('error',{}).get('code')
+                    if code in ('insufficient_quota','rate_limit_exceeded','invalid_api_key','model_not_found','invalid_json_schema','billing_hard_limit_reached','unsupported_value','invalid_value'):
+                        safe_code=code
+                except (ValueError,AttributeError):
+                    pass
+                raise APIError(exc.code,safe_code) from None
         except (OSError, ValueError):
             if attempt+1==retries:
                 raise RuntimeError('API transport/JSON error; URL and response omitted') from None
@@ -289,7 +297,8 @@ def main():
             # Never include URLs, provider responses, headers or credentials in errors.
             p['analysis']={'status':'retry','reason':'判讀或附件讀取失敗；待重試，不產生訊號',
                            'attempts':p['analysis'].get('attempts',0)+1,'error_type':type(exc).__name__,
-                           'http_status':getattr(exc,'status',None),
+                           'provider':'openai','requested_model':MODEL,'image_evidence':p.pop('_image_evidence',[]),
+                           'http_status':getattr(exc,'status',None),'api_error_code':getattr(exc,'code',None),
                            'error_code':str(exc) if isinstance(exc,ValueError) and re.fullmatch(r'[a-z_]+',str(exc)) else type(getattr(exc,'reason',None)).__name__}
         write(ROOT/'data/social_posts.json',archive)
     if args.smoke:
