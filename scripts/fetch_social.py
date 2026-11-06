@@ -6,7 +6,7 @@ import sys
 import time
 import urllib.parse
 from datetime import datetime, timedelta, timezone
-from social_pipeline import ROOT, read, write, request_json, ingest
+from social_pipeline import ROOT, read, write, request_json, ingest, APIError
 
 BASE='https://api.apify.com/v2'
 
@@ -21,6 +21,10 @@ def fetch(source, limit, smoke=False):
     # Cursor is the END of the last fully completed window, not newest post.
     # Saturated windows retain cursor and paginate backward on the next invocation.
     now=datetime.now(timezone.utc)
+    if smoke and s.get('last_run_id') and s.get('last_counts',{}).get('accepted',0)>0 and s.get('window_end') and not s.get('run_id'):
+        if (now-datetime.fromisoformat(s['window_end'])).total_seconds()<86400:
+            print(source, 'reusing successful bounded acquisition from past 24h')
+            return s['last_counts']
     start=s.get('window_start') or ((datetime.fromisoformat(s['completed_until'])-timedelta(days=2)).isoformat() if s.get('completed_until') else (now-timedelta(days=2)).isoformat())
     end=s.get('page_before') or s.get('window_end') or now.isoformat()
     if not s.get('run_id'):
@@ -29,7 +33,7 @@ def fetch(source, limit, smoke=False):
         if source=='facebook':
             actor='apify~facebook-posts-scraper'
             body={'startUrls':[{'url':'https://www.facebook.com/DieWithoutBang'}],
-                  'resultsLimit':limit,'onlyPostsNewerThan':start,'onlyPostsOlderThan':end}
+                  'resultsLimit':limit,'onlyPostsNewerThan':start.replace('+00:00','Z'),'onlyPostsOlderThan':end.replace('+00:00','Z')}
         else:
             actor='automation-lab~threads-scraper'
             body={'mode':'posts','usernames':['banini31'],'maxPosts':limit,'includeProfile':False,
@@ -38,7 +42,15 @@ def fetch(source, limit, smoke=False):
         write(state_path,state)
         query=urllib.parse.urlencode({'timeout':180,'memory':512,'maxItems':limit,'maxTotalChargeUsd':0.10})
         # POST may have succeeded even if the connection fails. Leave uncertain marker.
-        run=request_json(f'{BASE}/acts/{actor}/runs?{query}',headers,body,retries=1)['data']
+        try:
+            run=request_json(f'{BASE}/acts/{actor}/runs?{query}',headers,body,retries=1)['data']
+        except APIError as exc:
+            if exc.status in (400,401,402,403,404,422):
+                # Explicit rejected submission did not create a paid run.
+                s['submission_uncertain']=False
+                s['last_rejected_http_status']=exc.status
+                write(state_path,state)
+            raise
         s.update(run_id=run['id'],submission_uncertain=False)
         write(state_path,state)
     for _ in range(45):
@@ -58,6 +70,10 @@ def fetch(source, limit, smoke=False):
     archive=read(ROOT/'data/social_posts.json',{})
     counts=ingest(rows,source,archive)
     write(ROOT/'data/social_posts.json',archive)
+    s['last_counts']=counts
+    write(state_path,state)
+    if counts['accepted']==0 and rows:
+        raise RuntimeError('No accepted posts; inspect actor schema; run ID and cursor retained')
     dates=[r.get('time') or r.get('date') for r in rows if r.get('time') or r.get('date')]
     saturated=len(rows)>=limit
     if saturated and dates:
@@ -75,8 +91,6 @@ def fetch(source, limit, smoke=False):
     s['saturated']=saturated
     write(state_path,state)
     print(source,counts,'saturated=',saturated)
-    if counts['accepted']==0 and rows:
-        raise RuntimeError('No accepted posts; inspect actor output schema before continuing')
     return counts
 
 
@@ -89,7 +103,7 @@ def main():
         try:fetch(source,a.limit,a.smoke)
         except Exception as exc:
             # Only our sanitized error types get logged; no provider response/URL.
-            print(source, str(exc) if type(exc) is RuntimeError else 'Acquisition failed; state retained')
+            print(source, str(exc) if isinstance(exc,RuntimeError) else 'Acquisition failed; state retained')
             failures.append(source)
     if failures:sys.exit(1)
 

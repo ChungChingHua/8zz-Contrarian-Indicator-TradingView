@@ -1,10 +1,14 @@
 {
   "dataset_threads-scraper_2026-11-06_15-24-37-974.json": {
     "sha256": "9e59ef1e8dfaa7fa16dcc960025b7cfa241d46d2b88069c79bc43caddf6026e6",
-    "rows": 399
+    "rows": 399,
+    "accepted": 375,
+    "excluded": 24
   },
   "dataset_facebook-posts-scraper_2026-11-06_15-33-01-517.json": {
     "sha256": "cc9eba2fc5fa82e71a322d9c92ded66a9749814ca43d54752a2be5ad7a664406",
-    "rows": 285
+    "rows": 285,
+    "accepted": 284,
+    "excluded": 1
   }
 }

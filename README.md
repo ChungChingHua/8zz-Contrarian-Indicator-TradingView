@@ -53,19 +53,16 @@
 ![TradingView 圖表](assets/tradingview.jpg)
 
 
-## 如何加入 TradingView
+## 如何加入或更新 TradingView
 
-> ⚠️ 本指標為**私人指標**，無法直接在公開搜尋欄找到。必須先透過以下連結將其加入收藏，才能在圖表中使用。
+1. 開啟本儲存庫的 `8zz-indicator.pine`，按 Raw 複製**完整內容**；也可下載 Actions 的 `social-update` artifact。
+2. 在 TradingView 開啟 Pine Editor，備份舊腳本後以完整檔案取代內容。
+3. 儲存、加入圖表／更新圖表，確認編譯成功與事件標籤。
+4. 使用提醒者需重建提醒，才會採用新腳本。
 
-**步驟：**
+**GitHub 更新不會自動同步至 TradingView。** 原作者的[指標頁面](https://tw.tradingview.com/script/6pVuUMS1/)仍保留供參考，但本分支新資料須自行更新腳本。
 
-1. 開啟指標頁面：**[tw.tradingview.com/script/IbVmSqfj/](https://tw.tradingview.com/script/6pVuUMS1/)**
-2. 點擊「加到最愛」（☆ 收藏）
-3. 回到圖表 → 開啟指標搜尋 → 切換到「收藏」分頁 → 搜尋 **8zz** 即可找到
-
-![搜尋指標](assets/003.jpg)
-
-> 建議使用 **30 分鐘或 1 小時線**，與事件時間顆粒度最吻合。
+建議使用 30 分鐘或 1 小時線。詳見[完整操作說明](docs/AUTOMATION.md)。
 
 ---
 

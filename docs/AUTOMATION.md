@@ -21,7 +21,7 @@
 
 不要將金鑰放在檔案、Issue、聊天或 workflow input。GitHub Secrets 無法讀回明文；有設定也仍需實際執行確認有效。可選 repository variable `GEMINI_MODEL`，預設 `gemini-3.8-flash`。
 
-分支首次推送會自動做 smoke（每來源最多 2 筆、AI 最多 2 篇）；也可到 **Actions → Social update (bounded) → Run workflow → mode=smoke**。只有兩平台都有合格資料、兩次 AI 成功，才將 `social_validation.json.passed` 設為 true。未成功，排程不做付費抓取。
+本次 PR 分支推送已觸發 smoke；後續請手動執行 smoke（每來源最多 2 筆、AI 最多 2 篇；每平台選最新含附件貼文，至少一篇須實際完成圖片判讀）；也可到 **Actions → Social update (bounded) → Run workflow → mode=smoke**。只有兩平台都有合格資料、兩次 AI 成功且實際圖片判讀成功，才將 `social_validation.json.passed` 設為 true。未成功，排程不做付費抓取。
 
 合併 PR 後排程每天 UTC 00:17（台北 08:17），在 GitHub 雲端執行，電腦關機仍可更新。成功驗證後，每日每來源最多 5 筆、AI 最多 10 篇。Actions schedule 以預設分支為準；GitHub 排程可能延遲，公開儲存庫久未活動也可能被平台停用，請監看 Actions。停止付費更新可將 validation 的 passed 改 false 或停用 workflow。
 

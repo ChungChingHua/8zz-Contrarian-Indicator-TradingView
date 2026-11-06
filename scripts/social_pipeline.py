@@ -79,6 +79,12 @@ def ingest(rows, source, archive):
     return counts
 
 
+class APIError(RuntimeError):
+    def __init__(self, status):
+        self.status=status
+        super().__init__(f'API HTTP {status}; response omitted')
+
+
 def request_json(url, headers=None, payload=None, retries=3):
     for attempt in range(retries):
         try:
@@ -87,7 +93,7 @@ def request_json(url, headers=None, payload=None, retries=3):
                 return json.load(res)
         except urllib.error.HTTPError as exc:
             if exc.code not in (429,500,502,503,504) or attempt+1==retries:
-                raise RuntimeError(f'API HTTP {exc.code}; response omitted') from None
+                raise APIError(exc.code) from None
         except (OSError, ValueError):
             if attempt+1==retries:
                 raise RuntimeError('API transport/JSON error; URL and response omitted') from None
@@ -227,14 +233,15 @@ def main():
             p['analysis']=classify(p)
             completed+=1
             image_successes+=bool(p['attachments'])
-        except Exception:
+        except Exception as exc:
             # Never include URLs, provider responses, headers or credentials in errors.
             p['analysis']={'status':'retry','reason':'判讀或附件讀取失敗；待重試，不產生訊號',
-                           'attempts':p['analysis'].get('attempts',0)+1}
+                           'attempts':p['analysis'].get('attempts',0)+1,'error_type':type(exc).__name__}
         write(ROOT/'data/social_posts.json',archive)
     report.update(archived=len(archive),signals=generate(archive),attempted=processed,
                   pending=sum(p['analysis']['status']!='done' for p in archive.values()),completed=completed,image_successes=image_successes)
     write(ROOT/'data/social_report.json',report)
+    write(ROOT/'docs/social-status.json',report)
     print(json.dumps(report,ensure_ascii=False))
 
 if __name__=='__main__':main()

@@ -289,6 +289,7 @@
   </style>
 </head>
 <body>
+<p id="social-status" style="padding:12px;text-align:center" role="status">社群資料判讀狀態載入中；GitHub 更新後須手動更新 TradingView。</p>
 <div class="container">
 
   <header>
@@ -484,6 +485,11 @@
     const res = await fetch('events.json', { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
+    const statusNode=document.getElementById('social-status');
+    try {
+      const status=await (await fetch('social-status.json',{cache:'no-store'})).json();
+      statusNode.textContent=`社群原文 ${status.archived} 篇｜待判讀／重試 ${status.pending} 篇｜新增訊號 ${status.signals} 筆。${data.market_data_mode === 'cached_unverified_freshness' ? '績效使用行情快取，非最新報價。' : ''} TradingView 需手動更新。`;
+    } catch { statusNode.textContent='社群判讀狀態暫不可用；TradingView 需手動更新。'; }
     if (!data?.stats || !Array.isArray(data?.events)) {
       throw new Error('資料格式錯誤');
     }
@@ -790,3 +796,4 @@
 </script>
 </body>
 </html>
+

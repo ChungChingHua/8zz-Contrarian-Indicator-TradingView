@@ -2,7 +2,8 @@
   "facebook": {
     "window_start": "2026-11-04T16:01:34.198002+00:00",
     "window_end": "2026-11-06T16:01:34.198002+00:00",
-    "submission_uncertain": true
+    "submission_uncertain": false,
+    "last_rejected_http_status": 400
   },
   "threads": {
     "window_start": "2026-11-04T16:01:34.421274+00:00",

@@ -2,7 +2,10 @@
 """
 update_pine_script.py
 ─────────────────────
-Reads data/new_events.json (produced by fetch_fb_events.py) and appends
+Legacy helpers remain for compatibility. The entry point now rebuilds from
+data/social_posts.json. It no longer accepts unverified legacy signals.
+
+Original implementation: Reads data/new_events.json and appends
 the new events to the 8zz-indicator.pine file.
 
 Steps
@@ -171,51 +174,13 @@ def update_header_count(lines: list[str], total_events: int) -> list[str]:
 
 
 def main() -> None:
-    new_events = load_new_events()
-    if not new_events:
-        print("ℹ️  No new events to inject.")
-        return
-
-    pine_text = PINE_FILE.read_text(encoding="utf-8")
-    existing_events = extract_existing_events(pine_text)
-
-    # Manual backfills have minute precision while Facebook carries seconds, so
-    # timestamp-only deduplication can insert the same post twice.
-    to_insert = []
-    for event in new_events:
-        if is_duplicate_event(event, existing_events):
-            continue
-        to_insert.append(event)
-        existing_events.append(event)
-    if not to_insert:
-        print("ℹ️  All events already present in the .pine file. Nothing to update.")
-        return
-
-    lines = pine_text.splitlines(keepends=True)
-    insertion_index = find_insertion_line(lines)
-
-    # Build the new push blocks, sorted ascending by time
-    to_insert.sort(key=lambda e: e["unix_ms"])
-    new_blocks = "".join(build_push_block(e) for e in to_insert)
-
-    lines.insert(insertion_index, new_blocks)
-
-    # Re-count total events
-    new_text = "".join(lines)
-    total_events = len(extract_existing_timestamps(new_text))
-
-    updated_lines = update_header_count(new_text.splitlines(keepends=True), total_events)
-    final_text = "".join(updated_lines)
-
-    PINE_FILE.write_text(final_text, encoding="utf-8")
-    print(
-        f"✅ Injected {len(to_insert)} new event(s) into {PINE_FILE.name}. "
-        f"Total events: {total_events}."
-    )
-
-    # Clear the processed events file so it doesn't re-insert on the next run
-    EVENTS_FILE.write_text("[]", encoding="utf-8")
+    """Regenerate from the durable archive; do not append unverified legacy signals."""
+    if load_new_events():
+        raise SystemExit("Legacy data/new_events.json is nonempty; migrate verified provenance to social_posts.json first")
+    from social_pipeline import generate, read
+    generate(read(ROOT / "data" / "social_posts.json", {}))
 
 
 if __name__ == "__main__":
     main()
+
