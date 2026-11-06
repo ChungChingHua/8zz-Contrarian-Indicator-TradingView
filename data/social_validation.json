@@ -1,4 +1,4 @@
 {
   "passed": false,
-  "reason": "等待 GitHub Secrets 小量實測"
+  "reason": "Apify tested independently; missing GOOGLE_API_KEY"
 }
