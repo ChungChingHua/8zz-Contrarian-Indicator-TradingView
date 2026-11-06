@@ -104,6 +104,7 @@ def image_parts(post):
     if len(post['attachments'])>4:
         raise ValueError('too_many_images_requires_review')
     parts=[]
+    post['_image_evidence']=[]
     for m in post['attachments']:
         kind=m.get('type') or m.get('__typename')
         if kind not in ('image','Photo'):
@@ -119,6 +120,7 @@ def image_parts(post):
             data=res.read(8_000_001)
         if mime not in ('image/jpeg','image/png','image/webp') or len(data)>8_000_000:
             raise ValueError('unsupported_image_or_size')
+        post['_image_evidence'].append({'sha256':hashlib.sha256(data).hexdigest(),'bytes':len(data),'mime':mime})
         parts.append({'type':'input_image','image_url':f'data:{mime};base64,'+base64.b64encode(data).decode(),'detail':'auto'})
     return parts
 
@@ -174,7 +176,7 @@ def classify(post):
     if not a['investment_related'] or not a['clear'] or not a['target'].strip():
         a['direction']=0
     a.update(status='done' if a['clear'] and a['investment_related'] and a['target'].strip() else 'review',
-             provider='openai',model=MODEL,prompt_version=PROMPT_VERSION,images_supplied=len(parts)-1,
+             provider='openai',model=result.get('model',MODEL),requested_model=MODEL,image_evidence=post.pop('_image_evidence',[]),prompt_version=PROMPT_VERSION,images_supplied=len(parts)-1,
              usage=result.get('usage',{}),response_id=result.get('id'))
     return a
 
@@ -264,6 +266,8 @@ def main():
             p['analysis']={'status':'retry','reason':'判讀或附件讀取失敗；待重試，不產生訊號',
                            'attempts':p['analysis'].get('attempts',0)+1,'error_type':type(exc).__name__}
         write(ROOT/'data/social_posts.json',archive)
+    if args.smoke:
+        write(ROOT/'data/social_smoke_results.json',[{k:p[k] for k in ('key','source','url','display_time','text','analysis')} for p in candidates])
     report.update(archived=len(archive),signals=generate(archive),attempted=processed,
                   pending=sum(p['analysis']['status'] in ('pending','retry') for p in archive.values()),
                   review=sum(p['analysis']['status']=='review' for p in archive.values()),

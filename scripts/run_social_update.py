@@ -19,7 +19,7 @@ def main():
     month=datetime.now(timezone.utc).strftime('%Y-%m')
     usage=read(ROOT/'data/usage.json',{})
     budget=usage.setdefault(month,{'apify_runs':0,'ai_attempts':0})
-    runs=0 if mode=='classify-only' else 2
+    runs=0 if mode in ('classify-only','smoke') else 2
     if runs and not os.getenv('APIFY_TOKEN'):
         raise SystemExit('Missing GitHub Secret APIFY_TOKEN')
     reserved_ai=ai if os.getenv('OPENAI_API_KEY') else 0
@@ -30,7 +30,7 @@ def main():
         raise SystemExit(f'Monthly budget exhausted (70 Apify runs / {ai_budget} AI attempts)')
     budget['apify_runs']+=runs;budget['ai_attempts']+=reserved_ai
     write(ROOT/'data/usage.json',usage)
-    if mode!='classify-only':
+    if mode not in ('classify-only','smoke'):
         cmd=[sys.executable,'scripts/fetch_social.py','--limit',str(limit)]
         if mode=='smoke':cmd.append('--smoke')
         subprocess.run(cmd,cwd=ROOT,check=True)
