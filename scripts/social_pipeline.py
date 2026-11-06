@@ -206,6 +206,7 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--facebook',type=Path);parser.add_argument('--threads',type=Path)
     parser.add_argument('--classify-limit',type=int,default=0)
+    parser.add_argument('--smoke',action='store_true')
     args=parser.parse_args()
     if not 0<=args.classify_limit<=50:parser.error('classify-limit must be 0..50')
     archive=read(ROOT/'data/social_posts.json',{})
@@ -214,19 +215,25 @@ def main():
         path=getattr(args,source)
         if path:report[source]=ingest(read(path,[]),source,archive)
     write(ROOT/'data/social_posts.json',archive)
-    processed=0
-    for p in sorted(archive.values(),key=lambda x:(x['analysis'].get('attempts',0),x['unix_ms'])):
+    processed=0; completed=0; image_successes=0
+    candidates=sorted(archive.values(),key=lambda x:(x['analysis'].get('attempts',0),x['unix_ms']))
+    if args.smoke:
+        candidates=[max((p for p in archive.values() if p['source']==source and p['attachments']),key=lambda p:p['unix_ms']) for source in ('facebook','threads')]
+    for p in candidates:
         if processed>=args.classify_limit:break
-        if p['analysis']['status']=='done':continue
+        if p['analysis']['status']=='done' and not args.smoke:continue
         processed+=1
-        try:p['analysis']=classify(p)
+        try:
+            p['analysis']=classify(p)
+            completed+=1
+            image_successes+=bool(p['attachments'])
         except Exception:
             # Never include URLs, provider responses, headers or credentials in errors.
             p['analysis']={'status':'retry','reason':'判讀或附件讀取失敗；待重試，不產生訊號',
                            'attempts':p['analysis'].get('attempts',0)+1}
         write(ROOT/'data/social_posts.json',archive)
     report.update(archived=len(archive),signals=generate(archive),attempted=processed,
-                  pending=sum(p['analysis']['status']!='done' for p in archive.values()))
+                  pending=sum(p['analysis']['status']!='done' for p in archive.values()),completed=completed,image_successes=image_successes)
     write(ROOT/'data/social_report.json',report)
     print(json.dumps(report,ensure_ascii=False))
 
