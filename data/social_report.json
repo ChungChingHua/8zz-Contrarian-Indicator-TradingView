@@ -2,5 +2,7 @@
   "archived": 659,
   "signals": 0,
   "attempted": 0,
-  "pending": 659
+  "pending": 659,
+  "completed": 0,
+  "image_successes": 0
 }
