@@ -46,11 +46,30 @@ class OpenAITests(unittest.TestCase):
             with self.assertRaises(SystemExit):runner.main()
             images.assert_not_called();api.assert_not_called();command.assert_not_called()
 
+    def test_quota_code_is_safe_and_distinct_from_rate_limit(self):
+        import io
+        import urllib.error
+        for code in ('insufficient_quota','rate_limit_exceeded'):
+            error=urllib.error.HTTPError('https://api.openai.com/v1/responses',429,'error',{},io.BytesIO(json.dumps({'error':{'code':code,'message':'sensitive provider details'}}).encode()))
+            with patch.object(s.urllib.request,'urlopen',side_effect=error):
+                with self.assertRaises(s.APIError) as raised:s.request_json('https://api.openai.com/v1/responses',retries=1)
+            self.assertEqual(raised.exception.code,code)
+            self.assertNotIn('sensitive',str(raised.exception))
+
+    def test_unknown_error_code_is_not_persisted(self):
+        import io
+        import urllib.error
+        error=urllib.error.HTTPError('https://api.openai.com/v1/responses',400,'error',{},io.BytesIO(b'{"error":{"code":"private-token"}}'))
+        with patch.object(s.urllib.request,'urlopen',side_effect=error):
+            with self.assertRaises(s.APIError) as raised:s.request_json('https://api.openai.com/v1/responses',retries=1)
+        self.assertIsNone(raised.exception.code)
+
     def test_failure_is_durably_retry(self):
         with TemporaryDirectory() as d,patch.object(s,'ROOT',Path(d)),patch.object(s,'generate',return_value=0),patch.object(s,'classify',side_effect=s.APIError(429)),patch('sys.argv',['pipeline','--classify-limit','1']):
             p=post();p['analysis']={'status':'pending'}
             s.write(Path(d)/'data/social_posts.json',{p['key']:p});s.main()
             a=s.read(Path(d)/'data/social_posts.json',{})[p['key']]['analysis']
             self.assertEqual(a['status'],'retry');self.assertEqual(a['attempts'],1)
+            self.assertEqual(a['http_status'],429)
 
 if __name__=='__main__':unittest.main()

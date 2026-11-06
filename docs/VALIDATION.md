@@ -18,3 +18,22 @@
 已確認舊程式使用 Google generateContent，現已實際改成 OpenAI Responses API。上方小量抓取紀錄只證明 Apify 成功，不代表 OpenAI 已驗證。此次僅執行離線 mock 測試，未呼叫任何付費 API，未處理 659 篇。OPENAI_API_KEY 是否已設定尚未透過付費工作驗證；不要沿用先前 Google Secret 缺少的紀錄來推論此 Secret 的狀態。排程觸發器已移除，validation 重設 false；PR #1 保持未合併。設定與小量費用驗證步驟見 AUTOMATION.md。
 
 本次遷移：27 項離線測試、Python 編譯檢查通過；全程無付費 API 呼叫。
+
+## 已設定 OpenAI Secret 後的線上 smoke（未通過）
+
+GitHub Actions 在 PR 分支成功取得 Secret；此次沒有重抓 Apify、沒有批次判讀、沒有啟用排程或合併。原先 Facebook 最新圖片的 CDN 網路不可達，因此以既有匯入資料中較早、經免費下載前檢查可讀的 Facebook 貼文替代；Threads 的 photo 類型相容性已修正。
+
+最終兩筆：
+
+- Facebook `1703774981107090`：原文「市場跟我說，孩子，你不用停損，因為你停不掉」。JPEG 實讀 34,147 bytes，SHA-256 見 data/social_smoke_audit.json。
+- Threads `4024468641932717746`：原文展示新 GShock，表示「看來下週穩了」。JPEG 實讀 628,272 bytes，SHA-256 見同檔。
+
+兩筆均將實際圖片 bytes 作為 input_image，連同原文送出 Responses API。指定模型 gpt-4.1-mini，但兩筆都得到 HTTP 429；供應商未提供可辨識的錯誤代碼，因此不能確定是短期限流或專案額度不足。沒有回傳模型實際版本、方向、強度、標的、理由或 token usage，結構化輸出與判讀合理性仍未完成線上驗證。不可將這兩篇視為判讀成功。
+
+含修正後重試，總計 5 次 Responses HTTP 請求，成功 0 次；前兩次工作流程在圖片前檢查失敗，沒有送出 AI 請求。兩個樣本留 retry，原先無法讀圖的貼文也留 retry，沒有新增訊號。停止線上重試，等待確認 OpenAI 專案的 rate limits／usage／額度狀態；不用提供金鑰明文。
+
+沒有 usage 或帳單資料，故實際與估算費用均標示 unavailable，不把失敗請求宣稱為免費或零 token。計費仍須核對 OpenAI 專案帳單。最終線上 run： https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/42253893332 。
+
+29 項離線測試通過，包括 HTTP 429 狀態保留及錯誤代碼白名單，原始 provider 錯誤與憑證不輸出。驗證用 push 觸發器再次移除，保留手動操作；PR 不合併、排程不啟用。
+
+自動審核曾拒絕把帶簽名的備援 CDN 網址新增到公開 Git，因可能授予媒體存取權。該檔案沒有提交；最終改用已存在資料中的另一篇可讀圖片樣本。
