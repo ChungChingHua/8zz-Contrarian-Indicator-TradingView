@@ -76,12 +76,12 @@ class SocialTests(unittest.TestCase):
     def test_model_ambiguity_and_images(self):
         p=post()
         answer={'investment_related':True,'clear':False,'direction':-1,'strength':2,'reason':'模糊',
-                'author_commentary':'','quoted_summary':'','images_reviewed':False}
-        response={'candidates':[{'content':{'parts':[{'text':json.dumps(answer)}]}}]}
-        with patch.dict('os.environ',{'GOOGLE_API_KEY':'test'}),patch.object(s,'request_json',return_value=response):
+                'target':'台股','ticker':'','author_commentary':'','quoted_summary':'','images_reviewed':False}
+        response={'status':'completed','output':[{'type':'message','content':[{'type':'output_text','text':json.dumps(answer)}]}]}
+        with patch.dict('os.environ',{'OPENAI_API_KEY':'test'}),patch.object(s,'request_json',return_value=response):
             self.assertEqual(s.classify(p)['direction'],0)
             p['attachments']=[{'type':'image'}]
-            with patch.object(s,'image_parts',return_value=[{'inlineData':{}}]):
+            with patch.object(s,'image_parts',return_value=[{'type':'input_image','image_url':'data:image/png;base64,AA=='}]):
                 with self.assertRaises(ValueError):s.classify(p)
 
     def test_both_sides_losses_modes_a_b(self):

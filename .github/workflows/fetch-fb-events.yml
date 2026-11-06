@@ -12,8 +12,7 @@ on:
       ai_limit:
         description: Maximum AI attempts (0..50)
         default: '2'
-  schedule:
-    - cron: '17 0 * * *'
+  # Schedule intentionally disabled pending OpenAI smoke and cost review.
 permissions:
   contents: write
 concurrency:
@@ -28,12 +27,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      # Small smoke is allowed without the AI key so Apify can be validated independently.
+      # Missing OpenAI key stops before any paid acquisition or classification.
       - name: Offline regression tests
         run: python -m unittest discover -s scripts -p 'test*.py' -v
       - name: Check schedule gate
         id: gate
         env:
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-4.1-mini' }}
           EVENT: ${{ github.event_name }}
           MODE: ${{ inputs.mode || 'smoke' }}
         run: |
@@ -41,7 +41,8 @@ jobs:
           import json, os
           from pathlib import Path
           p=Path('data/social_validation.json')
-          valid=p.exists() and json.loads(p.read_text()).get('passed') is True
+          v=json.loads(p.read_text()) if p.exists() else {}
+          valid=v.get('passed') is True and v.get('provider')=='openai' and v.get('model')==os.environ['OPENAI_MODEL']
           active=os.environ['EVENT']!='schedule' or valid
           if os.environ['MODE']!='smoke' and os.environ['EVENT']!='schedule' and not valid:
               raise SystemExit('Run smoke successfully before paid updates')
@@ -52,8 +53,8 @@ jobs:
         if: steps.gate.outputs.active == 'true'
         env:
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
-          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-3.8-flash' }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-4.1-mini' }}
           MONTHLY_AI_LIMIT: ${{ vars.MONTHLY_AI_LIMIT || '400' }}
           MODE: ${{ github.event_name == 'schedule' && 'update' || inputs.mode || 'smoke' }}
           POST_LIMIT: ${{ inputs.max_posts || '5' }}

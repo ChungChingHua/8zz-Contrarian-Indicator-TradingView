@@ -1,4 +1,1 @@
-{
-  "passed": false,
-  "reason": "Apify tested independently; missing GOOGLE_API_KEY"
-}
+{"passed":false,"provider":"openai","reason":"OpenAI migration: offline tests only; paid smoke and cost review pending"}
