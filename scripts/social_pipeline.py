@@ -264,7 +264,8 @@ def main():
         except Exception as exc:
             # Never include URLs, provider responses, headers or credentials in errors.
             p['analysis']={'status':'retry','reason':'判讀或附件讀取失敗；待重試，不產生訊號',
-                           'attempts':p['analysis'].get('attempts',0)+1,'error_type':type(exc).__name__}
+                           'attempts':p['analysis'].get('attempts',0)+1,'error_type':type(exc).__name__,
+                           'error_code':str(exc) if isinstance(exc,ValueError) and re.fullmatch(r'[a-z_]+',str(exc)) else type(getattr(exc,'reason',None)).__name__}
         write(ROOT/'data/social_posts.json',archive)
     if args.smoke:
         write(ROOT/'data/social_smoke_results.json',[{k:p[k] for k in ('key','source','url','display_time','text','analysis')} for p in candidates])
