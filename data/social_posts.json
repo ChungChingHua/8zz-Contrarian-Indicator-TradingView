@@ -113,19 +113,22 @@
     "analysis": {
       "status": "retry",
       "reason": "判讀或附件讀取失敗；待重試，不產生訊號",
-      "attempts": 1,
+      "attempts": 2,
       "error_type": "APIError",
+      "provider": "openai",
+      "requested_model": "gpt-4.1-mini",
+      "image_evidence": [
+        {
+          "sha256": "b019bdb27af1913d7e35530f2125afad34b530fa093cee97ff53420940f71fcc",
+          "bytes": 34147,
+          "mime": "image/jpeg"
+        }
+      ],
       "http_status": 429,
+      "api_error_code": null,
       "error_code": "NoneType"
     },
-    "content_hash": "ea178fc4f2e0141c1e4697b51e3fc1302158c80f2b6c1f491ced5a38936ede18",
-    "_image_evidence": [
-      {
-        "sha256": "b019bdb27af1913d7e35530f2125afad34b530fa093cee97ff53420940f71fcc",
-        "bytes": 34147,
-        "mime": "image/jpeg"
-      }
-    ]
+    "content_hash": "ea178fc4f2e0141c1e4697b51e3fc1302158c80f2b6c1f491ced5a38936ede18"
   },
   "facebook:1703740244443897": {
     "key": "facebook:1703740244443897",
@@ -17005,19 +17008,22 @@
     "analysis": {
       "status": "retry",
       "reason": "判讀或附件讀取失敗；待重試，不產生訊號",
-      "attempts": 4,
+      "attempts": 5,
       "error_type": "APIError",
+      "provider": "openai",
+      "requested_model": "gpt-4.1-mini",
+      "image_evidence": [
+        {
+          "sha256": "d05341342435ce668ab641a4ac7a0ec0cb3172bd5e234891b294b5c5eed24415",
+          "bytes": 628272,
+          "mime": "image/jpeg"
+        }
+      ],
       "http_status": 429,
+      "api_error_code": null,
       "error_code": "NoneType"
     },
-    "content_hash": "d7f59c80e61dd5ecb70e444bf605e190e9ea484356a9156741af17f04a6bad70",
-    "_image_evidence": [
-      {
-        "sha256": "d05341342435ce668ab641a4ac7a0ec0cb3172bd5e234891b294b5c5eed24415",
-        "bytes": 628272,
-        "mime": "image/jpeg"
-      }
-    ]
+    "content_hash": "d7f59c80e61dd5ecb70e444bf605e190e9ea484356a9156741af17f04a6bad70"
   },
   "threads:4024396519826903198": {
     "key": "threads:4024396519826903198",
