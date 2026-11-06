@@ -34,8 +34,9 @@
     "analysis": {
       "status": "retry",
       "reason": "判讀或附件讀取失敗；待重試，不產生訊號",
-      "attempts": 1,
-      "error_type": "URLError"
+      "attempts": 2,
+      "error_type": "URLError",
+      "error_code": "OSError"
     },
     "content_hash": "9475a0593241dfb1d950a2f62be3b401f57c88f64b80d9a847f544b0ebe26ce2",
     "_image_evidence": []
@@ -16994,8 +16995,9 @@
     "analysis": {
       "status": "retry",
       "reason": "判讀或附件讀取失敗；待重試，不產生訊號",
-      "attempts": 1,
-      "error_type": "ValueError"
+      "attempts": 2,
+      "error_type": "ValueError",
+      "error_code": "video_or_unknown_media_requires_review"
     },
     "content_hash": "d7f59c80e61dd5ecb70e444bf605e190e9ea484356a9156741af17f04a6bad70",
     "_image_evidence": []
