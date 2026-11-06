@@ -1,16 +1,17 @@
 [
   {
-    "key": "facebook:1704381977713057",
+    "key": "facebook:1703774981107090",
     "source": "facebook",
-    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02kBj3Uxp5CURaSThii1CG1Y7ujWoYAVTKv7ZcE4zE7otPMcLGRX7E9wp1aH65jen5l",
-    "display_time": "2026-11-06T22:03:04+08:00",
-    "text": "今天兩好一壞\n壞的是我停損的部分鐵定虧錢\n\n好的是G-Shock 新出的計時錶GST-W1000我拿到了\n再來就是國安基金進場了！ \n\n雖然白白浮虧10%， 但是下週我可以大手筆進場了！\n今天小編推薦我一隻最近復古紅起來的kpop舞， 看來可以趁週末學一下了👍👍👍👍",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid03143n7ECXc3swjAwzFvjXJFrfksuaecAmRtRR5uV5yaYAvtNQVrh2WDpG1ciUKMXsl",
+    "display_time": "2026-11-06T09:15:20+08:00",
+    "text": "市場跟我說\n孩子， 你不用停損...\n因為你停不掉_(:_」∠)_",
     "analysis": {
       "status": "retry",
       "reason": "判讀或附件讀取失敗；待重試，不產生訊號",
-      "attempts": 3,
-      "error_type": "URLError",
-      "error_code": "OSError"
+      "attempts": 1,
+      "error_type": "APIError",
+      "http_status": 429,
+      "error_code": "NoneType"
     }
   },
   {
@@ -22,8 +23,9 @@
     "analysis": {
       "status": "retry",
       "reason": "判讀或附件讀取失敗；待重試，不產生訊號",
-      "attempts": 3,
+      "attempts": 4,
       "error_type": "APIError",
+      "http_status": 429,
       "error_code": "NoneType"
     }
   }

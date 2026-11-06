@@ -38,8 +38,7 @@
       "error_type": "URLError",
       "error_code": "OSError"
     },
-    "content_hash": "9475a0593241dfb1d950a2f62be3b401f57c88f64b80d9a847f544b0ebe26ce2",
-    "_image_evidence": []
+    "content_hash": "9475a0593241dfb1d950a2f62be3b401f57c88f64b80d9a847f544b0ebe26ce2"
   },
   "facebook:1703792734438648": {
     "key": "facebook:1703792734438648",
@@ -112,10 +111,21 @@
     "quoted_content": {},
     "quote_flag": null,
     "analysis": {
-      "status": "pending",
-      "reason": "尚未判讀；不產生訊號"
+      "status": "retry",
+      "reason": "判讀或附件讀取失敗；待重試，不產生訊號",
+      "attempts": 1,
+      "error_type": "APIError",
+      "http_status": 429,
+      "error_code": "NoneType"
     },
-    "content_hash": "ea178fc4f2e0141c1e4697b51e3fc1302158c80f2b6c1f491ced5a38936ede18"
+    "content_hash": "ea178fc4f2e0141c1e4697b51e3fc1302158c80f2b6c1f491ced5a38936ede18",
+    "_image_evidence": [
+      {
+        "sha256": "b019bdb27af1913d7e35530f2125afad34b530fa093cee97ff53420940f71fcc",
+        "bytes": 34147,
+        "mime": "image/jpeg"
+      }
+    ]
   },
   "facebook:1703740244443897": {
     "key": "facebook:1703740244443897",
@@ -16995,8 +17005,9 @@
     "analysis": {
       "status": "retry",
       "reason": "判讀或附件讀取失敗；待重試，不產生訊號",
-      "attempts": 3,
+      "attempts": 4,
       "error_type": "APIError",
+      "http_status": 429,
       "error_code": "NoneType"
     },
     "content_hash": "d7f59c80e61dd5ecb70e444bf605e190e9ea484356a9156741af17f04a6bad70",
