@@ -92,11 +92,18 @@
       "processed": false,
       "cap_usd": 0.1,
       "max_items": 50,
-      "run_id": "mGp428lwhhYyYDGPQ"
+      "run_id": "mGp428lwhhYyYDGPQ",
+      "status": "SUCCEEDED",
+      "reported_cost": {
+        "usageTotalUsd": 0.02
+      },
+      "finished_at": "2026-11-07T12:17:04.798Z",
+      "possible_cost_truncation": false,
+      "dataset_id": "kUvRR94aSsYXafGWe"
     }
   ],
   "apify_http_counts": {
-    "GET": 8,
+    "GET": 17,
     "POST": 2
   },
   "prior_http_counts": {
