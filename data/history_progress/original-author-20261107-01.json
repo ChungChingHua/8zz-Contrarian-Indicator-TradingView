@@ -144,7 +144,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -188,10 +188,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -341,6 +341,9 @@
             "readable": false
           }
         ],
+        "original_ai_strength": 2,
+        "order_proof_phrases_present": [],
+        "order_proof_rule_matched": false,
         "rule_version": "fork-7b626f2-ai-v1",
         "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
         "status": "done",
@@ -451,7 +454,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -531,10 +534,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -663,7 +666,7 @@
         "direction": 1,
         "strength": 3,
         "action": "未知(可能被套)",
-        "ticker": "6505.TWO",
+        "ticker": "6505.TW",
         "reasoning": "貼文文字情緒悲傷加上附上即時盤面截圖（顯示下跌/買進價格），發文者處於被套/痛苦情緒，偏多訊號；且圖片含有委託/成交介面證據，強度設為3。",
         "disposition": "signal",
         "images": [
@@ -675,6 +678,22 @@
           }
         ],
         "target_notes": "根據圖中標的與畫面顯示，對應yfinance代碼為6505.TWO（台塑化）。",
+        "original_ai_strength": 3,
+        "order_proof_phrases_present": [],
+        "order_proof_rule_matched": false,
+        "original_ai_ticker": "6505.TWO",
+        "ticker_reference_correction": {
+          "issuer_code": "6505",
+          "issuer_name": "台塑石化股份有限公司",
+          "issuer_shortname": "台塑化",
+          "venue": "TWSE",
+          "listing_date": "2003-12-26",
+          "incorrect_suffix_candidate": "6505.TWO",
+          "yfinance_ticker": "6505.TW",
+          "source_url": "https://openapi.twse.com.tw/v1/opendata/t187ap03_L",
+          "reference_sha256": "4ffd2c0eacf8ce1baf64bbeafc501270f69fed6c7523f6e168bb9232932424f1",
+          "sentiment_unchanged": true
+        },
         "rule_version": "fork-7b626f2-ai-v1",
         "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
         "status": "done",
@@ -778,7 +797,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -858,10 +877,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -995,6 +1014,9 @@
         "disposition": "no_signal",
         "images": [],
         "target_notes": "",
+        "original_ai_strength": 1,
+        "order_proof_phrases_present": [],
+        "order_proof_rule_matched": false,
         "rule_version": "fork-7b626f2-ai-v1",
         "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
         "status": "no_signal",
@@ -1104,7 +1126,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -1148,10 +1170,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -1285,6 +1307,9 @@
         "disposition": "no_signal",
         "images": [],
         "target_notes": "",
+        "original_ai_strength": 1,
+        "order_proof_phrases_present": [],
+        "order_proof_rule_matched": false,
         "rule_version": "fork-7b626f2-ai-v1",
         "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
         "status": "no_signal",
@@ -1406,7 +1431,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -1486,10 +1511,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -1623,6 +1648,9 @@
         "disposition": "pending_confirmation",
         "images": [],
         "target_notes": "",
+        "original_ai_strength": 1,
+        "order_proof_phrases_present": [],
+        "order_proof_rule_matched": false,
         "rule_version": "fork-7b626f2-ai-v1",
         "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
         "status": "review",
@@ -1635,5 +1663,11 @@
   "stop_reason": null,
   "unsent_media_recovery_used": true,
   "recovery_note": "Operator continued the same authorized batch after proven 0-generation IPv6 network failure; explicit unavailable-image scope, no TLS/host bypass or generation retry.",
-  "local_image_validation_reconciled": true
+  "local_image_validation_reconciled": true,
+  "offline_metadata_audit": {
+    "new_generation_requests": 0,
+    "raw_responses_unchanged": true,
+    "scope": "Order-proof audit fields and static issuer/venue correction only; no emotion overrides, future prices or additional signal gates.",
+    "annotated_at_taipei": "2026-11-07T19:17:07.383850+08:00"
+  }
 }

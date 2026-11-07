@@ -1,3 +1,5 @@
+> **版本狀態：以下為先前階段紀錄。** 最新原作者標準與已接通的手動worker／遠端帳本見[還原協定](ORIGINAL_AUTHOR_RESTORATION.md)及[第一批結果](HISTORY_BATCH_01_RESULTS.md)。不再以後加的關鍵字／強恐慌／標的或人工核圖門檻產生訊號；原先未啟用worker的描述已由新流程取代。
+
 # 品質測試固定規則與授權（執行前凍結）
 
 使用者已授權原10篇、每篇最多一次、合計最多10次生成；無自動重試，不查模型清單或未確認的餘額接口。僅 CHATANYWHERE_API_KEY，接入點 https://api.chatanywhere.tech/v1，請求 gpt-5-mini / minimal / Responses API / strict JSON schema / store=false / 無工具；不換模型、付費服務或官方金鑰。模型／推理 metadata 只列服務回報，未獨立驗證。

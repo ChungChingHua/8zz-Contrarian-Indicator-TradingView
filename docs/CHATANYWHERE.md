@@ -1,3 +1,5 @@
+> **目前執行版本：** 原作者規則的單批5次已完成並停止，.tech/v1與gpt-5-mini／minimal保留。手動worker、遠端帳本與本批結果見[還原協定](ORIGINAL_AUTHOR_RESTORATION.md)、[本批結果](HISTORY_BATCH_01_RESULTS.md)。下方先前兩筆smoke／品質測試限制是歷史紀錄，不是新批次授權。
+
 > **線上功能暫停，請勿設定後直接執行 smoke。** 本次資安審查不授權模型查詢、貼文／圖片傳送、排程或合併。見[資安審查](SECURITY_REVIEW.md)。
 
 # ChatAnywhere 免費版小量驗證（目前設定）

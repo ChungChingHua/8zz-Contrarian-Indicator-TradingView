@@ -1,3 +1,5 @@
+> **版本狀態：以下為先前階段紀錄。** 最新原作者標準與已接通的手動worker／遠端帳本見[還原協定](ORIGINAL_AUTHOR_RESTORATION.md)及[第一批結果](HISTORY_BATCH_01_RESULTS.md)。不再以後加的關鍵字／強恐慌／標的或人工核圖門檻產生訊號；原先未啟用worker的描述已由新流程取代。
+
 # 下一階段批次操作方案（僅準備，尚未授權／啟用）
 
 本輪沒有處理其餘歷史、沒有生成或新增樣本。`plan_quality_batch.py` 是**純離線規劃器與停止判斷函式**，沒有API客戶端、金鑰存取或執行器；既有ChatAnywhere批次仍被禁止，不能直接以舊的run_social_update.py／解除pause去跑。不得把這份方案視為批次授權。

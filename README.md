@@ -1,6 +1,6 @@
-> **線上功能暫停，請勿設定後直接執行 smoke。** 本次資安審查不授權模型查詢、貼文／圖片傳送、排程或合併。見[資安審查](docs/SECURITY_REVIEW.md)。
+> **目前狀態：原作者判斷標準已還原，第一批5次生成已完成並停止。** 有訊號2、無訊號2、待確認1；交付[完整候選Pine（152事件）](candidates/8zz-original-author-batch-01.pine)，尚未在TradingView編譯。正式腳本／archive不變。
 
-> 目前 PR 使用獨立 ChatAnywhere 免費版設定，僅允許兩筆 smoke、無排程及批次。見[目前供應商設定](docs/CHATANYWHERE.md)；先前 OpenAI 官方說明保留作歷史參考。
+> [原作者依據與撤回門檻](docs/ORIGINAL_AUTHOR_RESTORATION.md) · [本批逐篇結果與費用限制](docs/HISTORY_BATCH_01_RESULTS.md)。已接通手動worker與遠端帳本；同一batch預算已用完，不會重送。持續排程、Pages及合併未啟用；ChatAnywhere獨立金鑰與.tech/v1設定保留。
 
 # 8zz 巴逆逆反指標 (8zz Banini Reverse Indicator)
 
@@ -110,8 +110,4 @@
 [Mozilla Public License 2.0](https://mozilla.org/MPL/2.0/) — 可自由使用、修改、衍生，但衍生作品須保留原授權。
 
 
-目前進度：品質小批測試已完成並停止，9篇取得答案、1篇影片輸入阻擋。見 [完整逐篇結果](docs/QUALITY_TEST_RESULTS.md) 與 [固定三軸規則](docs/QUALITY_PROTOCOL.md)。候選不是標準答案，品質仍需審查；結果只在測試檔，線上／排程／Pages停用，PR尚未合併。
-
-品質小批測試已停止：[9篇取得模型答案、1篇影片輸入阻擋的逐篇紀錄](docs/QUALITY_TEST_RESULTS.md)。三軸已分開，缺標的不抹除情緒；仍有語意與代碼證據問題，未判定可批次。結果只存測試檔，正式Pine未寫入。
-
-最新：已用原9筆回應[離線重驗規則](docs/QUALITY_RULE_REVIEW.md)，原10篇可接受6（含1篇文字規則、影片未分析）、待確認4、技術失敗0，沒有新生成。原模型JSON保留，處理後結果另存；[下一階段批次方案](docs/NEXT_BATCH_OPERATIONS.md)只備妥離線規劃，仍未授權／啟用。
+先前品質審查紀錄保留作歷史比較，並非目前情緒標準：[原9篇測試](docs/QUALITY_TEST_RESULTS.md)、[後續離線重驗](docs/QUALITY_RULE_REVIEW.md)。最新活躍判讀器是original_author.py；舊的強恐慌／指定關鍵字／標的與人工核圖門檻不供本批使用。原作者完整排除規則、強度及few-shot已保留。

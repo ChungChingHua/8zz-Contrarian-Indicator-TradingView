@@ -208,3 +208,14 @@ class UnavailableNoteValidationTests(unittest.TestCase):
             w.run(posts);self.assertEqual(len(calls),2)
             self.assertEqual(store.data['reserved_generation_attempts'],2)
             with self.assertRaises(ValueError):w.reconcile_saved_unanalysed_image_note()
+
+
+class StaticTickerReferenceTests(unittest.TestCase):
+    def test_static_venue_correction_never_changes_emotion_or_claims_order_proof(self):
+        x=post(text='台塑化 so weak')
+        a=p.parse(answer(direction=1,strength=3,ticker='6505.TWO'),0)
+        r=p.process(x,a)
+        self.assertEqual((r['direction'],r['strength']),(1,3))
+        self.assertEqual(r['ticker'],'6505.TW');self.assertEqual(a['ticker'],'6505.TWO')
+        self.assertEqual(r['original_ai_ticker'],'6505.TWO')
+        self.assertFalse(r['order_proof_rule_matched']);self.assertTrue(p.event_eligible(r))

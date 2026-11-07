@@ -1,9 +1,15 @@
 name: Original-author history batch (manual)
 on:
   workflow_dispatch:
-  push:
-    branches: [codex/social-pipeline-20261106]
-    paths: [.github/workflows/history-batch-manual.yml]
+    inputs:
+      resume_unsent_media_failure:
+        description: 'Only proven zero-generation media failure; never provider/unknown retry'
+        type: boolean
+        default: false
+      reconcile_saved_image_note:
+        description: 'Offline saved HTTP200 unread-image-note correction only; no resend'
+        type: boolean
+        default: false
 permissions:
   contents: write
 concurrency:
@@ -28,8 +34,8 @@ jobs:
         env:
           CHATANYWHERE_API_KEY: ${{ secrets.CHATANYWHERE_API_KEY }}
           GH_TOKEN: ${{ github.token }}
-          RESUME_UNSENT_MEDIA_FAILURE: '0'
-          RECONCILE_SAVED_IMAGE_NOTE: '1'
+          RESUME_UNSENT_MEDIA_FAILURE: ${{ inputs.resume_unsent_media_failure && '1' || '0' }}
+          RECONCILE_SAVED_IMAGE_NOTE: ${{ inputs.reconcile_saved_image_note && '1' || '0' }}
           AUTHORIZED_HISTORY_BATCH: original-author-20261107-01
           AUTHORIZED_RULE_SHA256: 8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162
           AUTHORIZED_PLAN_SHA256: 09d64472eb22998b9ff5478f67b218d5d8530b7f236fc9fdf46a48f4d3bb09e0

@@ -57,7 +57,18 @@ def process(post,answer):
     """Only original order-proof booster; no keyword/target/human-review signal veto."""
     a=copy.deepcopy(answer)
     visible=post['text']+'\n'+'\n'.join(x['visible_text'] for x in a['images'])
-    if a['direction']!=0 and any(p in visible for p in C['_ORDER_CONFIRMATION_PHRASES']):a['strength']=3
+    matched=[phrase for phrase in C['_ORDER_CONFIRMATION_PHRASES'] if phrase in visible]
+    a['original_ai_strength']=a['strength'];a['order_proof_phrases_present']=matched
+    a['order_proof_rule_matched']=bool(a['direction']!=0 and matched)
+    if a['order_proof_rule_matched']:a['strength']=3
+    # Static yfinance venue correction is metadata, never an emotion/direction veto.
+    ref_file=ROOT/'data/static_ticker_reference.json'
+    if ref_file.exists():
+        reference=json.loads(ref_file.read_text())
+        for entry in reference['entries']:
+            if a['ticker']==entry['incorrect_suffix_candidate'] and entry['issuer_shortname'] in visible:
+                a['original_ai_ticker']=a['ticker'];a['ticker']=entry['yfinance_ticker']
+                a['ticker_reference_correction']={**entry,'source_url':reference['source_url'],'reference_sha256':hashlib.sha256(ref_file.read_bytes()).hexdigest(),'sentiment_unchanged':True}
     a.update(rule_version=VERSION,rule_sha256=fingerprint(),status='done' if a['disposition']=='signal' else 'review' if a['disposition']=='pending_confirmation' else 'no_signal',
         image_evidence_status='service_transcription_not_human_verified',context_used=[])
     return a

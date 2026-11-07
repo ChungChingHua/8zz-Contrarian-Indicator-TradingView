@@ -1,3 +1,5 @@
+> **版本狀態：以下為先前階段紀錄。** 最新原作者標準與已接通的手動worker／遠端帳本見[還原協定](ORIGINAL_AUTHOR_RESTORATION.md)及[第一批結果](HISTORY_BATCH_01_RESULTS.md)。不再以後加的關鍵字／強恐慌／標的或人工核圖門檻產生訊號；原先未啟用worker的描述已由新流程取代。
+
 > 目前 PR 使用獨立 ChatAnywhere 免費版設定，僅允許兩筆 smoke、無排程及批次。見[目前供應商設定](CHATANYWHERE.md)；先前 OpenAI 官方說明保留作歷史參考。
 
 # Facebook + Threads 更新操作

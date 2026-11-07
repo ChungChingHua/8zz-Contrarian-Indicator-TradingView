@@ -22,7 +22,14 @@ def build(ledger):
     if dates:candidate=HEADER_COUNT_PATTERN.sub(lambda m:m[1]+str(count)+m[3]+max(m[4],*dates),candidate,count=1)
     for event in EVENT_PATTERN.finditer(text):
         if event.group() not in candidate:raise ValueError('historical_event_changed')
-    return candidate,{'historical_events':len(EVENT_PATTERN.findall(text)),'added_events':added,'total_events':count,'tradingview_compiled':False}
+    matches=list(EVENT_PATTERN.finditer(candidate))
+    times=[int(m.group(1)) for m in matches]
+    paired=all(candidate.count('array.push('+name+',')==count for name in ('evt_time','evt_dir','evt_str','evt_tips','evt_ticker'))
+    ordered=times==sorted(times)
+    valid=all(int(m.group(2)) in (-1,0,1) and int(m.group(3)) in (1,2,3) for m in matches)
+    if not (paired and ordered and valid):raise ValueError('candidate_structure_invalid')
+    return candidate,{'historical_events':len(EVENT_PATTERN.findall(text)),'added_events':added,'total_events':count,
+        'historical_blocks_preserved':True,'historical_neutral_events_preserved':sum(int(m.group(2))==0 for m in EVENT_PATTERN.finditer(text)),'new_events_nonzero':True,'arrays_paired':paired,'timestamps_ordered':ordered,'directions_strengths_valid':valid,'tradingview_compiled':False}
 
 def main():
     from history_worker import LOCAL

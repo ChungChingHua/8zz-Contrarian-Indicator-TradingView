@@ -83,3 +83,11 @@
 已離線重驗保存回應，不重送：只有images_supplied=0、索引確在已聲明未分析圖片、readable=false且visible_text為空時，才將該筆移為unanalysed_image_notes，實際images仍為空。若聲稱看過未提供圖片或虛構可讀文字，仍拒絕。原回應JSON／hash不變，舊錯誤另存local_validation_history，原作者direction／strength不更改。
 
 專用operator校正只接受此確切HTTP200本地檢查失敗、已預留1次且其餘4篇從未嘗試的狀態；遠端保存校正後才續未開始4篇，不重送第一篇，總上限5不重設。若quota顯示0仍停止。原system／few-shot／hash不變；這是技術檢查修正，不能把它當額外情緒veto。離線測試124項通過，逐筆原回應安全保存方式不變。
+
+## 完成結果與非情緒資料校正
+
+本批5次生成均取得HTTP200有效JSON；有訊號2、無訊號2、待確認1、目前技術失敗0、unknown0，剩餘未開始自動候選643群組（先前11篇測試／處理不在隊列）。2張圖未讀、1張實際附圖、1篇影片未分析均明列，未以缺圖或缺碼額外阻擋可判定情緒。
+
+第2筆6505.TWO依證交所靜態發行人／市場資料校正為6505.TW，上市日期2003-12-26早於主貼文。這是yfinance標的格式校正，不使用後續行情，不改direction／strength，不作訊號veto；原模型值及參照hash保留。另記AI原強度與原委託booster實際命中情況，避免將AI敘述誤稱已確認成交。125項離線測試通過。
+
+實際結果／使用步驟見[本批報告](HISTORY_BATCH_01_RESULTS.md)。臨時push啟動已移除，只保留固定batch的手動復核／受限恢復，授權5次耗盡後不再生成。持續排程、Pages、合併仍關閉。候選Pine未經TradingView實際編譯。
