@@ -60,6 +60,13 @@ class SecurityTests(unittest.TestCase):
         with patch.object(provider,'assert_online_enabled'),patch.dict('os.environ',{'AI_PROVIDER':'openai','OPENAI_API_KEY':'test'}),patch.object(s,'request_json',return_value={'status':'completed','output':[{'type':'function_call','name':'read_secret'}]}):
             with self.assertRaisesRegex(ValueError,'tool_output_rejected'):s.classify(post())
 
+    def test_provider_cannot_reflect_credential_to_public_output(self):
+        from test_social_pipeline import post
+        from test_openai import answer
+        key='sk-fictional-offline-fixture-0000'
+        with patch.object(provider,'assert_online_enabled'),patch.dict('os.environ',{'AI_PROVIDER':'openai','OPENAI_API_KEY':key}),patch.object(s,'request_json',return_value=answer(reason=key)):
+            with self.assertRaisesRegex(ValueError,'provider_response_contains_credential'):s.classify(post())
+
     def test_workflow_no_secret_injection_or_write(self):
         text=(s.ROOT/'.github/workflows/fetch-fb-events.yml').read_text()
         self.assertNotIn('secrets.',text);self.assertNotIn('contents: write',text)

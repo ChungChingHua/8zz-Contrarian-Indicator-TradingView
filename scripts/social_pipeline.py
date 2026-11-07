@@ -181,6 +181,11 @@ def classify(post):
          'input':[{'role':'user','content':parts}],
          'text':{'format':{'type':'json_schema','name':'contrarian_signal','strict':True,'schema':SCHEMA}},
          'max_output_tokens':3000,**({'reasoning':{'effort':provider['effort']}} if provider['effort'] else {})}, retries=1)
+    secret=headers['Authorization'].removeprefix('Bearer ')
+    if len(secret)>12 and secret in json.dumps(result,ensure_ascii=False):
+        raise ValueError('provider_response_contains_credential')
+    if result.get('model') is not None and not re.fullmatch(r'[A-Za-z0-9._-]{1,80}',str(result['model'])):
+        raise ValueError('invalid_provider_model_metadata')
     if any(item.get('type') not in ('message','reasoning') for item in result.get('output',[])):
         raise ValueError('tool_output_rejected')
     if provider['provider']=='chatanywhere':
@@ -220,7 +225,7 @@ def classify(post):
     if not a['investment_related'] or not a['clear'] or not a['target'].strip():
         a['direction']=0
     a.update(status='done' if a['clear'] and a['investment_related'] and a['target'].strip() else 'review',
-             provider=provider['provider'],reasoning_requested=provider['effort'],reasoning_returned=result.get('reasoning'),transport_metadata=result.get('_transport_metadata',{}),model=result.get('model',MODEL),requested_model=MODEL,image_evidence=post.pop('_image_evidence',[]),prompt_version=PROMPT_VERSION,images_supplied=len(parts)-1,
+             provider=provider['provider'],reasoning_requested=provider['effort'],reasoning_returned={'effort':(result.get('reasoning') or {}).get('effort')} if (result.get('reasoning') or {}).get('effort') in ('none','minimal','low','medium','high') else None,transport_metadata=result.get('_transport_metadata',{}),model=result.get('model',MODEL),requested_model=MODEL,image_evidence=post.pop('_image_evidence',[]),prompt_version=PROMPT_VERSION,images_supplied=len(parts)-1,
              usage={k:v for k,v in result.get('usage',{}).items() if k in ('input_tokens','output_tokens','total_tokens') and type(v) is int and 0<=v<=10000000},
              response_id=result.get('id') if re.fullmatch(r'resp_[A-Za-z0-9_]{1,100}',str(result.get('id',''))) else None)
     return a

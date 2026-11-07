@@ -45,7 +45,7 @@ S3 的精確含義是：必要使用紀錄可能保留，內容也有安全、�
 | 中，已補強 | 原圖片僅信 Content-Type | HTML 偽裝、超大／慢速資料與錯誤格式 | 上限 4 張、每張 8MB，讀取大小及宣告長度檢查，JPEG／PNG／WebP magic 配對，10 秒 socket／30 秒關閉計時器；**magic 不是完整解碼驗證或去識別** | safe_media.py、test_security.py |
 | 中，已限制能力 | 貼文與圖片提示注入仍可污染分類 | 錯誤方向、理由或標的，影響研究結果 | 不提供 tools、檔案／環境存取或命令執行能力；只接受固定 schema，拒絕工具輸出；字串與 enum 驗證、Pine escaping；仍須人工複核，不能把 schema 正確當語意正確 | social_pipeline.py、update_pine_script.py |
 | 中，部分修正 | 供應鏈含 mutable Action tags、前端 CDN 與第三方統計 | 改版／供應鏈污染、瀏覽資料外送 | Actions 改釘完整 SHA、checkout 不持久保存 Git 憑證；圖表 CDN 加 SRI、移除訪客統計。Python 行情依賴雖固定版本但無完整 hash lock／SBOM；Actions、函式庫未逐行全面審計 | .github/workflows、requirements.txt、docs/index.html |
-| 中，已補強 | 原網址欄位 escaping 但不檢查 URL scheme，回應 usage／metadata 過度信任 | 點擊式不安全 URL、污染公開資料 | 來源只允許 HTTPS Meta 網域，前端拒絕非預期 scheme／host；公開結構 URL 去查詢參數，輸出長度限制，usage 僅保留定義的非負整數 | public_safety.py、social_pipeline.py、docs/index.html |
+| 中，已補強 | 原網址欄位 escaping 但不檢查 URL scheme，回應 usage／metadata 過度信任 | 點擊式不安全 URL、污染公開資料 | 來源只允許 HTTPS Meta 網域，前端拒絕非預期 scheme／host；公開結構 URL 去查詢參數，輸出長度限制，usage 僅保留定義的非負整數，provider 回應若反射當次金鑰則拒絕持久化 | public_safety.py、social_pipeline.py、docs/index.html |
 | 中／未知 | GitHub 綁定 OAuth scope 與權杖保存未公開在審查 repo | 可能擴大 GitHub 帳號存取權 | 本次只讀登入 HTML，未登入／授權，無法確認實際 scopes；授權頁若要求 repo、write、admin 等額外權限，先停下釐清，不為領免費 key 給不必要權限；可至 GitHub Applications 檢查／撤銷 | S2、S5、https://chatanywhere.tech/ |
 | 中／用途待確認 | 免費版限個人非商用／教育／非營利科研 | 自用獲利交易或公開產品可能有條款邊界 | 個人離線研究較接近允許場景，但不能自行確定獲利交易屬非商用；必要時請業者書面確認。**不延伸認定可用於客戶、顧問、收費訊號或商業 SaaS** | S2、S4 |
 
@@ -69,7 +69,7 @@ S3 的精確含義是：必要使用紀錄可能保留，內容也有安全、�
 
 ## 驗證與後續條件
 
-- 46 項離線測試通過、Python 編譯通過；新增測試涵蓋暫停先於金鑰讀取、混合公私 IP／metadata IP 拒絕、IP pinning 與 TLS hostname、轉址拒絕、HTML／超大圖片、檔頭驗證、簽名移除、工具輸出拒絕、工作流程無 Secret／寫入權限。
+- 47 項離線測試通過、Python 編譯通過；新增測試涵蓋暫停先於金鑰讀取、混合公私 IP／metadata IP 拒絕、IP pinning 與 TLS hostname、轉址拒絕、HTML／超大圖片、檔頭驗證、簽名移除、工具輸出拒絕、工作流程無 Secret／寫入權限。
 - 所有網路處理測試使用本地 mock；只讀 HEAD 與公開文件存取和這些離線測試分開，沒有使用真實 API key、生成或傳送貼文／圖片。
 - 此輪字面金鑰樣式檢查未發現目前文字檔含長 `sk-...` 常值；這不是完整秘密掃描、所有歷史 commit／log／artifact 的無洩漏證明。
 - 暫停開關預設 fail closed：檔案不存在、未明確設 false 都不允許模型查詢／內容傳送；workflow 為無憑證暫停 stub，Pages 部署 job 也停用。修改開關／恢復工作流程需要新的明確授權，**本報告不恢復服務**。
