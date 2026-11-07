@@ -1,5 +1,14 @@
 """Explicit provider/key/host isolation. MPL-2.0. No automatic fallback."""
 import os
+from pathlib import Path
+import json
+
+
+def assert_online_enabled():
+    flag=Path(__file__).resolve().parents[1]/"data/online_paused.json"
+    if not flag.exists() or json.loads(flag.read_text()).get("paused") is not False:
+        raise RuntimeError("Online features paused for security review; no credentials or network used")
+
 
 
 def config():
@@ -17,6 +26,7 @@ def config():
 
 
 def credentials():
+    assert_online_enabled()
     c=config()
     key=os.getenv(c['secret'])
     if not key:raise RuntimeError('Missing '+c['secret']+'; no provider call made')

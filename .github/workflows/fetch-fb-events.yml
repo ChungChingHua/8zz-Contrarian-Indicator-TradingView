@@ -1,71 +1,11 @@
 name: Social update (bounded)
 on:
   workflow_dispatch:
-    inputs:
-      mode:
-        type: choice
-        options: [smoke]
-        default: smoke
-      max_posts:
-        description: Posts per platform (1..50)
-        default: '5'
-      ai_limit:
-        description: Maximum AI attempts (0..50)
-        default: '2'
-  # Schedule intentionally disabled pending OpenAI smoke and cost review.
 permissions:
-  contents: write
-concurrency:
-  group: social-data-${{ github.ref }}
-  cancel-in-progress: false
+  contents: read
 jobs:
-  update:
+  paused:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      # Missing OpenAI key stops before any paid acquisition or classification.
-      - name: Offline regression tests
-        run: python -m unittest discover -s scripts -p 'test*.py' -v
-      - name: Bounded acquisition and multimodal classification
-        if: github.event_name != 'schedule'
-        env:
-          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
-          AI_PROVIDER: chatanywhere
-          CHATANYWHERE_API_KEY: ${{ secrets.CHATANYWHERE_API_KEY }}
-          CHATANYWHERE_MODEL: gpt-5-mini
-          CHATANYWHERE_REASONING_EFFORT: low
-          MONTHLY_AI_LIMIT: ${{ vars.MONTHLY_AI_LIMIT || '400' }}
-          MODE: ${{ github.event_name == 'schedule' && 'update' || inputs.mode || 'smoke' }}
-          POST_LIMIT: ${{ inputs.max_posts || '5' }}
-          AI_LIMIT: ${{ github.event_name == 'schedule' && '10' || inputs.ai_limit || '2' }}
-        run: python scripts/run_social_update.py
-      - name: Rebuild cached performance (no market API costs)
-        if: always()
-        env:
-          AI_PROVIDER: chatanywhere
-          CHATANYWHERE_MODEL: gpt-5-mini
-        run: python scripts/social_pipeline.py && python scripts/build_site_data.py --offline
-      - name: Persist checkpoints even on provider failure
-        if: always()
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/social*.json data/acquisition.json data/usage.json 8zz-indicator.pine docs/events.json docs/social-status.json
-          if ! git diff --cached --quiet; then
-            git commit -m 'data: persist social archive and processing checkpoints'
-            git push
-          fi
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: social-update
-          path: |
-            8zz-indicator.pine
-            data/social*.json
-            data/acquisition.json
-            data/usage.json
-          retention-days: 14
+      - name: Online features paused for security review
+        run: echo 'Model queries, smoke, acquisition and content transmission are disabled. No secrets are injected.'
