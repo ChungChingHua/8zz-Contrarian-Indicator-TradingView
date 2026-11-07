@@ -106,7 +106,7 @@ def request_json(url, headers=None, payload=None, retries=3):
                 body=res.read(2_000_001)
                 if len(body)>2_000_000:raise ValueError('api_response_too_large')
                 result=json.loads(body)
-                if isinstance(result,dict) and url.startswith('https://api.chatanywhere.org/'):
+                if isinstance(result,dict) and url.startswith(('https://api.chatanywhere.org/','https://api.chatanywhere.tech/')):
                     result['_transport_metadata']={k:res.headers[k] for k in ('x-ratelimit-remaining-requests','x-ratelimit-remaining-tokens','x-ratelimit-reset-requests') if res.headers.get(k) and re.fullmatch(r'[0-9TZ:.+ -]{1,80}',res.headers[k])}
                 return result
         except urllib.error.HTTPError as exc:

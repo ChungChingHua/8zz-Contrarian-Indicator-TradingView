@@ -36,15 +36,18 @@ def evidence(status,headers,raw,key):
     except (ValueError,UnicodeDecodeError):body={}
     error=body.get('error',{}) if isinstance(body,dict) else {}
     if not isinstance(error,dict):error={'message':error}
-    message=error.get('message') or (body.get('message') if isinstance(body,dict) else '')
+    top=body if isinstance(body,dict) else {}
+    message=error.get('message') or top.get('message') or top.get('detail') or top.get('title') or ''
+    code=error.get('code') or top.get('error_code')
+    error_type=error.get('type') or top.get('error_name')
     text=raw.decode('utf-8',errors='replace')
     lower=text.lower()
-    policy=bool(headers.get('x-mitmproxy-blocked-reason')) or headers.get('cf-mitigated')=='challenge' or ('cloudflare' in lower and any(x in lower for x in ('captcha','cf_chl_opt')))  or any(x in lower for x in ('request forbidden by organizational policy','blocked by network policy','domain is not allowed','network access denied'))
+    policy=code in (1010,1020,'1010','1020') or top.get('error_name')=='browser_signature_banned' or bool(headers.get('x-mitmproxy-blocked-reason')) or headers.get('cf-mitigated')=='challenge' or ('cloudflare' in lower and any(x in lower for x in ('captcha','cf_chl_opt')))  or any(x in lower for x in ('request forbidden by organizational policy','blocked by network policy','domain is not allowed','network access denied'))
     markers=[x for x in ('cloudflare','access denied','forbidden','captcha','chatanywhere_error','insufficient_quota','invalid_api_key') if x in lower]
-    clean=redact(message or ('HTML/text response omitted' if '<' in text else text),key)
-    return body,{'http_status':status,'headers':safe,'error_type':redact(error.get('type',''),key)[:100] or None,
-        'error_code':redact(error.get('code',''),key)[:100] or None,'error_message_redacted':clean,
-        'body_markers':markers,'explicit_network_policy_block':policy,'redacted_body_sha256':hashlib.sha256(clean.encode()).hexdigest(),
+    clean=redact(message or 'HTTP error body omitted',key) if status>=400 else None
+    return body,{'http_status':status,'headers':safe,'error_type':redact(error_type,key)[:100] if error_type is not None else None,
+        'error_code':redact(code,key)[:100] if code is not None else None,'error_message_redacted':clean,
+        'body_markers':markers,'explicit_network_policy_block':policy,'redacted_body_sha256':hashlib.sha256((clean or 'successful JSON body omitted').encode()).hexdigest(),
         'attribution_note':'Headers/body are evidence, not independent proof of the responder identity.'}
 
 

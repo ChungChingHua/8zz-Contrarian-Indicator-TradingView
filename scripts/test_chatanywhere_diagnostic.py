@@ -21,6 +21,19 @@ class DiagnosticTests(unittest.TestCase):
         _,meta=d.evidence(403,h,b'Forbidden by network policy','offline-key')
         self.assertTrue(meta['explicit_network_policy_block'])
         self.assertEqual(meta['headers']['content_type'],'text/plain')
+    def test_top_level_cloudflare_block_is_stopped(self):
+        h=Message();h['Content-Type']='application/json';h['Server']='cloudflare'
+        raw=json.dumps({'error_code':1010,'error_name':'browser_signature_banned','detail':'The site owner has blocked access based on your browser signature.'}).encode()
+        _,meta=d.evidence(403,h,raw,'offline-key')
+        self.assertTrue(meta['explicit_network_policy_block'])
+        self.assertEqual(meta['error_code'],'1010')
+    def test_success_body_is_not_logged_as_error(self):
+        h=Message();h['Content-Type']='application/json'
+        raw=json.dumps({'model':'gpt-5-mini','output':[{'encrypted_content':'opaque-state-not-for-logs'}]}).encode()
+        _,meta=d.evidence(200,h,raw,'offline-key')
+        self.assertIsNone(meta['error_message_redacted'])
+        self.assertNotIn('opaque-state',json.dumps(meta))
+
     def test_three_diagnostics_hard_cap(self):
         with tempfile.TemporaryDirectory() as td:
             audit=d.DiagnosticAudit('offline-secret-key',Path(td)/'audit.json')

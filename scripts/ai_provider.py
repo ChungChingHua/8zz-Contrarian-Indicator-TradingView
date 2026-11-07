@@ -19,7 +19,7 @@ def config():
             raise ValueError('Only the requested free-tier candidate gpt-5-mini is enabled; report other available GPT-5 models without switching')
         effort=os.getenv('CHATANYWHERE_REASONING_EFFORT','low')
         if effort not in ('minimal','low','medium','high'):raise ValueError('invalid reasoning effort')
-        return dict(provider=provider,base='https://api.chatanywhere.org/v1',secret='CHATANYWHERE_API_KEY',model=model,effort=effort)
+        return dict(provider=provider,base='https://api.chatanywhere.tech/v1',secret='CHATANYWHERE_API_KEY',model=model,effort=effort)
     if provider=='openai':
         return dict(provider=provider,base='https://api.openai.com/v1',secret='OPENAI_API_KEY',model=os.getenv('OPENAI_MODEL','gpt-4.1-mini'),effort=None)
     raise ValueError('Unknown AI_PROVIDER; no fallback')

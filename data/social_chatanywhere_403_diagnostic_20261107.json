@@ -25,7 +25,7 @@
         },
         "error_type": null,
         "error_code": null,
-        "error_message_redacted": "{\"id\":\"resp_025bb9004cfaee34016aeec8d4dba48194b1ec0a0dcb105b50\",\"model\":\"gpt-5-mini\",\"output\":[{\"id\":\"rs_025bb9004cfaee34016aeec8d5cdfc81948101ca07a20f55d6\",\"type\":\"reasoning\",\"content\":[],\"encrypted_content\":\"gAAAAABq7sjXaCrx4f0y7cFgpa2iCW_P3KIW4LUjbSOqEBpHMgoLlGUwxricSVsfL_47t9ORF9C6K87H5gT7pLP8yWmUZm0j30v8FPrSlQJKrhkhN9QmrbbdU_XPoLVL7t3w6tjmtbSChojE0xpKs7U9ZsCdby0kWt3k1nvfnitu-spCQW7ml-ScMUxF48T12ZQJ5A1IKXxBoFL8wUf_tQ0-dgtLVs26c-AcDmnaqRO2iXAT-8Z0QH_iAicPdSsvm3risBaxLE5-vw3m0Omi2urD_jLskmY4mY",
+        "error_message_redacted": null,
         "body_markers": [],
         "explicit_network_policy_block": false,
         "redacted_body_sha256": "06fc7096f33b244e7bc984fba63f793e2777742f74b651f4cebaf61e870ba13e",
@@ -118,16 +118,22 @@
         "server": "cloudflare",
         "cf-ray": "a56a5ec7fbb79e3d-ATL"
       },
-      "error_type": null,
-      "error_code": null,
-      "error_message_redacted": "{\"type\":\"[url] 1010: Access denied\",\"status\":403,\"detail\":\"The site owner has blocked access based on your browser's signature.\",\"instance\":\"a56a5ec7fbb79e3d\",\"error_code\":1010,\"error_name\":\"browser_signature_banned\",\"error_category\":\"access_denied\",\"ray_id\":\"a56a5ec7fbb79e3d\",\"timestamp\":\"2026-11-07T06:44:35Z\",\"zone\":\"api.chatanywhere.org\",\"cloudflare_error\":true,\"retryable\":false,\"owner_action_required\":true,\"what_you_should_do\":\"**Do not retry.** Your user-agent has been banned by the site ow",
+      "error_type": "browser_signature_banned",
+      "error_code": "1010",
+      "error_message_redacted": "The site owner has blocked access based on your browser's signature.",
       "body_markers": [
         "cloudflare",
         "access denied"
       ],
       "explicit_network_policy_block": false,
       "redacted_body_sha256": "89d0336be5cdb1c9f13c170bcbc1ab43ec09ab738409c5d4229125c8ec413ae8",
-      "attribution_note": "Headers/body are evidence, not independent proof of the responder identity."
+      "attribution_note": "Headers/body are evidence, not independent proof of the responder identity.",
+      "parser_original_error_code": null,
+      "post_run_findings": {
+        "access_control_rejection": true,
+        "basis": "Top-level error_code/error_name/detail in the captured response",
+        "parser_gap": "Original parser did not classify top-level Cloudflare 1010 as a stop condition; fixed offline after this run. No further requests."
+      }
     },
     {
       "url": "https://api.chatanywhere.org/v1/models",
@@ -139,16 +145,22 @@
         "server": "cloudflare",
         "cf-ray": "a56a5ec8295c5f98-ATL"
       },
-      "error_type": null,
-      "error_code": null,
-      "error_message_redacted": "{\"type\":\"[url] 1010: Access denied\",\"status\":403,\"detail\":\"The site owner has blocked access based on your browser's signature.\",\"instance\":\"a56a5ec8295c5f98\",\"error_code\":1010,\"error_name\":\"browser_signature_banned\",\"error_category\":\"access_denied\",\"ray_id\":\"a56a5ec8295c5f98\",\"timestamp\":\"2026-11-07T06:44:35Z\",\"zone\":\"api.chatanywhere.org\",\"cloudflare_error\":true,\"retryable\":false,\"owner_action_required\":true,\"what_you_should_do\":\"**Do not retry.** Your user-agent has been banned by the site ow",
+      "error_type": "browser_signature_banned",
+      "error_code": "1010",
+      "error_message_redacted": "The site owner has blocked access based on your browser's signature.",
       "body_markers": [
         "cloudflare",
         "access denied"
       ],
       "explicit_network_policy_block": false,
       "redacted_body_sha256": "a87c56b3f292ddcb3c23f8738b75d0959f9a469f61333ef6adac883af3a35c2e",
-      "attribution_note": "Headers/body are evidence, not independent proof of the responder identity."
+      "attribution_note": "Headers/body are evidence, not independent proof of the responder identity.",
+      "parser_original_error_code": null,
+      "post_run_findings": {
+        "access_control_rejection": true,
+        "basis": "Top-level error_code/error_name/detail in the captured response",
+        "parser_gap": "Original parser did not classify top-level Cloudflare 1010 as a stop condition; fixed offline after this run. No further requests."
+      }
     },
     {
       "url": "https://api.chatanywhere.tech/v1/models",
@@ -161,7 +173,7 @@
       },
       "error_type": null,
       "error_code": null,
-      "error_message_redacted": "{\"object\":\"list\",\"data\":[{\"id\":\"gpt-5\",\"object\":\"model\",\"created\":0,\"owned_by\":\"ca\"},{\"id\":\"gpt-5.4-mini\",\"object\":\"model\",\"created\":0,\"owned_by\":\"ca\"},{\"id\":\"gpt-4.1-mini\",\"object\":\"model\",\"created\":0,\"owned_by\":\"ca\"},{\"id\":\"gpt-4o-mini\",\"object\":\"model\",\"created\":0,\"owned_by\":\"ca\"},{\"id\":\"text-embedding-3-small\",\"object\":\"model\",\"created\":0,\"owned_by\":\"openai\"},{\"id\":\"gpt-5.2\",\"object\":\"model\",\"created\":0,\"owned_by\":\"ca\"},{\"id\":\"gpt-5-mini\",\"object\":\"model\",\"created\":0,\"owned_by\":\"ca\"},{\"id\":\"",
+      "error_message_redacted": null,
       "body_markers": [],
       "explicit_network_policy_block": false,
       "redacted_body_sha256": "acfeb847918c7c6c2dee24a632a0f6b5bf077c7b8b96b531ec36d45a2921800f",
@@ -213,5 +225,12 @@
   "error_code": null,
   "stop_reason": "reasoning_effort_unconfirmed",
   "finished_at": "2026-11-07T06:44:39.982185+00:00",
-  "control_plane_note": "GitHub Actions checkout/artifact internals excluded from provider HTTP counts; audit persistence uses one GitHub contents GET and one PUT attempt."
+  "control_plane_note": "GitHub Actions checkout/artifact internals excluded from provider HTTP counts; audit persistence uses one GitHub contents GET and one PUT attempt.",
+  "diagnosis": {
+    "org": "Responses indicate Cloudflare 1010 browser_signature_banned, regardless of Authorization.",
+    "tech": "The same injected key received models HTTP 200 and one generation HTTP 200 at the documented .tech endpoint.",
+    "not_supported_claim": "No evidence that free keys universally forbid listing models.",
+    "scope_failure": "Requested reasoning low, service returned minimal. Kept retry and stopped before second generation.",
+    "local_fix": "Default ChatAnywhere base changed to documented .tech; top-level 1010 now stops diagnostics. No further network requests."
+  }
 }

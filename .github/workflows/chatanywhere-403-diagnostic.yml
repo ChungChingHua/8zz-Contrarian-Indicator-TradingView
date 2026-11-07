@@ -1,44 +1,11 @@
 name: ChatAnywhere bounded 403 diagnosis
 on:
-  push:
-    branches: [codex/social-pipeline-20261106]
-    paths: ['.github/workflows/chatanywhere-403-diagnostic.yml']
+  workflow_dispatch:
 permissions:
-  contents: write
-concurrency:
-  group: chatanywhere-403-diagnosis-20261107
-  cancel-in-progress: false
+  contents: read
 jobs:
-  once:
-    if: github.repository == 'ChungChingHua/8zz-Contrarian-Indicator-TradingView' && github.run_attempt == 1
+  consumed:
+    if: ${{ false }}
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
-        with:
-          python-version: '3.12'
-      - name: Offline tests without secrets
-        run: python -m unittest discover -s scripts -p 'test*.py' -q
-      - name: Diagnose at most three GETs; at most two conditional generations; no retry
-        env:
-          AI_PROVIDER: chatanywhere
-          CHATANYWHERE_API_KEY: ${{ secrets.CHATANYWHERE_API_KEY }}
-          CHATANYWHERE_MODEL: gpt-5-mini
-          CHATANYWHERE_REASONING_EFFORT: low
-          AUTHORIZED_SMOKE_SCOPE: 2026-11-07-chatanywhere-403-diagnosis-v1
-        run: python scripts/diagnose_chatanywhere_403.py
-      - name: Persist sanitized diagnostic only
-        if: always()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: python scripts/persist_chatanywhere_diagnostic.py
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        if: always()
-        with:
-          name: chatanywhere-403-diagnostic-20261107
-          path: data/social_chatanywhere_403_diagnostic_20261107.json
-          retention-days: 7
+      - run: echo 'Diagnostic authorization consumed. All queries and generation stopped; no secrets injected.'

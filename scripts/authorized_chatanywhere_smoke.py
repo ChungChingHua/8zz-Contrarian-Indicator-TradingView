@@ -84,8 +84,8 @@ class Audit:
             except ValueError:body={}
             return exc.code,counters_headers(exc.headers),body
     def call(self,url,headers=None,payload=None,retries=1):
-        kind='model_queries' if url=='https://api.chatanywhere.org/v1/models' and payload is None else 'generation'
-        if retries!=1 or url not in ('https://api.chatanywhere.org/v1/models','https://api.chatanywhere.org/v1/responses'):raise ValueError('unauthorized_route_or_retry')
+        kind='model_queries' if url in ('https://api.chatanywhere.org/v1/models','https://api.chatanywhere.tech/v1/models') and payload is None else 'generation'
+        if retries!=1 or url not in ('https://api.chatanywhere.org/v1/models','https://api.chatanywhere.org/v1/responses','https://api.chatanywhere.tech/v1/models','https://api.chatanywhere.tech/v1/responses'):raise ValueError('unauthorized_route_or_retry')
         if headers!={'Authorization':'Bearer '+self.key,'Content-Type':'application/json'}:raise ValueError('credential_scope_mismatch')
         cap=1 if kind=='model_queries' else 2
         if self.report['http_counts'][kind]>=cap:raise ValueError('request_budget_exhausted')
