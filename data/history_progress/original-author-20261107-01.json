@@ -6,7 +6,7 @@
   "created_at": "2026-11-07T08:14:08.821626+00:00",
   "max_generations": 5,
   "reserved_generation_attempts": 0,
-  "stopped": false,
+  "stopped": true,
   "finished": false,
   "provider_settings": {
     "base": "https://api.chatanywhere.tech/v1",
@@ -42,9 +42,11 @@
           "post_id": "1604315791053010"
         }
       ],
-      "status": "not_started",
+      "status": "input_failure",
       "attempts": 0,
-      "context_used": []
+      "context_used": [],
+      "error_type": "OSError",
+      "reason": "Media preflight failed; no generation, no URL/raw error logged"
     },
     {
       "number": 2,
@@ -143,5 +145,6 @@
       "context_used": []
     }
   ],
-  "updated_at": "2026-11-07T08:14:08.821655+00:00"
+  "updated_at": "2026-11-07T08:14:10.125036+00:00",
+  "stop_reason": "media_preflight_failure"
 }
