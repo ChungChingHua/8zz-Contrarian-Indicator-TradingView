@@ -1,0 +1,217 @@
+{
+  "scope": "2026-11-07-chatanywhere-403-diagnosis-v1",
+  "consumed": true,
+  "provider": "chatanywhere",
+  "requested_model": "gpt-5-mini",
+  "reasoning_requested": "low",
+  "started_at": "2026-11-07T06:44:35.140732+00:00",
+  "http_counts": {
+    "model_queries": 3,
+    "generation": 1,
+    "other_provider_queries": 0,
+    "image_downloads": 1
+  },
+  "events": [
+    {
+      "kind": "generation",
+      "http_status": 200,
+      "remaining_headers": {},
+      "endpoint": "https://api.chatanywhere.tech/v1/responses",
+      "diagnostic_metadata": {
+        "http_status": 200,
+        "headers": {
+          "content_type": "application/json",
+          "server": "TencentEdgeOne"
+        },
+        "error_type": null,
+        "error_code": null,
+        "error_message_redacted": "{\"id\":\"resp_025bb9004cfaee34016aeec8d4dba48194b1ec0a0dcb105b50\",\"model\":\"gpt-5-mini\",\"output\":[{\"id\":\"rs_025bb9004cfaee34016aeec8d5cdfc81948101ca07a20f55d6\",\"type\":\"reasoning\",\"content\":[],\"encrypted_content\":\"gAAAAABq7sjXaCrx4f0y7cFgpa2iCW_P3KIW4LUjbSOqEBpHMgoLlGUwxricSVsfL_47t9ORF9C6K87H5gT7pLP8yWmUZm0j30v8FPrSlQJKrhkhN9QmrbbdU_XPoLVL7t3w6tjmtbSChojE0xpKs7U9ZsCdby0kWt3k1nvfnitu-spCQW7ml-ScMUxF48T12ZQJ5A1IKXxBoFL8wUf_tQ0-dgtLVs26c-AcDmnaqRO2iXAT-8Z0QH_iAicPdSsvm3risBaxLE5-vw3m0Omi2urD_jLskmY4mY",
+        "body_markers": [],
+        "explicit_network_policy_block": false,
+        "redacted_body_sha256": "06fc7096f33b244e7bc984fba63f793e2777742f74b651f4cebaf61e870ba13e",
+        "attribution_note": "Headers/body are evidence, not independent proof of the responder identity."
+      }
+    }
+  ],
+  "samples": [
+    {
+      "key": "facebook:1703774981107090",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid03143n7ECXc3swjAwzFvjXJFrfksuaecAmRtRR5uV5yaYAvtNQVrh2WDpG1ciUKMXsl",
+      "display_time": "2026-11-06T09:15:20+08:00",
+      "text": "市場跟我說\n孩子， 你不用停損...\n因為你停不掉_(:_」∠)_",
+      "status": "retry",
+      "api_status": 200,
+      "download_success": true,
+      "request_includes_image": true,
+      "schema_valid": true,
+      "images_attached": 1,
+      "service_response": {
+        "model_claim": "gpt-5-mini",
+        "reasoning_claim": {
+          "effort": "minimal"
+        },
+        "format_claim": {
+          "type": "json_schema",
+          "strict": true
+        },
+        "usage": {
+          "total_tokens": 1059,
+          "input_tokens": 803,
+          "output_tokens": 256,
+          "reasoning_tokens": 0
+        }
+      },
+      "service_candidate": {
+        "investment_related": true,
+        "clear": false,
+        "direction": 0,
+        "strength": 1,
+        "target": "亞翔",
+        "ticker": "6139",
+        "reason": "作者以幽默語氣描述自己無法停損（“你不用停損…因為你停不掉”），重點是表達個人行為與無力感，情緒偏向自嘲/無奈，沒有明確的恐慌或亢奮買賣指示；因此判定為模糊/矛盾情緒，引用邊界不明。",
+        "author_commentary": "作者在說市場對他說「不用停損」，但隨即自嘲承認自己其實停不掉，表現出無奈與自我調侃，並未直接宣布要買或賣。",
+        "quoted_summary": "「市場跟我說 孩子，你不用停損… 因為你停不掉_(:_」∠)_」——引用內容呈現市場對話與作者自嘲。",
+        "images_reviewed": true
+      },
+      "error_type": "ValueError",
+      "http_status": null,
+      "error_code": null,
+      "image_evidence": [
+        {
+          "sha256": "b019bdb27af1913d7e35530f2125afad34b530fa093cee97ff53420940f71fcc",
+          "bytes": 34147,
+          "mime": "image/jpeg"
+        }
+      ],
+      "reason": "reasoning_effort_unconfirmed"
+    },
+    {
+      "key": "threads:4024468641932717746",
+      "source": "threads",
+      "url": "https://www.threads.com/t/DfZyOhEGS6y",
+      "display_time": "2026-11-06T22:07:49+08:00",
+      "text": "沒事， 就是給大家看看我的新GShock\n然後跟大家說， 看來下週穩了",
+      "status": "not_sent",
+      "api_status": null,
+      "download_success": false,
+      "request_includes_image": false,
+      "schema_valid": false
+    }
+  ],
+  "passed": false,
+  "quota_before": null,
+  "quota_after": null,
+  "quota_note": "Only service-returned headers are recorded. No confirmed point-balance API; missing or delayed values remain unknown. Points are not tokens; no zero-deduction claim.",
+  "unchanged": "General pause, archive, Pine, schedule and Pages remain unchanged; no batch or merge.",
+  "diagnostic_budget": 3,
+  "generation_budget": 2,
+  "diagnostic_requests": 3,
+  "diagnostic_events": [
+    {
+      "url": "https://api.chatanywhere.org/v1/models",
+      "method": "GET",
+      "authenticated": true,
+      "http_status": 403,
+      "headers": {
+        "content_type": "application/json",
+        "server": "cloudflare",
+        "cf-ray": "a56a5ec7fbb79e3d-ATL"
+      },
+      "error_type": null,
+      "error_code": null,
+      "error_message_redacted": "{\"type\":\"[url] 1010: Access denied\",\"status\":403,\"detail\":\"The site owner has blocked access based on your browser's signature.\",\"instance\":\"a56a5ec7fbb79e3d\",\"error_code\":1010,\"error_name\":\"browser_signature_banned\",\"error_category\":\"access_denied\",\"ray_id\":\"a56a5ec7fbb79e3d\",\"timestamp\":\"2026-11-07T06:44:35Z\",\"zone\":\"api.chatanywhere.org\",\"cloudflare_error\":true,\"retryable\":false,\"owner_action_required\":true,\"what_you_should_do\":\"**Do not retry.** Your user-agent has been banned by the site ow",
+      "body_markers": [
+        "cloudflare",
+        "access denied"
+      ],
+      "explicit_network_policy_block": false,
+      "redacted_body_sha256": "89d0336be5cdb1c9f13c170bcbc1ab43ec09ab738409c5d4229125c8ec413ae8",
+      "attribution_note": "Headers/body are evidence, not independent proof of the responder identity."
+    },
+    {
+      "url": "https://api.chatanywhere.org/v1/models",
+      "method": "GET",
+      "authenticated": false,
+      "http_status": 403,
+      "headers": {
+        "content_type": "application/json",
+        "server": "cloudflare",
+        "cf-ray": "a56a5ec8295c5f98-ATL"
+      },
+      "error_type": null,
+      "error_code": null,
+      "error_message_redacted": "{\"type\":\"[url] 1010: Access denied\",\"status\":403,\"detail\":\"The site owner has blocked access based on your browser's signature.\",\"instance\":\"a56a5ec8295c5f98\",\"error_code\":1010,\"error_name\":\"browser_signature_banned\",\"error_category\":\"access_denied\",\"ray_id\":\"a56a5ec8295c5f98\",\"timestamp\":\"2026-11-07T06:44:35Z\",\"zone\":\"api.chatanywhere.org\",\"cloudflare_error\":true,\"retryable\":false,\"owner_action_required\":true,\"what_you_should_do\":\"**Do not retry.** Your user-agent has been banned by the site ow",
+      "body_markers": [
+        "cloudflare",
+        "access denied"
+      ],
+      "explicit_network_policy_block": false,
+      "redacted_body_sha256": "a87c56b3f292ddcb3c23f8738b75d0959f9a469f61333ef6adac883af3a35c2e",
+      "attribution_note": "Headers/body are evidence, not independent proof of the responder identity."
+    },
+    {
+      "url": "https://api.chatanywhere.tech/v1/models",
+      "method": "GET",
+      "authenticated": true,
+      "http_status": 200,
+      "headers": {
+        "content_type": "application/json",
+        "server": "TencentEdgeOne"
+      },
+      "error_type": null,
+      "error_code": null,
+      "error_message_redacted": "{\"object\":\"list\",\"data\":[{\"id\":\"gpt-5\",\"object\":\"model\",\"created\":0,\"owned_by\":\"ca\"},{\"id\":\"gpt-5.4-mini\",\"object\":\"model\",\"created\":0,\"owned_by\":\"ca\"},{\"id\":\"gpt-4.1-mini\",\"object\":\"model\",\"created\":0,\"owned_by\":\"ca\"},{\"id\":\"gpt-4o-mini\",\"object\":\"model\",\"created\":0,\"owned_by\":\"ca\"},{\"id\":\"text-embedding-3-small\",\"object\":\"model\",\"created\":0,\"owned_by\":\"openai\"},{\"id\":\"gpt-5.2\",\"object\":\"model\",\"created\":0,\"owned_by\":\"ca\"},{\"id\":\"gpt-5-mini\",\"object\":\"model\",\"created\":0,\"owned_by\":\"ca\"},{\"id\":\"",
+      "body_markers": [],
+      "explicit_network_policy_block": false,
+      "redacted_body_sha256": "acfeb847918c7c6c2dee24a632a0f6b5bf077c7b8b96b531ec36d45a2921800f",
+      "attribution_note": "Headers/body are evidence, not independent proof of the responder identity."
+    }
+  ],
+  "injection_check": {
+    "secret_present": true,
+    "contains_crlf": false,
+    "surrounding_whitespace": false,
+    "already_has_bearer_prefix": false
+  },
+  "url_check": {
+    "base": "https://api.chatanywhere.org/v1",
+    "models": "https://api.chatanywhere.org/v1/models",
+    "v1_count": 1,
+    "authorization_scheme": "Bearer, once"
+  },
+  "docs": {
+    "models": "https://chatanywhere.apifox.cn/api-92222074",
+    "free_models": "https://github.com/chatanywhere/GPT_API_free",
+    "free_model_list_denial_confirmed": false
+  },
+  "proxy_environment_present": {
+    "HTTP_PROXY": false,
+    "HTTPS_PROXY": false,
+    "http_proxy": false,
+    "https_proxy": false
+  },
+  "selected_base": "https://api.chatanywhere.tech/v1",
+  "model_result_reused_without_new_http": true,
+  "available_gpt5_models_claim": [
+    "gpt-5",
+    "gpt-5-mini",
+    "gpt-5-nano",
+    "gpt-5.1",
+    "gpt-5.2",
+    "gpt-5.4",
+    "gpt-5.4-mini",
+    "gpt-5.4-nano",
+    "gpt-5.5",
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra"
+  ],
+  "stopped": true,
+  "error_type": "ValueError",
+  "http_status": null,
+  "error_code": null,
+  "stop_reason": "reasoning_effort_unconfirmed",
+  "finished_at": "2026-11-07T06:44:39.982185+00:00",
+  "control_plane_note": "GitHub Actions checkout/artifact internals excluded from provider HTTP counts; audit persistence uses one GitHub contents GET and one PUT attempt."
+}
