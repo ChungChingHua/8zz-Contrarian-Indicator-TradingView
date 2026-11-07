@@ -30,9 +30,10 @@ def safe_response(value,secrets):
     return {'json':clean(value),'complete_json_sha256':digest(value),'redaction_note':'Opaque encrypted_content omitted; all classification, usage and ordinary metadata retained. No claim of original HTTP bytes.'}
 
 class GitHubStore:
-    def __init__(self,token):
+    def __init__(self,token,path=None):
+        self.path=path or LEDGER_PATH
         self.token=token;self.sha=None
-        self.url='https://api.github.com/repos/ChungChingHua/8zz-Contrarian-Indicator-TradingView/contents/'+LEDGER_PATH
+        self.url='https://api.github.com/repos/ChungChingHua/8zz-Contrarian-Indicator-TradingView/contents/'+self.path
     def _request(self,method,url,payload=None):
         req=urllib.request.Request(url,method=method,headers={'Authorization':'Bearer '+self.token,'Accept':'application/vnd.github+json','Content-Type':'application/json'},data=None if payload is None else json.dumps(payload).encode())
         try:
@@ -107,8 +108,9 @@ def prepare_media(post):
     return parts,info
 
 class Worker:
-    def __init__(self,store,provider,plan,prepare=prepare_media,secrets=(),local=LOCAL,after_response=None,generation_limit=5):
-        if not 1 <= generation_limit <= 20:raise ValueError('invalid_generation_limit')
+    def __init__(self,store,provider,plan,prepare=prepare_media,secrets=(),local=LOCAL,after_response=None,generation_limit=5,continue_isolated_failures=False):
+        if not 1 <= generation_limit <= 50:raise ValueError('invalid_generation_limit')
+        self.continue_isolated_failures=continue_isolated_failures
         self.generation_limit=generation_limit
         self.store=store;self.provider=provider;self.plan=plan;self.prepare=prepare;self.secrets=secrets;self.local=local;self.after_response=after_response
         self.state=store.load()
@@ -166,6 +168,13 @@ class Worker:
                 self.state.update(stopped=True,stop_reason='returned_allowance_exhausted')
         self.save()  # ACK corrected interpretation before considering unstarted rows; never change raw JSON.
 
+    def isolated_failure(self,record,reason):
+        # Operational circuit breaker only; never an emotion/strength rule.
+        count=self.state.get('consecutive_isolated_failures',0)+1
+        self.state['consecutive_isolated_failures']=count
+        record['auto_retry_eligible']=False
+        if count>=3:self.state.update(stopped=True,stop_reason=reason)
+
     def run(self,posts):
         if self.state['finished'] or self.state['stopped']:return
         if any(r['status']=='unknown' for r in self.state['records']):
@@ -177,6 +186,11 @@ class Worker:
             try:parts,scope=self.prepare(p)
             except Exception as exc:
                 r.update(status='input_failure',error_type=type(exc).__name__,reason='Media preflight failed; no generation, no URL/raw error logged')
+                if self.continue_isolated_failures:
+                    r['reason']=str(exc) if isinstance(exc,ValueError) and re.fullmatch(r'[a-z_]+',str(exc)) else 'media_preflight_failure'
+                    self.isolated_failure(r,'media_preflight_failure');self.save()
+                    if self.state['stopped']:return
+                    continue
                 self.state.update(stopped=True,stop_reason='media_preflight_failure');self.save();return
             body=policy.payload(p,parts,scope)
             r.update(media_scope=scope,request_sha256=digest(body),status='unknown',attempts=1,dispatch_reserved_at=now())
@@ -201,7 +215,15 @@ class Worker:
                 r['status']='completed_signal' if r['processed']['status']=='done' else 'pending_confirmation' if r['processed']['status']=='review' else 'completed_no_signal'
             except Exception as exc:
                 r.update(status='technical_failure',error_type=type(exc).__name__,reason=str(exc) if isinstance(exc,ValueError) and re.fullmatch(r'[a-z_]+',str(exc)) else 'Invalid required provider response; raw error omitted')
-                self.state.update(stopped=True,stop_reason='api_or_required_format_failure')
+                if self.continue_isolated_failures:
+                    if r['reason']=='contradictory_output_fields':
+                        r.update(status='pending_confirmation',validation_note='Contradictory service classification retained unchanged; no signal and no automatic resend')
+                        self.state['consecutive_isolated_failures']=0
+                    elif not 200<=status<300 or r['reason'] in ('model_claim_mismatch','reasoning_claim_mismatch','strict_format_not_confirmed','tool_output_rejected','response_reflects_credential','response_contains_key_pattern'):
+                        self.state.update(stopped=True,stop_reason='provider_access_quota_or_common_failure')
+                    else:self.isolated_failure(r,'persistent_format_failure')
+                else:self.state.update(stopped=True,stop_reason='api_or_required_format_failure')
+            else:self.state['consecutive_isolated_failures']=0
             self.save()  # Result must be durably stored before considering next post.
             if self.state['stopped']:return
             remaining=[v for k,v in quota.items() if k in ('x-ratelimit-remaining-requests','x-ratelimit-remaining-points','x-free-points-remaining','x-free-requests-remaining')]

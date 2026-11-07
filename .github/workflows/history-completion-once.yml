@@ -1,0 +1,58 @@
+name: One-time history completion
+on:
+  workflow_dispatch:
+  push:
+    branches: [codex/social-pipeline-20261106]
+    paths: [.github/workflows/history-completion-once.yml]
+permissions:
+  contents: write
+concurrency:
+  group: original-author-history-batch-01
+  cancel-in-progress: false
+jobs:
+  complete:
+    if: github.ref == 'refs/heads/codex/social-pipeline-20261106'
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    env:
+      AUTHORIZED_HISTORY_SCOPE: history-completion-20261107
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Offline verification; unchanged original policy
+        run: python -m unittest discover -s scripts -p 'test*.py'
+      - name: Incremental Apify; unchanged cost caps and durable run reservations
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/history_incremental.py
+      - name: Continue all unstarted posts until done or real blocker
+        env:
+          CHATANYWHERE_API_KEY: ${{ secrets.CHATANYWHERE_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/history_completion.py
+      - name: Persist complete Pine and final inventory
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/history_completion.py publish-report
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: one-time-history-completion
+          path: |
+            data/history_progress/*.json
+            data/history_completion*.json
+            data/history_incremental_posts.json
+            candidates/8zz-history-latest*
+            docs/HISTORY_COMPLETION.md
+          retention-days: 14
+          if-no-files-found: ignore
+      - name: Remove private incremental media URLs
+        if: always()
+        run: rm -f /tmp/8zz-incremental-private.json
