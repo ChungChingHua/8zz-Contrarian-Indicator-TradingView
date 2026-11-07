@@ -99,11 +99,20 @@
       },
       "finished_at": "2026-11-07T12:17:04.798Z",
       "possible_cost_truncation": false,
-      "dataset_id": "kUvRR94aSsYXafGWe"
+      "dataset_id": "kUvRR94aSsYXafGWe",
+      "counts": {
+        "fetched": 6,
+        "accepted": 4,
+        "new": 3,
+        "overlap": 1,
+        "excluded": {
+          "reply_repost_or_unknown": 2
+        }
+      }
     }
   ],
   "apify_http_counts": {
-    "GET": 17,
+    "GET": 18,
     "POST": 2
   },
   "prior_http_counts": {
