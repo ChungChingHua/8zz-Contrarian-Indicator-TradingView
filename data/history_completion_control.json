@@ -50,6 +50,12 @@
         },
         "last_run_id": "Gl3XqPQ6Rhq3Mzyg6",
         "saturated": true
+      },
+      "previous_fetch_metadata": {
+        "id": "Gl3XqPQ6Rhq3Mzyg6",
+        "startedAt": "2026-11-06T16:01:34.901Z",
+        "finishedAt": "2026-11-06T16:03:55.690Z",
+        "status": "SUCCEEDED"
       }
     }
   },
@@ -80,7 +86,7 @@
     }
   ],
   "apify_http_counts": {
-    "GET": 7,
+    "GET": 8,
     "POST": 1
   },
   "prior_http_counts": {
