@@ -4,10 +4,11 @@ import subprocess
 import sys
 from datetime import datetime, timezone
 from social_pipeline import ROOT, read, write
-from ai_provider import config
+from ai_provider import config, assert_online_enabled
 
 
 def main():
+    assert_online_enabled()
     mode=os.getenv('MODE','smoke')
     provider=config()
     if not os.getenv(provider['secret']):

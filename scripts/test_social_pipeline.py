@@ -24,6 +24,12 @@ def post(source='threads',text=None,id='1'):
 
 
 class SocialTests(unittest.TestCase):
+    def setUp(self):
+        for target in ('ai_provider.assert_online_enabled','social_pipeline.assert_online_enabled','run_social_update.assert_online_enabled','check_chatanywhere.assert_online_enabled'):
+            guard=patch(target)
+            guard.start()
+            self.addCleanup(guard.stop)
+
     def test_strict_reply_flags(self):
         for field in ('isReply','isRepost'):
             for v in (None,True,0,'false'):

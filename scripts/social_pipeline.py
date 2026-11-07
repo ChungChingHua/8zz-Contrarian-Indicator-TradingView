@@ -17,7 +17,9 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 TAIPEI = ZoneInfo('Asia/Taipei')
 START = datetime(2026, 7, 20, tzinfo=TAIPEI).timestamp()
-from ai_provider import config, credentials
+from ai_provider import config, credentials, assert_online_enabled
+from safe_media import download_image
+from public_safety import public_safe, public_url, POST_HOSTS
 MODEL = config()['model']
 PROMPT_VERSION = 'contrarian-openai-v2'
 
@@ -29,7 +31,7 @@ def read(path, default):
 def write(path, data):
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + '.tmp')
-    temporary.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
+    temporary.write_text(json.dumps(public_safe(data), ensure_ascii=False, indent=2) + '\n')
     temporary.replace(path)
 
 
@@ -56,6 +58,8 @@ def normalize(row, source):
         return None, 'before_start'
     # Deliberately never copy topComments/comments into the analysis payload.
     quoted = {k: row[k] for k in ('quotedPost', 'quoted_post', 'repostedFrom', 'sharedPost', 'linkPreview') if row.get(k)}
+    if urllib.parse.urlsplit(row['url']).hostname not in POST_HOSTS or not public_url(row['url']):
+        return None,'unsafe_source_url'
     p = dict(key=f'{source}:{row["postId"]}', post_id=str(row['postId']), source=source,
              url=row['url'], published_at=dt.astimezone(timezone.utc).isoformat(),
              display_time=dt.astimezone(TAIPEI).isoformat(), unix_ms=int(dt.timestamp()*1000),
@@ -93,14 +97,17 @@ class APIError(RuntimeError):
 
 
 def request_json(url, headers=None, payload=None, retries=3):
+    assert_online_enabled()
     for attempt in range(retries):
         try:
             req=urllib.request.Request(url, headers=headers or {}, data=None if payload is None else json.dumps(payload).encode())
             opener=urllib.request.build_opener(NoAuthRedirect()).open if (headers or {}).get('Authorization') else urllib.request.urlopen
             with opener(req, timeout=90) as res:
-                result=json.load(res)
+                body=res.read(2_000_001)
+                if len(body)>2_000_000:raise ValueError('api_response_too_large')
+                result=json.loads(body)
                 if isinstance(result,dict) and url.startswith('https://api.chatanywhere.org/'):
-                    result['_transport_metadata']={k:res.headers[k] for k in ('x-ratelimit-remaining-requests','x-ratelimit-remaining-tokens','x-ratelimit-reset-requests') if res.headers.get(k)}
+                    result['_transport_metadata']={k:res.headers[k] for k in ('x-ratelimit-remaining-requests','x-ratelimit-remaining-tokens','x-ratelimit-reset-requests') if res.headers.get(k) and re.fullmatch(r'[0-9TZ:.+ -]{1,80}',res.headers[k])}
                 return result
         except urllib.error.HTTPError as exc:
             if exc.code not in (429,500,502,503,504) or attempt+1==retries:
@@ -136,9 +143,7 @@ def image_parts(post):
             if parsed.scheme!='https' or not any((parsed.hostname or '').endswith('.'+d) for d in ('fbcdn.net','cdninstagram.com')):
                 last_error=ValueError('unsupported_image_host');continue
             try:
-                with urllib.request.urlopen(urllib.request.Request(candidate),timeout=30) as res:
-                    mime=res.headers.get_content_type()
-                    data=res.read(8_000_001)
+                mime,data=download_image(candidate)
                 break
             except (OSError,urllib.error.URLError) as exc:
                 last_error=exc
@@ -166,7 +171,9 @@ def classify(post):
     if len(post['text'])>20000:
         raise ValueError('text_too_long_requires_review')
     parts=image_parts(post)
-    content={'text':post['text'],'quoted_content':post['quoted_content'],'quote_flag':post['quote_flag']}
+    quoted={k:({'text':v.get('text','')} if isinstance(v,dict) else {'text':v if isinstance(v,str) else ''}) for k,v in post['quoted_content'].items()}
+    content={'text':post['text'],'quoted_content':quoted,'quote_flag':post['quote_flag']}
+    if len(json.dumps(content,ensure_ascii=False))>40000:raise ValueError('context_too_large')
     parts.insert(0, {'type':'input_text','text':json.dumps(content,ensure_ascii=False)})
     result=request_json(provider['base']+'/responses',
         headers,
@@ -174,6 +181,8 @@ def classify(post):
          'input':[{'role':'user','content':parts}],
          'text':{'format':{'type':'json_schema','name':'contrarian_signal','strict':True,'schema':SCHEMA}},
          'max_output_tokens':3000,**({'reasoning':{'effort':provider['effort']}} if provider['effort'] else {})}, retries=1)
+    if any(item.get('type') not in ('message','reasoning') for item in result.get('output',[])):
+        raise ValueError('tool_output_rejected')
     if provider['provider']=='chatanywhere':
         if not str(result.get('model','')).startswith('gpt-5-mini'):
             raise ValueError('requested_free_model_unconfirmed')
@@ -196,6 +205,8 @@ def classify(post):
         raise ValueError('invalid_schema_fields')
     if not all(isinstance(a[k],str) for k in ('target','ticker','reason','author_commentary','quoted_summary')):
         raise ValueError('invalid_text_fields')
+    if any(len(a[k])>limit for k,limit in [('target',128),('ticker',20),('reason',2048),('author_commentary',4000),('quoted_summary',4000)]):
+        raise ValueError('output_text_too_large')
     if a['ticker'] and not re.fullmatch(r'[A-Z0-9^][A-Z0-9.^=\-]{0,19}',a['ticker']):
         raise ValueError('invalid_ticker_requires_review')
     if not isinstance(a.get('reason'),str) or not a['reason'].strip() or type(a.get('direction')) is not int or a['direction'] not in (-1,0,1) or type(a.get('strength')) is not int or a['strength'] not in (1,2,3):
@@ -210,7 +221,8 @@ def classify(post):
         a['direction']=0
     a.update(status='done' if a['clear'] and a['investment_related'] and a['target'].strip() else 'review',
              provider=provider['provider'],reasoning_requested=provider['effort'],reasoning_returned=result.get('reasoning'),transport_metadata=result.get('_transport_metadata',{}),model=result.get('model',MODEL),requested_model=MODEL,image_evidence=post.pop('_image_evidence',[]),prompt_version=PROMPT_VERSION,images_supplied=len(parts)-1,
-             usage=result.get('usage',{}),response_id=result.get('id'))
+             usage={k:v for k,v in result.get('usage',{}).items() if k in ('input_tokens','output_tokens','total_tokens') and type(v) is int and 0<=v<=10000000},
+             response_id=result.get('id') if re.fullmatch(r'resp_[A-Za-z0-9_]{1,100}',str(result.get('id',''))) else None)
     return a
 
 
@@ -273,6 +285,8 @@ def main():
     parser.add_argument('--classify-limit',type=int,default=0)
     parser.add_argument('--smoke',action='store_true')
     args=parser.parse_args()
+    if args.smoke or args.classify_limit:
+        assert_online_enabled()
     if config()['provider']=='chatanywhere' and args.classify_limit and not args.smoke:
         parser.error('ChatAnywhere currently permits only two-post --smoke; no batch')
     if not 0<=args.classify_limit<=50:parser.error('classify-limit must be 0..50')

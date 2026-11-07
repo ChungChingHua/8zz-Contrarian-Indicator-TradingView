@@ -2,13 +2,13 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
+  <meta name="referrer" content="no-referrer" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>8zz 反指標 — 即時戰績看板</title>
 
   <!-- Chart.js + date adapter -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-  <script src="https://cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" integrity="sha384-NrKB+u6Ts6AtkIhwPixiKTzgSKNblyhlk0Sohlgar9UHUBzai/sgnNNWWd291xqt" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js" integrity="sha384-cVMg8E3QFwTvGCDuK+ET4PD341jF3W8nO1auiXfuZNQkzbUUiBGLsIQUE+b1mxws" crossorigin="anonymous"></script>
 
   <style>
     /* ── Reset & base ── */
@@ -731,8 +731,9 @@
         '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
       })[char]);
       const tip = escapeHtml(e.tooltip);
-      const tipHtml = e.source_url
-        ? `<a href="${escapeHtml(e.source_url)}" target="_blank" rel="noopener noreferrer" title="開啟 Facebook 原文">${tip}</a>`
+      const safeSource = (() => { try { const u=new URL(e.source_url); return u.protocol==='https:' && !u.username && !u.password && ['facebook.com','www.facebook.com','threads.com','www.threads.com','threads.net','www.threads.net'].includes(u.hostname) ? u.href : ''; } catch { return ''; } })();
+      const tipHtml = safeSource
+        ? `<a href="${escapeHtml(safeSource)}" target="_blank" rel="noopener noreferrer" title="開啟 Facebook 原文">${tip}</a>`
         : tip;
       const tickerCls = e.ticker_is_fallback ? 'ticker-cell ticker-fallback' : 'ticker-cell';
       const tickerLabel = e.ticker || '—';

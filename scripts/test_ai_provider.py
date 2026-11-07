@@ -1,6 +1,7 @@
 import os
 import unittest
 from unittest.mock import patch
+import check_chatanywhere
 import ai_provider as p
 import social_pipeline as s
 from test_openai import answer
@@ -8,6 +9,12 @@ from test_social_pipeline import post
 
 
 class ProviderTests(unittest.TestCase):
+    def setUp(self):
+        for target in ('ai_provider.assert_online_enabled','social_pipeline.assert_online_enabled','run_social_update.assert_online_enabled','check_chatanywhere.assert_online_enabled'):
+            guard=patch(target)
+            guard.start()
+            self.addCleanup(guard.stop)
+
     def test_official_key_never_substituted(self):
         with patch.dict(os.environ,{'AI_PROVIDER':'chatanywhere','OPENAI_API_KEY':'official'},clear=True):
             with self.assertRaises(RuntimeError):p.credentials()

@@ -1,3 +1,5 @@
+> **線上功能暫停，請勿設定後直接執行 smoke。** 本次資安審查不授權模型查詢、貼文／圖片傳送、排程或合併。見[資安審查](docs/SECURITY_REVIEW.md)。
+
 > 目前 PR 使用獨立 ChatAnywhere 免費版設定，僅允許兩筆 smoke、無排程及批次。見[目前供應商設定](docs/CHATANYWHERE.md)；先前 OpenAI 官方說明保留作歷史參考。
 
 # 8zz 巴逆逆反指標 (8zz Banini Reverse Indicator)

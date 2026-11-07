@@ -1,9 +1,10 @@
 """Read-only account model preflight; never silently select another model. MPL-2.0."""
-from ai_provider import credentials
+from ai_provider import credentials, assert_online_enabled
 from social_pipeline import ROOT, request_json, write
 
 
 def main():
+    assert_online_enabled()
     report={'provider':'chatanywhere','generation_requests':0,'remaining_quota':None,
             'quota_note':'No documented account quota API confirmed; dashboard check required. Model listing does not prove a key is free-tier.'}
     try:

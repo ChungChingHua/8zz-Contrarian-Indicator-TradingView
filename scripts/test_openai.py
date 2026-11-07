@@ -16,6 +16,12 @@ def answer(**changes):
 
 
 class OpenAITests(unittest.TestCase):
+    def setUp(self):
+        for target in ('ai_provider.assert_online_enabled','social_pipeline.assert_online_enabled','run_social_update.assert_online_enabled','check_chatanywhere.assert_online_enabled'):
+            guard=patch(target)
+            guard.start()
+            self.addCleanup(guard.stop)
+
     def test_real_responses_contract_and_usage(self):
         p=post();p['attachments']=[{'type':'image'}]
         with patch.dict(os.environ,{'OPENAI_API_KEY':'test'}),patch.object(s,'image_parts',return_value=[{'type':'input_image','image_url':'data:image/png;base64,AA=='}]),patch.object(s,'request_json',return_value=answer(images_reviewed=True)) as request:

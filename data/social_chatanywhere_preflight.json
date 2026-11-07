@@ -1,16 +1,6 @@
 {
   "provider": "chatanywhere",
-  "requested_model": "gpt-5-mini",
-  "requested_reasoning_effort": "low",
+  "paused": true,
   "preflight_passed": false,
-  "blocked_by": "missing_CHATANYWHERE_API_KEY_in_Actions",
-  "available_gpt5_models": null,
-  "remaining_quota": null,
-  "generation_requests": 0,
-  "provider_requests": 0,
-  "responses_compatibility": "not_tested",
-  "image_compatibility": "not_tested",
-  "strict_schema_compatibility": "not_tested",
-  "reasoning_compatibility": "not_tested",
-  "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/42256948503"
+  "reason": "Security review: no account requests made; prior missing-key run is historical"
 }
