@@ -2,12 +2,16 @@
 """
 build_site_data.py
 ──────────────────
+LEGACY ENGINE: not used by docs/index.html. For the audited dashboard, run
+    python scripts/build_audited_dashboard.py [--refresh-market]
+The legacy outcome/equity data below is retained only for compatibility tests.
+
 Parses all events embedded in 8zz-indicator.pine, computes win/loss
 outcomes using per-event tickers (from the evt_ticker array) via yfinance,
 and writes docs/events.json for the GitHub Pages dashboard.
 
 Two exit modes are computed in parallel:
-  • Mode A – Fixed 14 trading days after entry.
+  • Mode A – Legacy 17 bars with mixed-resolution fallback (NOT audited output).
   • Mode B – Flip-based exit: holds until the next direction flip fires
              (or today if still open).
 

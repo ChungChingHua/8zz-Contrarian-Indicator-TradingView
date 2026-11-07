@@ -17,7 +17,8 @@ def build(ledger):
         index=next((i for i,line in enumerate(lines) if (m:=re.search(r'array\.push\(evt_time, (\d+)',line)) and int(m[1])>r['unix_ms']),None)
         if index is None:index=max(i for i,l in enumerate(lines) if 'array.push(evt_ticker,' in l)+1
         lines.insert(index,block);added+=1
-    candidate=split_initialization(''.join(lines))
+    from pine_accounting import apply_accounting
+    candidate=apply_accounting(split_initialization(''.join(lines)))
     count=len(EVENT_PATTERN.findall(candidate))
     dates=[r['display_time'][:7].replace('-','/') for r in ledger['records'] if r['status']=='completed_signal']
     if dates:candidate=HEADER_COUNT_PATTERN.sub(lambda m:m[1]+str(count)+m[3]+max(m[4],*dates),candidate,count=1)
