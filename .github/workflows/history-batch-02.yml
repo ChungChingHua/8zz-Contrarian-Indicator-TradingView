@@ -30,7 +30,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           AUTHORIZED_HISTORY_BATCH: original-author-20261107-02
           AUTHORIZED_RULE_SHA256: 8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162
-          AUTHORIZED_PLAN_SHA256: 98be37565d0e92a855d8e2f9edd29dae78499bdddce48e4ef41e93924dd680b8
+          AUTHORIZED_PLAN_SHA256: a62a771333204745eb3a5c3e0583d7baf6cdfe1c05566d775785e16b874c3bc2
         run: python scripts/history_batch_02.py
       - name: Complete cumulative candidate from acknowledged ledgers
         if: always()

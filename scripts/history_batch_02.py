@@ -1,5 +1,5 @@
 """One frozen, bounded continuation; same original policy. MPL-2.0."""
-import copy,json,os
+import copy,json,os,subprocess
 import history_worker as h
 import original_author as policy
 from original_candidate import build
@@ -55,8 +55,9 @@ def main():
         or os.getenv('AUTHORIZED_RULE_SHA256')!=policy.fingerprint()
         or os.getenv('AUTHORIZED_PLAN_SHA256')!=h.digest(plan)):
         raise SystemExit('Authorization, frozen plan or policy mismatch; no generation')
-    for path,expected in plan['predecessor_sha256'].items():
-        if h.digest(json.loads((policy.ROOT/path).read_text()))!=expected:
+    for path,expected in plan['predecessor_git_blob_sha'].items():
+        actual=subprocess.run(['git','rev-parse','HEAD:'+path],capture_output=True,text=True,check=True).stdout.strip()
+        if actual!=expected:
             raise SystemExit('Predecessor ledger changed; no generation')
     h.BATCH_ID=BATCH;h.LEDGER_PATH=LEDGER
     key=os.environ.pop('CHATANYWHERE_API_KEY','');gh=os.environ.pop('GH_TOKEN','')

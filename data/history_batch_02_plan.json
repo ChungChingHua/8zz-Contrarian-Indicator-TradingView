@@ -3,9 +3,6 @@
   "max_generations": 20,
   "rule_version": "fork-7b626f2-ai-v1",
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
-  "predecessor_sha256": {
-    "data/history_progress/original-author-20261107-01.json": "a0c0401c8bce1b0b168d5eaca6f5912dbc082f3e4f291601ccd6353a881b8c31"
-  },
   "selection_stats": {
     "total_posts": 659,
     "excluded_posts": 17,
@@ -638,5 +635,8 @@
         }
       ]
     }
-  ]
+  ],
+  "predecessor_git_blob_sha": {
+    "data/history_progress/original-author-20261107-01.json": "baf66f1fa4fce84827c817aab97f50b0ebcd3b18"
+  }
 }
