@@ -1,0 +1,44 @@
+name: Authorized ChatAnywhere one-shot smoke
+on:
+  push:
+    branches: [codex/social-pipeline-20261106]
+    paths: ['.github/workflows/authorized-chatanywhere-smoke.yml']
+permissions:
+  contents: write
+concurrency:
+  group: chatanywhere-one-shot-20261107
+  cancel-in-progress: false
+jobs:
+  once:
+    if: github.repository == 'ChungChingHua/8zz-Contrarian-Indicator-TradingView' && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Offline tests before secret access
+        run: python -m unittest discover -s scripts -p 'test*.py' -q
+      - name: Exactly scoped model query and at most two generation requests
+        env:
+          AI_PROVIDER: chatanywhere
+          CHATANYWHERE_API_KEY: ${{ secrets.CHATANYWHERE_API_KEY }}
+          CHATANYWHERE_MODEL: gpt-5-mini
+          CHATANYWHERE_REASONING_EFFORT: low
+          AUTHORIZED_SMOKE_SCOPE: 2026-11-07-chatanywhere-two-public-posts-v1
+        run: python scripts/authorized_chatanywhere_smoke.py
+      - name: Persist sanitized audit only
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/persist_authorized_audit.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: authorized-chatanywhere-smoke-20261107
+          path: data/social_chatanywhere_authorized_smoke_20261107.json
+          retention-days: 7
