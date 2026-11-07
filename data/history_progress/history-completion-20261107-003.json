@@ -5,7 +5,7 @@
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "created_at": "2026-11-07T12:23:07.201959+00:00",
   "max_generations": 25,
-  "reserved_generation_attempts": 20,
+  "reserved_generation_attempts": 21,
   "stopped": false,
   "finished": false,
   "provider_settings": {
@@ -6440,9 +6440,46 @@
           "post_id": "3954582028796818994"
         }
       ],
-      "status": "not_started",
-      "attempts": 0,
-      "context_used": []
+      "status": "unknown",
+      "attempts": 1,
+      "context_used": [],
+      "media_scope": {
+        "analysis_scope": "text_and_images",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 4,
+        "image_evidence": [
+          {
+            "sha256": "4caac0b2003f579f46a040ec5749cb516a5c0cc7fead22ca7f60cd14d3a5eada",
+            "bytes": 3329560,
+            "mime": "image/jpeg",
+            "attachment_index": 0
+          },
+          {
+            "sha256": "a18a3ecb0b7a6e872e2bbc3d35eb84d05993718682770480db860b7fd6486eb3",
+            "bytes": 1946023,
+            "mime": "image/jpeg",
+            "attachment_index": 1
+          },
+          {
+            "sha256": "4af1570aaee1c1c3bbe253ead31ccca67f30aae8bee18d3464983f47344c7896",
+            "bytes": 1144138,
+            "mime": "image/jpeg",
+            "attachment_index": 2
+          },
+          {
+            "sha256": "79e73149cb30a5612b54ca8d4e0450fdd7ce821a8330e31c988a3e2aece85ff5",
+            "bytes": 3416644,
+            "mime": "image/jpeg",
+            "attachment_index": 3
+          }
+        ],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": []
+      },
+      "request_sha256": "ea7dd9ccb7d4b6b82845ff391f56faffe0763d6a0bfc1508b735f8a8efdd1cf6",
+      "dispatch_reserved_at": "2026-11-07T12:25:17.122049+00:00"
     },
     {
       "key": "threads:3954685747224217072",
@@ -6541,6 +6578,6 @@
       "context_used": []
     }
   ],
-  "updated_at": "2026-11-07T12:25:11.601309+00:00",
+  "updated_at": "2026-11-07T12:25:17.122097+00:00",
   "consecutive_isolated_failures": 0
 }
