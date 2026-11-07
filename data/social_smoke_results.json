@@ -1,0 +1,52 @@
+[
+  {
+    "key": "facebook:1703774981107090",
+    "source": "facebook",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid03143n7ECXc3swjAwzFvjXJFrfksuaecAmRtRR5uV5yaYAvtNQVrh2WDpG1ciUKMXsl",
+    "display_time": "2026-11-06T09:15:20+08:00",
+    "text": "市場跟我說\n孩子， 你不用停損...\n因為你停不掉_(:_」∠)_",
+    "analysis": {
+      "status": "retry",
+      "reason": "判讀或附件讀取失敗；待重試，不產生訊號",
+      "attempts": 2,
+      "error_type": "APIError",
+      "provider": "openai",
+      "requested_model": "gpt-4.1-mini",
+      "image_evidence": [
+        {
+          "sha256": "b019bdb27af1913d7e35530f2125afad34b530fa093cee97ff53420940f71fcc",
+          "bytes": 34147,
+          "mime": "image/jpeg"
+        }
+      ],
+      "http_status": 429,
+      "api_error_code": null,
+      "error_code": "NoneType"
+    }
+  },
+  {
+    "key": "threads:4024468641932717746",
+    "source": "threads",
+    "url": "https://www.threads.com/t/DfZyOhEGS6y",
+    "display_time": "2026-11-06T22:07:49+08:00",
+    "text": "沒事， 就是給大家看看我的新GShock\n然後跟大家說， 看來下週穩了",
+    "analysis": {
+      "status": "retry",
+      "reason": "判讀或附件讀取失敗；待重試，不產生訊號",
+      "attempts": 5,
+      "error_type": "APIError",
+      "provider": "openai",
+      "requested_model": "gpt-4.1-mini",
+      "image_evidence": [
+        {
+          "sha256": "d05341342435ce668ab641a4ac7a0ec0cb3172bd5e234891b294b5c5eed24415",
+          "bytes": 628272,
+          "mime": "image/jpeg"
+        }
+      ],
+      "http_status": 429,
+      "api_error_code": null,
+      "error_code": "NoneType"
+    }
+  }
+]

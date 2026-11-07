@@ -1,0 +1,87 @@
+{
+  "method": "Assistant read original same-post text and saved model output; no independent image inspection, no API. Not a human image review.",
+  "quality_verdict": "needs_review_not_ready_for_historical_batch",
+  "formal_signal_written": false,
+  "candidate_is_gold": false,
+  "generated_answers": 9,
+  "blocked_input_samples": [
+    5
+  ],
+  "notes": [
+    {
+      "number": 1,
+      "notes": [
+        "方向+1與恐慌候選一致；強度由參考2成為3，屬評分分歧。圖片新增TSM報價資訊（服務轉錄），模型正確將其另列僅提及，沒有把BTC痛苦移套TSM；未人工核圖。"
+      ],
+      "image_human_verified": false
+    },
+    {
+      "number": 2,
+      "notes": [
+        "方向-1、強度2與候選一致；未辨識具體標的，與候選台股泛稱不同，但不抹除投資亢奮方向。"
+      ],
+      "image_human_verified": false
+    },
+    {
+      "number": 3,
+      "notes": [
+        "與中性／資訊不足候選分歧：模型判恐慌+1／2。它將未停損及隨便他了當成無奈，可能放寬了恐慌閾值；僅持倉或未停損不能單獨證明恐慌，需人工確認。個股／主動ETF只是泛稱，不等於已辨識具體股票。"
+      ],
+      "image_human_verified": false
+    },
+    {
+      "number": 4,
+      "notes": [
+        "模型採資訊不足／0／1；不是確定無關，但未把生活樂觀硬判交易訊號。圖片描述只增加手錶生活情境，未提供投資證據；未人工核圖。"
+      ],
+      "image_human_verified": false
+    },
+    {
+      "number": 5,
+      "notes": [
+        "附件實際__typename=Video，生成前即阻擋，API請求0、沒有模型答案。未取縮圖冒充看完整影片，未以純文字降級。先前樣本文件將影片列在圖片清單不精確；正式樣本不換篇、不替補。"
+      ],
+      "image_human_verified": false
+    },
+    {
+      "number": 6,
+      "notes": [
+        "方向-1／2與候選一致。可讀行情圖片提供額外投資脈絡及多檔名稱，但只是報價，不代表作者持倉或對每檔表態。",
+        "已確認的內部矛盾：ticker欄為HNHFP，模型自己的引用證據為HNHPF；這個ticker候選不受其證據支持。未人工核圖，不能藉此確認圖片真正內容，也不採用錯拼代碼。"
+      ],
+      "image_human_verified": false
+    },
+    {
+      "number": 7,
+      "notes": [
+        "三軸分開後：investment、panic、方向+1／強度3；與原方向0候選不同，與發送前修正提案相同，但候選沒有進prompt，不當成事前命中率。",
+        "本人文字已明確說買個股、貸款部分大虧、好痛苦，足以支持投資痛苦。圖片名稱／代碼被模糊的說法僅為模型描述；標的留空，不降低已確定情緒方向。",
+        "圖像emotion_evidence的quote包含畫面顯示等描述，並非逐字轉錄，不能當作已核實可見文字。文字證據可單獨支持本輪情緒，圖片只待確認，不宣稱人工核圖。"
+      ],
+      "image_human_verified": false
+    },
+    {
+      "number": 8,
+      "notes": [
+        "與原候選0／1不同，模型判panic、+1／2；理由為無法停損的挫折，並用圖中跌幅補足投資脈絡。",
+        "新增可追溯的圖片候選亞翔／6139（服務轉錄、圖索引0與SHA256綁定），仍待人工核實。單篇及行情畫面不能證明本人實際持倉、無法停損的原因或恐慌程度；author_stance與情緒閾值需確認，不將API回應自動提升成正式訊號。"
+      ],
+      "image_human_verified": false
+    },
+    {
+      "number": 9,
+      "notes": [
+        "資訊不足／0／1，與候選一致：只有恐慌的睡不著，無投資上下文；不挪用其他先前或未來貼文補理由。"
+      ],
+      "image_human_verified": false
+    },
+    {
+      "number": 10,
+      "notes": [
+        "mixed、方向0與候選一致，強度由參考1成為2。圖片僅增加果乾業配情境（服務描述），沒有投資標的視覺證據。",
+        "標的角色缺乏原文支持：群創位於團購獎金段落，出現股價不能證明作者對該股的投資立場。保留原輸出author_stance供審查，正式候選應待確認，不能因逐字提及就視為立場已證實。"
+      ],
+      "image_human_verified": false
+    }
+  ]
+}

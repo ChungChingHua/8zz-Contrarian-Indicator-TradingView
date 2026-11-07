@@ -1,0 +1,6 @@
+{
+  "provider": "chatanywhere",
+  "paused": true,
+  "preflight_passed": false,
+  "reason": "Security review: no account requests made; prior missing-key run is historical"
+}

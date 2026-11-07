@@ -1,0 +1,11 @@
+name: ChatAnywhere bounded 403 diagnosis
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  consumed:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Diagnostic authorization consumed. All queries and generation stopped; no secrets injected.'

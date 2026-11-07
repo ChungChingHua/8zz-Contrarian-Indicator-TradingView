@@ -1,0 +1,139 @@
+{
+  "scope": "history-completion-20261107",
+  "cutoff_utc": "2026-11-07T12:15:59.578797+00:00",
+  "created_at": "2026-11-07T12:15:59.578797+00:00",
+  "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+  "closed": true,
+  "acquisition_completed": true,
+  "sources": {
+    "facebook": {
+      "previous_latest_post_utc": "2026-11-06T14:03:04+00:00",
+      "start_utc": "2026-11-06T12:03:04+00:00",
+      "end_utc": "2026-11-07T12:15:59.578797+00:00",
+      "complete": true,
+      "prior_acquisition": {
+        "window_start": "2026-11-04T16:01:34.198002+00:00",
+        "window_end": "2026-11-06T16:01:34.198002+00:00",
+        "submission_uncertain": false,
+        "last_rejected_http_status": 400,
+        "last_counts": {
+          "fetched": 2,
+          "accepted": 2,
+          "excluded": {}
+        },
+        "page_before": "2026-11-06T01:40:11+00:00",
+        "last_run_id": "Gx7ockumhoa26tQF3",
+        "saturated": true
+      },
+      "previous_fetch_metadata": {
+        "id": "Gx7ockumhoa26tQF3",
+        "startedAt": "2026-11-06T16:06:55.288Z",
+        "finishedAt": "2026-11-06T16:07:22.943Z",
+        "status": "SUCCEEDED"
+      },
+      "completed_until": "2026-11-07T12:15:59.578797+00:00"
+    },
+    "threads": {
+      "previous_latest_post_utc": "2026-11-06T14:07:49+00:00",
+      "start_utc": "2026-11-06T12:07:49+00:00",
+      "end_utc": "2026-11-07T12:15:59.578797+00:00",
+      "complete": true,
+      "prior_acquisition": {
+        "window_start": "2026-11-04T16:01:34.421274+00:00",
+        "window_end": "2026-11-06T16:01:34.421274+00:00",
+        "submission_uncertain": false,
+        "page_before": "2026-11-06T11:44:32+00:00",
+        "last_counts": {
+          "fetched": 2,
+          "accepted": 2,
+          "excluded": {}
+        },
+        "last_run_id": "Gl3XqPQ6Rhq3Mzyg6",
+        "saturated": true
+      },
+      "previous_fetch_metadata": {
+        "id": "Gl3XqPQ6Rhq3Mzyg6",
+        "startedAt": "2026-11-06T16:01:34.901Z",
+        "finishedAt": "2026-11-06T16:03:55.690Z",
+        "status": "SUCCEEDED"
+      },
+      "completed_until": "2026-11-07T12:15:59.578797+00:00"
+    }
+  },
+  "runs": [
+    {
+      "source": "facebook",
+      "start_utc": "2026-11-06T12:03:04+00:00",
+      "end_utc": "2026-11-07T12:15:59.578797+00:00",
+      "submission_unknown": false,
+      "processed": true,
+      "cap_usd": 0.1,
+      "max_items": 50,
+      "run_id": "TQsq3MaaGMBqd77i0",
+      "status": "SUCCEEDED",
+      "reported_cost": {
+        "usageTotalUsd": 0.022
+      },
+      "finished_at": "2026-11-07T12:16:19.386Z",
+      "possible_cost_truncation": false,
+      "dataset_id": "wEU55qOn1kXQkSSET",
+      "counts": {
+        "fetched": 5,
+        "accepted": 5,
+        "new": 4,
+        "overlap": 1,
+        "excluded": {}
+      }
+    },
+    {
+      "source": "threads",
+      "start_utc": "2026-11-06T12:07:49+00:00",
+      "end_utc": "2026-11-07T12:15:59.578797+00:00",
+      "submission_unknown": false,
+      "processed": true,
+      "cap_usd": 0.1,
+      "max_items": 50,
+      "run_id": "mGp428lwhhYyYDGPQ",
+      "status": "SUCCEEDED",
+      "reported_cost": {
+        "usageTotalUsd": 0.02
+      },
+      "finished_at": "2026-11-07T12:17:04.798Z",
+      "possible_cost_truncation": false,
+      "dataset_id": "kUvRR94aSsYXafGWe",
+      "counts": {
+        "fetched": 6,
+        "accepted": 4,
+        "new": 3,
+        "overlap": 1,
+        "excluded": {
+          "reply_repost_or_unknown": 2
+        }
+      }
+    }
+  ],
+  "apify_http_counts": {
+    "GET": 18,
+    "POST": 2
+  },
+  "prior_http_counts": {
+    "GET": 0,
+    "POST": 0
+  },
+  "last_chunk": "history-completion-20261107-004",
+  "updated_at": "2026-11-07T12:26:42.937202+00:00",
+  "consecutive_isolated_failures": 0,
+  "stop_reason": "provider_access_quota_or_common_failure",
+  "stopped_at": "2026-08-04T18:41:55+08:00",
+  "all_unstarted_visited": false,
+  "closure_reason": "free_request_allowance_exhausted",
+  "service_quota_statement": {
+    "http_status": 429,
+    "source": "service error response",
+    "shared_free_requests_per_24h_window": 100,
+    "remaining_free_requests": "exhausted, service statement only",
+    "actual_points_deducted": null,
+    "reset_time": null,
+    "note": "No paid upgrade, no retry, no alternative key/provider/model. The 429 response reports no token usage."
+  }
+}
