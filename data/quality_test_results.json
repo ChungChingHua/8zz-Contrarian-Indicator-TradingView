@@ -14,10 +14,10 @@
     "tools": false
   },
   "http_counts": {
-    "generation": 4,
+    "generation": 9,
     "model_queries": 0,
     "other_provider_queries": 0,
-    "image_downloads": 2
+    "image_downloads": 6
   },
   "quota_before": null,
   "quota_after": null,
@@ -490,13 +490,272 @@
       "text": "今天穩了！\n大家一起跟我念！ 一天100點，台股5萬點！",
       "number": 6,
       "image_count": 1,
-      "status": "not_attempted",
-      "api_status": null,
-      "schema_valid": false,
-      "download_success": false,
-      "request_includes_image": false,
-      "generation_attempts": 0,
-      "context_used": []
+      "status": "evaluated_test_only",
+      "api_status": 200,
+      "schema_valid": true,
+      "download_success": true,
+      "request_includes_image": true,
+      "generation_attempts": 1,
+      "context_used": [],
+      "image_http_attempts": 1,
+      "image_requirement_satisfied": true,
+      "image_evidence": [
+        {
+          "sha256": "b7b30f2f0a21338c9b3b2c623370a90ade9ee152b865001b4bb7de62bd4bdae2",
+          "bytes": 37025,
+          "mime": "image/jpeg"
+        }
+      ],
+      "images_attached": 1,
+      "service_response": {
+        "model_claim": "gpt-5-mini",
+        "reasoning_claim": {
+          "effort": "minimal"
+        },
+        "format_claim": {
+          "type": "json_schema",
+          "strict": true
+        },
+        "usage": {
+          "total_tokens": 2359,
+          "input_tokens": 1412,
+          "output_tokens": 947,
+          "reasoning_tokens": 0
+        }
+      },
+      "remaining_headers": {},
+      "response_status_service_claim": "completed",
+      "model_answer": {
+        "relevance": "investment",
+        "relevance_reason": "貼文內容提到『一天100點，台股5萬點』並附上股票報價畫面，具有明確投資/股市脈絡。",
+        "emotion": "euphoria",
+        "direction": -1,
+        "strength": 2,
+        "emotion_reason": "文字帶有樂觀歡呼語氣（『今天穩了！大家一起跟我念！』）並以強烈目標性語句預期指數上漲（『一天100點，台股5萬點！』），屬投資亢奮情緒。情緒不是極端狂喜但明顯正向。",
+        "emotion_evidence": [
+          {
+            "source": "author_text",
+            "image_index": -1,
+            "quote": "今天穩了！\n大家一起跟我念！ 一天100點，台股5萬點！"
+          },
+          {
+            "source": "image",
+            "image_index": 0,
+            "quote": "ADR   台積電 430.97 ▲4.62 ▲1.08% 鴻海 16.21 ▼0.17 ▼1.04% 日月光 39.91 ▲0.37 ▲0.94% 慧榮 272.70 ▲3.80 ▲1.41% 奇景光電 15.41 ▲0.18 ▲1.18% 聯電 19.53 ▲0.38 ▲1.98%"
+          }
+        ],
+        "targets": [
+          {
+            "name": "台積電",
+            "ticker": "TSM",
+            "relationship": "mentioned_only",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "台積電 430.97 ▲4.62 ▲1.08% TSM"
+              }
+            ]
+          },
+          {
+            "name": "鴻海",
+            "ticker": "HNHFP",
+            "relationship": "mentioned_only",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "鴻海 16.21 ▼0.17 ▼1.04% HNHPF"
+              }
+            ]
+          },
+          {
+            "name": "日月光",
+            "ticker": "ASX",
+            "relationship": "mentioned_only",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "日月光 39.91 ▲0.37 ▲0.94% ASX"
+              }
+            ]
+          },
+          {
+            "name": "慧榮",
+            "ticker": "SIMO",
+            "relationship": "mentioned_only",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "慧榮 272.70 ▲3.80 ▲1.41% SIMO"
+              }
+            ]
+          },
+          {
+            "name": "奇景光電",
+            "ticker": "HIMX",
+            "relationship": "mentioned_only",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "奇景光電 15.41 ▲0.18 ▲1.18% HIMX"
+              }
+            ]
+          },
+          {
+            "name": "聯電",
+            "ticker": "UMC",
+            "relationship": "mentioned_only",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "聯電 19.53 ▲0.38 ▲1.98% UMC"
+              }
+            ]
+          }
+        ],
+        "images": [
+          {
+            "image_index": 0,
+            "readable": true,
+            "observation": "顯示ADR分頁的多檔股票報價截圖，包含中文名稱、價格、漲跌及漲跌幅與對應代碼。",
+            "visible_text": "ADR   台積電 430.97 ▲4.62 ▲1.08% 鴻海 16.21 ▼0.17 ▼1.04% 日月光 39.91 ▲0.37 ▲0.94% 慧榮 272.70 ▲3.80 ▲1.41% 奇景光電 15.41 ▲0.18 ▲1.18% 聯電 19.53 ▲0.38 ▲1.98%",
+            "investment_information": true,
+            "limitation": "圖片為截圖，顯示數檔股票報價但未顯示作者持倉或交易行為；代碼為截圖文字，視為圖片可見資訊。"
+          }
+        ],
+        "author_commentary": "作者以歡呼及目標式口號表達對大盤向上期待，並附上ADR股票報價畫面作為市場情境。",
+        "quoted_summary": "",
+        "limitations": "無其他上下文可確認作者是否持有或交易上述個股；貼文只表達對大盤上漲的樂觀情緒，未提供交易計畫或實際績效數據。"
+      },
+      "independent_checks": {
+        "issues": [
+          "untraceable_target_candidate"
+        ],
+        "target_candidates": [
+          {
+            "name": "台積電",
+            "ticker": "TSM",
+            "relationship": "mentioned_only",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "台積電 430.97 ▲4.62 ▲1.08% TSM",
+                "sha256": "b7b30f2f0a21338c9b3b2c623370a90ade9ee152b865001b4bb7de62bd4bdae2",
+                "evidence_status": "pending_human_confirmation",
+                "human_verified": false
+              }
+            ],
+            "name_supported": true,
+            "ticker_supported": true,
+            "human_verified": false,
+            "status": "pending_human_confirmation"
+          },
+          {
+            "name": "鴻海",
+            "ticker": "HNHFP",
+            "relationship": "mentioned_only",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "鴻海 16.21 ▼0.17 ▼1.04% HNHPF",
+                "sha256": "b7b30f2f0a21338c9b3b2c623370a90ade9ee152b865001b4bb7de62bd4bdae2",
+                "evidence_status": "pending_human_confirmation",
+                "human_verified": false
+              }
+            ],
+            "name_supported": true,
+            "ticker_supported": false,
+            "human_verified": false,
+            "status": "pending_human_confirmation"
+          },
+          {
+            "name": "日月光",
+            "ticker": "ASX",
+            "relationship": "mentioned_only",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "日月光 39.91 ▲0.37 ▲0.94% ASX",
+                "sha256": "b7b30f2f0a21338c9b3b2c623370a90ade9ee152b865001b4bb7de62bd4bdae2",
+                "evidence_status": "pending_human_confirmation",
+                "human_verified": false
+              }
+            ],
+            "name_supported": true,
+            "ticker_supported": true,
+            "human_verified": false,
+            "status": "pending_human_confirmation"
+          },
+          {
+            "name": "慧榮",
+            "ticker": "SIMO",
+            "relationship": "mentioned_only",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "慧榮 272.70 ▲3.80 ▲1.41% SIMO",
+                "sha256": "b7b30f2f0a21338c9b3b2c623370a90ade9ee152b865001b4bb7de62bd4bdae2",
+                "evidence_status": "pending_human_confirmation",
+                "human_verified": false
+              }
+            ],
+            "name_supported": true,
+            "ticker_supported": true,
+            "human_verified": false,
+            "status": "pending_human_confirmation"
+          },
+          {
+            "name": "奇景光電",
+            "ticker": "HIMX",
+            "relationship": "mentioned_only",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "奇景光電 15.41 ▲0.18 ▲1.18% HIMX",
+                "sha256": "b7b30f2f0a21338c9b3b2c623370a90ade9ee152b865001b4bb7de62bd4bdae2",
+                "evidence_status": "pending_human_confirmation",
+                "human_verified": false
+              }
+            ],
+            "name_supported": true,
+            "ticker_supported": true,
+            "human_verified": false,
+            "status": "pending_human_confirmation"
+          },
+          {
+            "name": "聯電",
+            "ticker": "UMC",
+            "relationship": "mentioned_only",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "聯電 19.53 ▲0.38 ▲1.98% UMC",
+                "sha256": "b7b30f2f0a21338c9b3b2c623370a90ade9ee152b865001b4bb7de62bd4bdae2",
+                "evidence_status": "pending_human_confirmation",
+                "human_verified": false
+              }
+            ],
+            "name_supported": true,
+            "ticker_supported": true,
+            "human_verified": false,
+            "status": "pending_human_confirmation"
+          }
+        ],
+        "human_image_review": false,
+        "formal_signal_written": false,
+        "classification_is_model_output_not_gold": true
+      }
     },
     {
       "key": "facebook:1610126397138616",
@@ -508,13 +767,130 @@
       "text": "今日我的庫存\n我好痛苦_(:_」∠)_ \n為什麼我要貪心買個股⋯\n目前貸款買的部分都是大虧⋯⋯⋯⋯⋯",
       "number": 7,
       "image_count": 1,
-      "status": "not_attempted",
-      "api_status": null,
-      "schema_valid": false,
-      "download_success": false,
-      "request_includes_image": false,
-      "generation_attempts": 0,
-      "context_used": []
+      "status": "evaluated_test_only",
+      "api_status": 200,
+      "schema_valid": true,
+      "download_success": true,
+      "request_includes_image": true,
+      "generation_attempts": 1,
+      "context_used": [],
+      "image_http_attempts": 1,
+      "image_requirement_satisfied": true,
+      "image_evidence": [
+        {
+          "sha256": "de460f75d05e47f27aec8de87a360cbe8b94d6d85ada7a5d8b1a1cbe662507a1",
+          "bytes": 28494,
+          "mime": "image/jpeg"
+        }
+      ],
+      "images_attached": 1,
+      "service_response": {
+        "model_claim": "gpt-5-mini",
+        "reasoning_claim": {
+          "effort": "minimal"
+        },
+        "format_claim": {
+          "type": "json_schema",
+          "strict": true
+        },
+        "usage": {
+          "total_tokens": 2209,
+          "input_tokens": 1439,
+          "output_tokens": 770,
+          "reasoning_tokens": 0
+        }
+      },
+      "remaining_headers": {},
+      "response_status_service_claim": "completed",
+      "model_answer": {
+        "relevance": "investment",
+        "relevance_reason": "貼文明確提到「庫存」「貸款買」「個股」「大虧」，描述與投資持股及損失有關。",
+        "emotion": "panic",
+        "direction": 1,
+        "strength": 3,
+        "emotion_reason": "作者使用『我好痛苦』『目前貸款買的部分都是大虧』等詞，表達強烈投資痛苦與虧損無奈，屬恐慌/悲觀情緒。",
+        "emotion_evidence": [
+          {
+            "source": "author_text",
+            "image_index": -1,
+            "quote": "我好痛苦_(:_」∠)_ \n為什麼我要貪心買個股⋯\n目前貸款買的部分都是大虧⋯⋯⋯⋯⋯"
+          },
+          {
+            "source": "image",
+            "image_index": 0,
+            "quote": "畫面顯示多檔股票報價與跌幅/漲幅欄位（部分數字與名稱被遮蔽），可見多檔報酬率為綠色數值與百分比（圖片可讀但標的被模糊或遮蔽）"
+          }
+        ],
+        "targets": [
+          {
+            "name": "",
+            "ticker": "",
+            "relationship": "uncertain",
+            "evidence": [
+              {
+                "source": "author_text",
+                "image_index": -1,
+                "quote": "今日我的庫存"
+              },
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "圖片含多檔商品名稱欄位，但名稱與代碼被模糊或遮蔽，無法辨識具體標的"
+              }
+            ]
+          }
+        ],
+        "images": [
+          {
+            "image_index": 0,
+            "readable": false,
+            "observation": "螢幕截圖顯示多檔股票的交易資訊欄位（商品、成交、漲跌、幅度），數值與百分比部分可見但商品名稱/代碼被模糊或遮蔽，無法確定具體標的。",
+            "visible_text": "部分百分比數字可見（如 9.91%、9.64%、7.38%、5.86%、5.73%、4.57%），但股票名稱/代碼不可辨認。",
+            "investment_information": true,
+            "limitation": "標的名稱與代碼被模糊或遮蔽，故無法從圖片提取可追溯之具體標的證據。"
+          }
+        ],
+        "author_commentary": "作者明確表達對持股與貸款槓桿造成的大幅虧損感到痛苦，情緒屬投資恐慌且強烈；圖片為交易畫面但無法辨識具體標的。",
+        "quoted_summary": "",
+        "limitations": "僅使用此貼文文字與一張截圖；未提供可辨識的股票名稱或代碼，且無其他上下文或後續貼文，故無法列出具體標的或進一步評估持股詳情。"
+      },
+      "independent_checks": {
+        "issues": [
+          "image_readability_requires_confirmation"
+        ],
+        "target_candidates": [
+          {
+            "name": "",
+            "ticker": "",
+            "relationship": "uncertain",
+            "evidence": [
+              {
+                "source": "author_text",
+                "image_index": -1,
+                "quote": "今日我的庫存",
+                "sha256": null,
+                "evidence_status": "literal_text_match",
+                "human_verified": false
+              },
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "圖片含多檔商品名稱欄位，但名稱與代碼被模糊或遮蔽，無法辨識具體標的",
+                "sha256": "de460f75d05e47f27aec8de87a360cbe8b94d6d85ada7a5d8b1a1cbe662507a1",
+                "evidence_status": "pending_human_confirmation",
+                "human_verified": false
+              }
+            ],
+            "name_supported": false,
+            "ticker_supported": false,
+            "human_verified": false,
+            "status": "pending_human_confirmation"
+          }
+        ],
+        "human_image_review": false,
+        "formal_signal_written": false,
+        "classification_is_model_output_not_gold": true
+      }
     },
     {
       "key": "facebook:1703774981107090",
@@ -526,13 +902,128 @@
       "text": "市場跟我說\n孩子， 你不用停損...\n因為你停不掉_(:_」∠)_",
       "number": 8,
       "image_count": 1,
-      "status": "not_attempted",
-      "api_status": null,
-      "schema_valid": false,
-      "download_success": false,
-      "request_includes_image": false,
-      "generation_attempts": 0,
-      "context_used": []
+      "status": "evaluated_test_only",
+      "api_status": 200,
+      "schema_valid": true,
+      "download_success": true,
+      "request_includes_image": true,
+      "generation_attempts": 1,
+      "context_used": [],
+      "image_http_attempts": 1,
+      "image_requirement_satisfied": true,
+      "image_evidence": [
+        {
+          "sha256": "b019bdb27af1913d7e35530f2125afad34b530fa093cee97ff53420940f71fcc",
+          "bytes": 34147,
+          "mime": "image/jpeg"
+        }
+      ],
+      "images_attached": 1,
+      "service_response": {
+        "model_claim": "gpt-5-mini",
+        "reasoning_claim": {
+          "effort": "minimal"
+        },
+        "format_claim": {
+          "type": "json_schema",
+          "strict": true
+        },
+        "usage": {
+          "total_tokens": 2149,
+          "input_tokens": 1478,
+          "output_tokens": 671,
+          "reasoning_tokens": 0
+        }
+      },
+      "remaining_headers": {},
+      "response_status_service_claim": "completed",
+      "model_answer": {
+        "relevance": "investment",
+        "relevance_reason": "文字內容提到停損與市場；附圖為交易介面截圖（股價、成交量、時間等），顯示明確投資交易脈絡。",
+        "emotion": "panic",
+        "direction": 1,
+        "strength": 2,
+        "emotion_reason": "作者用自嘲語氣表示無法停損，暗含對止損無能為力與挫折感，屬負面投資情緒（恐慌/無奈）。",
+        "emotion_evidence": [
+          {
+            "source": "author_text",
+            "image_index": -1,
+            "quote": "市場跟我說\n孩子， 你不用停損...\n因為你停不掉_(:_」∠)_"
+          },
+          {
+            "source": "image",
+            "image_index": 0,
+            "quote": "511.00  ▼56.00(9.88%)  11/06 09:14:27"
+          }
+        ],
+        "targets": [
+          {
+            "name": "亞翔",
+            "ticker": "6139",
+            "relationship": "author_stance",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "亞翔"
+              },
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "6139"
+              }
+            ]
+          }
+        ],
+        "images": [
+          {
+            "image_index": 0,
+            "readable": true,
+            "observation": "交易介面截圖，顯示股票名稱、代碼、即時價格與時間。左上方顯示股價511.00、下跌56.00（9.88%），畫面中可見名稱「亞翔」與代碼6139。",
+            "visible_text": "511.00 ▼56.00(9.88%) 11/06 09:14:27\n亞翔\n6139",
+            "investment_information": true,
+            "limitation": "截圖為單一時間點畫面，未顯示作者實際買賣數量或持股成本，無法得知損益數字或是否已下單成交。"
+          }
+        ],
+        "author_commentary": "作者以帶有無奈/自嘲語氣表示自己無法停損，搭配交易介面截圖暗示持有或關注個股（亞翔 6139）並面臨價格下跌情況。",
+        "quoted_summary": "",
+        "limitations": "僅依本則貼文文字與附圖判讀；無其他上下文或後續交易資料，不能確定作者實際持倉數量、成本、是否已下單或更詳細的情緒強度。"
+      },
+      "independent_checks": {
+        "issues": [],
+        "target_candidates": [
+          {
+            "name": "亞翔",
+            "ticker": "6139",
+            "relationship": "author_stance",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "亞翔",
+                "sha256": "b019bdb27af1913d7e35530f2125afad34b530fa093cee97ff53420940f71fcc",
+                "evidence_status": "pending_human_confirmation",
+                "human_verified": false
+              },
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "6139",
+                "sha256": "b019bdb27af1913d7e35530f2125afad34b530fa093cee97ff53420940f71fcc",
+                "evidence_status": "pending_human_confirmation",
+                "human_verified": false
+              }
+            ],
+            "name_supported": true,
+            "ticker_supported": true,
+            "human_verified": false,
+            "status": "pending_human_confirmation"
+          }
+        ],
+        "human_image_review": false,
+        "formal_signal_written": false,
+        "classification_is_model_output_not_gold": true
+      }
     },
     {
       "key": "threads:4023888423198910089",
@@ -544,13 +1035,61 @@
       "text": "恐慌的睡不著",
       "number": 9,
       "image_count": 0,
-      "status": "not_attempted",
-      "api_status": null,
-      "schema_valid": false,
+      "status": "evaluated_test_only",
+      "api_status": 200,
+      "schema_valid": true,
       "download_success": false,
       "request_includes_image": false,
-      "generation_attempts": 0,
-      "context_used": []
+      "generation_attempts": 1,
+      "context_used": [],
+      "image_requirement_satisfied": true,
+      "image_evidence": [],
+      "images_attached": 0,
+      "service_response": {
+        "model_claim": "gpt-5-mini",
+        "reasoning_claim": {
+          "effort": "minimal"
+        },
+        "format_claim": {
+          "type": "json_schema",
+          "strict": true
+        },
+        "usage": {
+          "total_tokens": 1359,
+          "input_tokens": 1042,
+          "output_tokens": 317,
+          "reasoning_tokens": 0
+        }
+      },
+      "remaining_headers": {},
+      "response_status_service_claim": "completed",
+      "model_answer": {
+        "relevance": "insufficient_information",
+        "relevance_reason": "貼文僅寫「恐慌的睡不著」，沒有任何投資或財務相關上下文，無法確定是否為投資情緒或生活情緒。",
+        "emotion": "insufficient_information",
+        "direction": 0,
+        "strength": 1,
+        "emotion_reason": "文字表達恐慌但未提及投資、持股或交易；依規則情緒判斷需與投資脈絡連結，缺乏該脈絡故無法判定為投資恐慌或亢奮。",
+        "emotion_evidence": [
+          {
+            "source": "author_text",
+            "image_index": -1,
+            "quote": "恐慌的睡不著"
+          }
+        ],
+        "targets": [],
+        "images": [],
+        "author_commentary": "該貼文只有一句中文短句，未提供與投資相關的詞彙、標的或圖像，故標的與投資情緒皆無法判定。",
+        "quoted_summary": "",
+        "limitations": "僅使用本次提供之原文與附圖（無附圖）。不得憑外部資訊或推測作者其他貼文或背景。"
+      },
+      "independent_checks": {
+        "issues": [],
+        "target_candidates": [],
+        "human_image_review": false,
+        "formal_signal_written": false,
+        "classification_is_model_output_not_gold": true
+      }
     },
     {
       "key": "threads:3946164126477408639",
@@ -562,18 +1101,128 @@
       "text": "現在的我呈現一個\n因為部分停損，所以大漲不爽\n因為還沒損完，所以續跌痛苦\n的狀態矛盾狀態_(:_」∠)_\n\nLittle sunday 果乾團購： 今日update\n因為群創回到50， 獎金變成5萬了❤️\n\n團購連結： 鳳梨真的好吃\nhttps://littlesunday-fruits.my1shop.com/banini",
       "number": 10,
       "image_count": 1,
-      "status": "not_attempted",
-      "api_status": null,
-      "schema_valid": false,
-      "download_success": false,
-      "request_includes_image": false,
-      "generation_attempts": 0,
-      "context_used": []
+      "status": "evaluated_test_only",
+      "api_status": 200,
+      "schema_valid": true,
+      "download_success": true,
+      "request_includes_image": true,
+      "generation_attempts": 1,
+      "context_used": [],
+      "image_http_attempts": 1,
+      "image_requirement_satisfied": true,
+      "image_evidence": [
+        {
+          "sha256": "e69702ef15395a4ac7ddf9c37d60c52ae7c77d4cdfbe2d47df13a9ee964c86b7",
+          "bytes": 2589773,
+          "mime": "image/jpeg"
+        }
+      ],
+      "images_attached": 1,
+      "service_response": {
+        "model_claim": "gpt-5-mini",
+        "reasoning_claim": {
+          "effort": "minimal"
+        },
+        "format_claim": {
+          "type": "json_schema",
+          "strict": true
+        },
+        "usage": {
+          "total_tokens": 2602,
+          "input_tokens": 2076,
+          "output_tokens": 526,
+          "reasoning_tokens": 0
+        }
+      },
+      "remaining_headers": {},
+      "response_status_service_claim": "completed",
+      "model_answer": {
+        "relevance": "investment",
+        "relevance_reason": "貼文明確提到停損、續跌、以及指稱個股「群創回到50」與獎金變化，顯示投資與財務相關情緒與結果。",
+        "emotion": "mixed",
+        "direction": 0,
+        "strength": 2,
+        "emotion_reason": "作者同時表達對部分停損導致大漲時不爽（負面/不滿）與為尚未止損而持續下跌感到痛苦（負面/焦慮），呈現矛盾且混合的情緒；語氣清楚但非極端。",
+        "emotion_evidence": [
+          {
+            "source": "author_text",
+            "image_index": -1,
+            "quote": "因為部分停損，所以大漲不爽\n因為還沒損完，所以續跌痛苦\n的狀態矛盾狀態_(:_」∠)_"
+          },
+          {
+            "source": "author_text",
+            "image_index": -1,
+            "quote": "因為群創回到50， 獎金變成5萬了❤️"
+          }
+        ],
+        "targets": [
+          {
+            "name": "群創",
+            "ticker": "",
+            "relationship": "author_stance",
+            "evidence": [
+              {
+                "source": "author_text",
+                "image_index": -1,
+                "quote": "因為群創回到50， 獎金變成5萬了❤️"
+              }
+            ]
+          }
+        ],
+        "images": [
+          {
+            "image_index": 0,
+            "readable": true,
+            "observation": "作者手持Little Sunday 果乾包裝，將果乾靠近嘴巴拍照。包含品牌字樣與包裝外觀可見。畫面為自拍風格人物照。",
+            "visible_text": "Little Sunday",
+            "investment_information": false,
+            "limitation": "圖片顯示商品與作者，但無額外投資或標的代碼資訊；投資情緒來自文字而非圖片。"
+          }
+        ],
+        "author_commentary": "作者在文中表達因停損與持股續跌所產生的矛盾與痛苦，並提及群創回到價位對獎金的影響，同時推廣果乾團購。",
+        "quoted_summary": "",
+        "limitations": "無明確提供群創之代碼或更多持股細節；圖片與團購連結顯示商品促銷，但與投資情緒無直接視覺證據。"
+      },
+      "independent_checks": {
+        "issues": [],
+        "target_candidates": [
+          {
+            "name": "群創",
+            "ticker": "",
+            "relationship": "author_stance",
+            "evidence": [
+              {
+                "source": "author_text",
+                "image_index": -1,
+                "quote": "因為群創回到50， 獎金變成5萬了❤️",
+                "sha256": null,
+                "evidence_status": "literal_text_match",
+                "human_verified": false
+              }
+            ],
+            "name_supported": true,
+            "ticker_supported": false,
+            "human_verified": false,
+            "status": "text_supported"
+          }
+        ],
+        "human_image_review": false,
+        "formal_signal_written": false,
+        "classification_is_model_output_not_gold": true
+      }
     }
   ],
-  "stopped": true,
+  "stopped": false,
   "completed": false,
-  "stop_sample": 5,
-  "finished_at": "2026-11-07T07:27:56.227152+00:00",
-  "control_plane_note": "GitHub Actions checkout/artifact internals excluded from provider HTTP counts; audit persistence uses one GitHub contents GET and one PUT attempt."
+  "stop_sample": null,
+  "finished_at": "2026-11-07T07:31:59.488118+00:00",
+  "control_plane_note": "GitHub Actions checkout/artifact internals excluded from provider HTTP counts; audit persistence uses one GitHub contents GET and one PUT attempt.",
+  "continuation_consumed": true,
+  "continuation_scope": "2026-11-07-independent-quality-unattempted-only-v1",
+  "continuation_at": "2026-11-07T07:31:24.706879+00:00",
+  "continuation_reason": "Known non-image Video input blocked before generation, no provider anomaly; reuse same-protocol successful rows 1..4, skip blocked row5, only unattempted rows6..10. Total budget10 unchanged.",
+  "initial_input_stop_sample": 5,
+  "input_blocked_samples": [
+    5
+  ]
 }
