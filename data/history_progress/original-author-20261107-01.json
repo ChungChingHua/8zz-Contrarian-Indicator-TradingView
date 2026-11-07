@@ -7,7 +7,7 @@
   "max_generations": 5,
   "reserved_generation_attempts": 5,
   "stopped": false,
-  "finished": false,
+  "finished": true,
   "provider_settings": {
     "base": "https://api.chatanywhere.tech/v1",
     "model": "gpt-5-mini",
@@ -1631,7 +1631,7 @@
       }
     }
   ],
-  "updated_at": "2026-11-07T11:03:34.386572+00:00",
+  "updated_at": "2026-11-07T11:03:35.783290+00:00",
   "stop_reason": null,
   "unsent_media_recovery_used": true,
   "recovery_note": "Operator continued the same authorized batch after proven 0-generation IPv6 network failure; explicit unavailable-image scope, no TLS/host bypass or generation retry.",
