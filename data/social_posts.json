@@ -111,12 +111,17 @@
     "quoted_content": {},
     "quote_flag": null,
     "analysis": {
-      "status": "retry",
-      "reason": "判讀或附件讀取失敗；待重試，不產生訊號",
-      "attempts": 2,
-      "error_type": "APIError",
-      "provider": "openai",
-      "requested_model": "gpt-4.1-mini",
+      "investment_related": true,
+      "clear": false,
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "ticker": "",
+      "reason": "作者以幽默語氣描述自己無法停損（“你不用停損…因為你停不掉”），重點是表達個人行為與無力感，情緒偏向自嘲/無奈，沒有明確的恐慌或亢奮買賣指示；因此判定為模糊/矛盾情緒，引用邊界不明。",
+      "author_commentary": "作者在說市場對他說「不用停損」，但隨即自嘲承認自己其實停不掉，表現出無奈與自我調侃，並未直接宣布要買或賣。",
+      "quoted_summary": "「市場跟我說 孩子，你不用停損… 因為你停不掉_(:_」∠)_」——引用內容呈現市場對話與作者自嘲。",
+      "images_reviewed": true,
+      "status": "review",
       "image_evidence": [
         {
           "sha256": "b019bdb27af1913d7e35530f2125afad34b530fa093cee97ff53420940f71fcc",
@@ -124,9 +129,57 @@
           "mime": "image/jpeg"
         }
       ],
-      "http_status": 429,
-      "api_error_code": null,
-      "error_code": "NoneType"
+      "provider": "chatanywhere",
+      "prompt_version": "contrarian-openai-v2",
+      "model": "gpt-5-mini",
+      "usage": {
+        "total_tokens": 1059,
+        "input_tokens": 803,
+        "output_tokens": 256,
+        "reasoning_tokens": 0
+      },
+      "source_audit": "data/social_chatanywhere_minimal_20261107.json",
+      "model_candidate": {
+        "investment_related": true,
+        "clear": false,
+        "direction": 0,
+        "strength": 1,
+        "target": "亞翔",
+        "ticker": "6139",
+        "reason": "作者以幽默語氣描述自己無法停損（“你不用停損…因為你停不掉”），重點是表達個人行為與無力感，情緒偏向自嘲/無奈，沒有明確的恐慌或亢奮買賣指示；因此判定為模糊/矛盾情緒，引用邊界不明。",
+        "author_commentary": "作者在說市場對他說「不用停損」，但隨即自嘲承認自己其實停不掉，表現出無奈與自我調侃，並未直接宣布要買或賣。",
+        "quoted_summary": "「市場跟我說 孩子，你不用停損… 因為你停不掉_(:_」∠)_」——引用內容呈現市場對話與作者自嘲。",
+        "images_reviewed": true
+      },
+      "decision_type": "semantic_conflict",
+      "auto_retry_eligible": false,
+      "semantic_check": {
+        "version": "semantic-v1",
+        "issues": [
+          "quotation_without_source_boundary",
+          "target_without_traceable_evidence",
+          "ticker_without_traceable_evidence"
+        ],
+        "evidence": {}
+      },
+      "previous_analysis": {
+        "status": "retry",
+        "reason": "判讀或附件讀取失敗；待重試，不產生訊號",
+        "attempts": 2,
+        "error_type": "APIError",
+        "provider": "openai",
+        "requested_model": "gpt-4.1-mini",
+        "image_evidence": [
+          {
+            "sha256": "b019bdb27af1913d7e35530f2125afad34b530fa093cee97ff53420940f71fcc",
+            "bytes": 34147,
+            "mime": "image/jpeg"
+          }
+        ],
+        "http_status": 429,
+        "api_error_code": null,
+        "error_code": "NoneType"
+      }
     },
     "content_hash": "ea178fc4f2e0141c1e4697b51e3fc1302158c80f2b6c1f491ced5a38936ede18"
   },
@@ -17006,12 +17059,25 @@
     "quoted_content": {},
     "quote_flag": null,
     "analysis": {
-      "status": "retry",
-      "reason": "判讀或附件讀取失敗；待重試，不產生訊號",
-      "attempts": 5,
-      "error_type": "APIError",
-      "provider": "openai",
-      "requested_model": "gpt-4.1-mini",
+      "investment_related": true,
+      "clear": false,
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "ticker": "",
+      "reason": "文字證據：發文提及「下週穩了」，但整句語氣為配合展示新G-Shock 的附帶評論，沒有明確表達買入、賣出、恐慌或亢奮等投資情緒或明確標的，因此情緒與投資意圖模糊。圖片證據：附圖為手錶（G-Shock）近照，僅為生活/展示物品，沒有任何股票、交易介面或投資相關資料可供佐證。",
+      "author_commentary": "引用原文：\"沒事， 就是給大家看看我的新GShock\n然後跟大家說， 看來下週穩了\"\n本人評論：作者主要在炫耀手錶，附帶一則模糊的樂觀說法“下週穩了”，但未指明任何投資標的或明確交易心態，故無法確定立場。",
+      "quoted_summary": "\"沒事，就是給大家看看我的新GShock，然後跟大家說，看來下週穩了\"",
+      "images_reviewed": true,
+      "status": "review",
+      "provider": "chatanywhere",
+      "reasoning_requested": "minimal",
+      "reasoning_returned": {
+        "effort": "minimal"
+      },
+      "transport_metadata": {},
+      "model": "gpt-5-mini",
+      "requested_model": "gpt-5-mini",
       "image_evidence": [
         {
           "sha256": "d05341342435ce668ab641a4ac7a0ec0cb3172bd5e234891b294b5c5eed24415",
@@ -17019,9 +17085,56 @@
           "mime": "image/jpeg"
         }
       ],
-      "http_status": 429,
-      "api_error_code": null,
-      "error_code": "NoneType"
+      "prompt_version": "contrarian-openai-v2",
+      "images_supplied": 1,
+      "usage": {
+        "total_tokens": 1667,
+        "input_tokens": 1371,
+        "output_tokens": 296
+      },
+      "response_id": "resp_087e59ee93d5c996016aeecc3fbc488190ab3d527f7d2dd3fd",
+      "source_audit": "data/social_chatanywhere_minimal_20261107.json",
+      "model_candidate": {
+        "investment_related": true,
+        "clear": false,
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "reason": "文字證據：發文提及「下週穩了」，但整句語氣為配合展示新G-Shock 的附帶評論，沒有明確表達買入、賣出、恐慌或亢奮等投資情緒或明確標的，因此情緒與投資意圖模糊。圖片證據：附圖為手錶（G-Shock）近照，僅為生活/展示物品，沒有任何股票、交易介面或投資相關資料可供佐證。",
+        "author_commentary": "引用原文：\"沒事， 就是給大家看看我的新GShock\n然後跟大家說， 看來下週穩了\"\n本人評論：作者主要在炫耀手錶，附帶一則模糊的樂觀說法“下週穩了”，但未指明任何投資標的或明確交易心態，故無法確定立場。",
+        "quoted_summary": "\"沒事，就是給大家看看我的新GShock，然後跟大家說，看來下週穩了\"",
+        "images_reviewed": true
+      },
+      "decision_type": "semantic_conflict",
+      "auto_retry_eligible": false,
+      "semantic_check": {
+        "version": "semantic-v1",
+        "issues": [
+          "investment_context_not_grounded",
+          "quotation_without_source_boundary",
+          "relevance_reason_conflict"
+        ],
+        "evidence": {}
+      },
+      "previous_analysis": {
+        "status": "retry",
+        "reason": "判讀或附件讀取失敗；待重試，不產生訊號",
+        "attempts": 5,
+        "error_type": "APIError",
+        "provider": "openai",
+        "requested_model": "gpt-4.1-mini",
+        "image_evidence": [
+          {
+            "sha256": "d05341342435ce668ab641a4ac7a0ec0cb3172bd5e234891b294b5c5eed24415",
+            "bytes": 628272,
+            "mime": "image/jpeg"
+          }
+        ],
+        "http_status": 429,
+        "api_error_code": null,
+        "error_code": "NoneType"
+      }
     },
     "content_hash": "d7f59c80e61dd5ecb70e444bf605e190e9ea484356a9156741af17f04a6bad70"
   },

@@ -109,3 +109,5 @@
 
 [Mozilla Public License 2.0](https://mozilla.org/MPL/2.0/) — 可自由使用、修改、衍生，但衍生作品須保留原授權。
 
+
+目前進度：技術 smoke 已完成，正在進行**離線判讀品質驗證**。請先確認 [10篇候選原文、圖片與預期依據](docs/QUALITY_SAMPLES.md)；[語意一致性、標的證據與狀態分流](docs/SEMANTIC_QUALITY.md) 已加入。沒有新增生成請求，線上／排程／Pages仍停用，PR尚未合併。

@@ -71,3 +71,9 @@ Mode A 與 Mode B 都依 `direction × 價格變動`，正數勝、負數敗、�
 5. smoke 通過且品質與費用可接受，才以 classify-only 分批處理 659 篇；每次上限 50。PR 仍不自動合併、排程仍關閉。
 
 固定輸出包含 direction（-1/0/1）、strength（1..3）、target、ticker、reason、investment_related、clear、images_reviewed、author_commentary、quoted_summary。標的不確定或情緒模糊時不發訊號，保留 review 待確認；HTTP 錯誤、拒答、輸出不完整、格式無效或圖片無法讀取則保留 retry。每篇保存 provider、model、prompt_version、response_id 與 token usage，不保存金鑰或 API 原始錯誤。
+
+## 目前階段：品質驗證，線上仍停用
+
+技術 smoke 完成不解除暫停。上述線上操作順序僅供未來另行授權時參考，現在不執行。最新狀態分流與標的證據規則以 [離線語意檢查](SEMANTIC_QUALITY.md) 為準：確定無關／中性為 no_signal，資訊不足／矛盾為 review，只有技術失敗為 retry。no_signal 與 review 不會在一般流程自動再次送 API；穩定的輸入／附件問題也須人工補正。完整模型答案留在 model_candidate，正式欄位可因缺證據被清空或方向歸零。
+
+請先確認 [10篇品質候選](QUALITY_SAMPLES.md)，未確認前不做小批生成，亦不批次、排程、Pages或合併。圖片 OCR 僅為未驗證的來源資料，不能當作人工已看圖。

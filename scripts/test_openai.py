@@ -23,7 +23,7 @@ class OpenAITests(unittest.TestCase):
             self.addCleanup(guard.stop)
 
     def test_real_responses_contract_and_usage(self):
-        p=post();p['attachments']=[{'type':'image'}]
+        p=post(text='台積電 2330.TW 股票虧損好恐慌');p['attachments']=[{'type':'image'}]
         with patch.dict(os.environ,{'OPENAI_API_KEY':'test'}),patch.object(s,'image_parts',return_value=[{'type':'input_image','image_url':'data:image/png;base64,AA=='}]),patch.object(s,'request_json',return_value=answer(images_reviewed=True)) as request:
             a=s.classify(p)
         url,headers,body=request.call_args.args

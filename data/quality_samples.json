@@ -1,0 +1,357 @@
+{
+  "version": "quality-samples-v1",
+  "approved": false,
+  "api_requests": 0,
+  "label_policy": "Only the text and attached media of each post at publication time; no subsequent posts, comments, prices or outcomes. OCR is unverified. Proposed labels await user confirmation.",
+  "samples": [
+    {
+      "number": 1,
+      "key": "facebook:1696581131826475",
+      "post_id": "1696581131826475",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0euW28fo5eBPr4X7SsmhcDaoVxD1Un5iz7SkPvY23szM8j9mV73JoHmcVgzw8xs5el",
+      "published_at": "2026-10-30T00:05:00+00:00",
+      "display_time": "2026-10-30T08:05:00+08:00",
+      "text": "連我的BTC單都沒了\n這一波應該⋯ 狠恐怖\n感覺比七月的還猛_(:_」∠)_\n\n大家風控要做好， 該停損停損啊",
+      "text_sha256": "ae9d250fc46fc9bfaf89e04b24ea3391115c035ed3f4633c530017f378b17b9b",
+      "images": [
+        {
+          "index": 0,
+          "media_id": "1696580331826555",
+          "type": "Photo",
+          "viewer_url": "https://www.facebook.com/photo/?fbid=1696580331826555",
+          "width": 526,
+          "height": 633,
+          "platform_ocr_unverified": "May be an image of text",
+          "downloaded_this_round": false,
+          "human_verified": false
+        }
+      ],
+      "category": "明確恐慌",
+      "proposed": {
+        "sentiment": "panic",
+        "direction": 1,
+        "strength": 2,
+        "target": "BTC",
+        "ticker": "",
+        "acceptable_decisions": [
+          "signal",
+          "insufficient_information"
+        ],
+        "basis": "本人說 BTC 單沒了、這波很恐怖，並提醒停損；恐慌情緒的反向方向為 +1，不因之後漲跌改標。BTC 逐字在原文。尚須核對圖片是否引入矛盾。",
+        "requires_image_review": true
+      },
+      "approval": "pending_user_confirmation"
+    },
+    {
+      "number": 2,
+      "key": "threads:3981333267379483868",
+      "post_id": "3981333267379483868",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DdAiYM-mXTc",
+      "published_at": "2026-09-08T01:45:32+00:00",
+      "display_time": "2026-09-08T09:45:32+08:00",
+      "text": "爽啦！ 喬喬賺錢了！\n加碼再賺！\n台股簡單啦",
+      "text_sha256": "1e40febf955cc684b96422aecb18a6449f7fe03e946b9267d3d9d5bd3b25feb4",
+      "images": [],
+      "category": "明確亢奮",
+      "proposed": {
+        "sentiment": "euphoria",
+        "direction": -1,
+        "strength": 2,
+        "target": "台股",
+        "ticker": "",
+        "acceptable_decisions": [
+          "signal"
+        ],
+        "basis": "本人「爽啦」「加碼再賺」「台股簡單啦」是明確投資歡呼，反向方向 -1；台股在原文，不能把喬喬猜成特定股票代號。",
+        "requires_image_review": false
+      },
+      "approval": "pending_user_confirmation"
+    },
+    {
+      "number": 3,
+      "key": "threads:3952464799527950315",
+      "post_id": "3952464799527950315",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbZ-ctLGVfr",
+      "published_at": "2026-07-30T05:49:02+00:00",
+      "display_time": "2026-07-30T13:49:02+08:00",
+      "text": "我還有\n\n原本價值300萬的個股還沒停損\n至於主動ETF.. 隨便他了_(:_」∠)_",
+      "text_sha256": "fe0c20928e2f2f196add4657ff357b75a84f9d7c50dfccf454ccd91e4958b1fd",
+      "images": [],
+      "category": "中性持倉邊界",
+      "proposed": {
+        "sentiment": "neutral",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "neutral",
+          "insufficient_information"
+        ],
+        "basis": "原文報告個股及主動 ETF 未停損，未描述明確恐慌或亢奮；持有／未停損本身不是情緒訊號。「隨便他了」也可能是無奈，故中性只是候選，確認前亦接受資訊不足；不猜 ETF 代號。",
+        "requires_image_review": false
+      },
+      "approval": "pending_user_confirmation"
+    },
+    {
+      "number": 4,
+      "key": "threads:4024468641932717746",
+      "post_id": "4024468641932717746",
+      "source": "threads",
+      "url": "https://www.threads.com/t/DfZyOhEGS6y",
+      "published_at": "2026-11-06T14:07:49+00:00",
+      "display_time": "2026-11-06T22:07:49+08:00",
+      "text": "沒事， 就是給大家看看我的新GShock\n然後跟大家說， 看來下週穩了",
+      "text_sha256": "8227060e40ead9473695ad31826c278ec2977195d79d470e3796c6476e132bf4",
+      "images": [
+        {
+          "index": 0,
+          "media_id": "",
+          "type": "photo",
+          "viewer_url": "https://www.threads.com/t/DfZyOhEGS6y",
+          "width": 3024,
+          "height": 4032,
+          "platform_ocr_unverified": "",
+          "downloaded_this_round": false,
+          "human_verified": false
+        }
+      ],
+      "category": "生活玩笑／既有 smoke",
+      "proposed": {
+        "sentiment": "unrelated",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "unrelated",
+          "insufficient_information"
+        ],
+        "basis": "新 GShock 與「下週穩了」未提供投資情境或標的。舊服務描述圖片是手錶，但本輪未人工看圖；圖片若確為生活物品，確定無關，否則保留資訊不足，不能硬判看多。",
+        "requires_image_review": true
+      },
+      "approval": "pending_user_confirmation"
+    },
+    {
+      "number": 5,
+      "key": "facebook:1640562917428297",
+      "post_id": "1640562917428297",
+      "source": "facebook",
+      "url": "https://www.facebook.com/reel/29266616599605070/",
+      "published_at": "2026-08-30T15:11:29+00:00",
+      "display_time": "2026-08-30T23:11:29+08:00",
+      "text": "買欣興，欣興會被警調\n買康霈，康霈會⋯\n\n但是投資自己，一定沒有錯！\n因為不管是男人/女人，都有一個愛美的心～\n為了自己而變美，一點都沒錯❤️\n\n這次感謝 宸曜美學 給我這個機會\n幫忙評估了我的狀況給出推薦方案\n打了我一直想打卻捨不得打得鳳凰電波跟眼周音波🤣\n而且還很貼心的用盡各種減痛的方式讓我用到最推薦的功率❤️\n\n每次做完醫美真的覺得\n為了變美的你我都是勇士⋯🤣\n\n#業配  #說我是巴逆逆派來的\n#台北市醫美 #宸曜美學",
+      "text_sha256": "66c30d85a631756bb622793996735be422e05ff6063295b37cd732c7de8464e7",
+      "images": [
+        {
+          "index": 0,
+          "media_id": "29266616599605070",
+          "type": "Video",
+          "viewer_url": "https://www.facebook.com/reel/29266616599605070/",
+          "width": 1440,
+          "height": 2560,
+          "platform_ocr_unverified": "",
+          "downloaded_this_round": false,
+          "human_verified": false
+        }
+      ],
+      "category": "生活業配、股票名稱干擾",
+      "proposed": {
+        "sentiment": "unrelated",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "unrelated",
+          "insufficient_information"
+        ],
+        "basis": "主題為醫美業配與投資自己；欣興、康霈只是引子，沒有本人明確交易情緒或立場。不能因出現股票名就輸出這兩檔訊號。附圖待核。",
+        "requires_image_review": true
+      },
+      "approval": "pending_user_confirmation"
+    },
+    {
+      "number": 6,
+      "key": "facebook:1629435205207735",
+      "post_id": "1629435205207735",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0BaXyVMKvDPkLvQ1uJMQaU7TGmocjZxnvT3Z59xVvEd1XHk9HnbsbBVPFmCCBxBrYl",
+      "published_at": "2026-08-18T01:41:59+00:00",
+      "display_time": "2026-08-18T09:41:59+08:00",
+      "text": "今天穩了！\n大家一起跟我念！ 一天100點，台股5萬點！",
+      "text_sha256": "70b35f5e5d5207b567548ce5d9a7a1c882c4dc6a831d780f7ef42b5204274fc9",
+      "images": [
+        {
+          "index": 0,
+          "media_id": "1629434968541092",
+          "type": "Photo",
+          "viewer_url": "https://www.facebook.com/photo/?fbid=1629434968541092",
+          "width": 526,
+          "height": 518,
+          "platform_ocr_unverified": "May be an image of text that says '外匯 美股 港股 福深股 原物料 ADR 加密貨幣 距離台股開盤還有19分鐘 股名/股號 股號 股價 更新 台積電 TSM 漲跌漲跌幅（%） 漲跌幅（%） 漲跌 430.97 4.62 鴻海 HNHPF 1.08% 16.21 0.17 日月光 ASX 1.04% 39.91 0.37 慧榮 SIMO 0.94% 272.70 3.80 奇景光電 HIMX 1.41% 15.41 0.18 聯電 UMC 1.18% 19.53 0.38 1.98%'",
+          "downloaded_this_round": false,
+          "human_verified": false
+        }
+      ],
+      "category": "投資亢奮＋行情圖片候選",
+      "proposed": {
+        "sentiment": "euphoria",
+        "direction": -1,
+        "strength": 2,
+        "target": "台股",
+        "ticker": "",
+        "acceptable_decisions": [
+          "signal",
+          "insufficient_information"
+        ],
+        "basis": "本人「今天穩了」「一天100點、台股5萬點」是台股亢奮。平台 OCR 顯示 ADR 報價表，屬待人工核對的交易資訊圖片候選；即使表中有多檔，也不能把每檔變成評論標的，不能用後來漲跌作答案。",
+        "requires_image_review": true
+      },
+      "approval": "pending_user_confirmation"
+    },
+    {
+      "number": 7,
+      "key": "facebook:1610126397138616",
+      "post_id": "1610126397138616",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0ko7MYcc7amyA4Sc9AgTEh4DJkFqjczHmZhhDrazNQPqgSvkEF9JAkLQz8XKVmLMZl",
+      "published_at": "2026-07-27T04:05:07+00:00",
+      "display_time": "2026-07-27T12:05:07+08:00",
+      "text": "今日我的庫存\n我好痛苦_(:_」∠)_ \n為什麼我要貪心買個股⋯\n目前貸款買的部分都是大虧⋯⋯⋯⋯⋯",
+      "text_sha256": "b036c195848bd5b0bd7699132d35a5517c180bce76ee359dba271dee80b47d76",
+      "images": [
+        {
+          "index": 0,
+          "media_id": "1610126383805284",
+          "type": "Photo",
+          "viewer_url": "https://www.facebook.com/photo/?fbid=1610126383805284",
+          "width": 506,
+          "height": 565,
+          "platform_ocr_unverified": "No photo description available.",
+          "downloaded_this_round": false,
+          "human_verified": false
+        }
+      ],
+      "category": "恐慌＋庫存圖片資訊缺口",
+      "proposed": {
+        "sentiment": "panic",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "insufficient_information"
+        ],
+        "basis": "文字「今日我的庫存」「好痛苦」「貸款買的部分都是大虧」支持強烈投資痛苦，但未提供單一標的。平台未提供可讀圖片描述，本輪未人工核圖，不能宣稱圖內確有庫存或從中猜標的；即使圖內有多檔持股也不等於對每檔表態。預期資訊不足、方向0，標的空白。",
+        "requires_image_review": true
+      },
+      "approval": "pending_user_confirmation"
+    },
+    {
+      "number": 8,
+      "key": "facebook:1703774981107090",
+      "post_id": "1703774981107090",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid03143n7ECXc3swjAwzFvjXJFrfksuaecAmRtRR5uV5yaYAvtNQVrh2WDpG1ciUKMXsl",
+      "published_at": "2026-11-06T01:15:20+00:00",
+      "display_time": "2026-11-06T09:15:20+08:00",
+      "text": "市場跟我說\n孩子， 你不用停損...\n因為你停不掉_(:_」∠)_",
+      "text_sha256": "af918710f025bb650b10cf9f5875950127d8ba2a87a20a4fb1f6eabb3d26f394",
+      "images": [
+        {
+          "index": 0,
+          "media_id": "1703774447773810",
+          "type": "Photo",
+          "viewer_url": "https://www.facebook.com/photo/?fbid=1703774447773810",
+          "width": 526,
+          "height": 634,
+          "platform_ocr_unverified": "May be an image of text",
+          "downloaded_this_round": false,
+          "human_verified": false
+        }
+      ],
+      "category": "單篇上下文不足／既有 smoke",
+      "proposed": {
+        "sentiment": "insufficient_information",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "insufficient_information"
+        ],
+        "basis": "「不用停損、因為停不掉」可能為自嘲或流動性等問題，不能單憑字眼斷定恐慌強度。亞翔／6139 不在原文，舊模型答案沒有可追溯圖片文字證據，須留空。「市場跟我說」是修辭，不當作第三方文章。",
+        "requires_image_review": true
+      },
+      "approval": "pending_user_confirmation"
+    },
+    {
+      "number": 9,
+      "key": "threads:4023888423198910089",
+      "post_id": "4023888423198910089",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DfXuTOQk-aJ",
+      "published_at": "2026-11-05T18:55:01+00:00",
+      "display_time": "2026-11-06T02:55:01+08:00",
+      "text": "恐慌的睡不著",
+      "text_sha256": "247dfbc05ebd38b1b1203f570fa55ef9a40700964d784d7ae5e6648b422067ed",
+      "images": [],
+      "category": "情緒強烈但投資情境不足",
+      "proposed": {
+        "sentiment": "insufficient_information",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "insufficient_information"
+        ],
+        "basis": "只有「恐慌的睡不著」，無圖片、無標的或投資情境。不能讀鄰近／之後貼文把恐慌原因補成股票；也不能肯定無關，應為資訊不足。",
+        "requires_image_review": false
+      },
+      "approval": "pending_user_confirmation"
+    },
+    {
+      "number": 10,
+      "key": "threads:3946164126477408639",
+      "post_id": "3946164126477408639",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbDl12IE1l_",
+      "published_at": "2026-07-21T13:10:44+00:00",
+      "display_time": "2026-07-21T21:10:44+08:00",
+      "text": "現在的我呈現一個\n因為部分停損，所以大漲不爽\n因為還沒損完，所以續跌痛苦\n的狀態矛盾狀態_(:_」∠)_\n\nLittle sunday 果乾團購： 今日update\n因為群創回到50， 獎金變成5萬了❤️\n\n團購連結： 鳳梨真的好吃\nhttps://littlesunday-fruits.my1shop.com/banini",
+      "text_sha256": "c407ea8a2026b206654dbd6a8c009a4f1ea1c0f660b0ea48609dc3c32d4829a1",
+      "images": [
+        {
+          "index": 0,
+          "media_id": "",
+          "type": "image",
+          "viewer_url": "https://www.threads.com/@banini31/post/DbDl12IE1l_",
+          "width": 3072,
+          "height": 4096,
+          "platform_ocr_unverified": "",
+          "downloaded_this_round": false,
+          "human_verified": false
+        }
+      ],
+      "category": "矛盾情緒＋業配及獎金股價",
+      "proposed": {
+        "sentiment": "insufficient_information",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "insufficient_information"
+        ],
+        "basis": "本人明說漲不爽、跌痛苦的矛盾情緒；群創股價在果乾團購獎金段落，不足以指定為本人交易立場標的。先區分本人情緒與業配，方向0，不以群創之後表現決定。",
+        "requires_image_review": true
+      },
+      "approval": "pending_user_confirmation"
+    }
+  ]
+}
