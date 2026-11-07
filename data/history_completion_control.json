@@ -52,7 +52,17 @@
       }
     }
   },
-  "runs": [],
+  "runs": [
+    {
+      "source": "facebook",
+      "start_utc": "2026-11-06T12:03:04+00:00",
+      "end_utc": "2026-11-07T12:15:59.578797+00:00",
+      "submission_unknown": true,
+      "processed": false,
+      "cap_usd": 0.1,
+      "max_items": 50
+    }
+  ],
   "apify_http_counts": {
     "GET": 1,
     "POST": 0
