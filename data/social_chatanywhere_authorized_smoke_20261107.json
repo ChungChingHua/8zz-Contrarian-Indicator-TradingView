@@ -31,7 +31,12 @@
       "api_status": null,
       "download_success": false,
       "request_includes_image": false,
-      "schema_valid": false
+      "schema_valid": false,
+      "download_state": "not_attempted_model_preflight_rejected",
+      "schema_validation_state": "not_attempted_no_generation",
+      "classification_state": "not_sent_pending_retry",
+      "service_model_claim": null,
+      "service_reasoning_claim": null
     },
     {
       "key": "threads:4024468641932717746",
@@ -43,7 +48,12 @@
       "api_status": null,
       "download_success": false,
       "request_includes_image": false,
-      "schema_valid": false
+      "schema_valid": false,
+      "download_state": "not_attempted_model_preflight_rejected",
+      "schema_validation_state": "not_attempted_no_generation",
+      "classification_state": "not_sent_pending_retry",
+      "service_model_claim": null,
+      "service_reasoning_claim": null
     }
   ],
   "passed": false,
@@ -57,5 +67,6 @@
   "error_code": null,
   "stop_reason": "Stopped without retries; inspect sanitized evidence",
   "finished_at": "2026-11-07T06:34:03.747439+00:00",
-  "control_plane_note": "GitHub Actions checkout/artifact internals excluded from provider HTTP counts; audit persistence uses one GitHub contents GET and one PUT attempt."
+  "control_plane_note": "GitHub Actions checkout/artifact internals excluded from provider HTTP counts; audit persistence uses one GitHub contents GET and one PUT attempt.",
+  "result_note": "Model-list request received HTTP 403. No safe error code or quota header was returned; origin of refusal (service/intermediary), credential validity, account permissions and quota cannot be determined. No retries."
 }

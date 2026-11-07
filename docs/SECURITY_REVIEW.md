@@ -46,7 +46,7 @@ S3 的精確含義是：必要使用紀錄可能保留，內容也有安全、�
 | 中，已限制能力 | 貼文與圖片提示注入仍可污染分類 | 錯誤方向、理由或標的，影響研究結果 | 不提供 tools、檔案／環境存取或命令執行能力；只接受固定 schema，拒絕工具輸出；字串與 enum 驗證、Pine escaping；仍須人工複核，不能把 schema 正確當語意正確 | social_pipeline.py、update_pine_script.py |
 | 中，部分修正 | 供應鏈含 mutable Action tags、前端 CDN 與第三方統計 | 改版／供應鏈污染、瀏覽資料外送 | Actions 改釘完整 SHA、checkout 不持久保存 Git 憑證；圖表 CDN 加 SRI、移除訪客統計。Python 行情依賴雖固定版本但無完整 hash lock／SBOM；Actions、函式庫未逐行全面審計 | .github/workflows、requirements.txt、docs/index.html |
 | 中，已補強 | 原網址欄位 escaping 但不檢查 URL scheme，回應 usage／metadata 過度信任 | 點擊式不安全 URL、污染公開資料 | 來源只允許 HTTPS Meta 網域，前端拒絕非預期 scheme／host；公開結構 URL 去查詢參數，輸出長度限制，usage 僅保留定義的非負整數，provider 回應若反射當次金鑰則拒絕持久化 | public_safety.py、social_pipeline.py、docs/index.html |
-| 中，新增使用者證據 | 使用者回報授權畫面僅要求 Email addresses 與 Profile information 讀取，未列 repository／workflow；權杖保存仍未知 | 可能擴大 GitHub 帳號存取權 | 本次只讀登入 HTML，未登入／授權，無法確認實際 scopes；授權頁若要求 repo、write、admin 等額外權限，先停下釐清，不為領免費 key 給不必要權限；可至 GitHub Applications 檢查／撤銷 | S2、S5、https://chatanywhere.tech/ |
+| 中，新增使用者證據 | 使用者回報授權畫面僅要求 Email addresses 與 Profile information 讀取，未列 repository／workflow；權杖保存仍未知 | 可能擴大 GitHub 帳號存取權 | 初次審查只讀登入 HTML；後續使用者提供畫面描述為 Email addresses／Profile information 唯讀，未列 repository／workflow，本輪未獨立復核。權杖保存方式仍未知；日後若出現額外權限先釐清，不為領免費 key 給不必要權限；可至 GitHub Applications 檢查／撤銷 | S2、S5、https://chatanywhere.tech/ |
 | 中／用途待確認 | 免費版限個人非商用／教育／非營利科研 | 自用獲利交易或公開產品可能有條款邊界 | 個人離線研究較接近允許場景，但不能自行確定獲利交易屬非商用；必要時請業者書面確認。**不延伸認定可用於客戶、顧問、收費訊號或商業 SaaS** | S2、S4 |
 
 ## 網域、TLS 與金鑰傳送
@@ -82,3 +82,13 @@ S3 的精確含義是：必要使用紀錄可能保留，內容也有安全、�
 使用者另明確授權一次技術評估：僅固定 Facebook／Threads 各一篇公開貼文及圖片，CHATANYWHERE_API_KEY 獨立注入；模型查詢最多一次、生成最多兩次且無自動重試。必要功能不支援或第一筆失敗即停止，不換模型、供應商或降級格式／圖片。一般暫停開關保持 true，獨立一次性流程僅在記憶體中開放固定樣本所需路徑，完成後停止；不改 archive、Pine、不啟用 schedule／Pages、不合併。這不代表確認免費版適合個人交易研究，亦不適用客戶或商業服務。
 
 圖片來源從既有歷史 archive 在 runner 本地讀取，只有指定兩筆的原文與圖片 bytes 會送到供應商；不把儲存庫檔案或原始帶簽名網址送入模型，也不將這些網址重新寫回公開資料。產物僅為去除敏感資料的專用 audit。免費點數查詢若沒有已確認的接口／回傳欄位，明示未知，不能以 token 用量推算點數或宣稱零扣點。
+
+## 本次有限授權實際結果（已停止）
+
+[一次性 Actions 執行紀錄](https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/42347578466)。模型清單 GET /v1/models 收到 HTTP 403，沒有可安全辨識的錯誤代碼或額度欄位，不能判定拒絕來自服務或中介層，也不推定是金鑰無效、餘額不足或模型不支援。依指示立即停止、無自動重試。
+
+模型查詢 1 次、生成 0 次、其他供應商查詢 0 次、圖片下載 HTTP 0 次。這些是供應商／媒體請求計數，不包含 Actions 自身的 checkout、log／artifact 上傳；獨立審查檔案保存另使用 GitHub contents GET 1 次及 PUT 1 次。一般暫停旗標一直保持 true，原 659 篇資料與 Pine 沒有改動。一次性入口現已停用，不使用任何 Secret；PR 及 Pages／排程維持原狀。
+
+固定樣本仍為 Facebook 1703774981107090（不用停損，因為停不掉）及 Threads 4024468641932717746（展示新 GShock，表示下週穩了）。兩筆均尚未嘗試下載／附圖，沒有生成請求、沒有固定格式輸出，也沒有方向、強度、標的、理由或服務回傳的模型／推理資訊。指定 gpt-5-mini／low 僅是請求設定，不能當作實測支援或獨立驗證。前後免費點數、請求額度、token 用量皆未取得；不宣稱零扣點，亦不把點數換算成 tokens。
+
+逐筆與請求紀錄見 data/social_chatanywhere_authorized_smoke_20261107.json。這次不標記貼文處理完成，沒有換模型、略過圖片／格式、切換付費供應商，亦未把官方 OpenAI 金鑰注入一次性 job。
