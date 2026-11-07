@@ -1,0 +1,61 @@
+{
+  "scope": "2026-11-07-chatanywhere-two-public-posts-v1",
+  "consumed": true,
+  "provider": "chatanywhere",
+  "requested_model": "gpt-5-mini",
+  "reasoning_requested": "low",
+  "started_at": "2026-11-07T06:34:03.635269+00:00",
+  "http_counts": {
+    "model_queries": 1,
+    "generation": 0,
+    "other_provider_queries": 0,
+    "image_downloads": 0
+  },
+  "events": [
+    {
+      "kind": "model_queries",
+      "http_status": 403,
+      "remaining_headers": {},
+      "error_code": null,
+      "error_reason": "Service rejected required request; raw error omitted to protect credentials/content"
+    }
+  ],
+  "samples": [
+    {
+      "key": "facebook:1703774981107090",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid03143n7ECXc3swjAwzFvjXJFrfksuaecAmRtRR5uV5yaYAvtNQVrh2WDpG1ciUKMXsl",
+      "display_time": "2026-11-06T09:15:20+08:00",
+      "text": "市場跟我說\n孩子， 你不用停損...\n因為你停不掉_(:_」∠)_",
+      "status": "not_sent",
+      "api_status": null,
+      "download_success": false,
+      "request_includes_image": false,
+      "schema_valid": false
+    },
+    {
+      "key": "threads:4024468641932717746",
+      "source": "threads",
+      "url": "https://www.threads.com/t/DfZyOhEGS6y",
+      "display_time": "2026-11-06T22:07:49+08:00",
+      "text": "沒事， 就是給大家看看我的新GShock\n然後跟大家說， 看來下週穩了",
+      "status": "not_sent",
+      "api_status": null,
+      "download_success": false,
+      "request_includes_image": false,
+      "schema_valid": false
+    }
+  ],
+  "passed": false,
+  "quota_before": null,
+  "quota_after": null,
+  "quota_note": "Only service-returned headers are recorded. No confirmed point-balance API; missing or delayed values remain unknown. Points are not tokens; no zero-deduction claim.",
+  "unchanged": "General pause, archive, Pine, schedule and Pages remain unchanged; no batch or merge.",
+  "stopped": true,
+  "error_type": "APIError",
+  "http_status": 403,
+  "error_code": null,
+  "stop_reason": "Stopped without retries; inspect sanitized evidence",
+  "finished_at": "2026-11-07T06:34:03.747439+00:00",
+  "control_plane_note": "GitHub Actions checkout/artifact internals excluded from provider HTTP counts; audit persistence uses one GitHub contents GET and one PUT attempt."
+}
