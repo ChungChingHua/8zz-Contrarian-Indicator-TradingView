@@ -1,6 +1,7 @@
 """One-time history completion, durable checkpoints, unchanged author policy. MPL-2.0."""
 import copy,json,os,subprocess,sys
 from collections import Counter
+from datetime import datetime
 from pathlib import Path
 import history_worker as h
 import original_author as policy
@@ -80,15 +81,19 @@ def report(remote=None):
             q=quality.get(k)
             status='technical_failure' if q and q.get('status')=='input_review' or p['analysis'].get('status')=='retry' and not q else 'pending_confirmation'
             reason='Previous test or review; original-author policy not re-generated or silently assumed validated'
+            if q and q.get('error_reason'):reason+='; preserved input error: '+q['error_reason']
+            elif p['analysis'].get('status')=='retry':reason+='; preserved archive error: '+str(p['analysis'].get('error_code') or p['analysis'].get('error_type') or p['analysis'].get('reason') or 'see source archive')
             origin=legacy[k]
         else:status='not_started';reason='';origin=None
         inventory.append({'key':k,'url':p['url'],'display_time':p['display_time'],'status':status,'stored_status':raw_status,'record_key':r['key'] if r else None,'evidence':origin,'reason':reason})
     candidates,checks=build({'records':sorted(rows.values(),key=lambda r:(r['unix_ms'],r['key']))})
     out=ROOT/'candidates/8zz-history-latest.pine';out.parent.mkdir(exist_ok=True);out.write_text(candidates)
     h.s.write(out.with_suffix('.checks.json'),checks)
-    c=Counter(r['status'] for r in inventory);control=h.s.read(ROOT/CONTROL,{})
+    c=Counter(r['status'] for r in inventory)
+    for status in ('completed_signal','completed_no_signal','pending_confirmation','technical_failure','input_failure','unknown','not_started'):c.setdefault(status,0)
+    control=h.s.read(ROOT/CONTROL,{})
     new=[r for r in rows.values() if origins[r['key']].split('/')[-1].startswith(SCOPE)]
-    usage={k:sum(r.get('service_response',{}).get('usage',{}).get(k,0) or 0 for r in new) for k in ('input_tokens','output_tokens','total_tokens','reasoning_tokens')}
+    usage={k:sum((r.get('service_response',{}).get('usage') or {}).get(k,0) or 0 for r in new) for k in ('input_tokens','output_tokens','total_tokens','reasoning_tokens')}
     pending=[r for r in inventory if r['status']=='not_started'];groups,_=select(data,{r['key'] for r in inventory if r['status']!='not_started'},len(data))
     last_terminal=max((r['display_time'] for r in inventory if r['status']!='not_started'),default=None)
     first_pending=min((r['display_time'] for r in pending),default=None)
@@ -98,22 +103,36 @@ def report(remote=None):
         if r['status'] not in ('completed_signal','completed_no_signal'):break
         success_prefix.append(r)
     latest_event=max((r['display_time'] for r in rows.values() if r['status']=='completed_signal'),default=None)
-    summary={'scope':SCOPE,'cutoff_utc':control.get('cutoff_utc'),'acquisition_completed':control.get('acquisition_completed',False),
+    summary={'scope':SCOPE,'cutoff_utc':control.get('cutoff_utc'),'cutoff_taipei':datetime.fromisoformat(control['cutoff_utc']).astimezone(h.s.TAIPEI).isoformat() if control.get('cutoff_utc') else None,'acquisition_completed':control.get('acquisition_completed',False),
        'archive_posts':len(data),'data_range_by_source':{src:{'first':min(p['display_time'] for p in data.values() if p['source']==src),'latest_post':max(p['display_time'] for p in data.values() if p['source']==src)} for src in ('facebook','threads')},
        'post_status_counts':dict(c),'remaining_not_started_groups':len(groups),'remaining_not_started_platform_posts':len(pending),
        'latest_attempted_or_reviewed_date':last_terminal,'all_posts_visited_before_first_unstarted':prefix[-1]['display_time'] if prefix else None,
        'successfully_completed_contiguous_prefix':success_prefix[-1]['display_time'] if success_prefix else None,
        'first_unstarted_date':first_pending,'latest_signal_date':latest_event,'pine':checks,
+       'last_new_valid_response_date':max((r['display_time'] for r in new if r['status'] in ('completed_signal','completed_no_signal','pending_confirmation')),default=None),
+       'new_stop_post_date':control.get('stopped_at'),
        'new_generation_attempts':sum(r['attempts'] for r in new),'new_http_responses':sum('http_status' in r for r in new),
        'new_status_counts':dict(Counter(r['status'] for r in new)), 'service_reported_usage':usage,
-       'service_reported_cached_input_tokens':sum(r.get('raw_response',{}).get('json',{}).get('usage',{}).get('input_tokens_details',{}).get('cached_tokens',0) or 0 for r in new),
+       'new_validated_responses':sum(bool(r.get('processed')) for r in new),
+       'images_attached':sum(r.get('media_scope',{}).get('images_supplied',0) for r in new),
+       'videos_unanalysed':sum(m.get('kind')=='video' for r in new for m in r.get('media_scope',{}).get('unanalysed_media',[])),
+       'http_responses_without_usage':sum('http_status' in r and not isinstance(r.get('service_response',{}).get('usage'),dict) for r in new),
+       'service_reported_cached_input_tokens':sum(((r.get('raw_response',{}).get('json',{}).get('usage') or {}).get('input_tokens_details') or {}).get('cached_tokens',0) or 0 for r in new),
        'apify_http_counts':control.get('apify_http_counts',{}),'apify_runs':[{k:r.get(k) for k in ('source','run_id','status','counts','reported_cost','http_status')} for r in control.get('runs',[])],
        'model_queries':0,'other_ai_provider_queries':0,'actual_points_deducted':None,'quota_headers':new[-1].get('remaining_headers',{}) if new else {},
-       'stop_reason':control.get('stop_reason'),'all_history_fully_classified':control.get('acquisition_completed',False) and not any(c[x] for x in ('pending_confirmation','technical_failure','input_failure','unknown','not_started')),
+       'stop_reason':control.get('stop_reason'),'service_quota_statement':control.get('service_quota_statement'),'all_history_fully_classified':control.get('acquisition_completed',False) and not any(c[x] for x in ('pending_confirmation','technical_failure','input_failure','unknown','not_started')),
        'rule_sha256':policy.fingerprint(),'provider_model_and_reasoning':'Service-reported gpt-5-mini / minimal, not independently verified',
+       'usage_tracking_note':'ChatAnywhere request accounting is from durable ledgers; legacy usage.json ai_attempts is not the cumulative ChatAnywhere total.',
        'accounting_note':'Post counts include all prior tests, failures, reviews and cross-platform members; Pine counts are events, not posts. Tokens are service reports, not points or verified bills.'}
     h.s.write(ROOT/'data/history_completion_inventory.json',inventory);h.s.write(ROOT/'data/history_completion_summary.json',summary)
-    text=['# 一次性歷史補齊執行紀錄','',json.dumps(summary,ensure_ascii=False,indent=2).join(['```json\n','\n```']),
+    text=['# 一次性歷史補齊執行紀錄','',
+      '本次因實際阻塞停止，**尚未補齊全部歷史判讀**。' if control.get('stop_reason') else '請依下方剩餘及待確認清單判斷完成範圍。',
+      '',f"資料抓取截止 UTC {control.get('cutoff_utc')}（Asia/Taipei 為 {summary['cutoff_taipei']}）；共 {len(data)} 篇。已走訪至 {summary['all_posts_visited_before_first_unstarted']}，其中待確認／失敗另列；本輪最後有效回應 {summary['last_new_valid_response_date']}，最新事件 {latest_event}。",
+      '',f"完整 Pine {checks['total_events']} 事件 = 原歷史 {checks['historical_events']} + 累計新增 {checks['added_events']}；其中本輪新增 {sum(r['status']=='completed_signal' for r in new)}。",
+      '',f"狀態依來源貼文計：有訊號 {c['completed_signal']}、無訊號 {c['completed_no_signal']}、待確認 {c['pending_confirmation']}、失敗 {c['technical_failure']+c['input_failure']}、狀態不明 {c['unknown']}、尚未處理 {c['not_started']}（去重後 {len(groups)} 組）。跨平台同組會對應多筆貼文，但只產生一個事件。",
+      '',f"本輪生成 HTTP {summary['new_http_responses']} 次，成功固定格式回應 {summary['new_validated_responses']}；{summary['http_responses_without_usage']} 筆 HTTP 回應無 usage，不假定其零 tokens。已回報用量輸入 {usage['input_tokens']}／輸出 {usage['output_tokens']}／合計 {usage['total_tokens']} tokens。實際點數扣除未知；服務宣告共用 100 次免費請求的 24 小時視窗已耗盡，沒有提供確切重設時刻。",
+      '', '原始程式曾未處理 429 的 usage=null，導致最後彙整步驟失敗；已修正並以全部已保存回應離線重建，不新增任何生成。供應商錯誤原含遮蔽後的金鑰識別片段，最新帳本已進一步去除該片段，保留清理前 JSON hash；完整金鑰未輸出。',
+      '',json.dumps(summary,ensure_ascii=False,indent=2).join(['```json\n','\n```']),
       '', '原作者規則與 SHA256 未變。以前測試資料不是目前原作者標準的已完成結果；全部列入 inventory，未重送，也不自動沿用舊的額外門檻。舊帳本輸出矛盾的 technical_failure 僅在彙整清單標為待確認，原回應與原帳本不改。',
       '', '資料涵蓋截止時間請看 acquisition_completed、cutoff_utc 及 control 內各來源完成窗；latest_post 只代表最新抓到的貼文。latest_attempted_or_reviewed_date 包含以前測試樣本，不能當作連續處理進度。all_posts_visited_before_first_unstarted 包含待確認／失敗的已走訪資料，並非全部判讀成功；完整成功的前綴另列 successfully_completed_contiguous_prefix。最新訊號日期也不能代替資料處理完成日期。',
       '', '每篇來源、時間、狀態、原始帳本及原因見 data/history_completion_inventory.json。原文保留在 archive／增量資料，原始模型回應與 processed 分別保存於 history_progress。',
@@ -122,6 +141,8 @@ def report(remote=None):
       '', '前後免費點數及實際扣點若未由服務回傳就是未知，不等同零，也不能由 tokens 換算。Apify 維持每 run 180 秒／512MB／maxItems 50／maxTotalChargeUsd 0.10、每月70次；run 回報費用不一定等同完整帳單，未儲值或提高上限。',
       '', '候選完整 Pine：candidates/8zz-history-latest.pine，保留所有原始歷史事件、作者署名及 MPL-2.0；待確認／技術失敗／unknown 無新增箭頭。使用者已確認前一候選可載入，這份新生成檔未在 TradingView 實際編譯。手動下載全文至 Pine Editor 完整取代、儲存並更新圖表，GitHub 不會自動同步。',
       '', '恢復方式：先核對 control 與各帳本；已完成、待確認、失敗、unknown 不自動重送。unknown 須人工查明原請求；quota／access 故障修復後，只續尚未送出項目，重新取得同一已保存 Apify dataset 不會重新啟動 Actor。新執行必須保留同一截止時間與 scope；不得重新抓整段歷史。',
+      '', '本輪可接續的第一篇是 Threads 3956314846774104604，2026-08-04 21:18:23（Asia/Taipei）。額度重設時間未取得，不能假定台灣午夜恢復。恢復後保留現有資料 cutoff，不另啟動 Apify；若需要恢復新資料的私有媒體網址，只讀已保存 dataset。先將本次阻塞保留於 control 的歷史紀錄，明確解除 closed／stop_reason，再啟用這個一次性手動入口；只選 not_started，這次 429 失敗資料也不自動重送。',
+      '', '本次 API 次數僅指 AI 生成及 Apify 啟動／讀取；GitHub 進度保存與圖片下載另計，沒有把上述數字宣稱為全部 HTTP 流量。data/usage.json 的 ai_attempts 為舊流程計數，不等於 ChatAnywhere 全部呼叫量，應以本次及既有帳本查核。',
       '', '只做一次性執行，不啟用持續排程、不發布 Pages、不合併 PR。']
     (ROOT/'docs/HISTORY_COMPLETION.md').write_text('\n'.join(text)+'\n')
     if remote:

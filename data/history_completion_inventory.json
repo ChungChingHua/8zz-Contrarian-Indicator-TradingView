@@ -934,61 +934,61 @@
     "key": "facebook:1616363613181561",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0Vu3Go79GKh4sDpbh5UqNaspt432bK7PEUiyGcNVJqdEJpdtc6n8mTeebLy4BCiuXl",
     "display_time": "2026-08-03T13:50:30+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "facebook:1616363613181561",
+    "evidence": "data/history_progress/history-completion-20261107-004.json",
+    "reason": "發文語氣抱怨且帶有無奈（被迫接回、被套或操作失誤的痛苦），情緒偏多但非極端。"
   },
   {
     "key": "threads:3955514815163221984",
     "url": "https://www.threads.com/@banini31/post/Dbkz8RlmUfg",
     "display_time": "2026-08-03T18:48:52+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3955514815163221984",
+    "evidence": "data/history_progress/history-completion-20261107-004.json",
+    "reason": "貼文文字過短（唉……不是）且圖為行情截圖，無明確表達個人持倉或情緒傾向，依規則無法判定投資立場，跳過。"
   },
   {
     "key": "threads:3955661179830498141",
     "url": "https://www.threads.com/@banini31/post/DblVOKTmXNd",
     "display_time": "2026-08-03T23:39:40+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:3955661179830498141",
+    "evidence": "data/history_progress/history-completion-20261107-004.json",
+    "reason": "貼文內容含糾紛性文字「你在綠什麼啦」且圖片為夜景無投資相關資訊，情緒與投資立場不明，屬於與投資無關或無法判定的貼文，跳過。"
   },
   {
     "key": "threads:3955680057553442999",
     "url": "https://www.threads.com/@banini31/post/DblZg3jkdi3",
     "display_time": "2026-08-04T00:17:13+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:3955680057553442999",
+    "evidence": "data/history_progress/history-completion-20261107-004.json",
+    "reason": "與投資無關的減肥問題，非投資貼文，跳過"
   },
   {
     "key": "threads:3955990300649452087",
     "url": "https://www.threads.com/@banini31/post/DbmgDf9GfI3",
     "display_time": "2026-08-04T10:33:34+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:3955990300649452087",
+    "evidence": "data/history_progress/history-completion-20261107-004.json",
+    "reason": "提到標的但語氣否認且無持倉/交易情緒，內容中性/非投資立場，依規則跳過"
   },
   {
     "key": "threads:3956236087476207953",
     "url": "https://www.threads.com/@banini31/post/DbnX8KxmcFR",
     "display_time": "2026-08-04T18:41:55+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "technical_failure",
+    "stored_status": "technical_failure",
+    "record_key": "threads:3956236087476207953",
+    "evidence": "data/history_progress/history-completion-20261107-004.json",
+    "reason": "provider_http_error"
   },
   {
     "key": "threads:3956314846774104604",
@@ -2674,7 +2674,7 @@
       "data/quality_samples.json",
       "data/history_batch_01_plan.json"
     ],
-    "reason": "Previous test or review; original-author policy not re-generated or silently assumed validated"
+    "reason": "Previous test or review; original-author policy not re-generated or silently assumed validated; preserved input error: video_or_unknown_media_requires_review"
   },
   {
     "key": "facebook:1640621427422446",
@@ -6611,7 +6611,7 @@
     "evidence": [
       "data/social_posts.json:analysis"
     ],
-    "reason": "Previous test or review; original-author policy not re-generated or silently assumed validated"
+    "reason": "Previous test or review; original-author policy not re-generated or silently assumed validated; preserved archive error: OSError"
   },
   {
     "key": "threads:4024468641932717746",

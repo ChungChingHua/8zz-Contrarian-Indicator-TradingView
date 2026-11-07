@@ -316,7 +316,7 @@
           "prompt_cache_retention": "in_memory"
         },
         "complete_json_sha256": "0598527d182458e4c61c738f6aff021657917dce4ff9b825906e67ae955be221",
-        "redaction_note": "Opaque encrypted_content omitted; all classification, usage and ordinary metadata retained. No claim of original HTTP bytes."
+        "redaction_note": "Opaque encrypted_content omitted; provider-masked key identifiers additionally redacted. Original pre-redaction parsed JSON hash retained. Classification, usage and all progress unchanged."
       },
       "service_response": {
         "model_claim": "gpt-5-mini",
@@ -654,7 +654,7 @@
           "prompt_cache_retention": "in_memory"
         },
         "complete_json_sha256": "2e8dd2011baa7a4ea54859fa7037aeb8703cac62983a2b9d9613ce4ec97a7789",
-        "redaction_note": "Opaque encrypted_content omitted; all classification, usage and ordinary metadata retained. No claim of original HTTP bytes."
+        "redaction_note": "Opaque encrypted_content omitted; provider-masked key identifiers additionally redacted. Original pre-redaction parsed JSON hash retained. Classification, usage and all progress unchanged."
       },
       "service_response": {
         "model_claim": "gpt-5-mini",
@@ -992,7 +992,7 @@
           "prompt_cache_retention": "in_memory"
         },
         "complete_json_sha256": "419fc303aaccde7c4533cb7bca03b553c80e5d47846ca3349acb27d429fdf26c",
-        "redaction_note": "Opaque encrypted_content omitted; all classification, usage and ordinary metadata retained. No claim of original HTTP bytes."
+        "redaction_note": "Opaque encrypted_content omitted; provider-masked key identifiers additionally redacted. Original pre-redaction parsed JSON hash retained. Classification, usage and all progress unchanged."
       },
       "service_response": {
         "model_claim": "gpt-5-mini",
@@ -1329,7 +1329,7 @@
           "prompt_cache_retention": "in_memory"
         },
         "complete_json_sha256": "f872d4cdf270a2c9cd9aad7761576dce167c1f493012b0529d549b5eb8584275",
-        "redaction_note": "Opaque encrypted_content omitted; all classification, usage and ordinary metadata retained. No claim of original HTTP bytes."
+        "redaction_note": "Opaque encrypted_content omitted; provider-masked key identifiers additionally redacted. Original pre-redaction parsed JSON hash retained. Classification, usage and all progress unchanged."
       },
       "service_response": {
         "model_claim": "gpt-5-mini",
@@ -1653,7 +1653,7 @@
           "prompt_cache_retention": "in_memory"
         },
         "complete_json_sha256": "14562fe852b73d4c0d6f7d4895bdaa4520806bd5a3c04cc4dc13590ff173071c",
-        "redaction_note": "Opaque encrypted_content omitted; all classification, usage and ordinary metadata retained. No claim of original HTTP bytes."
+        "redaction_note": "Opaque encrypted_content omitted; provider-masked key identifiers additionally redacted. Original pre-redaction parsed JSON hash retained. Classification, usage and all progress unchanged."
       },
       "service_response": {
         "model_claim": "gpt-5-mini",
@@ -1730,14 +1730,14 @@
       "raw_response": {
         "json": {
           "error": {
-            "message": "当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-qk****jKr)【如果您遇到问题，欢迎加入QQ群咨询：1003520025】",
+            "message": "当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: [REDACTED_KEY_IDENTIFIER])【如果您遇到问题，欢迎加入QQ群咨询：1003520025】",
             "type": "chatanywhere_error",
             "param": null,
             "code": "429 TOO_MANY_REQUESTS"
           }
         },
         "complete_json_sha256": "a51bf9a3c60a273be925c7a9c45d85a4f292d86e13ece28c9b6f4dc048e97427",
-        "redaction_note": "Opaque encrypted_content omitted; all classification, usage and ordinary metadata retained. No claim of original HTTP bytes."
+        "redaction_note": "Opaque encrypted_content omitted; provider-masked key identifiers additionally redacted. Original pre-redaction parsed JSON hash retained. Classification, usage and all progress unchanged."
       },
       "service_response": {
         "model_claim": null,

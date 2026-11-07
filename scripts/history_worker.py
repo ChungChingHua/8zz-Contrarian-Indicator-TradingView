@@ -26,8 +26,9 @@ def safe_response(value,secrets):
     def clean(x):
         if isinstance(x,dict):return {k:clean(v) for k,v in x.items() if k!='encrypted_content'}
         if isinstance(x,list):return [clean(v) for v in x]
+        if isinstance(x,str):return re.sub(r'\bsk-[A-Za-z0-9_*\-]+','[REDACTED_KEY_IDENTIFIER]',x)
         return x
-    return {'json':clean(value),'complete_json_sha256':digest(value),'redaction_note':'Opaque encrypted_content omitted; all classification, usage and ordinary metadata retained. No claim of original HTTP bytes.'}
+    return {'json':clean(value),'complete_json_sha256':digest(value),'redaction_note':'Opaque encrypted_content omitted and provider key identifiers redacted; classification and usage retained. Pre-redaction parsed JSON hash retained, not original HTTP bytes.'}
 
 class GitHubStore:
     def __init__(self,token,path=None):

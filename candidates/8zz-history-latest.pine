@@ -1,7 +1,7 @@
 // This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © hansai-art / Group.G
 // 8zz 反指標 v2
-// 事件: 186筆 | 期間: 2025/12 ~ 2026/08
+// 事件: 187筆 | 期間: 2025/12 ~ 2026/08
 // 情緒解讀框架：負面情緒（被套、停損、恐慌）→ 偏多 ▲（散戶恐慌→主力拉升）
 //               正面情緒（漲停追買、過度樂觀）→ 偏空 ▼（市場過熱→崩跌機率高）
 // 免責聲明：本指標僅供娛樂參考，不構成任何投資建議。
@@ -1033,6 +1033,11 @@ if barstate.isfirst
     array.push(evt_dir, 1)
     array.push(evt_str, 3)
     array.push(evt_tips, "持有/樂觀喊話\n指標: 偏多 ▲ | 強度: 3\n2026-08-03T09:40:04+08:00 目前虧錢！ 我有信心啊啊啊啊啊啊\n貼文文字說「目前虧錢！我有信心」，情緒是虧損但帶有堅持/鼓舞語氣（痛苦中有希望），且附有交易畫面顯示已下單/持倉，強度設為3。\nhttps://www.threads.com/@banini31/post/Dbj1IwmGV3q")
+    array.push(evt_ticker, "00631L.TW")
+    array.push(evt_time, 1785736230000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買回/接回\n指標: 偏多 ▲ | 強度: 2\n2026-08-03T13:50:30+08:00 ⋯⋯⋯ 一早開盤衝進場的我\n不是\n唉\n你不能愛普今天開低走漲停\n我的正二開高走低啊\n是逼我把愛普接回來嗎？\n愛普是什麼家暴渣男嗎_(:_」∠)_\n發文語氣抱怨且帶有無奈（被迫接回、被套或操作失誤的痛苦），情緒偏多但非極端。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0Vu3Go79GKh4sDpbh5UqNaspt432bK7PEUiyGcNVJqdEJpdtc6n8mTeebLy4BCiuXl")
     array.push(evt_ticker, "00631L.TW")
 
 var int currentDir = 0
