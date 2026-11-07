@@ -292,5 +292,75 @@
       "reason": "尚未判讀；不產生訊號"
     },
     "content_hash": "ecdbab5eac6260c785ab5506c00f95dbe4db8e4937d74c0ef0c2a48e4815aa82"
+  },
+  "threads:4025043302263849308": {
+    "key": "threads:4025043302263849308",
+    "post_id": "4025043302263849308",
+    "source": "threads",
+    "url": "https://www.threads.com/t/Dfb047NAIFc",
+    "published_at": "2026-11-07T09:09:34+00:00",
+    "display_time": "2026-11-07T17:09:34+08:00",
+    "unix_ms": 1794042574000,
+    "text": "薩爾達大全套❤️\n精靈卡套找不到了(;´༎ຶД༎ຶ`)\n\n是說當時完全是靠攻略本才能全破\n唉， 講出攻略本是不是透露年紀了？",
+    "attachments": [
+      {
+        "type": "photo",
+        "url": "https://scontent-atl3-1.cdninstagram.com/v/t51.82787-15/888206681_18343906858272066_8903551907141614172_n.jpg",
+        "width": 1104,
+        "height": 1184
+      }
+    ],
+    "quoted_content": {},
+    "quote_flag": null,
+    "analysis": {
+      "status": "pending",
+      "reason": "尚未判讀；不產生訊號"
+    },
+    "content_hash": "12c866e869bf6a032bb360fedc340fab637ed6bf6b6c91c08c850fd5b4e1a4f1"
+  },
+  "threads:4024966593813495052": {
+    "key": "threads:4024966593813495052",
+    "post_id": "4024966593813495052",
+    "source": "threads",
+    "url": "https://www.threads.com/t/Dfbjcq5ET0M",
+    "published_at": "2026-11-07T06:37:09+00:00",
+    "display_time": "2026-11-07T14:37:09+08:00",
+    "unix_ms": 1794033429000,
+    "text": "薩爾達switch2大全套 or ipad min512G or 玻尿酸豐唇\n\n都幾？",
+    "attachments": [],
+    "quoted_content": {},
+    "quote_flag": null,
+    "analysis": {
+      "status": "pending",
+      "reason": "尚未判讀；不產生訊號"
+    },
+    "content_hash": "edf6405721a72840391edb800c69d074f37d32b8762ee9a4a5532b326290b5fa"
+  },
+  "threads:4024552660493334032": {
+    "key": "threads:4024552660493334032",
+    "post_id": "4024552660493334032",
+    "source": "threads",
+    "url": "https://www.threads.com/t/DfaFVJcjvYQ",
+    "published_at": "2026-11-06T16:54:48+00:00",
+    "display_time": "2026-11-07T00:54:48+08:00",
+    "unix_ms": 1793984088000,
+    "text": "其實股市的走勢已經不是3-5月那個瘋狂的大多頭了～\n之後更可能像22-23年那種緩坡而已\n\n要歐硬的可能需要更多的耐心跟勇氣",
+    "attachments": [
+      {
+        "type": "video",
+        "url": "https://scontent-atl3-1.cdninstagram.com/v/t51.71878-15/890716957_2353911995421713_1744733275461466012_n.jpg",
+        "videoUrl": "https://scontent-atl3-1.cdninstagram.com/o1/v/t2/f2/m86/AQM75-LpY47DBVvV02utOiPeObGcFtc4mngBjoKOgeMbv9zzXep5748iZSQCwxaSGKbfDkYz8J8BlJyIP4xAQfElDIZH-ZsRTiU1DKg.mp4",
+        "width": 1080,
+        "height": 1920,
+        "hasAudio": true
+      }
+    ],
+    "quoted_content": {},
+    "quote_flag": null,
+    "analysis": {
+      "status": "pending",
+      "reason": "尚未判讀；不產生訊號"
+    },
+    "content_hash": "8d3d0bfff1de57798c9c794af43e546195926e16a2566252a199dd0d420c0d4c"
   }
 }
