@@ -87,6 +87,7 @@ def run(audit,posts):
             return original(conn,*args,**kwargs)
         stack.enter_context(patch.object(safe_media.PinnedTLS,'request',download))
         for p,row in zip(posts,audit.report['samples']):
+            if row['status'] in ('evaluated_test_only','input_review'):continue
             audit.current=row;row['status']='input_review';audit.save()
             try:
                 images=s.image_parts(p)

@@ -1,4 +1,4 @@
-name: Authorized ten-post blind quality test
+name: Authorized remaining blind quality samples
 on:
   push:
     branches: [codex/social-pipeline-20261106]
@@ -23,13 +23,13 @@ jobs:
           python-version: '3.12'
       - name: Offline tests before any provider request
         run: python -m unittest discover -s scripts -p 'test_*.py'
-      - name: Up to ten independent generations, no retry
+      - name: Only previously unattempted rows 6..10, no retry
         env:
           CHATANYWHERE_API_KEY: ${{ secrets.CHATANYWHERE_API_KEY }}
-          AUTHORIZED_QUALITY_SCOPE: 2026-11-07-independent-quality-ten-v1
+          AUTHORIZED_QUALITY_SCOPE: 2026-11-07-independent-quality-unattempted-only-v1
           AUTHORIZED_PROTOCOL_SHA256: a1fa9e748994ac713a05bf0633f3b152bca0a86c325e268534456046faab5846
           AUTHORIZED_PLAN_SHA256: c300306ddaaad7c6cf6c5008042e2d34cf8f7f62e944d948777e5cfa8d6493de
-        run: python scripts/authorized_quality_test.py
+        run: python scripts/continue_quality_test.py
       - name: Persist sanitized test evidence without AI key
         if: always()
         env:

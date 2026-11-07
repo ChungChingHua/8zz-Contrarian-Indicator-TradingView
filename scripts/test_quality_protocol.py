@@ -95,3 +95,20 @@ class QualityTests(unittest.TestCase):
         with self.assertRaises(ValueError):q.parse_response(result)
 
 if __name__=='__main__':unittest.main()
+
+class ResumeTests(unittest.TestCase):
+    def test_only_known_nonservice_input_block_can_resume(self):
+        import continue_quality_test as c
+        plan=json.loads(t.PLAN.read_text())
+        with tempfile.TemporaryDirectory() as d:
+            a=t.Audit('fixture-key',plan,Path(d)/'report.json')
+            for row in a.report['samples'][:4]:row.update(status='evaluated_test_only',generation_attempts=1,api_status=200)
+            a.report['samples'][4].update(status='input_review',error_reason='video_or_unknown_media_requires_review')
+            a.report['stop_sample']=5;a.report['http_counts']['generation']=4
+            c.validate_resume(a.report,plan)
+            bad=copy.deepcopy(a.report);bad['samples'][0]['api_status']=429
+            with self.assertRaises(ValueError):c.validate_resume(bad,plan)
+            bad=copy.deepcopy(a.report);bad['continuation_consumed']=True
+            with self.assertRaises(ValueError):c.validate_resume(bad,plan)
+            bad=copy.deepcopy(a.report);bad['samples'][5]['generation_attempts']=1
+            with self.assertRaises(ValueError):c.validate_resume(bad,plan)
