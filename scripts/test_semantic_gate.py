@@ -23,6 +23,14 @@ class SemanticTests(unittest.TestCase):
             a=g.assess(post(text=text),candidate(direction=direction,reason=reason,target=target,ticker=''))
             self.assertEqual(a['status'],'done');self.assertEqual(a['direction'],direction)
             self.assertEqual(a['semantic_check']['evidence']['target']['source'],'author_text')
+    def test_very_is_not_negation_but_no_panic_is(self):
+        p=post(text='BTC 股票非常恐慌')
+        r=g.assess(p,candidate(target='BTC',ticker='',reason='投資非常恐慌'))
+        self.assertEqual(r['status'],'done')
+        p=post(text='BTC 股票沒有恐慌')
+        r=g.assess(p,candidate(target='BTC',ticker='',reason='投資恐慌'))
+        self.assertEqual(r['status'],'review');self.assertEqual(r['direction'],0)
+
     def test_traceable_target_and_ticker_independently(self):
         p=post(text='台積電股票好恐慌')
         a=g.assess(p,candidate())

@@ -61,6 +61,6 @@
 
 請先確認這10篇、邊界答案與圖片；確認後再另行授權小批品質測試。目前不送任何生成請求。
 
-離線驗證：`python -m unittest discover -s scripts -p 'test_*.py'`，80項通過，包含兩筆 smoke 回歸、無證據標的清空、否定／矛盾／混合情緒、狀態分流、不反覆送中性／待確認資料、圖片雜湊／人工證據限制、Pine 舊快取不能繞過、候選原文與時間完整性。
+離線驗證：`python -m unittest discover -s scripts -p 'test_*.py'`，81項通過，包含兩筆 smoke 回歸、無證據標的清空、否定／矛盾／混合情緒、狀態分流、不反覆送中性／待確認資料、圖片雜湊／人工證據限制、Pine 舊快取不能繞過、候選原文與時間完整性。
 
 可重建樣本：`python scripts/build_quality_samples.py`（只讀 archive，不讀行情或 API）。可離線重驗兩筆已保存回應：`python scripts/review_cached_quality.py`；不呼叫 API、不重建 Pine，只更新上述兩筆及專用報告。
