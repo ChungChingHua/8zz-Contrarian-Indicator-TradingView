@@ -120,7 +120,9 @@
     "GET": 0,
     "POST": 0
   },
-  "last_chunk": "history-completion-20261107-003",
-  "updated_at": "2026-11-07T12:25:55.995162+00:00",
-  "consecutive_isolated_failures": 0
+  "last_chunk": "history-completion-20261107-004",
+  "updated_at": "2026-11-07T12:26:42.937202+00:00",
+  "consecutive_isolated_failures": 0,
+  "stop_reason": "provider_access_quota_or_common_failure",
+  "stopped_at": "2026-08-04T18:41:55+08:00"
 }
