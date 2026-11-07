@@ -110,4 +110,6 @@
 [Mozilla Public License 2.0](https://mozilla.org/MPL/2.0/) — 可自由使用、修改、衍生，但衍生作品須保留原授權。
 
 
-目前進度：技術 smoke 已完成，正在進行**離線判讀品質驗證**。請先確認 [10篇候選原文、圖片與預期依據](docs/QUALITY_SAMPLES.md)；[語意一致性、標的證據與狀態分流](docs/SEMANTIC_QUALITY.md) 已加入。沒有新增生成請求，線上／排程／Pages仍停用，PR尚未合併。
+目前進度：品質小批測試已完成並停止，9篇取得答案、1篇影片輸入阻擋。見 [完整逐篇結果](docs/QUALITY_TEST_RESULTS.md) 與 [固定三軸規則](docs/QUALITY_PROTOCOL.md)。候選不是標準答案，品質仍需審查；結果只在測試檔，線上／排程／Pages停用，PR尚未合併。
+
+品質小批測試已停止：[9篇取得模型答案、1篇影片輸入阻擋的逐篇紀錄](docs/QUALITY_TEST_RESULTS.md)。三軸已分開，缺標的不抹除情緒；仍有語意與代碼證據問題，未判定可批次。結果只存測試檔，正式Pine未寫入。

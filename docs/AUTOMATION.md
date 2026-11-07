@@ -77,3 +77,5 @@ Mode A 與 Mode B 都依 `direction × 價格變動`，正數勝、負數敗、�
 技術 smoke 完成不解除暫停。上述線上操作順序僅供未來另行授權時參考，現在不執行。最新狀態分流與標的證據規則以 [離線語意檢查](SEMANTIC_QUALITY.md) 為準：確定無關／中性為 no_signal，資訊不足／矛盾為 review，只有技術失敗為 retry。no_signal 與 review 不會在一般流程自動再次送 API；穩定的輸入／附件問題也須人工補正。完整模型答案留在 model_candidate，正式欄位可因缺證據被清空或方向歸零。
 
 請先確認 [10篇品質候選](QUALITY_SAMPLES.md)，未確認前不做小批生成，亦不批次、排程、Pages或合併。圖片 OCR 僅為未驗證的來源資料，不能當作人工已看圖。
+
+品質測試更新：使用者授權10篇技術品質測試，三軸已分開，標的不明不再抹除已明確的投資情緒方向；候選答案不進prompt、不作gold。[本輪逐篇紀錄](QUALITY_TEST_RESULTS.md)：9篇取得答案，第5篇Video無生成，仍有品質疑點；結果只在測試檔，正式archive與Pine不寫入。所有線上入口完成後再停用，不解除批次／排程／Pages限制。
