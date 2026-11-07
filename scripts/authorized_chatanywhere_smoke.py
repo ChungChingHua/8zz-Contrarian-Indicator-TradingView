@@ -60,9 +60,9 @@ class StopRedirect(urllib.request.HTTPRedirectHandler):
 
 
 class Audit:
-    def __init__(self,key,path=REPORT,transport=None):
+    def __init__(self,key,path=REPORT,transport=None,expected_effort="low",max_generations=2):
         self.key=key;self.path=path;self.transport=transport or self.http
-        self.current=None
+        self.current=None;self.expected_effort=expected_effort;self.max_generations=max_generations
         self.report={'scope':SCOPE,'consumed':True,'provider':'chatanywhere','requested_model':'gpt-5-mini','reasoning_requested':'low',
           'started_at':datetime.now(timezone.utc).isoformat(),'http_counts':{'model_queries':0,'generation':0,'other_provider_queries':0,'image_downloads':0},
           'events':[],'samples':[],'passed':False,'quota_before':None,'quota_after':None,
@@ -87,10 +87,10 @@ class Audit:
         kind='model_queries' if url in ('https://api.chatanywhere.org/v1/models','https://api.chatanywhere.tech/v1/models') and payload is None else 'generation'
         if retries!=1 or url not in ('https://api.chatanywhere.org/v1/models','https://api.chatanywhere.org/v1/responses','https://api.chatanywhere.tech/v1/models','https://api.chatanywhere.tech/v1/responses'):raise ValueError('unauthorized_route_or_retry')
         if headers!={'Authorization':'Bearer '+self.key,'Content-Type':'application/json'}:raise ValueError('credential_scope_mismatch')
-        cap=1 if kind=='model_queries' else 2
+        cap=1 if kind=='model_queries' else self.max_generations
         if self.report['http_counts'][kind]>=cap:raise ValueError('request_budget_exhausted')
         if kind=='generation':
-            if self.current is None or payload.get('model')!='gpt-5-mini' or payload.get('reasoning')!={'effort':'low'}:raise ValueError('generation_scope_mismatch')
+            if self.current is None or payload.get('model')!='gpt-5-mini' or payload.get('reasoning')!={'effort':self.expected_effort}:raise ValueError('generation_scope_mismatch')
             fmt=payload.get('text',{}).get('format',{})
             content=payload['input'][0]['content']
             if not fmt.get('strict') or fmt.get('schema')!=s.SCHEMA or payload.get('tools'):raise ValueError('required_format_or_no_tools_violated')
