@@ -1,9 +1,6 @@
 name: Authorized history continuation 02
 on:
   workflow_dispatch:
-  push:
-    branches: [codex/social-pipeline-20261106]
-    paths: [.github/workflows/history-batch-02.yml]
 permissions:
   contents: write
 concurrency:
@@ -11,7 +8,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   batch:
-    if: github.ref == 'refs/heads/codex/social-pipeline-20261106'
+    if: ${{ false }} # This one authorized batch is closed; no automatic continuation.
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
