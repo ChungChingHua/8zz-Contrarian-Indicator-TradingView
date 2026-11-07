@@ -91,3 +91,5 @@
 第2筆6505.TWO依證交所靜態發行人／市場資料校正為6505.TW，上市日期2003-12-26早於主貼文。這是yfinance標的格式校正，不使用後續行情，不改direction／strength，不作訊號veto；原模型值及參照hash保留。另記AI原強度與原委託booster實際命中情況，避免將AI敘述誤稱已確認成交。125項離線測試通過。
 
 實際結果／使用步驟見[本批報告](HISTORY_BATCH_01_RESULTS.md)。臨時push啟動已移除，只保留固定batch的手動復核／受限恢復，授權5次耗盡後不再生成。持續排程、Pages、合併仍關閉。候選Pine未經TradingView實際編譯。
+
+手動入口已以專用workflow ID410173704、workflow_dispatch及固定PR分支實測成功，沒有借用舊預設分支抓取流程。已完成batch重啟仍5次，原回應hash不變；驗證器已停用。最終127項離線測試通過；詳見本批報告末段的CLI操作及run證據。

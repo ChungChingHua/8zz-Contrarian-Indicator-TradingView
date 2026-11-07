@@ -116,3 +116,5 @@ S3 的精確含義是：必要使用紀錄可能保留，內容也有安全、�
 已知媒體CDN IPv6不可達，不改域名、不關TLS、不繞網路；2張圖片明示未分析，1張真正附圖，1篇影片文字限定。誠實readable=false未提供圖片註記離線重驗，並未重送首筆；保留本地錯誤歷史。未經人工核圖不作額外情緒veto，也不宣稱服務的視覺／底層模型／推理已獨立驗證。原作者規則含完整排除與強度，舊新增情緒門檻只保留為歷史審查，非活躍策略。
 
 此權限僅單批，預算耗盡後停止；臨時push觸發移除，只留手動復核／嚴格受限恢復。一般pause、schedule與Pages不啟用，PR未合併；供應商保存／用途／GitHub OAuth權杖後端存放等未驗證結論不因此改變。完整來源及結果見ORIGINAL_AUTHOR_RESTORATION.md、HISTORY_BATCH_01_RESULTS.md。
+
+專用手動入口完成零生成驗證：只對已註冊history workflow ID410173704先驗path／state，再檢查finished與5次耗盡帳本並指定PR ref。HTTP204，接收事件確為workflow_dispatch；重啟後5次及所有回應hash不變。原先舊workflow橋接因自動審查擔心誤啟動Apify而被拒，未執行；採用的替代不呼叫該舊路徑或main。一次性驗證器已停用，額外actions:write撤除，沒有新增服務生成。

@@ -111,3 +111,5 @@
 
 
 先前品質審查紀錄保留作歷史比較，並非目前情緒標準：[原9篇測試](docs/QUALITY_TEST_RESULTS.md)、[後續離線重驗](docs/QUALITY_RULE_REVIEW.md)。最新活躍判讀器是original_author.py；舊的強恐慌／指定關鍵字／標的與人工核圖門檻不供本批使用。原作者完整排除規則、強度及few-shot已保留。
+
+專用手動入口已驗證（workflow ID410173704，固定PR ref）；PR未合併時若網頁無按鈕，可依[本批報告](docs/HISTORY_BATCH_01_RESULTS.md)的gh命令操作。同一batch已完成／5次耗盡，重啟不再生成，不能用舊Apify入口替代。

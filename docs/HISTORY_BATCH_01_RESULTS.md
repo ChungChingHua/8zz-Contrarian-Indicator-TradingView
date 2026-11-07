@@ -257,7 +257,25 @@ TradingView手動步驟：備份原腳本 → 開啟候選Pine的Raw全文 → P
 
 ## 手動入口與停止狀態
 
-Actions → **Original-author history batch (manual)** → Run workflow → 選PR分支`codex/social-pipeline-20261106`。現在固定batch已finished、5次授權耗盡，預設再啟動只讀帳本，不會再生成。恢復選項預設false；只有程式中嚴格限定的零生成或已保存HTTP200本地校正狀態能使用，不能重試API／額度錯誤或unknown。新批次需另行授權並固定新計畫，不能改ID繞過。
+若Actions介面顯示 **Original-author history batch (manual)** 的Run workflow，可選PR分支`codex/social-pipeline-20261106`；若未顯示，使用下方已實測的專用workflow ID／CLI，不使用舊抓取入口。現在固定batch已finished、5次授權耗盡，預設再啟動只讀帳本，不會再生成。恢復選項預設false；只有程式中嚴格限定的零生成或已保存HTTP200本地校正狀態能使用，不能重試API／額度錯誤或unknown。新批次需另行授權並固定新計畫，不能改ID繞過。
 
 已移除臨時push觸發，不啟用schedule或Pages，不合併PR。舊smoke／品質入口仍停用，一般pause=true。正式archive與正式8zz-indicator.pine不變，交付完整候選152事件（歷史150＋本批2）；待確認那篇沒有新箭頭。
 
+
+## 真正手動dispatch已驗證（沒有新增生成）
+
+專用workflow ID **410173704** 已註冊，並直接以workflow_dispatch指定PR分支驗證成功。沒有借用舊fetch／Apify／Pages入口，也沒有修改main或合併PR。
+
+- [只帶GitHub token的驗證器](https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/42368389109)：先GET檢查固定batch已finished／5次耗盡，再GET確認專用workflow ID的path與active狀態，才POST固定PR ref；HTTP204。
+- [真正workflow_dispatch執行](https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/42368398192)：事件workflow_dispatch，branch=codex/social-pipeline-20261106，worker直接讀已完成帳本，預留／生成仍5次，所有原回應hash不變，沒有新provider request。
+- `data/history_manual_dispatch_verification.json`保存驗證摘要；一次性push驗證器現已停用，actions:write與GH_TOKEN注入已移除。只留下contents:read的if:false stub。
+
+PR未合併時，GitHub網頁可能不顯示新workflow的Run workflow按鈕。可用已登入GitHub的CLI明確指定專用ID與PR分支：
+
+```bash
+gh workflow run 410173704 --repo ChungChingHua/8zz-Contrarian-Indicator-TradingView --ref codex/social-pipeline-20261106
+```
+
+這是雲端手動入口，不要求在聊天貼金鑰。**目前batch已完成且5次用完，所以此命令只復核帳本／重建同一候選，不會生成新資料。** 新一批必須另行授權、凍結新計畫，不能靠更換run ID重送。不要選main或舊的Fetch FB Events工具；舊入口沒有在本輪啟用。
+
+先前曾考慮橋接舊的預設分支workflow，自動審查因可能誤跑舊Apify流程而拒絕，該推送未執行。已改用上述專用ID、已耗盡帳本前檢的安全替代路徑並實測通過；沒有繞過被拒的舊路徑。最終127項離線測試與CI通過，Pine仍未經TradingView編譯。
