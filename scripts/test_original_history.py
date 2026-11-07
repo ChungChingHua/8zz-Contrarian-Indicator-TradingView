@@ -146,3 +146,35 @@ class DurableTests(unittest.TestCase):
             self.assertEqual(len(calls),1);self.assertEqual(store.data['records'][0]['status'],'completed_signal');self.assertTrue(store.data['stopped'])
 
 if __name__=='__main__':unittest.main()
+
+class MediaScopeRecoveryTests(unittest.TestCase):
+    def test_network_unreachable_is_explicit_not_fake_image_read(self):
+        from unittest.mock import patch
+        x=post();x['attachments']=[{'type':'image'}]
+        with patch.object(h.s,'image_parts',side_effect=OSError(101,'fixture network unavailable')):
+            parts,scope=h.prepare_media(x)
+        self.assertEqual(parts,[]);self.assertEqual(scope['images_supplied'],0)
+        self.assertEqual(scope['unanalysed_media'][0]['status'],'圖片未分析')
+        self.assertEqual(scope['analysis_scope'],'text_only_images_unavailable')
+    def test_tls_or_unsafe_media_failure_is_not_silently_ignored(self):
+        from unittest.mock import patch
+        x=post();x['attachments']=[{'type':'image'}]
+        for exc in (OSError(1,'TLS fixture'),ValueError('non_public_media_address')):
+            with patch.object(h.s,'image_parts',side_effect=exc),self.assertRaises(type(exc)):h.prepare_media(x)
+    def test_only_zero_generation_failure_can_be_resumed_once(self):
+        plan,posts=plan_and_posts();store=Store()
+        with tempfile.TemporaryDirectory() as d:
+            def fail(post):raise OSError(101,'fixture')
+            worker=h.Worker(store,lambda body:(200,{},answer()),plan,fail,local=Path(d)/'ledger.json');worker.run(posts)
+            self.assertEqual(worker.state['reserved_generation_attempts'],0)
+            worker.resume_unsent_media_failure()
+            self.assertTrue(store.data['unsent_media_recovery_used'])
+            self.assertEqual(store.data['records'][0]['input_failure_history'][0]['attempts'],0)
+            with self.assertRaises(ValueError):worker.resume_unsent_media_failure()
+            worker.prepare=prepare;worker.run(posts)
+            self.assertEqual(store.data['reserved_generation_attempts'],2)
+    def test_no_resume_after_provider_or_unknown_attempt(self):
+        plan,posts=plan_and_posts();store=Store()
+        with tempfile.TemporaryDirectory() as d:
+            worker=h.Worker(store,lambda body:(429,{}, {'error':{'code':'insufficient_quota'}}),plan,prepare,local=Path(d)/'ledger.json');worker.run(posts)
+            with self.assertRaises(ValueError):worker.resume_unsent_media_failure()

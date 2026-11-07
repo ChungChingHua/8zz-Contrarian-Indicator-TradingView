@@ -67,3 +67,11 @@
 離線涵蓋成功、失敗、額度不足、重複啟動、stale CAS、送出後中斷、結果提交失敗、已保存結果後恢復，以及未知狀態禁止重送。候選Pine逐筆驗證保留歷史事件、僅加入同規則版本且已遠端保存的非零訊號，待確認／unknown無箭頭。TradingView未實際編譯，不宣稱編譯通過。
 
 本輪完畢後移除自動push啟動，只保留GitHub Actions手動入口及已消耗batch ID的防重送保護；一般pause、持續排程、Pages仍關閉，不合併PR。
+
+## 已確認的媒體環境限制與零生成恢復
+
+首段在第一篇媒體前檢停止，遠端帳本證明generation attempts=0。無金鑰診斷顯示CDN僅解析IPv6，runner回errno101（network unreachable）；公開A記錄查詢也無IPv4，公開照片頁只回登入頁，沒有可用圖片中繼資料。不改寫CDN主機、不關TLS、不建立網路隧道，也不要求Facebook登入憑證。
+
+對這個已確認的network-unreachable條件，保留圖片未分析／錯誤代碼，允許僅依可見原文繼續；不是假裝OCR或取縮圖。若缺圖導致原作者規則無法判斷，就pending_confirmation。TLS、SSRF、格式等其他安全失敗不被此分支忽略。這是來源範圍如實揭露，不是新增或刪除情緒條件；原system／few-shot／規則hash不變。
+
+一次性operator恢復只接受「同一batch、遠端0次生成、所有attempts=0、唯一停止原因為media preflight、沒有任何HTTP回應」；保存先前input_failure歷史後恢復not_started。若已有任何生成／unknown／quota錯誤則拒絕，不能用此開關繞過上限或重試。122項離線測試通過，包含此範圍及安全錯誤不被忽略。

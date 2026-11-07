@@ -85,12 +85,25 @@ def original_posts(plan):
 
 
 def prepare_media(post):
-    scope=media_plan(post)  # Only the media type/scope, never its text-length gate.
-    media={**post,'attachments':scope['image_attachments']}
+    scope=media_plan(post)  # No text-length or emotion gate.
+    parts=[];evidence=[];unanalysed=copy.deepcopy(scope['unanalysed_media']);failures=[]
     with patch.object(safe_media,'assert_online_enabled',return_value=None):
-        parts=s.image_parts(media)
-    info={'analysis_scope':scope['analysis_scope'],'unanalysed_media':scope['unanalysed_media'],
-          'images_supplied':len(parts),'image_evidence':media.get('_image_evidence',[]),'human_image_verified':False}
+        for index,attachment in zip(scope['image_attachment_indices'],scope['image_attachments']):
+            media={**post,'attachments':[attachment]}
+            try:
+                supplied=s.image_parts(media)
+            except OSError as exc:
+                if exc.errno!=101:raise  # Only established network-unreachable case, not TLS/SSRF/format failures.
+                failure={'attachment_index':index,'kind':'image','status':'圖片未分析','error_type':type(exc).__name__,'errno':101,'reason':'network_unreachable'}
+                unanalysed.append(failure);failures.append(failure);continue
+            parts.extend(supplied)
+            evidence.extend({**e,'attachment_index':index} for e in media.get('_image_evidence',[]))
+    if failures:analysis_scope='text_and_available_images' if parts else 'text_only_images_unavailable'
+    elif not parts and not unanalysed:analysis_scope='text_only_no_attachments'
+    else:analysis_scope=scope['analysis_scope']
+    info={'analysis_scope':analysis_scope,'unanalysed_media':unanalysed,'media_failures':failures,
+          'images_supplied':len(parts),'image_evidence':evidence,'human_image_verified':False,
+          'source_note':'Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.'}
     return parts,info
 
 class Worker:
@@ -117,6 +130,19 @@ class Worker:
         self.store.save(self.state)
         s.write(self.local,self.state)
         pending.unlink(missing_ok=True)
+    def resume_unsent_media_failure(self):
+        if (self.state['reserved_generation_attempts']!=0 or not self.state['stopped']
+            or self.state.get('stop_reason')!='media_preflight_failure' or self.state.get('unsent_media_recovery_used')
+            or any(r['attempts'] or 'http_status' in r or r['status'] not in ('input_failure','not_started') for r in self.state['records'])):
+            raise ValueError('only_proven_zero_generation_media_failure_can_resume')
+        for r in self.state['records']:
+            if r['status']=='input_failure':
+                r.setdefault('input_failure_history',[]).append({'status':'input_failure','error_type':r.get('error_type'),'reason':r.get('reason'),'attempts':0})
+                r.update(status='not_started');r.pop('error_type',None);r.pop('reason',None)
+        self.state.update(stopped=False,stop_reason=None,unsent_media_recovery_used=True,
+            recovery_note='Operator continued the same authorized batch after proven 0-generation IPv6 network failure; explicit unavailable-image scope, no TLS/host bypass or generation retry.')
+        self.save()
+
     def run(self,posts):
         if self.state['finished'] or self.state['stopped']:return
         if any(r['status']=='unknown' for r in self.state['records']):
@@ -169,6 +195,7 @@ def main():
     if not key or not gh:raise SystemExit('Missing dedicated Secrets; no provider requests')
     store=GitHubStore(gh)
     worker=Worker(store,Provider(key),plan,secrets=(key,gh))
+    if os.getenv('RESUME_UNSENT_MEDIA_FAILURE')=='1':worker.resume_unsent_media_failure()
     worker.run(original_posts(plan))
     print(json.dumps({'finished':worker.state['finished'],'stopped':worker.state['stopped'],'reserved_attempts':worker.state['reserved_generation_attempts'],'statuses':[r['status'] for r in worker.state['records']]}))
 
