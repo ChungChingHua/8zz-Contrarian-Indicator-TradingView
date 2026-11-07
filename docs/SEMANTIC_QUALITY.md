@@ -66,3 +66,5 @@
 離線驗證：`python -m unittest discover -s scripts -p 'test_*.py'`，81項通過，包含兩筆 smoke 回歸、無證據標的清空、否定／矛盾／混合情緒、狀態分流、不反覆送中性／待確認資料、圖片雜湊／人工證據限制、Pine 舊快取不能繞過、候選原文與時間完整性。
 
 可重建樣本：`python scripts/build_quality_samples.py`（只讀 archive，不讀行情或 API）。可離線重驗兩筆已保存回應：`python scripts/review_cached_quality.py`；不呼叫 API、不重建 Pine，只更新上述兩筆及專用報告。
+
+最新離線重驗：一般無奈與交易動作不作恐慌證據；影片可文字限定並明示未分析。新處理結果獨立儲存，不改原模型JSON，詳見[規則重驗](QUALITY_RULE_REVIEW.md)；本文件先前對影片完全阻擋的描述僅適用舊輪執行，不是目前文字限定政策。

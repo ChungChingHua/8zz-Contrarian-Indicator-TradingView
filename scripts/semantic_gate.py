@@ -2,10 +2,10 @@
 import copy
 import re
 
-VERSION='semantic-v2-independent-axes'
+VERSION='semantic-v3-panic-threshold'
 TERMINAL={'done','no_signal','review'}
 INVESTMENT=re.compile(r'股票|股市|台股|美股|股價|持股|持倉|個股|損益|停損|漲停|跌停|ETF|BTC|\$[A-Z]{1,5}\b',re.I)
-PANIC=re.compile(r'恐慌|恐怖|崩潰|痛苦|虧爛|爆炸|鮮血|停損|睡不著|害怕')
+PANIC=re.compile(r'恐慌|恐怖|崩潰|痛苦|虧爛|爆炸|鮮血|害怕')
 EUPHORIA=re.compile(r'亢奮|狂喜|歡呼|賺爛|賺爆|爽啦|台股簡單|天下無敵|一起.*念|穩了|追漲')
 # These rules flag common explicit contradictions. They are not a general NLU proof.
 NO_INVESTMENT=re.compile(r'無關投資|非投資|不涉及投資|沒有(?:任何)?(?:股票、交易介面或)?投資(?:相關)?(?:資料|證據)|投資(?:關聯|證據)不足|僅(?:為|是)生活|只有生活')
@@ -93,7 +93,8 @@ def assess(post,analysis,verified_images=None):
     # Explicit third-party structures, not a rhetorical "市場跟我說", establish quotations.
     if a.get('quoted_summary') and not post.get('quoted_content') and post.get('quote_flag') is not True:
         issues.append('quotation_without_source_boundary')
-    if post.get('attachments') and not (a.get('images_reviewed') is True and a.get('image_evidence')):
+    from review_rules import media_plan
+    if media_plan(post)['image_attachments'] and not (a.get('images_reviewed') is True and a.get('image_evidence')):
         issues.append('image_evidence_missing')
     if not related and investment_context and (PANIC.search(positive_text) or EUPHORIA.search(positive_text)):
         issues.append('unrelated_despite_investment_emotion')

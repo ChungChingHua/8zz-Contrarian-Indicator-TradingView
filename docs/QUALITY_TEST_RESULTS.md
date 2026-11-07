@@ -452,3 +452,5 @@ HTTP：200；schema通過：True；生成嘗試：1。狀態：evaluated_test_on
 [首段執行](https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/42351353197) · [剩餘未嘗試樣本](https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/42351622396)。前者失敗原因是Video輸入型態，後者成功不代表第5篇已處理完成。兩次各保存audit至GitHub，控制平面另有contents GET／PUT各2次，非供應商查詢。
 
 服務回報合計input 13076、output 5288、total 18364、reasoning_tokens 0。前後免費點數、剩餘請求額度及實際扣點均未取得；不宣稱零扣點，不以tokens估點數。已關閉一次性入口。90項離線測試通過。正式social_posts.json、Pine、其餘歷史與市場快取未改動；一般pause、排程、Pages停用，PR未合併。
+
+後續離線重驗已另存：[修正規則結果與統計](QUALITY_RULE_REVIEW.md)。本文件及原模型JSON保留原樣本執行事實，不把後續規則判讀寫成先前模型答案。第5篇目前有獨立的文字規則結論，仍無模型回應、影片未分析；第3、8篇待確認，不是中性。
