@@ -10,7 +10,7 @@
       "previous_latest_post_utc": "2026-11-06T14:03:04+00:00",
       "start_utc": "2026-11-06T12:03:04+00:00",
       "end_utc": "2026-11-07T12:15:59.578797+00:00",
-      "complete": false,
+      "complete": true,
       "prior_acquisition": {
         "window_start": "2026-11-04T16:01:34.198002+00:00",
         "window_end": "2026-11-06T16:01:34.198002+00:00",
@@ -30,7 +30,8 @@
         "startedAt": "2026-11-06T16:06:55.288Z",
         "finishedAt": "2026-11-06T16:07:22.943Z",
         "status": "SUCCEEDED"
-      }
+      },
+      "completed_until": "2026-11-07T12:15:59.578797+00:00"
     },
     "threads": {
       "previous_latest_post_utc": "2026-11-06T14:07:49+00:00",
@@ -58,7 +59,7 @@
       "start_utc": "2026-11-06T12:03:04+00:00",
       "end_utc": "2026-11-07T12:15:59.578797+00:00",
       "submission_unknown": false,
-      "processed": false,
+      "processed": true,
       "cap_usd": 0.1,
       "max_items": 50,
       "run_id": "TQsq3MaaGMBqd77i0",
