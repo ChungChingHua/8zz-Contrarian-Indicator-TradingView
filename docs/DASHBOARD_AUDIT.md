@@ -4,6 +4,8 @@
 
 ## 開啟與預覽
 
+優先下載 `docs/8zz-dashboard-preview.zip`，先解壓縮全部，再雙擊其中的 `index.html`。GitHub raw HTML 連結可能以純文字呈現原始碼，不是可直接瀏覽的線上預覽。ZIP 包含完整內嵌看板與說明，不需要安裝或伺服器。
+
 - `docs/index.html`：原有 docs/ 網站入口，附同目錄 CSS、JS 與保存資料。
 - `docs/preview.html`：資料、樣式、程式全內嵌的單一 HTML，下載整個檔案後用瀏覽器開啟，不依賴 CDN、fetch 或伺服器。GitHub 原始碼頁只顯示文字，請使用 Download raw file 另存為 .html。
 - `docs/previews/desktop.png`、`mobile.png`：實際 Chromium 截圖。手機使用事件卡片，所有欄位可直接閱讀。
@@ -97,3 +99,5 @@ python scripts/build_audited_dashboard.py
 142 項離線 unittest 通過（原 133 項加 9 項計帳／資料核對）；新增測試涵蓋雙向虧損、平手、未平倉分母、未來價格時點、同收盤合併、固定 17 棒、持倉不重疊、缺行情、歷史事件保留，以及完整真實清單／統計／複利曲線逐筆重算。既有線上流程測試使用 mock，沒有實際發起模型或抓取請求。
 
 Chromium 1440×1100 桌面、390×844 手機測試完成：模式切換、平台／多空／強度／關鍵字篩選、重設、分頁與手機無頁面水平溢出。內嵌 HTML 無外部請求與 JavaScript 錯誤；手機事件卡片每頁 8 筆。README、網頁方法、下載資料與本說明均明列限制。
+
+若要重新打包已保存的預覽，執行 `python scripts/package_dashboard_preview.py`；此命令沒有網路、抓文、AI 或績效重算。
