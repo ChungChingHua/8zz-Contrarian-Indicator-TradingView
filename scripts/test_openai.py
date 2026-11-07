@@ -41,10 +41,10 @@ class OpenAITests(unittest.TestCase):
             with self.subTest(response=response),patch.dict(os.environ,{'OPENAI_API_KEY':'test'}),patch.object(s,'request_json',return_value=response):
                 with self.assertRaises((ValueError,KeyError)):s.classify(post())
 
-    def test_unknown_target_is_review_without_signal(self):
+    def test_unknown_target_does_not_erase_emotion(self):
         with patch.dict(os.environ,{'OPENAI_API_KEY':'test'}),patch.object(s,'request_json',return_value=answer(target='')):
             a=s.classify(post())
-        self.assertEqual(a['direction'],0);self.assertEqual(a['status'],'review')
+        self.assertEqual(a['direction'],1);self.assertEqual(a['target'],'');self.assertEqual(a['status'],'review')
 
     def test_missing_key_blocks_images_and_all_paid_work(self):
         with patch.dict(os.environ,{},clear=True),patch.object(s,'image_parts') as images,patch.object(s,'request_json') as api,patch.object(runner.subprocess,'run') as command:

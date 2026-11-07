@@ -51,7 +51,7 @@ class SemanticTests(unittest.TestCase):
         p=post(text='市場跟我說 孩子，你不用停損，因為你停不掉')
         a=g.assess(p,candidate(clear=False,direction=0,target='亞翔',ticker='6139',reason='單篇資訊不足、情緒模糊'))
         self.assertEqual((a['target'],a['ticker'],a['direction']),('','',0))
-        self.assertEqual(a['decision_type'],'semantic_conflict')
+        self.assertEqual(a['decision_type'],'insufficient_information')
         self.assertEqual(a['model_candidate']['target'],'亞翔')
     def test_smoke_watch_contradiction_not_signal(self):
         p=post(text='沒事，就是給大家看看我的新GShock，下週穩了')

@@ -2,7 +2,7 @@
 import copy
 import re
 
-VERSION='semantic-v1'
+VERSION='semantic-v2-independent-axes'
 TERMINAL={'done','no_signal','review'}
 INVESTMENT=re.compile(r'股票|股市|台股|美股|股價|持股|持倉|個股|損益|停損|漲停|跌停|ETF|BTC|\$[A-Z]{1,5}\b',re.I)
 PANIC=re.compile(r'恐慌|恐怖|崩潰|痛苦|虧爛|爆炸|鮮血|停損|睡不著|害怕')
@@ -52,7 +52,7 @@ def assess(post,analysis,verified_images=None):
     fields=('investment_related','clear','direction','strength','target','ticker','reason','author_commentary','quoted_summary','images_reviewed')
     raw=copy.deepcopy(a.get('model_candidate') or {k:a.get(k) for k in fields})
     a['model_candidate']=raw
-    issues=[];proof={}
+    issues=[];target_issues=[];proof={}
     # Revalidation is idempotent and always starts from the saved candidate, not a corrected answer.
     a.update({k:v for k,v in raw.items() if k in fields})
     reason=a.get('reason') if isinstance(a.get('reason'),str) else ''
@@ -65,9 +65,10 @@ def assess(post,analysis,verified_images=None):
         value=a.get(field) or ''
         found=evidence(post,a,value,verified_images or {})
         if value and not found:
-            issues.append(field+'_without_traceable_evidence');a[field]=''
+            target_issues.append(field+'_without_traceable_evidence');a[field]=''
         elif found:proof[field]=found
     if not a.get('target'):a['ticker']='';proof.pop('ticker',None)
+    reason=re.sub(r'(?:標的|代碼|ticker)[^，。；;\n]{0,80}', '', reason,flags=re.I)
     direction=a.get('direction',0)
     related=a.get('investment_related') is True
     text=post.get('text','').replace('投資自己','')
@@ -94,7 +95,6 @@ def assess(post,analysis,verified_images=None):
         issues.append('quotation_without_source_boundary')
     if post.get('attachments') and not (a.get('images_reviewed') is True and a.get('image_evidence')):
         issues.append('image_evidence_missing')
-    if direction and not a.get('target'):issues.append('signal_target_missing')
     if not related and investment_context and (PANIC.search(positive_text) or EUPHORIA.search(positive_text)):
         issues.append('unrelated_despite_investment_emotion')
     if issues:
@@ -105,14 +105,23 @@ def assess(post,analysis,verified_images=None):
         else:decision='unrelated';status='no_signal'
     elif direction==0 and NEUTRAL.search(reason) and not UNCERTAIN.search(reason):
         decision='neutral';status='no_signal'
-    elif not a.get('clear') or not a.get('target') or direction==0:
+    elif not a.get('clear') or direction==0:
         decision='insufficient_information';status='review'
     else:decision='signal';status='done'
     a.update(status=status,decision_type=decision,auto_retry_eligible=False,
-             semantic_check={'version':VERSION,'issues':sorted(set(issues)),'evidence':proof})
+             semantic_check={'version':VERSION,'issues':sorted(set(issues)),'target_issues':sorted(set(target_issues)),'evidence':proof})
     if not related:
         a.update(target='',ticker='');a['semantic_check']['evidence']={}
     if status!='done':a.update(direction=0,clear=False)
+    # Target uncertainty does not invalidate a determined emotion or its direction.
+    a['relevance_assessment']={'investment_related':related}
+    a['emotion_assessment']={'direction':a['direction'],'strength':a.get('strength'),'clear':a.get('clear')}
+    a['target_assessment']={'status':'text_or_verified_image_supported' if proof else 'unknown',
+        'issues':sorted(set(target_issues)),'evidence':proof}
+    if target_issues:
+        a['target_assessment']['status']='pending_confirmation'
+        a['status']='review'
+        a['decision_type']='target_confirmation' if not issues and decision=='signal' else decision
     return a
 
 
