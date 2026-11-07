@@ -75,3 +75,11 @@
 對這個已確認的network-unreachable條件，保留圖片未分析／錯誤代碼，允許僅依可見原文繼續；不是假裝OCR或取縮圖。若缺圖導致原作者規則無法判斷，就pending_confirmation。TLS、SSRF、格式等其他安全失敗不被此分支忽略。這是來源範圍如實揭露，不是新增或刪除情緒條件；原system／few-shot／規則hash不變。
 
 一次性operator恢復只接受「同一batch、遠端0次生成、所有attempts=0、唯一停止原因為media preflight、沒有任何HTTP回應」；保存先前input_failure歷史後恢復not_started。若已有任何生成／unknown／quota錯誤則拒絕，不能用此開關繞過上限或重試。122項離線測試通過，包含此範圍及安全錯誤不被忽略。
+
+## 首筆HTTP200的離線重驗：修正過嚴媒體註記檢查
+
+首筆唯一生成回傳HTTP200、strict JSON有效、gpt-5-mini／minimal及完整原五欄，direction=-1／strength=2。模型另列「圖片未提供、readable=false、visible_text空」的誠實未分析註記；舊本地檢查只比圖片數量而拒絕，造成image_coverage_mismatch，並非服務schema或額度異常。
+
+已離線重驗保存回應，不重送：只有images_supplied=0、索引確在已聲明未分析圖片、readable=false且visible_text為空時，才將該筆移為unanalysed_image_notes，實際images仍為空。若聲稱看過未提供圖片或虛構可讀文字，仍拒絕。原回應JSON／hash不變，舊錯誤另存local_validation_history，原作者direction／strength不更改。
+
+專用operator校正只接受此確切HTTP200本地檢查失敗、已預留1次且其餘4篇從未嘗試的狀態；遠端保存校正後才續未開始4篇，不重送第一篇，總上限5不重設。若quota顯示0仍停止。原system／few-shot／hash不變；這是技術檢查修正，不能把它當額外情緒veto。離線測試124項通過，逐筆原回應安全保存方式不變。

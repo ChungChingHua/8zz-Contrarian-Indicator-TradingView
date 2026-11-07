@@ -178,3 +178,33 @@ class MediaScopeRecoveryTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             worker=h.Worker(store,lambda body:(429,{}, {'error':{'code':'insufficient_quota'}}),plan,prepare,local=Path(d)/'ledger.json');worker.run(posts)
             with self.assertRaises(ValueError):worker.resume_unsent_media_failure()
+
+class UnavailableNoteValidationTests(unittest.TestCase):
+    def response_with_note(self,readable=False,visible=''):
+        response=answer(direction=-1)
+        a=json.loads(response['output'][0]['content'][0]['text'])
+        a['images']=[{'image_index':0,'visible_text':visible,'observation':'圖片未提供／未分析','readable':readable}]
+        response['output'][0]['content'][0]['text']=json.dumps(a)
+        return response
+    def test_honest_unavailable_note_is_not_an_emotion_veto(self):
+        response=self.response_with_note();before=copy.deepcopy(response)
+        a=p.parse(response,0,[{'attachment_index':0,'kind':'image'}])
+        self.assertEqual(a['direction'],-1);self.assertEqual(a['images'],[])
+        self.assertEqual(len(a['unanalysed_image_notes']),1);self.assertEqual(response,before)
+        for response in (self.response_with_note(True),self.response_with_note(False,'假裝看過字')):
+            with self.assertRaises(ValueError):p.parse(response,0,[{'attachment_index':0,'kind':'image'}])
+    def test_reconcile_reuses_raw_and_only_continues_unstarted(self):
+        plan,posts=plan_and_posts();store=Store();calls=[]
+        with tempfile.TemporaryDirectory() as d:
+            w=h.Worker(store,lambda body:(calls.append(body) or (200,{},self.response_with_note())),plan,prepare,local=Path(d)/'ledger.json')
+            w.run(posts);self.assertEqual(len(calls),1)
+            raw=copy.deepcopy(store.data['records'][0]['raw_response'])
+            # The original request explicitly declared unavailable image 0; no real image was attached.
+            w.state['records'][0]['media_scope']['unanalysed_media']=[{'attachment_index':0,'kind':'image'}]
+            w.reconcile_saved_unanalysed_image_note()
+            self.assertEqual(store.data['records'][0]['raw_response'],raw)
+            self.assertEqual(store.data['records'][0]['status'],'completed_signal')
+            w.provider=lambda body:(calls.append(body) or (200,{},answer()))
+            w.run(posts);self.assertEqual(len(calls),2)
+            self.assertEqual(store.data['reserved_generation_attempts'],2)
+            with self.assertRaises(ValueError):w.reconcile_saved_unanalysed_image_note()

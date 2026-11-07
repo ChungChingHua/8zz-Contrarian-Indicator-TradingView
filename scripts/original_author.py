@@ -33,7 +33,7 @@ def payload(post,parts,media_scope):
       'text':{'format':{'type':'json_schema','name':'original_author','strict':True,'schema':SCHEMA}},'max_output_tokens':3000}
 
 
-def parse(response,image_count):
+def parse(response,image_count,unanalysed_media=()):
     if response.get('status')!='completed':raise ValueError('incomplete_response')
     if not str(response.get('model','')).startswith('gpt-5-mini'):raise ValueError('model_claim_mismatch')
     if (response.get('reasoning') or {}).get('effort')!='minimal':raise ValueError('reasoning_claim_mismatch')
@@ -46,6 +46,9 @@ def parse(response,image_count):
     a=json.loads(texts[0]);validate(a,SCHEMA)
     if a['ticker'] and not re.fullmatch(r'[A-Za-z0-9^][A-Za-z0-9.^=\-]{0,19}',a['ticker']):raise ValueError('invalid_ticker_format')
     if (a['direction']!=0)!=(a['disposition']=='signal'):raise ValueError('contradictory_output_fields')
+    unavailable={x['attachment_index'] for x in unanalysed_media if x.get('kind')=='image'}
+    if image_count==0 and a['images'] and all(x['image_index'] in unavailable and x['readable'] is False and not x['visible_text'].strip() for x in a['images']):
+        a['unanalysed_image_notes']=copy.deepcopy(a['images']);a['images']=[]
     if sorted(x['image_index'] for x in a['images'])!=list(range(image_count)):raise ValueError('image_coverage_mismatch')
     return a
 

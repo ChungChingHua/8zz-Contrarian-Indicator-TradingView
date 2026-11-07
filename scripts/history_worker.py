@@ -143,6 +143,27 @@ class Worker:
             recovery_note='Operator continued the same authorized batch after proven 0-generation IPv6 network failure; explicit unavailable-image scope, no TLS/host bypass or generation retry.')
         self.save()
 
+    def reconcile_saved_unanalysed_image_note(self):
+        records=self.state['records'];r=records[0]
+        if (self.state.get('local_image_validation_reconciled') or not self.state['stopped']
+            or self.state.get('stop_reason')!='api_or_required_format_failure' or self.state['reserved_generation_attempts']!=1
+            or r['status']!='technical_failure' or r.get('http_status')!=200 or r.get('reason')!='image_coverage_mismatch'
+            or r.get('media_scope',{}).get('images_supplied')!=0
+            or any(x['status']!='not_started' or x['attempts'] for x in records[1:])):
+            raise ValueError('only_saved_http200_local_image_note_mismatch_can_reconcile')
+        raw=r['raw_response']['json']
+        a=policy.parse(raw,0,r['media_scope']['unanalysed_media'])
+        processed=policy.process(r,a)
+        r.setdefault('local_validation_history',[]).append({'status':r['status'],'reason':r['reason'],'http_status':200,
+            'resolution':'Original JSON/schema valid; honest unavailable-image note moved out of actual image observations. Offline only, no new request.'})
+        r.update(processed=processed,status='completed_signal' if processed['status']=='done' else 'pending_confirmation' if processed['status']=='review' else 'completed_no_signal')
+        r.pop('reason',None);r.pop('error_type',None)
+        self.state.update(local_image_validation_reconciled=True,stopped=False,stop_reason=None)
+        for k,v in r.get('remaining_headers',{}).items():
+            if k in ('x-ratelimit-remaining-requests','x-ratelimit-remaining-points','x-free-points-remaining','x-free-requests-remaining') and re.fullmatch(r'0+(?:\.0+)?',v.strip()):
+                self.state.update(stopped=True,stop_reason='returned_allowance_exhausted')
+        self.save()  # ACK corrected interpretation before considering unstarted rows; never change raw JSON.
+
     def run(self,posts):
         if self.state['finished'] or self.state['stopped']:return
         if any(r['status']=='unknown' for r in self.state['records']):
@@ -174,7 +195,7 @@ class Worker:
                     error=response.get('error') or {};code=error.get('code') if isinstance(error,dict) else None
                     r['api_error_code']=code if code in SAFE_CODES else None
                     raise ValueError('provider_http_error')
-                a=policy.parse(response,len(parts));r['processed']=policy.process(p,a)
+                a=policy.parse(response,len(parts),scope.get('unanalysed_media',[]));r['processed']=policy.process(p,a)
                 r['status']='completed_signal' if r['processed']['status']=='done' else 'pending_confirmation' if r['processed']['status']=='review' else 'completed_no_signal'
             except Exception as exc:
                 r.update(status='technical_failure',error_type=type(exc).__name__,reason=str(exc) if isinstance(exc,ValueError) and re.fullmatch(r'[a-z_]+',str(exc)) else 'Invalid required provider response; raw error omitted')
@@ -196,6 +217,7 @@ def main():
     store=GitHubStore(gh)
     worker=Worker(store,Provider(key),plan,secrets=(key,gh))
     if os.getenv('RESUME_UNSENT_MEDIA_FAILURE')=='1':worker.resume_unsent_media_failure()
+    if os.getenv('RECONCILE_SAVED_IMAGE_NOTE')=='1':worker.reconcile_saved_unanalysed_image_note()
     worker.run(original_posts(plan))
     print(json.dumps({'finished':worker.state['finished'],'stopped':worker.state['stopped'],'reserved_attempts':worker.state['reserved_generation_attempts'],'statuses':[r['status'] for r in worker.state['records']]}))
 
