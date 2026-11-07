@@ -1,0 +1,272 @@
+{
+  "batch_id": "original-author-20261107-01",
+  "max_generations": 5,
+  "rule_version": "fork-7b626f2-ai-v1",
+  "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+  "selection_stats": {
+    "total_posts": 659,
+    "excluded_posts": 11,
+    "eligible_groups": 648,
+    "selected_groups": 5,
+    "deduplicated_posts": 0,
+    "skips": [
+      {
+        "key": "threads:3946164126477408639",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "facebook:1610126397138616",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "threads:3952464799527950315",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "facebook:1629435205207735",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "facebook:1640562917428297",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "threads:3981333267379483868",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "facebook:1696581131826475",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "threads:4023888423198910089",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "facebook:1703774981107090",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "facebook:1704381977713057",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "threads:4024468641932717746",
+        "reason": "previously_tested_or_processed"
+      }
+    ]
+  },
+  "excluded_keys": [
+    "facebook:1536154324535824",
+    "facebook:1536679554483301",
+    "facebook:1537845631033360",
+    "facebook:1538514367633153",
+    "facebook:1538991920918731",
+    "facebook:1539693307515259",
+    "facebook:1540185730799350",
+    "facebook:1540635517421038",
+    "facebook:1541449804006276",
+    "facebook:1542198540598069",
+    "facebook:1542833157201274",
+    "facebook:1543609673790289",
+    "facebook:1544311090386814",
+    "facebook:1544866770331246",
+    "facebook:1545417563609500",
+    "facebook:1546142300203693",
+    "facebook:1546772543474002",
+    "facebook:1547247783426478",
+    "facebook:1547911263360130",
+    "facebook:1548704413280815",
+    "facebook:1549349206549669",
+    "facebook:1550205909797332",
+    "facebook:1550685256416064",
+    "facebook:1551207156363874",
+    "facebook:1551950049622918",
+    "facebook:1552591706225419",
+    "facebook:1552879322863324",
+    "facebook:1554457499372173",
+    "facebook:1555375159280407",
+    "facebook:1556024792548777",
+    "facebook:1556907185793871",
+    "facebook:1557642372387019",
+    "facebook:1558274015657188",
+    "facebook:1558791042272152",
+    "facebook:1559478368870086",
+    "facebook:1561183555366234",
+    "facebook:1562057741945482",
+    "facebook:1562900535194536",
+    "facebook:1563569371794319",
+    "facebook:1564146875069902",
+    "facebook:1564824678335455",
+    "facebook:1565422994942290",
+    "facebook:1566188908199032",
+    "facebook:1566778344806755",
+    "facebook:1567839021367354",
+    "facebook:1568381801313076",
+    "facebook:1568968084587781",
+    "facebook:1569528581198398",
+    "facebook:1570147711136485",
+    "facebook:1571468411004415",
+    "facebook:1572292914255298",
+    "facebook:1574423347375588",
+    "facebook:1574954257322497",
+    "facebook:1575783853906204",
+    "facebook:1576218597196063",
+    "facebook:1577028027115120",
+    "facebook:1578044680346788",
+    "facebook:1579094776908445",
+    "facebook:1579913470159909",
+    "facebook:1580448706773052",
+    "facebook:1581303160020940",
+    "facebook:1582114449939811",
+    "facebook:1582623696555553",
+    "facebook:1583088246509098",
+    "facebook:1583844589766797",
+    "facebook:1584391149712141",
+    "facebook:1584889926328930",
+    "facebook:1586399539511302",
+    "facebook:1587400019411254",
+    "facebook:1588270199324236",
+    "facebook:1589010615916861",
+    "facebook:1589556885862234",
+    "facebook:1589969489154307",
+    "facebook:1591373539013902",
+    "facebook:1592607222223867",
+    "facebook:1593140455503877",
+    "facebook:1593629105455012",
+    "facebook:1594064942078095",
+    "facebook:1594854378665818",
+    "facebook:1595551428596113",
+    "facebook:1595808398570416",
+    "facebook:1597279251756664",
+    "facebook:1598096751674914",
+    "facebook:1598617358289520",
+    "facebook:1599323081552281",
+    "facebook:1599635361521053",
+    "facebook:1600173971467192",
+    "facebook:1600644981420091",
+    "facebook:1601194478031808",
+    "facebook:1601892307962025",
+    "facebook:1602245707926685",
+    "facebook:1603287757822480",
+    "facebook:1603850671099522",
+    "facebook:1604359591048630",
+    "facebook:1610126397138616",
+    "facebook:1629435205207735",
+    "facebook:1640562917428297",
+    "facebook:1696581131826475",
+    "facebook:1703774981107090",
+    "threads:3946164126477408639",
+    "threads:3952464799527950315",
+    "threads:3981333267379483868",
+    "threads:4023888423198910089",
+    "threads:4024468641932717746"
+  ],
+  "posts": [
+    {
+      "number": 1,
+      "key": "facebook:1604315791053010",
+      "content_hash": "d4b01daab6804e72e4e2d053ad39b34e3d74ff62277f22c37329060f03b67dc2",
+      "post_id": "1604315791053010",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02LQQGfGWXtavebbw24Umq6352tvhCPipioki6cqYZQr3bH8ZztRNY7D8q3K6VUAfrl",
+      "published_at": "2026-07-20T00:32:36+00:00",
+      "display_time": "2026-07-20T08:32:36+08:00",
+      "unix_ms": 1784507556000,
+      "text": "看什麼看\n今天就是反彈啦～\n妥妥開高走低\n\n今天繼續看有什麼可以賣的轉去傳產⋯",
+      "members": [
+        {
+          "key": "facebook:1604315791053010",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02LQQGfGWXtavebbw24Umq6352tvhCPipioki6cqYZQr3bH8ZztRNY7D8q3K6VUAfrl",
+          "published_at": "2026-07-20T00:32:36+00:00",
+          "post_id": "1604315791053010"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "key": "threads:3945193370117864190",
+      "content_hash": "6b8666eaddb4df9780515db5661ce0a2efce6e8540a1fcdafba16955c0a8282c",
+      "post_id": "3945193370117864190",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbAJHe0Gfr-",
+      "published_at": "2026-07-20T05:02:00+00:00",
+      "display_time": "2026-07-20T13:02:00+08:00",
+      "unix_ms": 1784523720000,
+      "text": "so weak...😭😭😭😭",
+      "members": [
+        {
+          "key": "threads:3945193370117864190",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbAJHe0Gfr-",
+          "published_at": "2026-07-20T05:02:00+00:00",
+          "post_id": "3945193370117864190"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "key": "threads:3945215061657207424",
+      "content_hash": "500316e046982837bfa991139850d04b093637919e4222fc84926d0c63b3a9a3",
+      "post_id": "3945215061657207424",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbAODIomUKA",
+      "published_at": "2026-07-20T05:45:06+00:00",
+      "display_time": "2026-07-20T13:45:06+08:00",
+      "unix_ms": 1784526306000,
+      "text": "@meta.ai  請問從台北101頂部往下墜落要多久的時間，只是好奇",
+      "members": [
+        {
+          "key": "threads:3945215061657207424",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbAODIomUKA",
+          "published_at": "2026-07-20T05:45:06+00:00",
+          "post_id": "3945215061657207424"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "key": "threads:3945363065667705968",
+      "content_hash": "9afae22d7548ee63642651697f6b91eb0f0986430b1c08e9e0f690cf0b03bf84",
+      "post_id": "3945363065667705968",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbAvs4HEdxw",
+      "published_at": "2026-07-20T10:41:00+00:00",
+      "display_time": "2026-07-20T18:41:00+08:00",
+      "unix_ms": 1784544060000,
+      "text": "每次都忘記發脆\n二話不說！乾爹又來了這次是\n小日子法式水果店～little sunday❤️\n\n本次試團購業配（ya~~)\n果乾系列可以選擇的有（以甜度排序）\n白桃>蘋果>奇異果>鳳梨>芭樂>蔬果（鹹）\n\n而且還有搭配獎金活動❤️ \n如果團購總金額有機會破100萬的話\n居然會抽獎送給一名幸運的購買者！？ \n\n獎金的金額居然是開獎日當天等值一張群創股價\n（乾爹是不是被套在70啊，太可憐了，還好我才套在60）\n\n這邊是這次的團購連結：\nhttps://littlesunday-fruits.my1shop.com/banini",
+      "members": [
+        {
+          "key": "threads:3945363065667705968",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbAvs4HEdxw",
+          "published_at": "2026-07-20T10:41:00+00:00",
+          "post_id": "3945363065667705968"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "key": "facebook:1604744667676789",
+      "content_hash": "0b7245ed5b9b36d922bfb0169e9102d0c00b0e329af85b5647c2e44cf0c05dec",
+      "post_id": "1604744667676789",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid033QtWmAt8rSXVRvNhxaRtYTvHeqnWrXBTsZDyS5oRJ4wFJbzaLesrzYN8PGPQpdyBl",
+      "published_at": "2026-07-20T13:10:06+00:00",
+      "display_time": "2026-07-20T21:10:06+08:00",
+      "unix_ms": 1784553006000,
+      "text": "是時候教韓國人做股票了",
+      "members": [
+        {
+          "key": "facebook:1604744667676789",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid033QtWmAt8rSXVRvNhxaRtYTvHeqnWrXBTsZDyS5oRJ4wFJbzaLesrzYN8PGPQpdyBl",
+          "published_at": "2026-07-20T13:10:06+00:00",
+          "post_id": "1604744667676789"
+        }
+      ]
+    }
+  ]
+}
