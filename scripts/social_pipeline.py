@@ -290,7 +290,8 @@ def generate(archive):
         lines.insert(index,block)
     last=max(i for i,l in enumerate(lines) if 'array.push(evt_ticker,' in l)
     lines.insert(last+1,'    '+marker+'\n    // END GENERATED SOCIAL EVENTS\n')
-    (ROOT/'8zz-indicator.pine').write_text(''.join(lines))
+    from pine_initialization import split_initialization
+    (ROOT/'8zz-indicator.pine').write_text(split_initialization(''.join(lines)))
     write(ROOT/'data/social_groups.json',merged)
     return len(blocks)
 

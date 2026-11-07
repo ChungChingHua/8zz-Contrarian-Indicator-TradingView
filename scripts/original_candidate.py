@@ -3,6 +3,7 @@ import json,re
 from pathlib import Path
 import original_author as policy
 from update_pine_script import build_push_block,EVENT_PATTERN,HEADER_COUNT_PATTERN
+from pine_initialization import split_initialization,check_initialization
 ROOT=policy.ROOT
 OUT=ROOT/'candidates/8zz-original-author-batch-01.pine'
 
@@ -16,7 +17,7 @@ def build(ledger):
         index=next((i for i,line in enumerate(lines) if (m:=re.search(r'array\.push\(evt_time, (\d+)',line)) and int(m[1])>r['unix_ms']),None)
         if index is None:index=max(i for i,l in enumerate(lines) if 'array.push(evt_ticker,' in l)+1
         lines.insert(index,block);added+=1
-    candidate=''.join(lines)
+    candidate=split_initialization(''.join(lines))
     count=len(EVENT_PATTERN.findall(candidate))
     dates=[r['display_time'][:7].replace('-','/') for r in ledger['records'] if r['status']=='completed_signal']
     if dates:candidate=HEADER_COUNT_PATTERN.sub(lambda m:m[1]+str(count)+m[3]+max(m[4],*dates),candidate,count=1)
@@ -29,7 +30,7 @@ def build(ledger):
     valid=all(int(m.group(2)) in (-1,0,1) and int(m.group(3)) in (1,2,3) for m in matches)
     if not (paired and ordered and valid):raise ValueError('candidate_structure_invalid')
     return candidate,{'historical_events':len(EVENT_PATTERN.findall(text)),'added_events':added,'total_events':count,
-        'historical_blocks_preserved':True,'historical_neutral_events_preserved':sum(int(m.group(2))==0 for m in EVENT_PATTERN.finditer(text)),'new_events_nonzero':True,'arrays_paired':paired,'timestamps_ordered':ordered,'directions_strengths_valid':valid,'tradingview_compiled':False}
+        'historical_blocks_preserved':True,'historical_neutral_events_preserved':sum(int(m.group(2))==0 for m in EVENT_PATTERN.finditer(text)),'new_events_nonzero':True,'arrays_paired':paired,'timestamps_ordered':ordered,'directions_strengths_valid':valid,'tradingview_compiled':False,**check_initialization(candidate)}
 
 def main():
     from history_worker import LOCAL

@@ -101,7 +101,8 @@ var int[] evt_str = array.new_int(0)
 var string[] evt_tips = array.new_string(0)
 var string[] evt_ticker = array.new_string(0)
 
-if barstate.isfirst
+// BEGIN GENERATED EVENT INITIALIZATION
+initEvtChunk001() =>
     array.push(evt_time, 1764721680000)
     array.push(evt_dir, 1)
     array.push(evt_str, 1)
@@ -202,6 +203,9 @@ if barstate.isfirst
     array.push(evt_str, 3)
     array.push(evt_tips, "被套 | 跌停\n指標: 偏多 ▲ | 強度: ★★★\nFB 01/20 09:02 跌停是怎樣？不是說新聞早反應嗎")
     array.push(evt_ticker, "")
+    0
+
+initEvtChunk002() =>
     array.push(evt_time, 1768912320000)
     array.push(evt_dir, -1)
     array.push(evt_str, 2)
@@ -302,6 +306,9 @@ if barstate.isfirst
     array.push(evt_str, 3)
     array.push(evt_tips, "停損賣出\n指標: 偏多 ▲ | 強度: ★★★\nFB 03/14 01:03 壯烈犧牲")
     array.push(evt_ticker, "")
+    0
+
+initEvtChunk003() =>
     array.push(evt_time, 1773592080000)
     array.push(evt_dir, 1)
     array.push(evt_str, 2)
@@ -402,6 +409,9 @@ if barstate.isfirst
     array.push(evt_str, 3)
     array.push(evt_tips, "停損 | 鈦昇\n指標: 偏多 ▲ | 強度: ★★★\nFB 04/09 09:24 停損渣男鈦昇")
     array.push(evt_ticker, "8027.TWO")
+    0
+
+initEvtChunk004() =>
     array.push(evt_time, 1775697900000)
     array.push(evt_dir, -1)
     array.push(evt_str, 3)
@@ -502,6 +512,9 @@ if barstate.isfirst
     array.push(evt_str, 3)
     array.push(evt_tips, "跌停\n指標: 偏多 ▲ | 強度: ★★★\nFB 05/20 13:44 那個，不好意思，跌太多心情有點差 我已經說200次了，我就這個帳號會講股票 沒有Line 沒有秘書 沒有助手 沒有...")
     array.push(evt_ticker, "")
+    0
+
+initEvtChunk005() =>
     array.push(evt_time, 1779321775000)
     array.push(evt_dir, 1)
     array.push(evt_str, 2)
@@ -522,7 +535,6 @@ if barstate.isfirst
     array.push(evt_str, 3)
     array.push(evt_tips, "虧損\n指標: 偏多 ▲ | 強度: ★★★\nFB 05/21 17:04 對不起大家 我不行了 負面的情緒揮不掉：） 今天賠錢只是其中一件事 一堆不好的事情一直在發生 這個世界很美好，錯的...")
     array.push(evt_ticker, "")
-
     array.push(evt_time, 1779671744000)
     array.push(evt_dir, 1)
     array.push(evt_str, 1)
@@ -603,6 +615,9 @@ if barstate.isfirst
     array.push(evt_str, 3)
     array.push(evt_tips, "持股重挫\n指標: 偏多 ▲ | 強度: ★★★\nFB 06/08 09:24 開群組 50檔有49檔綠的 唯一紅的是反一  持股4個綠燈⋯再一燈就晉級了")
     array.push(evt_ticker, "")
+    0
+
+initEvtChunk006() =>
     array.push(evt_time, 1780891024000)
     array.push(evt_dir, 1)
     array.push(evt_str, 3)
@@ -703,6 +718,9 @@ if barstate.isfirst
     array.push(evt_str, 2)
     array.push(evt_tips, "看多\n指標: 偏空 ▼ | 強度: ★★☆\nFB 06/25 11:55 故事不是這樣演的啊！ 昨天希望今天能漲，但是不是這種不健康的漲 應該是外資空單減碼啊～～  然後開始無限箱型整理⋯...")
     array.push(evt_ticker, "")
+    0
+
+initEvtChunk007() =>
     array.push(evt_time, 1782436889000)
     array.push(evt_dir, 1)
     array.push(evt_str, 2)
@@ -803,6 +821,9 @@ if barstate.isfirst
     array.push(evt_str, 2)
     array.push(evt_tips, "加碼反一\n指標: 偏多 ▲ | 強度: ★★☆\nFB 07/09 20:25 反一買了就真的止跌了（笑）")
     array.push(evt_ticker, "")
+    0
+
+initEvtChunk008() =>
     array.push(evt_time, 1783916179000)
     array.push(evt_dir, 1)
     array.push(evt_str, 3)
@@ -848,7 +869,6 @@ if barstate.isfirst
     array.push(evt_str, 2)
     array.push(evt_tips, "看空\n指標: 偏多 ▲ | 強度: ★★☆\nFB 07/19 00:56 想到星期一還要繼續跌就好煩喔 漲了八成也是跌多反彈")
     array.push(evt_ticker, "")
-
     array.push(evt_time, 1784507556000)
     array.push(evt_dir, -1)
     array.push(evt_str, 2)
@@ -904,6 +924,9 @@ if barstate.isfirst
     array.push(evt_str, 2)
     array.push(evt_tips, "準備賣出(按在賣出鍵)\n指標: 偏空 ▼ | 強度: 2\n2026-07-27T08:37:54+08:00 我的一隻手已經按在賣出鍵上了\n是說韓國的屋頂也太綠了吧！\n發文者表示手已按在賣出鍵上，語氣帶有決斷與準備出脫的主動性，偏向亢奮/想賣出的情緒。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02NVqruQ8pQ6h7zikJBAnbhG62wojfcVGVnMxHQrfSZxBjZifkPRpyvS6pHuX36DHil\nhttps://www.threads.com/@banini31/post/DbRsdYSk0nr")
     array.push(evt_ticker, "")
+    0
+
+initEvtChunk009() =>
     array.push(evt_time, 1785117213000)
     array.push(evt_dir, 1)
     array.push(evt_str, 2)
@@ -1004,6 +1027,9 @@ if barstate.isfirst
     array.push(evt_str, 2)
     array.push(evt_tips, "購買安慰品vs補倉猶豫\n指標: 偏多 ▲ | 強度: 2\n2026-07-30T23:58:48+08:00 明天兩個選擇\n\n買一隻錶安慰我逝去的50萬\n或是把今天停損的重新砸回去\n\n這只是多巴安錶， 沒有要買很貴， 買開心的\n剛發生大額停損（文中提到逝去的50萬）情緒低落且在兩個選項間猶豫，顯示痛苦與想彌補的心態，偏多訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02bzzLRxymaPtkciAhXDbBwqFpwC6icXZPmwV6aeGSer45VjQzUVtqEjTWoYDuCds6l")
     array.push(evt_ticker, "")
+    0
+
+initEvtChunk010() =>
     array.push(evt_time, 1785460721000)
     array.push(evt_dir, -1)
     array.push(evt_str, 3)
@@ -1039,6 +1065,20 @@ if barstate.isfirst
     array.push(evt_str, 2)
     array.push(evt_tips, "買回/接回\n指標: 偏多 ▲ | 強度: 2\n2026-08-03T13:50:30+08:00 ⋯⋯⋯ 一早開盤衝進場的我\n不是\n唉\n你不能愛普今天開低走漲停\n我的正二開高走低啊\n是逼我把愛普接回來嗎？\n愛普是什麼家暴渣男嗎_(:_」∠)_\n發文語氣抱怨且帶有無奈（被迫接回、被套或操作失誤的痛苦），情緒偏多但非極端。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0Vu3Go79GKh4sDpbh5UqNaspt432bK7PEUiyGcNVJqdEJpdtc6n8mTeebLy4BCiuXl")
     array.push(evt_ticker, "00631L.TW")
+    0
+
+if barstate.isfirst
+    initEvtChunk001()
+    initEvtChunk002()
+    initEvtChunk003()
+    initEvtChunk004()
+    initEvtChunk005()
+    initEvtChunk006()
+    initEvtChunk007()
+    initEvtChunk008()
+    initEvtChunk009()
+    initEvtChunk010()
+// END GENERATED EVENT INITIALIZATION
 
 var int currentDir = 0
 var int posCount = 0

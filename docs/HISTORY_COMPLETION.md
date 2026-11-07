@@ -55,7 +55,11 @@
     "arrays_paired": true,
     "timestamps_ordered": true,
     "directions_strengths_valid": true,
-    "tradingview_compiled": false
+    "tradingview_compiled": false,
+    "initialization_functions": 10,
+    "max_events_per_function": 20,
+    "first_bar_calls": 10,
+    "event_initialization_chunk_limit": 20
   },
   "last_new_valid_response_date": "2026-08-04T10:33:34+08:00",
   "new_stop_post_date": "2026-08-04T18:41:55+08:00",
