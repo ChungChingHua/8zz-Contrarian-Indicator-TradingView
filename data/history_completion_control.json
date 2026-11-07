@@ -61,11 +61,18 @@
       "processed": false,
       "cap_usd": 0.1,
       "max_items": 50,
-      "run_id": "TQsq3MaaGMBqd77i0"
+      "run_id": "TQsq3MaaGMBqd77i0",
+      "status": "SUCCEEDED",
+      "reported_cost": {
+        "usageTotalUsd": 0.022
+      },
+      "finished_at": "2026-11-07T12:16:19.386Z",
+      "possible_cost_truncation": false,
+      "dataset_id": "wEU55qOn1kXQkSSET"
     }
   ],
   "apify_http_counts": {
-    "GET": 1,
+    "GET": 6,
     "POST": 1
   },
   "prior_http_counts": {
