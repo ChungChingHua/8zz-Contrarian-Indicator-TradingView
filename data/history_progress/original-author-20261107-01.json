@@ -5,7 +5,7 @@
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "created_at": "2026-11-07T08:14:08.821626+00:00",
   "max_generations": 5,
-  "reserved_generation_attempts": 4,
+  "reserved_generation_attempts": 5,
   "stopped": false,
   "finished": false,
   "provider_settings": {
@@ -1312,12 +1312,41 @@
           "post_id": "1604744667676789"
         }
       ],
-      "status": "not_started",
-      "attempts": 0,
-      "context_used": []
+      "status": "unknown",
+      "attempts": 1,
+      "context_used": [],
+      "media_scope": {
+        "analysis_scope": "text_only_images_unavailable",
+        "unanalysed_media": [
+          {
+            "attachment_index": 0,
+            "kind": "image",
+            "status": "圖片未分析",
+            "error_type": "OSError",
+            "errno": 101,
+            "reason": "network_unreachable"
+          }
+        ],
+        "media_failures": [
+          {
+            "attachment_index": 0,
+            "kind": "image",
+            "status": "圖片未分析",
+            "error_type": "OSError",
+            "errno": 101,
+            "reason": "network_unreachable"
+          }
+        ],
+        "images_supplied": 0,
+        "image_evidence": [],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule."
+      },
+      "request_sha256": "f75d27aa5cdec161e8d6ee1564822be81ed356ff4444e8c628ffebd60d9f224c",
+      "dispatch_reserved_at": "2026-11-07T11:03:31.012716+00:00"
     }
   ],
-  "updated_at": "2026-11-07T11:03:29.798770+00:00",
+  "updated_at": "2026-11-07T11:03:31.012734+00:00",
   "stop_reason": null,
   "unsent_media_recovery_used": true,
   "recovery_note": "Operator continued the same authorized batch after proven 0-generation IPv6 network failure; explicit unavailable-image scope, no TLS/host bypass or generation retry.",
