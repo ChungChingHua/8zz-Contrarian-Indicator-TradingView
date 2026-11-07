@@ -6,7 +6,7 @@
   "created_at": "2026-11-07T12:26:05.951558+00:00",
   "max_generations": 25,
   "reserved_generation_attempts": 6,
-  "stopped": false,
+  "stopped": true,
   "finished": false,
   "provider_settings": {
     "base": "https://api.chatanywhere.tech/v1",
@@ -1710,7 +1710,7 @@
           "post_id": "3956236087476207953"
         }
       ],
-      "status": "unknown",
+      "status": "technical_failure",
       "attempts": 1,
       "context_used": [],
       "media_scope": {
@@ -1724,7 +1724,35 @@
         "non_media_album_container_indices": []
       },
       "request_sha256": "262abe58f85408241665a02fabd4919a8420343a999204956d037b9617a6f36c",
-      "dispatch_reserved_at": "2026-11-07T12:26:39.158512+00:00"
+      "dispatch_reserved_at": "2026-11-07T12:26:39.158512+00:00",
+      "http_status": 429,
+      "remaining_headers": {},
+      "raw_response": {
+        "json": {
+          "error": {
+            "message": "当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-qk****jKr)【如果您遇到问题，欢迎加入QQ群咨询：1003520025】",
+            "type": "chatanywhere_error",
+            "param": null,
+            "code": "429 TOO_MANY_REQUESTS"
+          }
+        },
+        "complete_json_sha256": "a51bf9a3c60a273be925c7a9c45d85a4f292d86e13ece28c9b6f4dc048e97427",
+        "redaction_note": "Opaque encrypted_content omitted; all classification, usage and ordinary metadata retained. No claim of original HTTP bytes."
+      },
+      "service_response": {
+        "model_claim": null,
+        "reasoning_claim": {
+          "effort": null
+        },
+        "format_claim": {
+          "type": null,
+          "strict": false
+        },
+        "usage": null
+      },
+      "api_error_code": null,
+      "error_type": "ValueError",
+      "reason": "provider_http_error"
     },
     {
       "key": "threads:3956314846774104604",
@@ -2183,6 +2211,7 @@
       "context_used": []
     }
   ],
-  "updated_at": "2026-11-07T12:26:39.158528+00:00",
-  "consecutive_isolated_failures": 0
+  "updated_at": "2026-11-07T12:26:41.275028+00:00",
+  "consecutive_isolated_failures": 0,
+  "stop_reason": "provider_access_quota_or_common_failure"
 }
