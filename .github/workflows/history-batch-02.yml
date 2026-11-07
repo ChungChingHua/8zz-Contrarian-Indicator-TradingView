@@ -1,0 +1,46 @@
+name: Authorized history continuation 02
+on:
+  workflow_dispatch:
+  push:
+    branches: [codex/social-pipeline-20261106]
+    paths: [.github/workflows/history-batch-02.yml]
+permissions:
+  contents: write
+concurrency:
+  group: original-author-history-batch-01
+  cancel-in-progress: false
+jobs:
+  batch:
+    if: github.ref == 'refs/heads/codex/social-pipeline-20261106'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Offline checks before credentials
+        run: python -m unittest discover -s scripts -p 'test_*.py'
+      - name: One authorized batch; durable reservations; no retries
+        env:
+          CHATANYWHERE_API_KEY: ${{ secrets.CHATANYWHERE_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+          AUTHORIZED_HISTORY_BATCH: original-author-20261107-02
+          AUTHORIZED_RULE_SHA256: 8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162
+          AUTHORIZED_PLAN_SHA256: 98be37565d0e92a855d8e2f9edd29dae78499bdddce48e4ef41e93924dd680b8
+        run: python scripts/history_batch_02.py
+      - name: Complete cumulative candidate from acknowledged ledgers
+        if: always()
+        run: python scripts/history_batch_02.py candidate
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: original-author-batch-02
+          path: |
+            data/history_progress/original-author-20261107-02*.json
+            candidates/8zz-original-author-batch-02*
+          retention-days: 14
+          if-no-files-found: ignore

@@ -8,7 +8,14 @@ PLAN=ROOT/'data/history_batch_01_plan.json'
 
 def normalized(text):return re.sub(r'\s+','',text)
 def media_identity(p):
-    return [(m.get('type') or m.get('__typename'),urlsplit(m.get('photo_image',{}).get('uri') or m.get('url','')).path) for m in p['attachments']]
+    identities=[]
+    for m in p['attachments']:
+        kind=m.get('type') or m.get('__typename')
+        if (not kind and m.get('mediaset_token')=='pcb.'+p['post_id']
+            and set(m)<= {'mediaset_token','url','comet_product_tag_feed_overlay_renderer'}):continue
+        url=m.get('photo_image',{}).get('uri') or (m.get('image',{}).get('uri') if kind=='Photo' else None) or m.get('url','')
+        identities.append(('image' if kind in ('Photo','photo','image') else kind,urlsplit(url).path))
+    return identities
 
 def select(archive,excluded,limit=5):
     groups=[];skips=[]

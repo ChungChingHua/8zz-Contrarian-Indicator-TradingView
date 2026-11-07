@@ -107,14 +107,16 @@ def prepare_media(post):
     return parts,info
 
 class Worker:
-    def __init__(self,store,provider,plan,prepare=prepare_media,secrets=(),local=LOCAL,after_response=None):
+    def __init__(self,store,provider,plan,prepare=prepare_media,secrets=(),local=LOCAL,after_response=None,generation_limit=5):
+        if not 1 <= generation_limit <= 20:raise ValueError('invalid_generation_limit')
+        self.generation_limit=generation_limit
         self.store=store;self.provider=provider;self.plan=plan;self.prepare=prepare;self.secrets=secrets;self.local=local;self.after_response=after_response
         self.state=store.load()
         if self.state:
-            if self.state['batch_id']!=BATCH_ID or self.state['plan_sha256']!=digest(plan) or self.state['rule_sha256']!=policy.fingerprint():raise ValueError('ledger_manifest_mismatch')
+            if self.state['batch_id']!=BATCH_ID or self.state['plan_sha256']!=digest(plan) or self.state['rule_sha256']!=policy.fingerprint() or self.state['max_generations']!=generation_limit:raise ValueError('ledger_manifest_mismatch')
         else:
             self.state={'batch_id':BATCH_ID,'plan_sha256':digest(plan),'rule_version':policy.VERSION,'rule_sha256':policy.fingerprint(),
-               'created_at':now(),'max_generations':5,'reserved_generation_attempts':0,'stopped':False,'finished':False,
+               'created_at':now(),'max_generations':generation_limit,'reserved_generation_attempts':0,'stopped':False,'finished':False,
                'provider_settings':{'base':BASE,'model':'gpt-5-mini','reasoning_effort':'minimal','strict_schema':True,'store':False,'tools':False},
                'quota_before':None,'quota_after':None,'actual_points_deducted':None,
                'quota_note':'Returned numeric headers only. Missing/delayed quota and actual deductions unknown; points are not tokens.',
@@ -171,7 +173,7 @@ class Worker:
         for p,r in zip(posts,self.state['records']):
             if p['key']!=r['key']:raise ValueError('post_order_mismatch')
             if r['status']!='not_started':continue
-            if self.state['reserved_generation_attempts']>=5:break
+            if self.state['reserved_generation_attempts']>=self.generation_limit:break
             try:parts,scope=self.prepare(p)
             except Exception as exc:
                 r.update(status='input_failure',error_type=type(exc).__name__,reason='Media preflight failed; no generation, no URL/raw error logged')
