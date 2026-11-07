@@ -1,0 +1,627 @@
+{
+  "batch_id": "history-completion-20261107-004",
+  "plan_sha256": "94a629da5bbe905ac4a1d8b7e970868b1f999ceb082ff1d49b79cee398cfaf36",
+  "rule_version": "fork-7b626f2-ai-v1",
+  "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+  "created_at": "2026-11-07T12:26:05.951558+00:00",
+  "max_generations": 25,
+  "reserved_generation_attempts": 0,
+  "stopped": false,
+  "finished": false,
+  "provider_settings": {
+    "base": "https://api.chatanywhere.tech/v1",
+    "model": "gpt-5-mini",
+    "reasoning_effort": "minimal",
+    "strict_schema": true,
+    "store": false,
+    "tools": false
+  },
+  "quota_before": null,
+  "quota_after": null,
+  "actual_points_deducted": null,
+  "quota_note": "Returned numeric headers only. Missing/delayed quota and actual deductions unknown; points are not tokens.",
+  "response_storage_note": "Provider JSON retained except opaque encrypted_content; complete JSON hash recorded. No headers/credentials or signed media URLs.",
+  "records": [
+    {
+      "key": "facebook:1616363613181561",
+      "content_hash": "aaafcb6f18650a44ee1247ffa6205694e4c5d5e2c9247735c67150807a881044",
+      "post_id": "1616363613181561",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0Vu3Go79GKh4sDpbh5UqNaspt432bK7PEUiyGcNVJqdEJpdtc6n8mTeebLy4BCiuXl",
+      "published_at": "2026-08-03T05:50:30+00:00",
+      "display_time": "2026-08-03T13:50:30+08:00",
+      "unix_ms": 1785736230000,
+      "text": "⋯⋯⋯ 一早開盤衝進場的我\n不是\n唉\n你不能愛普今天開低走漲停\n我的正二開高走低啊\n是逼我把愛普接回來嗎？\n愛普是什麼家暴渣男嗎_(:_」∠)_",
+      "number": 1,
+      "members": [
+        {
+          "key": "facebook:1616363613181561",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0Vu3Go79GKh4sDpbh5UqNaspt432bK7PEUiyGcNVJqdEJpdtc6n8mTeebLy4BCiuXl",
+          "published_at": "2026-08-03T05:50:30+00:00",
+          "post_id": "1616363613181561"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3955514815163221984",
+      "content_hash": "866fdd4eb43592777328f2bfd9d4ff2814f41e30244ce6ea6a9e89305dabc51a",
+      "post_id": "3955514815163221984",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dbkz8RlmUfg",
+      "published_at": "2026-08-03T10:48:52+00:00",
+      "display_time": "2026-08-03T18:48:52+08:00",
+      "unix_ms": 1785754132000,
+      "text": "唉……不是",
+      "number": 2,
+      "members": [
+        {
+          "key": "threads:3955514815163221984",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dbkz8RlmUfg",
+          "published_at": "2026-08-03T10:48:52+00:00",
+          "post_id": "3955514815163221984"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3955661179830498141",
+      "content_hash": "5fb0789b904fb8f1c0e066ace2b44f6f1ee5e43e3f26cd77390c9d050a0f895f",
+      "post_id": "3955661179830498141",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DblVOKTmXNd",
+      "published_at": "2026-08-03T15:39:40+00:00",
+      "display_time": "2026-08-03T23:39:40+08:00",
+      "unix_ms": 1785771580000,
+      "text": "你在綠什麼啦",
+      "number": 3,
+      "members": [
+        {
+          "key": "threads:3955661179830498141",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DblVOKTmXNd",
+          "published_at": "2026-08-03T15:39:40+00:00",
+          "post_id": "3955661179830498141"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3955680057553442999",
+      "content_hash": "ef123e68ab96b6d0cde374f6a8250f76637e35df85f0027ef0955f8469351b54",
+      "post_id": "3955680057553442999",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DblZg3jkdi3",
+      "published_at": "2026-08-03T16:17:13+00:00",
+      "display_time": "2026-08-04T00:17:13+08:00",
+      "unix_ms": 1785773833000,
+      "text": "如何減肥",
+      "number": 4,
+      "members": [
+        {
+          "key": "threads:3955680057553442999",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DblZg3jkdi3",
+          "published_at": "2026-08-03T16:17:13+00:00",
+          "post_id": "3955680057553442999"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3955990300649452087",
+      "content_hash": "e7b5af5acbe9a82bffd7df1ddeb9c1b65357cf27a6a0b3222f3154795688c3b8",
+      "post_id": "3955990300649452087",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbmgDf9GfI3",
+      "published_at": "2026-08-04T02:33:34+00:00",
+      "display_time": "2026-08-04T10:33:34+08:00",
+      "unix_ms": 1785810814000,
+      "text": "日月光這種小薯不是我的事",
+      "number": 5,
+      "members": [
+        {
+          "key": "threads:3955990300649452087",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbmgDf9GfI3",
+          "published_at": "2026-08-04T02:33:34+00:00",
+          "post_id": "3955990300649452087"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3956236087476207953",
+      "content_hash": "99592b4964c912f3f615de8c33f56203035afac94039d17b4de2c8b52d36c191",
+      "post_id": "3956236087476207953",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbnX8KxmcFR",
+      "published_at": "2026-08-04T10:41:55+00:00",
+      "display_time": "2026-08-04T18:41:55+08:00",
+      "unix_ms": 1785840115000,
+      "text": "好想去錶店戴一輪錶\n\n然後都不買喔_(:_」∠)_",
+      "number": 6,
+      "members": [
+        {
+          "key": "threads:3956236087476207953",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbnX8KxmcFR",
+          "published_at": "2026-08-04T10:41:55+00:00",
+          "post_id": "3956236087476207953"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3956314846774104604",
+      "content_hash": "85ec09ddae729ce6a234faf9009e683b513a60bb26fa591b5dbbc91d6a1d9222",
+      "post_id": "3956314846774104604",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dbnp2RFkxIc",
+      "published_at": "2026-08-04T13:18:23+00:00",
+      "display_time": "2026-08-04T21:18:23+08:00",
+      "unix_ms": 1785849503000,
+      "text": "股票好想賺錢喔 \n怎麼我虧幾百萬只要2週， 賺十幾萬要好幾個月\n朋友一直喊今年賺3倍， 我今年目前只賺-30%\n\n是說網路看到半金皮蛋只要40萬？ 詐騙吧？ \n是說我買了一個二手Seiko，匯完錢已經2天了⋯⋯ 希望趕快拿到",
+      "number": 7,
+      "members": [
+        {
+          "key": "threads:3956314846774104604",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dbnp2RFkxIc",
+          "published_at": "2026-08-04T13:18:23+00:00",
+          "post_id": "3956314846774104604"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3956363001427374481",
+      "content_hash": "28ffedc91c9354add9f09e6b0fc6e6415105a7a3d4138c1d5ce64021fae3d7f5",
+      "post_id": "3956363001427374481",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dbn0zAmk7GR",
+      "published_at": "2026-08-04T14:54:06+00:00",
+      "display_time": "2026-08-04T22:54:06+08:00",
+      "unix_ms": 1785855246000,
+      "text": "看來我的虧損可以繼續變小了⋯\n這次的教訓就是⋯ 太晚停損，結果損在-43%， 停損後財回彈⋯ 要是當初按照紀律20%停損， 我現在根本快樂加倉",
+      "number": 8,
+      "members": [
+        {
+          "key": "threads:3956363001427374481",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dbn0zAmk7GR",
+          "published_at": "2026-08-04T14:54:06+00:00",
+          "post_id": "3956363001427374481"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3956409176872806550",
+      "content_hash": "a4ea019d5d4a8c3c271879f45eb5ed89a48ec26eddd058068370b58e6b9a4f32",
+      "post_id": "3956409176872806550",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dbn_S81mWiW",
+      "published_at": "2026-08-04T16:25:48+00:00",
+      "display_time": "2026-08-05T00:25:48+08:00",
+      "unix_ms": 1785860748000,
+      "text": "Emo爆發倒數_(:_」∠)_\n\n我應該要睡覺還是趕快把影片剪完",
+      "number": 9,
+      "members": [
+        {
+          "key": "threads:3956409176872806550",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dbn_S81mWiW",
+          "published_at": "2026-08-04T16:25:48+00:00",
+          "post_id": "3956409176872806550"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3956447920279604128",
+      "content_hash": "194688aa9f52aef39a0e084aa74a551a8f19325d5557887098bab5c4eb57535d",
+      "post_id": "3956447920279604128",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DboIGvcmUug",
+      "published_at": "2026-08-04T17:42:47+00:00",
+      "display_time": "2026-08-05T01:42:47+08:00",
+      "unix_ms": 1785865367000,
+      "text": "不開心就花錢， 花錢錢變少，錢變少就不開心\n\n今年是我最病態花錢的一年\n才過8個月就花掉半年年薪在買娛樂到東西上\n感覺很糟_(:_」∠)_\n我需要看醫生",
+      "number": 10,
+      "members": [
+        {
+          "key": "threads:3956447920279604128",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DboIGvcmUug",
+          "published_at": "2026-08-04T17:42:47+00:00",
+          "post_id": "3956447920279604128"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3956831302322856233",
+      "content_hash": "2196a4dac6c2161f93cb8bc5fb40975cc24e7046044d3f0ab9cd0d8258ab6973",
+      "post_id": "3956831302322856233",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbpfRrzGaEp",
+      "published_at": "2026-08-05T06:24:30+00:00",
+      "display_time": "2026-08-05T14:24:30+08:00",
+      "unix_ms": 1785911070000,
+      "text": "我需要一個白面五株半金\n\n等我這次加碼賺錢就衝一塊",
+      "number": 11,
+      "members": [
+        {
+          "key": "threads:3956831302322856233",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbpfRrzGaEp",
+          "published_at": "2026-08-05T06:24:30+00:00",
+          "post_id": "3956831302322856233"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3956901737587102745",
+      "content_hash": "7b4ea626d5ec1433510048ba9a7303ba45a1f03231b9b67f4e688fd4da0bbb81",
+      "post_id": "3956901737587102745",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbpvSpwAVQZ",
+      "published_at": "2026-08-05T08:44:29+00:00",
+      "display_time": "2026-08-05T16:44:29+08:00",
+      "unix_ms": 1785919469000,
+      "text": "每天都在祈禱川普能安靜",
+      "number": 12,
+      "members": [
+        {
+          "key": "threads:3956901737587102745",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbpvSpwAVQZ",
+          "published_at": "2026-08-05T08:44:29+00:00",
+          "post_id": "3956901737587102745"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3957023224530314498",
+      "content_hash": "d83701f9378f8413bd35267a067f7f2feaa593383d0d923280ad459d0653d8cf",
+      "post_id": "3957023224530314498",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbqK6hSGaUC",
+      "published_at": "2026-08-05T12:45:49+00:00",
+      "display_time": "2026-08-05T20:45:49+08:00",
+      "unix_ms": 1785933949000,
+      "text": "我想關掉政治內容，但是又怕川川相關的文被擋掉，怎麼辦",
+      "number": 13,
+      "members": [
+        {
+          "key": "threads:3957023224530314498",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbqK6hSGaUC",
+          "published_at": "2026-08-05T12:45:49+00:00",
+          "post_id": "3957023224530314498"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3957372935942154863",
+      "content_hash": "6fe3bec4945c97db1875ba974e6703fa3cd53dc15ff4419eb9199e6372799861",
+      "post_id": "3957372935942154863",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dbrabfak6pv",
+      "published_at": "2026-08-06T00:20:37+00:00",
+      "display_time": "2026-08-06T08:20:37+08:00",
+      "unix_ms": 1785975637000,
+      "text": "糟糕， 憂慮沒有因為睡起來變好",
+      "number": 14,
+      "members": [
+        {
+          "key": "threads:3957372935942154863",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dbrabfak6pv",
+          "published_at": "2026-08-06T00:20:37+00:00",
+          "post_id": "3957372935942154863"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "facebook:1618879282929994",
+      "content_hash": "17038eb0f01c535a060a6d50b056c08a65947ca7b4949bcd14cd994c7c065867",
+      "post_id": "1618879282929994",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0rtjUW65TUuFuL6FAYYywMJn7YuiARb5KhKhJjCCrmjevUzsH1M8Bu5tsxyMtwJd4l",
+      "published_at": "2026-08-06T01:31:27+00:00",
+      "display_time": "2026-08-06T09:31:27+08:00",
+      "unix_ms": 1785979887000,
+      "text": "感覺⋯ 好像怪怪的⋯\n趁還沒虧很多， 還是收回資金好了\n\n這一波搞不好真的是反彈波而已\n如果是的話⋯ 那下一次下墜會很恐怖\n\n現在是緩跌急漲啊",
+      "number": 15,
+      "members": [
+        {
+          "key": "facebook:1618879282929994",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0rtjUW65TUuFuL6FAYYywMJn7YuiARb5KhKhJjCCrmjevUzsH1M8Bu5tsxyMtwJd4l",
+          "published_at": "2026-08-06T01:31:27+00:00",
+          "post_id": "1618879282929994"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3957443514980730148",
+      "content_hash": "4666765dcdf7690bf37340c0b7f532898f2599e57e6d55f56f6b167925b1bb6d",
+      "post_id": "3957443514980730148",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbrqejRGYUk",
+      "published_at": "2026-08-06T02:40:51+00:00",
+      "display_time": "2026-08-06T10:40:51+08:00",
+      "unix_ms": 1785984051000,
+      "text": "我跟宇宙下的聯電漲回180的訂單請問什麼時候才到",
+      "number": 16,
+      "members": [
+        {
+          "key": "threads:3957443514980730148",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbrqejRGYUk",
+          "published_at": "2026-08-06T02:40:51+00:00",
+          "post_id": "3957443514980730148"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "facebook:1619175659567023",
+      "content_hash": "ef4dfb8f47533fb534cb0add2b3f2b293c85b6e79e096ca152a5a3151029918e",
+      "post_id": "1619175659567023",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0DfecTLy5chrHPu4SGwrQXpdrq3khfDSi6xeviUjy5xSBsHT7oLvfVSpSwYn3gFbYl",
+      "published_at": "2026-08-06T09:52:45+00:00",
+      "display_time": "2026-08-06T17:52:45+08:00",
+      "unix_ms": 1786009965000,
+      "text": "說好的美肌呢\n\n",
+      "number": 17,
+      "members": [
+        {
+          "key": "facebook:1619175659567023",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0DfecTLy5chrHPu4SGwrQXpdrq3khfDSi6xeviUjy5xSBsHT7oLvfVSpSwYn3gFbYl",
+          "published_at": "2026-08-06T09:52:45+00:00",
+          "post_id": "1619175659567023"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3957697381026834249",
+      "content_hash": "cc56790d50fc466cbfabdeb75120a1e7791832507ae76789b689e8b083f924cd",
+      "post_id": "3957697381026834249",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbskMycmSdJ",
+      "published_at": "2026-08-06T11:05:14+00:00",
+      "display_time": "2026-08-06T19:05:14+08:00",
+      "unix_ms": 1786014314000,
+      "text": "可惡⋯⋯⋯⋯ 紫色⋯⋯ 好棒",
+      "number": 18,
+      "members": [
+        {
+          "key": "threads:3957697381026834249",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbskMycmSdJ",
+          "published_at": "2026-08-06T11:05:14+00:00",
+          "post_id": "3957697381026834249"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "facebook:1619309476220308",
+      "content_hash": "32e7f1995a9504c607b3c885dcad34fdcf61120338bc4fb67bd9061f075b5a32",
+      "post_id": "1619309476220308",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid067prnrEbnR5MGGQLFdUrysz28cKZTM4yd6VDzRTx5dBMeBCRRGbL67u5gVD9mS3Vl",
+      "published_at": "2026-08-06T13:01:56+00:00",
+      "display_time": "2026-08-06T21:01:56+08:00",
+      "unix_ms": 1786021316000,
+      "text": "對不起， 我錯了\n川湖我三年前不該賣你的\n我真的錯了\n可以給我一個機會嗎(;´༎ຶД༎ຶ`)",
+      "number": 19,
+      "members": [
+        {
+          "key": "facebook:1619309476220308",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid067prnrEbnR5MGGQLFdUrysz28cKZTM4yd6VDzRTx5dBMeBCRRGbL67u5gVD9mS3Vl",
+          "published_at": "2026-08-06T13:01:56+00:00",
+          "post_id": "1619309476220308"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3957756124434996953",
+      "content_hash": "6eaecfca46467b818a14a2c6e271f7a014349aa15e20edd02c1262bfa55bddb0",
+      "post_id": "3957756124434996953",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dbsxjngkx7Z",
+      "published_at": "2026-08-06T13:01:58+00:00",
+      "display_time": "2026-08-06T21:01:58+08:00",
+      "unix_ms": 1786021318000,
+      "text": "對不起， 我錯了\n川湖我三年前不該賣你的\n我真的錯了\n可以給我一個機會嗎(;´༎ຶД༎ຶ`)",
+      "number": 20,
+      "members": [
+        {
+          "key": "threads:3957756124434996953",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dbsxjngkx7Z",
+          "published_at": "2026-08-06T13:01:58+00:00",
+          "post_id": "3957756124434996953"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3958090078493057657",
+      "content_hash": "0a8d719ff43cd9a2dcaf341d25495a70261e7187c845333832dcd50a2bce8bfb",
+      "post_id": "3958090078493057657",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dbt9fSdk6J5",
+      "published_at": "2026-08-07T00:05:27+00:00",
+      "display_time": "2026-08-07T08:05:27+08:00",
+      "unix_ms": 1786061127000,
+      "text": "網路一堆投報率大神會攻擊其他人的投資方式\n什麼0050對上主動式啊， 什麼不配息對上高股息啊\n其實讓自己舒服的投資方式就是正確的方式， 就算是定存也一樣\n硬要用什麼10年20年投報率來看的話，那你10年前All in BTC不是才是王道？",
+      "number": 21,
+      "members": [
+        {
+          "key": "threads:3958090078493057657",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dbt9fSdk6J5",
+          "published_at": "2026-08-07T00:05:27+00:00",
+          "post_id": "3958090078493057657"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "facebook:1619756022842320",
+      "content_hash": "23b0501225df930fcc17eb6c55fcb472d155228a21f73c1af6a4c770406560e2",
+      "post_id": "1619756022842320",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02vaEkR5gh1fw92kmeV11XVkADmfpZbmQeSTEZJkk9zxixaXRcp84YEqDoppFB5bKDl",
+      "published_at": "2026-08-07T00:49:24+00:00",
+      "display_time": "2026-08-07T08:49:24+08:00",
+      "unix_ms": 1786063764000,
+      "text": "拋棄南亞科這個軟腳男後\n要不要再相信記憶體， 相信旺宏一次呢？",
+      "number": 22,
+      "members": [
+        {
+          "key": "facebook:1619756022842320",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02vaEkR5gh1fw92kmeV11XVkADmfpZbmQeSTEZJkk9zxixaXRcp84YEqDoppFB5bKDl",
+          "published_at": "2026-08-07T00:49:24+00:00",
+          "post_id": "1619756022842320"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3958223690278707712",
+      "content_hash": "7a96e5b3bea620605fbd155a4108257397d7624dc138956ed3ba6b8e067fbd1f",
+      "post_id": "3958223690278707712",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dbub3mImSIA",
+      "published_at": "2026-08-07T04:30:55+00:00",
+      "display_time": "2026-08-07T12:30:55+08:00",
+      "unix_ms": 1786077055000,
+      "text": "廢物聯盟唉⋯",
+      "number": 23,
+      "members": [
+        {
+          "key": "threads:3958223690278707712",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dbub3mImSIA",
+          "published_at": "2026-08-07T04:30:55+00:00",
+          "post_id": "3958223690278707712"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "threads:3958585128126154013",
+      "content_hash": "2ea769433a9ebf4be7f17e4775e40958bf4df137f0e0c31c5f36a0d55d143d8c",
+      "post_id": "3958585128126154013",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbvuDNXGoUd",
+      "published_at": "2026-08-07T16:29:04+00:00",
+      "display_time": "2026-08-08T00:29:04+08:00",
+      "unix_ms": 1786120144000,
+      "text": "IC設計！再來一張！ 一檔一張！！！",
+      "number": 24,
+      "members": [
+        {
+          "key": "threads:3958585128126154013",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbvuDNXGoUd",
+          "published_at": "2026-08-07T16:29:04+00:00",
+          "post_id": "3958585128126154013"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    },
+    {
+      "key": "facebook:1620359249448664",
+      "content_hash": "afa516684aee89995416f7c18d53746fdbbf91edc36ea45e8cbcf792c62e5210",
+      "post_id": "1620359249448664",
+      "source": "facebook",
+      "url": "https://www.facebook.com/reel/1333371218786536/",
+      "published_at": "2026-08-07T16:29:16+00:00",
+      "display_time": "2026-08-08T00:29:16+08:00",
+      "unix_ms": 1786120156000,
+      "text": "IC設計！再來一張！ 一檔一張！！！",
+      "number": 25,
+      "members": [
+        {
+          "key": "facebook:1620359249448664",
+          "source": "facebook",
+          "url": "https://www.facebook.com/reel/1333371218786536/",
+          "published_at": "2026-08-07T16:29:16+00:00",
+          "post_id": "1620359249448664"
+        }
+      ],
+      "status": "not_started",
+      "attempts": 0,
+      "context_used": []
+    }
+  ],
+  "updated_at": "2026-11-07T12:26:05.951587+00:00"
+}
