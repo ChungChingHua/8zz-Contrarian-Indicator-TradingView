@@ -14,23 +14,23 @@
     }
   },
   "post_status_counts": {
-    "completed_signal": 9,
-    "completed_no_signal": 21,
-    "pending_confirmation": 16,
-    "not_started": 618,
+    "completed_signal": 25,
+    "completed_no_signal": 28,
+    "pending_confirmation": 20,
+    "not_started": 591,
     "technical_failure": 2
   },
-  "remaining_not_started_groups": 611,
-  "remaining_not_started_platform_posts": 618,
+  "remaining_not_started_groups": 586,
+  "remaining_not_started_platform_posts": 591,
   "latest_attempted_or_reviewed_date": "2026-11-06T22:07:49+08:00",
-  "all_posts_visited_before_first_unstarted": "2026-07-26T21:28:42+08:00",
+  "all_posts_visited_before_first_unstarted": "2026-07-29T21:28:36+08:00",
   "successfully_completed_contiguous_prefix": "2026-07-20T18:41:00+08:00",
-  "first_unstarted_date": "2026-07-27T08:37:54+08:00",
-  "latest_signal_date": "2026-07-24T11:33:45+08:00",
+  "first_unstarted_date": "2026-07-30T03:04:03+08:00",
+  "latest_signal_date": "2026-07-29T16:05:10+08:00",
   "pine": {
     "historical_events": 150,
-    "added_events": 9,
-    "total_events": 159,
+    "added_events": 24,
+    "total_events": 174,
     "historical_blocks_preserved": true,
     "historical_neutral_events_preserved": 1,
     "new_events_nonzero": true,
@@ -39,20 +39,20 @@
     "directions_strengths_valid": true,
     "tradingview_compiled": false
   },
-  "new_generation_attempts": 25,
-  "new_http_responses": 25,
+  "new_generation_attempts": 50,
+  "new_http_responses": 50,
   "new_status_counts": {
-    "pending_confirmation": 4,
-    "completed_no_signal": 17,
-    "completed_signal": 4
+    "pending_confirmation": 8,
+    "completed_no_signal": 23,
+    "completed_signal": 19
   },
   "service_reported_usage": {
-    "input_tokens": 72374,
-    "output_tokens": 3362,
-    "total_tokens": 75736,
+    "input_tokens": 142317,
+    "output_tokens": 7100,
+    "total_tokens": 149417,
     "reasoning_tokens": 0
   },
-  "service_reported_cached_input_tokens": 53504,
+  "service_reported_cached_input_tokens": 104576,
   "apify_http_counts": {
     "GET": 18,
     "POST": 2
