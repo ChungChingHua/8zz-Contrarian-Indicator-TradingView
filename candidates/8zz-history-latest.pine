@@ -1,7 +1,7 @@
 // This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © hansai-art / Group.G
 // 8zz 反指標 v2
-// 事件: 195筆 | 期間: 2025/12 ~ 2026/08
+// 事件: 202筆 | 期間: 2025/12 ~ 2026/08
 // 情緒解讀框架：負面情緒（被套、停損、恐慌）→ 偏多 ▲（散戶恐慌→主力拉升）
 //               正面情緒（漲停追買、過度樂觀）→ 偏空 ▼（市場過熱→崩跌機率高）
 // 免責聲明：本指標僅供娛樂參考，不構成任何投資建議。
@@ -1105,6 +1105,44 @@ initEvtChunk010() =>
     array.push(evt_str, 2)
     array.push(evt_tips, "回本期望\n指標: 偏多 ▲ | 強度: 2\n2026-08-09T22:14:01+08:00 我現在不要求大富大貴\n只求趕快回本(;´༎ຶД༎ຶ`)\n發文者表示只求趕快回本且帶悲傷情緒，為被套/痛苦類偏多訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0CQG3D9nXkXnkT3XXALGJZoRmfBi3hFuRatznv2Z9tVPjzCjk3zKKdjzScGzaEDXhl")
     array.push(evt_ticker, "")
+    array.push(evt_time, 1786331336000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "追買/全部成交(委託單)\n指標: 偏空 ▼ | 強度: 3\n2026-08-10T11:08:56+08:00 今天廢物聯盟表現良好\n貼文語氣稱表現良好並附上多筆委託全部成交截圖，顯示亢奮/追買情緒且有真實成交證據，強烈偏空訊號\nhttps://www.threads.com/@banini31/post/Db2A3rJmbIs")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1786357172000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "稱讚/注意\n指標: 偏空 ▼ | 強度: 1\n2026-08-10T18:19:32+08:00 終於遇到一個沒破發的了\n\n難得啊，00410A永豐台灣科技這次居然沒有破發🤣 \n不知道是運氣好， 還是這次的經理人選的好～ \n目前為止居然還比發行價格漲了7.5%以上啊～ \n有意思！ 男人，你引起了我的注意！ \n我們就看看，到底你是運氣好還是你的AI選股特點真的有點意思！？\n接下來⋯你可是要進入ETF的暗黑武鬥會了呢！\n語氣帶有興奮與讚賞（注意力集中在標的表現與可能性），屬於偏空（亢奮/看好）訊號但情緒不極端\nhttps://www.threads.com/@banini31/post/Db2yJczk665")
+    array.push(evt_ticker, "00410A.TW")
+    array.push(evt_time, 1786415345000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "未知(疑似被套/痛苦)\n指標: 偏多 ▲ | 強度: 3\n2026-08-11T10:29:05+08:00 瘦瘦針唉_(:_」∠)_\n貼文文字與圖顯示情緒負面（抱怨/不舒服），且附上即時報價截圖顯示持股下跌/被套，屬痛苦/恐慌偏多訊號；委託字樣未見『委託成功/全部成交』等強制升級關鍵字。\nhttps://www.threads.com/@banini31/post/Db4hGx8GXF8")
+    array.push(evt_ticker, "6217.TW")
+    array.push(evt_time, 1786503626000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "買進(持有截圖)\n指標: 偏空 ▼ | 強度: 3\n2026-08-12T11:00:26+08:00 阿嘎～ 你是不是在引起我的注意啊 阿嘎～ \n你什麼時候默默的快400了啊 阿嘎～～\n貼出即時報價與買進價格、走勢圖顯示漲幅，情緒興奮且有實際持倉/下單痕跡，偏空（追漲）訊號。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0kijzEWR8SxUkzAMWLiKaUTyFqiJ6FS4F8xJJFeg3LbwczAnbwLJ16ifa5Z1hgYDQl")
+    array.push(evt_ticker, "2376.TWO")
+    array.push(evt_time, 1786528414000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "猶豫/可能買入支援\n指標: 偏空 ▼ | 強度: 2\n2026-08-12T17:53:34+08:00 沒想到居然有人主動付費挑戰我啊～\n接下來三個月我會每週review一樣他說的對不對\n\n是說⋯明天我是不是要來一個拯救阿嘎大作戰\n一起把阿嘎買到400以上呢～～ \n好猶豫喔！\n發文者在號召/猶豫要不要把標的推到高價（買進支持/拯救），語氣帶有煽動和正面期待，屬於亢奮偏空訊號。\nhttps://www.threads.com/@banini31/post/Db74w-XE4Nk")
+    array.push(evt_ticker, "")
+    0
+
+initEvtChunk011() =>
+    array.push(evt_time, 1786644629000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "被套/無奈\n指標: 偏多 ▲ | 強度: 2\n2026-08-14T02:10:29+08:00 夢到我在800元放開美光\n好險沒有⋯ 我只是套在1100_(:_」∠)_\n發文者描述被套在1100並夢到在800放手，情緒是痛苦/無奈傾向多頭受困，屬偏多訊號。\nhttps://www.threads.com/@banini31/post/Db_WbbPk2gV")
+    array.push(evt_ticker, "MU")
+    array.push(evt_time, 1786644638000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "被套/悔恨\n指標: 偏多 ▲ | 強度: 2\n2026-08-14T02:10:38+08:00 夢到我在800元放開美光\n好險沒有⋯ 我只是套在1100_(:_」∠)_\n發文者表示被套在1100、夢到放掉800且慶幸沒賣，情緒為痛苦與悔恨，偏多訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0AQH8fvFspgqJE4RVd4KeA3pgQ2nZq1BQnf8EDoHqE5mq3dGNxbH9frrLCgpwUSmbl")
+    array.push(evt_ticker, "")
     0
 
 if barstate.isfirst
@@ -1118,6 +1156,7 @@ if barstate.isfirst
     initEvtChunk008()
     initEvtChunk009()
     initEvtChunk010()
+    initEvtChunk011()
 // END GENERATED EVENT INITIALIZATION
 
 var int currentDir = 0
