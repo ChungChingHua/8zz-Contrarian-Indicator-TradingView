@@ -124,13 +124,26 @@ def report(remote=None):
        'rule_sha256':policy.fingerprint(),'provider_model_and_reasoning':'Service-reported gpt-5-mini / minimal, not independently verified',
        'usage_tracking_note':'ChatAnywhere request accounting is from durable ledgers; legacy usage.json ai_attempts is not the cumulative ChatAnywhere total.',
        'accounting_note':'Post counts include all prior tests, failures, reviews and cross-platform members; Pine counts are events, not posts. Tokens are service reports, not points or verified bills.'}
+    session=control.get('current_session',{})
+    if session:
+        base_usage=session.get('baseline_usage',{})
+        summary['current_session']={
+            'id':session['id'],
+            'generation_attempts':summary['new_generation_attempts']-session['baseline_generation_attempts'],
+            'validated_responses':summary['new_validated_responses']-session['baseline_validated_responses'],
+            'added_events':checks['total_events']-session['baseline_total_events'],
+            'service_reported_usage':{k:usage[k]-base_usage.get(k,0) for k in usage},
+            'status_counts':{k:summary['new_status_counts'].get(k,0)-session.get('baseline_status_counts',{}).get(k,0) for k in set(summary['new_status_counts'])|set(session.get('baseline_status_counts',{}))},
+            'actor_runs_started':session.get('actor_runs_started',0),
+            'saved_dataset_get_requests':session.get('saved_dataset_get_requests',0),
+            'actual_points_deducted':None}
     h.s.write(ROOT/'data/history_completion_inventory.json',inventory);h.s.write(ROOT/'data/history_completion_summary.json',summary)
     text=['# 一次性歷史補齊執行紀錄','',
       '本次因實際阻塞停止，**尚未補齊全部歷史判讀**。' if control.get('stop_reason') else '請依下方剩餘及待確認清單判斷完成範圍。',
       '',f"資料抓取截止 UTC {control.get('cutoff_utc')}（Asia/Taipei 為 {summary['cutoff_taipei']}）；共 {len(data)} 篇。已走訪至 {summary['all_posts_visited_before_first_unstarted']}，其中待確認／失敗另列；本輪最後有效回應 {summary['last_new_valid_response_date']}，最新事件 {latest_event}。",
       '',f"完整 Pine {checks['total_events']} 事件 = 原歷史 {checks['historical_events']} + 累計新增 {checks['added_events']}；其中本輪新增 {sum(r['status']=='completed_signal' for r in new)}。",
       '',f"狀態依來源貼文計：有訊號 {c['completed_signal']}、無訊號 {c['completed_no_signal']}、待確認 {c['pending_confirmation']}、失敗 {c['technical_failure']+c['input_failure']}、狀態不明 {c['unknown']}、尚未處理 {c['not_started']}（去重後 {len(groups)} 組）。跨平台同組會對應多筆貼文，但只產生一個事件。",
-      '',f"本輪生成 HTTP {summary['new_http_responses']} 次，成功固定格式回應 {summary['new_validated_responses']}；{summary['http_responses_without_usage']} 筆 HTTP 回應無 usage，不假定其零 tokens。已回報用量輸入 {usage['input_tokens']}／輸出 {usage['output_tokens']}／合計 {usage['total_tokens']} tokens。實際點數扣除未知；服務宣告共用 100 次免費請求的 24 小時視窗已耗盡，沒有提供確切重設時刻。",
+      '',f"本 scope 累計生成 HTTP {summary['new_http_responses']} 次，成功固定格式回應 {summary['new_validated_responses']}；{summary['http_responses_without_usage']} 筆 HTTP 回應無 usage，不假定其零 tokens。已回報用量輸入 {usage['input_tokens']}／輸出 {usage['output_tokens']}／合計 {usage['total_tokens']} tokens。實際點數扣除未知；即時免費請求／點數餘額與重設時刻若無服務回傳即為未知，先前阻塞保留於 control.blocker_history。",
       '', '原始程式曾未處理 429 的 usage=null，導致最後彙整步驟失敗；已修正並以全部已保存回應離線重建，不新增任何生成。供應商錯誤原含遮蔽後的金鑰識別片段，最新帳本已進一步去除該片段，保留清理前 JSON hash；完整金鑰未輸出。',
       '',json.dumps(summary,ensure_ascii=False,indent=2).join(['```json\n','\n```']),
       '', '原作者規則與 SHA256 未變。以前測試資料不是目前原作者標準的已完成結果；全部列入 inventory，未重送，也不自動沿用舊的額外門檻。舊帳本輸出矛盾的 technical_failure 僅在彙整清單標為待確認，原回應與原帳本不改。',
@@ -141,7 +154,7 @@ def report(remote=None):
       '', '前後免費點數及實際扣點若未由服務回傳就是未知，不等同零，也不能由 tokens 換算。Apify 維持每 run 180 秒／512MB／maxItems 50／maxTotalChargeUsd 0.10、每月70次；run 回報費用不一定等同完整帳單，未儲值或提高上限。',
       '', '候選完整 Pine：candidates/8zz-history-latest.pine，保留所有原始歷史事件、作者署名及 MPL-2.0；待確認／技術失敗／unknown 無新增箭頭。使用者已確認前一候選可載入，這份新生成檔未在 TradingView 實際編譯。手動下載全文至 Pine Editor 完整取代、儲存並更新圖表，GitHub 不會自動同步。',
       '', '恢復方式：先核對 control 與各帳本；已完成、待確認、失敗、unknown 不自動重送。unknown 須人工查明原請求；quota／access 故障修復後，只續尚未送出項目，重新取得同一已保存 Apify dataset 不會重新啟動 Actor。新執行必須保留同一截止時間與 scope；不得重新抓整段歷史。',
-      '', '本輪可接續的第一篇是 Threads 3956314846774104604，2026-08-04 21:18:23（Asia/Taipei）。額度重設時間未取得，不能假定台灣午夜恢復。恢復後保留現有資料 cutoff，不另啟動 Apify；若需要恢復新資料的私有媒體網址，只讀已保存 dataset。先將本次阻塞保留於 control 的歷史紀錄，明確解除 closed／stop_reason，再啟用這個一次性手動入口；只選 not_started，這次 429 失敗資料也不自動重送。',
+      '', f"下一筆尚未處理日期為 {summary['first_unstarted_date']}（Asia/Taipei）。資料 cutoff 維持不變，恢復媒體只讀既有 dataset，不另啟動 Actor。每次續跑將先前阻塞與基準用量保留在 control，只有本次明確授權的入口才能繼續；完成、待確認、失敗與 unknown 不自動重送。",
       '', '本次 API 次數僅指 AI 生成及 Apify 啟動／讀取；GitHub 進度保存與圖片下載另計，沒有把上述數字宣稱為全部 HTTP 流量。data/usage.json 的 ai_attempts 為舊流程計數，不等於 ChatAnywhere 全部呼叫量，應以本次及既有帳本查核。',
       '', '只做一次性執行，不啟用持續排程、不發布 Pages、不合併 PR。']
     (ROOT/'docs/HISTORY_COMPLETION.md').write_text('\n'.join(text)+'\n')
