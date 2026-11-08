@@ -1,7 +1,7 @@
 {
   "historical_events": 150,
-  "added_events": 74,
-  "total_events": 224,
+  "added_events": 75,
+  "total_events": 225,
   "historical_blocks_preserved": true,
   "historical_neutral_events_preserved": 1,
   "new_events_nonzero": true,
