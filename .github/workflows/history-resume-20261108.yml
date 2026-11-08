@@ -1,9 +1,6 @@
 name: Resume authorized history 20261108
 on:
   workflow_dispatch:
-  push:
-    branches: [codex/social-pipeline-20261106]
-    paths: [.github/workflows/history-resume-20261108.yml]
 permissions:
   contents: write
 concurrency:
@@ -11,7 +8,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   resume:
-    if: github.ref == 'refs/heads/codex/social-pipeline-20261106'
+    if: ${{ false }} # Closed after the free-quota blocker; no online execution.
     runs-on: ubuntu-latest
     timeout-minutes: 330
     env:

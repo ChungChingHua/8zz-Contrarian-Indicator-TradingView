@@ -133,15 +133,16 @@ def report(remote=None):
             'validated_responses':summary['new_validated_responses']-session['baseline_validated_responses'],
             'added_events':checks['total_events']-session['baseline_total_events'],
             'service_reported_usage':{k:usage[k]-base_usage.get(k,0) for k in usage},
-            'status_counts':{k:summary['new_status_counts'].get(k,0)-session.get('baseline_status_counts',{}).get(k,0) for k in set(summary['new_status_counts'])|set(session.get('baseline_status_counts',{}))},
+            'status_counts':{k:summary['new_status_counts'].get(k,0)-session.get('baseline_status_counts',{}).get(k,0) for k in sorted(set(summary['new_status_counts'])|set(session.get('baseline_status_counts',{})))},
             'actor_runs_started':session.get('actor_runs_started',0),
             'saved_dataset_get_requests':session.get('saved_dataset_get_requests',0),
-            'actual_points_deducted':None}
+            'actual_points_deducted':None,
+            'run_url':session.get('run_url'),'stop_http_status':session.get('stop_http_status')}
     h.s.write(ROOT/'data/history_completion_inventory.json',inventory);h.s.write(ROOT/'data/history_completion_summary.json',summary)
     text=['# 一次性歷史補齊執行紀錄','',
       '本次因實際阻塞停止，**尚未補齊全部歷史判讀**。' if control.get('stop_reason') else '請依下方剩餘及待確認清單判斷完成範圍。',
       '',f"資料抓取截止 UTC {control.get('cutoff_utc')}（Asia/Taipei 為 {summary['cutoff_taipei']}）；共 {len(data)} 篇。已走訪至 {summary['all_posts_visited_before_first_unstarted']}，其中待確認／失敗另列；本輪最後有效回應 {summary['last_new_valid_response_date']}，最新事件 {latest_event}。",
-      '',f"完整 Pine {checks['total_events']} 事件 = 原歷史 {checks['historical_events']} + 累計新增 {checks['added_events']}；其中本輪新增 {sum(r['status']=='completed_signal' for r in new)}。",
+      '',f"完整 Pine {checks['total_events']} 事件 = 原歷史 {checks['historical_events']} + 累計新增 {checks['added_events']}；其中此歷史 scope 累計新增 {sum(r['status']=='completed_signal' for r in new)}。本次續跑新增 {summary.get('current_session',{}).get('added_events',sum(r['status']=='completed_signal' for r in new))}。",
       '',f"狀態依來源貼文計：有訊號 {c['completed_signal']}、無訊號 {c['completed_no_signal']}、待確認 {c['pending_confirmation']}、失敗 {c['technical_failure']+c['input_failure']}、狀態不明 {c['unknown']}、尚未處理 {c['not_started']}（去重後 {len(groups)} 組）。跨平台同組會對應多筆貼文，但只產生一個事件。",
       '',f"本 scope 累計生成 HTTP {summary['new_http_responses']} 次，成功固定格式回應 {summary['new_validated_responses']}；{summary['http_responses_without_usage']} 筆 HTTP 回應無 usage，不假定其零 tokens。已回報用量輸入 {usage['input_tokens']}／輸出 {usage['output_tokens']}／合計 {usage['total_tokens']} tokens。實際點數扣除未知；即時免費請求／點數餘額與重設時刻若無服務回傳即為未知，先前阻塞保留於 control.blocker_history。",
       '', '原始程式曾未處理 429 的 usage=null，導致最後彙整步驟失敗；已修正並以全部已保存回應離線重建，不新增任何生成。供應商錯誤原含遮蔽後的金鑰識別片段，最新帳本已進一步去除該片段，保留清理前 JSON hash；完整金鑰未輸出。',

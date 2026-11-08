@@ -4,7 +4,7 @@
 
 資料抓取截止 UTC 2026-11-07T12:15:59.578797+00:00（Asia/Taipei 為 2026-11-07T20:15:59.578797+08:00）；共 666 篇。已走訪至 2026-08-21T23:10:10+08:00，其中待確認／失敗另列；本輪最後有效回應 2026-08-21T23:10:00+08:00，最新事件 2026-08-21T23:10:00+08:00。
 
-完整 Pine 225 事件 = 原歷史 150 + 累計新增 75；其中本輪新增 70。
+完整 Pine 225 事件 = 原歷史 150 + 累計新增 75；其中此歷史 scope 累計新增 70。本次續跑新增 38。
 
 狀態依來源貼文計：有訊號 77、無訊號 88、待確認 39、失敗 6、狀態不明 0、尚未處理 456（去重後 453 組）。跨平台同組會對應多筆貼文，但只產生一個事件。
 
@@ -128,7 +128,15 @@
   "actual_points_deducted": null,
   "quota_headers": {},
   "stop_reason": "provider_access_quota_or_common_failure",
-  "service_quota_statement": null,
+  "service_quota_statement": {
+    "http_status": 429,
+    "source": "service error response in history-completion-20261107-009",
+    "shared_free_requests_per_24h_window": 100,
+    "remaining_free_requests": "exhausted, service statement only",
+    "actual_points_deducted": null,
+    "reset_time": null,
+    "note": "No retry, paid model, alternate provider or official OpenAI fallback. 429 response has no usage."
+  },
   "all_history_fully_classified": false,
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "provider_model_and_reasoning": "Service-reported gpt-5-mini / minimal, not independently verified",
@@ -146,15 +154,17 @@
       "reasoning_tokens": 0
     },
     "status_counts": {
-      "technical_failure": 2,
+      "completed_no_signal": 46,
       "completed_signal": 38,
       "input_failure": 1,
       "pending_confirmation": 15,
-      "completed_no_signal": 46
+      "technical_failure": 2
     },
     "actor_runs_started": 0,
     "saved_dataset_get_requests": 2,
-    "actual_points_deducted": null
+    "actual_points_deducted": null,
+    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/42456973950",
+    "stop_http_status": 429
   }
 }
 ```
