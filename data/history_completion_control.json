@@ -120,8 +120,8 @@
     "GET": 0,
     "POST": 0
   },
-  "last_chunk": "history-completion-20261107-008",
-  "updated_at": "2026-11-08T07:10:47.132714+00:00",
+  "last_chunk": "history-completion-20261107-009",
+  "updated_at": "2026-11-08T07:11:05.034348+00:00",
   "consecutive_isolated_failures": 0,
   "all_unstarted_visited": false,
   "blocker_history": [
@@ -164,5 +164,7 @@
     "user_reported_free_quota_reset": true,
     "saved_dataset_get_requests": 2,
     "actor_runs_started": 0
-  }
+  },
+  "stop_reason": "provider_access_quota_or_common_failure",
+  "stopped_at": "2026-08-21T23:10:10+08:00"
 }
