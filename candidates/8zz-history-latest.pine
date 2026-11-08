@@ -1,7 +1,7 @@
 // This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © hansai-art / Group.G
 // 8zz 反指標 v2
-// 事件: 202筆 | 期間: 2025/12 ~ 2026/08
+// 事件: 209筆 | 期間: 2025/12 ~ 2026/08
 // 情緒解讀框架：負面情緒（被套、停損、恐慌）→ 偏多 ▲（散戶恐慌→主力拉升）
 //               正面情緒（漲停追買、過度樂觀）→ 偏空 ▼（市場過熱→崩跌機率高）
 // 免責聲明：本指標僅供娛樂參考，不構成任何投資建議。
@@ -1142,6 +1142,41 @@ initEvtChunk011() =>
     array.push(evt_dir, 1)
     array.push(evt_str, 2)
     array.push(evt_tips, "被套/悔恨\n指標: 偏多 ▲ | 強度: 2\n2026-08-14T02:10:38+08:00 夢到我在800元放開美光\n好險沒有⋯ 我只是套在1100_(:_」∠)_\n發文者表示被套在1100、夢到放掉800且慶幸沒賣，情緒為痛苦與悔恨，偏多訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0AQH8fvFspgqJE4RVd4KeA3pgQ2nZq1BQnf8EDoHqE5mq3dGNxbH9frrLCgpwUSmbl")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1786928702000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "漲停追買/掛單成交\n指標: 偏空 ▼ | 強度: 3\n2026-08-17T09:05:02+08:00 阿嘎！！！！\n阿嘎你不能這樣啊！！！ 阿嘎啊\n貼出成交畫面與價格上漲（+8.05%）顯示興奮追買情緒，且有成交/掛單資訊強度設為3，屬於亢奮偏空訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0noxxahp4n1rNsxvpftEkEdYygLDzmFECV1Y1LdYojbsYYwtdJGKkQk9Varbi27yZl")
+    array.push(evt_ticker, "2376.TWO")
+    array.push(evt_time, 1786934848000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "觀望/被套\n指標: 偏多 ▲ | 強度: 2\n2026-08-17T10:47:28+08:00 阿嘎再3%碰停損線， 好消息是今天不會碰到， 壞消息是他已經跌停\n提到接近停損線且已跌停，情緒偏向被套/擔心，偏多訊號\nhttps://www.threads.com/@banini31/post/DcH_-nhmVEv")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1786937835000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "追買(委託單)\n指標: 偏空 ▼ | 強度: 3\n2026-08-17T11:37:15+08:00 同步一下\n圖為委託單截圖且顯示全部成交（真金白銀下單）且語氣帶喜悅，屬於亢奮追買的偏空訊號。\nhttps://www.threads.com/@banini31/post/DcIFrQRGXGb")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1786941354000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "委託/全部成交\n指標: 偏空 ▼ | 強度: 3\n2026-08-17T12:35:54+08:00 我不要瘦瘦針了\n我要過的滋潤～\n\n上吧WD40!!\n貼文情緒為興奮/享受（非痛苦），且附圖顯示委託狀態為「全部成交」，已真金白銀成交，屬於亢奮追買類偏空訊號。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02uJJUpe6Afkv99LoME8CFV4o8tq2kXBq7ASugnwUMbxtWR5crsYh3zTLpD1Zoeohnl")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787015337000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "展示對帳單/晒盤\n指標: 偏空 ▼ | 強度: 3\n2026-08-18T09:08:57+08:00 ⋯⋯⋯⋯⋯\n你他ㄇ⋯\n貼出多張交易或報價截圖並帶有興奮語氣（感嘆、全綠或上漲數字），屬於展示獲利/追漲情緒，判定為亢奮偏空訊號\nhttps://www.threads.com/@banini31/post/DcKZf6pmckr")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787018913000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "沮喪/悲觀\n指標: 偏多 ▲ | 強度: 2\n2026-08-18T10:08:33+08:00 ⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯\n我不想說話\n股票果然是騙人的\n發文者說『我不想說話 股票果然是騙人的』表現出強烈負面情緒和被市場傷害的感受（痛苦偏多），但文字未提及實際停損或委託單，強度為明顯。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0bcAXTbVw8zHkJUEBzUL4qKThhsSuUwRtYDkyFFKdjSW3zK1mZSZnavK6s3KQoK48l")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787026106000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "多筆委託全部成交\n指標: 偏空 ▼ | 強度: 3\n2026-08-18T12:08:26+08:00 今天是不是跌了1500點？\n貼文附上委託單截圖且多筆顯示「全部成交」，代表已實際下單且情緒偏亢奮/追買，強度強制為3（signal）\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid029t2WAZJ9ETpjKs18Q4SwsC4aqMVZT65zW4xP1hyF2T51Z1RUFrxRn2F3M8K62Ckvl")
     array.push(evt_ticker, "")
     0
 
