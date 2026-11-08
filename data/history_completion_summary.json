@@ -131,11 +131,11 @@
       "reasoning_tokens": 0
     },
     "status_counts": {
-      "completed_no_signal": 46,
-      "input_failure": 1,
       "technical_failure": 2,
+      "completed_signal": 38,
+      "input_failure": 1,
       "pending_confirmation": 15,
-      "completed_signal": 38
+      "completed_no_signal": 46
     },
     "actor_runs_started": 0,
     "saved_dataset_get_requests": 2,
