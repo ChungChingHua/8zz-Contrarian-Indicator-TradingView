@@ -2027,21 +2027,21 @@
     "key": "threads:3968692187177090709",
     "url": "https://www.threads.com/@banini31/post/DcToIRnjv6V",
     "display_time": "2026-08-21T23:10:00+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "threads:3968692187177090709",
+    "evidence": "data/history_progress/history-completion-20261107-009.json",
+    "reason": "發文語氣帶有吹噓與自信（誇耀BTC與美光），屬於亢奮/樂觀的多頭表現但未顯示極端行為"
   },
   {
     "key": "facebook:1632674428217146",
     "url": "https://www.facebook.com/reel/923659410206797/",
     "display_time": "2026-08-21T23:10:10+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "technical_failure",
+    "stored_status": "technical_failure",
+    "record_key": "facebook:1632674428217146",
+    "evidence": "data/history_progress/history-completion-20261107-009.json",
+    "reason": "provider_http_error"
   },
   {
     "key": "threads:3968782795770413147",
