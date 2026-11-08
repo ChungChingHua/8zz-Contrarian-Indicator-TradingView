@@ -7,7 +7,7 @@
   "max_generations": 25,
   "reserved_generation_attempts": 24,
   "stopped": false,
-  "finished": false,
+  "finished": true,
   "provider_settings": {
     "base": "https://api.chatanywhere.tech/v1",
     "model": "gpt-5-mini",
@@ -7713,6 +7713,6 @@
       }
     }
   ],
-  "updated_at": "2026-11-08T07:02:54.857444+00:00",
+  "updated_at": "2026-11-08T07:02:56.217862+00:00",
   "consecutive_isolated_failures": 0
 }
