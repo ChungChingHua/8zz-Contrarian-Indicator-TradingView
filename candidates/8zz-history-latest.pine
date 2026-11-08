@@ -1,7 +1,7 @@
 // This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © hansai-art / Group.G
 // 8zz 反指標 v2
-// 事件: 209筆 | 期間: 2025/12 ~ 2026/08
+// 事件: 224筆 | 期間: 2025/12 ~ 2026/08
 // 情緒解讀框架：負面情緒（被套、停損、恐慌）→ 偏多 ▲（散戶恐慌→主力拉升）
 //               正面情緒（漲停追買、過度樂觀）→ 偏空 ▼（市場過熱→崩跌機率高）
 // 免責聲明：本指標僅供娛樂參考，不構成任何投資建議。
@@ -1178,6 +1178,84 @@ initEvtChunk011() =>
     array.push(evt_str, 3)
     array.push(evt_tips, "多筆委託全部成交\n指標: 偏空 ▼ | 強度: 3\n2026-08-18T12:08:26+08:00 今天是不是跌了1500點？\n貼文附上委託單截圖且多筆顯示「全部成交」，代表已實際下單且情緒偏亢奮/追買，強度強制為3（signal）\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid029t2WAZJ9ETpjKs18Q4SwsC4aqMVZT65zW4xP1hyF2T51Z1RUFrxRn2F3M8K62Ckvl")
     array.push(evt_ticker, "")
+    array.push(evt_time, 1787044625000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "哀傷(被套)\n指標: 偏多 ▲ | 強度: 2\n2026-08-18T17:17:05+08:00 嗚嗚嗚嗚 \n聽說好多好朋友都獲利了結了\n剩下我還滿手股票\n描述朋友獲利了結、自己滿手股票且語氣哀傷，顯示被套痛苦情緒偏多。\nhttps://www.threads.com/@banini31/post/DcLRXEvEwhc")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787044633000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "痛苦/被套\n指標: 偏多 ▲ | 強度: 2\n2026-08-18T17:17:13+08:00 嗚嗚嗚嗚 \n聽說好多好朋友都獲利了結了\n剩下我還滿手股票\n發文抱怨朋友已獲利了結，自己還滿手股票，情緒為被套且沮喪，偏多訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02YZTkcTSRc3pGwALs4XXs5JrQeVtXoo4Z7iJ3eT6Rgh2oaPA3R3xBh4BQBNMqm5jml")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787059356000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "悲觀評論/預期停損\n指標: 偏空 ▼ | 強度: 2\n2026-08-18T21:22:36+08:00 牛肉麵\n大家不用看了，看來反彈已經到頭了\n接下來又要往下飛翔了\n\n明天應該會停損很多股票\n沒半個可以讓我停利啊(⊙ω⊙)\n等等拍影片還是直播跟大家聊聊好呢？\n語句表達對反彈見頂、期待明天會有大量停損且沒有停利標的，帶有悲觀且略帶失望的情緒，屬於偏空情緒；圖片為用餐自拍，未提供交易委託單。\nhttps://www.threads.com/@banini31/post/DcLtdSrk9EQ\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0YhYYQgBujgPYMFfZ62nMvw8iPFRWnWNUUFN5aYQwz14hbZeCpKgFehNizExHKCnSl")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787073278000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "持股抱怨\n指標: 偏多 ▲ | 強度: 2\n2026-08-19T01:14:38+08:00 昨天我的海力士買178……\n股票真的都是騙人的\n抱怨被海力士價格欺騙、情緒偏向受傷與失望（被套/受騙心情），屬於偏多訊號但情緒強度為明顯而非極端\nhttps://www.threads.com/@banini31/post/DcMIA0JmS5n")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787107267000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "喊買/看多\n指標: 偏空 ▼ | 強度: 2\n2026-08-19T10:41:07+08:00 欣興⋯ 站起來啊！\n發文與截圖均提及欣興（3037）並以鼓舞語氣“站起來啊”，搭配盤面上漲顯示，語氣偏自信看多；情緒明顯但非極端。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0jbmAu9zKug7NCfDisfZctvdUSVVppuZq54guvYV6FSsZBVTzTPnfWAaSXJRJrVEMl")
+    array.push(evt_ticker, "3037.TW")
+    array.push(evt_time, 1787114287000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "考慮出場/掙扎\n指標: 偏多 ▲ | 強度: 3\n2026-08-19T12:38:07+08:00 Peace out!!! \n\n我的愛普還有最後一張\n是不是也該跑了⋯\n當初1000往下跑回900就該跑了啊啊(;´༎ຶД༎ຶ`)\n發文者情緒悲傷、後悔並暗示要跑；附圖顯示委託狀態「全部成交」，代表已真金白銀下單（強度強制為3），情緒為痛苦被套偏多訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid01PVPBkLjicbe6So3mNMF6pi9xJCwkaipuLRGMFEnsx8hzyicef9R37hruvk4oumCl")
+    array.push(evt_ticker, "AAPL")
+    array.push(evt_time, 1787116270000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "已實現損益揭露\n指標: 偏多 ▲ | 強度: 3\n2026-08-19T13:11:10+08:00 已實現損益：-90萬\n公布大額已實現虧損（-90萬），發文者情緒為痛苦/被套/挫折，屬於偏多情緒且為極端強度\nhttps://www.threads.com/@banini31/post/DcNaA09medK")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787122768000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損\n指標: 偏多 ▲ | 強度: 3\n2026-08-19T14:59:28+08:00 今天已經停損到我不想說話了⋯⋯ \n存一堆錢，結果幾個小時就沒了⋯⋯昨天賣可以少虧10%以上（然後還是虧15%）\n多次強調已停損且情緒極度沮喪、不想說話，屬於痛苦被套的偏多訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0Z63QhfJapcbWXGezm7quHnVwSZhYFBTNcZi15pvCF6ub6FAuKLaHviH6mZkexDdSl")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787135506000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "絕望/想逃離\n指標: 偏多 ▲ | 強度: 3\n2026-08-19T18:31:46+08:00 未實現自己2秥的年薪虧損外加已實現一年年薪的虧損\n\n我想去找雅特蘭提斯了\n表達重大未實現與已實現的嚴重虧損並想消失，情緒極度痛苦/絕望，屬於偏多（恐慌被套）訊號。\nhttps://www.threads.com/@banini31/post/DcN-tD1mTXi")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787152883000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "抱怨/情緒低落\n指標: 偏多 ▲ | 強度: 2\n2026-08-19T23:21:23+08:00 今天真的虧爛， 我只好折磨大家的耳朵(;´༎ຶД༎ຶ`)\n\n我花了30分鐘拍，一個半小時剪這個MV🤣🤣🤣\n明確表示「今天真的虧爛」且情緒負面痛苦，但沒提到具體交易或委託，屬於投資相關的痛苦情緒，偏多訊號（非極端）\nhttps://www.facebook.com/reel/28737816342488333/")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787188599000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "全部清空（實現虧損）\n指標: 偏多 ▲ | 強度: 3\n2026-08-20T09:16:39+08:00 愛普你這個爛貨\n我手上全部清空\n\n在這家賠錢貨身上已經實現了70萬虧損\n情緒是痛苦且已實現大額虧損（70萬），為典型被套/痛苦偏多訊號；圖片顯示愛普/全部成交，且原文提到已全部清空，強度設為3。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02gyjvZpVtBcP6f7KT85uAmfdLEhf1RT2w4J4Ci6iPYqadV3vxACa2RMvfA83ibFvEl")
+    array.push(evt_ticker, "3528.TW")
+    0
+
+initEvtChunk012() =>
+    array.push(evt_time, 1787191500000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "出場並虧損\n指標: 偏多 ▲ | 強度: 3\n2026-08-20T10:05:00+08:00 我的奇幻愛普之旅結束了\n最高抱到賺35%\n最後平均虧損35%出場\n\n從賺快90\n到虧90\n\n我想，我有點理解htc股民的感受\n持倉從大幅獲利回落到大幅虧損並出場，發文者情緒為痛苦/被套且帶自嘲悲觀，屬於極端負面情緒（偏多訊號）\nhttps://www.threads.com/@banini31/post/DcPpgKJmSTj")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787215781000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "加碼/等待補倉\n指標: 偏多 ▲ | 強度: 2\n2026-08-20T16:49:41+08:00 今天我加碼發哥了\n我聽大家的話，買一些可以放很久的\n希望有一天可以把虧掉的賺回來\n\n晚上再補一些美光？\n發文提到加碼並希望回本，語氣帶有痛苦與期待但非極端；圖片不可得導致無法完全驗證情緒，依規則仍為偏多但強度為2。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0NrhmvZq2zDDe5oGW4RG4UWai9mYrrawM9Rsf6KHCU1jCMv95VEinkmzWpZxjbeBVl")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787278604000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買回且減碼\n指標: 偏空 ▼ | 強度: 2\n2026-08-21T10:16:44+08:00 早上好！ 你們傳給我的訊息我都有看\n好多人罵我愛普賣掉太蠢\n\n我主打一個聽勸！ \n今天馬上後悔買回， 反正離我的賣價才差2%多 \n不過還是減碼狀態\n\n其餘就相信發哥了！\n發文語氣帶有後悔但仍主動買回且表示減碼，屬於自信/調整性的交易行為，偏空（亢奮或自信）訊號。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid05DBnHATEJmzLZkoCWZJw14R75nim7pWzZuyT4Wm1XS9Pxshrpq2kAHYkYhcCxj51l")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787314248000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "\n指標: 偏多 ▲ | 強度: 2\n2026-08-21T20:10:48+08:00 少年不識熊市苦，槓上層樓，槓上層樓\n笑指長紅萬點收\n\n而今識盡虧錢苦，欲將斷頭，欲將斷頭\n一夜青燈看綠愁\n詩詞表達了認識到虧損之苦、悲傷與反思，情緒偏向痛苦/被套但語氣較沉鬱非極端。\nhttps://www.threads.com/@banini31/post/DcTToDjmaQZ")
+    array.push(evt_ticker, "")
     0
 
 if barstate.isfirst
@@ -1192,6 +1270,7 @@ if barstate.isfirst
     initEvtChunk009()
     initEvtChunk010()
     initEvtChunk011()
+    initEvtChunk012()
 // END GENERATED EVENT INITIALIZATION
 
 var int currentDir = 0
