@@ -1,7 +1,7 @@
 // This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © hansai-art / Group.G
 // 8zz 反指標 v2
-// 事件: 187筆 | 期間: 2025/12 ~ 2026/08
+// 事件: 195筆 | 期間: 2025/12 ~ 2026/08
 // 情緒解讀框架：負面情緒（被套、停損、恐慌）→ 偏多 ▲（散戶恐慌→主力拉升）
 //               正面情緒（漲停追買、過度樂觀）→ 偏空 ▼（市場過熱→崩跌機率高）
 // 免責聲明：本指標僅供娛樂參考，不構成任何投資建議。
@@ -1065,6 +1065,46 @@ initEvtChunk010() =>
     array.push(evt_str, 2)
     array.push(evt_tips, "買回/接回\n指標: 偏多 ▲ | 強度: 2\n2026-08-03T13:50:30+08:00 ⋯⋯⋯ 一早開盤衝進場的我\n不是\n唉\n你不能愛普今天開低走漲停\n我的正二開高走低啊\n是逼我把愛普接回來嗎？\n愛普是什麼家暴渣男嗎_(:_」∠)_\n發文語氣抱怨且帶有無奈（被迫接回、被套或操作失誤的痛苦），情緒偏多但非極端。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0Vu3Go79GKh4sDpbh5UqNaspt432bK7PEUiyGcNVJqdEJpdtc6n8mTeebLy4BCiuXl")
     array.push(evt_ticker, "00631L.TW")
+    array.push(evt_time, 1785849503000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "抱怨虧損\n指標: 偏多 ▲ | 強度: 2\n2026-08-04T21:18:23+08:00 股票好想賺錢喔 \n怎麼我虧幾百萬只要2週， 賺十幾萬要好幾個月\n朋友一直喊今年賺3倍， 我今年目前只賺-30%\n\n是說網路看到半金皮蛋只要40萬？ 詐騙吧？ \n是說我買了一個二手Seiko，匯完錢已經2天了⋯⋯ 希望趕快拿到\n訴說多筆大額虧損且情緒低落、想賺錢但目前虧損嚴重，呈現痛苦／被套心態，偏多訊號\nhttps://www.threads.com/@banini31/post/Dbnp2RFkxIc")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1785855246000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "停損（遲停損後悔）\n指標: 偏多 ▲ | 強度: 2\n2026-08-04T22:54:06+08:00 看來我的虧損可以繼續變小了⋯\n這次的教訓就是⋯ 太晚停損，結果損在-43%， 停損後財回彈⋯ 要是當初按照紀律20%停損， 我現在根本快樂加倉\n作者因晚停損造成大幅虧損並表現出悔恨與痛苦，但語氣較理性反省，屬偏多情緒且強度中等。\nhttps://www.threads.com/@banini31/post/Dbn0zAmk7GR")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1785979887000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "賣出回收資金(停損/出場)\n指標: 偏多 ▲ | 強度: 3\n2026-08-06T09:31:27+08:00 感覺⋯ 好像怪怪的⋯\n趁還沒虧很多， 還是收回資金好了\n\n這一波搞不好真的是反彈波而已\n如果是的話⋯ 那下一次下墜會很恐怖\n\n現在是緩跌急漲啊\n擔心只是反彈、想趁還沒虧很多收回資金，情緒偏向恐慌/保守（被套痛苦傾向），且貼文附委託單證明已成交，強度設為3。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0rtjUW65TUuFuL6FAYYywMJn7YuiARb5KhKhJjCCrmjevUzsH1M8Bu5tsxyMtwJd4l")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1785984051000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "等待成交/心情焦慮\n指標: 偏多 ▲ | 強度: 2\n2026-08-06T10:40:51+08:00 我跟宇宙下的聯電漲回180的訂單請問什麼時候才到\n發文帶有祈願語氣且暗示持有或掛單期望（情緒為焦慮/期待被套的情緒偏多），但沒有明確成交或委託截圖，強度為2。\nhttps://www.threads.com/@banini31/post/DbrqejRGYUk")
+    array.push(evt_ticker, "2303.TW")
+    array.push(evt_time, 1786021316000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "道歉/懺悔（可能已賣出）\n指標: 偏多 ▲ | 強度: 3\n2026-08-06T21:01:56+08:00 對不起， 我錯了\n川湖我三年前不該賣你的\n我真的錯了\n可以給我一個機會嗎(;´༎ຶД༎ຶ`)\n文中情緒是懊悔與求復合（痛苦/後悔），且圖片顯示多筆委託全部成交（委託單截圖出現「全部成交」等字樣），依規定強度設為3，偏多訊號（痛苦/被套）\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid067prnrEbnR5MGGQLFdUrysz28cKZTM4yd6VDzRTx5dBMeBCRRGbL67u5gVD9mS3Vl")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1786021318000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "認錯/懺悔\n指標: 偏多 ▲ | 強度: 3\n2026-08-06T21:01:58+08:00 對不起， 我錯了\n川湖我三年前不該賣你的\n我真的錯了\n可以給我一個機會嗎(;´༎ຶД༎ຶ`)\n貼文情緒是懺悔與痛苦（道歉+後悔），且圖片顯示委託單全部成交，依規強制強度3，情緒偏多（被套/痛苦）\nhttps://www.threads.com/@banini31/post/Dbsxjngkx7Z")
+    array.push(evt_ticker, "3714.TW")
+    array.push(evt_time, 1786063764000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "詢問/轉向買股\n指標: 偏空 ▼ | 強度: 2\n2026-08-07T08:49:24+08:00 拋棄南亞科這個軟腳男後\n要不要再相信記憶體， 相信旺宏一次呢？\n發文者拋棄南亞科（2408.TW）並詢問是否改信旺宏，語氣帶有主動調整倉位與期待，屬於較明顯的自信/追漲傾向偏空訊號。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02vaEkR5gh1fw92kmeV11XVkADmfpZbmQeSTEZJkk9zxixaXRcp84YEqDoppFB5bKDl")
+    array.push(evt_ticker, "2337.TW")
+    array.push(evt_time, 1786284841000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "回本期望\n指標: 偏多 ▲ | 強度: 2\n2026-08-09T22:14:01+08:00 我現在不要求大富大貴\n只求趕快回本(;´༎ຶД༎ຶ`)\n發文者表示只求趕快回本且帶悲傷情緒，為被套/痛苦類偏多訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0CQG3D9nXkXnkT3XXALGJZoRmfBi3hFuRatznv2Z9tVPjzCjk3zKKdjzScGzaEDXhl")
+    array.push(evt_ticker, "")
     0
 
 if barstate.isfirst
