@@ -120,8 +120,8 @@
     "GET": 0,
     "POST": 0
   },
-  "last_chunk": "history-completion-20261107-013",
-  "updated_at": "2026-11-09T07:15:58.363403+00:00",
+  "last_chunk": "history-completion-20261107-014",
+  "updated_at": "2026-11-09T07:16:13.599119+00:00",
   "consecutive_isolated_failures": 0,
   "all_unstarted_visited": false,
   "blocker_history": [
@@ -233,5 +233,7 @@
         "stop_http_status": 429
       }
     }
-  ]
+  ],
+  "stop_reason": "provider_access_quota_or_common_failure",
+  "stopped_at": "2026-09-04T16:11:55+08:00"
 }
