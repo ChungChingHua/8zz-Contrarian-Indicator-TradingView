@@ -128,7 +128,15 @@
   "actual_points_deducted": null,
   "quota_headers": {},
   "stop_reason": "provider_access_quota_or_common_failure",
-  "service_quota_statement": null,
+  "service_quota_statement": {
+    "http_status": 429,
+    "source": "service error response in history-completion-20261107-014",
+    "shared_free_requests_per_24h_window": 100,
+    "remaining_free_requests": "exhausted, service statement only",
+    "actual_points_deducted": null,
+    "reset_time": null,
+    "note": "No retry, paid model, alternate provider or official OpenAI fallback. 429 response has no usage."
+  },
   "all_history_fully_classified": false,
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "provider_model_and_reasoning": "Service-reported gpt-5-mini / minimal, not independently verified",
@@ -155,8 +163,8 @@
     "actor_runs_started": 0,
     "saved_dataset_get_requests": 2,
     "actual_points_deducted": null,
-    "run_url": null,
-    "stop_http_status": null
+    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/42576742068",
+    "stop_http_status": 429
   }
 }
 ```
