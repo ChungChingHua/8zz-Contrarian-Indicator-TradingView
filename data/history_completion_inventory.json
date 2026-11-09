@@ -3070,11 +3070,11 @@
     "key": "facebook:1644567720361150",
     "url": "https://www.facebook.com/reel/919300347914420/",
     "display_time": "2026-09-04T16:11:55+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "technical_failure",
+    "stored_status": "technical_failure",
+    "record_key": "facebook:1644567720361150",
+    "evidence": "data/history_progress/history-completion-20261107-014.json",
+    "reason": "provider_http_error"
   },
   {
     "key": "threads:3978695960142483647",
