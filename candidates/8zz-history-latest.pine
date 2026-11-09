@@ -1,7 +1,7 @@
 // This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © hansai-art / Group.G
 // 8zz 反指標 v2
-// 事件: 225筆 | 期間: 2025/12 ~ 2026/08
+// 事件: 230筆 | 期間: 2025/12 ~ 2026/08
 // 情緒解讀框架：負面情緒（被套、停損、恐慌）→ 偏多 ▲（散戶恐慌→主力拉升）
 //               正面情緒（漲停追買、過度樂觀）→ 偏空 ▼（市場過熱→崩跌機率高）
 // 免責聲明：本指標僅供娛樂參考，不構成任何投資建議。
@@ -1261,6 +1261,31 @@ initEvtChunk012() =>
     array.push(evt_str, 2)
     array.push(evt_tips, "誇耀/看多\n指標: 偏空 ▼ | 強度: 2\n2026-08-21T23:10:00+08:00 那個BTC就是嫩啦！ 看看我大美光！\n發文語氣帶有吹噓與自信（誇耀BTC與美光），屬於亢奮/樂觀的多頭表現但未顯示極端行為\nhttps://www.threads.com/@banini31/post/DcToIRnjv6V")
     array.push(evt_ticker, "BTCUSDT")
+    array.push(evt_time, 1787384361000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "槓桿重壓(被套)\n指標: 偏多 ▲ | 強度: 3\n2026-08-22T15:39:21+08:00 早上2509 重壓了ETH 20倍槓桿\n\n請問為什麼睡起來不見了呢(⊙ω⊙)\n20倍槓桿重壓後隔天發現帳戶不見，明顯是被套/恐慌情緒且可能爆倉風險，偏多（痛苦）訊號\nhttps://www.threads.com/@banini31/post/DcVZWwzGXiF")
+    array.push(evt_ticker, "ETHUSD")
+    array.push(evt_time, 1787399622000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "合約進場(被套/無奈)\n指標: 偏多 ▲ | 強度: 2\n2026-08-22T19:53:42+08:00 笑死，什麼我進場以太就崩來了\n我只有合約單是今天進的\n現貨單24年年底就在了好嗎……🥲\n以太合約新進場後立刻崩跌，語氣帶無奈/被套（哭笑），偏多情緒暗示受苦期望反彈。\nhttps://www.threads.com/@banini31/post/DcV2dsSmf7_")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787533034000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "觀望(不想賠)\n指標: 偏多 ▲ | 強度: 2\n2026-08-24T08:57:14+08:00 出國幫公司賣命囉(;´༎ຶД༎ຶ`)～～\n今天只有一點點時間能決定愛普的命運\n我是想不虧就好了吧⋯我被傷太多了😭😭\n發文提到想不虧、被傷太多且情緒悲傷，為痛苦/被套情緒偏多；有提到愛普（3694.TW）且帶有負面情緒，強度為明顯2。\nhttps://www.threads.com/@banini31/post/DcZ07XUk4tm")
+    array.push(evt_ticker, "3694.TW")
+    array.push(evt_time, 1787535541000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損/被套情緒\n指標: 偏多 ▲ | 強度: 3\n2026-08-24T09:39:01+08:00 你是想表達什麼？\n想分手就直接說啊！\n貼文文字帶情緒衝突（想分手語氣），且附圖為交易畫面顯示買進價886、賣出887及成交量，呈現真實持倉/交易狀態，發文者情緒偏負（痛苦/被套或剛停損）判定為偏多訊號，強度因有委託/成交畫面提升為3。\nhttps://www.threads.com/@banini31/post/DcZ5tb9mQCx")
+    array.push(evt_ticker, "6531.TWO")
+    array.push(evt_time, 1787552938000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "全部成交(委託單)\n指標: 偏空 ▼ | 強度: 3\n2026-08-24T14:28:58+08:00 我對不起在海上的各位_(:_」∠)_\n貼文附上委託單截圖顯示多筆標的「全部成交」，發文語氣並有大量興奮互動，已真實下單故強度3且為亢奮追買情緒，偏空。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0fUGGyUDU9yB4yjRzj8LERjqrgC3s9zmLBNJKoge1vq8H8sjGmXEiaWDUeSNXNLE9l")
+    array.push(evt_ticker, "")
     0
 
 if barstate.isfirst
