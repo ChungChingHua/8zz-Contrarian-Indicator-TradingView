@@ -113,7 +113,7 @@
     }
   ],
   "apify_http_counts": {
-    "GET": 20,
+    "GET": 22,
     "POST": 2
   },
   "prior_http_counts": {
@@ -179,7 +179,9 @@
       "input_failure": 1
     },
     "first_unstarted_date": "2026-08-22T02:09:59+08:00",
-    "user_reported_free_quota_reset": true
+    "user_reported_free_quota_reset": true,
+    "saved_dataset_get_requests": 2,
+    "actor_runs_started": 0
   },
   "session_history": [
     {
