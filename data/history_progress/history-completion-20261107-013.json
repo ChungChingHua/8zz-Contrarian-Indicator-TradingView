@@ -5,7 +5,7 @@
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "created_at": "2026-11-09T07:13:02.758096+00:00",
   "max_generations": 25,
-  "reserved_generation_attempts": 0,
+  "reserved_generation_attempts": 1,
   "stopped": false,
   "finished": false,
   "provider_settings": {
@@ -42,9 +42,36 @@
           "post_id": "1642080980609824"
         }
       ],
-      "status": "not_started",
-      "attempts": 0,
-      "context_used": []
+      "status": "unknown",
+      "attempts": 1,
+      "context_used": [],
+      "media_scope": {
+        "analysis_scope": "text_and_images",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 2,
+        "image_evidence": [
+          {
+            "sha256": "dcd4a491d2037ef4ccc9831a4c3a65c20d19597041daafb88abda02f9470821b",
+            "bytes": 31721,
+            "mime": "image/jpeg",
+            "attachment_index": 1
+          },
+          {
+            "sha256": "92d71b547a1c4ea6af74b45c4eea4830f6501b962727f844de587d8e28bc14f9",
+            "bytes": 33639,
+            "mime": "image/jpeg",
+            "attachment_index": 2
+          }
+        ],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": [
+          0
+        ]
+      },
+      "request_sha256": "3f1a1be457752410d8a699b536ecddbb11875503b1c67368607cbbc87376d737",
+      "dispatch_reserved_at": "2026-11-09T07:13:05.405214+00:00"
     },
     {
       "key": "threads:3976566071549848514",
@@ -623,5 +650,5 @@
       "context_used": []
     }
   ],
-  "updated_at": "2026-11-09T07:13:02.758125+00:00"
+  "updated_at": "2026-11-09T07:13:05.405234+00:00"
 }
