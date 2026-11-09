@@ -1,7 +1,7 @@
 // This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © hansai-art / Group.G
 // 8zz 反指標 v2
-// 事件: 251筆 | 期間: 2025/12 ~ 2026/09
+// 事件: 256筆 | 期間: 2025/12 ~ 2026/09
 // 情緒解讀框架：負面情緒（被套、停損、恐慌）→ 偏多 ▲（散戶恐慌→主力拉升）
 //               正面情緒（漲停追買、過度樂觀）→ 偏空 ▼（市場過熱→崩跌機率高）
 // 免責聲明：本指標僅供娛樂參考，不構成任何投資建議。
@@ -1394,6 +1394,31 @@ initEvtChunk013() =>
     array.push(evt_str, 2)
     array.push(evt_tips, "觀望/討論可能買康霈\n指標: 偏多 ▲ | 強度: 2\n2026-09-01T19:14:08+08:00 來送錶做保養（本來以為可以不用保養的）\n順便繼續蹭戴 IU錶⋯ \n恩， 帶了也不會變IU\n要不是愛普，我就可以買了⋯ 🥲🥲🥲\n\n我的損益只差大約6X萬就可以變正了❤️\n\n群組在討論可以買康霈⋯ 你們說咧\n發文提到損益接近回正且討論群組想買康霈，語氣帶有想補倉與期待但也有無奈，屬於痛苦/被套情緒偏多（非極端）。\nhttps://www.threads.com/@banini31/post/Dcvh4soEz3p")
     array.push(evt_ticker, "")
+    array.push(evt_time, 1788320661000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "補一點(加碼/買進，委託成交)\n指標: 偏空 ▼ | 強度: 3\n2026-09-02T11:44:21+08:00 當越多人求你不要買的時候\n表示持有的人越多\n\n也表示⋯\n出事了你不孤單🤣🤣🤣🤣\n\n我是覺得應該可以補一點⋯\n發文語氣帶有鼓動與看多並說「應該可以補一點」，且圖片顯示委託全部成交（真金白銀下單），情緒帶有追漲/樂觀傾向，強烈偏空訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0E2HmoecV5UU6xhgFSJ5ZsTj2J5UZtbBUMRLD2yNag3Sx8U3MkmgoiMsYh6am3EBjl")
+    array.push(evt_ticker, "3704.TWO")
+    array.push(evt_time, 1788395602000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "想出場/攤平猶豫\n指標: 偏多 ▲ | 強度: 2\n2026-09-03T08:33:22+08:00 今天應該穩了吧\n\n可以繼續攤平欣興了吧(;´༎ຶД༎ຶ`)\n最近盤勢好難玩\n有跟朋友討論應該出掉一些漲不動的股票\n提到想繼續攤平欣興但語氣悲傷、盤勢難玩且考慮出掉部份持股，屬於痛苦與猶豫的偏多情緒。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0jM8PbzrXWG6WVMacnzQux2xXF1REFdEJeVK91gJ6t34xtCywa55GmYDVAe6f7KWvl")
+    array.push(evt_ticker, "3037.TW")
+    array.push(evt_time, 1788398776000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "喊買/慶祝\n指標: 偏空 ▼ | 強度: 2\n2026-09-03T09:26:16+08:00 欣興啊啊啊啊啊啊啊！ \nBaby are you down down down down down?\n貼文大喊『欣興啊啊啊』並附上即時報價截圖與慶祝語氣，情緒偏亢奮看多但屬典型追漲興奮，故偏空信號\nhttps://www.threads.com/@banini31/post/DczoMzCGT3l")
+    array.push(evt_ticker, "3037.TW")
+    array.push(evt_time, 1788402598000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "喊買/樂觀\n指標: 偏空 ▼ | 強度: 2\n2026-09-03T10:29:58+08:00 欣興 V起來～ \n你他X給我V起來啊啊\n文中以激昂語氣催促『V起來』且圖中為欣興走勢與買進價，語氣樂觀、偏亢奮，屬偏空訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02EAb5zbS6MvgzLu4DyisirBj7x9LLnYTWgQ3nWSvYP9NQSizxie76pVPw7bog3KJ9l")
+    array.push(evt_ticker, "3037.TW")
+    array.push(evt_time, 1788413929000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "追買/委託成功\n指標: 偏空 ▼ | 強度: 3\n2026-09-03T13:38:49+08:00 啊～ 我是如此罪惡的女人\n註定被渣男玩弄嗎(;´༎ຶД༎ຶ`)\n\n是說苦茶之約只到這週為止\n拜託撐下去啊 欣興\n\n不要讓我心裡受苦之外，身體也要受苦😭😭\n貼文附上委託成功與全部成交截圖、並有成交畫面，顯示已真金白銀下單且語氣亢奮應為追買；依規則強度設為3。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0e9bhgS2nHA9sviXqdaXpQLb2ZjPYGymPCw1KJor4mf7qn2eA2LBwVj9hthteXpknl")
+    array.push(evt_ticker, "6531.TWO")
     0
 
 if barstate.isfirst
