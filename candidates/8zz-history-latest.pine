@@ -1,7 +1,7 @@
 // This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © hansai-art / Group.G
 // 8zz 反指標 v2
-// 事件: 230筆 | 期間: 2025/12 ~ 2026/08
+// 事件: 242筆 | 期間: 2025/12 ~ 2026/08
 // 情緒解讀框架：負面情緒（被套、停損、恐慌）→ 偏多 ▲（散戶恐慌→主力拉升）
 //               正面情緒（漲停追買、過度樂觀）→ 偏空 ▼（市場過熱→崩跌機率高）
 // 免責聲明：本指標僅供娛樂參考，不構成任何投資建議。
@@ -1286,6 +1286,69 @@ initEvtChunk012() =>
     array.push(evt_str, 3)
     array.push(evt_tips, "全部成交(委託單)\n指標: 偏空 ▼ | 強度: 3\n2026-08-24T14:28:58+08:00 我對不起在海上的各位_(:_」∠)_\n貼文附上委託單截圖顯示多筆標的「全部成交」，發文語氣並有大量興奮互動，已真實下單故強度3且為亢奮追買情緒，偏空。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0fUGGyUDU9yB4yjRzj8LERjqrgC3s9zmLBNJKoge1vq8H8sjGmXEiaWDUeSNXNLE9l")
     array.push(evt_ticker, "")
+    array.push(evt_time, 1787632900000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "抱怨(被套)\n指標: 偏多 ▲ | 強度: 2\n2026-08-25T12:41:40+08:00 愛普真的很機爛\n真的\n真的\n沒玩過這麼讓我肚爛的股票\n情緒是憤怒/挫折且針對個別股票（愛普），為被套/負面情緒，偏多訊號\nhttps://www.threads.com/@banini31/post/DcczaAiGSlA")
+    array.push(evt_ticker, "5274.TWO")
+    array.push(evt_time, 1787636009000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "憤怒+執念(想要翻本)\n指標: 偏多 ▲ | 強度: 3\n2026-08-25T13:33:29+08:00 你她X的愛普\n我討厭你⋯我討厭你啦(;´༎ຶД༎ຶ`)\n\n哪有每天上下快10%的！\n我虧損90%都是愛普啊🫠\n\n真的有種，我不信！再來一次！的感覺\n發文表示被愛普（愛普為標的）重傷虧損90%、情緒激動且有『不信要再來一次』的復仇心態；圖片含委託/成交截圖（委託相關文字可見），強度強制為3，情緒偏多（痛苦/想翻本）\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0pC1vBG2sGoobpXunjRWdH4PsNuT4EX4rxzjDPKscSf5C1S6n3KiMEMWYqcgfEh5wl")
+    array.push(evt_ticker, "6176.TWO")
+    array.push(evt_time, 1787636290000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "威脅/憤怒(被套)\n指標: 偏多 ▲ | 強度: 3\n2026-08-25T13:38:10+08:00 最近玩愛普玩到有點玻璃心碎裂覺得人生好辛苦\n\n一想到我一年的薪水被這些主力搞掉就好想跟他們說 \nI don't  know who you are, but I will find you, and I will K*** you\n被主力造成重大損失、語氣極度憤怒且有報復性威脅，情緒為痛苦且激烈偏多（被套/受害情緒）\nhttps://www.threads.com/@banini31/post/Dcc533NGdyV")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787677621000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "敘述回顧/情緒抒發\n指標: 偏多 ▲ | 強度: 2\n2026-08-26T01:07:01+08:00 玩股票的歷程跟養小孩一樣\n\n買的時候滿心期待\n一開始跌跌撞撞可以接受\n接著看著別人的股票覺得自己的不成器，自己的股票不如其他人！你怎麼不學學那個國巨？\n每天開盤要是漲輸人都覺得丟臉\n\n再過一陣子股票跟著大環境一起變壞\n心想，沒關係，你看那個大樹，再壞也沒他壞\n\n沒想到他越走越歪，你哭的撕心裂肺，但是又放不下他，畢竟你可是投入了數年的心血⋯\n\n好再最後他變好了的，反彈了⋯\n經歷過一切的你，已經不在乎他漲多少了\n只要每天他不要是綠的，就已經很開心了\n整段是情緒化的投資心路歷程，表達被套、痛苦後轉為滿足的心情，偏向悲傷/安慰的多頭情緒但沒有具體交易動作或極端強度，因此偏多且強度為2\nhttps://www.threads.com/@banini31/post/DceItLmmd8E")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787707910000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "追買/興奮\n指標: 偏空 ▼ | 強度: 3\n2026-08-26T09:31:50+08:00 是不是要再創意一下呢？ \n從600看到他漲到6000\n\n當初為什麼沒買呢(;´༎ຶД༎ຶ`)\n然後海運是不是開始研發潛水艇了？ 咕嚕咕嚕\n截圖顯示股價強烈拉升，文中回顧從600漲到6000並有高興/遺憾語氣，配合盤面截圖為亢奮FOMO情緒（追高）\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid036vEmYYCVUYUcK1ZLFbUxJtDqdst6QoMuWV2SEM7eBmc3hFQysphxshreAW72z6Q1l")
+    array.push(evt_ticker, "5995.TW")
+    array.push(evt_time, 1787708698000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "曬盤/買進截圖\n指標: 偏空 ▼ | 強度: 3\n2026-08-26T09:44:58+08:00 咕嚕咕嚕咕嚕(⊙ω⊙)\n貼出即時買進價格與走勢圖（委託/成交相關截圖），顯示亢奮或積極交易行為，強度為3（有真實下單證據）\nhttps://www.threads.com/@banini31/post/DcfD-uLmWx_")
+    array.push(evt_ticker, "2615.TW")
+    array.push(evt_time, 1787720058000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "\n指標: 偏空 ▼ | 強度: 1\n2026-08-26T12:54:18+08:00 今天大漲唉！\n\n我：有嗎\n貼文語氣輕鬆帶戲謔，並附上多支漲幅畫面但沒有明確表達個人持倉或交易動作，偏向驚訝/嘲弄市場大漲情緒，判定為輕微亢奮偏空訊號。\nhttps://www.threads.com/@banini31/post/DcfZpcvGetr")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787724363000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "追買(委託單)\n指標: 偏空 ▼ | 強度: 3\n2026-08-26T14:06:03+08:00 今天的我沒有回頭找愛普那個渣男\n因為創哥邀請我去天上看看 \n\n一開始我很心動，但是又放不下愛普那個渣男\n還好在創哥亮燈的那一刻，我搭上了他的車\n\n希望這台是紅色的法拉利\n\n再見了，愛普\n我要跟著創哥去找我的幸福了\n留言文字表達亢奮與大回血（FOMO），且附上委託單截圖顯示「委託成功/全部成交」，已真金白銀下單，情緒極度亢奮屬於偏空訊號。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0S5Lu8vfsa4AfVVap2jF1QnEsw4JWLsDAEhiKtn7HDVXY8JQ9o3EtJnfFJrbEhhMil")
+    array.push(evt_ticker, "3711.TW")
+    array.push(evt_time, 1787788374000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "期待回本/看好\n指標: 偏空 ▼ | 強度: 2\n2026-08-27T07:52:54+08:00 今天是什麼\n今天是大奇蹟日！ Nv財報之後，盤後漲了4%\n說至少一路好到2028～\n這次穩了吧！我虧的錢要賺回來了吧！\n\n終於要牛起來了吧！？\n看起來唯一問題就是升息了🤣🤣\n發文語氣興奮且期待虧損回補與長期看好（「一路好到2028」「我虧的錢要賺回來了」），情緒偏亢奮樂觀，屬於偏空訊號\nhttps://www.threads.com/@banini31/post/Dchb8sJk-EH")
+    array.push(evt_ticker, "NVDA")
+    array.push(evt_time, 1787788388000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "期待翻正/樂觀\n指標: 偏空 ▼ | 強度: 2\n2026-08-27T07:53:08+08:00 今天是什麼\n今天是大奇蹟日！ Nv財報之後，盤後漲了4%\n說至少一路好到2028～\n這次穩了吧！我虧的錢要賺回來了吧！\n\n終於要牛起來了吧！？\n看起來唯一問題就是升息了🤣🤣\n發文者語氣充滿樂觀與期待、要把虧的賺回來、認為會一路好到2028，屬於自信亢奮的偏空情緒。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02rskQb3PKhMfHveUmDjC3rLGAiPCEh2kyXhp3ShXoiTBWPXrjQecTCrxPMWsxUaQsl")
+    array.push(evt_ticker, "NVDA")
+    0
+
+initEvtChunk013() =>
+    array.push(evt_time, 1787805104000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "被套/痛苦\n指標: 偏多 ▲ | 強度: 3\n2026-08-27T12:31:44+08:00 創哥哥⋯\n創哥哥告訴我這不是真的\n你不是騙我吧(;´༎ຶД༎ຶ`)\n說好的紅色法拉利，私人飛機呢\n\n這就是紅顏薄命⋯ \n注定在感情中被渣男玩弄嗎(;´༎ຶД༎ຶ`)\n創哥哥，我不會游泳啊～咕嚕咕嚕\n圖為個股盤中價格與掛單（買進/賣出價皆出現），文句情緒悲傷且包含被渣男比喻與求助語氣，搭配持股下跌畫面顯示投資者處於被套/痛苦狀態，偏多訊號。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02U9FmzEUFVLHV9ofj8X1QUvGosTMEx1nkf2WeLzCQxCfXJhhrUb4pkRkMLkQSz3pyl")
+    array.push(evt_ticker, "3443.TW")
+    array.push(evt_time, 1787844138000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買入(小量)\n指標: 偏空 ▼ | 強度: 2\n2026-08-27T23:22:18+08:00 終於下班了 \n疲勞的我順手買了一點東西 \n\n看來今天創哥哥跌的明天就會漲回來了❤️\n發文說「順手買了一點」且語氣樂觀期待回漲，屬於主動買進且自信偏空訊號\nhttps://www.threads.com/@banini31/post/DcjGT2jkwuW")
+    array.push(evt_ticker, "")
     0
 
 if barstate.isfirst
@@ -1301,6 +1364,7 @@ if barstate.isfirst
     initEvtChunk010()
     initEvtChunk011()
     initEvtChunk012()
+    initEvtChunk013()
 // END GENERATED EVENT INITIALIZATION
 
 var int currentDir = 0
