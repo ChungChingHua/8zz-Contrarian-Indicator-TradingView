@@ -1,7 +1,7 @@
 // This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © hansai-art / Group.G
 // 8zz 反指標 v2
-// 事件: 242筆 | 期間: 2025/12 ~ 2026/08
+// 事件: 251筆 | 期間: 2025/12 ~ 2026/09
 // 情緒解讀框架：負面情緒（被套、停損、恐慌）→ 偏多 ▲（散戶恐慌→主力拉升）
 //               正面情緒（漲停追買、過度樂觀）→ 偏空 ▼（市場過熱→崩跌機率高）
 // 免責聲明：本指標僅供娛樂參考，不構成任何投資建議。
@@ -1348,6 +1348,51 @@ initEvtChunk013() =>
     array.push(evt_dir, -1)
     array.push(evt_str, 2)
     array.push(evt_tips, "買入(小量)\n指標: 偏空 ▼ | 強度: 2\n2026-08-27T23:22:18+08:00 終於下班了 \n疲勞的我順手買了一點東西 \n\n看來今天創哥哥跌的明天就會漲回來了❤️\n發文說「順手買了一點」且語氣樂觀期待回漲，屬於主動買進且自信偏空訊號\nhttps://www.threads.com/@banini31/post/DcjGT2jkwuW")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787844143000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買進(隨手買)\n指標: 偏空 ▼ | 強度: 2\n2026-08-27T23:22:23+08:00 終於下班了 \n疲勞的我順手買了一點東西 \n\n看來今天創哥哥跌的明天就會漲回來了❤️\n下班隨手買且語氣正向期待回漲，屬於自信/亢奮的買入情緒偏空訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid06kdTMuwYoddJ2CdbSfP2tDrCq4nQnzLmCiPxsxhPMr37cijVtSL2BhKjc7AnzAw3l")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1787940688000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "沮喪/被套\n指標: 偏多 ▲ | 強度: 2\n2026-08-29T02:11:28+08:00 那就⋯我不是股神，\n我只是個孩子~所以可以退錢嗎🫠🫠🫠🫠\n\n昨天還在黃爸爸拯救世界， 現在變成你最爛(;´༎ຶД༎ຶ`)\n發文語氣自嘲且情緒低落、附上下跌股價截圖代表被套損失感，傾向痛苦情緒（偏多）\nhttps://www.threads.com/@banini31/post/Dcl-dvsE3XA")
+    array.push(evt_ticker, "NVDA")
+    array.push(evt_time, 1787940695000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "沮喪/被套\n指標: 偏多 ▲ | 強度: 2\n2026-08-29T02:11:35+08:00 那就⋯我不是股神，\n我只是個孩子~所以可以退錢嗎🫠🫠🫠🫠\n\n昨天還在黃爸爸拯救世界， 現在變成你最爛(;´༎ຶД༎ຶ`)\n發文語氣自嘲＋配圖顯示股價下跌、心情落差，為痛苦/被套情緒偏多訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0sz5JXdpjwGjz1Ro3EdBoHmfrmQP6jsNxxj6cSLVnf2PZJtb8FeUev1hws6WJ7npPl")
+    array.push(evt_ticker, "NVDA")
+    array.push(evt_time, 1788137986000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "想賣/被套痛苦\n指標: 偏多 ▲ | 強度: 3\n2026-08-31T08:59:46+08:00 直接⋯不給我跑嗎(;´༎ຶД༎ຶ`)\n語句帶哭訴情緒且附上賣出畫面/價格顯示（999成交或掛單），顯示被套或無法出場的痛苦心情，偏多且強度3。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0M6bHZqWf8DiHD8JRNMtCRYSxZc1zHVrYhESPcKbbJT9jM8PC5Jsm1zm5Xu9WviZMl")
+    array.push(evt_ticker, "3037.TWO")
+    array.push(evt_time, 1788141145000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買進(展示報價)\n指標: 偏空 ▼ | 強度: 2\n2026-08-31T09:52:25+08:00 我才說完你很sexy的_(:_」∠)_\n貼文搭配國巨報價截圖、顯示買進價格，語氣並非痛苦或停損，屬於主動看多/自信行為，判定偏空（亢奮追買）\nhttps://www.threads.com/@banini31/post/Dcr8ztVmdnE")
+    array.push(evt_ticker, "2327.TW")
+    array.push(evt_time, 1788228390000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "抱怨+情緒化(失落)\n指標: 偏多 ▲ | 強度: 3\n2026-09-01T10:06:30+08:00 我的創哥哥跟渣男愛普\n我是什麼命嗎⋯⋯\n\n為什麼跟我在一起的股票都會變成渣男\n愛普你⋯⋯你⋯⋯你⋯⋯⋯\n發文痛苦抱怨「跟我在一起的股票都會變成渣男」，並附上愛普（6531）與創意走勢圖/成交畫面，情緒低落且帶有被套或失望，偏多（痛苦）訊號；圖片可讀且顯示個股價格與買賣欄位。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid022fXuFw9miq7pWtHia8xsthc86cK4w79Avb5mtxjNHdyj7tEGrsDirQ5UwhQHsk7wl")
+    array.push(evt_ticker, "6531.TWO")
+    array.push(evt_time, 1788229788000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "可能剛買/情緒混亂\n指標: 偏多 ▲ | 強度: 3\n2026-09-01T10:29:48+08:00 恩⋯ 我其實⋯\n剛剛⋯ 恩\n貼文與截圖顯示交易視窗與價格，且文字含吞吐不清的猶豫（\"恩⋯ 我其實⋯ 剛剛⋯ 恩\"），搭配已出現委託/成交畫面（圖片為交易介面，屬真金白銀下單跡象）代表情緒痛苦/不安且強度強制為3，偏多（被套/情緒負面）訊號。\nhttps://www.threads.com/@banini31/post/Dcul4YmmQSd")
+    array.push(evt_ticker, "6531.TWO")
+    array.push(evt_time, 1788241094000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "出掉/換股\n指標: 偏多 ▲ | 強度: 3\n2026-09-01T13:38:14+08:00 我是個罪惡的女人\n如今決定腳踏兩條船(;´༎ຶД༎ຶ`)\n\n今天把咕嚕咕嚕還有瘦瘦針出掉\n\n希望欣興幫跟愛普能對我溫柔點～ \nI need to know now~ can you love me again\n發文者表示賣出多檔（出掉咕嚕咕嚕與瘦瘦針，圖片顯示多筆委託全部成交），情緒帶有懺悔/求溫柔的痛苦語氣，為被套/情緒痛苦傾向偏多；且有委託成交文字，強度設為3。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0mKabMABEbi5bzhpdkf9WiP4szH7TPDjA3pxSy6ZgM4Wb3WEkSX4qVsrKcSxsPjgzl")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1788261248000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "觀望/討論可能買康霈\n指標: 偏多 ▲ | 強度: 2\n2026-09-01T19:14:08+08:00 來送錶做保養（本來以為可以不用保養的）\n順便繼續蹭戴 IU錶⋯ \n恩， 帶了也不會變IU\n要不是愛普，我就可以買了⋯ 🥲🥲🥲\n\n我的損益只差大約6X萬就可以變正了❤️\n\n群組在討論可以買康霈⋯ 你們說咧\n發文提到損益接近回正且討論群組想買康霈，語氣帶有想補倉與期待但也有無奈，屬於痛苦/被套情緒偏多（非極端）。\nhttps://www.threads.com/@banini31/post/Dcvh4soEz3p")
     array.push(evt_ticker, "")
     0
 
