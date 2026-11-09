@@ -5,7 +5,7 @@
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "created_at": "2026-11-09T07:05:53.344291+00:00",
   "max_generations": 25,
-  "reserved_generation_attempts": 4,
+  "reserved_generation_attempts": 5,
   "stopped": false,
   "finished": false,
   "provider_settings": {
@@ -1191,9 +1191,70 @@
           "post_id": "3971371347033576684"
         }
       ],
-      "status": "not_started",
-      "attempts": 0,
-      "context_used": []
+      "status": "unknown",
+      "attempts": 1,
+      "context_used": [],
+      "media_scope": {
+        "analysis_scope": "text_and_images",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 8,
+        "image_evidence": [
+          {
+            "sha256": "1bbfb9416f8ed1a5cc9b61ac0d5423ee142a0abc64288e0351853acadb59656e",
+            "bytes": 69989,
+            "mime": "image/jpeg",
+            "attachment_index": 0
+          },
+          {
+            "sha256": "9ff40f599881e5006aeb876dee34d1cb66bf6ccc5b096e1885b04f80e683795b",
+            "bytes": 138249,
+            "mime": "image/jpeg",
+            "attachment_index": 1
+          },
+          {
+            "sha256": "cdc0a3da02faf31570b0e2a25b8ee7e8cbe4ffc36c248ba080e14bacfe28b427",
+            "bytes": 82959,
+            "mime": "image/jpeg",
+            "attachment_index": 2
+          },
+          {
+            "sha256": "d6b7dbc5f40903aa389e6afb9595d82d8c77965d76bde311c3b6eb1e353de9c2",
+            "bytes": 67054,
+            "mime": "image/jpeg",
+            "attachment_index": 3
+          },
+          {
+            "sha256": "16ba65cab2daeeb1747adee866bb12fe9e61ca6425df6dae8ec9938a12a42fb9",
+            "bytes": 144142,
+            "mime": "image/jpeg",
+            "attachment_index": 4
+          },
+          {
+            "sha256": "296da34e34e3d7de03279260f5698babb211fa16daeb3eb94265271558fd3ced",
+            "bytes": 56881,
+            "mime": "image/jpeg",
+            "attachment_index": 5
+          },
+          {
+            "sha256": "2814201d700d3e54260fef14503117571efa638db6e3e2fc91fdb87c468cffd2",
+            "bytes": 50343,
+            "mime": "image/jpeg",
+            "attachment_index": 6
+          },
+          {
+            "sha256": "58fa51a707431045deafd0765fc64fd3c3862153b4bd94396dfbf43f9ed7fd85",
+            "bytes": 45611,
+            "mime": "image/jpeg",
+            "attachment_index": 7
+          }
+        ],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": []
+      },
+      "request_sha256": "5cc9fe05e7f1e387276804cf851ffc875f4592a7e27ba9d6f2f3c6b3a239ca81",
+      "dispatch_reserved_at": "2026-11-09T07:06:26.737771+00:00"
     },
     {
       "key": "threads:3971486410675439017",
@@ -1676,6 +1737,6 @@
       "context_used": []
     }
   ],
-  "updated_at": "2026-11-09T07:06:22.887318+00:00",
+  "updated_at": "2026-11-09T07:06:26.737794+00:00",
   "consecutive_isolated_failures": 0
 }
