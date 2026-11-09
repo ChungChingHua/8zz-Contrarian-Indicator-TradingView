@@ -5,7 +5,7 @@
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "created_at": "2026-11-09T07:09:36.088782+00:00",
   "max_generations": 25,
-  "reserved_generation_attempts": 4,
+  "reserved_generation_attempts": 5,
   "stopped": false,
   "finished": false,
   "provider_settings": {
@@ -1217,9 +1217,40 @@
           "post_id": "3973770566138687877"
         }
       ],
-      "status": "not_started",
-      "attempts": 0,
-      "context_used": []
+      "status": "unknown",
+      "attempts": 1,
+      "context_used": [],
+      "media_scope": {
+        "analysis_scope": "text_and_images",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 3,
+        "image_evidence": [
+          {
+            "sha256": "944a96bbc3e4022fcb6d7cb0bf1906020143f4ba35dceceff44c7e8225a211da",
+            "bytes": 79981,
+            "mime": "image/jpeg",
+            "attachment_index": 0
+          },
+          {
+            "sha256": "30d412fc351221dd424a089e9928f4214ec3f930a0ace7e6129d80000516f8f5",
+            "bytes": 70929,
+            "mime": "image/jpeg",
+            "attachment_index": 1
+          },
+          {
+            "sha256": "dfcc77c5f3e3293a405bb86c7bb9a494198c9b3933b20335cf407f64253c3da1",
+            "bytes": 72609,
+            "mime": "image/jpeg",
+            "attachment_index": 2
+          }
+        ],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": []
+      },
+      "request_sha256": "7783a1238ed3c0f0f4413687114a225538d0bd9524fa939fd28adcf909a545a1",
+      "dispatch_reserved_at": "2026-11-09T07:10:01.350523+00:00"
     },
     {
       "key": "threads:3973856969178183104",
@@ -1702,6 +1733,6 @@
       "context_used": []
     }
   ],
-  "updated_at": "2026-11-09T07:09:59.320355+00:00",
+  "updated_at": "2026-11-09T07:10:01.350544+00:00",
   "consecutive_isolated_failures": 0
 }
