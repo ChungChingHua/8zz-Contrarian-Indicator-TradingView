@@ -328,5 +328,45 @@
     "content_hash": "487544a6470e299998ee11b427ce7b5a515cea4c067ad6ed7b540de2efec159e",
     "replay_first_seen_round": 1,
     "fetched_at": "2026-11-10T06:46:39.582468+00:00"
+  },
+  "facebook:1708197577331497": {
+    "key": "facebook:1708197577331497",
+    "post_id": "1708197577331497",
+    "source": "facebook",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid036EvZUX42d73sxKV69z764gyVWfPydTYgc5nQF92EF8BHape8WKoV8gFY5Es8JFwml",
+    "published_at": "2026-11-10T01:19:52+00:00",
+    "display_time": "2026-11-10T09:19:52+08:00",
+    "unix_ms": 1794273592000,
+    "text": "昨天看了黃爸爸的信， 我學到了認錯\n阿翔， 讓我們再愛一次好嗎？ \n\n雖然你已經飛了17%了⋯但是我們可以一起走進下一個17%",
+    "attachments": [
+      {
+        "thumbnail": "https://scontent-mia5-2.xx.fbcdn.net/v/t39.99422-6/901882118_1755966949217161_1118982818220903914_n.png",
+        "__typename": "Photo",
+        "__isMedia": "Photo",
+        "accent_color": "FFFDE3E2",
+        "photo_product_tags": [],
+        "photo_image": {
+          "uri": "https://scontent-mia5-2.xx.fbcdn.net/v/t39.99422-6/901882118_1755966949217161_1118982818220903914_n.png",
+          "height": 445,
+          "width": 658
+        },
+        "url": "https://www.facebook.com/photo/?fbid=1708195993998322",
+        "id": "1708195993998322",
+        "feedback": {
+          "can_viewer_comment": false,
+          "id": "ZmVlZGJhY2s6cGZiaWQwMzZFdlpVWDQyZDczc3hLVjY5ejc2NGd5VldmUHlkVFlnYzVuUUY5MkVGOEJIYXBlOFdLb1Y4Z0ZZNUVzOEpGd21s"
+        },
+        "ocrText": "May be an image of text"
+      }
+    ],
+    "quoted_content": {},
+    "quote_flag": null,
+    "analysis": {
+      "status": "cost_test_only",
+      "reason": "未呼叫 AI；不寫入正式事件"
+    },
+    "content_hash": "4e6ad7df4118a78161397ddfdec7dc4dc9391af10bdecda2490f42e9758f1422",
+    "replay_first_seen_round": 4,
+    "fetched_at": "2026-11-10T06:48:05.215031+00:00"
   }
 }
