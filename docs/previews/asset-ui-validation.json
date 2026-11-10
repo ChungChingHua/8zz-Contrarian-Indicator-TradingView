@@ -1,6 +1,21 @@
 [
   {
     "width": 1440,
+    "chart_ready": false,
+    "author_comparison_chart": true,
+    "result_and_flip_filters": true,
+    "asset_switch": true,
+    "trade_filter_all_assets_modes_bases": true,
+    "rows_stats_curve": true,
+    "poll_preserves_asset_and_filters": true,
+    "invalid_futures_snapshot_retained": true,
+    "unchanged_version_no_snapshot": true
+  },
+  {
+    "width": 1440,
+    "chart_ready": true,
+    "author_comparison_chart": true,
+    "result_and_flip_filters": true,
     "asset_switch": true,
     "trade_filter_all_assets_modes_bases": true,
     "rows_stats_curve": true,
@@ -10,6 +25,21 @@
   },
   {
     "width": 390,
+    "chart_ready": false,
+    "author_comparison_chart": true,
+    "result_and_flip_filters": true,
+    "asset_switch": true,
+    "trade_filter_all_assets_modes_bases": true,
+    "rows_stats_curve": true,
+    "poll_preserves_asset_and_filters": true,
+    "invalid_futures_snapshot_retained": true,
+    "unchanged_version_no_snapshot": true
+  },
+  {
+    "width": 390,
+    "chart_ready": true,
+    "author_comparison_chart": true,
+    "result_and_flip_filters": true,
     "asset_switch": true,
     "trade_filter_all_assets_modes_bases": true,
     "rows_stats_curve": true,

@@ -6,7 +6,7 @@ from pathlib import Path
 from public_safety import public_url, POST_HOSTS
 from urllib.parse import urlsplit
 
-ASSETS=('index.html','dashboard.css','dashboard.js','dashboard-data.js','dashboard-data.json','data-version.json')
+ASSETS=('chart-date-adapter.min.js','chart.umd.min.js','index.html','dashboard.css','dashboard.js','dashboard-data.js','dashboard-data.json','data-version.json')
 
 def finalize(result, docs):
     # No raw ledgers, provider responses, credentials, configuration or internal paths.

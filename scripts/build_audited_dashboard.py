@@ -195,6 +195,8 @@ def build(refresh_market=False):
     # Self-contained preview opens directly with file://; no server or CDN needed.
     html=(ROOT/'docs/index.html').read_text()
     html=html.replace('<link rel="stylesheet" href="dashboard.css">','<style>'+(ROOT/'docs/dashboard.css').read_text()+'</style>')
+    for asset in ('chart.umd.min.js','chart-date-adapter.min.js'):
+        html=html.replace('<script src="'+asset+'" defer></script>','<script>'+(ROOT/'docs'/asset).read_text().replace('</','<\\/')+'</script>')
     html=html.replace('<script src="dashboard-data.js" defer></script>','').replace('<script src="dashboard.js" defer></script>','')
     html=html.replace('</body>','<script>window.INLINE_PREVIEW=true;window.DASHBOARD_DATA='+text.replace('</','<\\/')+';</script><script>'+(ROOT/'docs/dashboard.js').read_text()+'</script></body>')
     (ROOT/'docs/preview.html').write_text(html)
