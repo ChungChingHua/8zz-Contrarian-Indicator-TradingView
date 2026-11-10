@@ -6,7 +6,13 @@
       "apify-15m-20261110-01": {
         "reserved_starts": 2,
         "maximum_total_usd": "0.20",
-        "ledger": "data/cost_tests/apify-15m-20261110-01.json"
+        "ledger": "data/cost_tests/apify-15m-20261110-01.json",
+        "reported_cost_usd_by_source": {
+          "facebook": "0.008",
+          "threads": "0"
+        },
+        "observed_total_usd": "0.008",
+        "billing_finality": "unverified; delayed accounting observed; details in ledger"
       }
     }
   }

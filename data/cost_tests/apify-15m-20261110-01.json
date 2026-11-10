@@ -136,7 +136,7 @@
       "cost_observed_at": "2026-11-10T06:25:52.356036+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution",
       "result_count": 1,
-      "cost_category": "results_present",
+      "cost_category": "diagnostic_rows_present_not_zero_result_check",
       "accepted_in_window": [],
       "excluded": {
         "other_author": 1
@@ -167,7 +167,9 @@
           "safe_error_code": "no_items",
           "message_sha256": "7cb848f06235e5879d61ed6956a4d27ab80b47618814122046ae866424e5587c"
         }
-      ]
+      ],
+      "dataset_assessment": "One no_items diagnostic row, not a post; no post ID or publication time. Do not classify as a zero-result check or a retrieved article.",
+      "normalization_note": "Initial generic normalizer counted this diagnostic row under other_author; row-shape audit establishes it is an Actor diagnostic, not another author's post."
     },
     "threads": {
       "actor": "automation-lab~threads-scraper",
@@ -366,5 +368,15 @@
     "GET": 3,
     "POST": 0
   },
-  "observation_formal_state_unchanged": true
+  "observation_formal_state_unchanged": true,
+  "cost_summary": {
+    "observed_total_usd": "0.008",
+    "billing_finality": "Not verified against a settled invoice. Facebook increased from 0.001 to 0.008 after initial run completion. Threads API currently reports zero; do not infer free execution.",
+    "start_requests": 2,
+    "additional_start_requests": 0,
+    "http_gets": 10,
+    "http_posts": 2,
+    "ai_requests": 0,
+    "telegram_requests": 0
+  }
 }
