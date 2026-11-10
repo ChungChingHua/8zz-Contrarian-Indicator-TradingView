@@ -1,5 +1,7 @@
 # 已架設網站的後續更新
 
+最新：已接永豐保存行情並加入0050／台指期貨TXFR1切換，詳見 [SHIOAJI_MARKET.md](SHIOAJI_MARKET.md)。
+
 網站已成功發布：https://eightzz-september-dashboard.yummyguppy7.chatgpt.site （僅擁有者可登入查看）。
 
 使用者已要求直接架設，之後由助理依使用者指示更新同一網站；不需要使用者手動上傳檔案。GitHub Pages 建立 API 回傳 403（GitHub integration 缺少 Pages 管理權限），因此改用 Sites，維持新站預設的僅擁有者可存取。PR #1 不合併，抓取、AI、正式排程、通知維持停用。

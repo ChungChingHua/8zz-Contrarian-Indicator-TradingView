@@ -115,6 +115,8 @@ def simulate(ev,bars,mode,hold=17,basis='published'):
             base['status']='固定持有中，不重疊進場';continue
         pos=bars.index(ent)
         ex=(bars[pos+hold] if pos+hold<len(bars) else None) if mode=='A' else (effective[n+1][1] if n+1<len(effective) else None)
+        if mode=='A' and any(b.get('gap_before') for b in bars[pos+1:pos+hold+1]):
+            base.update(status='固定持有期間存在缺漏30分鐘行情',missing=True);continue
         base.update(trade=True,entry=ent,exit=ex,direction=e['direction'],event_id=e['id'])
         if ex:
             pnl=outcome(e['direction'],ent['price'],ex['price'])
@@ -148,6 +150,13 @@ def main():
 
 def build(refresh_market=False):
     market=fetch_market() if refresh_market else read('data/dashboard_market.json')
+    imported=read('data/shioaji_market_import.json') if (ROOT/'data/shioaji_market_import.json').exists() else {}
+    stock=imported.get('symbols',{}).get('0050',{})
+    if imported.get('status')=='completed' and all(stock.get('series',{}).get(i) for i in ('30m','1d')):
+        old_daily={b['time']:b for b in market['series'].get('1d',[])}
+        if any(abs(b['price']/old_daily[b['time']]['price']-1)>0.00001 for b in stock['series']['1d'] if b['time'] in old_daily):raise ValueError('daily_quote_source_conflict')
+        old_daily.update({b['time']:b for b in stock['series']['1d']})
+        market={'symbol':'0050.TW','series':{'30m':stock['series']['30m'],'1d':sorted(old_daily.values(),key=lambda b:b['time'])},'fetched_at':imported['fetched_at'],'errors':[],'source':'Sinopac Shioaji'}
     ev=events();summary=read('data/history_completion_summary.json')
     (ROOT/'data/signal_events.json').write_text(json.dumps(ev,ensure_ascii=False,indent=2)+'\n')
     inventory=read('data/history_completion_inventory.json')
@@ -161,6 +170,16 @@ def build(refresh_market=False):
         'live_status':{'enabled':read('data/live_settings.json').get('enabled',False) if (ROOT/'data/live_settings.json').exists() else False,'ai_stop':bool(live.get('ai_stop')),'notifications':'通知狀態由後端管理'},
         'modes':{m:simulate(ev,market['series'].get('30m' if m=='A' else '1d',[]),m,hold) for m in ['A','B']},
         'available_modes':{m:simulate(ev,market['series'].get('30m' if m=='A' else '1d',[]),m,hold,'available') for m in ['A','B']}}
+    from futures_performance import simulate_futures
+    imported=read('data/shioaji_market_import.json') if (ROOT/'data/shioaji_market_import.json').exists() else {}
+    futures=imported.get('symbols',{}).get('TXF',{})
+    cutoff=int(datetime.fromisoformat(publication['before']).timestamp()*1000)
+    fs={k:[b for b in futures.get('series',{}).get(k,[]) if b['time']<cutoff] for k in ('30m','1d')}
+    fm={'symbol':'TXFR1','fetched_at':imported.get('fetched_at'),'series':fs,'errors':futures.get('errors',[])}
+    result['instruments']={'TXF':{'name':'台指期貨・近月連續 TXFR1','market':fm,
+       'modes':{m:simulate_futures(ev,fs['30m' if m=='A' else '1d'],m,hold) for m in ('A','B')},
+       'available_modes':{m:simulate_futures(ev,fs['30m' if m=='A' else '1d'],m,hold,'available') for m in ('A','B')},
+       'disclosure':'TXFR1 未調整近月連續資料；結算週及跨換約區段交易排除，不銜接價差獲利。結算週採每月第三個星期三所在週的保守範圍，非已驗證逐月轉倉。30分鐘含日夜盤；B採完整日盤收盤。等額名目本金1倍報酬，不是保證金報酬；未含每點200元口數、費稅、滑價與追繳。'}}
     from public_dashboard import finalize
     result=finalize(result, ROOT/'docs')
     from publication_scope import assert_boundary

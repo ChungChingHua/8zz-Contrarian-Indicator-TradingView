@@ -32,3 +32,8 @@ def assert_boundary(data):
             for t in m['trades']:
                 for key in ('entry','exit','mark'):
                     if t.get(key) and t[key]['time']>=ms:raise ValueError('out_of_scope_trade')
+
+    for instrument in data.get('instruments',{}).values():
+        child=dict(data,market=instrument['market'],modes=instrument['modes'],available_modes=instrument['available_modes'])
+        child.pop('instruments',None)
+        assert_boundary(child)

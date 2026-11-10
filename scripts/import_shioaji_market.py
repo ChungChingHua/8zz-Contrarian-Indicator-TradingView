@@ -29,6 +29,11 @@ def aggregate(raw,symbol):
         bucket[minute]=price;valid+=1
         if (symbol=='0050' or 525<minute<=825):days.setdefault(t.date(),{})[minute]=price
     bars=[{'time':ts,'price':v[max(v)]} for ts,v in sorted(buckets.items()) if len(v)==30 or (symbol=='0050' and len(v)==26 and max(v)==810 and set(range(806,810)).isdisjoint(v))]
+    missing=sorted(ts for ts in buckets if ts not in {b['time'] for b in bars})
+    previous=None
+    for bar in bars:
+        if previous is not None and any(previous<t<=bar['time'] for t in missing):bar['gap_before']=True
+        previous=bar['time']
     daily=[]
     expected=266 if symbol=='0050' else 300;ending=810 if symbol=='0050' else 825
     for day,v in sorted(days.items()):

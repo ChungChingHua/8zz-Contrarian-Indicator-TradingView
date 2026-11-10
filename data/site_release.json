@@ -3,11 +3,15 @@
   "project_id": "appgprj_6af2d13db444819181d0f47426072148",
   "access": "owner-private",
   "source_checkout": "/workspace/sites/8zz-september",
-  "source_commit": "481da9abac818e1cd767babd8b1753e491001e7c",
-  "version_id": "appgprj_6af2d13db444819181d0f47426072148~appgver_ace1d537c3a88191a30de01c98ec20e0",
-  "deployment_id": "appgdep_6af2d1c4bbcc8191b874f5c88cf84377",
+  "source_commit": "7e030c747015755ce3c3c850f820113f494abc36",
+  "version_id": "appgprj_6af2d13db444819181d0f47426072148~appgver_a6b9a641154081919d9001314ab880c1",
+  "deployment_id": "appgdep_6af2d90a03d88191bbf5e0bf03b6ed85",
   "publication_policy": "data/publication_policy.json",
   "future_updates": "Reuse this project_id. Rebuild from saved judgments only, enforce publication boundary, package allowlisted assets, push the matching Site source, then deploy the saved version. Do not create a second Site or include November posts.",
   "status": "succeeded",
-  "url": "https://eightzz-september-dashboard.yummyguppy7.chatgpt.site"
+  "url": "https://eightzz-september-dashboard.yummyguppy7.chatgpt.site",
+  "instruments": [
+    "0050",
+    "TXFR1"
+  ]
 }

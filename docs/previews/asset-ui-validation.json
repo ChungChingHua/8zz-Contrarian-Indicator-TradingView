@@ -1,0 +1,18 @@
+[
+  {
+    "width": 1440,
+    "asset_switch": true,
+    "rows_stats_curve": true,
+    "poll_preserves_asset_and_filters": true,
+    "invalid_futures_snapshot_retained": true,
+    "unchanged_version_no_snapshot": true
+  },
+  {
+    "width": 390,
+    "asset_switch": true,
+    "rows_stats_curve": true,
+    "poll_preserves_asset_and_filters": true,
+    "invalid_futures_snapshot_retained": true,
+    "unchanged_version_no_snapshot": true
+  }
+]
