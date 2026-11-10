@@ -234,7 +234,7 @@
         "timeoutSecs": 900,
         "memoryMbytes": 1024
       },
-      "status": "READY",
+      "status": "SUCCEEDED",
       "input": {
         "mode": "posts",
         "usernames": [
@@ -247,7 +247,7 @@
       },
       "id": "p2343oHUCL4eFtBeA",
       "startedAt": "2026-11-10T06:24:04.521Z",
-      "finishedAt": null,
+      "finishedAt": "2026-11-10T06:24:11.548Z",
       "buildId": "u7xlWkUJn0xIkKQVC",
       "buildNumber": "0.1.68",
       "defaultDatasetId": "P6fChvHlSQ5GDjVgg",
@@ -272,8 +272,8 @@
         "profile": 0,
         "post": 0
       },
-      "duration_seconds": null,
-      "cost_observed_at": "2026-11-10T06:24:04.674037+00:00",
+      "duration_seconds": "6.875",
+      "cost_observed_at": "2026-11-10T06:24:14.032076+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     }
   },
@@ -295,7 +295,7 @@
     "candidates/8zz-original-author-batch-01.pine": "cb5e43acdc5dc912162f14148bd4df5c81d93d9e"
   },
   "http_requests": {
-    "GET": 5,
+    "GET": 6,
     "POST": 2
   },
   "start_utc": "2026-11-10T06:08:58.944807+00:00",
