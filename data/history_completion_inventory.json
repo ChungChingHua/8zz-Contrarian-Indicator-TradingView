@@ -3080,181 +3080,181 @@
     "key": "threads:3978695960142483647",
     "url": "https://www.threads.com/@banini31/post/Dc3KuVNkxC_",
     "display_time": "2026-09-04T18:25:40+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:3978695960142483647",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "抱怨銀行房貸與客服糾紛，為生活消費/貸款問題，與投資持倉或交易無關，跳過"
   },
   {
     "key": "facebook:1644654240352498",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02oRMB99St8xQgeHYaGKhV2iqRXoEoeN8nkkLFe9dxGoee5cWjWRp4SaxzGjxYseCnl",
     "display_time": "2026-09-04T18:25:48+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "facebook:1644654240352498",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "房貸與銀行服務抱怨，與投資持倉或交易無關，跳過。"
   },
   {
     "key": "facebook:1644925936991995",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02zEejyGeLh7mGC3FQ8b3Hu3SeFPqFuSvnc24xpGvUTuVcVohh6EDdeg26nuieNepsl",
     "display_time": "2026-09-05T00:26:08+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1644925936991995",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "文字單一句「穩了」無明確投資情緒或持倉資訊，且附圖為商品/模型展示，無法判定投資立場，依規則跳過。"
   },
   {
     "key": "threads:3978913518573938332",
     "url": "https://www.threads.com/@banini31/post/Dc38MOSmWac",
     "display_time": "2026-09-05T01:37:55+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:3978913518573938332",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "與投資無關的懷念藝術/生活貼文，跳過"
   },
   {
     "key": "facebook:1645281390289783",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0kv6mUpYnqe8JUogtMPZVi9nYh8PMWAUK9Tr8DX21HXebWvHDxmZmCdenJS7ts54Fl",
     "display_time": "2026-09-05T10:49:28+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "facebook:1645281390289783",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "發文者抱怨自己股票虧損並自嘲（情緒為痛苦/沮喪），屬於偏多（被套/痛苦）訊號。"
   },
   {
     "key": "threads:3979191132542458314",
     "url": "https://www.threads.com/@banini31/post/Dc47UCck9nK",
     "display_time": "2026-09-05T10:49:30+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "threads:3979191132542458314",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "發文者自述股票虧損並以自嘲語氣表現挫敗與痛苦，屬於被套/情緒負面偏多訊號。"
   },
   {
     "key": "facebook:1645485060269416",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02qhVYLNgBU2pTnGWWt5eXmyRiReXCPhqsxEC5grFuGz4XxU3VG6xWzExcm9YyS1HSl",
     "display_time": "2026-09-05T16:20:42+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "facebook:1645485060269416",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "貼文內容僅為生活閒聊（蹭錶），與投資決策或情緒無關，符合跳過規則。"
   },
   {
     "key": "threads:3979362045691265549",
     "url": "https://www.threads.com/@banini31/post/Dc5iLJuGYIN",
     "display_time": "2026-09-05T16:29:04+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:3979362045691265549",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "與投資無關的生活/展示手錶貼文，跳過"
   },
   {
     "key": "threads:3979598062725699188",
     "url": "https://www.threads.com/@banini31/post/Dc6X1ptmRZ0",
     "display_time": "2026-09-06T00:17:59+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:3979598062725699188",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "與投資無關的生活碎念，無明確投資情緒或操作"
   },
   {
     "key": "threads:3980050733085612771",
     "url": "https://www.threads.com/@banini31/post/Dc7-w31mdrj",
     "display_time": "2026-09-06T15:17:22+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:3980050733085612771",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "抱怨網紅行為與詐騙責任，未提及個人持倉或交易，與投資決策無關"
   },
   {
     "key": "facebook:1647007733450482",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02rj81M2m8MaUX3wVZCw29wrbpKS7u53v9uC7Bq9qEvZHcHDiHGoUCSBxV1z8dbGtTl",
     "display_time": "2026-09-07T11:06:05+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "facebook:1647007733450482",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "自述為追高並嘗試追資金流，語氣帶有主動追漲與自信設定停損，屬於偏空／亢奮情緒"
   },
   {
     "key": "threads:3980649994563169395",
     "url": "https://www.threads.com/@banini31/post/Dc-HBRlGSxz",
     "display_time": "2026-09-07T11:07:59+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "threads:3980649994563169395",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "嘗試新策略且自認為『韭菜』帶有羞愧/不安情緒，偏多（痛苦/不安）訊號"
   },
   {
     "key": "threads:3980690201396218913",
     "url": "https://www.threads.com/@banini31/post/Dc-QKXHGYwh",
     "display_time": "2026-09-07T12:27:52+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "threads:3980690201396218913",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "持有大量981且詢問是否上漲，顯示持有者緊張/關切（被套或擔憂傾向），偏多且情緒明顯"
   },
   {
     "key": "threads:3980855765490068395",
     "url": "https://www.threads.com/@banini31/post/Dc-1zosGeur",
     "display_time": "2026-09-07T17:56:49+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:3980855765490068395",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "內容與投資無關或情緒模糊（唱歌/閒聊），無法判定投資立場 -> 跳過"
   },
   {
     "key": "threads:3980878218413074328",
     "url": "https://www.threads.com/@banini31/post/Dc-66XmmeeY",
     "display_time": "2026-09-07T18:41:25+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "threads:3980878218413074328",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "發文者表達要在價格再漲一天就減碼，語氣帶有主動獲利了結的計畫與自信，屬於偏空（亢奮/獲利了結傾向）訊號。"
   },
   {
     "key": "threads:3981010106129039698",
     "url": "https://www.threads.com/@banini31/post/Dc_Y5lnD8FS",
     "display_time": "2026-09-07T23:03:28+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "threads:3981010106129039698",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "作者雖然看到大盤上漲，但持股多數仍大幅虧損且情緒焦躁不安，屬於痛苦情緒偏多訊號。"
   },
   {
     "key": "threads:3981044309394915733",
     "url": "https://www.threads.com/@banini31/post/Dc_grT4kwGV",
     "display_time": "2026-09-08T00:11:27+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3981044309394915733",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "僅為未分析影片中的願望/計畫性文字，無明確投資情緒或持倉動作，依規則跳過。"
   },
   {
     "key": "facebook:1647832213368034",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid08aLyMLAVJmS4n1iEMoFLcaxZpWdRSctJumDmtbN3z6249wtZ2oYTJttAaGU944NNl",
     "display_time": "2026-09-08T09:10:37+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1647832213368034",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "contradictory_output_fields"
   },
   {
     "key": "threads:3981333267379483868",
@@ -3273,71 +3273,71 @@
     "key": "threads:3981360607673265704",
     "url": "https://www.threads.com/@banini31/post/DdAomDnGS4o",
     "display_time": "2026-09-08T10:39:51+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "threads:3981360607673265704",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "語氣帶有貪心與想追漲（不趁著行情賺錢、貪心一點），屬於亢奮/追漲傾向，偏空訊號"
   },
   {
     "key": "threads:3981603709717649610",
     "url": "https://www.threads.com/@banini31/post/DdBf3qCGRjK",
     "display_time": "2026-09-08T18:42:51+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:3981603709717649610",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "內容為社會議題評論／道德感想，與投資持倉或交易無關 → 跳過"
   },
   {
     "key": "facebook:1648241563327099",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02Z3kJkwv442wAELansCx349F5XSErwkatUvUKve69DbQrA1qeVQT2jiC8VUF7bdQrl",
     "display_time": "2026-09-08T20:24:43+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "facebook:1648241563327099",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "與投資無關的業配/徵梗貼文且附生活照片，跳過"
   },
   {
     "key": "threads:3981792363412658982",
     "url": "https://www.threads.com/@banini31/post/DdCKw7ekxsm",
     "display_time": "2026-09-09T00:57:40+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:3981792363412658982",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "貼文主要是宣傳護身符/活動並表達緊張，沒有明確投資持倉或交易決策，屬於活動/生活性內容，跳過。"
   },
   {
     "key": "facebook:1648440373307218",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0ZAjkj97nuG6dQrNKmfo2BPY3ei9uM9QBF44eDSNqp8GEMNTxte5iVWPgAqAKCAodl",
     "display_time": "2026-09-09T00:57:48+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "facebook:1648440373307218",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "貼文主要為促銷/曬護身符與個人照片，並無明確投資立場或持倉動作，屬生活/行銷內容，跳過。"
   },
   {
     "key": "threads:3981874055762638922",
     "url": "https://www.threads.com/@banini31/post/DdCdVtaE3hK",
     "display_time": "2026-09-09T03:39:59+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:3981874055762638922",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "與投資無關的個人生活改變/運動宣言，跳過"
   },
   {
     "key": "facebook:1648724669945455",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02Ehbzi9n627ZvNTkS2Fdsf9KaPxcU2xPEBj9ax4TP3aV3XC4m2AQwhaSTUFKpyFVil",
     "display_time": "2026-09-09T09:22:18+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "facebook:1648724669945455",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "語氣亢奮、呼喊衝且期待一根上去解套，圖片為個股即時畫面顯示買進價格，情緒為FOMO/亢奮，強烈偏空訊號"
   },
   {
     "key": "threads:3982054325774574238",
