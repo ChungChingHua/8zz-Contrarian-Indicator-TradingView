@@ -1994,19 +1994,19 @@
         "isMaxTotalChargeUsdSetByUser": true,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": 0,
+      "usageTotalUsd": "0.025",
       "chargedEventCounts": {
-        "start": 0,
+        "start": 1,
         "profile": 0,
-        "post": 0
+        "post": 1
       },
       "accountedChargedEventCounts": {
-        "start": 0,
+        "start": 1,
         "profile": 0,
-        "post": 0
+        "post": 1
       },
       "duration_seconds": "5.054",
-      "cost_observed_at": "2026-11-10T06:50:48.939885+00:00",
+      "cost_observed_at": "2026-11-10T06:57:54.345366+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution",
       "cap_message": false,
       "cost_snapshots": [
@@ -2043,6 +2043,23 @@
             "profile": 0,
             "post": 0
           }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:54.345366+00:00",
+          "usageTotalUsd": "0.025",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 1
+          },
+          "accountedChargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 1
+          }
         }
       ],
       "cost_basis": "usageTotalUsd only; other fee fields are not added again",
@@ -2058,7 +2075,8 @@
       "post_keys": [
         "threads:4027013070392517757"
       ],
-      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency."
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true
     },
     {
       "round": 9,
@@ -5011,10 +5029,10 @@
     "docs/social-status.json": "8e789bf292c16b7f058a8062d3fc0bf210894caf"
   },
   "apify_http_requests": {
-    "GET": 163,
+    "GET": 164,
     "POST": 40
   },
-  "updated_at": "2026-11-10T06:57:52.958275+00:00",
+  "updated_at": "2026-11-10T06:57:54.345392+00:00",
   "monthly_runs_before": 8,
   "uncertain_streak": {
     "facebook": 0,
