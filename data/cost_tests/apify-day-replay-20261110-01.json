@@ -4039,7 +4039,7 @@
         "maxTotalChargeUsd": "0.10",
         "restartOnError": "false"
       },
-      "status": "reserved_not_submitted"
+      "status": "submission_unknown"
     }
   ],
   "pricing": {
@@ -4329,7 +4329,7 @@
     "GET": 135,
     "POST": 36
   },
-  "updated_at": "2026-11-10T06:56:31.460471+00:00",
+  "updated_at": "2026-11-10T06:56:32.822983+00:00",
   "monthly_runs_before": 8,
   "uncertain_streak": {
     "facebook": 0,
