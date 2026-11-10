@@ -94,7 +94,17 @@
         "timeoutSecs": 0,
         "memoryMbytes": 4096
       },
-      "status": "not_started"
+      "status": "submission_unknown",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-10T06:08:58.944807Z",
+        "onlyPostsOlderThan": "2026-11-10T06:23:58.944807Z"
+      }
     },
     "threads": {
       "actor": "automation-lab~threads-scraper",
