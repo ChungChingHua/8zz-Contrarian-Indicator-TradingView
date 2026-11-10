@@ -1,7 +1,7 @@
 // This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © hansai-art / Group.G
 // 8zz 反指標 v2
-// 事件: 257筆 | 期間: 2025/12 ~ 2026/09
+// 事件: 266筆 | 期間: 2025/12 ~ 2026/09
 // 情緒解讀框架：負面情緒（被套、停損、恐慌）→ 偏多 ▲（散戶恐慌→主力拉升）
 //               正面情緒（漲停追買、過度樂觀）→ 偏空 ▼（市場過熱→崩跌機率高）
 // 免責聲明：本指標僅供娛樂參考，不構成任何投資建議。
@@ -1424,6 +1424,54 @@ initEvtChunk013() =>
     array.push(evt_str, 3)
     array.push(evt_tips, "追買/委託成功\n指標: 偏空 ▼ | 強度: 3\n2026-09-03T13:38:49+08:00 啊～ 我是如此罪惡的女人\n註定被渣男玩弄嗎(;´༎ຶД༎ຶ`)\n\n是說苦茶之約只到這週為止\n拜託撐下去啊 欣興\n\n不要讓我心裡受苦之外，身體也要受苦😭😭\n貼文附上委託成功與全部成交截圖、並有成交畫面，顯示已真金白銀下單且語氣亢奮應為追買；依規則強度設為3。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0e9bhgS2nHA9sviXqdaXpQLb2ZjPYGymPCw1KJor4mf7qn2eA2LBwVj9hthteXpknl")
     array.push(evt_ticker, "6531.TWO")
+    array.push(evt_time, 1788576568000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "抱怨/自嘲\n指標: 偏多 ▲ | 強度: 2\n2026-09-05T10:49:28+08:00 昨天大家歡天喜地，而滿身黃金的我be like..\n全世界484只有我股票虧錢⋯_(:_」∠)_\n發文者抱怨自己股票虧損並自嘲（情緒為痛苦/沮喪），屬於偏多（被套/痛苦）訊號。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0kv6mUpYnqe8JUogtMPZVi9nYh8PMWAUK9Tr8DX21HXebWvHDxmZmCdenJS7ts54Fl")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1788576570000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "抱怨虧損\n指標: 偏多 ▲ | 強度: 2\n2026-09-05T10:49:30+08:00 昨天大家歡天喜地，而滿身黃金的我be like..\n全世界484只有我股票虧錢⋯_(:_」∠)_\n發文者自述股票虧損並以自嘲語氣表現挫敗與痛苦，屬於被套/情緒負面偏多訊號。\nhttps://www.threads.com/@banini31/post/Dc47UCck9nK")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1788750365000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "追高/小額嘗試\n指標: 偏空 ▼ | 強度: 2\n2026-09-07T11:06:05+08:00 Jojo!!!!!\nWryyyyyy\n\n我其實是參考最近很夯的資金板塊流動\n外加今天漲幅挑的⋯ \n\n簡單說就是追高_(:_」∠)_\n所以買的非常少，嘗試追資金流動的方式投資\n停損點也會設定非常低\n自述為追高並嘗試追資金流，語氣帶有主動追漲與自信設定停損，屬於偏空／亢奮情緒\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02rj81M2m8MaUX3wVZCw29wrbpKS7u53v9uC7Bq9qEvZHcHDiHGoUCSBxV1z8dbGtTl")
+    array.push(evt_ticker, "")
+    0
+
+initEvtChunk014() =>
+    array.push(evt_time, 1788750479000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "嘗試追流動(自我批評)\n指標: 偏多 ▲ | 強度: 2\n2026-09-07T11:07:59+08:00 第一次嘗試追資金流動的方式買股\n不知道結果會怎樣\n覺得自己好韭菜⋯⋯\n\n（說的好像平常就不韭）\n嘗試新策略且自認為『韭菜』帶有羞愧/不安情緒，偏多（痛苦/不安）訊號\nhttps://www.threads.com/@banini31/post/Dc-HBRlGSxz")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1788755272000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "觀望/情緒詢問\n指標: 偏多 ▲ | 強度: 2\n2026-09-07T12:27:52+08:00 滿手981的我:\n今天有漲？\n持有大量981且詢問是否上漲，顯示持有者緊張/關切（被套或擔憂傾向），偏多且情緒明顯\nhttps://www.threads.com/@banini31/post/Dc-QKXHGYwh")
+    array.push(evt_ticker, "981.TW")
+    array.push(evt_time, 1788777685000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "減碼預告\n指標: 偏空 ▼ | 強度: 2\n2026-09-07T18:41:25+08:00 再漲一天\n我就要減碼了\n發文者表達要在價格再漲一天就減碼，語氣帶有主動獲利了結的計畫與自信，屬於偏空（亢奮/獲利了結傾向）訊號。\nhttps://www.threads.com/@banini31/post/Dc-66XmmeeY")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1788793408000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "煩躁/擔憂\n指標: 偏多 ▲ | 強度: 2\n2026-09-07T23:03:28+08:00 今天大漲, 其實手上不少股票也都有漲到\n說是這樣說, 但是我越看越燥...\n\n一開始實在是不知道甚麼原因\n後來看了一下持股\n\n恩, 有的-30%, 有的欣興-13%, 有的漲歸漲, 帶識別說6月了, 比8月反彈那波還低\n有的只是剛好回到崩盤前\n整體損益大概需要總持股金額在漲個30%才回到前高(還不算上已經實現的虧損)\n\n難怪我越看整個人越燥= =\n作者雖然看到大盤上漲，但持股多數仍大幅虧損且情緒焦躁不安，屬於痛苦情緒偏多訊號。\nhttps://www.threads.com/@banini31/post/Dc_Y5lnD8FS")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1788835191000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "\n指標: 偏空 ▼ | 強度: 1\n2026-09-08T10:39:51+08:00 哼\n這點價差， 我才不要\n語氣帶有貪心與想追漲（不趁著行情賺錢、貪心一點），屬於亢奮/追漲傾向，偏空訊號\nhttps://www.threads.com/@banini31/post/DdAomDnGS4o")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1788916938000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "衝動追買/期待解套\n指標: 偏空 ▼ | 強度: 3\n2026-09-09T09:22:18+08:00 終於要回到起跌點了_(:_」∠)_\n再給我一根上去我就解套了！\n\n衝啊啊啊！\n語氣亢奮、呼喊衝且期待一根上去解套，圖片為個股即時畫面顯示買進價格，情緒為FOMO/亢奮，強烈偏空訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02Ehbzi9n627ZvNTkS2Fdsf9KaPxcU2xPEBj9ax4TP3aV3XC4m2AQwhaSTUFKpyFVil")
+    array.push(evt_ticker, "3037.TW")
     0
 
 if barstate.isfirst
@@ -1440,6 +1488,7 @@ if barstate.isfirst
     initEvtChunk011()
     initEvtChunk012()
     initEvtChunk013()
+    initEvtChunk014()
 // END GENERATED EVENT INITIALIZATION
 
 var int currentDir = 0
