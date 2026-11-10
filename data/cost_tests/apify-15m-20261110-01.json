@@ -299,13 +299,25 @@
         "post": 0
       },
       "duration_seconds": "6.875",
-      "cost_observed_at": "2026-11-10T06:24:14.032076+00:00",
+      "cost_observed_at": "2026-11-10T06:25:53.598520+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution",
       "result_count": 0,
       "cost_category": "no_new_post_check",
       "accepted_in_window": [],
       "excluded": {},
-      "accepted_count": 0
+      "accepted_count": 0,
+      "previous_cost_snapshots": [
+        {
+          "usageTotalUsd": 0,
+          "externalChargedTotalUsd": null,
+          "cost_observed_at": "2026-11-10T06:24:14.032076+00:00",
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        }
+      ]
     }
   },
   "cap_usd_per_run": "0.10",
