@@ -274,7 +274,12 @@
       },
       "duration_seconds": "6.875",
       "cost_observed_at": "2026-11-10T06:24:14.032076+00:00",
-      "billing_finality": "not independently confirmed; zero is not proof of free execution"
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "result_count": 0,
+      "cost_category": "no_new_post_check",
+      "accepted_in_window": [],
+      "excluded": {},
+      "accepted_count": 0
     }
   },
   "cap_usd_per_run": "0.10",
@@ -295,7 +300,7 @@
     "candidates/8zz-original-author-batch-01.pine": "cb5e43acdc5dc912162f14148bd4df5c81d93d9e"
   },
   "http_requests": {
-    "GET": 6,
+    "GET": 7,
     "POST": 2
   },
   "start_utc": "2026-11-10T06:08:58.944807+00:00",
