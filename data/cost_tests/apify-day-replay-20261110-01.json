@@ -1927,10 +1927,10 @@
         "maxTotalChargeUsd": "0.10",
         "restartOnError": "false"
       },
-      "status": "READY",
+      "status": "SUCCEEDED",
       "id": "WlibTWniKSYUOEyrC",
       "startedAt": "2026-11-10T06:51:08.383Z",
-      "finishedAt": null,
+      "finishedAt": "2026-11-10T06:51:15.191Z",
       "buildId": "u7xlWkUJn0xIkKQVC",
       "buildNumber": "0.1.68",
       "defaultDatasetId": "vzw2hzuT9waETxiU9",
@@ -1946,17 +1946,17 @@
       },
       "usageTotalUsd": 0,
       "chargedEventCounts": {
-        "start": 0,
+        "start": 1,
         "profile": 0,
-        "post": 0
+        "post": 1
       },
       "accountedChargedEventCounts": {
         "start": 0,
         "profile": 0,
         "post": 0
       },
-      "duration_seconds": null,
-      "cost_observed_at": "2026-11-10T06:51:08.540678+00:00",
+      "duration_seconds": "6.654",
+      "cost_observed_at": "2026-11-10T06:51:19.842986+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution",
       "cap_message": false,
       "cost_snapshots": [
@@ -1970,6 +1970,23 @@
             "start": 0,
             "profile": 0,
             "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:51:19.842986+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 1
           },
           "accountedChargedEventCounts": {
             "start": 0,
@@ -2265,10 +2282,10 @@
     "docs/social-status.json": "8e789bf292c16b7f058a8062d3fc0bf210894caf"
   },
   "apify_http_requests": {
-    "GET": 67,
+    "GET": 70,
     "POST": 18
   },
-  "updated_at": "2026-11-10T06:51:08.540707+00:00",
+  "updated_at": "2026-11-10T06:51:19.843012+00:00",
   "monthly_runs_before": 8,
   "uncertain_streak": {
     "facebook": 0,
