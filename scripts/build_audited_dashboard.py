@@ -150,16 +150,21 @@ def build(refresh_market=False):
     market=fetch_market() if refresh_market else read('data/dashboard_market.json')
     ev=events();summary=read('data/history_completion_summary.json')
     (ROOT/'data/signal_events.json').write_text(json.dumps(ev,ensure_ascii=False,indent=2)+'\n')
+    inventory=read('data/history_completion_inventory.json')
+    from publication_scope import scope
+    ev,inventory,market,summary,publication=scope(ev,inventory,market,read('data/publication_policy.json'))
     pine=(ROOT/'candidates/8zz-history-latest.pine').read_text();hold=int(re.search(r'holdBars = input.int\((\d+)',pine)[1])
     sources=read('data/history_completion_control.json').get('sources',{})
     live=read('data/live_control.json') if (ROOT/'data/live_control.json').exists() else {}
-    result={'events':ev,'history':{k:summary[k] for k in ('post_status_counts','archive_posts','remaining_not_started_groups','latest_signal_date')},'inventory':[{k:r.get(k) for k in ('url','display_time','status')} for r in read('data/history_completion_inventory.json')],'market':{k:market[k] for k in ('symbol','fetched_at','series','errors')},'hold_bars':hold,'built_at':datetime.now(UTC).isoformat(),
-        'platform_cutoffs':{k:v.get('completed_until') for k,v in (live.get('sources') or sources).items()},
+    result={'publication':publication,'events':ev,'history':{k:summary[k] for k in ('post_status_counts','archive_posts','remaining_not_started_groups','latest_signal_date')},'inventory':[{k:r.get(k) for k in ('url','display_time','status')} for r in inventory],'market':{k:market[k] for k in ('symbol','fetched_at','series','errors')},'hold_bars':hold,'built_at':datetime.now(UTC).isoformat(),
+        'platform_cutoffs':{k:min(v.get('completed_until') or publication['before'],publication['before']) for k,v in (live.get('sources') or sources).items()},
         'live_status':{'enabled':read('data/live_settings.json').get('enabled',False) if (ROOT/'data/live_settings.json').exists() else False,'ai_stop':bool(live.get('ai_stop')),'notifications':'通知狀態由後端管理'},
         'modes':{m:simulate(ev,market['series'].get('30m' if m=='A' else '1d',[]),m,hold) for m in ['A','B']},
         'available_modes':{m:simulate(ev,market['series'].get('30m' if m=='A' else '1d',[]),m,hold,'available') for m in ['A','B']}}
     from public_dashboard import finalize
     result=finalize(result, ROOT/'docs')
+    from publication_scope import assert_boundary
+    assert_boundary(result)
     text=json.dumps(result,ensure_ascii=False,separators=(',',':'))
     (ROOT/'docs/dashboard-data.json').write_text(text+'\n')
     (ROOT/'docs/dashboard-data.js').write_text('window.DASHBOARD_DATA='+text.replace('</','<\\/')+';\n')

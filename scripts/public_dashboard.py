@@ -37,6 +37,8 @@ def package(docs, destination):
     (destination/'snapshots').mkdir()
     snapshot=(docs/expected).read_bytes()
     data=json.loads(snapshot)
+    from publication_scope import assert_boundary
+    assert_boundary(data)
     if data.get('version')!=version or snapshot!=(docs/'dashboard-data.json').read_bytes():raise ValueError('inconsistent_public_snapshot')
     shutil.copyfile(docs/expected,destination/expected)
     (destination/'.nojekyll').touch()

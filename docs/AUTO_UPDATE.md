@@ -1,3 +1,5 @@
+> 最新架設方式已改為 Sites，九月底範圍與後續操作以 [WEBSITE_OPERATION.md](WEBSITE_OPERATION.md) 為準。下方保留先前 GitHub Pages 準備方案。
+
 # 網站自動更新與發布準備
 
 本次只完成實作、保存資料重建與本機預覽。沒有 Apify／AI／Telegram／行情外部呼叫，沒有啟用正式流程、發布 Pages 或合併 PR #1。

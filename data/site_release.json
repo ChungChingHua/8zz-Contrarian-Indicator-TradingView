@@ -1,0 +1,12 @@
+{
+  "provider": "Sites",
+  "project_id": "appgprj_6af2d13db444819181d0f47426072148",
+  "access": "owner-private",
+  "source_checkout": "/workspace/sites/8zz-september",
+  "source_commit": "481da9abac818e1cd767babd8b1753e491001e7c",
+  "version_id": "appgprj_6af2d13db444819181d0f47426072148~appgver_ace1d537c3a88191a30de01c98ec20e0",
+  "deployment_id": "appgdep_6af2d1c4bbcc8191b874f5c88cf84377",
+  "publication_policy": "data/publication_policy.json",
+  "future_updates": "Reuse this project_id. Rebuild from saved judgments only, enforce publication boundary, package allowlisted assets, push the matching Site source, then deploy the saved version. Do not create a second Site or include November posts.",
+  "status": "pending"
+}
