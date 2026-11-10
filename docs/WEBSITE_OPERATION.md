@@ -1,5 +1,7 @@
 # 已架設網站的後續更新
 
+事件清單新增「是否交易：全部／是／否」篩選，依當前標的、模式及時間基準的保存交易狀態判斷；只影響清單與篩選統計，版本更新時保留選擇。Mode B說明已改為以各標的日盤收盤價模擬進出場（台指13:45、0050 13:30）。
+
 最新：已接永豐保存行情並加入0050／台指期貨TXFR1切換，詳見 [SHIOAJI_MARKET.md](SHIOAJI_MARKET.md)。
 
 網站已成功發布：https://eightzz-september-dashboard.yummyguppy7.chatgpt.site （僅擁有者可登入查看）。

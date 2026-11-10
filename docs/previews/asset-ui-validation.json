@@ -2,6 +2,7 @@
   {
     "width": 1440,
     "asset_switch": true,
+    "trade_filter_all_assets_modes_bases": true,
     "rows_stats_curve": true,
     "poll_preserves_asset_and_filters": true,
     "invalid_futures_snapshot_retained": true,
@@ -10,6 +11,7 @@
   {
     "width": 390,
     "asset_switch": true,
+    "trade_filter_all_assets_modes_bases": true,
     "rows_stats_curve": true,
     "poll_preserves_asset_and_filters": true,
     "invalid_futures_snapshot_retained": true,
