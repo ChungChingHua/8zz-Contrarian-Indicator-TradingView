@@ -31,7 +31,7 @@
   ],
   "test_cursors": {
     "facebook": "2026-11-10T02:00:00+00:00",
-    "threads": "2026-11-10T01:45:00+00:00"
+    "threads": "2026-11-10T02:00:00+00:00"
   },
   "runs": [
     {
@@ -1337,7 +1337,18 @@
           }
         }
       ],
-      "cost_basis": "usageTotalUsd only; other fee fields are not added again"
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 0,
+      "valid_posts": 0,
+      "diagnostic_rows": 0,
+      "duplicates": 0,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency."
     }
   ],
   "pricing": {
@@ -1624,10 +1635,10 @@
     "docs/social-status.json": "8e789bf292c16b7f058a8062d3fc0bf210894caf"
   },
   "apify_http_requests": {
-    "GET": 48,
+    "GET": 49,
     "POST": 12
   },
-  "updated_at": "2026-11-10T06:49:39.650335+00:00",
+  "updated_at": "2026-11-10T06:49:41.655582+00:00",
   "monthly_runs_before": 8,
   "uncertain_streak": {
     "facebook": 0,
