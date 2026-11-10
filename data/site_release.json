@@ -8,5 +8,6 @@
   "deployment_id": "appgdep_6af2d1c4bbcc8191b874f5c88cf84377",
   "publication_policy": "data/publication_policy.json",
   "future_updates": "Reuse this project_id. Rebuild from saved judgments only, enforce publication boundary, package allowlisted assets, push the matching Site source, then deploy the saved version. Do not create a second Site or include November posts.",
-  "status": "pending"
+  "status": "succeeded",
+  "url": "https://eightzz-september-dashboard.yummyguppy7.chatgpt.site"
 }

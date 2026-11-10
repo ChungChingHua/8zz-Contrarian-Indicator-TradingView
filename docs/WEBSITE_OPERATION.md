@@ -1,5 +1,7 @@
 # 已架設網站的後續更新
 
+網站已成功發布：https://eightzz-september-dashboard.yummyguppy7.chatgpt.site （僅擁有者可登入查看）。
+
 使用者已要求直接架設，之後由助理依使用者指示更新同一網站；不需要使用者手動上傳檔案。GitHub Pages 建立 API 回傳 403（GitHub integration 缺少 Pages 管理權限），因此改用 Sites，維持新站預設的僅擁有者可存取。PR #1 不合併，抓取、AI、正式排程、通知維持停用。
 
 網站身分及最後發布結果保存在 `data/site_release.json`；真正的 Sites 來源 checkout 為 `/workspace/sites/8zz-september`，其 `.openai/hosting.json` 保存同一 project_id。未來必須重用，不能建立另一個網站。若本機來源消失，先取得該 project_id 的既有來源與寫入憑證。
