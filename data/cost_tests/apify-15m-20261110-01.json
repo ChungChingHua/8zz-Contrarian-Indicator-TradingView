@@ -121,19 +121,19 @@
         "isMaxTotalChargeUsdSetByUser": true,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": "0.001",
+      "usageTotalUsd": "0.008",
       "chargedEventCounts": {
-        "post": 0,
+        "post": 1,
         "actor-start": 1,
-        "filter-applied": 0
+        "filter-applied": 1
       },
       "accountedChargedEventCounts": {
-        "post": 0,
+        "post": 1,
         "actor-start": 1,
-        "filter-applied": 0
+        "filter-applied": 1
       },
       "duration_seconds": "9.065",
-      "cost_observed_at": "2026-11-10T06:24:11.948445+00:00",
+      "cost_observed_at": "2026-11-10T06:25:52.356036+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution",
       "result_count": 1,
       "cost_category": "results_present",
@@ -141,7 +141,33 @@
       "excluded": {
         "other_author": 1
       },
-      "accepted_count": 0
+      "accepted_count": 0,
+      "previous_cost_snapshots": [
+        {
+          "usageTotalUsd": "0.001",
+          "externalChargedTotalUsd": null,
+          "cost_observed_at": "2026-11-10T06:24:11.948445+00:00",
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          }
+        }
+      ],
+      "row_shape_audit": [
+        {
+          "field_names": [
+            "error",
+            "errorDescription",
+            "inputUrl"
+          ],
+          "has_post_id": false,
+          "has_publication_time": false,
+          "has_error": true,
+          "safe_error_code": "no_items",
+          "message_sha256": "7cb848f06235e5879d61ed6956a4d27ab80b47618814122046ae866424e5587c"
+        }
+      ]
     },
     "threads": {
       "actor": "automation-lab~threads-scraper",
