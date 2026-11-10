@@ -134,7 +134,14 @@
       },
       "duration_seconds": "9.065",
       "cost_observed_at": "2026-11-10T06:24:11.948445+00:00",
-      "billing_finality": "not independently confirmed; zero is not proof of free execution"
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "result_count": 1,
+      "cost_category": "results_present",
+      "accepted_in_window": [],
+      "excluded": {
+        "other_author": 1
+      },
+      "accepted_count": 0
     },
     "threads": {
       "actor": "automation-lab~threads-scraper",
@@ -288,7 +295,7 @@
     "candidates/8zz-original-author-batch-01.pine": "cb5e43acdc5dc912162f14148bd4df5c81d93d9e"
   },
   "http_requests": {
-    "GET": 4,
+    "GET": 5,
     "POST": 2
   },
   "start_utc": "2026-11-10T06:08:58.944807+00:00",
