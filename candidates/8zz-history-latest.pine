@@ -1,7 +1,7 @@
 // This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © hansai-art / Group.G
 // 8zz 反指標 v2
-// 事件: 266筆 | 期間: 2025/12 ~ 2026/09
+// 事件: 274筆 | 期間: 2025/12 ~ 2026/09
 // 情緒解讀框架：負面情緒（被套、停損、恐慌）→ 偏多 ▲（散戶恐慌→主力拉升）
 //               正面情緒（漲停追買、過度樂觀）→ 偏空 ▼（市場過熱→崩跌機率高）
 // 免責聲明：本指標僅供娛樂參考，不構成任何投資建議。
@@ -1472,6 +1472,46 @@ initEvtChunk014() =>
     array.push(evt_str, 3)
     array.push(evt_tips, "衝動追買/期待解套\n指標: 偏空 ▼ | 強度: 3\n2026-09-09T09:22:18+08:00 終於要回到起跌點了_(:_」∠)_\n再給我一根上去我就解套了！\n\n衝啊啊啊！\n語氣亢奮、呼喊衝且期待一根上去解套，圖片為個股即時畫面顯示買進價格，情緒為FOMO/亢奮，強烈偏空訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02Ehbzi9n627ZvNTkS2Fdsf9KaPxcU2xPEBj9ax4TP3aV3XC4m2AQwhaSTUFKpyFVil")
     array.push(evt_ticker, "3037.TW")
+    array.push(evt_time, 1789003104000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "暫時閃避/等待再進\n指標: 偏多 ▲ | 強度: 3\n2026-09-10T09:18:24+08:00 我覺得怪怪的\n先慢慢閃⋯ \n\n反正確定穩定後再進也不遲\n文字表達謹慎想慢慢閃、等待穩定後再進為保守/恐慌傾向；圖片顯示委託全部成交（委託單文字）強制強度3，整體偏多（痛苦/避險情緒）。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02acq3TD1C9svyzoMK7ZrKtieBAkbfRiG6woDunU7BuWWfzkZUaLTqcAhMukdmmLBLl")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1789014952000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "委託/全部成交(曬單)\n指標: 偏空 ▼ | 強度: 3\n2026-09-10T12:35:52+08:00 今天換血_(:_」∠)_\n貼文有委託單截圖且多筆顯示「全部成交/全部取消」，代表真金白銀下單且情緒亢奮（換血、曬單），強度強制為3，偏空訊號\nhttps://www.threads.com/@banini31/post/DdF_dmsmboC")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1789088380000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "買入(偷買/炫耀)\n指標: 偏空 ▼ | 強度: 3\n2026-09-11T08:59:40+08:00 哎呀～ 綠色也是色，紅色也是色\n我們不過就是過著這色色的人生嗎～\n\n乖乖上班吧🫠🫠🫠\n戥利率開獎前應該是漲不上去了\n圖文顯示「昨天偷買的」「全部成交」且語氣輕鬆帶炫耀，屬於亢奮/樂觀情緒偏空訊號\nhttps://www.threads.com/@banini31/post/DdILg79k9cZ")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1789136889000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "警告/勸阻\n指標: 偏空 ▼ | 強度: 3\n2026-09-11T22:28:09+08:00 不要在ETH爆漲的時候用50倍空他\n\n不然喝杯水的時間就爆了1000u 🥲\n以警告語氣提醒他人不要在ETH爆漲時使用高倍空單，顯示發文者對高槓桿做空持負面風險提示但情緒為亢奮/驚恐（怕別人被爆倉），屬於偏空且強烈警示情緒\nhttps://www.threads.com/@banini31/post/DdJoCaimWJK")
+    array.push(evt_ticker, "ETH")
+    array.push(evt_time, 1789182015000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買進（跟單）\n指標: 偏空 ▼ | 強度: 2\n2026-09-12T11:00:15+08:00 又有火山⋯ 乾爹找我上節目了🤣🤣\n這週去上《高手請上座》\n跟華冠投顧-高閔漳老師一起錄節目\n\n中間有個環節\n老師直接挑了3檔股票\n直接跟我叉豆說這些很推很穩\n\n我誰！？ 有人說的這麼有信心怎麼可以不信他！\n直接買下去了～\n接下來⋯ 就看看市場會不會站在他那邊了🤣\n\n至於是哪3檔？\n不要問我，自己去看啦🤣\nhttps://myhg.tw/kQD8B\n\n有興趣的趕快去看\n也可以順便跟我一起見證\n到底是不是我的策略有問題還是真的是運氣差_(:_」∠)_\n\n本篇內容僅依據所提供資料整理，僅供參考\n受到節目老師推薦且直接買進，語氣帶跟風與自信（非痛苦），屬於主動追隨與亢奮傾向偏空訊號\nhttps://www.threads.com/@banini31/post/DdK-HAyGexJ")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1789221836000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "槓桿/借款投入\n指標: 偏多 ▲ | 強度: 3\n2026-09-12T22:03:56+08:00 到處借錢， 終於湊到220萬了！\n能不能翻身就靠這次了！\n發文者借錢湊到大筆資金並期待翻身，情緒帶有高風險的絕望與痛苦期待，屬於極端偏多（恐慌性買入/搏一把），強度3。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0R7Ro9AFGFNxpML4qBq2dNKpD2pZ2W7WQ7kFxX6MYVSVXv6JU5DUzhiAdHb7Za6zvl")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1789317606000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "被騙all in後爆倉\n指標: 偏多 ▲ | 強度: 3\n2026-09-14T00:40:06+08:00 主力跟你說明天all in吧？ \n我就這樣做了⋯⋯但明天all in後⋯什麼事都沒有 \n\n然後幾天後⋯ 央行升息\n我失去了一切\n\n最後他還跟我說：多虧你這麼好操控,才會讓事情這麼順利...真是辛苦你了\n被主力唆使all in導致失去一切，情緒為極度受傷與被操控的痛苦（偏多）\nhttps://www.threads.com/@banini31/post/DdPAugsk07j")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1789348475000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "加碼/補倉(委託全部成交)\n指標: 偏空 ▼ | 強度: 3\n2026-09-14T09:14:35+08:00 上吧！ 攻守互換！ \n\n正二減碼，補一下原油\n看起來升息是勢在必行！ \n\n別跟我說崩盤才是補貨的好時機\n前提是身上要有錢啊！😭\n發文語氣亢奮鼓動加碼（補一下原油、正二減碼補其他），且圖片顯示委託全部成交，屬真金下單情緒偏空（追漲/積極加碼）\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid036c7HztuuNL5K1GVxwYsRhUKW6ZM7Dq74hMswDwFVRGDiohdEywEHgwzsbgpnuR6xl")
+    array.push(evt_ticker, "")
     0
 
 if barstate.isfirst
