@@ -408,5 +408,25 @@
     "content_hash": "711f0074ad2fd20e7c6fc10a3bff83be411f08760455132a8dec946fb0cffff2",
     "replay_first_seen_round": 10,
     "fetched_at": "2026-11-10T06:51:58.525345+00:00"
+  },
+  "threads:4027056616092826145": {
+    "key": "threads:4027056616092826145",
+    "post_id": "4027056616092826145",
+    "source": "threads",
+    "url": "https://www.threads.com/t/Dfi-qf0mXoh",
+    "published_at": "2026-11-10T03:49:39+00:00",
+    "display_time": "2026-11-10T11:49:39+08:00",
+    "unix_ms": 1794282579000,
+    "text": "台股你不可以這樣對我唉",
+    "attachments": [],
+    "quoted_content": {},
+    "quote_flag": null,
+    "analysis": {
+      "status": "cost_test_only",
+      "reason": "未呼叫 AI；不寫入正式事件"
+    },
+    "content_hash": "09812fcfb1d215cc42bc5a997c80ddbd24da66a1d476cd7e0dcf3ab2a51f147f",
+    "replay_first_seen_round": 14,
+    "fetched_at": "2026-11-10T06:54:07.513236+00:00"
   }
 }
