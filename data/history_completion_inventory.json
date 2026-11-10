@@ -4113,11 +4113,11 @@
     "key": "facebook:1660497925434796",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0LBBtoy5xzW4517NDY2XPgfFW3xG6KRBFQD3hTjWRQHqYYhLPRfdTzqHvsAtgGTwPl",
     "display_time": "2026-09-23T00:16:32+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "technical_failure",
+    "stored_status": "technical_failure",
+    "record_key": "facebook:1660497925434796",
+    "evidence": "data/history_progress/history-completion-20261107-019.json",
+    "reason": "provider_http_error"
   },
   {
     "key": "threads:3992181950169821287",
