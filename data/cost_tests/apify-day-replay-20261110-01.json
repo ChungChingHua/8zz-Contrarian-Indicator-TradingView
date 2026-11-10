@@ -1158,7 +1158,58 @@
         "maxTotalChargeUsd": "0.10",
         "restartOnError": "false"
       },
-      "status": "submission_unknown"
+      "status": "READY",
+      "id": "5ILbdTjXzMTzLwpkg",
+      "startedAt": "2026-11-10T06:48:49.296Z",
+      "finishedAt": null,
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "qG0KBYErP8jPqNeRU",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": 0,
+      "chargedEventCounts": {
+        "post": 0,
+        "actor-start": 0,
+        "filter-applied": 0
+      },
+      "accountedChargedEventCounts": {
+        "post": 0,
+        "actor-start": 0,
+        "filter-applied": 0
+      },
+      "duration_seconds": null,
+      "cost_observed_at": "2026-11-10T06:48:49.450477+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:48:49.450477+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again"
     }
   ],
   "pricing": {
@@ -1446,9 +1497,9 @@
   },
   "apify_http_requests": {
     "GET": 37,
-    "POST": 10
+    "POST": 11
   },
-  "updated_at": "2026-11-10T06:48:48.101470+00:00",
+  "updated_at": "2026-11-10T06:48:49.450504+00:00",
   "monthly_runs_before": 8,
   "uncertain_streak": {
     "facebook": 0,
