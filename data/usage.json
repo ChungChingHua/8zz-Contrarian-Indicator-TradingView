@@ -1,6 +1,13 @@
 {
   "2026-11": {
-    "apify_runs": 6,
-    "ai_attempts": 10
+    "apify_runs": 8,
+    "ai_attempts": 10,
+    "cost_test_reservations": {
+      "apify-15m-20261110-01": {
+        "reserved_starts": 2,
+        "maximum_total_usd": "0.20",
+        "ledger": "data/cost_tests/apify-15m-20261110-01.json"
+      }
+    }
   }
 }
