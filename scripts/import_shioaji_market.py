@@ -28,14 +28,14 @@ def aggregate(raw,symbol):
         if minute in bucket and bucket[minute]!=price:raise ValueError('conflicting_minute')
         bucket[minute]=price;valid+=1
         if (symbol=='0050' or 525<minute<=825):days.setdefault(t.date(),{})[minute]=price
-    bars=[{'time':ts,'price':v[max(v)]} for ts,v in sorted(buckets.items()) if len(v)==30]
+    bars=[{'time':ts,'price':v[max(v)]} for ts,v in sorted(buckets.items()) if len(v)==30 or (symbol=='0050' and len(v)==26 and max(v)==810 and set(range(806,810)).isdisjoint(v))]
     daily=[]
-    expected=270 if symbol=='0050' else 300;ending=810 if symbol=='0050' else 825
+    expected=266 if symbol=='0050' else 300;ending=810 if symbol=='0050' else 825
     for day,v in sorted(days.items()):
         if len(v)==expected and ending in v:
             dt=datetime.combine(day,datetime.min.time(),TZ)+timedelta(minutes=ending)
             daily.append({'time':int(dt.timestamp()*1000),'price':v[ending]})
-    return {'30m':bars,'1d':daily},{'valid_minutes':valid,'incomplete_30m_buckets':sum(len(v)!=30 for v in buckets.values()),'complete_30m_bars':len(bars),'complete_daily_bars':len(daily)}
+    return {'30m':bars,'1d':daily},{'valid_minutes':valid,'incomplete_30m_buckets':len(buckets)-len(bars),'missing_bucket_times':[ts for ts in buckets if ts not in {b['time'] for b in bars}],'complete_30m_bars':len(bars),'complete_daily_bars':len(daily)}
 
 def months(start,end):
     while start<=end:
