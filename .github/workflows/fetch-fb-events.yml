@@ -5,7 +5,7 @@ on:
       action:
         description: 'status 不連外；telegram-discover 取得候選 ID；telegram-test 傳送一次測試'
         type: choice
-        options: [status, telegram-discover, telegram-test, import-market]
+        options: [status, telegram-discover, telegram-test, import-market, inspect-market]
         default: status
 permissions:
   contents: read
@@ -42,7 +42,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python scripts/telegram_notify.py test
   market:
-    if: inputs.action == 'import-market'
+    if: inputs.action == 'import-market' || inputs.action == 'inspect-market'
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -56,6 +56,7 @@ jobs:
         run: python -m pip install shioaji==1.7.11
       - name: Read historical quotes only
         env:
+          QUOTE_INSPECT: ${{ inputs.action == 'inspect-market' && '1' || '0' }}
           SHIOAJI_API_KEY: ${{ secrets.SHIOAJI_API_KEY }}
           SHIOAJI_SECRET_KEY: ${{ secrets.SHIOAJI_SECRET_KEY }}
         run: python scripts/import_shioaji_market.py

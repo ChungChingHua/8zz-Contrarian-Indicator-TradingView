@@ -65,10 +65,13 @@ def run():
                     if contract is None:raise ValueError('quote_contract_not_available')
                     data={'code':code,'series':{'30m':[],'1d':[]},'chunks':[],'errors':[]}
                     result['symbols'][symbol]=data
-                    for a,b in months(date(2025,12,1),date(2026,9,30)):
+                    chunks=[(date(2026,9,1),date(2026,9,1))] if os.getenv('QUOTE_INSPECT')=='1' else months(date(2025,12,1),date(2026,9,30))
+                    for a,b in chunks:
                         raw=api.kbars(contract=contract,start=a.isoformat(),end=b.isoformat())
                         raw=raw.dict() if hasattr(raw,'dict') else dict(raw)
                         series,counts=aggregate(raw,symbol)
+                        counts['timestamp_samples']=[datetime.fromtimestamp(int(ns)/1e9,timezone.utc).isoformat() for ns in list(raw['ts'][:3])+list(raw['ts'][-3:])]
+                        counts['raw_count']=len(raw['ts'])
                         if not series['30m']:raise ValueError('no_complete_30m_bars_in_month')
                         for interval,rows in series.items():data['series'][interval].extend(rows)
                         data['chunks'].append({'start':a.isoformat(),'end':b.isoformat(),**counts});save();time.sleep(1)
@@ -77,6 +80,9 @@ def run():
                 if api:
                     try:api.logout()
                     except Exception:pass
+                sys.stdout.flush();sys.stderr.flush()
+                import ctypes
+                ctypes.CDLL(None).fflush(None)
                 os.dup2(out,1);os.dup2(err,2);os.close(out);os.close(err)
     except Exception as e:result.update(status='failed',error=type(e).__name__) # Never stringify provider/account errors.
     save();print(json.dumps({'status':result['status'],'error':result['error'],'symbols':list(result['symbols'])}));return 0 if result['status']=='completed' else 1
