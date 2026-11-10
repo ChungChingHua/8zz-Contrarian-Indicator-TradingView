@@ -12,6 +12,7 @@ UTC=timezone.utc
 def read(path): return json.loads((ROOT/path).read_text())
 def iso(ms): return datetime.fromtimestamp(ms/1000,UTC).isoformat()
 def fetch_market():
+    previous=read('data/dashboard_market.json') if (ROOT/'data/dashboard_market.json').exists() else {}
     payload={'symbol':'0050.TW','fetched_at':datetime.now(UTC).isoformat(),'series':{},'errors':[]}
     for interval,period in [('1d','2y'),('30m','1mo')]:
         url=f'https://r.jina.ai/http://query1.finance.yahoo.com/v8/finance/chart/0050.TW?range={period}&interval={interval}'
@@ -25,9 +26,16 @@ def fetch_market():
                 close=ts+16200 if interval=='1d' else min(ts+1800, int(datetime.fromtimestamp(ts,UTC).replace(hour=5,minute=30,second=0).timestamp()))
                 if price is not None and price>0 and close<=datetime.now(UTC).timestamp():
                     bars.append({'time':close*1000,'price':price})
+            if not bars:raise ValueError('empty_market_response')
             payload['series'][interval]=sorted(bars,key=lambda x:x['time'])
             payload.setdefault('sources',{})[interval]=url
         except Exception as e:payload['errors'].append({'interval':interval,'error':type(e).__name__})
+    for interval in ('1d','30m'):
+        if not payload['series'].get(interval):
+            payload['series'][interval]=previous.get('series',{}).get(interval,[])
+    if payload['errors']:
+        payload['last_attempt_at']=payload['fetched_at']
+        payload['fetched_at']=previous.get('fetched_at')
     (ROOT/'data/dashboard_market.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n')
     return payload
 
@@ -145,14 +153,20 @@ def build(refresh_market=False):
     pine=(ROOT/'candidates/8zz-history-latest.pine').read_text();hold=int(re.search(r'holdBars = input.int\((\d+)',pine)[1])
     sources=read('data/history_completion_control.json').get('sources',{})
     live=read('data/live_control.json') if (ROOT/'data/live_control.json').exists() else {}
-    result={'events':ev,'history':summary,'inventory':read('data/history_completion_inventory.json'),'market':market,'hold_bars':hold,'built_at':datetime.now(UTC).isoformat(),
+    result={'events':ev,'history':{k:summary[k] for k in ('post_status_counts','archive_posts','remaining_not_started_groups','latest_signal_date')},'inventory':[{k:r.get(k) for k in ('url','display_time','status')} for r in read('data/history_completion_inventory.json')],'market':{k:market[k] for k in ('symbol','fetched_at','series','errors')},'hold_bars':hold,'built_at':datetime.now(UTC).isoformat(),
         'platform_cutoffs':{k:v.get('completed_until') for k,v in (live.get('sources') or sources).items()},
-        'live_status':{'enabled':read('data/live_settings.json').get('enabled',False) if (ROOT/'data/live_settings.json').exists() else False,'ai_stop':live.get('ai_stop'),'notifications':read('data/telegram_outbox.json').get('configuration') if (ROOT/'data/telegram_outbox.json').exists() else '未設定／未驗證'},
+        'live_status':{'enabled':read('data/live_settings.json').get('enabled',False) if (ROOT/'data/live_settings.json').exists() else False,'ai_stop':bool(live.get('ai_stop')),'notifications':'通知狀態由後端管理'},
         'modes':{m:simulate(ev,market['series'].get('30m' if m=='A' else '1d',[]),m,hold) for m in ['A','B']},
         'available_modes':{m:simulate(ev,market['series'].get('30m' if m=='A' else '1d',[]),m,hold,'available') for m in ['A','B']}}
+    from public_dashboard import finalize
+    result=finalize(result, ROOT/'docs')
     text=json.dumps(result,ensure_ascii=False,separators=(',',':'))
     (ROOT/'docs/dashboard-data.json').write_text(text+'\n')
     (ROOT/'docs/dashboard-data.js').write_text('window.DASHBOARD_DATA='+text.replace('</','<\\/')+';\n')
+    manifest={'schema':1,'version':result['version'],'url':'snapshots/'+result['version']+'.json'}
+    snapshot=ROOT/'docs'/manifest['url'];snapshot.parent.mkdir(exist_ok=True)
+    snapshot.write_text(text+'\n')
+    (ROOT/'docs/data-version.json').write_text(json.dumps(manifest)+'\n')
     # Self-contained preview opens directly with file://; no server or CDN needed.
     html=(ROOT/'docs/index.html').read_text()
     html=html.replace('<link rel="stylesheet" href="dashboard.css">','<style>'+(ROOT/'docs/dashboard.css').read_text()+'</style>')
@@ -161,4 +175,15 @@ def build(refresh_market=False):
     (ROOT/'docs/preview.html').write_text(html)
     print(json.dumps({m:r['stats'] for m,r in result['modes'].items()},ensure_ascii=False))
     return result
+def publish_saved_dashboard(remote):
+    """Project acknowledged judgments; shared by live and historical report paths."""
+    import history_completion as hc
+    build(refresh_market=False)
+    remote.save('data/signal_events.json',read('data/signal_events.json'))
+    version=read('docs/data-version.json')['version']
+    # The version pointer is always acknowledged last.
+    for path in ('docs/dashboard-data.json','docs/dashboard-data.js','docs/preview.html',
+                 'docs/snapshots/'+version+'.json','docs/data-version.json'):
+        hc.publish_text(remote,path,(ROOT/path).read_text())
+
 if __name__=='__main__':main()

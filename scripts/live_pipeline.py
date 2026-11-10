@@ -194,12 +194,11 @@ def refresh_outputs(docs):
     # Uses unchanged saved judgments, never generates. Same events feed Telegram and website.
     hc.report()
     import build_audited_dashboard as dashboard
-    dashboard.build()
-    for path in ('data/signal_events.json','data/history_completion_inventory.json','data/history_completion_summary.json',
+    for path in ('data/history_completion_inventory.json','data/history_completion_summary.json',
                  'candidates/8zz-history-latest.checks.json'):
         docs.save(path,h.s.read(ROOT/path,{}))
-    for path in ('candidates/8zz-history-latest.pine','docs/dashboard-data.json','docs/dashboard-data.js','docs/preview.html'):
-        hc.publish_text(docs,path,(ROOT/path).read_text())
+    hc.publish_text(docs,'candidates/8zz-history-latest.pine',(ROOT/'candidates/8zz-history-latest.pine').read_text())
+    dashboard.publish_saved_dashboard(docs)
 
 def run(action,docs,apify=None,ai_key='',telegram=None,chat_id='',now=None,calendar=None):
     now=now or datetime.now(timezone.utc)
@@ -228,6 +227,7 @@ def run(action,docs,apify=None,ai_key='',telegram=None,chat_id='',now=None,calen
                 # May include checkpoint failures: never continue to AI after losing durable storage.
                 if isinstance(exc,RuntimeError):raise
                 state['sources'][source]['last_error']=type(exc).__name__;docs.save(CONTROL,state)
+        refresh_outputs(docs) # Publish saved pending posts before any judgment request.
         classify(state,docs,ai_key,raw,now)
         state['rounds'][slot].update(status='finished',finished_at=h.now());docs.save(CONTROL,state)
         refresh_outputs(docs)

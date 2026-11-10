@@ -26,22 +26,42 @@ function renderRows(){const M=model();let ev=D.events.filter(e=>{const day=new D
 ${e.historical?'歷史補判讀／歷史基準':'新文章'} · ${e.is_flip?'方向翻轉':'同向追加'}</pre></details><small>判讀完成：${date(e.completed_at)}${e.completed_at?'':'（未保存，不推估）'}</small>${e.urls.map(link).join(' · ')||'<small>原文網址缺失（歷史資料）</small>'}</td><td><span class="pill">${r.trade?'是':'否'}</span><small>${esc(r.status)}</small></td><td>${r.entry?date(r.entry.time)+'<small>@ '+r.entry.price.toFixed(4)+'</small>':'—'}${r.exit?'<small>出 '+date(r.exit.time)+' @ '+r.exit.price.toFixed(4)+'</small>':r.mark?'<small>估 '+date(r.mark.time)+' @ '+r.mark.price.toFixed(4)+'</small>':''}</td><td class="${v>=0?'bull':'bear'}">${pct(v)}<small>${r.floating!=null?'浮動，未計勝率':r.result||'—'}</small></td></tr>`}).join('')||'<tr><td colspan="7">沒有符合的事件。</td></tr>';document.querySelectorAll('#event-rows tr').forEach(tr=>Array.from(tr.children).forEach((td,i)=>td.dataset.label=['發文時間／平台','方向／強度','原標的／成交標的','原文與來源','是否交易／狀態','進出場時間','交易報酬'][i]));
  $('page').textContent=`${page+1} / ${Math.max(1,Math.ceil(ev.length/size))}`;$('prev').disabled=page===0;$('next').disabled=(page+1)*size>=ev.length;
 }
-function pending(){const labels={not_started:'未處理',pending_confirmation:'待確認',technical_failure:'技術失敗',input_failure:'媒體前檢失敗',unknown:'請求狀態不明'};const rows=D.inventory.filter(p=>labels[p.status]&&(!$('pending-status').value||p.status===$('pending-status').value));$('pending-list').innerHTML=rows.map(p=>`<p>${esc(date(p.display_time))} · ${labels[p.status]} · ${link(p.url)}<br>${esc(p.reason||'尚未送出判讀')}</p>`).join('')}
+function pending(){const labels={not_started:'待判讀',pending_confirmation:'待確認',technical_failure:'技術失敗',input_failure:'媒體前檢失敗',unknown:'請求狀態不明'};const rows=D.inventory.filter(p=>labels[p.status]&&(!$('pending-status').value||p.status===$('pending-status').value));$('pending-list').innerHTML=rows.map(p=>`<p>${esc(date(p.display_time))} · ${labels[p.status]} · ${link(p.url)}<br>${esc(p.reason||'尚未送出判讀')}</p>`).join('')}
 function historyText(){const c=D.history.post_status_counts;return `歷史判讀：有訊號 ${c.completed_signal}、無訊號 ${c.completed_no_signal}、待確認 ${c.pending_confirmation}、技術失敗 ${c.technical_failure}、媒體前檢失敗 ${c.input_failure}、狀態不明 ${c.unknown}、未處理 ${c.not_started}（${D.history.remaining_not_started_groups} 去重組）。`}
 function freshness(){document.querySelector('header .tag').textContent=D.live_status.enabled?'排程程式閘門已設定 · 狀態以 Actions 為準':'正式排程停用 · 保存資料預覽';const h=D.history,c=h.post_status_counts,marketTimes=Object.values(D.market.series).flat().map(b=>b.time);
-$('freshness').innerHTML=[['Facebook 抓取截止',date(D.platform_cutoffs.facebook),'成功完成時間窗'],['Threads 抓取截止',date(D.platform_cutoffs.threads),'失敗／不完整不推進'],['歷史判讀進度',`${c.completed_signal+c.completed_no_signal} / ${h.archive_posts} 篇完成`,`待確認 ${c.pending_confirmation} · 失敗 ${c.technical_failure+c.input_failure} · 未處理 ${c.not_started}`],['最新訊號時間',date(h.latest_signal_date),'非判讀完整截止時間'],['Telegram 設定',D.live_status.notifications,'事件保存不受通知設定影響'],['新文章判讀',D.live_status.ai_stop?'暫停（待安全續接）':'僅處理未送出資料','歷史佇列未啟動'],['行情更新時間',date(D.market.fetched_at),'讀取失敗會列明缺資料'],['績效行情截止',marketTimes.length?date(Math.max(...marketTimes)):'缺資料','績效重算 '+date(D.built_at)]].map(([a,b,c])=>`<div><b>${esc(a)}</b><strong>${esc(b)}</strong><small>${esc(c)}</small></div>`).join('');}
+$('freshness').innerHTML=[['Facebook 抓取截止',date(D.platform_cutoffs.facebook),'成功完成時間窗'],['Threads 抓取截止',date(D.platform_cutoffs.threads),'失敗／不完整不推進'],['已保存文章判讀進度',`${c.completed_signal+c.completed_no_signal} / ${h.archive_posts} 篇完成`,`待確認 ${c.pending_confirmation} · 失敗 ${c.technical_failure+c.input_failure} · 未處理 ${c.not_started}`],['最新訊號時間',date(h.latest_signal_date),'非判讀完整截止時間'],['Telegram 設定',D.live_status.notifications,'事件保存不受通知設定影響'],['新文章判讀',D.live_status.ai_stop?'暫停（待安全續接）':'僅處理未送出資料','歷史佇列未啟動'],['行情最後成功取得',date(D.market.fetched_at),D.market.errors.length?'本次行情取得失敗，保留可用行情':'非網站資料重建時間'],['績效行情截止',marketTimes.length?date(Math.max(...marketTimes)):'缺資料','行情未前進時，不代表績效已更新'],['網站資料版本',(D.version||'舊快照').slice(0,12),'資料重建 '+date(D.built_at)]].map(([a,b,c])=>`<div><b>${esc(a)}</b><strong>${esc(b)}</strong><small>${esc(c)}</small></div>`).join('');}
 document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{mode=b.dataset.mode;page=0;render()});document.querySelectorAll('.filters input,.filters select').forEach(el=>el.oninput=()=>{page=0;renderRows()});document.querySelector('.filters').onreset=()=>setTimeout(()=>{page=0;renderRows()},0);$('prev').onclick=()=>{page--;renderRows()};$('next').onclick=()=>{page++;renderRows()};$('pending-status').onchange=pending;
 $('export').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(D,null,2)],{type:'application/json'}));a.download='8zz-audited-dashboard.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};freshness();pending();render();
 
 document.querySelectorAll('[data-basis]').forEach(b=>b.onclick=()=>{basis=b.dataset.basis;page=0;render()});
 let refreshing=false;
+function validSnapshot(n){
+ if(!n||!Array.isArray(n.events)||!Array.isArray(n.inventory)||!n.history?.post_status_counts||!n.platform_cutoffs||!n.live_status||!n.market?.series||!Array.isArray(n.market.errors)||!Number.isFinite(Date.parse(n.built_at)))throw Error('invalid_snapshot');
+ for(const interval of ['1d','30m'])if(!Array.isArray(n.market.series[interval])||n.market.series[interval].some(b=>!Number.isFinite(b.time)||!Number.isFinite(b.price)||b.price<=0))throw Error('invalid_market');
+ for(const modes of [n.modes,n.available_modes])for(const key of ['A','B']){
+  const m=modes?.[key];if(!m?.stats||!m.rows||!Array.isArray(m.curve)||!Array.isArray(m.trades))throw Error('invalid_modes');
+  if(m.curve.some(p=>!['time','equity','benchmark'].every(k=>Number.isFinite(p[k]))))throw Error('invalid_curve');
+  for(const e of n.events)if(!m.rows[e.id]||![-1,0,1].includes(e.direction)||![1,2,3].includes(e.strength)||!Array.isArray(e.urls)||typeof e.summary!=='string')throw Error('invalid_event');
+ }
+ return n;
+}
+async function readPublic(url){
+ const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),15000);
+ try{const r=await fetch(url,{cache:'no-store',signal:controller.signal});if(!r.ok)throw Error('http');return await r.json()}finally{clearTimeout(timer)}
+}
 async function refreshSavedData(){
  if(location.protocol==='file:'||window.INLINE_PREVIEW){$('refresh-status').textContent='離線保存預覽；不連外更新。正式排程停用。';return}
  if(refreshing)return;refreshing=true;
- try{const r=await fetch('dashboard-data.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error();const next=await r.json();
- if(!Array.isArray(next.events)||!next.available_modes||!next.platform_cutoffs)throw Error();
- if(next.built_at!==D.built_at){D=next;freshness();pending();render()}
- $('refresh-status').textContent='已檢查保存資料 '+date(Date.now())+'（台北）；每 30 秒檢查。資料產生及主機發布另受排程與部署狀態限制。';
- }catch{$('refresh-status').textContent='資料更新失敗，繼續顯示保存快照（建置 '+date(D.built_at)+'）。'}finally{refreshing=false}
+ try{
+  const v=await readPublic('data-version.json?t='+Date.now());
+  if(v.schema!==1||!/^[a-f0-9]{64}$/.test(v.version)||v.url!=='snapshots/'+v.version+'.json')throw Error('invalid_version');
+  if(v.version!==D.version){
+   const next=validSnapshot(await readPublic(v.url+'?v='+v.version));if(next.version!==v.version)throw Error('version_mismatch');
+   if(Date.parse(next.built_at)<Date.parse(D.built_at))throw Error('stale_snapshot');
+   const previous=D;
+   try{D=next;freshness();pending();render()}catch(error){D=previous;freshness();pending();render();throw error}
+  }
+  $('refresh-status').textContent='已檢查保存資料 '+date(Date.now())+'（台北）；每 60 秒檢查版本，有更新才載入。網站資料更新不代表行情已更新。';
+ }catch{$('refresh-status').textContent='資料更新失敗，保留最後成功資料（版本 '+(D.version||'舊快照').slice(0,12)+'）。60 秒後重試。'}finally{refreshing=false}
 }
-setInterval(refreshSavedData,30000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshSavedData()});refreshSavedData();
+setInterval(refreshSavedData,60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshSavedData()});refreshSavedData();

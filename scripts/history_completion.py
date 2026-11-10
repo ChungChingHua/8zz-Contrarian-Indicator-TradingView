@@ -172,15 +172,20 @@ def report(remote=None):
         # Pine/docs aren't JSON: send as text via the same authenticated GitHub Contents endpoint.
         for path in ('candidates/8zz-history-latest.pine','candidates/8zz-history-latest.checks.json','docs/HISTORY_COMPLETION.md'):
             publish_text(remote,path,(ROOT/path).read_text())
+        from build_audited_dashboard import publish_saved_dashboard
+        publish_saved_dashboard(remote)
     print(json.dumps({k:summary[k] for k in ('archive_posts','post_status_counts','new_generation_attempts','remaining_not_started_groups','stop_reason','latest_signal_date')},ensure_ascii=False),flush=True)
     return summary
 
 def publish_text(remote,path,text):
-    import base64
+    import base64,hashlib
     if remote.token in text:raise ValueError('credential_in_output')
     store=h.GitHubStore(remote.token,path);d=store._request('GET',store.url+'?ref='+h.BRANCH)
     body={'message':'data: one-time history output [skip ci]','branch':h.BRANCH,'content':base64.b64encode(text.encode()).decode()}
-    if d:body['sha']=d['sha']
+    if d:
+        raw=text.encode()
+        if d.get('sha')==hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest():return
+        body['sha']=d['sha']
     store._request('PUT',store.url,body)
 
 def run():
