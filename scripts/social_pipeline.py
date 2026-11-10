@@ -267,7 +267,7 @@ def groups(archive):
 
 
 def generate(archive):
-    from update_pine_script import build_push_block
+    from update_pine_script import build_push_block, apply_indicator_title
     template=ROOT/'data/historical-indicator.pine'
     text=template.read_text()
     marker='// BEGIN GENERATED SOCIAL EVENTS'
@@ -292,7 +292,7 @@ def generate(archive):
     lines.insert(last+1,'    '+marker+'\n    // END GENERATED SOCIAL EVENTS\n')
     from pine_initialization import split_initialization
     from pine_accounting import apply_accounting
-    (ROOT/'8zz-indicator.pine').write_text(apply_accounting(split_initialization(''.join(lines))))
+    (ROOT/'8zz-indicator.pine').write_text(apply_indicator_title(apply_accounting(split_initialization(''.join(lines)))))
     write(ROOT/'data/social_groups.json',merged)
     return len(blocks)
 

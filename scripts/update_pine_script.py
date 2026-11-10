@@ -52,6 +52,22 @@ EVENT_PATTERN = re.compile(
 )
 
 
+
+INDICATOR_TITLE = "8zz 延續版－第一批測試"
+
+
+def apply_indicator_title(pine_text: str) -> str:
+    """Set the display title for generated outputs; leave the archived source intact."""
+    updated, count = re.subn(
+        r'^(indicator\s*\(\s*)"(?:[^"\\]|\\.)*"',
+        lambda match: match.group(1) + json.dumps(INDICATOR_TITLE, ensure_ascii=False),
+        pine_text, count=1, flags=re.MULTILINE,
+    )
+    if count != 1:
+        raise ValueError('missing_indicator_title')
+    return updated
+
+
 def load_new_events() -> list[dict]:
     if not EVENTS_FILE.exists():
         print(f"ℹ️  {EVENTS_FILE} not found – nothing to do.")

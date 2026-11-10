@@ -2,7 +2,7 @@
 import json,re
 from pathlib import Path
 import original_author as policy
-from update_pine_script import build_push_block,EVENT_PATTERN,HEADER_COUNT_PATTERN
+from update_pine_script import build_push_block,EVENT_PATTERN,HEADER_COUNT_PATTERN,apply_indicator_title
 from pine_initialization import split_initialization,check_initialization
 ROOT=policy.ROOT
 OUT=ROOT/'candidates/8zz-original-author-batch-01.pine'
@@ -18,7 +18,7 @@ def build(ledger):
         if index is None:index=max(i for i,l in enumerate(lines) if 'array.push(evt_ticker,' in l)+1
         lines.insert(index,block);added+=1
     from pine_accounting import apply_accounting
-    candidate=apply_accounting(split_initialization(''.join(lines)))
+    candidate=apply_indicator_title(apply_accounting(split_initialization(''.join(lines))))
     count=len(EVENT_PATTERN.findall(candidate))
     dates=[r['display_time'][:7].replace('-','/') for r in ledger['records'] if r['status']=='completed_signal']
     if dates:candidate=HEADER_COUNT_PATTERN.sub(lambda m:m[1]+str(count)+m[3]+max(m[4],*dates),candidate,count=1)
