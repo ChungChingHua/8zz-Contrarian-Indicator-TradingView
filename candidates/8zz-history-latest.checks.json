@@ -1,7 +1,7 @@
 {
   "historical_events": 151,
-  "added_events": 133,
-  "total_events": 284,
+  "added_events": 143,
+  "total_events": 294,
   "historical_blocks_preserved": true,
   "historical_basis": "reconciled_published_author_history",
   "fork_base_events": 150,
