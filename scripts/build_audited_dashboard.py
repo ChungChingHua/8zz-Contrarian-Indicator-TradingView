@@ -170,16 +170,17 @@ def build(refresh_market=False):
         'live_status':{'enabled':read('data/live_settings.json').get('enabled',False) if (ROOT/'data/live_settings.json').exists() else False,'ai_stop':bool(live.get('ai_stop')),'notifications':'通知狀態由後端管理'},
         'modes':{m:simulate(ev,market['series'].get('30m' if m=='A' else '1d',[]),m,hold) for m in ['A','B']},
         'available_modes':{m:simulate(ev,market['series'].get('30m' if m=='A' else '1d',[]),m,hold,'available') for m in ['A','B']}}
-    from futures_performance import simulate_futures
+    from futures_performance import simulate_futures,daytime_only
     imported=read('data/shioaji_market_import.json') if (ROOT/'data/shioaji_market_import.json').exists() else {}
     futures=imported.get('symbols',{}).get('TXF',{})
     cutoff=int(datetime.fromisoformat(publication['before']).timestamp()*1000)
     fs={k:[b for b in futures.get('series',{}).get(k,[]) if b['time']<cutoff] for k in ('30m','1d')}
+    fs=daytime_only(fs)
     fm={'symbol':'TXFR1','fetched_at':imported.get('fetched_at'),'series':fs,'errors':futures.get('errors',[])}
-    result['instruments']={'TXF':{'name':'台指期貨・近月連續 TXFR1','market':fm,
+    result['instruments']={'TXF':{'name':'台指期貨・日盤 TXFR1','market':fm,
        'modes':{m:simulate_futures(ev,fs['30m' if m=='A' else '1d'],m,hold) for m in ('A','B')},
        'available_modes':{m:simulate_futures(ev,fs['30m' if m=='A' else '1d'],m,hold,'available') for m in ('A','B')},
-       'disclosure':'TXFR1 未調整近月連續資料；結算週及跨換約區段交易排除，不銜接價差獲利。結算週採每月第三個星期三所在週的保守範圍，非已驗證逐月轉倉。30分鐘含日夜盤；B採完整日盤收盤。等額名目本金1倍報酬，不是保證金報酬；未含每點200元口數、費稅、滑價與追繳。'}}
+       'disclosure':'TXFR1 未調整近月連續資料；結算週及跨換約區段交易排除，不銜接價差獲利。結算週採每月第三個星期三所在週的保守範圍，非已驗證逐月轉倉。僅使用08:45–13:45日盤行情，A持有17根日盤30分鐘棒，B採完整日盤收盤；夜間訊號順延下個有效日盤成交時點。非強制當沖，跨日持倉價差仍反映於次日日盤價格。等額名目本金1倍報酬，不是保證金報酬；未含每點200元口數、費稅、滑價與追繳。'}}
     from public_dashboard import finalize
     result=finalize(result, ROOT/'docs')
     from publication_scope import assert_boundary

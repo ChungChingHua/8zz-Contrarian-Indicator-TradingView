@@ -3,9 +3,9 @@
   "project_id": "appgprj_6af2d13db444819181d0f47426072148",
   "access": "owner-private",
   "source_checkout": "/workspace/sites/8zz-september",
-  "source_commit": "7e030c747015755ce3c3c850f820113f494abc36",
-  "version_id": "appgprj_6af2d13db444819181d0f47426072148~appgver_a6b9a641154081919d9001314ab880c1",
-  "deployment_id": "appgdep_6af2d90a03d88191bbf5e0bf03b6ed85",
+  "source_commit": "1f5df1f18992e59b496e668ccd4068adaef78b8b",
+  "version_id": "appgprj_6af2d13db444819181d0f47426072148~appgver_b28f2c06845c8191874de9ad4790e831",
+  "deployment_id": "appgdep_6af2e107844081918c598a2a774f6812",
   "publication_policy": "data/publication_policy.json",
   "future_updates": "Reuse this project_id. Rebuild from saved judgments only, enforce publication boundary, package allowlisted assets, push the matching Site source, then deploy the saved version. Do not create a second Site or include November posts.",
   "status": "succeeded",
@@ -13,5 +13,6 @@
   "instruments": [
     "0050",
     "TXFR1"
-  ]
+  ],
+  "futures_session": "daytime_only_0845_1345_Asia_Taipei"
 }

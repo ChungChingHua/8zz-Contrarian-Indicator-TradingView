@@ -33,7 +33,20 @@ def assert_boundary(data):
                 for key in ('entry','exit','mark'):
                     if t.get(key) and t[key]['time']>=ms:raise ValueError('out_of_scope_trade')
 
-    for instrument in data.get('instruments',{}).values():
+    for name,instrument in data.get('instruments',{}).items():
+        if name=='TXF':
+            from zoneinfo import ZoneInfo
+            def check_daytime(ts):
+                t=datetime.fromtimestamp(ts/1000,ZoneInfo('Asia/Taipei'))
+                if not 525<t.hour*60+t.minute<=825:raise ValueError('out_of_daytime_futures_price')
+            for bars in instrument['market']['series'].values():
+                for bar in bars:check_daytime(bar['time'])
+            for modes in (instrument['modes'],instrument['available_modes']):
+                for m in modes.values():
+                    for point in m['curve']:check_daytime(point['time'])
+                    for trade in m['trades']:
+                        for key in ('entry','exit','mark'):
+                            if trade.get(key):check_daytime(trade[key]['time'])
         child=dict(data,market=instrument['market'],modes=instrument['modes'],available_modes=instrument['available_modes'])
         child.pop('instruments',None)
         assert_boundary(child)
