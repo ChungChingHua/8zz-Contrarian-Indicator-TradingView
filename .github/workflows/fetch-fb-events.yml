@@ -1,11 +1,43 @@
 name: Social update (bounded)
 on:
   workflow_dispatch:
+    inputs:
+      action:
+        description: 'status 不連外；telegram-discover 取得候選 ID；telegram-test 傳送一次測試'
+        type: choice
+        options: [status, telegram-discover, telegram-test]
+        default: status
 permissions:
   contents: read
+concurrency:
+  group: telegram-private-setup
+  cancel-in-progress: false
 jobs:
   paused:
+    if: ${{ !inputs.action || inputs.action == 'status' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Online features paused for security review
-        run: echo 'Model queries, smoke, acquisition and content transmission are disabled. No secrets are injected.'
+      - name: Paid online features remain disabled
+        run: echo 'Apify, AI, history and deployment remain disabled. Use the explicit Telegram-only action for setup.'
+  telegram:
+    if: ${{ inputs.action == 'telegram-discover' || inputs.action == 'telegram-test' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Read private chat candidates (no sending)
+        if: inputs.action == 'telegram-discover'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: python scripts/telegram_notify.py discover
+      - name: Send one explicitly requested test
+        if: inputs.action == 'telegram-test'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scripts/telegram_notify.py test

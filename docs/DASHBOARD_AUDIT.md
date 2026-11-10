@@ -1,3 +1,5 @@
+> **舊階段快照／操作紀錄。** 目前 257 事件、兩種時間基準、Telegram 手動入口與停用的正式流程，請以 [LIVE_PIPELINE_ACCEPTANCE.md](LIVE_PIPELINE_ACCEPTANCE.md) 為準。下文樣本筆數與早期供應商設定不代表本次版本。
+
 # 可核對戰績看板：交付、計算與限制
 
 本次延續 ChungChingHua/8zz-Contrarian-Indicator-TradingView 的 PR #1，保留 hansai-art / Group.G 署名及 MPL-2.0。沒有 AI／Apify 請求，沒有重判、新增情緒門檻、持續排程、發布 Pages 或合併。本次只有行情網路讀取及 PR 分支更新。

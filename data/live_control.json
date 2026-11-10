@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "sources": {
+    "facebook": {
+      "completed_until": "2026-11-07T12:15:59.578797+00:00"
+    },
+    "threads": {
+      "completed_until": "2026-11-07T12:15:59.578797+00:00"
+    }
+  },
+  "rounds": {},
+  "ai_stop": "provider_access_quota_or_common_failure",
+  "history_queue_enabled": false,
+  "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162"
+}

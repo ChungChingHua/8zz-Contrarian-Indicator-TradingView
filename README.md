@@ -1,6 +1,6 @@
-> **目前狀態：原作者判斷標準已還原，第一批5次生成已完成並停止。** 有訊號2、無訊號2、待確認1；交付[完整候選Pine（152事件）](candidates/8zz-original-author-batch-01.pine)，尚未在TradingView編譯。正式腳本／archive不變。
-
-> [原作者依據與撤回門檻](docs/ORIGINAL_AUTHOR_RESTORATION.md) · [本批逐篇結果與費用限制](docs/HISTORY_BATCH_01_RESULTS.md)。已接通手動worker與遠端帳本；同一batch預算已用完，不會重送。持續排程、Pages及合併未啟用；ChatAnywhere獨立金鑰與.tech/v1設定保留。
+> **目前交付：PR #1 的 Telegram／增量新文佇列／257 事件可核對看板，正式流程停用。** 保留 hansai-art / Group.G 及 MPL-2.0、原作者完整情緒標準；本輪沒有 Apify、AI、Telegram 發送、歷史補跑、部署或合併。
+>
+> [完整驗收與操作](docs/LIVE_PIPELINE_ACCEPTANCE.md) · [離線預覽 ZIP](docs/8zz-dashboard-preview.zip) · [桌面截圖](docs/previews/desktop.png) · [手機截圖](docs/previews/mobile.png)。`TELEGRAM_CHAT_ID` 尚缺；免費 AI 額度阻塞仍保留。舊階段文件只作過程紀錄。
 
 # 8zz 巴逆逆反指標 (8zz Banini Reverse Indicator)
 
@@ -28,11 +28,11 @@
 
 **👉 [ChungChingHua.github.io/8zz-Contrarian-Indicator-TradingView](https://ChungChingHua.github.io/8zz-Contrarian-Indicator-TradingView/)**
 
-已新增 Facebook＋Threads 有限額的雲端更新與完整 Pine 生成；請先閱讀[自動化操作與驗證狀態](docs/AUTOMATION.md)。上傳資料已匯入，未完成 AI／圖片辨識者保留待處理；小量驗證成功前不啟用付費排程。GitHub 更新後仍須手動貼入 TradingView。
+已接續 Facebook＋Threads 增量流程與完整 Pine 生成；目前操作以[驗收與續接方法](docs/LIVE_PIPELINE_ACCEPTANCE.md)為準。上傳資料已匯入，未完成 AI／圖片辨識者保留待處理；小量驗證成功前不啟用付費排程。GitHub 更新後仍須手動貼入 TradingView。
 
 ### 目前戰績
 
-勝率、勝負與平均報酬會隨事件及行情更新，請以[即時戰績看板](https://ChungChingHua.github.io/8zz-Contrarian-Indicator-TradingView/)為準；README 不再硬編碼容易過期的數字。
+本次看板尚未發布，請以 PR 的離線預覽 ZIP 與保存 JSON 驗收；既有公開網址可能仍是舊版。看板分開顯示發文時間的歷史參考與實際判讀完成後的可成交參考。舊事件缺完成時間者獨立列缺資料，不捏造即時績效。
 
 > **Mode B**：下一個方向翻轉訊號出現時平倉  
 > **Mode A**：進場後固定持有 17 根 30 分鐘K棒出場（≈ 8.5 小時 ≈ 2 個台股交易日）
@@ -41,9 +41,9 @@
 
 多、空報酬均以方向 ×（出場價 / 進場價 − 1）計算。正報酬為勝、負報酬為敗、零為平手；勝率分母為勝＋敗＋平手，未平倉只顯示浮動報酬。已修正先前多單虧損不計敗的口徑。
 
-本 PR 的可核對看板在 `docs/index.html`，顯著標示**部分資料績效**。它使用 `candidates/8zz-history-latest.pine` 的 187 個已保存事件，未呼叫 AI 或 Apify。所有交易統一採 **0050.TW 代理**，不是各事件原標的實績。資金起始 100、單一 100% 名目部位、不重疊、不加碼，出場按淨值複利，期間浮動損益計入曲線；未納入手續費、稅、滑價、股息及借券限制。
+本 PR 的可核對看板在 `docs/index.html`，顯著標示**部分資料績效**。它使用 `candidates/8zz-history-latest.pine` 的 257 個已保存事件，未呼叫 AI 或 Apify。所有交易統一採 **0050.TW 代理**，不是各事件原標的實績。資金起始 100、單一 100% 名目部位、不重疊、不加碼，出場按淨值複利，期間浮動損益計入曲線；未納入手續費、稅、滑價、股息及借券限制。
 
-網站 Mode A 嚴格為 17 根 30 分鐘，缺歷史半小時行情時明列缺資料，不使用日線／小時線替代；Mode B 使用日線，在訊號後第一個已完成收盤成交，反向時平倉再反向。所有成交時間嚴格晚於發文。同方向事件不另進場。Pine 在圖表標的與圖表週期收盤成交；只有使用 0050 且相同週期時才具有比較基礎，網站 B 日線不能宣稱與 30 分鐘 Pine 相同。Pine A 已改獨立持倉至固定期限，期間翻轉不覆寫 A，B 仍按反向訊號平倉。
+網站 Mode A 嚴格為 17 根 30 分鐘，缺歷史半小時行情時明列缺資料，不使用日線／小時線替代；Mode B 使用日線，在訊號後第一個已完成收盤成交，反向時平倉再反向。歷史參考成交嚴格晚於發文；可成交參考嚴格晚於發文及實際判讀完成，已錯過收盤不回填。同方向事件不另進場。Pine 在圖表標的與圖表週期收盤成交；只有使用 0050 且相同週期時才具有比較基礎，網站 B 日線不能宣稱與 30 分鐘 Pine 相同。Pine A 已改獨立持倉至固定期限，期間翻轉不覆寫 A，B 仍按反向訊號平倉。
 
 參數已核對：`holdBars=17`、`signalLifeBars=24`，濾網預設關閉；24 根僅控制顯示有效期、不自動平倉。詳見 [看板驗證與更新方法](docs/DASHBOARD_AUDIT.md)。原作者網站連結保留，尚未發布本次修改。
 

@@ -1,0 +1,8 @@
+{
+  "enabled": false,
+  "author_rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+  "monthly_apify_run_limit": 70,
+  "run_cap_usd": 0.1,
+  "overlap_hours": 2,
+  "history_queue_enabled": false
+}

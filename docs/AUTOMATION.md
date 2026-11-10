@@ -1,3 +1,5 @@
+> **舊階段快照／操作紀錄。** 目前 257 事件、兩種時間基準、Telegram 手動入口與停用的正式流程，請以 [LIVE_PIPELINE_ACCEPTANCE.md](LIVE_PIPELINE_ACCEPTANCE.md) 為準。下文樣本筆數與早期供應商設定不代表本次版本。
+
 > **版本狀態：以下為先前階段紀錄。** 最新原作者標準與已接通的手動worker／遠端帳本見[還原協定](ORIGINAL_AUTHOR_RESTORATION.md)及[第一批結果](HISTORY_BATCH_01_RESULTS.md)。不再以後加的關鍵字／強恐慌／標的或人工核圖門檻產生訊號；原先未啟用worker的描述已由新流程取代。
 
 > 目前 PR 使用獨立 ChatAnywhere 免費版設定，僅允許兩筆 smoke、無排程及批次。見[目前供應商設定](CHATANYWHERE.md)；先前 OpenAI 官方說明保留作歷史參考。

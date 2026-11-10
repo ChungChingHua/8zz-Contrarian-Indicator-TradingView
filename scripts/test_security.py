@@ -67,9 +67,17 @@ class SecurityTests(unittest.TestCase):
         with patch.object(provider,'assert_online_enabled'),patch.dict('os.environ',{'AI_PROVIDER':'openai','OPENAI_API_KEY':key}),patch.object(s,'request_json',return_value=answer(reason=key)):
             with self.assertRaisesRegex(ValueError,'provider_response_contains_credential'):s.classify(post())
 
-    def test_workflow_no_secret_injection_or_write(self):
+    def test_default_paused_workflow_only_explicit_telegram_secret_actions(self):
         text=(s.ROOT/'.github/workflows/fetch-fb-events.yml').read_text()
-        self.assertNotIn('secrets.',text);self.assertNotIn('contents: write',text)
+        import re
+        self.assertEqual(set(re.findall(r'secrets\.([A-Z_]+)',text)),{'TELEGRAM_BOT_TOKEN','TELEGRAM_CHAT_ID'})
+        paused=text.split('  paused:',1)[1].split('  telegram:',1)[0]
+        self.assertNotIn('secrets.',paused)
+        self.assertIn('default: status',text)
+        self.assertIn("if: inputs.action == 'telegram-discover'",text)
+        self.assertIn("if: inputs.action == 'telegram-test'",text)
+        self.assertIn("inputs.action == 'telegram-discover' || inputs.action == 'telegram-test'",text)
+        self.assertNotIn('contents: write',text)
         self.assertNotIn('schedule:',text);self.assertNotIn('run_social_update.py',text)
 
 if __name__=='__main__':unittest.main()

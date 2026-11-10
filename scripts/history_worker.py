@@ -225,6 +225,7 @@ class Worker:
                     else:self.isolated_failure(r,'persistent_format_failure')
                 else:self.state.update(stopped=True,stop_reason='api_or_required_format_failure')
             else:self.state['consecutive_isolated_failures']=0
+            r['completed_at']=now()  # Actual result processing time; never backfill older ledgers.
             self.save()  # Result must be durably stored before considering next post.
             if self.state['stopped']:return
             remaining=[v for k,v in quota.items() if k in ('x-ratelimit-remaining-requests','x-ratelimit-remaining-points','x-free-points-remaining','x-free-requests-remaining')]

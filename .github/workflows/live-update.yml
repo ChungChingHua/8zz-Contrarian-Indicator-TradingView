@@ -1,0 +1,44 @@
+name: Live incremental update (disabled by default)
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        type: choice
+        description: '正式入口，須先明確啟用 LIVE_PIPELINE_ENABLED；不包含歷史補跑'
+        options: [run, notify, resume-ai, refresh-market, retry-notifications]
+        default: run
+  # GitHub cron uses UTC: 00:45, 01:00..05:15, 05:30 = Taipei 08:45..13:30, 20 slots.
+  # Job remains disabled until explicit repository-variable activation. Cron uses default-branch workflow.
+  schedule:
+    - cron: '45 0 * * 1-5'
+    - cron: '0,15,30,45 1-4 * * 1-5'
+    - cron: '0,15,30 5 * * 1-5'
+permissions:
+  contents: write
+concurrency:
+  group: original-author-history-batch-01
+  cancel-in-progress: false
+jobs:
+  update:
+    if: ${{ vars.LIVE_PIPELINE_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: codex/social-pipeline-20261106
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Bounded live queue (no history generation)
+        env:
+          LIVE_ACTION: ${{ inputs.action || 'run' }}
+          LIVE_PIPELINE_ENABLED: ${{ vars.LIVE_PIPELINE_ENABLED }}
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          CHATANYWHERE_API_KEY: ${{ secrets.CHATANYWHERE_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/live_pipeline.py "$LIVE_ACTION"

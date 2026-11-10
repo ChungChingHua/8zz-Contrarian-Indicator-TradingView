@@ -27,11 +27,13 @@ def archive():
     data=h.s.read(ROOT/'data/social_posts.json',{})
     for k,v in h.s.read(ROOT/DELTA,{}).items():
         if k not in data:data[k]=v
+    for k,v in h.s.read(ROOT/'data/live_posts.json',{}).items():
+        if k not in data:data[k]=v
     return data
 
 def ledger_records():
     rows={};origins={}
-    for path in sorted((ROOT/'data/history_progress').glob('*.json')):
+    for path in sorted([*(ROOT/'data/history_progress').glob('*.json'),*(ROOT/'data/live_progress').glob('*.json')]):
         if path.name.endswith('.uncommitted.json'):continue
         for r in h.s.read(path,{}).get('records',[]):
             if r['status']=='not_started':continue
@@ -69,6 +71,8 @@ def report(remote=None):
     data=archive();rows,origins=ledger_records();excluded,legacy=exclusions(data);by_member={}
     for key,r in rows.items():
         for member in r['members']:by_member[member['key']]=r
+    for alias,metadata in h.s.read(ROOT/'data/live_duplicates.json',{}).items():
+        if metadata['record_key'] in rows:by_member[alias]=rows[metadata['record_key']]
     quality={r['key']:r for r in h.s.read(ROOT/'data/quality_test_results.json',{}).get('samples',[])}
     inventory=[]
     for p in sorted(data.values(),key=lambda v:(v['unix_ms'],v['key'])):

@@ -1,8 +1,9 @@
 """Read saved judgments only. No AI, acquisition, schedules or deployment. MPL-2.0.
 All account trades use 0050 proxy; typed market bars prevent interval substitution.
 """
-import argparse, json, re, urllib.request
+import argparse, hashlib, json, re, urllib.request
 from datetime import datetime, timezone, timedelta
+from zoneinfo import ZoneInfo
 from pathlib import Path
 from update_pine_script import EVENT_PATTERN
 ROOT=Path(__file__).resolve().parent.parent
@@ -35,6 +36,12 @@ def events():
     sources={e['unix_ms']:e.get('source_url','') for e in old}
     posts=read('data/social_posts.json')
     for p in posts.values():sources[p['unix_ms']]=p['url']
+    from history_completion import ledger_records, archive
+    records,_=ledger_records()
+    all_posts=archive()
+    by_time={r['unix_ms']:r for r in records.values() if r['status']=='completed_signal'}
+    baseline_path=ROOT/'data/event_baseline_keys.json'
+    baseline=set(json.loads(baseline_path.read_text())) if baseline_path.exists() else set()
     out=[];direction=0
     for i,m in enumerate(EVENT_PATTERN.finditer((ROOT/'candidates/8zz-history-latest.pine').read_text())):
         ts,d,s,tip,ticker=m.groups();ts=int(ts);d=int(d)
@@ -44,13 +51,38 @@ def events():
         platform=' / '.join(x for x,domain in [('Facebook','facebook.com'),('Threads','threads.')] if any(domain in u for u in urls)) or ('Threads' if 'Threads' in tip else 'Facebook（歷史註記）')
         flip=d!=0 and d!=direction
         if d:direction=d
-        out.append({'id':i+1,'unix_ms':ts,'time':iso(ts),'direction':d,'strength':int(s),'summary':tip,'target':ticker or '未辨識','symbol':'0050.TW','proxy':True,'urls':urls,'platform':platform,'is_flip':flip})
+        r=by_time.get(ts,{})
+        completed=r.get('completed_at') # No old dispatch time, ledger mtime or present time substitutions.
+        key=hashlib.sha256(json.dumps([ts,d,int(s),tip,ticker],ensure_ascii=False).encode()).hexdigest()
+        fetched=next((all_posts[m['key']].get('fetched_at') for m in r.get('members',[]) if m['key'] in all_posts and all_posts[m['key']].get('fetched_at')),None)
+        live_posts=read('data/live_posts.json') if (ROOT/'data/live_posts.json').exists() else {}
+        historical=not r.get('key') or r['key'] not in live_posts
+        if completed and datetime.fromisoformat(completed).astimezone(ZoneInfo('Asia/Taipei')).date()>datetime.fromtimestamp(ts/1000,ZoneInfo('Asia/Taipei')).date():historical=True
+        extra={'event_key':key,'completed_at':completed,'fetched_at':fetched,
+            'available_ms':int(datetime.fromisoformat(completed).timestamp()*1000) if completed else None,
+            'sentiment':r.get('processed',{}).get('reasoning','原歷史只保存反指標方向，未另存原文情緒欄位'),
+            'historical':historical,
+            'baseline':key in baseline,'media_note':json.dumps(r.get('media_scope',{}),ensure_ascii=False) if r else '原歷史無媒體分析範圍紀錄'}
+        out.append({**extra,'id':i+1,'unix_ms':ts,'time':iso(ts),'direction':d,'strength':int(s),'summary':tip,'target':ticker or '未辨識','symbol':'0050.TW','proxy':True,'urls':urls,'platform':platform,'is_flip':flip})
     return out
 
 def next_bar(bars,ts):return next((b for b in bars if b['time']>ts),None)
 def outcome(direction,entry,exit):return direction*(exit/entry-1)*100
 
-def simulate(ev,bars,mode,hold=17):
+def simulate(ev,bars,mode,hold=17,basis='published'):
+    if basis=='available':
+        unknown=[e for e in ev if e.get('available_ms') is None]
+        known=sorted((dict(e,unix_ms=max(e['available_ms'],e['unix_ms'])) for e in ev if e.get('available_ms') is not None),key=lambda e:(e['unix_ms'],e['id']))
+        direction=0
+        for e in known:
+            e['is_flip']=bool(e['direction'] and e['direction']!=direction)
+            if e['direction']:direction=e['direction']
+        result=simulate(known,bars,mode,hold)
+        for e in unknown:result['rows'][str(e['id'])]={'status':'缺歷史判讀完成時間，不計可成交績效','trade':False,'missing':True}
+        result['stats']['missing']+=len(unknown)
+        result['stats']['missing_completion']=len(unknown)
+        return result
+    ev=sorted(ev,key=lambda e:(e['unix_ms'],e['id']))
     rows={str(e['id']):{'status':'中性觀察' if not e['direction'] else '同方向補充，不另進場','trade':False} for e in ev}
     candidates={}
     for e in ev:
@@ -104,10 +136,20 @@ def simulate(ev,bars,mode,hold=17):
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--refresh-market',action='store_true');args=parser.parse_args()
-    market=fetch_market() if args.refresh_market else read('data/dashboard_market.json')
+    build(args.refresh_market)
+
+def build(refresh_market=False):
+    market=fetch_market() if refresh_market else read('data/dashboard_market.json')
     ev=events();summary=read('data/history_completion_summary.json')
+    (ROOT/'data/signal_events.json').write_text(json.dumps(ev,ensure_ascii=False,indent=2)+'\n')
     pine=(ROOT/'candidates/8zz-history-latest.pine').read_text();hold=int(re.search(r'holdBars = input.int\((\d+)',pine)[1])
-    result={'events':ev,'history':summary,'inventory':read('data/history_completion_inventory.json'),'market':market,'hold_bars':hold,'built_at':datetime.now(UTC).isoformat(),'modes':{m:simulate(ev,market['series'].get('30m' if m=='A' else '1d',[]),m,hold) for m in ['A','B']}}
+    sources=read('data/history_completion_control.json').get('sources',{})
+    live=read('data/live_control.json') if (ROOT/'data/live_control.json').exists() else {}
+    result={'events':ev,'history':summary,'inventory':read('data/history_completion_inventory.json'),'market':market,'hold_bars':hold,'built_at':datetime.now(UTC).isoformat(),
+        'platform_cutoffs':{k:v.get('completed_until') for k,v in (live.get('sources') or sources).items()},
+        'live_status':{'enabled':read('data/live_settings.json').get('enabled',False) if (ROOT/'data/live_settings.json').exists() else False,'ai_stop':live.get('ai_stop'),'notifications':read('data/telegram_outbox.json').get('configuration') if (ROOT/'data/telegram_outbox.json').exists() else '未設定／未驗證'},
+        'modes':{m:simulate(ev,market['series'].get('30m' if m=='A' else '1d',[]),m,hold) for m in ['A','B']},
+        'available_modes':{m:simulate(ev,market['series'].get('30m' if m=='A' else '1d',[]),m,hold,'available') for m in ['A','B']}}
     text=json.dumps(result,ensure_ascii=False,separators=(',',':'))
     (ROOT/'docs/dashboard-data.json').write_text(text+'\n')
     (ROOT/'docs/dashboard-data.js').write_text('window.DASHBOARD_DATA='+text.replace('</','<\\/')+';\n')
@@ -115,7 +157,8 @@ def main():
     html=(ROOT/'docs/index.html').read_text()
     html=html.replace('<link rel="stylesheet" href="dashboard.css">','<style>'+(ROOT/'docs/dashboard.css').read_text()+'</style>')
     html=html.replace('<script src="dashboard-data.js" defer></script>','').replace('<script src="dashboard.js" defer></script>','')
-    html=html.replace('</body>','<script>window.DASHBOARD_DATA='+text.replace('</','<\\/')+';</script><script>'+(ROOT/'docs/dashboard.js').read_text()+'</script></body>')
+    html=html.replace('</body>','<script>window.INLINE_PREVIEW=true;window.DASHBOARD_DATA='+text.replace('</','<\\/')+';</script><script>'+(ROOT/'docs/dashboard.js').read_text()+'</script></body>')
     (ROOT/'docs/preview.html').write_text(html)
     print(json.dumps({m:r['stats'] for m,r in result['modes'].items()},ensure_ascii=False))
+    return result
 if __name__=='__main__':main()
