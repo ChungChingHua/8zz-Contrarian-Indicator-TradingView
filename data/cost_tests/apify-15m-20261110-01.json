@@ -210,5 +210,12 @@
   "http_requests": {
     "GET": 2,
     "POST": 0
-  }
+  },
+  "start_utc": "2026-11-10T06:08:58.944807+00:00",
+  "end_utc": "2026-11-10T06:23:58.944807+00:00",
+  "start_taipei": "2026-11-10T14:08:58.944807+08:00",
+  "end_taipei": "2026-11-10T14:23:58.944807+08:00",
+  "monthly_runs_before": 6,
+  "reserved_starts": 2,
+  "monthly_runs_after": 8
 }
