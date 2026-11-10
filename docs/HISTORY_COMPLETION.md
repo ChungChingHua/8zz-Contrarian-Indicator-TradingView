@@ -141,7 +141,15 @@
   "actual_points_deducted": null,
   "quota_headers": {},
   "stop_reason": "provider_access_quota_or_common_failure",
-  "service_quota_statement": null,
+  "service_quota_statement": {
+    "http_status": 429,
+    "source": "service error response in history-completion-20261107-019",
+    "shared_free_requests_per_24h_window": 100,
+    "remaining_free_requests": "exhausted, service statement only",
+    "actual_points_deducted": null,
+    "reset_time": null,
+    "note": "No retry, paid model, alternate provider or official OpenAI fallback. 429 response has no usage."
+  },
   "all_history_fully_classified": false,
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "provider_model_and_reasoning": "Service-reported gpt-5-mini / minimal, not independently verified",
@@ -170,8 +178,8 @@
     "actor_runs_started": 0,
     "saved_dataset_get_requests": 2,
     "actual_points_deducted": null,
-    "run_url": null,
-    "stop_http_status": null
+    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/42774420492",
+    "stop_http_status": 429
   }
 }
 ```
@@ -197,3 +205,15 @@
 本次 API 次數僅指 AI 生成及 Apify 啟動／讀取；GitHub 進度保存與圖片下載另計，沒有把上述數字宣稱為全部 HTTP 流量。data/usage.json 的 ai_attempts 為舊流程計數，不等於 ChatAnywhere 全部呼叫量，應以本次及既有帳本查核。
 
 只做一次性執行，不啟用持續排程、不發布 Pages、不合併 PR。
+
+## 2026/11/10 額度恢復後續跑結果
+
+本輪共送出101次生成請求：100次HTTP 200，最後1次HTTP 429；成功回應中2筆輸出矛盾轉為待確認，固定格式與一致性驗證通過98筆。服務回報本24小時視窗跨免費模型共用100次請求已耗盡，未重試、未切換金鑰／模型／付費服務。
+
+新增37筆事件，完整候選共294筆＝151筆原歷史＋143筆累計新增。最後有效回應對應9/22 21:50:05貼文；9/23 00:16:32貼文因429保留技術失敗，下一篇未開始為9/23 08:59:55。最新訊號為9/22 18:54:02。資料截止仍為11/7 20:15:59，不能把最新訊號或已走訪時間當作全部判讀完成。
+
+本輪新增37有訊號、48無訊號、15待確認、1技術失敗（以生成群組計）；全資料依來源貼文計為有訊號145、無訊號191、待確認70、技術失敗8、輸入失敗1、狀態不明0、尚未開始251。跨平台群組可能對應多篇來源貼文，兩種口徑不混加。
+
+服務回報本輪輸入287275、輸出15839，合計303114 tokens；實際扣點與重設時刻未知，沒有把tokens當作點數或推定零扣點。模型／推理設定固定gpt-5-mini／minimal；服務回傳資訊並非獨立模型驗證。未啟動Apify Actor，僅讀取既有Dataset兩次，未發Telegram、未啟用排程、未發布網站、未合併PR。
+
+完整Pine保留「8zz 延續版－第一批測試」名稱、署名與MPL-2.0；初始化分為15個函式、每個最多20事件，陣列及歷史事件檢查通過。這份新檔尚未在TradingView實際編譯。續接入口已停用、進度已封存；額度恢復後只接尚未送出項目，待確認／失敗／狀態不明不自動重送。
