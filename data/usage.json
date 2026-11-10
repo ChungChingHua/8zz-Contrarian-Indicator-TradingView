@@ -1,6 +1,6 @@
 {
   "2026-11": {
-    "apify_runs": 40,
+    "apify_runs": 41,
     "ai_attempts": 10,
     "cost_test_reservations": {
       "apify-15m-20261110-01": {
@@ -18,7 +18,7 @@
         "ledger": "data/cost_tests/apify-day-replay-20261110-01.json",
         "authorized_max_starts": 40,
         "authorized_maximum_usd": "4.00",
-        "reserved_starts": 32,
+        "reserved_starts": 33,
         "started_run_ids": [
           "MXhmyJIHGVMwSRnIM",
           "TVMgaCk5hf6rxRD3Z",
@@ -50,7 +50,8 @@
           "wrntgz0A8meWqn5a3",
           "ftcalJJrLlsWml6JQ",
           "q9dBLxmyUE8K6CTJg",
-          "bqSoY71uueYqAudp8"
+          "bqSoY71uueYqAudp8",
+          "qM9OH7YzoEZLCiKDx"
         ],
         "observed_cost": {},
         "unresolved_submissions": 0
