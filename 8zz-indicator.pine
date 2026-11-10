@@ -1,7 +1,7 @@
 // This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © hansai-art / Group.G
 // 8zz 反指標 v2
-// 事件: 150筆 | 期間: 2025/12 ~ 2026/07
+// 事件: 151筆 | 期間: 2025/12 ~ 2026/07
 // 情緒解讀框架：負面情緒（被套、停損、恐慌）→ 偏多 ▲（散戶恐慌→主力拉升）
 //               正面情緒（漲停追買、過度樂觀）→ 偏空 ▼（市場過熱→崩跌機率高）
 // 免責聲明：本指標僅供娛樂參考，不構成任何投資建議。
@@ -262,7 +262,7 @@ initEvtChunk002() =>
     array.push(evt_dir, 1)
     array.push(evt_str, 3)
     array.push(evt_tips, "停損賣出 | 鈦昇\n指標: 偏多 ▲ | 強度: ★★★\nFB 02/09 09:29 持續停損鈦昇")
-    array.push(evt_ticker, "8027.TWO")
+    array.push(evt_ticker, "")
     array.push(evt_time, 1770635400000)
     array.push(evt_dir, 1)
     array.push(evt_str, 2)
@@ -371,6 +371,11 @@ initEvtChunk003() =>
     array.push(evt_str, 2)
     array.push(evt_tips, "賣出 | 華星光\n指標: 偏多 ▲ | 強度: ★★☆\nFB 03/31 09:39 我是渣女！")
     array.push(evt_ticker, "")
+    array.push(evt_time, 1774921200000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "衝動(自責) | 鈦昇\n指標: 偏多 ▲ | 強度: ★★☆\nFB 03/31 09:40 我是渣女！")
+    array.push(evt_ticker, "")
     array.push(evt_time, 1774936560000)
     array.push(evt_dir, 1)
     array.push(evt_str, 3)
@@ -406,34 +411,34 @@ initEvtChunk003() =>
     array.push(evt_str, 2)
     array.push(evt_tips, "被困 | 布蘭特正2\n指標: 偏多 ▲ | 強度: ★★☆\nFB 04/08 09:15 太痛了 油正二又30%")
     array.push(evt_ticker, "CL=F")
+    0
+
+initEvtChunk004() =>
     array.push(evt_time, 1775697840000)
     array.push(evt_dir, 1)
     array.push(evt_str, 3)
     array.push(evt_tips, "停損 | 鈦昇\n指標: 偏多 ▲ | 強度: ★★★\nFB 04/09 09:24 停損渣男鈦昇")
-    array.push(evt_ticker, "8027.TWO")
-    0
-
-initEvtChunk004() =>
+    array.push(evt_ticker, "")
     array.push(evt_time, 1775697900000)
-    array.push(evt_dir, -1)
+    array.push(evt_dir, 1)
     array.push(evt_str, 3)
-    array.push(evt_tips, "衝動買進 | 信驊\n指標: 偏空 ▼ | 強度: ★★★\nFB 04/09 09:25 停損渣男鈦昇後買信驊")
+    array.push(evt_tips, "衝動(復仇) | 信驊\n指標: 偏多 ▲ | 強度: ★★★\nFB 04/09 09:25 停損渣男鈦昇後買信驊")
     array.push(evt_ticker, "5274.TWO")
     array.push(evt_time, 1775708100000)
-    array.push(evt_dir, 0)
-    array.push(evt_str, 1)
-    array.push(evt_tips, "驗證(觀察) | 鈦昇漲停\n指標: 觀察 - 非交易訊號\nFB 04/09 12:15 停損後鈦昇漲停")
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "驗證 | 鈦昇漲停\n指標: 偏多 ▲ | 強度: ★★★\nFB 04/09 12:15 停損後鈦昇漲停")
     array.push(evt_ticker, "")
-    array.push(evt_time, 1775786641000)
+    array.push(evt_time, 1775786640000)
     array.push(evt_dir, -1)
     array.push(evt_str, 3)
-    array.push(evt_tips, "買進 | 亞翔\n指標: 偏空 ▼ | 強度: ★★★\nFB 04/10 10:04 買趨勢猛的！破除迷信！")
+    array.push(evt_tips, "買進 | 台光電+亞翔\n指標: 偏空 ▼ | 強度: ★★★\nFB 04/10 10:04 買趨勢猛的！破除迷信！")
     array.push(evt_ticker, "2383.TW")
     array.push(evt_time, 1775792400000)
     array.push(evt_dir, -1)
     array.push(evt_str, 1)
     array.push(evt_tips, "持有 | 台光電\n指標: 偏空 ▼ | 強度: ★☆☆\nFB 04/10 11:40 我不是冥燈！")
-    array.push(evt_ticker, "6139.TW")
+    array.push(evt_ticker, "2383.TW")
     array.push(evt_time, 1776042564000)
     array.push(evt_dir, -1)
     array.push(evt_str, 1)
@@ -509,14 +514,14 @@ initEvtChunk004() =>
     array.push(evt_str, 3)
     array.push(evt_tips, "停損\n指標: 偏多 ▲ | 強度: ★★★\nFB 05/20 09:43 現在每天一早起來資產就少一隻超霸(⊙ω⊙) 我981是不是真的該賣， 然後轉去中華電 重點是我的個股今天還是崩啊啊...")
     array.push(evt_ticker, "")
+    0
+
+initEvtChunk005() =>
     array.push(evt_time, 1779255886000)
     array.push(evt_dir, 1)
     array.push(evt_str, 3)
     array.push(evt_tips, "跌停\n指標: 偏多 ▲ | 強度: ★★★\nFB 05/20 13:44 那個，不好意思，跌太多心情有點差 我已經說200次了，我就這個帳號會講股票 沒有Line 沒有秘書 沒有助手 沒有...")
     array.push(evt_ticker, "")
-    0
-
-initEvtChunk005() =>
     array.push(evt_time, 1779321775000)
     array.push(evt_dir, 1)
     array.push(evt_str, 2)
@@ -612,14 +617,14 @@ initEvtChunk005() =>
     array.push(evt_str, 2)
     array.push(evt_tips, "賣出\n指標: 偏多 ▲ | 強度: ★★☆\nFB 06/07 18:25 持續賣出_(:_」∠)_ 好痛苦啊啊啊啊啊啊啊 痛苦到好想買東西")
     array.push(evt_ticker, "")
+    0
+
+initEvtChunk006() =>
     array.push(evt_time, 1780881857000)
     array.push(evt_dir, 1)
     array.push(evt_str, 3)
     array.push(evt_tips, "持股重挫\n指標: 偏多 ▲ | 強度: ★★★\nFB 06/08 09:24 開群組 50檔有49檔綠的 唯一紅的是反一  持股4個綠燈⋯再一燈就晉級了")
     array.push(evt_ticker, "")
-    0
-
-initEvtChunk006() =>
     array.push(evt_time, 1780891024000)
     array.push(evt_dir, 1)
     array.push(evt_str, 3)
@@ -715,14 +720,14 @@ initEvtChunk006() =>
     array.push(evt_str, 3)
     array.push(evt_tips, "抄底恐慌\n指標: 偏多 ▲ | 強度: ★★★\nFB 06/24 22:37 tomorrow will be fine:)  我今天抄底了，明天會漲的  應該吧 我先去公園站位置了  賺錢的...")
     array.push(evt_ticker, "")
+    0
+
+initEvtChunk007() =>
     array.push(evt_time, 1782359737000)
     array.push(evt_dir, -1)
     array.push(evt_str, 2)
     array.push(evt_tips, "看多\n指標: 偏空 ▼ | 強度: ★★☆\nFB 06/25 11:55 故事不是這樣演的啊！ 昨天希望今天能漲，但是不是這種不健康的漲 應該是外資空單減碼啊～～  然後開始無限箱型整理⋯...")
     array.push(evt_ticker, "")
-    0
-
-initEvtChunk007() =>
     array.push(evt_time, 1782436889000)
     array.push(evt_dir, 1)
     array.push(evt_str, 2)
@@ -818,14 +823,14 @@ initEvtChunk007() =>
     array.push(evt_str, 3)
     array.push(evt_tips, "恐慌看空\n指標: 偏多 ▲ | 強度: ★★★\nFB 07/09 11:28 破除迷信，雖然我覺得不可能會漲了 看來股市要開始走弱了～  高點下來已經燒掉110萬， 這個星期已經蒸發60了（對...")
     array.push(evt_ticker, "")
+    0
+
+initEvtChunk008() =>
     array.push(evt_time, 1783599900000)
     array.push(evt_dir, 1)
     array.push(evt_str, 2)
     array.push(evt_tips, "加碼反一\n指標: 偏多 ▲ | 強度: ★★☆\nFB 07/09 20:25 反一買了就真的止跌了（笑）")
     array.push(evt_ticker, "")
-    0
-
-initEvtChunk008() =>
     array.push(evt_time, 1783916179000)
     array.push(evt_dir, 1)
     array.push(evt_str, 3)

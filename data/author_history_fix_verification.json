@@ -1,0 +1,12 @@
+{
+  "uploaded_reference_events": 65,
+  "old_output_events": 256,
+  "new_output_events": 257,
+  "events_after_reference_cutoff_unchanged": 192,
+  "after_reference_event_tuples_sha256": "837419cb1f9a8b3d41639661a404b405e93913de82ff8f85e346a0b42ed49d16",
+  "new_ai_generation_requests": 0,
+  "new_apify_requests": 0,
+  "reference_replay_matches_corrected_candidate": true,
+  "replay_scope": "0050 regular 1h bar closes, Apr 8-10, filters off. Offline event dispatch/state equivalence, not TradingView compilation or price backtest.",
+  "previously_classified_session_events_unchanged": 31
+}

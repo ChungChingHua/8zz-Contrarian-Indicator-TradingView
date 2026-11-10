@@ -55,7 +55,8 @@ class AuditTests(unittest.TestCase):
                 self.assertEqual(m['curve'][0]['benchmark'],100)
     def test_no_judgment_changes_and_idempotent_pine_patch(self):
         from update_pine_script import EVENT_PATTERN
-        original=(ROOT/'data/historical-indicator.pine').read_text()
+        from pine_history import reconcile_history
+        original,_=reconcile_history((ROOT/'data/historical-indicator.pine').read_text())
         candidate=(ROOT/'candidates/8zz-history-latest.pine').read_text()
         for block in EVENT_PATTERN.findall(original):self.assertIn(block,EVENT_PATTERN.findall(candidate))
         self.assertEqual(apply_accounting(candidate),candidate)

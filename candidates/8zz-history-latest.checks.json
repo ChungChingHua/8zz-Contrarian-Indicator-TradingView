@@ -1,9 +1,20 @@
 {
-  "historical_events": 150,
+  "historical_events": 151,
   "added_events": 106,
-  "total_events": 256,
+  "total_events": 257,
   "historical_blocks_preserved": true,
-  "historical_neutral_events_preserved": 1,
+  "historical_basis": "reconciled_published_author_history",
+  "fork_base_events": 150,
+  "author_reference_events": 65,
+  "historical_reference_changes": {
+    "updated_events": 5,
+    "retimed_events": 1,
+    "inserted_events": 1,
+    "unchanged_fork_events": 144
+  },
+  "archived_fork_source_unchanged": true,
+  "fork_base_literals_preserved": false,
+  "historical_neutral_events_preserved": 0,
   "new_events_nonzero": true,
   "arrays_paired": true,
   "timestamps_ordered": true,

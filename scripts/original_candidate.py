@@ -4,11 +4,12 @@ from pathlib import Path
 import original_author as policy
 from update_pine_script import build_push_block,EVENT_PATTERN,HEADER_COUNT_PATTERN,apply_indicator_title
 from pine_initialization import split_initialization,check_initialization
+from pine_history import reconcile_history
 ROOT=policy.ROOT
 OUT=ROOT/'candidates/8zz-original-author-batch-01.pine'
 
 def build(ledger):
-    text=(ROOT/'data/historical-indicator.pine').read_text();lines=text.splitlines(keepends=True);added=0
+    text,history_audit=reconcile_history((ROOT/'data/historical-indicator.pine').read_text());lines=text.splitlines(keepends=True);added=0
     for r in ledger['records']:
         a=r.get('processed',{})
         if r['status']!='completed_signal' or not policy.event_eligible(a):continue
@@ -31,7 +32,7 @@ def build(ledger):
     valid=all(int(m.group(2)) in (-1,0,1) and int(m.group(3)) in (1,2,3) for m in matches)
     if not (paired and ordered and valid):raise ValueError('candidate_structure_invalid')
     return candidate,{'historical_events':len(EVENT_PATTERN.findall(text)),'added_events':added,'total_events':count,
-        'historical_blocks_preserved':True,'historical_neutral_events_preserved':sum(int(m.group(2))==0 for m in EVENT_PATTERN.finditer(text)),'new_events_nonzero':True,'arrays_paired':paired,'timestamps_ordered':ordered,'directions_strengths_valid':valid,'tradingview_compiled':False,**check_initialization(candidate)}
+        'historical_blocks_preserved':True,'historical_basis':'reconciled_published_author_history','fork_base_events':history_audit['fork_base_events'],'author_reference_events':history_audit['author_reference_events'],'historical_reference_changes':{k:history_audit[k] for k in ('updated_events','retimed_events','inserted_events','unchanged_fork_events')},'archived_fork_source_unchanged':True,'fork_base_literals_preserved':False,'historical_neutral_events_preserved':sum(int(m.group(2))==0 for m in EVENT_PATTERN.finditer(text)),'new_events_nonzero':True,'arrays_paired':paired,'timestamps_ordered':ordered,'directions_strengths_valid':valid,'tradingview_compiled':False,**check_initialization(candidate)}
 
 def main():
     from history_worker import LOCAL

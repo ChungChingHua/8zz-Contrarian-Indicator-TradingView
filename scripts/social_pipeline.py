@@ -269,7 +269,8 @@ def groups(archive):
 def generate(archive):
     from update_pine_script import build_push_block, apply_indicator_title
     template=ROOT/'data/historical-indicator.pine'
-    text=template.read_text()
+    from pine_history import reconcile_history
+    text,_=reconcile_history(template.read_text())
     marker='// BEGIN GENERATED SOCIAL EVENTS'
     blocks=[]; merged=[]
     verified_images=read(ROOT/'data/verified_image_evidence.json',{})

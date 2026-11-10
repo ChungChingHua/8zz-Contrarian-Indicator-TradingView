@@ -4,13 +4,15 @@
 
 資料抓取截止 UTC 2026-11-07T12:15:59.578797+00:00（Asia/Taipei 為 2026-11-07T20:15:59.578797+08:00）；共 666 篇。已走訪至 2026-09-04T16:11:55+08:00，其中待確認／失敗另列；本輪最後有效回應 2026-09-04T11:02:25+08:00，最新事件 2026-09-03T13:38:49+08:00。
 
-完整 Pine 256 事件 = 原歷史 150 + 累計新增 106；其中此歷史 scope 累計新增 101。本次續跑新增 31。
+完整 Pine 257 事件 = 原歷史 151 + 累計新增 106；其中此歷史 scope 累計新增 101。本次續跑新增 31。
 
 狀態依來源貼文計：有訊號 108、無訊號 142、待確認 54、失敗 8、狀態不明 0、尚未處理 354（去重後 352 組）。跨平台同組會對應多筆貼文，但只產生一個事件。
 
 本 scope 累計生成 HTTP 283 次，成功固定格式回應 276；3 筆 HTTP 回應無 usage，不假定其零 tokens。已回報用量輸入 804970／輸出 42901／合計 847871 tokens。實際點數扣除未知；即時免費請求／點數餘額與重設時刻若無服務回傳即為未知，先前阻塞保留於 control.blocker_history。
 
 原始程式曾未處理 429 的 usage=null，導致最後彙整步驟失敗；已修正並以全部已保存回應離線重建，不新增任何生成。供應商錯誤原含遮蔽後的金鑰識別片段，最新帳本已進一步去除該片段，保留清理前 JSON hash；完整金鑰未輸出。
+
+歷史基準已依使用者提供的原作者65事件版本校正為151筆：保留未改寫的Fork150事件來源檔，補回3/31缺漏1筆，另外5筆欄位校正及1筆明確校時均有差異紀錄。圖表採校正後基準；不是宣稱Fork150筆在輸出中逐字不變。詳見 docs/PINE_AUTHOR_HISTORY_FIX.md 與 data/author_history_reconciliation_audit.json。
 
 ```json
 {
@@ -46,11 +48,22 @@
   "first_unstarted_date": "2026-09-04T18:25:40+08:00",
   "latest_signal_date": "2026-09-03T13:38:49+08:00",
   "pine": {
-    "historical_events": 150,
+    "historical_events": 151,
     "added_events": 106,
-    "total_events": 256,
+    "total_events": 257,
     "historical_blocks_preserved": true,
-    "historical_neutral_events_preserved": 1,
+    "historical_basis": "reconciled_published_author_history",
+    "fork_base_events": 150,
+    "author_reference_events": 65,
+    "historical_reference_changes": {
+      "updated_events": 5,
+      "retimed_events": 1,
+      "inserted_events": 1,
+      "unchanged_fork_events": 144
+    },
+    "archived_fork_source_unchanged": true,
+    "fork_base_literals_preserved": false,
+    "historical_neutral_events_preserved": 0,
     "new_events_nonzero": true,
     "arrays_paired": true,
     "timestamps_ordered": true,
@@ -147,6 +160,8 @@
     "generation_attempts": 101,
     "validated_responses": 97,
     "added_events": 31,
+    "pine_count_delta_since_session": 32,
+    "historical_reference_event_delta_since_session": 1,
     "service_reported_usage": {
       "input_tokens": 297527,
       "output_tokens": 16495,

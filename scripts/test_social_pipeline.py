@@ -109,7 +109,8 @@ class SocialTests(unittest.TestCase):
         counts=Counter(p['source'] for p in archive.values())
         self.assertGreaterEqual(counts['facebook'],284)
         self.assertGreaterEqual(counts['threads'],375)
-        original=(s.ROOT/'data/historical-indicator.pine').read_text()
+        from pine_history import reconcile_history
+        original,_=reconcile_history((s.ROOT/'data/historical-indicator.pine').read_text())
         generated=(s.ROOT/'8zz-indicator.pine').read_text()
         import re
         blocks=lambda t:re.findall(r'array.push\(evt_time,.*?array.push\(evt_ticker,[^\n]+',t,re.S)
