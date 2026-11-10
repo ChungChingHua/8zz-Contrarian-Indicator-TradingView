@@ -1,7 +1,102 @@
 {
   "test_id": "apify-15m-20261110-01",
   "status": "preflight",
-  "actors": {},
+  "actors": {
+    "facebook": {
+      "actor": "apify~facebook-posts-scraper",
+      "pricing": {
+        "pricingModel": "PAY_PER_EVENT",
+        "startedAt": "2026-03-11T14:56:37.208Z",
+        "minimalMaxTotalChargeUsd": "0.0062",
+        "pricingPerEvent": {
+          "actorChargeEvents": {
+            "post": {
+              "eventTitle": "Post",
+              "eventDescription": "Each post written to the dataset.",
+              "isOneTimeEvent": false,
+              "eventTieredPricingUsd": {
+                "FREE": {
+                  "tieredEventPriceUsd": "0.005"
+                },
+                "BRONZE": {
+                  "tieredEventPriceUsd": "0.004"
+                },
+                "SILVER": {
+                  "tieredEventPriceUsd": "0.0025"
+                },
+                "GOLD": {
+                  "tieredEventPriceUsd": "0.002"
+                },
+                "PLATINUM": {
+                  "tieredEventPriceUsd": "0.0016"
+                },
+                "DIAMOND": {
+                  "tieredEventPriceUsd": "0.0008"
+                }
+              },
+              "isPrimaryEvent": true
+            },
+            "actor-start": {
+              "eventTitle": "Actor start",
+              "eventDescription": "Flat charge for starting an Actor run.",
+              "isOneTimeEvent": true,
+              "eventTieredPricingUsd": {
+                "FREE": {
+                  "tieredEventPriceUsd": "0.001"
+                },
+                "BRONZE": {
+                  "tieredEventPriceUsd": "0.001"
+                },
+                "SILVER": {
+                  "tieredEventPriceUsd": "0.001"
+                },
+                "GOLD": {
+                  "tieredEventPriceUsd": "0.001"
+                },
+                "PLATINUM": {
+                  "tieredEventPriceUsd": "0.001"
+                },
+                "DIAMOND": {
+                  "tieredEventPriceUsd": "0.001"
+                }
+              }
+            },
+            "filter-applied": {
+              "eventTitle": "Add-on: Date filter",
+              "eventDescription": "Extra cost per post scraped with a date filter.",
+              "isOneTimeEvent": false,
+              "eventTieredPricingUsd": {
+                "FREE": {
+                  "tieredEventPriceUsd": "0.002"
+                },
+                "BRONZE": {
+                  "tieredEventPriceUsd": "0.001"
+                },
+                "SILVER": {
+                  "tieredEventPriceUsd": "0.0008"
+                },
+                "GOLD": {
+                  "tieredEventPriceUsd": "0.0006"
+                },
+                "PLATINUM": {
+                  "tieredEventPriceUsd": "0.0004"
+                },
+                "DIAMOND": {
+                  "tieredEventPriceUsd": "0.0002"
+                }
+              }
+            }
+          }
+        }
+      },
+      "defaultRunOptions": {
+        "build": "latest",
+        "timeoutSecs": 0,
+        "memoryMbytes": 4096
+      },
+      "status": "not_started"
+    }
+  },
   "cap_usd_per_run": "0.10",
   "cap_documentation": "https://docs.apify.com/api/v2/actors-runs-post",
   "maximum_starts": 2,
@@ -20,7 +115,7 @@
     "candidates/8zz-original-author-batch-01.pine": "cb5e43acdc5dc912162f14148bd4df5c81d93d9e"
   },
   "http_requests": {
-    "GET": 0,
+    "GET": 1,
     "POST": 0
   }
 }
