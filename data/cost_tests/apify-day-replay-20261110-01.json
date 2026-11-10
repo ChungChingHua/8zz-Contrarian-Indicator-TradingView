@@ -33,7 +33,37 @@
     "facebook": "2026-11-09T05:30:00+00:00",
     "threads": "2026-11-09T05:30:00+00:00"
   },
-  "runs": [],
+  "runs": [
+    {
+      "round": 1,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T08:45:00+08:00",
+      "base_start_utc": "2026-11-09T05:30:00+00:00",
+      "query_start_utc": "2026-11-09T03:30:00+00:00",
+      "query_end_utc": "2026-11-10T00:45:00+00:00",
+      "query_start_taipei": "2026-11-09T11:30:00+08:00",
+      "query_end_taipei": "2026-11-10T08:45:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-09T03:30:00Z",
+        "onlyPostsOlderThan": "2026-11-10T00:45:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "reserved_not_submitted"
+    }
+  ],
   "pricing": {
     "facebook": {
       "actor": "apify~facebook-posts-scraper",
@@ -221,7 +251,7 @@
       }
     }
   },
-  "reserved_starts": 0,
+  "reserved_starts": 1,
   "after_the_fact": true,
   "posts_ledger": "data/cost_tests/apify-day-replay-20261110-01-posts.json",
   "formal_shas_before": {
@@ -321,6 +351,6 @@
     "GET": 2,
     "POST": 0
   },
-  "updated_at": "2026-11-10T06:46:09.011154+00:00",
+  "updated_at": "2026-11-10T06:46:11.017296+00:00",
   "monthly_runs_before": 8
 }
