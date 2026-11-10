@@ -5,7 +5,7 @@
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "created_at": "2026-11-10T07:19:16.844293+00:00",
   "max_generations": 25,
-  "reserved_generation_attempts": 10,
+  "reserved_generation_attempts": 11,
   "stopped": false,
   "finished": false,
   "provider_settings": {
@@ -3028,9 +3028,39 @@
           "post_id": "1647007733450482"
         }
       ],
-      "status": "not_started",
-      "attempts": 0,
-      "context_used": []
+      "status": "unknown",
+      "attempts": 1,
+      "context_used": [],
+      "media_scope": {
+        "analysis_scope": "text_only_images_unavailable",
+        "unanalysed_media": [
+          {
+            "attachment_index": 0,
+            "kind": "image",
+            "status": "圖片未分析",
+            "error_type": "OSError",
+            "errno": 101,
+            "reason": "network_unreachable"
+          }
+        ],
+        "media_failures": [
+          {
+            "attachment_index": 0,
+            "kind": "image",
+            "status": "圖片未分析",
+            "error_type": "OSError",
+            "errno": 101,
+            "reason": "network_unreachable"
+          }
+        ],
+        "images_supplied": 0,
+        "image_evidence": [],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": []
+      },
+      "request_sha256": "0c18c090fa7e3c06e6dc1fb037cfffdcbc124535d880ec509263f280fd983f96",
+      "dispatch_reserved_at": "2026-11-10T07:20:33.871334+00:00"
     },
     {
       "key": "threads:3980649994563169395",
@@ -3369,6 +3399,6 @@
       "context_used": []
     }
   ],
-  "updated_at": "2026-11-10T07:20:32.708669+00:00",
+  "updated_at": "2026-11-10T07:20:33.871350+00:00",
   "consecutive_isolated_failures": 0
 }
