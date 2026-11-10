@@ -1899,6 +1899,35 @@
         "facebook:1708197577331497"
       ],
       "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency."
+    },
+    {
+      "round": 9,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T10:45:00+08:00",
+      "base_start_utc": "2026-11-10T02:30:00+00:00",
+      "query_start_utc": "2026-11-10T00:30:00+00:00",
+      "query_end_utc": "2026-11-10T02:45:00+00:00",
+      "query_start_taipei": "2026-11-10T08:30:00+08:00",
+      "query_end_taipei": "2026-11-10T10:45:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-10T00:30:00Z",
+        "postedBefore": "2026-11-10T02:45:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "reserved_not_submitted"
     }
   ],
   "pricing": {
@@ -2088,7 +2117,7 @@
       }
     }
   },
-  "reserved_starts": 17,
+  "reserved_starts": 18,
   "after_the_fact": true,
   "posts_ledger": "data/cost_tests/apify-day-replay-20261110-01-posts.json",
   "formal_shas_before": {
@@ -2188,7 +2217,7 @@
     "GET": 67,
     "POST": 17
   },
-  "updated_at": "2026-11-10T06:51:04.107110+00:00",
+  "updated_at": "2026-11-10T06:51:06.063366+00:00",
   "monthly_runs_before": 8,
   "uncertain_streak": {
     "facebook": 0,
