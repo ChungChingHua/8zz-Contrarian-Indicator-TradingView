@@ -190,9 +190,37 @@ def execute(docs, client, clock=lambda: datetime.now(timezone.utc), pause=time.s
     return state
 
 
+def observe(docs, client):
+    """Refresh known run billing and inspect returned row shapes. GET only; no restarts."""
+    state = docs.load(PATH)
+    if not state or state.get('status') != 'completed': raise ValueError('completed_test_required')
+    before = docs.formal_shas()
+    for source, entry in state['actors'].items():
+        run = client.request('/actor-runs/' + entry['id'])['data']
+        entry.setdefault('previous_cost_snapshots', []).append({k:entry.get(k) for k in
+            ('usageTotalUsd','externalChargedTotalUsd','cost_observed_at','chargedEventCounts')})
+        record_run(entry, run)
+        if entry['result_count']:
+            rows = client.request('/datasets/' + run['defaultDatasetId'] + '/items?format=json&offset=0&limit=100')
+            entry['row_shape_audit'] = [{
+                'field_names': sorted(row.keys()),
+                'has_post_id': bool(row.get('postId') or row.get('id')),
+                'has_publication_time': bool(row.get('time') or row.get('date') or row.get('timestamp')),
+                'has_error': bool(row.get('error') or row.get('errorCode') or row.get('errorDescription')),
+                'safe_error_code': row.get('error') if isinstance(row.get('error'),str)
+                    and __import__('re').fullmatch('[a-zA-Z0-9_-]{1,80}',row['error']) else None,
+                'message_sha256': h.hashlib.sha256(str(row.get('errorDescription') or row.get('message') or '').encode()).hexdigest()
+            } for row in rows if isinstance(row,dict)]
+        docs.save(PATH, state)
+    state['observation_http_requests'] = dict(client.counts)
+    state['observation_formal_state_unchanged'] = before == docs.formal_shas()
+    docs.save(PATH, state)
+    return state
+
+
 if __name__ == '__main__':
     if os.getenv('AUTHORIZED_APIFY_COST_TEST') != TEST_ID: raise SystemExit('test authorization missing')
     key = os.environ['APIFY_TOKEN']; token = os.environ['GH_TOKEN']
-    result = execute(Docs(token), Client(key))
+    result = observe(Docs(token), Client(key)) if os.getenv('COST_TEST_OBSERVE_ONLY') == 'true' else execute(Docs(token), Client(key))
     print(json.dumps({'test_id': TEST_ID, 'status': result['status'],
                       'error_code': result.get('error_code'), 'http_requests': result.get('http_requests')}))

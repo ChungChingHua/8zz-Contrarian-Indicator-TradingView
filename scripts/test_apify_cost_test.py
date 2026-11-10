@@ -78,6 +78,12 @@ class Test(unittest.TestCase):
             env={'source':source,'start':'2026-11-10T03:45:00+00:00','end':'2026-11-10T04:00:00+00:00'}
             exec(compile(ast.fix_missing_locations(ast.Module(body=[branch],type_ignores=[])),'formal','exec'),env)
             self.assertEqual(env['actor'],t.ACTORS[source]);self.assertEqual(env['body'],t.inputs(source,env['start'],env['end']))
+    def test_readonly_observation_cannot_start(self):
+        d,c,r=self.go()
+        observer=Client();t.observe(d,observer)
+        self.assertEqual(observer.counts['POST'],0)
+        self.assertEqual(observer.counts['GET'],2)
+        self.assertTrue(d.data[t.PATH]['observation_formal_state_unchanged'])
     def test_precision(self):
         parsed=json.loads('{"cost":0.000000000123456789}',parse_float=Decimal)
         self.assertEqual(t.plain(parsed)['cost'],'1.23456789E-10')

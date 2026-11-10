@@ -23,9 +23,10 @@ jobs:
           python-version: '3.12'
       - name: Offline tests before authorized acquisition
         run: python -m unittest discover -s scripts -p test_apify_cost_test.py
-      - name: One cost experiment; no AI or notifications
+      - name: Read-only audit of the two existing runs; no Actor starts
         env:
           AUTHORIZED_APIFY_COST_TEST: apify-15m-20261110-01
+          COST_TEST_OBSERVE_ONLY: 'true'
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
           GH_TOKEN: ${{ github.token }}
         run: python scripts/apify_cost_test.py
