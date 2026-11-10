@@ -227,7 +227,7 @@
         "timeoutSecs": 900,
         "memoryMbytes": 1024
       },
-      "status": "submission_unknown",
+      "status": "READY",
       "input": {
         "mode": "posts",
         "usernames": [
@@ -237,7 +237,37 @@
         "includeProfile": false,
         "postedAfter": "2026-11-10T06:08:58.944807Z",
         "postedBefore": "2026-11-10T06:23:58.944807Z"
-      }
+      },
+      "id": "p2343oHUCL4eFtBeA",
+      "startedAt": "2026-11-10T06:24:04.521Z",
+      "finishedAt": null,
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "P6fChvHlSQ5GDjVgg",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": 0,
+      "chargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "accountedChargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "duration_seconds": null,
+      "cost_observed_at": "2026-11-10T06:24:04.674037+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution"
     }
   },
   "cap_usd_per_run": "0.10",
@@ -259,7 +289,7 @@
   },
   "http_requests": {
     "GET": 2,
-    "POST": 1
+    "POST": 2
   },
   "start_utc": "2026-11-10T06:08:58.944807+00:00",
   "end_utc": "2026-11-10T06:23:58.944807+00:00",
