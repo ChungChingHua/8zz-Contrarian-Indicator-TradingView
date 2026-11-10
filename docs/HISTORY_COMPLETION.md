@@ -217,3 +217,5 @@
 服務回報本輪輸入287275、輸出15839，合計303114 tokens；實際扣點與重設時刻未知，沒有把tokens當作點數或推定零扣點。模型／推理設定固定gpt-5-mini／minimal；服務回傳資訊並非獨立模型驗證。未啟動Apify Actor，僅讀取既有Dataset兩次，未發Telegram、未啟用排程、未發布網站、未合併PR。
 
 完整Pine保留「8zz 延續版－第一批測試」名稱、署名與MPL-2.0；初始化分為15個函式、每個最多20事件，陣列及歷史事件檢查通過。這份新檔尚未在TradingView實際編譯。續接入口已停用、進度已封存；額度恢復後只接尚未送出項目，待確認／失敗／狀態不明不自動重送。
+
+最終CI曾發現離線看板快照257與候選294事件不一致，已用已保存判讀／行情離線同步 data/signal_events.json 及 docs/dashboard-data.json／.js／preview.html。重建階段禁止urllib網路呼叫，只在出版到PR檔案時使用GitHub API；未呼叫AI、Apify、行情或Telegram，也未部署網站。用量、控制游標、通知outbox與baseline檔案均未變，重建後189項離線測試通過。兩個本次手動／一次性入口均已停用。
