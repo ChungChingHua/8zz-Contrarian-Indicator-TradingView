@@ -3,7 +3,7 @@
   "cutoff_utc": "2026-11-07T12:15:59.578797+00:00",
   "created_at": "2026-11-07T12:15:59.578797+00:00",
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
-  "closed": true,
+  "closed": false,
   "acquisition_completed": true,
   "sources": {
     "facebook": {
@@ -158,33 +158,48 @@
       },
       "scope_generation_attempts": 182,
       "ref_before_resume": "424f473db3a037cac4907aa71e3890a0ccd6be87"
+    },
+    {
+      "closed_at": "2026-11-09T07:16:13.599119+00:00",
+      "stop_reason": "provider_access_quota_or_common_failure",
+      "stopped_at": "2026-09-04T16:11:55+08:00",
+      "closure_reason": "free_request_allowance_exhausted",
+      "service_quota_statement": {
+        "http_status": 429,
+        "source": "service error response in history-completion-20261107-014",
+        "shared_free_requests_per_24h_window": 100,
+        "remaining_free_requests": "exhausted, service statement only",
+        "actual_points_deducted": null,
+        "reset_time": null,
+        "note": "No retry, paid model, alternate provider or official OpenAI fallback. 429 response has no usage."
+      },
+      "scope_generation_attempts": 283,
+      "ref_before_resume": "675308d133b42bebb020a0973360aadf0d7fcaa2"
     }
   ],
   "current_session": {
-    "id": "20261109-01",
-    "baseline_generation_attempts": 182,
-    "baseline_validated_responses": 179,
+    "id": "20261110-01",
+    "baseline_generation_attempts": 283,
+    "baseline_validated_responses": 276,
     "baseline_usage": {
-      "input_tokens": 507443,
-      "output_tokens": 26406,
-      "total_tokens": 533849,
+      "input_tokens": 804970,
+      "output_tokens": 42901,
+      "total_tokens": 847871,
       "reasoning_tokens": 0
     },
-    "baseline_total_events": 225,
+    "baseline_total_events": 257,
     "baseline_status_counts": {
-      "pending_confirmation": 27,
-      "completed_no_signal": 82,
-      "completed_signal": 70,
-      "technical_failure": 3,
+      "pending_confirmation": 42,
+      "completed_no_signal": 135,
+      "completed_signal": 101,
+      "technical_failure": 5,
       "input_failure": 1
     },
-    "first_unstarted_date": "2026-08-22T02:09:59+08:00",
+    "first_unstarted_date": "2026-09-04T18:25:40+08:00",
     "user_reported_free_quota_reset": true,
-    "saved_dataset_get_requests": 2,
+    "saved_dataset_get_requests": 0,
     "actor_runs_started": 0,
-    "closed": true,
-    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/42576742068",
-    "stop_http_status": 429
+    "closed": false
   },
   "session_history": [
     {
@@ -235,18 +250,58 @@
         "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/42456973950",
         "stop_http_status": 429
       }
+    },
+    {
+      "id": "20261109-01",
+      "baseline_generation_attempts": 182,
+      "baseline_validated_responses": 179,
+      "baseline_usage": {
+        "input_tokens": 507443,
+        "output_tokens": 26406,
+        "total_tokens": 533849,
+        "reasoning_tokens": 0
+      },
+      "baseline_total_events": 225,
+      "baseline_status_counts": {
+        "pending_confirmation": 27,
+        "completed_no_signal": 82,
+        "completed_signal": 70,
+        "technical_failure": 3,
+        "input_failure": 1
+      },
+      "first_unstarted_date": "2026-08-22T02:09:59+08:00",
+      "user_reported_free_quota_reset": true,
+      "saved_dataset_get_requests": 2,
+      "actor_runs_started": 0,
+      "closed": true,
+      "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/42576742068",
+      "stop_http_status": 429,
+      "result": {
+        "id": "20261109-01",
+        "generation_attempts": 101,
+        "validated_responses": 97,
+        "added_events": 31,
+        "pine_count_delta_since_session": 32,
+        "historical_reference_event_delta_since_session": 1,
+        "service_reported_usage": {
+          "input_tokens": 297527,
+          "output_tokens": 16495,
+          "total_tokens": 314022,
+          "reasoning_tokens": 0
+        },
+        "status_counts": {
+          "completed_no_signal": 53,
+          "completed_signal": 31,
+          "input_failure": 0,
+          "pending_confirmation": 15,
+          "technical_failure": 2
+        },
+        "actor_runs_started": 0,
+        "saved_dataset_get_requests": 2,
+        "actual_points_deducted": null,
+        "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/42576742068",
+        "stop_http_status": 429
+      }
     }
-  ],
-  "stop_reason": "provider_access_quota_or_common_failure",
-  "stopped_at": "2026-09-04T16:11:55+08:00",
-  "closure_reason": "free_request_allowance_exhausted",
-  "service_quota_statement": {
-    "http_status": 429,
-    "source": "service error response in history-completion-20261107-014",
-    "shared_free_requests_per_24h_window": 100,
-    "remaining_free_requests": "exhausted, service statement only",
-    "actual_points_deducted": null,
-    "reset_time": null,
-    "note": "No retry, paid model, alternate provider or official OpenAI fallback. 429 response has no usage."
-  }
+  ]
 }
