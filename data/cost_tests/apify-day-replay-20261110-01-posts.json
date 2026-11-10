@@ -388,5 +388,25 @@
     "content_hash": "666f711cad0790ca16dd588749fc84e200ba708a4cb970b9012cf133669428af",
     "replay_first_seen_round": 8,
     "fetched_at": "2026-11-10T06:50:50.106287+00:00"
+  },
+  "threads:4027027180417050470": {
+    "key": "threads:4027027180417050470",
+    "post_id": "4027027180417050470",
+    "source": "threads",
+    "url": "https://www.threads.com/t/Dfi3-Jtmedm",
+    "published_at": "2026-11-10T02:51:10+00:00",
+    "display_time": "2026-11-10T10:51:10+08:00",
+    "unix_ms": 1794279070000,
+    "text": "台股你不可已軟啊啊啊\n我買很多啊啊啊啊",
+    "attachments": [],
+    "quoted_content": {},
+    "quote_flag": null,
+    "analysis": {
+      "status": "cost_test_only",
+      "reason": "未呼叫 AI；不寫入正式事件"
+    },
+    "content_hash": "711f0074ad2fd20e7c6fc10a3bff83be411f08760455132a8dec946fb0cffff2",
+    "replay_first_seen_round": 10,
+    "fetched_at": "2026-11-10T06:51:58.525345+00:00"
   }
 }
