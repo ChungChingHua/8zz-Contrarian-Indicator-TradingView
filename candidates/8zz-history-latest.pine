@@ -1,7 +1,7 @@
 // This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © hansai-art / Group.G
 // 8zz 反指標 v2
-// 事件: 284筆 | 期間: 2025/12 ~ 2026/09
+// 事件: 294筆 | 期間: 2025/12 ~ 2026/09
 // 情緒解讀框架：負面情緒（被套、停損、恐慌）→ 偏多 ▲（散戶恐慌→主力拉升）
 //               正面情緒（漲停追買、過度樂觀）→ 偏空 ▼（市場過熱→崩跌機率高）
 // 免責聲明：本指標僅供娛樂參考，不構成任何投資建議。
@@ -1565,6 +1565,56 @@ initEvtChunk015() =>
     array.push(evt_str, 1)
     array.push(evt_tips, "買進\n指標: 偏空 ▼ | 強度: 1\n2026-09-19T07:43:06+08:00 我這個人沒啥優點\n就是風向轉的快\n貼文及圖中提到「我今天買三張0050」，為主動買進且語氣平淡，屬於偏空（自信/加碼）但情緒強度輕微。\nhttps://www.threads.com/@banini31/post/DdcpHNdk3Eo")
     array.push(evt_ticker, "0050.TW")
+    array.push(evt_time, 1789954916000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "賣出(全部成交)\n指標: 偏空 ▼ | 強度: 3\n2026-09-21T09:41:56+08:00 先來兩張0050漱漱口(⊙ω⊙)/ \n早上賣飛了一隻股票⋯ 讓我思考高點回落4%賣出⋯這個策略對嗎_(:_」∠)_\n發文提到賣出0050且圖示有「全部成交」委託回報，已真金白銀成交且語氣在反思策略（非痛苦），屬於主動出脫/自信調整的偏空訊號。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02YUz5MP8mP3FopxQv9CRbFxJREUrsk96ctPoeJi89L9aBXeGibo7oyk27nNQVTh6Fl")
+    array.push(evt_ticker, "0050.TW")
+    array.push(evt_time, 1789968201000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "賣飛/抱怨損失\n指標: 偏多 ▲ | 強度: 2\n2026-09-21T13:23:21+08:00 991真的很廢_(:_」∠)_\n\n沒關係， 今天除了早上低點賣飛的很乾， 一來一回大蓋差了6%_(:_」∠)_\n其他還好\n\n是說周邊的衣服跟御守要到10月才能出喔～\n沒辦法，到處缺人缺貨⋯我頭好痛😭😭😭😭\n賣飛造成約6%損失並表達沮喪與頭痛，情緒偏痛苦（偏多），強度為明顯而非極端。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02wNsSscxTRi4kstPTtQf1qjZ95aXD76Eo8eoheEDrU7NYj2vedmurQ4Lx29A51Ctfl")
+    array.push(evt_ticker, "00991.TW")
+    array.push(evt_time, 1789968858000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "自嘲交易策略\n指標: 偏空 ▼ | 強度: 2\n2026-09-21T13:34:18+08:00 我的白癡投資法\n大漲買0050， 大跌賣0050買正二，大漲後再賣掉買0050\n其實根本沒差多少😩\n\n要翻身果然還是要衝個股啊\n雖自稱『白癡投資法』但語氣帶自嘲且提到主動以0050與正二買賣，表現出習慣性交易和對策略自信不足但仍在操作，屬於主動交易傾向偏空（亢奮/追漲傾向較高）\nhttps://www.threads.com/@banini31/post/Ddia5NvGejz")
+    array.push(evt_ticker, "0050.TW")
+    array.push(evt_time, 1789989000000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "曝險/調整成本\n指標: 偏多 ▲ | 強度: 3\n2026-09-21T19:10:00+08:00 一天100點\n台股五萬點\n台股無敵強大！ \n\n但是⋯⋯ \n我一堆股票都離好遠😱😱 \n還有那個亞翔怎麼可以爛成這樣🤣\n\n創哥哥帶我飛了～這就是戀愛的感覺嗎？\n我決定投入更多再創哥哥身上了❤️\n\n說一下閒話， 我發現一隻哀鳳Duo可以買 18 pro max+ fold 8\n我開始猶豫我有沒有資格買那個神貴的東西了\n多檔持股顯示大幅虧損與負報酬（如台半5425顯示 -33.73%），發文語氣帶痛苦、嫉妒與決定投入更多在單一標的（戀愛式投入）但整體為被套、情緒負面，屬偏多訊號，且有對帳單/持倉截圖證明真實持股強度設為3。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02VEGaRwK7KcgLfjKDw131z9s9UYvpzz8n8cZ8K6fqAR14DthzCvcsdUQJsGNxqRRTl")
+    array.push(evt_ticker, "5425.TWO")
+    array.push(evt_time, 1790002805000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "懊悔/自責\n指標: 偏多 ▲ | 強度: 2\n2026-09-21T23:00:05+08:00 如果我能夠穿越到過去\n我一定會一棒子把自己打暈\n\n啊～可惡⋯⋯\n文中表達後悔與自責情緒，與投資相關且情緒偏消極（痛苦/懊悔），判定為偏多訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02XYVKLFXE8AjPhtqTJzdnddngiitD3bKZK3TxbRaDb7hSdVMvS2r4XuMDFmZ7Aog1l")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1790007454000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "\n指標: 偏多 ▲ | 強度: 2\n2026-09-22T00:17:34+08:00 好焦慮\n感覺7🌕大跌都吃到了\n9月大漲沒吃到,btc大漲也沒吃到\n發文者表達焦慮、錯失行情與遭遇大跌的痛苦情緒，偏多（悲觀/恐慌）傾向。\nhttps://www.threads.com/@banini31/post/DdjkgndmQkM")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1790038639000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "考慮減碼\n指標: 偏空 ▼ | 強度: 2\n2026-09-22T08:57:19+08:00 看來中秋5萬點沒懸念了\n\n開始要考慮是5萬點後要不要減碼而已\n預期大盤達目標點位後打算減碼且語氣為預期與主動調整，屬於自信/有計畫的偏空情緒（打算賣或減碼）。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid029CbryPqW6PBtP9LEVUZNUR9Q3Lo5LR4fC2RxHdDvWLX8YBZ98fY36sfde3jYowR5l")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1790070186000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "出場/了結\n指標: 偏多 ▲ | 強度: 3\n2026-09-22T17:43:06+08:00 今天開始把沒有力氣的都先出了\n亞翔還是一樣沒力，但是至少沒有跌\n\n期待明天能反轉大漲一波～讓我把正二清一清啊！\n\n至於\n華冠投顧高閔漳先生（他名號真的很長，就不能取個錯號什麼的嗎？）\n推薦的3檔之一有賺錢的，我就先閃了\n\n至於剩下兩檔⋯ \n傷人的話我也不想講_(:_」∠)_\n就期待他能轉正吧_(:_」∠)_⋯\n已將部分持股賣出並期待反轉，語氣帶有被套、無奈與希望止損/了結的情緒（附有委託/成交截圖，強度3）\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid035edXXwWPkfChLakbNh2PZUqhUBEi2TR73aLhUHrLwjB9sYEE5tCT3y5w9iquJiWjl")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1790074437000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "加碼/自信\n指標: 偏空 ▼ | 強度: 2\n2026-09-22T18:53:57+08:00 沒關係⋯ 明天一定會漲的啊⋯ \n我早上才趁著氣勢一股作氣⋯⋯\n語氣樂觀、自信表示剛趁勢加碼並期待明天上漲，屬於亢奮/追漲傾向，偏空訊號\nhttps://www.threads.com/@banini31/post/DdlkRAmia7e")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1790074442000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "追買/持續加碼\n指標: 偏空 ▼ | 強度: 2\n2026-09-22T18:54:02+08:00 沒關係⋯ 明天一定會漲的啊⋯ \n我早上才趁著氣勢一股作氣⋯⋯\n語氣樂觀並提到趁氣勢一股作氣，屬於亢奮/自信的追漲態度，偏空訊號\nhttps://www.facebook.com/reel/1832134174633227/")
+    array.push(evt_ticker, "")
     0
 
 if barstate.isfirst
