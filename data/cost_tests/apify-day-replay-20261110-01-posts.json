@@ -368,5 +368,25 @@
     "content_hash": "4e6ad7df4118a78161397ddfdec7dc4dc9391af10bdecda2490f42e9758f1422",
     "replay_first_seen_round": 4,
     "fetched_at": "2026-11-10T06:48:05.215031+00:00"
+  },
+  "threads:4027013070392517757": {
+    "key": "threads:4027013070392517757",
+    "post_id": "4027013070392517757",
+    "source": "threads",
+    "url": "https://www.threads.com/t/Dfi0w0umeR9",
+    "published_at": "2026-11-10T02:23:08+00:00",
+    "display_time": "2026-11-10T10:23:08+08:00",
+    "unix_ms": 1794277388000,
+    "text": "本次用力補倉週期結束\n\n謝謝大家\n\n接下來回到小額個股\n之後有漲到目標價會出正二回歸原形 ：）",
+    "attachments": [],
+    "quoted_content": {},
+    "quote_flag": null,
+    "analysis": {
+      "status": "cost_test_only",
+      "reason": "未呼叫 AI；不寫入正式事件"
+    },
+    "content_hash": "666f711cad0790ca16dd588749fc84e200ba708a4cb970b9012cf133669428af",
+    "replay_first_seen_round": 8,
+    "fetched_at": "2026-11-10T06:50:50.106287+00:00"
   }
 }
