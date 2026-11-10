@@ -94,7 +94,7 @@
         "timeoutSecs": 0,
         "memoryMbytes": 4096
       },
-      "status": "READY",
+      "status": "RUNNING",
       "input": {
         "startUrls": [
           {
@@ -132,8 +132,8 @@
         "actor-start": 0,
         "filter-applied": 0
       },
-      "duration_seconds": null,
-      "cost_observed_at": "2026-11-10T06:24:02.505900+00:00",
+      "duration_seconds": "0.229",
+      "cost_observed_at": "2026-11-10T06:24:05.691805+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     },
     "threads": {
@@ -288,7 +288,7 @@
     "candidates/8zz-original-author-batch-01.pine": "cb5e43acdc5dc912162f14148bd4df5c81d93d9e"
   },
   "http_requests": {
-    "GET": 2,
+    "GET": 3,
     "POST": 2
   },
   "start_utc": "2026-11-10T06:08:58.944807+00:00",
