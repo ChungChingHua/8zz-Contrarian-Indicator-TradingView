@@ -58,9 +58,24 @@
           "WtSFzLrRdWNhy5gau",
           "Oj9NE5ScBXIT9vPC6",
           "kWt9Urhq4kCqkuhm8",
-          "OOXjrQahLFqRxZtAL"
+          "OOXjrQahLFqRxZtAL",
+          "ttRbjiJIOVqzJI5Xw"
         ],
-        "observed_cost": {},
+        "observed_cost": {
+          "platform_usd": {
+            "facebook": "0.202",
+            "threads": "0.455"
+          },
+          "observed_total_usd": "0.657",
+          "missing_costs": [],
+          "basis": "Sum usageTotalUsd once per run; do not add usageUsd/event charges/externalChargedTotalUsd.",
+          "billing_finality": "API observations only; not independently settled invoice. Zero does not establish free service.",
+          "monthly_estimates_usd": {
+            "20": "13.140",
+            "22": "14.454",
+            "23": "15.111"
+          }
+        },
         "unresolved_submissions": 0
       }
     }
