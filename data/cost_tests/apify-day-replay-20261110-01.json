@@ -1596,7 +1596,7 @@
         "maxTotalChargeUsd": "0.10",
         "restartOnError": "false"
       },
-      "status": "reserved_not_submitted"
+      "status": "submission_unknown"
     }
   ],
   "pricing": {
@@ -1886,7 +1886,7 @@
     "GET": 55,
     "POST": 14
   },
-  "updated_at": "2026-11-10T06:50:11.268300+00:00",
+  "updated_at": "2026-11-10T06:50:12.438618+00:00",
   "monthly_runs_before": 8,
   "uncertain_streak": {
     "facebook": 0,
