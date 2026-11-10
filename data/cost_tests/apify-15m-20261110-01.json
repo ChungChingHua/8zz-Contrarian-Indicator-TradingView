@@ -95,6 +95,99 @@
         "memoryMbytes": 4096
       },
       "status": "not_started"
+    },
+    "threads": {
+      "actor": "automation-lab~threads-scraper",
+      "pricing": {
+        "pricingModel": "PAY_PER_EVENT",
+        "startedAt": "2026-08-25T20:07:35.923Z",
+        "pricingPerEvent": {
+          "actorChargeEvents": {
+            "start": {
+              "eventTitle": "Start",
+              "eventDescription": "One-time charge per run",
+              "isOneTimeEvent": true,
+              "eventTieredPricingUsd": {
+                "FREE": {
+                  "tieredEventPriceUsd": "0.02"
+                },
+                "BRONZE": {
+                  "tieredEventPriceUsd": "0.0174"
+                },
+                "SILVER": {
+                  "tieredEventPriceUsd": "0.0134"
+                },
+                "GOLD": {
+                  "tieredEventPriceUsd": "0.0104"
+                },
+                "PLATINUM": {
+                  "tieredEventPriceUsd": "0.007"
+                },
+                "DIAMOND": {
+                  "tieredEventPriceUsd": "0.0048"
+                }
+              }
+            },
+            "profile": {
+              "eventTitle": "Profile scraped",
+              "eventDescription": "Per profile extracted",
+              "isOneTimeEvent": false,
+              "eventTieredPricingUsd": {
+                "FREE": {
+                  "tieredEventPriceUsd": "0.005"
+                },
+                "BRONZE": {
+                  "tieredEventPriceUsd": "0.00435"
+                },
+                "SILVER": {
+                  "tieredEventPriceUsd": "0.00335"
+                },
+                "GOLD": {
+                  "tieredEventPriceUsd": "0.0026"
+                },
+                "PLATINUM": {
+                  "tieredEventPriceUsd": "0.00175"
+                },
+                "DIAMOND": {
+                  "tieredEventPriceUsd": "0.0012"
+                }
+              }
+            },
+            "post": {
+              "eventTitle": "Post extracted",
+              "eventDescription": "Per post extracted",
+              "isOneTimeEvent": false,
+              "eventTieredPricingUsd": {
+                "FREE": {
+                  "tieredEventPriceUsd": "0.005"
+                },
+                "BRONZE": {
+                  "tieredEventPriceUsd": "0.00435"
+                },
+                "SILVER": {
+                  "tieredEventPriceUsd": "0.00335"
+                },
+                "GOLD": {
+                  "tieredEventPriceUsd": "0.0026"
+                },
+                "PLATINUM": {
+                  "tieredEventPriceUsd": "0.00175"
+                },
+                "DIAMOND": {
+                  "tieredEventPriceUsd": "0.0012"
+                }
+              },
+              "isPrimaryEvent": true
+            }
+          }
+        }
+      },
+      "defaultRunOptions": {
+        "build": "latest",
+        "timeoutSecs": 900,
+        "memoryMbytes": 1024
+      },
+      "status": "not_started"
     }
   },
   "cap_usd_per_run": "0.10",
@@ -115,7 +208,7 @@
     "candidates/8zz-original-author-batch-01.pine": "cb5e43acdc5dc912162f14148bd4df5c81d93d9e"
   },
   "http_requests": {
-    "GET": 1,
+    "GET": 2,
     "POST": 0
   }
 }
