@@ -3479,7 +3479,58 @@
         "maxTotalChargeUsd": "0.10",
         "restartOnError": "false"
       },
-      "status": "submission_unknown"
+      "status": "READY",
+      "id": "qM9OH7YzoEZLCiKDx",
+      "startedAt": "2026-11-10T06:55:25.949Z",
+      "finishedAt": null,
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "35hB3dGRm9tQLaho5",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": 0,
+      "chargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "accountedChargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "duration_seconds": null,
+      "cost_observed_at": "2026-11-10T06:55:26.118779+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:55:26.118779+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again"
     }
   ],
   "pricing": {
@@ -3767,9 +3818,9 @@
   },
   "apify_http_requests": {
     "GET": 120,
-    "POST": 31
+    "POST": 32
   },
-  "updated_at": "2026-11-10T06:55:24.680101+00:00",
+  "updated_at": "2026-11-10T06:55:26.118808+00:00",
   "monthly_runs_before": 8,
   "uncertain_streak": {
     "facebook": 0,
