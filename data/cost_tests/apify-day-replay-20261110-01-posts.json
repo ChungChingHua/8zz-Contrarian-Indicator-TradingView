@@ -259,5 +259,74 @@
     "content_hash": "851aa10c4c71ac2ff8ae19d25f7a52bf0e894bf11f194732e8fe922a0ff5d841",
     "replay_first_seen_round": 1,
     "fetched_at": "2026-11-10T06:46:25.918946+00:00"
+  },
+  "threads:4026780710220697727": {
+    "key": "threads:4026780710220697727",
+    "post_id": "4026780710220697727",
+    "source": "threads",
+    "url": "https://www.threads.com/t/Dfh_7idGZB_",
+    "published_at": "2026-11-09T18:41:29+00:00",
+    "display_time": "2026-11-10T02:41:29+08:00",
+    "unix_ms": 1794249689000,
+    "text": "就算是資金在股票最高的時期， 我還是有2成的現金⋯\n至少夠我撐好一陣子的貸款_(:_」∠)_",
+    "attachments": [],
+    "quoted_content": {},
+    "quote_flag": null,
+    "analysis": {
+      "status": "cost_test_only",
+      "reason": "未呼叫 AI；不寫入正式事件"
+    },
+    "content_hash": "771d70073199a233227a94df902e37680de0b2c775caeb3612761d5d83d21359",
+    "replay_first_seen_round": 1,
+    "fetched_at": "2026-11-10T06:46:39.582223+00:00"
+  },
+  "threads:4026685187656644582": {
+    "key": "threads:4026685187656644582",
+    "post_id": "4026685187656644582",
+    "source": "threads",
+    "url": "https://www.threads.com/t/DfhqNgImffm",
+    "published_at": "2026-11-09T15:31:42+00:00",
+    "display_time": "2026-11-09T23:31:42+08:00",
+    "unix_ms": 1794238302000,
+    "text": "勇氣下的夠不夠重  決心壓個片甲不留\n是跌停還是漲停  風雲變色～",
+    "attachments": [],
+    "quoted_content": {},
+    "quote_flag": null,
+    "analysis": {
+      "status": "cost_test_only",
+      "reason": "未呼叫 AI；不寫入正式事件"
+    },
+    "content_hash": "081b0067e9202bff2b0d0599f4f43865fbc813b73e566d85a5006991ffd97684",
+    "replay_first_seen_round": 1,
+    "fetched_at": "2026-11-10T06:46:39.582289+00:00"
+  },
+  "threads:4026647813303313518": {
+    "key": "threads:4026647813303313518",
+    "post_id": "4026647813303313518",
+    "source": "threads",
+    "url": "https://www.threads.com/t/DfhhtojjCRu",
+    "published_at": "2026-11-09T14:17:28+00:00",
+    "display_time": "2026-11-09T22:17:28+08:00",
+    "unix_ms": 1794233848000,
+    "text": "沒關係，爸爸我原諒你\n記得給我三張NV股票就好",
+    "attachments": [
+      {
+        "type": "video",
+        "url": "https://scontent-dfw6-1.cdninstagram.com/v/t51.71878-15/892612151_2677307986032108_7223114368357925480_n.jpg",
+        "videoUrl": "https://scontent-dfw6-1.cdninstagram.com/o1/v/t2/f2/m86/AQOK0qFHJ_LPbhW9rBs0npQxZ_v0987W88eSvMBFe_6Tq8hqW2KPTDiHu3LGvfy_HT5f2vql44eY7FCM1fKcQpbJreduUbgWcP6Zo04.mp4",
+        "width": 1080,
+        "height": 1920,
+        "hasAudio": true
+      }
+    ],
+    "quoted_content": {},
+    "quote_flag": null,
+    "analysis": {
+      "status": "cost_test_only",
+      "reason": "未呼叫 AI；不寫入正式事件"
+    },
+    "content_hash": "487544a6470e299998ee11b427ce7b5a515cea4c067ad6ed7b540de2efec159e",
+    "replay_first_seen_round": 1,
+    "fetched_at": "2026-11-10T06:46:39.582468+00:00"
   }
 }
