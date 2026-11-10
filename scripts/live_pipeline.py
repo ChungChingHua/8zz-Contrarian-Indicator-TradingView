@@ -183,7 +183,10 @@ def classify(state,docs,key,raw,now):
     posts=[copy.deepcopy(raw.get(g[0]['key']) or archive[g[0]['key']]) for g in groups]
     worker=h.Worker(docs.document(path),h.Provider(key),plan,prepare=prepare,secrets=(key,docs.token),
         local=ROOT/path,generation_limit=allowance,continue_isolated_failures=True)
+    if state.get('consecutive_isolated_failures'):
+        worker.state['consecutive_isolated_failures']=state['consecutive_isolated_failures'];worker.save()
     worker.run(posts)
+    state['consecutive_isolated_failures']=worker.state.get('consecutive_isolated_failures',0)
     if worker.state['stopped']:state['ai_stop']=worker.state.get('stop_reason')
     docs.save(CONTROL,state)
 
@@ -205,7 +208,7 @@ def run(action,docs,apify=None,ai_key='',telegram=None,chat_id='',now=None,calen
     if action=='resume-ai':
         # Resume only unsent live rows in a new plan. Existing completed/review/failure/unknown remain untouched.
         if any(r['status']=='unknown' for r in hc.ledger_records()[0].values()):raise ValueError('unknown_request_requires_manual_reconciliation')
-        state['previous_ai_stop']=state.get('ai_stop');state['ai_stop']=None;state['ai_resumed_at']=h.now();docs.save(CONTROL,state);return
+        state['previous_ai_stop']=state.get('ai_stop');state['ai_stop']=None;state['consecutive_isolated_failures']=0;state['ai_resumed_at']=h.now();docs.save(CONTROL,state);return
     if action=='retry-notifications':
         outbox=docs.load(OUTBOX,{'records':{}})
         for r in outbox['records'].values():
