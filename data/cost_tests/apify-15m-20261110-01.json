@@ -361,5 +361,10 @@
     "8zz-indicator.pine": "5d2a61dc91a84741fec24f3b4db262f7574ffc77",
     "candidates/8zz-original-author-batch-01.pine": "cb5e43acdc5dc912162f14148bd4df5c81d93d9e"
   },
-  "formal_state_unchanged": true
+  "formal_state_unchanged": true,
+  "observation_http_requests": {
+    "GET": 3,
+    "POST": 0
+  },
+  "observation_formal_state_unchanged": true
 }
