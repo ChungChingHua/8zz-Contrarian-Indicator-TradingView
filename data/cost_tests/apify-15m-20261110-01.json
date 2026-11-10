@@ -94,7 +94,7 @@
         "timeoutSecs": 0,
         "memoryMbytes": 4096
       },
-      "status": "RUNNING",
+      "status": "SUCCEEDED",
       "input": {
         "startUrls": [
           {
@@ -107,7 +107,7 @@
       },
       "id": "WuaouaiFfCjRf8fV5",
       "startedAt": "2026-11-10T06:24:02.352Z",
-      "finishedAt": null,
+      "finishedAt": "2026-11-10T06:24:11.572Z",
       "buildId": "ndtSgN95ZPtNihh5c",
       "buildNumber": "0.0.413",
       "defaultDatasetId": "jkYbrreEgXuJQo9ex",
@@ -121,19 +121,19 @@
         "isMaxTotalChargeUsdSetByUser": true,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": 0,
+      "usageTotalUsd": "0.001",
       "chargedEventCounts": {
         "post": 0,
-        "actor-start": 0,
+        "actor-start": 1,
         "filter-applied": 0
       },
       "accountedChargedEventCounts": {
         "post": 0,
-        "actor-start": 0,
+        "actor-start": 1,
         "filter-applied": 0
       },
-      "duration_seconds": "0.229",
-      "cost_observed_at": "2026-11-10T06:24:05.691805+00:00",
+      "duration_seconds": "9.065",
+      "cost_observed_at": "2026-11-10T06:24:11.948445+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     },
     "threads": {
@@ -288,7 +288,7 @@
     "candidates/8zz-original-author-batch-01.pine": "cb5e43acdc5dc912162f14148bd4df5c81d93d9e"
   },
   "http_requests": {
-    "GET": 3,
+    "GET": 4,
     "POST": 2
   },
   "start_utc": "2026-11-10T06:08:58.944807+00:00",
