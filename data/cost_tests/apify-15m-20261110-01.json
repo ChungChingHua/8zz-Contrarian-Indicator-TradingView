@@ -1,6 +1,6 @@
 {
   "test_id": "apify-15m-20261110-01",
-  "status": "preflight",
+  "status": "completed",
   "actors": {
     "facebook": {
       "actor": "apify~facebook-posts-scraper",
@@ -309,5 +309,19 @@
   "end_taipei": "2026-11-10T14:23:58.944807+08:00",
   "monthly_runs_before": 6,
   "reserved_starts": 2,
-  "monthly_runs_after": 8
+  "monthly_runs_after": 8,
+  "formal_shas_after": {
+    "data/live_control.json": "ec8d2202928c1fa224cbc86929a0c281773cf150",
+    "data/live_posts.json": "0967ef424bce6791893e9a57bb952f80fd536e93",
+    "data/telegram_outbox.json": "92c46407988568161186231714a1e98de335baaa",
+    "data/history_completion_control.json": "0fbc1e9ebbaa60a9537d47400559115c1572c333",
+    "data/acquisition.json": "7a1ecdeaeef59eabaa22e47fb70c326589c83df4",
+    "data/social_posts.json": "25be466bde2d60d6f071a5f321ffbcec5d01d10d",
+    "data/new_events.json": "0637a088a01e8ddab3bf3fa98dbe804cbde1a0dc",
+    "data/social_report.json": "8e789bf292c16b7f058a8062d3fc0bf210894caf",
+    "docs/social-status.json": "8e789bf292c16b7f058a8062d3fc0bf210894caf",
+    "8zz-indicator.pine": "5d2a61dc91a84741fec24f3b4db262f7574ffc77",
+    "candidates/8zz-original-author-batch-01.pine": "cb5e43acdc5dc912162f14148bd4df5c81d93d9e"
+  },
+  "formal_state_unchanged": true
 }
