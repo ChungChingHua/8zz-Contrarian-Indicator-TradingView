@@ -168,8 +168,8 @@ def build(refresh_market=False):
     result={'publication':publication,'events':ev,'history':{k:summary[k] for k in ('post_status_counts','archive_posts','remaining_not_started_groups','latest_signal_date')},'inventory':[{k:r.get(k) for k in ('url','display_time','status')} for r in inventory],'market':{k:market[k] for k in ('symbol','fetched_at','series','errors')},'hold_bars':hold,'built_at':datetime.now(UTC).isoformat(),
         'platform_cutoffs':{k:min(v.get('completed_until') or publication['before'],publication['before']) for k,v in (live.get('sources') or sources).items()},
         'live_status':{'enabled':read('data/live_settings.json').get('enabled',False) if (ROOT/'data/live_settings.json').exists() else False,'ai_stop':bool(live.get('ai_stop')),'notifications':'通知狀態由後端管理'},
-        'modes':{m:simulate(ev,market['series'].get('30m' if m=='A' else '1d',[]),m,hold) for m in ['A','B']},
-        'available_modes':{m:simulate(ev,market['series'].get('30m' if m=='A' else '1d',[]),m,hold,'available') for m in ['A','B']}}
+        'modes':{m:simulate(ev,market['series'].get('30m',[]),m,hold) for m in ['A','B']},
+        'available_modes':{m:simulate(ev,market['series'].get('30m',[]),m,hold,'available') for m in ['A','B']}}
     from futures_performance import simulate_futures,daytime_only
     imported=read('data/shioaji_market_import.json') if (ROOT/'data/shioaji_market_import.json').exists() else {}
     futures=imported.get('symbols',{}).get('TXF',{})
@@ -178,9 +178,9 @@ def build(refresh_market=False):
     fs=daytime_only(fs)
     fm={'symbol':'TXFR1','fetched_at':imported.get('fetched_at'),'series':fs,'errors':futures.get('errors',[])}
     result['instruments']={'TXF':{'name':'台指期貨・日盤 TXFR1','market':fm,
-       'modes':{m:simulate_futures(ev,fs['30m' if m=='A' else '1d'],m,hold) for m in ('A','B')},
-       'available_modes':{m:simulate_futures(ev,fs['30m' if m=='A' else '1d'],m,hold,'available') for m in ('A','B')},
-       'disclosure':'TXFR1 未調整近月連續資料；結算週及跨換約區段交易排除，不銜接價差獲利。結算週採每月第三個星期三所在週的保守範圍，非已驗證逐月轉倉。僅使用08:45–13:45日盤行情，A持有17根日盤30分鐘棒，B採完整日盤收盤；夜間訊號順延下個有效日盤成交時點。非強制當沖，跨日持倉價差仍反映於次日日盤價格。等額名目本金1倍報酬，不是保證金報酬；未含每點200元口數、費稅、滑價與追繳。'}}
+       'modes':{m:simulate_futures(ev,fs['30m'],m,hold) for m in ('A','B')},
+       'available_modes':{m:simulate_futures(ev,fs['30m'],m,hold,'available') for m in ('A','B')},
+       'disclosure':'TXFR1 未調整近月連續資料；結算週及跨換約區段交易排除，不銜接價差獲利。結算週採每月第三個星期三所在週的保守範圍，非已驗證逐月轉倉。僅使用08:45–13:45日盤行情，A持有17根日盤30分鐘棒，B於反向訊號後的有效30分鐘棒收盤出場，與A共用進場時點；夜間訊號順延下個有效日盤成交時點。非強制當沖，跨日持倉價差仍反映於次日日盤價格。等額名目本金1倍報酬，不是保證金報酬；未含每點200元口數、費稅、滑價與追繳。'}}
     from public_dashboard import finalize
     result=finalize(result, ROOT/'docs')
     from publication_scope import assert_boundary

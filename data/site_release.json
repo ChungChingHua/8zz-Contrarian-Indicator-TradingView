@@ -3,9 +3,9 @@
   "project_id": "appgprj_6af2d13db444819181d0f47426072148",
   "access": "owner-private",
   "source_checkout": "/workspace/sites/8zz-september",
-  "source_commit": "e3b856e7eb6a264ecb3bb6ba83a7bf117572cfd6",
-  "version_id": "appgprj_6af2d13db444819181d0f47426072148~appgver_9c78950b071081919c4e6916fde45076",
-  "deployment_id": "appgdep_6af2ef463d9c819181dfc25c27d44e39",
+  "source_commit": "457152dc8b7036f2b49addcc6a2eb9c7d1fa638d",
+  "version_id": "appgprj_6af2d13db444819181d0f47426072148~appgver_f28c7b00b64c819183b0f717f887ef90",
+  "deployment_id": "appgdep_6af2f029d2a48191b8b00ce11eb825f4",
   "publication_policy": "data/publication_policy.json",
   "future_updates": "Reuse this project_id. Rebuild from saved judgments only, enforce publication boundary, package allowlisted assets, push the matching Site source, then deploy the saved version. Do not create a second Site or include November posts.",
   "status": "succeeded",
@@ -14,5 +14,6 @@
     "0050",
     "TXFR1"
   ],
-  "futures_session": "daytime_only_0845_1345_Asia_Taipei"
+  "futures_session": "daytime_only_0845_1345_Asia_Taipei",
+  "entry_rule": "Both modes use first valid 30-minute close strictly after signal; A exits after 17 bars, B on reversal."
 }

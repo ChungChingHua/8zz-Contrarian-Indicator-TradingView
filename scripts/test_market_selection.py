@@ -42,3 +42,34 @@ class MarketTests(unittest.TestCase):
                 for trade in m['trades']:
                     for key in ('entry','exit','mark'):
                         if trade.get(key):check(trade[key]['time'])
+    def test_both_modes_use_same_intraday_entry_candidates(self):
+        from build_audited_dashboard import simulate
+        ts=lambda s:int(datetime.fromisoformat(s).replace(tzinfo=TZ).timestamp()*1000)
+        times=['2026-09-01T09:15:00','2026-09-01T09:45:00','2026-09-01T10:15:00','2026-09-01T10:45:00']
+        bars=[{'time':ts(t),'price':100+i} for i,t in enumerate(times)]
+        events=[{'id':1,'unix_ms':ts('2026-09-01T09:05:00'),'direction':1,'is_flip':True},{'id':2,'unix_ms':ts('2026-09-01T10:00:00'),'direction':-1,'is_flip':True}]
+        a=simulate(events,bars,'A',hold=3);b=simulate(events,bars,'B',hold=3)
+        self.assertEqual(a['trades'][0]['entry'],b['trades'][0]['entry'])
+        self.assertEqual(b['trades'][0]['entry']['time'],ts(times[0]))
+        self.assertEqual(a['trades'][0]['exit']['time'],ts(times[3]))
+        self.assertEqual(b['trades'][0]['exit']['time'],ts(times[2]))
+        self.assertEqual(b['trades'][1]['entry'],b['trades'][0]['exit'])
+        self.assertFalse(a['rows']['2']['trade'])
+    def test_published_b_uses_intraday_not_daily_close(self):
+        import json
+        from build_audited_dashboard import ROOT
+        d=json.loads((ROOT/'docs/dashboard-data.json').read_text())
+        for item in (d,d['instruments']['TXF']):
+            valid={b['time'] for b in item['market']['series']['30m']}
+            for modes in (item['modes'],item['available_modes']):
+                for trade in modes['B']['trades']:
+                    self.assertIn(trade['entry']['time'],valid)
+                    if trade['exit']:self.assertIn(trade['exit']['time'],valid)
+                self.assertTrue(all(p['time'] in valid for p in modes['B']['curve']))
+    def test_pine_shared_entry_is_chart_close_not_daily_override(self):
+        from build_audited_dashboard import ROOT
+        pine=(ROOT/'candidates/8zz-history-latest.pine').read_text()
+        self.assertIn('entryPriceA := close',pine)
+        self.assertIn('flipPrice := close',pine)
+        self.assertIn('time_close > array.get(evt_time, i)',pine)
+        self.assertIn('bar_index - entryBarA == holdBars',pine)
