@@ -4314,19 +4314,19 @@
         "isMaxTotalChargeUsdSetByUser": true,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": 0,
+      "usageTotalUsd": "0.035",
       "chargedEventCounts": {
-        "start": 0,
+        "start": 1,
         "profile": 0,
-        "post": 0
+        "post": 3
       },
       "accountedChargedEventCounts": {
-        "start": 0,
+        "start": 1,
         "profile": 0,
-        "post": 0
+        "post": 3
       },
       "duration_seconds": "3.949",
-      "cost_observed_at": "2026-11-10T06:55:59.386476+00:00",
+      "cost_observed_at": "2026-11-10T06:58:17.867124+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution",
       "cap_message": false,
       "cost_snapshots": [
@@ -4363,6 +4363,23 @@
             "profile": 0,
             "post": 0
           }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:17.867124+00:00",
+          "usageTotalUsd": "0.035",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 3
+          },
+          "accountedChargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 3
+          }
         }
       ],
       "cost_basis": "usageTotalUsd only; other fee fields are not added again",
@@ -4381,7 +4398,8 @@
         "threads:4027056616092826145",
         "threads:4027027180417050470"
       ],
-      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency."
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true
     },
     {
       "round": 18,
@@ -5335,10 +5353,10 @@
     "docs/social-status.json": "8e789bf292c16b7f058a8062d3fc0bf210894caf"
   },
   "apify_http_requests": {
-    "GET": 181,
+    "GET": 182,
     "POST": 40
   },
-  "updated_at": "2026-11-10T06:58:16.578424+00:00",
+  "updated_at": "2026-11-10T06:58:17.867152+00:00",
   "monthly_runs_before": 8,
   "uncertain_streak": {
     "facebook": 0,
