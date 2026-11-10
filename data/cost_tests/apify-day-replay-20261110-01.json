@@ -2810,10 +2810,10 @@
         "maxTotalChargeUsd": "0.10",
         "restartOnError": "false"
       },
-      "status": "READY",
+      "status": "SUCCEEDED",
       "id": "JhBwQD109rIaGvNSP",
       "startedAt": "2026-11-10T06:53:25.200Z",
-      "finishedAt": null,
+      "finishedAt": "2026-11-10T06:53:30.130Z",
       "buildId": "u7xlWkUJn0xIkKQVC",
       "buildNumber": "0.1.68",
       "defaultDatasetId": "Fet17jFpA53DTgiXu",
@@ -2838,14 +2838,31 @@
         "profile": 0,
         "post": 0
       },
-      "duration_seconds": null,
-      "cost_observed_at": "2026-11-10T06:53:25.356221+00:00",
+      "duration_seconds": "4.771",
+      "cost_observed_at": "2026-11-10T06:53:31.725755+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution",
       "cap_message": false,
       "cost_snapshots": [
         {
           "phase": "submission",
           "observed_at": "2026-11-10T06:53:25.356221+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:53:31.725755+00:00",
           "usageTotalUsd": 0,
           "usageUsd": null,
           "externalChargedTotalUsd": null,
@@ -3148,10 +3165,10 @@
     "docs/social-status.json": "8e789bf292c16b7f058a8062d3fc0bf210894caf"
   },
   "apify_http_requests": {
-    "GET": 96,
+    "GET": 97,
     "POST": 26
   },
-  "updated_at": "2026-11-10T06:53:25.356253+00:00",
+  "updated_at": "2026-11-10T06:53:31.725784+00:00",
   "monthly_runs_before": 8,
   "uncertain_streak": {
     "facebook": 0,
