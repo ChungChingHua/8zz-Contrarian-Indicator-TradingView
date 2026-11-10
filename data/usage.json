@@ -1,6 +1,6 @@
 {
   "2026-11": {
-    "apify_runs": 8,
+    "apify_runs": 9,
     "ai_attempts": 10,
     "cost_test_reservations": {
       "apify-15m-20261110-01": {
@@ -13,6 +13,15 @@
         },
         "observed_total_usd": "0.008",
         "billing_finality": "unverified; delayed accounting observed; details in ledger"
+      },
+      "apify-day-replay-20261110-01": {
+        "ledger": "data/cost_tests/apify-day-replay-20261110-01.json",
+        "authorized_max_starts": 40,
+        "authorized_maximum_usd": "4.00",
+        "reserved_starts": 1,
+        "started_run_ids": [],
+        "observed_cost": {},
+        "unresolved_submissions": 0
       }
     }
   }
