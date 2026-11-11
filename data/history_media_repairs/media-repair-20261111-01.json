@@ -265,7 +265,12 @@
       },
       "duration_seconds": "17.269",
       "cost_observed_at": "2026-11-11T12:27:40.548067+00:00",
-      "billing_finality": "not independently confirmed; zero is not proof of free execution"
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "rows": 2,
+      "matched_keys": [
+        "threads:3992201729433763729",
+        "threads:3992213198011063292"
+      ]
     }
   },
   "posts": {},
@@ -277,7 +282,7 @@
   "workflow_run_id": "43020412869",
   "monthly_runs_before": 48,
   "http_requests": {
-    "GET": 10,
+    "GET": 11,
     "POST": 2
   }
 }
