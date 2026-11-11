@@ -1,0 +1,123 @@
+{
+  "executed_at": "2026-11-11T17:27:37.213967+08:00",
+  "source_snapshot": "51e27179cc4fa3447ce9e011c2e7d194ad5a9520",
+  "max_image_requests": 6,
+  "image_http_requests": 4,
+  "ai_requests": 0,
+  "actor_starts": 0,
+  "dns": [
+    {
+      "key": "facebook:1660785808739341",
+      "host": "scontent-ord5-2.xx.fbcdn.net",
+      "public_ipv4_count": 1,
+      "public_ipv6_count": 1,
+      "production_first_family": "IPv4"
+    },
+    {
+      "key": "threads:3992201729433763729",
+      "host": "scontent-lga3-2.cdninstagram.com",
+      "public_ipv4_count": 1,
+      "public_ipv6_count": 1,
+      "production_first_family": "IPv4"
+    },
+    {
+      "key": "threads:3992213198011063292",
+      "host": "scontent-lga3-3.cdninstagram.com",
+      "public_ipv4_count": 1,
+      "public_ipv6_count": 1,
+      "production_first_family": "IPv4"
+    }
+  ],
+  "probes": [
+    {
+      "key": "facebook:1660785808739341",
+      "variant": "production_first_address",
+      "host": "scontent-ord5-2.xx.fbcdn.net",
+      "ip_family": "IPv4",
+      "url_sha256": "1a590ea59826e0507d245aeb5aa306488bee2da4e82c01f86ba8aded061d324d",
+      "phase": "tcp_connect",
+      "started_at": "2026-11-11T17:27:26.458548+08:00",
+      "image_analysis_performed": false,
+      "oe_timestamp_hint_taipei": "2026-11-11T10:19:12+08:00",
+      "oe_hint_before_probe": true,
+      "error_type": "TimeoutError",
+      "elapsed_seconds": 10.01
+    },
+    {
+      "key": "threads:3992201729433763729",
+      "variant": "production_first_address",
+      "host": "scontent-lga3-2.cdninstagram.com",
+      "ip_family": "IPv4",
+      "url_sha256": "a994ef3faf723048c16de796ae138c27c0c15373fe4c1a213c8d14c77961adce",
+      "phase": "completed",
+      "started_at": "2026-11-11T17:27:36.556321+08:00",
+      "image_analysis_performed": false,
+      "oe_timestamp_hint_taipei": "2026-11-11T11:22:07+08:00",
+      "oe_hint_before_probe": true,
+      "tcp_seconds": 0.064,
+      "tls_seconds": 0.066,
+      "http_status": 403,
+      "content_type": "text/plain",
+      "body_prefix_bytes": 21,
+      "body_prefix_sha256": "16366d2552aa8349747c1168a3ef03665652b08d80385b6664c4cbf6a5b2f932",
+      "error_markers": [
+        "url_signature_expired"
+      ],
+      "elapsed_seconds": 0.261
+    },
+    {
+      "key": "threads:3992213198011063292",
+      "variant": "production_first_address",
+      "host": "scontent-lga3-3.cdninstagram.com",
+      "ip_family": "IPv4",
+      "url_sha256": "6311db41a8abd11d0a9b160cb757cf572f1982d9c5418994971d628d498467f7",
+      "phase": "completed",
+      "started_at": "2026-11-11T17:27:36.906840+08:00",
+      "image_analysis_performed": false,
+      "oe_timestamp_hint_taipei": "2026-11-11T07:34:38+08:00",
+      "oe_hint_before_probe": true,
+      "tcp_seconds": 0.063,
+      "tls_seconds": 0.064,
+      "http_status": 403,
+      "content_type": "text/plain",
+      "body_prefix_bytes": 21,
+      "body_prefix_sha256": "16366d2552aa8349747c1168a3ef03665652b08d80385b6664c4cbf6a5b2f932",
+      "error_markers": [
+        "url_signature_expired"
+      ],
+      "elapsed_seconds": 0.253
+    },
+    {
+      "key": "facebook:1660785808739341",
+      "variant": "alternate_validated_dns_address",
+      "host": "scontent-ord5-2.xx.fbcdn.net",
+      "ip_family": "IPv6",
+      "url_sha256": "1a590ea59826e0507d245aeb5aa306488bee2da4e82c01f86ba8aded061d324d",
+      "phase": "tcp_connect",
+      "started_at": "2026-11-11T17:27:37.178455+08:00",
+      "image_analysis_performed": false,
+      "oe_timestamp_hint_taipei": "2026-11-11T10:19:12+08:00",
+      "oe_hint_before_probe": true,
+      "error_type": "OSError",
+      "errno": 101,
+      "elapsed_seconds": 0.0
+    }
+  ],
+  "controls": [
+    {
+      "platform": "facebook",
+      "same_host_future_hint_control": "not_found"
+    },
+    {
+      "platform": "threads",
+      "same_host_future_hint_control": "not_found"
+    }
+  ],
+  "offline_corpus": {
+    "recognized_image_posts": 411,
+    "oe_hint_before_execution": 411,
+    "future_oe_hint": 0
+  },
+  "safety": "TLS hostname/certificate verification and existing public-IP/domain restrictions retained. No redirects, cookies, API credentials, URL rewriting or raw body/query/header output. At most 4096 bytes read per response; image prefixes are transport evidence, not completed image download or analysis.",
+  "oe_note": "Timestamp hint only; semantics inferred only when corroborated by explicit CDN error marker, not independently documented."
+}
