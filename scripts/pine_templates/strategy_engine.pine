@@ -47,7 +47,7 @@ if barstate.isconfirmed and dayBar
         while eventCursor < array.size(evt_time)
             int eventTime = array.get(evt_time, eventCursor)
             // Strictly after event time, identical for A and B.
-            if eventTime >= time_close
+            if eventTime >= decisionClose
                 break
             int d = array.get(evt_dir, eventCursor)
             if eventTime >= startAt and eventTime < publicationBefore and d != 0
@@ -63,7 +63,7 @@ if barstate.isconfirmed and dayBar
         flipNow := signalDir != beforeDir and signalDir != 0
 
         // Terminal liquidation is separate from A/B rules; never use October/November fills.
-        if time_close == finishAt
+        if decisionClose == finishAt
             strategy.cancel_all()
             strategy.close_all(comment="回測截止日盤收盤", immediately=true)
             cutoffReached := true
@@ -96,7 +96,7 @@ if barstate.isconfirmed and dayBar
                     else
                         strategy.close("L", comment="B：偏空訊號平多", immediately=true)
 
-if barstate.isconfirmed and time_close > finishAt
+if barstate.isconfirmed and decisionClose > finishAt
     strategy.cancel_all()
 
 plotshape(showSignals and flipNow and signalDir == 1, title="偏多翻轉訊號（非成交）", style=shape.triangleup, location=location.belowbar, color=color.lime, size=size.small, text="訊號")

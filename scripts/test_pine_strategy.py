@@ -33,7 +33,7 @@ class StrategyTests(unittest.TestCase):
         self.assertIn('if barstate.isconfirmed and dayBar',self.text)
         self.assertIn('inWindow and not dayBar',self.text)
         self.assertIn('dayBarCount - entryDayBarA >= holdBars',self.text)
-        self.assertIn('if eventTime >= time_close\n                break',self.text)
+        self.assertIn('if eventTime >= decisionClose\n                break',self.text)
         self.assertIn('flipNow := signalDir != beforeDir',self.text)
     def test_cutoff_and_confirmed_htf_no_secret_or_network(self):
         self.assertIn('2026, 9, 30',self.text)
@@ -47,8 +47,43 @@ class StrategyTests(unittest.TestCase):
     def test_regular_equity_bars_are_not_rebased_to_futures_session(self):
         self.assertIn('input.string("自動依圖表"',self.text)
         self.assertIn('chartIsFutures = syminfo.type == "futures"',self.text)
-        self.assertIn('time >= dayStart and time < dayEnd and time_close <= dayEnd',self.text)
+        self.assertIn('time >= dayStart and time < dayEnd and (time_close <= dayEnd or closingMinuteMarker)',self.text)
         self.assertNotIn('time(timeframe.period, daySession',self.text)
         self.assertNotIn('time_close(timeframe.period, daySession',self.text)
         self.assertIn('futuresProfile != chartIsFutures',self.text)
         self.assertIn('str.format_time(time, "yyyy-MM-dd HH:mm", tz)',self.text)
+
+    def _eval_session_expressions(self, profile, day, opening, closing, cutoff_day=None):
+        # Evaluate the actual generated Pine's pure timestamp/boolean expressions,
+        # using concrete RTH boundary fixtures; this is not a Pine broker emulator.
+        from datetime import datetime
+        from zoneinfo import ZoneInfo
+        tz=ZoneInfo('Asia/Taipei')
+        stamp=lambda d,t:int(datetime.fromisoformat(d+'T'+t).replace(tzinfo=tz).timestamp()*1000)
+        start='08:45' if profile=='TXF' else '09:00';end='13:45' if profile=='TXF' else '13:30'
+        scope={'time':stamp(day,opening),'time_close':stamp(day,closing),'dayStart':stamp(day,start),'dayEnd':stamp(day,end),'weekday':datetime.fromisoformat(day).weekday()<5,'startAt':stamp('2025-12-01','00:00'),'finishAt':stamp(cutoff_day or day,end)}
+        for name in ('closingMinuteMarker','dayBar','decisionClose','inWindow'):
+            expr=re.search(r'^(?:bool|int) '+name+r' = (.+)$',self.text,re.M)[1]
+            if '?' in expr:
+                condition,body=expr.split('?',1);yes,no=body.split(':',1);expr=f'({yes}) if ({condition}) else ({no})'
+            scope[name]=eval(expr,{'__builtins__':{}},scope)
+        return scope
+    def test_user_reported_rth_1315_to_1346_is_accepted(self):
+        x=self._eval_session_expressions('TXF','2025-12-01','13:15','13:46')
+        self.assertTrue(x['closingMinuteMarker']);self.assertTrue(x['dayBar']);self.assertTrue(x['inWindow'])
+        self.assertEqual(x['decisionClose'],x['dayEnd'])
+        self.assertGreater(x['time_close'],x['decisionClose']) # Never pretend native fill is 13:45.
+    def test_real_night_and_broader_overrun_still_rejected(self):
+        for opening,closing in [('15:00','15:30'),('00:30','01:00'),('13:45','14:15'),('13:15','13:47')]:
+            self.assertFalse(self._eval_session_expressions('TXF','2025-12-01',opening,closing)['dayBar'])
+        self.assertFalse(self._eval_session_expressions('TXF','2025-12-06','13:15','13:46')['dayBar'])
+    def test_stock_regular_and_auction_marker(self):
+        self.assertTrue(self._eval_session_expressions('ETF','2025-12-01','09:00','09:30')['dayBar'])
+        self.assertTrue(self._eval_session_expressions('ETF','2025-12-01','13:00','13:31')['dayBar'])
+        self.assertFalse(self._eval_session_expressions('ETF','2025-12-01','08:45','09:15')['dayBar'])
+    def test_cutoff_tail_bar_closes_and_is_not_cancelled_by_raw_close(self):
+        x=self._eval_session_expressions('TXF','2026-09-30','13:15','13:46')
+        self.assertTrue(x['inWindow']);self.assertEqual(x['decisionClose'],x['finishAt'])
+        self.assertIn('if decisionClose == finishAt',self.text)
+        self.assertIn('if barstate.isconfirmed and decisionClose > finishAt',self.text)
+        self.assertFalse(self._eval_session_expressions('TXF','2026-10-01','09:15','09:45','2026-09-30')['inWindow'])

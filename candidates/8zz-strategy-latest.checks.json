@@ -6,7 +6,7 @@
   "events": 294,
   "events_unchanged": true,
   "source_sha256": "69ec812b79d6c9ccc3a38ea7483bb2ae72fb600832bb55b78218f4b02b9eb683",
-  "strategy_sha256": "677183da6c72a2d4e6c2f28fb86b73a0333f3203d335c3dbdfafc24996fc7037",
+  "strategy_sha256": "628bec0760585cdf1a855ade202a41a9dbcc14ec20845247f889587dc9bf917a",
   "tradingview_compiled": false,
   "order_api": "TradingView strategy broker emulator only"
 }

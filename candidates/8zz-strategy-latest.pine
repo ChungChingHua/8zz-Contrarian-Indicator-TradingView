@@ -2,7 +2,7 @@
 // © hansai-art / Group.G · Strategy conversion preserves the saved event judgments.
 // Research backtest only: historical post-time signals, not a live AI feed or broker connection.
 //@version=6
-strategy("8zz 延續版－策略回測 A/B（日盤修正版）", overlay=true, max_labels_count=500,
+strategy("8zz 延續版－策略回測 A/B（日盤尾棒修正v3）", overlay=true, max_labels_count=500,
      pyramiding=0, initial_capital=20000000, currency=currency.TWD,
      default_qty_type=strategy.fixed, default_qty_value=1,
      commission_type=strategy.commission.cash_per_contract, commission_value=0, slippage=0,
@@ -52,8 +52,13 @@ int dayStart = timestamp(tz, year(time, tz), month(time, tz), dayofmonth(time, t
 int dayEnd = timestamp(tz, year(time, tz), month(time, tz), dayofmonth(time, tz), 13, sessionEndMinute)
 int localWeekday = dayofweek(time, tz)
 bool weekday = localWeekday >= dayofweek.monday and localWeekday <= dayofweek.friday
-bool dayBar = weekday and time >= dayStart and time < dayEnd and time_close <= dayEnd
-bool inWindow = time_close >= startAt and time_close <= finishAt
+// Some RTH feeds label the closing auction minute through 13:46 (TXF) / 13:31 (ETF).
+// This accepts only that final +1-minute marker, never a bar starting after dayEnd.
+bool closingMinuteMarker = time >= dayStart and time < dayEnd and time_close == dayEnd + 60 * 1000 and time_close - time <= 31 * 60 * 1000
+bool dayBar = weekday and time >= dayStart and time < dayEnd and (time_close <= dayEnd or closingMinuteMarker)
+// Logical signal cutoff remains the exchange day close. Native fill timestamps remain unchanged.
+int decisionClose = closingMinuteMarker ? dayEnd : time_close
+bool inWindow = decisionClose >= startAt and decisionClose <= finishAt
 
 float emaBasis = ta.ema(close, emaLen)
 float rsiValue = ta.rsi(close, rsiLen)
@@ -1652,7 +1657,7 @@ if barstate.isconfirmed and dayBar
         while eventCursor < array.size(evt_time)
             int eventTime = array.get(evt_time, eventCursor)
             // Strictly after event time, identical for A and B.
-            if eventTime >= time_close
+            if eventTime >= decisionClose
                 break
             int d = array.get(evt_dir, eventCursor)
             if eventTime >= startAt and eventTime < publicationBefore and d != 0
@@ -1668,7 +1673,7 @@ if barstate.isconfirmed and dayBar
         flipNow := signalDir != beforeDir and signalDir != 0
 
         // Terminal liquidation is separate from A/B rules; never use October/November fills.
-        if time_close == finishAt
+        if decisionClose == finishAt
             strategy.cancel_all()
             strategy.close_all(comment="回測截止日盤收盤", immediately=true)
             cutoffReached := true
@@ -1701,7 +1706,7 @@ if barstate.isconfirmed and dayBar
                     else
                         strategy.close("L", comment="B：偏空訊號平多", immediately=true)
 
-if barstate.isconfirmed and time_close > finishAt
+if barstate.isconfirmed and decisionClose > finishAt
     strategy.cancel_all()
 
 plotshape(showSignals and flipNow and signalDir == 1, title="偏多翻轉訊號（非成交）", style=shape.triangleup, location=location.belowbar, color=color.lime, size=size.small, text="訊號")
