@@ -82,7 +82,21 @@
     "media_repair_reservations": {
       "media-repair-20261111-01": {
         "ledger": "data/history_media_repairs/media-repair-20261111-01.json",
-        "reserved_starts": 2
+        "reserved_starts": 2,
+        "runs": [
+          {
+            "source": "facebook",
+            "id": "9Ese4DLwPHsgVPn46",
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.006"
+          },
+          {
+            "source": "threads",
+            "id": "cpP8JIHtvctY2cOJ3",
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.03"
+          }
+        ]
       }
     }
   }
