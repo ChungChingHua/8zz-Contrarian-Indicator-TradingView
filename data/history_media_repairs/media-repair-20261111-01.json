@@ -1,0 +1,17 @@
+{
+  "id": "media-repair-20261111-01",
+  "status": "preflight",
+  "actors": {},
+  "posts": {},
+  "max_starts": 2,
+  "cap_usd_per_start": "0.10",
+  "ai_requests": 0,
+  "actor_starts_reserved": 0,
+  "artifact_name": "media-repair-20261111-01-cache",
+  "workflow_run_id": "43020412869",
+  "monthly_runs_before": 48,
+  "http_requests": {
+    "GET": 0,
+    "POST": 0
+  }
+}
