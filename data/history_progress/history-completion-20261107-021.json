@@ -5,7 +5,7 @@
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "created_at": "2026-11-11T12:41:05.136254+00:00",
   "max_generations": 25,
-  "reserved_generation_attempts": 1,
+  "reserved_generation_attempts": 2,
   "stopped": false,
   "finished": false,
   "provider_settings": {
@@ -314,9 +314,30 @@
           "post_id": "3996269137484140688"
         }
       ],
-      "status": "not_started",
-      "attempts": 0,
-      "context_used": []
+      "status": "unknown",
+      "attempts": 1,
+      "context_used": [],
+      "media_scope": {
+        "analysis_scope": "text_and_images",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 1,
+        "image_evidence": [
+          {
+            "sha256": "a6608e4ee2f1bd51727e5fcf6a5629e619a30cbc74b09f8ad3aa57423ca2243f",
+            "bytes": 666995,
+            "mime": "image/jpeg",
+            "attachment_index": 0
+          }
+        ],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": [],
+        "cache_verified": true,
+        "media_refresh_session": "20261111-media-repair-01"
+      },
+      "request_sha256": "9fa421c914dca200af5d9b119f6250fc0cc311998dd5f4aec9bc9fff2fe9c646",
+      "dispatch_reserved_at": "2026-11-11T12:41:13.559850+00:00"
     },
     {
       "key": "facebook:1666228418195080",
@@ -871,6 +892,6 @@
       "context_used": []
     }
   ],
-  "updated_at": "2026-11-11T12:41:12.332464+00:00",
+  "updated_at": "2026-11-11T12:41:13.559871+00:00",
   "consecutive_isolated_failures": 0
 }
