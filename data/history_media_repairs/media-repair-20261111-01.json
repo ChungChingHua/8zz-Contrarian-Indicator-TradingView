@@ -273,7 +273,12 @@
       ]
     }
   },
-  "posts": {},
+  "posts": {
+    "facebook:1660785808739341": {
+      "status": "checking",
+      "images_sent_to_ai": 0
+    }
+  },
   "max_starts": 2,
   "cap_usd_per_start": "0.10",
   "ai_requests": 0,
