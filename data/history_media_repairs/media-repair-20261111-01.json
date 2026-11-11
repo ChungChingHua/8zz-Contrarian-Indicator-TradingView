@@ -222,7 +222,7 @@
           }
         }
       },
-      "status": "submission_unknown",
+      "status": "READY",
       "requested_keys": [
         "threads:3992201729433763729",
         "threads:3992213198011063292"
@@ -235,7 +235,37 @@
         ],
         "maxPosts": 2,
         "includeProfile": false
-      }
+      },
+      "id": "cpP8JIHtvctY2cOJ3",
+      "startedAt": "2026-11-11T12:27:23.062Z",
+      "finishedAt": null,
+      "buildId": "XIJLhhENkO7p8W54Y",
+      "buildNumber": "0.1.70",
+      "defaultDatasetId": "d9X313ujvC0bp0AGf",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": 0,
+      "chargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "accountedChargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "duration_seconds": null,
+      "cost_observed_at": "2026-11-11T12:27:23.198520+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution"
     }
   },
   "posts": {},
@@ -248,6 +278,6 @@
   "monthly_runs_before": 48,
   "http_requests": {
     "GET": 5,
-    "POST": 1
+    "POST": 2
   }
 }
