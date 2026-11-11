@@ -1,7 +1,7 @@
 // This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © hansai-art / Group.G
 // 8zz 反指標 v2
-// 事件: 317筆 | 期間: 2025/12 ~ 2026/10
+// 事件: 327筆 | 期間: 2025/12 ~ 2026/10
 // 情緒解讀框架：負面情緒（被套、停損、恐慌）→ 偏多 ▲（散戶恐慌→主力拉升）
 //               正面情緒（漲停追買、過度樂觀）→ 偏空 ▼（市場過熱→崩跌機率高）
 // 免責聲明：本指標僅供娛樂參考，不構成任何投資建議。
@@ -1733,6 +1733,59 @@ initEvtChunk016() =>
     array.push(evt_str, 2)
     array.push(evt_tips, "後悔/懊惱\n指標: 偏多 ▲ | 強度: 2\n2026-10-01T13:35:09+08:00 握不住， 3天少賺60萬🫠\n表達因短持握不住而後悔少賺，情緒偏向痛苦/懊惱，顯示偏多情緒但強度非極端。\nhttps://www.threads.com/@banini31/post/Dd8K8LtGRW7")
     array.push(evt_ticker, "")
+    array.push(evt_time, 1790864366000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "不明（情緒痛苦）\n指標: 偏多 ▲ | 強度: 2\n2026-10-01T22:19:26+08:00 啊啊啊啊啊啊啊啊啊啊啊啊啊\n貼文只有長音式哭喊加上附圖為Micron股價下跌走勢，呈現痛苦/驚慌情緒，偏多（被套/恐慌）傾向。\nhttps://www.threads.com/@banini31/post/Dd9G8KSmVT0")
+    array.push(evt_ticker, "MU")
+    array.push(evt_time, 1790865514000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "\n指標: 偏多 ▲ | 強度: 2\n2026-10-01T22:38:34+08:00 看著美光的我 be like .... \n\n今天這是AI生的⋯\n忘記帶ipad_(:_」∠)_\n提到『看著美光的我 be like...』配上崩潰圖，顯示對持股感到痛苦或被套，偏多情緒\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0C4AXLdGu6GA2Xb3iAveGs4yoULB9PMLzHwYzFuNbBGrGPX1XCwD2vwsvHmx5iAdJl")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1790876556000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "減碼\n指標: 偏空 ▼ | 強度: 2\n2026-10-02T01:42:36+08:00 股票就是一直漲一直漲一直漲\n唯一的問題是我的信念不夠\n今天還在減碼個股\n\n我要檢討\n發文者說「股票一直漲」且自己在減碼並檢討，語氣帶有自信與從容的了結傾向，屬於偏空訊號。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0Eq992bPoMHWNQBbuoj2WYRERPgqAqRSj7tWJuFKtVrpYuLimqwtvbPpPe9miRHeql")
+    array.push(evt_ticker, "")
+    0
+
+initEvtChunk017() =>
+    array.push(evt_time, 1790907722000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "買進(委託/成交)\n指標: 偏空 ▼ | 強度: 3\n2026-10-02T10:22:02+08:00 是時候相信哲哲了！ \n到底這次會不會讓我翻身呢！ \n\n愛你越久我越～\n貼文語氣樂觀期待翻身且附圖顯示委託狀態與「全部成交」，情緒亢奮追買，強度強制為3\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid029xqBaEs8F6vy5nfufaXsY31ZE42URe2inbpYyKK2HXb2YvyFPCcxYQZAtKWj1KHbl")
+    array.push(evt_ticker, "9904.TW")
+    array.push(evt_time, 1791040372000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "喊價(鼓勵買進)\n指標: 偏空 ▼ | 強度: 2\n2026-10-03T23:12:52+08:00 衝啊啊啊！ 雖然我的個股撤了60%\n但是我的981可以的！ 上啊！\n雖然承認其他個股大跌，但對981表現樂觀並號召上攻，情緒偏亢奮/自信，屬偏空訊號\nhttps://www.threads.com/@banini31/post/DeCWpAukqKJ")
+    array.push(evt_ticker, "981.TW")
+    array.push(evt_time, 1791040376000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "亢奮喊單\n指標: 偏空 ▼ | 強度: 2\n2026-10-03T23:12:56+08:00 衝啊啊啊！ 雖然我的個股撤了60%\n但是我的981可以的！ 上啊！\n雖然承認其他個股下跌60%但對981表現自信並呼喊上攻，語氣亢奮帶有追漲自信，屬偏空訊號\nhttps://www.facebook.com/reel/1432886775456146/")
+    array.push(evt_ticker, "981.TW")
+    array.push(evt_time, 1791053846000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "\n指標: 偏多 ▲ | 強度: 2\n2026-10-04T02:57:26+08:00 好希望股票能賺錢\n別人動不動就1週60萬\n我就一周60塊\n羨慕別人獲利、表達沮喪與無力感，屬於痛苦/悲觀情緒偏多（想賺錢但挫折感強）\nhttps://www.threads.com/@banini31/post/DeCwV9UE5VL")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1791098560000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "觀望/徵詢意見\n指標: 偏空 ▼ | 強度: 2\n2026-10-04T15:22:40+08:00 上星期光聖終於漲了_(:_」∠)_ \n這是9月初， 業配乾爹的華冠投顧的David老師在節目後推給我的～\n\n只希望能夠趁這個氣勢⋯ 一口氣往上啊～🤣\n到底能不能像國巨一樣絕地大反攻呢？ \n\n下週碰到5萬到底是要減碼還是加碼呢？ \n我覺得好難啊～\n作者看到光聖上漲且想趁勢續漲，語氣帶期待與困惑（想知道是否減碼或加碼），屬於偏向亢奮的追漲/看好情緒，故偏空。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02EsDRqDqMZHvFUbQtGVkWku2yh5QsDyJFQkZB38h8JYkisCdvPp38jNCk3V8BuYZkl")
+    array.push(evt_ticker, "6442.TWO")
+    array.push(evt_time, 1791162670000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "買進(委託單)\n指標: 偏多 ▲ | 強度: 3\n2026-10-05T09:11:10+08:00 先買個0050壓壓驚 \n等11點半再來看看買啥其他的\n發文文字說先買0050且附上委託/成交截圖，已真金白銀下單但語氣為壓驚並非愉悅，屬於痛苦/防禦性買進偏多訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0Ue64Wxcv1hwxPWt7MAtLzK4rUwifje46jckTDQ5KxXjyspm7LKAe7mvLqcCRQJowl")
+    array.push(evt_ticker, "0050.TW")
+    array.push(evt_time, 1791163857000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "買進（持股展示）\n指標: 偏多 ▲ | 強度: 3\n2026-10-05T09:30:57+08:00 我就知道\n又是你\n你最爛\n貼文語句帶負面情緒（攻擊／不滿）但附上交易畫面與買進價格，顯示持股或剛買進且心情負面、可能被套/痛苦，屬偏多訊號。\nhttps://www.threads.com/@banini31/post/DeGCLHNmW7q")
+    array.push(evt_ticker, "2303.TW")
     0
 
 if barstate.isfirst
@@ -1752,6 +1805,7 @@ if barstate.isfirst
     initEvtChunk014()
     initEvtChunk015()
     initEvtChunk016()
+    initEvtChunk017()
 // END GENERATED EVENT INITIALIZATION
 
 var int currentDir = 0
