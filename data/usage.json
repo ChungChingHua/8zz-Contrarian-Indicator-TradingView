@@ -1,6 +1,6 @@
 {
   "2026-11": {
-    "apify_runs": 48,
+    "apify_runs": 49,
     "ai_attempts": 10,
     "cost_test_reservations": {
       "apify-15m-20261110-01": {
@@ -77,6 +77,12 @@
           }
         },
         "unresolved_submissions": 0
+      }
+    },
+    "media_repair_reservations": {
+      "media-repair-20261111-01": {
+        "ledger": "data/history_media_repairs/media-repair-20261111-01.json",
+        "reserved_starts": 1
       }
     }
   }
