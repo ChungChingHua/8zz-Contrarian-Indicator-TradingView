@@ -63,7 +63,8 @@
       "error_markers": [
         "url_signature_expired"
       ],
-      "elapsed_seconds": 0.261
+      "elapsed_seconds": 0.261,
+      "exact_error_message": "URL signature expired"
     },
     {
       "key": "threads:3992213198011063292",
@@ -85,7 +86,8 @@
       "error_markers": [
         "url_signature_expired"
       ],
-      "elapsed_seconds": 0.253
+      "elapsed_seconds": 0.253,
+      "exact_error_message": "URL signature expired"
     },
     {
       "key": "facebook:1660785808739341",
@@ -100,7 +102,7 @@
       "oe_hint_before_probe": true,
       "error_type": "OSError",
       "errno": 101,
-      "elapsed_seconds": 0.0
+      "elapsed_seconds": 0
     }
   ],
   "controls": [
@@ -119,5 +121,29 @@
     "future_oe_hint": 0
   },
   "safety": "TLS hostname/certificate verification and existing public-IP/domain restrictions retained. No redirects, cookies, API credentials, URL rewriting or raw body/query/header output. At most 4096 bytes read per response; image prefixes are transport evidence, not completed image download or analysis.",
-  "oe_note": "Timestamp hint only; semantics inferred only when corroborated by explicit CDN error marker, not independently documented."
+  "oe_note": "Timestamp hint only; semantics inferred only when corroborated by explicit CDN error marker, not independently documented.",
+  "findings": {
+    "threads": {
+      "confirmed": "Both probed Threads URLs returned HTTP 403 with the exact fixed 21-byte body URL signature expired; verified by byte length and SHA256.",
+      "affected_keys": [
+        "threads:3992201729433763729",
+        "threads:3992213198011063292"
+      ]
+    },
+    "facebook": {
+      "confirmed": "IPv4 failed during TCP connect after 10.010 seconds, before TLS or HTTP. Alternate validated IPv6 failed with errno 101 (network unreachable).",
+      "unresolved": "Cannot distinguish egress/route/CDN-edge drop from available probes. No Facebook HTTP response, so server-side expiry not established."
+    },
+    "workflow": {
+      "confirmed": "History worker reads original media from immutable snapshot 51e27179cc4fa3447ce9e011c2e7d194ad5a9520. The restoration helper reads only the two stored incremental datasets, not fresh media for September posts.",
+      "impact": "Old signed URL strings are reused without preserved image bytes or fresh URL lookup."
+    },
+    "request_count_basis": "4 attempted image connections/GETs: 2 yielded HTTP 403; 2 failed before HTTP. No provider API calls. Two prospective same-host controls were unavailable, so no control requests were sent.",
+    "protected_state": {
+      "before": "9dbf2a5c9d375347ad655a68ee1e6912d1edd422",
+      "after": "7f432f0ddfd04b73c2a0790088110d3358464b2e",
+      "protected_files": 38,
+      "changed": []
+    }
+  }
 }
