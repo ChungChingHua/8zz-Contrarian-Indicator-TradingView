@@ -492,6 +492,11 @@
       "posts": {
         "facebook:1671709160980339": {
           "status": "cached"
+        },
+        "facebook:1671838414300747": {
+          "status": "input_failure",
+          "error_type": "IndexError",
+          "safe_reason": null
         }
       },
       "input": {
@@ -574,5 +579,5 @@
     "GET": 79,
     "POST": 5
   },
-  "updated_at": "2026-11-11T12:49:44.411089+00:00"
+  "updated_at": "2026-11-11T12:49:45.579937+00:00"
 }
