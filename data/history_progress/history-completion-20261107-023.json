@@ -7321,11 +7321,14 @@
           "post_id": "1677083933776195"
         }
       ],
-      "status": "not_started",
+      "status": "input_failure",
       "attempts": 0,
-      "context_used": []
+      "context_used": [],
+      "error_type": "ValueError",
+      "reason": "refreshed_media_unavailable",
+      "auto_retry_eligible": false
     }
   ],
-  "updated_at": "2026-11-11T12:56:39.845825+00:00",
-  "consecutive_isolated_failures": 0
+  "updated_at": "2026-11-11T12:57:20.096712+00:00",
+  "consecutive_isolated_failures": 1
 }
