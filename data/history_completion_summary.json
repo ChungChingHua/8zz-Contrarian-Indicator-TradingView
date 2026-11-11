@@ -17,18 +17,18 @@
   "post_status_counts": {
     "completed_signal": 145,
     "completed_no_signal": 191,
-    "pending_confirmation": 70,
+    "pending_confirmation": 71,
     "technical_failure": 8,
-    "input_failure": 1,
-    "not_started": 251,
+    "input_failure": 4,
+    "not_started": 247,
     "unknown": 0
   },
-  "remaining_not_started_groups": 251,
-  "remaining_not_started_platform_posts": 251,
+  "remaining_not_started_groups": 247,
+  "remaining_not_started_platform_posts": 247,
   "latest_attempted_or_reviewed_date": "2026-11-06T22:07:49+08:00",
-  "all_posts_visited_before_first_unstarted": "2026-09-23T00:16:32+08:00",
+  "all_posts_visited_before_first_unstarted": "2026-09-23T10:02:01+08:00",
   "successfully_completed_contiguous_prefix": "2026-07-20T18:41:00+08:00",
-  "first_unstarted_date": "2026-09-23T08:59:55+08:00",
+  "first_unstarted_date": "2026-09-23T10:02:29+08:00",
   "latest_signal_date": "2026-09-22T18:54:02+08:00",
   "pine": {
     "historical_events": 151,
@@ -57,30 +57,30 @@
     "first_bar_calls": 15,
     "event_initialization_chunk_limit": 20
   },
-  "last_new_valid_response_date": "2026-09-22T21:50:05+08:00",
-  "new_stop_post_date": "2026-09-23T00:16:32+08:00",
-  "new_generation_attempts": 384,
-  "new_http_responses": 384,
+  "last_new_valid_response_date": "2026-09-23T08:59:55+08:00",
+  "new_stop_post_date": "2026-09-23T10:02:01+08:00",
+  "new_generation_attempts": 385,
+  "new_http_responses": 385,
   "new_status_counts": {
-    "pending_confirmation": 57,
+    "pending_confirmation": 58,
     "completed_no_signal": 183,
     "completed_signal": 138,
     "technical_failure": 6,
-    "input_failure": 1
+    "input_failure": 4
   },
   "service_reported_usage": {
-    "input_tokens": 1092245,
-    "output_tokens": 58740,
-    "total_tokens": 1150985,
+    "input_tokens": 1094612,
+    "output_tokens": 58849,
+    "total_tokens": 1153461,
     "reasoning_tokens": 0
   },
-  "new_validated_responses": 374,
+  "new_validated_responses": 375,
   "images_attached": 263,
   "videos_unanalysed": 51,
   "http_responses_without_usage": 4,
   "service_reported_cached_input_tokens": 772992,
   "apify_http_counts": {
-    "GET": 24,
+    "GET": 26,
     "POST": 2
   },
   "apify_runs": [
@@ -123,45 +123,37 @@
   "other_ai_provider_queries": 0,
   "actual_points_deducted": null,
   "quota_headers": {},
-  "stop_reason": "provider_access_quota_or_common_failure",
-  "service_quota_statement": {
-    "http_status": 429,
-    "source": "service error response in history-completion-20261107-019",
-    "shared_free_requests_per_24h_window": 100,
-    "remaining_free_requests": "exhausted, service statement only",
-    "actual_points_deducted": null,
-    "reset_time": null,
-    "note": "No retry, paid model, alternate provider or official OpenAI fallback. 429 response has no usage."
-  },
+  "stop_reason": "media_preflight_failure",
+  "service_quota_statement": null,
   "all_history_fully_classified": false,
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "provider_model_and_reasoning": "Service-reported gpt-5-mini / minimal, not independently verified",
   "usage_tracking_note": "ChatAnywhere request accounting is from durable ledgers; legacy usage.json ai_attempts is not the cumulative ChatAnywhere total.",
   "accounting_note": "Post counts include all prior tests, failures, reviews and cross-platform members; Pine counts are events, not posts. Tokens are service reports, not points or verified bills.",
   "current_session": {
-    "id": "20261110-01",
-    "generation_attempts": 101,
-    "validated_responses": 98,
-    "added_events": 37,
-    "pine_count_delta_since_session": 37,
+    "id": "20261111-01",
+    "generation_attempts": 1,
+    "validated_responses": 1,
+    "added_events": 0,
+    "pine_count_delta_since_session": 0,
     "historical_reference_event_delta_since_session": 0,
     "service_reported_usage": {
-      "input_tokens": 287275,
-      "output_tokens": 15839,
-      "total_tokens": 303114,
+      "input_tokens": 2367,
+      "output_tokens": 109,
+      "total_tokens": 2476,
       "reasoning_tokens": 0
     },
     "status_counts": {
-      "completed_no_signal": 48,
-      "completed_signal": 37,
-      "input_failure": 0,
-      "pending_confirmation": 15,
-      "technical_failure": 1
+      "completed_no_signal": 0,
+      "completed_signal": 0,
+      "input_failure": 3,
+      "pending_confirmation": 1,
+      "technical_failure": 0
     },
     "actor_runs_started": 0,
     "saved_dataset_get_requests": 2,
     "actual_points_deducted": null,
-    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/42774420492",
-    "stop_http_status": 429
+    "run_url": null,
+    "stop_http_status": null
   }
 }
