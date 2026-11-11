@@ -120,9 +120,9 @@
     "GET": 0,
     "POST": 0
   },
-  "last_chunk": "history-completion-20261107-019",
-  "updated_at": "2026-11-10T07:32:04.974575+00:00",
-  "consecutive_isolated_failures": 0,
+  "last_chunk": "history-completion-20261107-020",
+  "updated_at": "2026-11-11T09:13:29.065695+00:00",
+  "consecutive_isolated_failures": 3,
   "all_unstarted_visited": false,
   "blocker_history": [
     {
@@ -372,5 +372,7 @@
         "stop_http_status": 429
       }
     }
-  ]
+  ],
+  "stop_reason": "media_preflight_failure",
+  "stopped_at": "2026-09-23T10:02:01+08:00"
 }
