@@ -221,6 +221,20 @@
             }
           }
         }
+      },
+      "status": "submission_unknown",
+      "requested_keys": [
+        "threads:3992201729433763729",
+        "threads:3992213198011063292"
+      ],
+      "input": {
+        "mode": "urls",
+        "postUrls": [
+          "https://www.threads.com/@banini31/post/DdnJlJCmX-R",
+          "https://www.threads.com/@banini31/post/DdnMMB_E1v8"
+        ],
+        "maxPosts": 2,
+        "includeProfile": false
       }
     }
   },
@@ -228,7 +242,7 @@
   "max_starts": 2,
   "cap_usd_per_start": "0.10",
   "ai_requests": 0,
-  "actor_starts_reserved": 1,
+  "actor_starts_reserved": 2,
   "artifact_name": "media-repair-20261111-01-cache",
   "workflow_run_id": "43020412869",
   "monthly_runs_before": 48,
