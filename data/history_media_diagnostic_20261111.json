@@ -1,0 +1,46 @@
+{
+  "executed_at": "2026-11-11T09:17:52.806427+00:00",
+  "probes": [
+    {
+      "key": "facebook:1660785808739341",
+      "image_http_requests": 1,
+      "images_downloaded": 0,
+      "images_sent_to_ai": 0,
+      "ai_requests": 0,
+      "url_oe_timestamp_hint_taipei": "2026-11-11T10:19:12+08:00",
+      "oe_semantics_verified": false,
+      "error_type": "TimeoutError",
+      "safe_reason": null
+    },
+    {
+      "key": "threads:3992201729433763729",
+      "image_http_requests": 1,
+      "images_downloaded": 0,
+      "images_sent_to_ai": 0,
+      "ai_requests": 0,
+      "url_oe_timestamp_hint_taipei": "2026-11-11T11:22:07+08:00",
+      "oe_semantics_verified": false,
+      "http_status": 403,
+      "content_type": "text/plain",
+      "error_type": "ValueError",
+      "safe_reason": "media_http_status_rejected"
+    },
+    {
+      "key": "threads:3992213198011063292",
+      "image_http_requests": 1,
+      "images_downloaded": 0,
+      "images_sent_to_ai": 0,
+      "ai_requests": 0,
+      "url_oe_timestamp_hint_taipei": "2026-11-11T07:34:38+08:00",
+      "oe_semantics_verified": false,
+      "http_status": 403,
+      "content_type": "text/plain",
+      "error_type": "ValueError",
+      "safe_reason": "media_http_status_rejected"
+    }
+  ],
+  "image_http_requests": 3,
+  "ai_requests": 0,
+  "actor_starts": 0,
+  "note": "Existing pinned public-IP HTTPS transport, TLS verification, host/size/timeout guards retained; no redirects or raw URL/body/header logging. A successful download is not AI image analysis. oe is only a timestamp hint; expiration semantics unverified."
+}
