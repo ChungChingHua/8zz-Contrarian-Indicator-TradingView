@@ -10,8 +10,11 @@ class StrategyTests(unittest.TestCase):
         cls.text=(ROOT/'candidates/8zz-strategy-latest.pine').read_text()
         cls.source=(ROOT/'candidates/8zz-history-latest.pine').read_text()
     def test_original_judgments_and_initializers_preserved(self):
-        self.assertEqual(EVENT_PATTERN.findall(self.text),EVENT_PATTERN.findall(self.source))
-        self.assertEqual(len(EVENT_PATTERN.findall(self.text)),294)
+        from datetime import datetime
+        cutoff=int(datetime.fromisoformat('2026-10-01T00:00:00+08:00').timestamp()*1000)
+        expected=[m.groups() for m in EVENT_PATTERN.finditer(self.source) if int(m.group(1))<cutoff]
+        self.assertEqual(EVENT_PATTERN.findall(self.text),expected)
+        self.assertGreater(len(expected),0)
         self.assertEqual(check_initialization(self.text)['max_events_per_function'],20)
     def test_native_strategy_is_separate_and_reproducible(self):
         before=hashlib.sha256(self.source.encode()).hexdigest()

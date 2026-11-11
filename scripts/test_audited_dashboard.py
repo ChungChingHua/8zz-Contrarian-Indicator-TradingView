@@ -31,8 +31,12 @@ class AuditTests(unittest.TestCase):
         r=simulate([self.event(1,1,1)],[{'time':9*86400000,'price':100}],'A')
         self.assertEqual(r['stats']['missing'],1);self.assertEqual(len(r['trades']),0)
     def test_real_saved_sample_full_reconciliation(self):
-        d=json.loads((ROOT/'docs/dashboard-data.json').read_text());self.assertEqual(len(d['events']),len(events()))
-        self.assertEqual(sum(e['direction']==0 for e in d['events']),sum(e['direction']==0 for e in events()))
+        from datetime import datetime
+        d=json.loads((ROOT/'docs/dashboard-data.json').read_text())
+        limit=int(datetime.fromisoformat(d['publication']['before']).timestamp()*1000)
+        expected=[e for e in events() if e['unix_ms']<limit]
+        self.assertEqual(len(d['events']),len(expected))
+        self.assertEqual(sum(e['direction']==0 for e in d['events']),sum(e['direction']==0 for e in expected))
         for mode,m in d['modes'].items():
             s=m['stats'];ts=m['trades'];closed=[t for t in ts if t['exit']]
             self.assertEqual(s['settled'],s['wins']+s['losses']+s['ties'])

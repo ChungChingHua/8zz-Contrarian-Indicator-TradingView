@@ -1,0 +1,81 @@
+name: Resume authorized history 20261111
+on:
+  push:
+    branches: [codex/social-pipeline-20261106]
+    paths: [.github/workflows/history-resume-20261111.yml]
+permissions:
+  contents: write
+concurrency:
+  group: original-author-history-batch-01
+  cancel-in-progress: false
+jobs:
+  resume:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    env:
+      AUTHORIZED_HISTORY_SCOPE: history-completion-20261107
+      AUTHORIZED_RESUME_ID: 20261111-01
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Offline checks and deterministic existing Pine
+        run: |
+          python -m unittest discover -s scripts -p 'test*.py'
+          cp 8zz-indicator.pine /tmp/history-resume-before.pine
+          python scripts/social_pipeline.py
+          cmp /tmp/history-resume-before.pine 8zz-indicator.pine
+      - name: Read existing datasets only; no Actor start or history scraping
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/restore_saved_history_media.py
+      - name: Continue unstarted history until done or real blocker
+        env:
+          CHATANYWHERE_API_KEY: ${{ secrets.CHATANYWHERE_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/history_completion.py
+      - name: Persist final inventory and complete chunked Pine
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/history_completion.py publish-report
+      - name: Refresh September strategy from saved judgments only
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          PYTHONPATH=scripts python - <<'PY'
+          import os
+          from pathlib import Path
+          from unittest.mock import patch
+          from build_pine_strategy import build
+          from history_completion import Remote,publish_text
+          with patch('urllib.request.urlopen',side_effect=AssertionError('offline_only')), patch('urllib.request.OpenerDirector.open',side_effect=AssertionError('offline_only')):
+              build()
+          remote=Remote(os.environ.pop('GH_TOKEN'))
+          for path in ('candidates/8zz-strategy-latest.pine','candidates/8zz-strategy-latest.checks.json'):
+              publish_text(remote,path,Path(path).read_text())
+          PY
+      - name: Final offline regression
+        if: always()
+        run: python -m unittest discover -s scripts -p 'test*.py'
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: history-resume-20261111
+          path: |
+            data/history_progress/*.json
+            data/history_completion*.json
+            candidates/8zz-history-latest*
+            docs/HISTORY_COMPLETION.md
+          retention-days: 14
+          if-no-files-found: ignore
+      - name: Remove private saved media URLs
+        if: always()
+        run: rm -f /tmp/8zz-incremental-private.json

@@ -7,8 +7,14 @@ class ScopeTests(unittest.TestCase):
     def test_actual_release_excludes_later_posts_market_and_curves(self):
         data=json.loads((ROOT/'docs/dashboard-data.json').read_text());assert_boundary(data)
         self.assertEqual(len(data['inventory']),455)
-        self.assertEqual(data['history']['post_status_counts']['not_started'],45)
-        self.assertEqual(len(data['events']),294)
+        inventory=json.loads((ROOT/'data/history_completion_inventory.json').read_text())
+        boundary='2026-10-01T00:00:00+08:00'
+        expected=sum(r['status']=='not_started' and datetime.fromisoformat(r['display_time'])<datetime.fromisoformat(boundary) for r in inventory)
+        self.assertEqual(data['history']['post_status_counts']['not_started'],expected)
+        from update_pine_script import EVENT_PATTERN
+        cutoff=int(datetime.fromisoformat(boundary).timestamp()*1000)
+        source=(ROOT/'candidates/8zz-history-latest.pine').read_text()
+        self.assertEqual(len(data['events']),sum(int(m.group(1))<cutoff for m in EVENT_PATTERN.finditer(source)))
         self.assertEqual(data['publication']['before'],'2026-10-01T00:00:00+08:00')
     def test_october_and_november_are_removed_before_simulation(self):
         policy=json.loads((ROOT/'data/publication_policy.json').read_text())
