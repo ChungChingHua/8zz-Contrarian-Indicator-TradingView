@@ -358,9 +358,12 @@
           "post_id": "3992201729433763729"
         }
       ],
-      "status": "not_started",
+      "status": "input_failure",
       "attempts": 0,
-      "context_used": []
+      "context_used": [],
+      "error_type": "ValueError",
+      "reason": "media_http_status_rejected",
+      "auto_retry_eligible": false
     },
     {
       "key": "threads:3992213198011063292",
@@ -891,6 +894,6 @@
       "context_used": []
     }
   ],
-  "updated_at": "2026-11-11T09:13:24.783597+00:00",
-  "consecutive_isolated_failures": 1
+  "updated_at": "2026-11-11T09:13:26.250558+00:00",
+  "consecutive_isolated_failures": 2
 }
