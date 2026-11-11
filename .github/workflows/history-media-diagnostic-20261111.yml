@@ -1,8 +1,6 @@
 name: Bounded public media diagnosis 20261111
 on:
-  push:
-    branches: [codex/social-pipeline-20261106]
-    paths: [.github/workflows/history-media-diagnostic-20261111.yml]
+  workflow_dispatch: {}
 permissions:
   contents: write
 concurrency:
@@ -10,7 +8,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   diagnose:
-    if: github.event_name == 'push'
+    if: ${{ false }} # Three bounded diagnostic GETs completed; no rerun.
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:

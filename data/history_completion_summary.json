@@ -153,7 +153,16 @@
     "actor_runs_started": 0,
     "saved_dataset_get_requests": 2,
     "actual_points_deducted": null,
-    "run_url": null,
-    "stop_http_status": null
+    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/42993255197",
+    "stop_http_status": null,
+    "media_diagnostic": "data/history_media_diagnostic_20261111.json"
+  },
+  "media_blocker": {
+    "new_input_failures": 3,
+    "generation_attempts_for_failed_posts": 0,
+    "confirmed_image_http_403": 2,
+    "confirmed_image_timeouts": 1,
+    "diagnostic": "data/history_media_diagnostic_20261111.json",
+    "cause": "Signed image URL timestamps precede probes, but expiration semantics and sole cause unverified. No TLS bypass or generation retry."
   }
 }

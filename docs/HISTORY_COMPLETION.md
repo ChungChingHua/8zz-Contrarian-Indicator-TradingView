@@ -170,8 +170,17 @@
     "actor_runs_started": 0,
     "saved_dataset_get_requests": 2,
     "actual_points_deducted": null,
-    "run_url": null,
-    "stop_http_status": null
+    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/42993255197",
+    "stop_http_status": null,
+    "media_diagnostic": "data/history_media_diagnostic_20261111.json"
+  },
+  "media_blocker": {
+    "new_input_failures": 3,
+    "generation_attempts_for_failed_posts": 0,
+    "confirmed_image_http_403": 2,
+    "confirmed_image_timeouts": 1,
+    "diagnostic": "data/history_media_diagnostic_20261111.json",
+    "cause": "Signed image URL timestamps precede probes, but expiration semantics and sole cause unverified. No TLS bypass or generation retry."
   }
 }
 ```
@@ -197,3 +206,17 @@
 本次 API 次數僅指 AI 生成及 Apify 啟動／讀取；GitHub 進度保存與圖片下載另計，沒有把上述數字宣稱為全部 HTTP 流量。data/usage.json 的 ai_attempts 為舊流程計數，不等於 ChatAnywhere 全部呼叫量，應以本次及既有帳本查核。
 
 只做一次性執行，不啟用持續排程、不發布 Pages、不合併 PR。
+
+## 2026/11/11 續跑與圖片存取阻塞
+
+本輪只有1次AI生成（HTTP 200）：2026/9/23 08:59:55貼文資訊不足，保留待確認；不是新訊號。接下來三篇在送出AI前發生圖片問題，attempts均為0：Facebook 9/23 09:02:50逾時，Threads 9/23 09:39:13與10:02:01遭HTTP拒絕。連續三筆觸發既有共同故障保護，未自動重送、未當成完成。
+
+另以相同公網IP固定、TLS、主機白名單、大小及逾時防護做三次有上限的圖片GET診斷；Threads兩張確為HTTP 403，Facebook再次逾時。三個URL的oe時間戳提示均早於測試時刻，但oe語意與過期是否唯一原因未獨立驗證。沒有保存完整URL、query、錯誤body或憑證；原始模型回應與圖片失敗分開保存。診斷不呼叫AI、不啟動Actor、不發通知。
+
+完整候選仍為294事件＝151原歷史＋143累計新增，本輪新增0事件。來源總666篇：145有訊號、191無訊號、71待確認、8技術失敗、4輸入失敗、0狀態不明、247尚未開始。下一篇未開始為9/23 10:02:29；既有3篇本輪媒體失敗仍列失敗，不自動轉回未處理。
+
+服務回報本輪input2367／output109／total2476 tokens。實際扣點、剩餘免費請求與重設時刻未回傳，不能當作零扣點或99次餘額。本次已確認的停止原因是媒體存取，不是免費額度耗盡。固定使用ChatAnywhere .tech/v1、gpt-5-mini／minimal；模型與推理僅服務回報，非獨立驗證。Apify新增Actor0，既有Dataset唯讀2次，共用Actor計數仍48／70。
+
+沿用網站／原生策略9/30公開截止，完整歷史候選繼續保留原scope；策略輸出改由完整候選擷取截止前原樣事件，並重新分段初始化。測試改為以保存資料與截止時間核對，移除294／45這類會隨續跑過時的數字，沒有新增情緒條件或AI驗收樣本。策略成交引擎、日盤尾棒修正、預設日期及風控未改動。重建使用保存判讀與行情，未重新判讀或擷取行情。
+
+本輪與圖片診斷一次性入口均已停用，控制帳本已封存。需要可讀的媒體來源後才能安全解除共同故障；不以關閉TLS／網域限制、忽略圖片或直接重送失敗資料繞過。未啟用排程、未部署網站、未發Telegram、未合併PR。Pine靜態檢查／離線測試不等於TradingView實際編譯或策略執行。
