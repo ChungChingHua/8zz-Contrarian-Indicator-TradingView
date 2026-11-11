@@ -130,7 +130,11 @@
       },
       "duration_seconds": "4.652",
       "cost_observed_at": "2026-11-11T12:27:18.819557+00:00",
-      "billing_finality": "not independently confirmed; zero is not proof of free execution"
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "rows": 1,
+      "matched_keys": [
+        "facebook:1660785808739341"
+      ]
     },
     "threads": {
       "actor": "automation-lab~threads-scraper",
@@ -229,7 +233,7 @@
   "workflow_run_id": "43020412869",
   "monthly_runs_before": 48,
   "http_requests": {
-    "GET": 4,
+    "GET": 5,
     "POST": 1
   }
 }
