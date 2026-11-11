@@ -5332,9 +5332,12 @@
           "post_id": "1671838414300747"
         }
       ],
-      "status": "not_started",
+      "status": "input_failure",
       "attempts": 0,
-      "context_used": []
+      "context_used": [],
+      "error_type": "ValueError",
+      "reason": "media_refresh_already_attempted_no_retry",
+      "auto_retry_eligible": false
     },
     {
       "key": "threads:4000544989498056922",
@@ -5481,6 +5484,6 @@
       "context_used": []
     }
   ],
-  "updated_at": "2026-11-11T12:50:28.324702+00:00",
-  "consecutive_isolated_failures": 0
+  "updated_at": "2026-11-11T12:50:29.500634+00:00",
+  "consecutive_isolated_failures": 1
 }
