@@ -1,0 +1,12 @@
+{
+  "initialization_functions": 15,
+  "max_events_per_function": 20,
+  "first_bar_calls": 15,
+  "event_initialization_chunk_limit": 20,
+  "events": 294,
+  "events_unchanged": true,
+  "source_sha256": "69ec812b79d6c9ccc3a38ea7483bb2ae72fb600832bb55b78218f4b02b9eb683",
+  "strategy_sha256": "3e19f1091b4485aab683ed89613be8416132eef411f541a859a94a0582be780f",
+  "tradingview_compiled": false,
+  "order_api": "TradingView strategy broker emulator only"
+}

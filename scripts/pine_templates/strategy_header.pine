@@ -1,0 +1,60 @@
+// This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © hansai-art / Group.G · Strategy conversion preserves the saved event judgments.
+// Research backtest only: historical post-time signals, not a live AI feed or broker connection.
+//@version=6
+strategy("8zz 延續版－策略回測 A/B（日盤）", overlay=true, max_labels_count=500,
+     pyramiding=0, initial_capital=20000000, currency=currency.TWD,
+     default_qty_type=strategy.fixed, default_qty_value=1,
+     commission_type=strategy.commission.cash_per_contract, commission_value=0, slippage=0,
+     margin_long=100, margin_short=100, process_orders_on_close=true,
+     calc_on_every_tick=false, calc_on_order_fills=false)
+
+grpExec = "策略執行"
+exitMode = input.string("B｜反向訊號出場", "出場模式", options=["A｜固定K棒出場", "B｜反向訊號出場"], group=grpExec)
+holdBars = input.int(17, "A：固定持有日盤K棒數", minval=1, maxval=50, group=grpExec)
+marketProfile = input.string("台指期貨日盤", "圖表市場／部位方式", options=["台指期貨日盤", "0050 ETF"], group=grpExec)
+contractQty = input.int(1, "期貨固定口數", minval=1, maxval=100, group=grpExec)
+etfCapitalPct = input.float(100.0, "ETF名目本金比例 (%)", minval=1, maxval=100, group=grpExec)
+allowShort = input.bool(true, "允許偏空訊號放空（未核對借券限制）", group=grpExec)
+showSignals = input.bool(true, "顯示翻轉訊號（成交看策略箭頭）", group=grpExec)
+showPanel = input.bool(true, "顯示原生策略統計提示", group=grpExec)
+
+grpDates = "歷史測試範圍（只取日期，台北時間）"
+startDate = input.time(timestamp("01 Dec 2025 00:00 +0800"), "開始日期", group=grpDates)
+endDate = input.time(timestamp("30 Sep 2026 00:00 +0800"), "截止日期（日盤收盤強制平倉）", group=grpDates,
+     tooltip="本檔最多測試到2026/9/30；截止日收盤強制平倉會計入TradingView已結算交易。")
+
+grpFilters = "原有濾網（預設全部關閉）"
+useTrendFilter = input.bool(false, "EMA趨勢濾網", group=grpFilters)
+emaLen = input.int(55, "EMA長度", minval=5, maxval=300, group=grpFilters)
+useRsiFilter = input.bool(false, "RSI動能濾網", group=grpFilters)
+rsiLen = input.int(14, "RSI長度", minval=2, maxval=100, group=grpFilters)
+useVolFilter = input.bool(false, "ATR波動濾網", group=grpFilters)
+atrLen = input.int(14, "ATR長度", minval=2, maxval=100, group=grpFilters)
+minAtrPct = input.float(1.0, "最低ATR波動率 (%)", minval=0.1, maxval=20, group=grpFilters)
+useHtfConfirm = input.bool(false, "已完成高週期結構確認", group=grpFilters)
+htfTf = input.timeframe("240", "確認週期", group=grpFilters)
+
+string tz = "Asia/Taipei"
+bool modeA = exitMode == "A｜固定K棒出場"
+bool futuresProfile = marketProfile == "台指期貨日盤"
+string daySession = futuresProfile ? "0845-1345:23456" : "0900-1330:23456"
+int sessionEndMinute = futuresProfile ? 45 : 30
+int startAt = timestamp(tz, year(startDate, tz), month(startDate, tz), dayofmonth(startDate, tz), 0, 0)
+int requestedEnd = timestamp(tz, year(endDate, tz), month(endDate, tz), dayofmonth(endDate, tz), 13, sessionEndMinute)
+int hardEnd = timestamp(tz, 2026, 9, 30, 13, sessionEndMinute)
+int finishAt = math.min(requestedEnd, hardEnd)
+int publicationBefore = timestamp("01 Oct 2026 00:00 +0800")
+int sessionOpen = time(timeframe.period, daySession, tz)
+int sessionClose = time_close(timeframe.period, daySession, tz)
+bool dayBar = not na(sessionOpen) and not na(sessionClose) and time_close <= sessionClose
+bool inWindow = time_close >= startAt and time_close <= finishAt
+
+float emaBasis = ta.ema(close, emaLen)
+float rsiValue = ta.rsi(close, rsiLen)
+float atrPct = ta.atr(atrLen) / close * 100
+// Previous completed HTF bar only; the offset prevents historical lookahead.
+float htfClose = request.security(syminfo.tickerid, htfTf, close[1], lookahead=barmerge.lookahead_on)
+float htfEma = request.security(syminfo.tickerid, htfTf, ta.ema(close, emaLen)[1], lookahead=barmerge.lookahead_on)
+float orderQty = futuresProfile ? float(contractQty) : math.floor(strategy.equity * etfCapitalPct / 100 / (close * syminfo.pointvalue))
+
