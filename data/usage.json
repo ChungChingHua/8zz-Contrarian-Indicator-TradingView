@@ -115,10 +115,10 @@
             "usageTotalUsd": "0.07"
           },
           {
-            "id": null,
+            "id": "sfTEBbx4xdszoRE42",
             "source": "facebook",
-            "status": "reserved_not_submitted",
-            "usageTotalUsd": null
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.056"
           }
         ]
       }
