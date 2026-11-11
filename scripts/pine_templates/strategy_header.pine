@@ -2,7 +2,7 @@
 // © hansai-art / Group.G · Strategy conversion preserves the saved event judgments.
 // Research backtest only: historical post-time signals, not a live AI feed or broker connection.
 //@version=6
-strategy("8zz 延續版－策略回測 A/B（日盤）", overlay=true, max_labels_count=500,
+strategy("8zz 延續版－策略回測 A/B（日盤修正版）", overlay=true, max_labels_count=500,
      pyramiding=0, initial_capital=20000000, currency=currency.TWD,
      default_qty_type=strategy.fixed, default_qty_value=1,
      commission_type=strategy.commission.cash_per_contract, commission_value=0, slippage=0,
@@ -12,7 +12,7 @@ strategy("8zz 延續版－策略回測 A/B（日盤）", overlay=true, max_label
 grpExec = "策略執行"
 exitMode = input.string("B｜反向訊號出場", "出場模式", options=["A｜固定K棒出場", "B｜反向訊號出場"], group=grpExec)
 holdBars = input.int(17, "A：固定持有日盤K棒數", minval=1, maxval=50, group=grpExec)
-marketProfile = input.string("台指期貨日盤", "圖表市場／部位方式", options=["台指期貨日盤", "0050 ETF"], group=grpExec)
+marketProfile = input.string("自動依圖表", "圖表市場／部位方式", options=["自動依圖表", "台指期貨日盤", "0050 ETF"], group=grpExec)
 contractQty = input.int(1, "期貨固定口數", minval=1, maxval=100, group=grpExec)
 etfCapitalPct = input.float(100.0, "ETF名目本金比例 (%)", minval=1, maxval=100, group=grpExec)
 allowShort = input.bool(true, "允許偏空訊號放空（未核對借券限制）", group=grpExec)
@@ -37,17 +37,22 @@ htfTf = input.timeframe("240", "確認週期", group=grpFilters)
 
 string tz = "Asia/Taipei"
 bool modeA = exitMode == "A｜固定K棒出場"
-bool futuresProfile = marketProfile == "台指期貨日盤"
-string daySession = futuresProfile ? "0845-1345:23456" : "0900-1330:23456"
+bool chartIsFutures = syminfo.type == "futures"
+bool futuresProfile = marketProfile == "自動依圖表" ? chartIsFutures : marketProfile == "台指期貨日盤"
+int sessionStartHour = futuresProfile ? 8 : 9
+int sessionStartMinute = futuresProfile ? 45 : 0
 int sessionEndMinute = futuresProfile ? 45 : 30
 int startAt = timestamp(tz, year(startDate, tz), month(startDate, tz), dayofmonth(startDate, tz), 0, 0)
 int requestedEnd = timestamp(tz, year(endDate, tz), month(endDate, tz), dayofmonth(endDate, tz), 13, sessionEndMinute)
 int hardEnd = timestamp(tz, 2026, 9, 30, 13, sessionEndMinute)
 int finishAt = math.min(requestedEnd, hardEnd)
 int publicationBefore = timestamp("01 Oct 2026 00:00 +0800")
-int sessionOpen = time(timeframe.period, daySession, tz)
-int sessionClose = time_close(timeframe.period, daySession, tz)
-bool dayBar = not na(sessionOpen) and not na(sessionClose) and time_close <= sessionClose
+// Compare the actual chart bar boundaries, not virtual bars rebased to a custom session.
+int dayStart = timestamp(tz, year(time, tz), month(time, tz), dayofmonth(time, tz), sessionStartHour, sessionStartMinute)
+int dayEnd = timestamp(tz, year(time, tz), month(time, tz), dayofmonth(time, tz), 13, sessionEndMinute)
+int localWeekday = dayofweek(time, tz)
+bool weekday = localWeekday >= dayofweek.monday and localWeekday <= dayofweek.friday
+bool dayBar = weekday and time >= dayStart and time < dayEnd and time_close <= dayEnd
 bool inWindow = time_close >= startAt and time_close <= finishAt
 
 float emaBasis = ta.ema(close, emaLen)

@@ -27,8 +27,9 @@ class StrategyTests(unittest.TestCase):
         self.assertIn('strategy.closedtrades',self.text)
         self.assertNotIn('pnlSumA',self.text);self.assertNotIn('pnlSumB',self.text)
     def test_day_session_and_bar_confirmation_guards(self):
-        self.assertIn('"0845-1345:23456"',self.text)
-        self.assertIn('"0900-1330:23456"',self.text)
+        self.assertIn('sessionStartHour = futuresProfile ? 8 : 9',self.text)
+        self.assertIn('sessionStartMinute = futuresProfile ? 45 : 0',self.text)
+        self.assertIn('sessionEndMinute = futuresProfile ? 45 : 30',self.text)
         self.assertIn('if barstate.isconfirmed and dayBar',self.text)
         self.assertIn('inWindow and not dayBar',self.text)
         self.assertIn('dayBarCount - entryDayBarA >= holdBars',self.text)
@@ -42,3 +43,12 @@ class StrategyTests(unittest.TestCase):
         self.assertNotIn('SHIOAJI',self.text);self.assertNotIn('api_key',self.text.lower())
         self.assertNotIn('alertcondition(',self.text)
         self.assertNotIn('alert(',self.text)
+
+    def test_regular_equity_bars_are_not_rebased_to_futures_session(self):
+        self.assertIn('input.string("自動依圖表"',self.text)
+        self.assertIn('chartIsFutures = syminfo.type == "futures"',self.text)
+        self.assertIn('time >= dayStart and time < dayEnd and time_close <= dayEnd',self.text)
+        self.assertNotIn('time(timeframe.period, daySession',self.text)
+        self.assertNotIn('time_close(timeframe.period, daySession',self.text)
+        self.assertIn('futuresProfile != chartIsFutures',self.text)
+        self.assertIn('str.format_time(time, "yyyy-MM-dd HH:mm", tz)',self.text)

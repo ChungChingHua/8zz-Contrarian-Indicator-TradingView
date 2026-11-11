@@ -1,6 +1,8 @@
 if barstate.isfirst
     if not timeframe.isminutes or timeframe.multiplier != 30
         runtime.error("請切換標準30分鐘K線，勿用日線或其他週期。")
+    if marketProfile != "自動依圖表" and futuresProfile != chartIsFutures
+        runtime.error("市場設定與圖表不符：0050圖表請選自動依圖表／0050 ETF，台指圖表請選自動依圖表／台指期貨日盤。這不是夜盤判斷。")
     if startAt >= finishAt
         runtime.error("開始日期必須早於截止日期，且本資料最多至2026/9/30。")
     if useHtfConfirm and timeframe.in_seconds(htfTf) <= timeframe.in_seconds()
@@ -9,7 +11,9 @@ if barstate.isfirst
 
 // Session orders alone cannot remove overnight mark-to-market/drawdown from the broker emulator.
 if barstate.isconfirmed and inWindow and not dayBar
-    runtime.error("本策略只計日盤：請先在圖表設定選擇常規／日盤交易時段，避免夜盤影響回測損益與回撤。")
+    string actualBar = str.format_time(time, "yyyy-MM-dd HH:mm", tz) + " → " + str.format_time(time_close, "HH:mm", tz)
+    string expectedDay = futuresProfile ? "08:45–13:45" : "09:00–13:30"
+    runtime.error("非日盤或跨邊界K棒（台北）：" + actualBar + "；本圖表日盤=" + expectedDay + "。請確認圖表市場設定及常規／日盤交易時段。")
 
 // Native broker-emulator execution: one net position; same-bar events coalesce.
 var int eventCursor = 0
