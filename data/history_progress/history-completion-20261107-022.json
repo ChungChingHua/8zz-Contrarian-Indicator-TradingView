@@ -5,7 +5,7 @@
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "created_at": "2026-11-11T12:47:40.247400+00:00",
   "max_generations": 25,
-  "reserved_generation_attempts": 21,
+  "reserved_generation_attempts": 22,
   "stopped": false,
   "finished": false,
   "provider_settings": {
@@ -6256,9 +6256,50 @@
           "post_id": "1672188410932414"
         }
       ],
-      "status": "not_started",
-      "attempts": 0,
-      "context_used": []
+      "status": "unknown",
+      "attempts": 1,
+      "context_used": [],
+      "media_scope": {
+        "analysis_scope": "text_and_images",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 4,
+        "image_evidence": [
+          {
+            "sha256": "2c58098dcdaa6e59598b39f547d6d2087eed76fc08086767375d902ac562c31f",
+            "bytes": 55544,
+            "mime": "image/jpeg",
+            "attachment_index": 1
+          },
+          {
+            "sha256": "ac755323f9e22080375a0d1963d5c0858dad386600abac43a15b92543fd73b9b",
+            "bytes": 44239,
+            "mime": "image/jpeg",
+            "attachment_index": 2
+          },
+          {
+            "sha256": "10c15117e5632ed055df8540eb321c37a217406c4b80c90fb01d4069d888d2bf",
+            "bytes": 59854,
+            "mime": "image/jpeg",
+            "attachment_index": 3
+          },
+          {
+            "sha256": "3438a82a4f8f82433b475c4f2520821283dbec27bbcafdb4078647065077fc02",
+            "bytes": 64841,
+            "mime": "image/jpeg",
+            "attachment_index": 4
+          }
+        ],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": [
+          0
+        ],
+        "cache_verified": true,
+        "media_refresh_session": "20261111-media-repair-01"
+      },
+      "request_sha256": "198ed9745fb87599a172abfa5b2ce5ec537a594be66900a64b82adbf87d23bca",
+      "dispatch_reserved_at": "2026-11-11T12:50:52.025563+00:00"
     },
     {
       "key": "facebook:1672400240911231",
@@ -6309,6 +6350,6 @@
       "context_used": []
     }
   ],
-  "updated_at": "2026-11-11T12:50:50.949913+00:00",
+  "updated_at": "2026-11-11T12:50:52.025578+00:00",
   "consecutive_isolated_failures": 0
 }
