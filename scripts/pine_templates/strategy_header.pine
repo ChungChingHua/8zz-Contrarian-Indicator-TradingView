@@ -2,7 +2,7 @@
 // © hansai-art / Group.G · Strategy conversion preserves the saved event judgments.
 // Research backtest only: historical post-time signals, not a live AI feed or broker connection.
 //@version=6
-strategy("8zz 延續版－策略回測 A/B（日盤尾棒修正v3）", overlay=true, max_labels_count=500,
+strategy("8zz 延續版－策略回測 A/B（ATR與移動停損v4）", overlay=true, max_labels_count=500,
      pyramiding=0, initial_capital=20000000, currency=currency.TWD,
      default_qty_type=strategy.fixed, default_qty_value=1,
      commission_type=strategy.commission.cash_per_contract, commission_value=0, slippage=0,
@@ -18,6 +18,16 @@ etfCapitalPct = input.float(100.0, "ETF名目本金比例 (%)", minval=1, maxval
 allowShort = input.bool(true, "允許偏空訊號放空（未核對借券限制）", group=grpExec)
 showSignals = input.bool(true, "顯示翻轉訊號（成交看策略箭頭）", group=grpExec)
 showPanel = input.bool(true, "顯示原生策略統計提示", group=grpExec)
+
+grpRisk = "風險出場（可獨立開關）"
+useAtrStop = input.bool(true, "啟用ATR固定停損", group=grpRisk)
+useTrailingStop = input.bool(true, "啟用獲利後移動停損", group=grpRisk)
+riskAtrLen = input.int(14, "停損ATR長度", minval=2, maxval=100, group=grpRisk)
+atrStopMult = input.float(2.0, "固定停損：進場ATR倍數", minval=0.1, step=0.1, group=grpRisk)
+trailActivationMult = input.float(1.0, "移動停損：獲利達進場ATR倍數後啟動", minval=0.1, step=0.1, group=grpRisk)
+trailDistanceMult = input.float(1.5, "移動停損：距有利極值的進場ATR倍數", minval=0.1, step=0.1, group=grpRisk,
+     tooltip="使用進場時已完成棒的ATR，持倉期間固定。收盤確認極值後更新停損，不回溯套用於該棒；只開此項時，啟動前沒有價格停損。")
+showRiskStop = input.bool(true, "顯示目前有效停損線", group=grpRisk)
 
 grpDates = "歷史測試範圍（只取日期，台北時間）"
 startDate = input.time(timestamp("01 Dec 2025 00:00 +0800"), "開始日期", group=grpDates)
@@ -66,5 +76,6 @@ float atrPct = ta.atr(atrLen) / close * 100
 // Previous completed HTF bar only; the offset prevents historical lookahead.
 float htfClose = request.security(syminfo.tickerid, htfTf, close[1], lookahead=barmerge.lookahead_on)
 float htfEma = request.security(syminfo.tickerid, htfTf, ta.ema(close, emaLen)[1], lookahead=barmerge.lookahead_on)
+float riskAtr = ta.atr(riskAtrLen)
 float orderQty = futuresProfile ? float(contractQty) : math.floor(strategy.equity * etfCapitalPct / 100 / (close * syminfo.pointvalue))
 

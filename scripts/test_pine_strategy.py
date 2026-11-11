@@ -90,3 +90,41 @@ class StrategyTests(unittest.TestCase):
         self.assertIn('if decisionClose == finishAt',self.text)
         self.assertIn('if barstate.isconfirmed and decisionClose > finishAt',self.text)
         self.assertFalse(self._eval_session_expressions('TXF','2026-10-01','09:15','09:45','2026-09-30')['inWindow'])
+
+    def test_risk_orders_are_attached_to_both_entries_and_cancelled(self):
+        for side in ('L','S'):
+            self.assertIn('strategy.exit("'+side+'-risk", from_entry="'+side+'", stop=tickStop',self.text)
+            self.assertIn('strategy.cancel("'+side+'-risk")',self.text)
+        self.assertIn('if newRiskEntry',self.text)
+        self.assertIn('else if strategy.position_size == 0',self.text)
+        self.assertIn('and not exitSubmitted',self.text)
+        self.assertIn('and inWindow and not cutoffReached',self.text)
+    def test_risk_extremes_start_at_entry_close_not_entry_bar_high_low(self):
+        entry=self.text.split('    if newRiskEntry\n')[1].split('    else if strategy.position_size == 0')[0]
+        self.assertIn('entryRiskAtr := riskAtr',entry)
+        self.assertIn('favorableExtreme := close',entry)
+        self.assertIn('trailActive := false',entry)
+        self.assertNotIn('high',entry);self.assertNotIn('low',entry)
+        self.assertIn('else if riskDirection != 0',self.text)
+        self.assertNotIn('trail_offset=',self.text)
+    def test_actual_stop_formulas_long_and_short(self):
+        # Evaluate generated arithmetic, not a separately implemented stop formula.
+        import math
+        hard=re.search(r'activeRiskStop := useAtrStop \? (.+) : na',self.text)[1]
+        trail=re.search(r'float trailStop = (.+)',self.text)[1]
+        trigger=re.search(r'if useTrailingStop and (riskDirection \* .+)',self.text)[1]
+        for direction,entry,extreme,expected_hard,expected_trail in [(1,100,130,80,115),(-1,100,70,120,85)]:
+            scope=dict(riskDirection=direction,riskEntryPrice=entry,entryRiskAtr=10,atrStopMult=2,trailActivationMult=1,trailDistanceMult=1.5,favorableExtreme=extreme)
+            self.assertEqual(eval(hard,{},scope),expected_hard)
+            self.assertEqual(eval(trail,{},scope),expected_trail)
+            self.assertTrue(eval(trigger,{},scope))
+            scope['favorableExtreme']=entry+direction*9
+            self.assertFalse(eval(trigger,{},scope))
+        self.assertIn('math.max(activeRiskStop, trailStop) : math.min(activeRiskStop, trailStop)',self.text)
+        self.assertIn('math.max(activeRiskStop, hardStop) : math.min(activeRiskStop, hardStop)',self.text)
+    def test_disabled_stops_and_tick_rounding_contract(self):
+        self.assertIn('useAtrStop ? riskEntryPrice',self.text)
+        self.assertIn('if useTrailingStop and trailActive',self.text)
+        self.assertIn('math.floor(activeRiskStop / syminfo.mintick)',self.text)
+        self.assertIn('math.ceil(activeRiskStop / syminfo.mintick)',self.text)
+        self.assertIn('not useAtrStop and not useTrailingStop or not na(riskAtr)',self.text)

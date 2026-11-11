@@ -23,6 +23,13 @@ var int entryDayBarA = na
 var int skippedBeforeChart = 0
 var int eligibleEvents = 0
 var bool cutoffReached = false
+var float entryRiskAtr = na
+var float riskEntryPrice = na
+var float favorableExtreme = na
+var float activeRiskStop = na
+var bool trailActive = false
+var int riskDirection = 0
+
 
 // Never backfill old signals at the first available chart bar.
 if barstate.isfirst
@@ -35,6 +42,7 @@ if barstate.isfirst
 bool flipNow = false
 bool submittedLong = false
 bool submittedShort = false
+bool exitSubmitted = false
 string lastTip = ""
 
 if barstate.isconfirmed and dayBar
@@ -72,8 +80,9 @@ if barstate.isconfirmed and dayBar
             if fixedExitNow
                 strategy.close_all(comment="A：固定K棒出場", immediately=true)
                 entryDayBarA := na
+                exitSubmitted := true
 
-            if flipNow and orderQty > 0
+            if flipNow and orderQty > 0 and (not useAtrStop and not useTrailingStop or not na(riskAtr))
                 if modeA
                     // Do not open at the same close as the old A position exits.
                     if strategy.position_size == 0 and not fixedExitNow
@@ -95,6 +104,58 @@ if barstate.isconfirmed and dayBar
                         submittedShort := true
                     else
                         strategy.close("L", comment="B：偏空訊號平多", immediately=true)
+                        exitSubmitted := true
+
+// Stops are submitted with the entry at its signal close. Stop orders can fill
+// intrabar from the next available tick; later close-confirmed updates never
+// use this bar's high/low to claim an earlier fill within this same bar.
+if barstate.isconfirmed and dayBar and inWindow and not cutoffReached
+    bool newRiskEntry = submittedLong or submittedShort
+    if newRiskEntry
+        strategy.cancel("L-risk")
+        strategy.cancel("S-risk")
+        riskDirection := submittedLong ? 1 : -1
+        entryRiskAtr := riskAtr
+        // With process_orders_on_close, close is the reference submission price;
+        // configured entry slippage is incorporated when actual fills are visible.
+        riskEntryPrice := close
+        favorableExtreme := close
+        trailActive := false
+        activeRiskStop := useAtrStop ? riskEntryPrice - riskDirection * entryRiskAtr * atrStopMult : na
+    else if strategy.position_size == 0
+        strategy.cancel("L-risk")
+        strategy.cancel("S-risk")
+        riskDirection := 0
+        entryRiskAtr := na
+        riskEntryPrice := na
+        favorableExtreme := na
+        activeRiskStop := na
+        trailActive := false
+    else if riskDirection != 0
+        // Anchor to actual average fill once known; fixed stop may only tighten.
+        riskEntryPrice := strategy.position_avg_price
+        favorableExtreme := riskDirection == 1 ? math.max(favorableExtreme, high) : math.min(favorableExtreme, low)
+        float hardStop = useAtrStop ? riskEntryPrice - riskDirection * entryRiskAtr * atrStopMult : na
+        if not na(hardStop)
+            activeRiskStop := na(activeRiskStop) ? hardStop : riskDirection == 1 ? math.max(activeRiskStop, hardStop) : math.min(activeRiskStop, hardStop)
+        if useTrailingStop and riskDirection * (favorableExtreme - riskEntryPrice) >= entryRiskAtr * trailActivationMult
+            trailActive := true
+        if useTrailingStop and trailActive
+            float trailStop = favorableExtreme - riskDirection * entryRiskAtr * trailDistanceMult
+            activeRiskStop := na(activeRiskStop) ? trailStop : riskDirection == 1 ? math.max(activeRiskStop, trailStop) : math.min(activeRiskStop, trailStop)
+
+    if not na(activeRiskStop) and riskDirection != 0 and not exitSubmitted
+        // Round outwards to an exchange tick; never submit fractional ticks.
+        float tickStop = riskDirection == 1 ? math.floor(activeRiskStop / syminfo.mintick) * syminfo.mintick : math.ceil(activeRiskStop / syminfo.mintick) * syminfo.mintick
+        if riskDirection == 1
+            strategy.exit("L-risk", from_entry="L", stop=tickStop, comment=trailActive ? "移動停損" : "ATR停損")
+        else
+            strategy.exit("S-risk", from_entry="S", stop=tickStop, comment=trailActive ? "移動停損" : "ATR停損")
+    else
+        strategy.cancel("L-risk")
+        strategy.cancel("S-risk")
+
+plot(showRiskStop and not cutoffReached and (strategy.position_size != 0 or submittedLong or submittedShort) ? activeRiskStop : na, title="有效停損（收盤更新，之後生效）", color=trailActive ? color.orange : color.red, style=plot.style_linebr, linewidth=2)
 
 if barstate.isconfirmed and decisionClose > finishAt
     strategy.cancel_all()
