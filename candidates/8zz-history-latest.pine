@@ -1,7 +1,7 @@
 // This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © hansai-art / Group.G
 // 8zz 反指標 v2
-// 事件: 294筆 | 期間: 2025/12 ~ 2026/09
+// 事件: 301筆 | 期間: 2025/12 ~ 2026/09
 // 情緒解讀框架：負面情緒（被套、停損、恐慌）→ 偏多 ▲（散戶恐慌→主力拉升）
 //               正面情緒（漲停追買、過度樂觀）→ 偏空 ▼（市場過熱→崩跌機率高）
 // 免責聲明：本指標僅供娛樂參考，不構成任何投資建議。
@@ -1615,6 +1615,44 @@ initEvtChunk015() =>
     array.push(evt_str, 2)
     array.push(evt_tips, "追買/持續加碼\n指標: 偏空 ▼ | 強度: 2\n2026-09-22T18:54:02+08:00 沒關係⋯ 明天一定會漲的啊⋯ \n我早上才趁著氣勢一股作氣⋯⋯\n語氣樂觀並提到趁氣勢一股作氣，屬於亢奮/自信的追漲態度，偏空訊號\nhttps://www.facebook.com/reel/1832134174633227/")
     array.push(evt_ticker, "")
+    array.push(evt_time, 1790125370000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "追買(委託單)\n指標: 偏空 ▼ | 強度: 3\n2026-09-23T09:02:50+08:00 第一手天元！！！\n貼文宣稱「第一手天元」且附圖顯示委託狀態為「全部成交」，代表已真金白銀下單且情緒亢奮，強烈偏空訊號。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid024yyHVRELYXh7JjpXnhRyAsQMoAztvQizp44u9HA5WKUQxEMugCZf6o5588UKBKTyl")
+    array.push(evt_ticker, "4164.TWO")
+    array.push(evt_time, 1790127553000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "追買(委託單)\n指標: 偏空 ▼ | 強度: 3\n2026-09-23T09:39:13+08:00 早上衝一波\n貼文與圖包含委託單截圖顯示委託成功/全部成交，為真金白銀下單且語氣興奮，屬於極度亢奮的追買（偏空）訊號。\nhttps://www.threads.com/@banini31/post/DdnJlJCmX-R")
+    array.push(evt_ticker, "6285.TW")
+    array.push(evt_time, 1790128949000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "準備大買\n指標: 偏多 ▲ | 強度: 2\n2026-09-23T10:02:29+08:00 要上台了～\n我先找可惡的存在X理論一下\n恢復後我就要大買一波！\n文字說要恢復後要大買，顯示發文者帶有情緒性的準備補倉/反擊（痛苦或急於改變現況），偏多訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02fnW2S6Mfkx9z1ey2TkqVrd7YG3TxotjqrFJKx5knYa4pt3dGz1mJaqn4PNGWVqMil")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1790174044000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "抱怨被套\n指標: 偏多 ▲ | 強度: 2\n2026-09-23T22:34:04+08:00 靠腰啊\n聯電跌4%是什麼啦\n我買在156.5唉_(:_」∠)_ \n\n明天是要夢回星期一嗎\n發文者抱怨買在156.5且股價下跌（被套、心情差），情緒偏痛苦偏多。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0ieW5Cc6N9uakyC2Xwmv61kLSXGEFYUAHKmJtXDaUd4w1KekF9KYAkbMWaWMCiw5rl")
+    array.push(evt_ticker, "2303.TW")
+    array.push(evt_time, 1790212879000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "抱怨/沮喪\n指標: 偏多 ▲ | 強度: 2\n2026-09-24T09:21:19+08:00 友達啊啊啊啊啊啊\n哇嘎偷謀唷😩😩😩😩\n\n你不要一開始給我希望啊啊\n發文語氣沮喪且配合友達（2409）即時行情截圖，顯示為被套或失望情緒，偏多信號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0wmb1xzqjxj3SjK2vvKdU23eCaGhPwU86a1vnqnPh8na1e2AEXD5a8Z1zgVritBucl")
+    array.push(evt_ticker, "2409.TW")
+    array.push(evt_time, 1790561339000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "\n指標: 偏空 ▼ | 強度: 1\n2026-09-28T10:08:59+08:00 今天沒開盤啊⋯\n\n委靡_(:_」∠)_\n貼文語氣帶有無力/委靡但同時附上個股行情截圖，情緒偏低落但非痛苦或被套，判定為輕微偏空（發文者無明確買賣動作）\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0LhsmwgXY2EEh5BoWMPkXW5eAMaReWg2W52DmgH2HYx5eDPAskthP7S1sumaeAFQkl")
+    array.push(evt_ticker, "")
+    0
+
+initEvtChunk016() =>
+    array.push(evt_time, 1790583293000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買入(放假前買進美股)\n指標: 偏空 ▼ | 強度: 2\n2026-09-28T16:14:53+08:00 我就知道！又是你！ 你最爛！ \n晚上還有美股可以給我希望\n\n不瞞大家說\n我放假前買了不少_(:_」∠)_\n發文說放假前買了不少且語氣帶有期待（美股給希望），情緒偏亢奮/自信偏空訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0iRccbTPrmRExHsKHAnSECR8MhXrFCiQuebgprZQRbFPTAbkhmt9NQNDJvrtTWJ3Rl")
+    array.push(evt_ticker, "")
     0
 
 if barstate.isfirst
@@ -1633,6 +1671,7 @@ if barstate.isfirst
     initEvtChunk013()
     initEvtChunk014()
     initEvtChunk015()
+    initEvtChunk016()
 // END GENERATED EVENT INITIALIZATION
 
 var int currentDir = 0
