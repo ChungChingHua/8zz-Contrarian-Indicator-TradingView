@@ -5,7 +5,7 @@
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "created_at": "2026-11-11T09:13:06.444974+00:00",
   "max_generations": 25,
-  "reserved_generation_attempts": 3,
+  "reserved_generation_attempts": 4,
   "stopped": false,
   "finished": false,
   "provider_settings": {
@@ -973,8 +973,8 @@
           "post_id": "3992213198011063292"
         }
       ],
-      "status": "not_started",
-      "attempts": 0,
+      "status": "unknown",
+      "attempts": 1,
       "context_used": [],
       "auto_retry_eligible": false,
       "input_failure_history": [
@@ -985,7 +985,28 @@
           "attempts": 0
         }
       ],
-      "recovery_authorization": "20261111-media-repair-01"
+      "recovery_authorization": "20261111-media-repair-01",
+      "media_scope": {
+        "analysis_scope": "text_and_images",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 1,
+        "image_evidence": [
+          {
+            "sha256": "1f271dfa09a6be31ae1bb7e81f1e97b6ef4bf2f124c2cbe677582c090045cb76",
+            "bytes": 2358774,
+            "mime": "image/jpeg",
+            "attachment_index": 0
+          }
+        ],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": [],
+        "cache_verified": true,
+        "media_refresh_session": "20261111-media-repair-01"
+      },
+      "request_sha256": "9a6567fff82179d0f13827e164972552a2540db1e7d35b6fea57f8e1a964d87f",
+      "dispatch_reserved_at": "2026-11-11T12:35:30.287897+00:00"
     },
     {
       "key": "facebook:1660817558736166",
@@ -1492,7 +1513,7 @@
       "context_used": []
     }
   ],
-  "updated_at": "2026-11-11T12:35:29.208596+00:00",
+  "updated_at": "2026-11-11T12:35:30.287922+00:00",
   "consecutive_isolated_failures": 0,
   "media_cache_recovery_used": true
 }
