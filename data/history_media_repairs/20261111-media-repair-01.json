@@ -497,6 +497,9 @@
           "status": "input_failure",
           "error_type": "IndexError",
           "safe_reason": null
+        },
+        "facebook:1671991777618744": {
+          "status": "cached"
         }
       },
       "input": {
@@ -579,5 +582,5 @@
     "GET": 79,
     "POST": 5
   },
-  "updated_at": "2026-11-11T12:49:45.579937+00:00"
+  "updated_at": "2026-11-11T12:49:47.361647+00:00"
 }
