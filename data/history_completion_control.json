@@ -120,9 +120,9 @@
     "GET": 0,
     "POST": 0
   },
-  "last_chunk": "history-completion-20261107-023",
-  "updated_at": "2026-11-11T12:57:22.437438+00:00",
-  "consecutive_isolated_failures": 1,
+  "last_chunk": "history-completion-20261107-024",
+  "updated_at": "2026-11-11T12:57:58.268602+00:00",
+  "consecutive_isolated_failures": 0,
   "all_unstarted_visited": false,
   "blocker_history": [
     {
@@ -441,5 +441,7 @@
         "media_diagnostic": "data/history_media_diagnostic_20261111.json"
       }
     }
-  ]
+  ],
+  "stop_reason": "provider_access_quota_or_common_failure",
+  "stopped_at": "2026-10-12T08:44:32+08:00"
 }
