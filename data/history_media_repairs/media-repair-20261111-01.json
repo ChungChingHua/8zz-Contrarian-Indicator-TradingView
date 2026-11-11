@@ -275,8 +275,36 @@
   },
   "posts": {
     "facebook:1660785808739341": {
-      "status": "checking",
-      "images_sent_to_ai": 0
+      "status": "cached",
+      "images_sent_to_ai": 0,
+      "download_hints": [
+        {
+          "host": "scontent-lga3-2.xx.fbcdn.net",
+          "fresh_url_sha256": "ba72ef0b5e6edfdf6ac0a6f2c784f5cff0acd2977de909d793a100ba21acc768",
+          "oe_hint_utc": "2026-11-15T22:19:12+00:00"
+        }
+      ],
+      "image_http_statuses": [
+        200
+      ],
+      "images_downloaded": 1,
+      "scope": {
+        "analysis_scope": "text_and_images",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 1,
+        "image_evidence": [
+          {
+            "sha256": "17b251c7c00b800ac2bce3df957ac79b3ad3ee111f9eda2206fee9b890d1314a",
+            "bytes": 19962,
+            "mime": "image/jpeg",
+            "attachment_index": 0
+          }
+        ],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": []
+      }
     }
   },
   "max_starts": 2,
