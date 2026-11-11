@@ -5123,41 +5123,41 @@
     "key": "facebook:1677726727045249",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0sQSNdDN9zw5BvTZ9UDdw5YkaCPdu2svc1Deohvwyhore54LrWLiAUEZ9c1Pu8qkql",
     "display_time": "2026-10-11T02:43:15+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "facebook:1677726727045249",
+    "evidence": "data/history_progress/history-completion-20261107-024.json",
+    "reason": "貼文內容為懇求/私人情緒與風景圖片，與投資無關，依規則跳過。"
   },
   {
     "key": "facebook:1678203293664259",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid023B8SZd3bU7gFZbcRq7iw8mXbTmdRqzpHz2dsPpFxCwrGaQX1DzCVXS2whdWdQsnSl",
     "display_time": "2026-10-11T16:07:31+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "facebook:1678203293664259",
+    "evidence": "data/history_progress/history-completion-20261107-024.json",
+    "reason": "與投資無關的購物詢問與生活貼文，附圖為哀傷貓咪表情，跳過。"
   },
   {
     "key": "facebook:1678581570293098",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02TekZ5LV5BmwB4Pv2tH3rGcYBip6UXqfagfBeoyokYYe5amYpHqVqVeWFCm9MjsU8l",
     "display_time": "2026-10-12T00:00:20+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "facebook:1678581570293098",
+    "evidence": "data/history_progress/history-completion-20261107-024.json",
+    "reason": "內容為對行情的短評與自我懷疑，未提及持倉或交易動作；附圖為個人自拍，無投資訊號，依規則跳過。"
   },
   {
     "key": "facebook:1678910576926864",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02pQ2cpL9uxozzVnzhWjeLkEZaCpMLzq8StAre2qcPgi5T5TQn7aK5BWoo5e53jwJal",
     "display_time": "2026-10-12T08:44:32+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "technical_failure",
+    "stored_status": "technical_failure",
+    "record_key": "facebook:1678910576926864",
+    "evidence": "data/history_progress/history-completion-20261107-024.json",
+    "reason": "provider_http_error"
   },
   {
     "key": "facebook:1678928546925067",
