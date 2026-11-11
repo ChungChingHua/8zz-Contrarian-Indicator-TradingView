@@ -148,7 +148,7 @@
         "threads:3996551290159729435",
         "threads:3997991601016785780"
       ],
-      "status": "READY",
+      "status": "SUCCEEDED",
       "posts": {},
       "input": {
         "mode": "urls",
@@ -171,7 +171,7 @@
       },
       "id": "RsGX7akhZCyEo6Nem",
       "startedAt": "2026-11-11T12:36:25.871Z",
-      "finishedAt": null,
+      "finishedAt": "2026-11-11T12:38:08.153Z",
       "buildId": "XIJLhhENkO7p8W54Y",
       "buildNumber": "0.1.70",
       "defaultDatasetId": "YMsJS6Des8vYbyGRD",
@@ -185,19 +185,19 @@
         "isMaxTotalChargeUsdSetByUser": true,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": 0,
+      "usageTotalUsd": "0.07",
       "chargedEventCounts": {
-        "start": 0,
+        "start": 1,
         "profile": 0,
-        "post": 0
+        "post": 10
       },
       "accountedChargedEventCounts": {
-        "start": 0,
+        "start": 1,
         "profile": 0,
-        "post": 0
+        "post": 10
       },
-      "duration_seconds": null,
-      "cost_observed_at": "2026-11-11T12:36:26.032452+00:00",
+      "duration_seconds": "102.113",
+      "cost_observed_at": "2026-11-11T12:38:09.439532+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     }
   ],
@@ -205,8 +205,8 @@
   "ai_requests": 0,
   "monthly_runs_before": 50,
   "http_requests": {
-    "GET": 6,
+    "GET": 32,
     "POST": 2
   },
-  "updated_at": "2026-11-11T12:36:26.032469+00:00"
+  "updated_at": "2026-11-11T12:38:09.439550+00:00"
 }
