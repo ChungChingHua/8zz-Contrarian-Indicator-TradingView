@@ -4530,9 +4530,12 @@
           "post_id": "1663843951766860"
         }
       ],
-      "status": "not_started",
+      "status": "input_failure",
       "attempts": 0,
-      "context_used": []
+      "context_used": [],
+      "error_type": "ValueError",
+      "reason": "media_refresh_already_attempted_no_retry",
+      "auto_retry_eligible": false
     },
     {
       "key": "threads:3994910092147516458",
@@ -4751,7 +4754,7 @@
       "context_used": []
     }
   ],
-  "updated_at": "2026-11-11T12:39:37.090778+00:00",
-  "consecutive_isolated_failures": 0,
+  "updated_at": "2026-11-11T12:39:38.180772+00:00",
+  "consecutive_isolated_failures": 1,
   "media_cache_recovery_used": true
 }
