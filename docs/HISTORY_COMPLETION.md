@@ -141,7 +141,15 @@
   "actual_points_deducted": null,
   "quota_headers": {},
   "stop_reason": "provider_access_quota_or_common_failure",
-  "service_quota_statement": null,
+  "service_quota_statement": {
+    "http_status": 429,
+    "source": "service error response in history-completion-20261107-024",
+    "shared_free_requests_per_24h_window": 100,
+    "remaining_free_requests": "exhausted, service statement only",
+    "actual_points_deducted": null,
+    "reset_time": null,
+    "note": "99 HTTP 200 responses and one HTTP 429 this repair session; the earlier successful response was not resent. No paid upgrade or retry."
+  },
   "all_history_fully_classified": false,
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "provider_model_and_reasoning": "Service-reported gpt-5-mini / minimal, not independently verified",
@@ -163,15 +171,45 @@
     "status_counts": {
       "completed_no_signal": 46,
       "completed_signal": 47,
-      "input_failure": 0,
+      "input_failure": 3,
       "pending_confirmation": 6,
       "technical_failure": 1
     },
     "actor_runs_started": 9,
     "saved_dataset_get_requests": 0,
     "actual_points_deducted": null,
-    "run_url": null,
-    "stop_http_status": null
+    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43021582706",
+    "stop_http_status": 429,
+    "status_count_transitions": {
+      "completed_no_signal": 46,
+      "completed_signal": 47,
+      "input_failure": 0,
+      "pending_confirmation": 6,
+      "technical_failure": 1
+    },
+    "recovered_zero_generation_inputs": 3,
+    "cache_artifact": {
+      "run_id": 43021582706,
+      "id": 13856592316,
+      "name": "history-media-cache-20261111-continuation",
+      "size_bytes": 52131162,
+      "expires_at": "2026-11-25T12:58:24Z",
+      "digest": "sha256:e4bd27f0f49fd62b47068888db8215dc14811d3dcb1468c36394a9faf4ab6b67"
+    },
+    "media_repair_ledger": "data/history_media_repairs/20261111-media-repair-01.json",
+    "initial_media_repair_ledger": "data/history_media_repairs/media-repair-20261111-01.json",
+    "media_repair_http_counts": {
+      "GET": 127,
+      "POST": 7
+    },
+    "media_repair_total_http_counts": {
+      "GET": 140,
+      "POST": 9
+    },
+    "media_repair_observed_usd": "0.520",
+    "media_repair_note": "9 Actor runs total: 2 initial verification + 7 continuation; each capped USD0.10. API run usageTotalUsd sums only, not independently settled invoice. Media API request counts include GET140/POST9; GitHub and image fetches are separate.",
+    "images_supplied": 77,
+    "cache_verified_image_requests": 68
   }
 }
 ```
@@ -197,3 +235,5 @@
 本次 API 次數僅指 AI 生成及 Apify 啟動／讀取；GitHub 進度保存與圖片下載另計，沒有把上述數字宣稱為全部 HTTP 流量。data/usage.json 的 ai_attempts 為舊流程計數，不等於 ChatAnywhere 全部呼叫量，應以本次及既有帳本查核。
 
 只做一次性執行，不啟用持續排程、不發布 Pages、不合併 PR。
+
+本次媒體修復與續跑詳見 [修復執行紀錄](HISTORY_MEDIA_REPAIR_20261111.md)；API已因429停止，一次性入口已停用。
