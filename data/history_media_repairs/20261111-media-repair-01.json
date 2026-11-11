@@ -383,7 +383,11 @@
         "threads:4001883511148575576"
       ],
       "status": "SUCCEEDED",
-      "posts": {},
+      "posts": {
+        "threads:3997998441305802898": {
+          "status": "cached"
+        }
+      },
       "input": {
         "mode": "urls",
         "postUrls": [
@@ -439,8 +443,8 @@
   "ai_requests": 0,
   "monthly_runs_before": 50,
   "http_requests": {
-    "GET": 74,
+    "GET": 75,
     "POST": 4
   },
-  "updated_at": "2026-11-11T12:46:26.340635+00:00"
+  "updated_at": "2026-11-11T12:46:27.932744+00:00"
 }
