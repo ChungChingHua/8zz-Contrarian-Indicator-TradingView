@@ -116,19 +116,19 @@
         "isMaxTotalChargeUsdSetByUser": true,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": "0.001",
+      "usageTotalUsd": "0.061",
       "chargedEventCounts": {
-        "post": 7,
+        "post": 12,
         "actor-start": 1,
         "filter-applied": 0
       },
       "accountedChargedEventCounts": {
-        "post": 0,
+        "post": 12,
         "actor-start": 1,
         "filter-applied": 0
       },
       "duration_seconds": "7.529",
-      "cost_observed_at": "2026-11-11T12:35:52.074053+00:00",
+      "cost_observed_at": "2026-11-11T12:58:13.515733+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     },
     {
@@ -222,19 +222,19 @@
         "isMaxTotalChargeUsdSetByUser": true,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": "0.07",
+      "usageTotalUsd": "0.08",
       "chargedEventCounts": {
         "start": 1,
         "profile": 0,
-        "post": 10
+        "post": 12
       },
       "accountedChargedEventCounts": {
         "start": 1,
         "profile": 0,
-        "post": 10
+        "post": 12
       },
       "duration_seconds": "102.113",
-      "cost_observed_at": "2026-11-11T12:38:09.439532+00:00",
+      "cost_observed_at": "2026-11-11T12:58:13.600687+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     },
     {
@@ -350,19 +350,19 @@
         "isMaxTotalChargeUsdSetByUser": true,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": "0.056",
+      "usageTotalUsd": "0.061",
       "chargedEventCounts": {
         "post": 12,
         "actor-start": 1,
         "filter-applied": 0
       },
       "accountedChargedEventCounts": {
-        "post": 11,
+        "post": 12,
         "actor-start": 1,
         "filter-applied": 0
       },
       "duration_seconds": "24.198",
-      "cost_observed_at": "2026-11-11T12:42:58.343647+00:00",
+      "cost_observed_at": "2026-11-11T12:58:13.650314+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     },
     {
@@ -456,19 +456,19 @@
         "isMaxTotalChargeUsdSetByUser": true,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": "0.07",
+      "usageTotalUsd": "0.08",
       "chargedEventCounts": {
         "start": 1,
         "profile": 0,
-        "post": 10
+        "post": 12
       },
       "accountedChargedEventCounts": {
         "start": 1,
         "profile": 0,
-        "post": 10
+        "post": 12
       },
       "duration_seconds": "122.587",
-      "cost_observed_at": "2026-11-11T12:46:26.340620+00:00",
+      "cost_observed_at": "2026-11-11T12:58:13.705915+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     },
     {
@@ -586,19 +586,19 @@
         "isMaxTotalChargeUsdSetByUser": true,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": "0.001",
+      "usageTotalUsd": "0.061",
       "chargedEventCounts": {
-        "post": 0,
+        "post": 12,
         "actor-start": 1,
         "filter-applied": 0
       },
       "accountedChargedEventCounts": {
-        "post": 0,
+        "post": 12,
         "actor-start": 1,
         "filter-applied": 0
       },
       "duration_seconds": "4.804",
-      "cost_observed_at": "2026-11-11T12:49:42.848562+00:00",
+      "cost_observed_at": "2026-11-11T12:58:13.785144+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     },
     {
@@ -692,19 +692,19 @@
         "isMaxTotalChargeUsdSetByUser": true,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": "0.07",
+      "usageTotalUsd": "0.08",
       "chargedEventCounts": {
         "start": 1,
         "profile": 0,
-        "post": 10
+        "post": 12
       },
       "accountedChargedEventCounts": {
         "start": 1,
         "profile": 0,
-        "post": 10
+        "post": 12
       },
       "duration_seconds": "126.016",
-      "cost_observed_at": "2026-11-11T12:54:39.569208+00:00",
+      "cost_observed_at": "2026-11-11T12:58:13.893811+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     },
     {
@@ -822,19 +822,19 @@
         "isMaxTotalChargeUsdSetByUser": true,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": "0.051000000000000004",
+      "usageTotalUsd": "0.061",
       "chargedEventCounts": {
-        "post": 11,
+        "post": 12,
         "actor-start": 1,
         "filter-applied": 0
       },
       "accountedChargedEventCounts": {
-        "post": 10,
+        "post": 12,
         "actor-start": 1,
         "filter-applied": 0
       },
       "duration_seconds": "16.101",
-      "cost_observed_at": "2026-11-11T12:57:02.035972+00:00",
+      "cost_observed_at": "2026-11-11T12:58:13.948467+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     }
   ],
@@ -842,8 +842,9 @@
   "ai_requests": 0,
   "monthly_runs_before": 50,
   "http_requests": {
-    "GET": 120,
+    "GET": 127,
     "POST": 7
   },
-  "updated_at": "2026-11-11T12:57:18.327754+00:00"
+  "updated_at": "2026-11-11T12:58:13.948487+00:00",
+  "monthly_runs_after": 57
 }
