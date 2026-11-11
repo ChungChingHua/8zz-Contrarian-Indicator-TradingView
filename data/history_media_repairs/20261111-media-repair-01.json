@@ -382,7 +382,7 @@
         "threads:4001287396876953467",
         "threads:4001883511148575576"
       ],
-      "status": "reserved_not_submitted",
+      "status": "submission_unknown",
       "posts": {}
     }
   ],
@@ -393,5 +393,5 @@
     "GET": 43,
     "POST": 3
   },
-  "updated_at": "2026-11-11T12:44:20.010413+00:00"
+  "updated_at": "2026-11-11T12:44:21.257040+00:00"
 }
