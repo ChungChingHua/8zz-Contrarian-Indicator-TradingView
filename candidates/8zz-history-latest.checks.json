@@ -1,7 +1,7 @@
 {
   "historical_events": 151,
-  "added_events": 166,
-  "total_events": 317,
+  "added_events": 176,
+  "total_events": 327,
   "historical_blocks_preserved": true,
   "historical_basis": "reconciled_published_author_history",
   "fork_base_events": 150,
@@ -20,8 +20,8 @@
   "timestamps_ordered": true,
   "directions_strengths_valid": true,
   "tradingview_compiled": false,
-  "initialization_functions": 16,
+  "initialization_functions": 17,
   "max_events_per_function": 20,
-  "first_bar_calls": 16,
+  "first_bar_calls": 17,
   "event_initialization_chunk_limit": 20
 }
