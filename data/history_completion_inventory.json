@@ -4123,41 +4123,41 @@
     "key": "threads:3992181950169821287",
     "url": "https://www.threads.com/@banini31/post/DdnFFUKmTBn",
     "display_time": "2026-09-23T08:59:55+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3992181950169821287",
+    "evidence": "data/history_progress/history-completion-20261107-020.json",
+    "reason": "文字內容語意模糊，僅表示看到類似圖片效果後冷掉，無明確持倉或交易情緒/動作，屬於無法判定的投資關聯貼文，依規則跳過。"
   },
   {
     "key": "facebook:1660785808739341",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid024yyHVRELYXh7JjpXnhRyAsQMoAztvQizp44u9HA5WKUQxEMugCZf6o5588UKBKTyl",
     "display_time": "2026-09-23T09:02:50+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "input_failure",
+    "stored_status": "input_failure",
+    "record_key": "facebook:1660785808739341",
+    "evidence": "data/history_progress/history-completion-20261107-020.json",
+    "reason": "media_preflight_failure"
   },
   {
     "key": "threads:3992201729433763729",
     "url": "https://www.threads.com/@banini31/post/DdnJlJCmX-R",
     "display_time": "2026-09-23T09:39:13+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "input_failure",
+    "stored_status": "input_failure",
+    "record_key": "threads:3992201729433763729",
+    "evidence": "data/history_progress/history-completion-20261107-020.json",
+    "reason": "media_http_status_rejected"
   },
   {
     "key": "threads:3992213198011063292",
     "url": "https://www.threads.com/@banini31/post/DdnMMB_E1v8",
     "display_time": "2026-09-23T10:02:01+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "input_failure",
+    "stored_status": "input_failure",
+    "record_key": "threads:3992213198011063292",
+    "evidence": "data/history_progress/history-completion-20261107-020.json",
+    "reason": "media_http_status_rejected"
   },
   {
     "key": "facebook:1660817558736166",
