@@ -89,7 +89,7 @@
           }
         }
       },
-      "status": "submission_unknown",
+      "status": "READY",
       "requested_keys": [
         "facebook:1660785808739341"
       ],
@@ -100,7 +100,37 @@
           }
         ],
         "resultsLimit": 1
-      }
+      },
+      "id": "9Ese4DLwPHsgVPn46",
+      "startedAt": "2026-11-11T12:27:13.457Z",
+      "finishedAt": null,
+      "buildId": "Gr1dBmCFqYogdYljN",
+      "buildNumber": "0.0.416",
+      "defaultDatasetId": "hjCtjLDuMS1cxYO5R",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": 0,
+      "chargedEventCounts": {
+        "post": 0,
+        "actor-start": 0,
+        "filter-applied": 0
+      },
+      "accountedChargedEventCounts": {
+        "post": 0,
+        "actor-start": 0,
+        "filter-applied": 0
+      },
+      "duration_seconds": null,
+      "cost_observed_at": "2026-11-11T12:27:13.642498+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution"
     },
     "threads": {
       "actor": "automation-lab~threads-scraper",
@@ -200,6 +230,6 @@
   "monthly_runs_before": 48,
   "http_requests": {
     "GET": 2,
-    "POST": 0
+    "POST": 1
   }
 }
