@@ -5,8 +5,8 @@
   "event_initialization_chunk_limit": 20,
   "events": 313,
   "events_unchanged": true,
-  "source_sha256": "9148e4a20b3d2fe7d9f1cec4334e2dc9051d71fe4484912ee56c485f7c61e367",
-  "strategy_sha256": "0381ac502b8b34df56ff0c71773dac7fd481e874526c2c4c7eace651eee2e7f3",
+  "source_sha256": "7320b22c62ce132a28563dde6f0a16b94fa51faa463efe74049d560a5b90902a",
+  "strategy_sha256": "0089b61e6efc298e658a258e7c69532afdc3a7a048b53f320e18a6d5b92ee5a0",
   "tradingview_compiled": false,
   "order_api": "TradingView strategy broker emulator only"
 }
