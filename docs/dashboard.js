@@ -1,5 +1,5 @@
 'use strict';
-let D=window.DASHBOARD_DATA;const $=id=>document.getElementById(id);let mode='B',basis='published',page=0,asset='0050';const instrument=()=>asset==='TXF'?D.instruments.TXF:D;const market=()=>instrument().market;const assetName=()=>asset==='TXF'?'台指期貨 TXFR1':'0050.TW';const model=()=>basis==='available'?instrument().available_modes[mode]:instrument().modes[mode];const size=Number.MAX_SAFE_INTEGER;
+let D=window.DASHBOARD_DATA;const $=id=>document.getElementById(id);let mode='B',page=0,asset='0050';const instrument=()=>asset==='TXF'?D.instruments.TXF:D;const market=()=>instrument().market;const assetName=()=>asset==='TXF'?'台指期貨 TXFR1':'0050.TW';const model=()=>instrument().modes[mode];const size=Number.MAX_SAFE_INTEGER;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const date=t=>t?new Date(t).toLocaleString('sv-SE',{timeZone:'Asia/Taipei',hour12:false}).slice(0,16):'—';
 const pct=x=>x==null?'—':`${x>=0?'+':''}${x.toFixed(2)}%`;
@@ -14,7 +14,7 @@ function svgChart(data){if(!data.length){$('chart').innerHTML='<p style="padding
 }
 let equityChartObj=null;
 function chart(data){
- const models=basis==='available'?instrument().available_modes:instrument().modes;
+ const models=instrument().modes;
  $('equity-chart-title').textContent=`資產增長曲線（起始 100）｜反指標 Mode ${mode}${mode==='A'?'（固定 '+D.hold_bars+' 棒）':''}${asset==='0050'?' vs 買入持有 0050':'・台指期貨日盤'}`;
  if(!window.Chart){svgChart(data);return}
  if(equityChartObj){equityChartObj.destroy();equityChartObj=null}
@@ -25,11 +25,11 @@ function chart(data){
  equityChartObj=new window.Chart($('equityChart'),{type:'line',data:{datasets},options:{animation:false,maintainAspectRatio:false,interaction:{mode:'nearest',intersect:false},plugins:{legend:{labels:{color:'#8b949e',boxWidth:16}},tooltip:{callbacks:{title:items=>items.length?date(items[0].parsed.x)+'（台北）':'',label:ctx=>ctx.dataset.label+': '+ctx.parsed.y.toFixed(2)}}},scales:{x:{type:'time',time:{unit:'month',tooltipFormat:'yyyy-MM-dd HH:mm'},ticks:{color:'#8b949e',maxTicksLimit:8,callback:v=>date(v).slice(0,10)},grid:{color:'#30363d'}},y:{ticks:{color:'#8b949e',callback:v=>Number(v).toFixed(0)},grid:{color:'#30363d'}}}}});
  const times=[...models.A.curve,...models.B.curve].map(p=>p.time);$('chart-range').innerHTML=`<span>${date(Math.min(...times))}</span><span>${date(Math.max(...times))} 台北</span>`;
 }
-function render(){const M=model(),s=M.stats;$('asset-description').textContent=asset==='TXF'?D.instruments.TXF.disclosure:'0050 等額本金代理，非原文個股績效。30分鐘行情來自永豐，排除未完整時段；A、B均使用30分鐘行情計算，日線僅保留供來源核對，不參與績效。';$('chart-subtitle').textContent=assetName()+' 代理帳戶 · 單一部位 · 100%名目本金，無槓桿';$('benchmark-legend').hidden=asset==='TXF';document.querySelectorAll('[data-basis]').forEach(b=>b.classList.toggle('active',b.dataset.basis===basis));document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));$('mode-note').textContent=mode==='B'?'Mode B：與Mode A使用相同的30分鐘棒進場時點；反向訊號後於第一根有效30分鐘棒收盤出場，可於同價反向。':`Mode A：進場規則同Mode B，固定持有 ${D.hold_bars} 根30分鐘棒出場；持倉期間不重疊進場。`;$('mode-note').textContent+=(basis==='available'?' 判讀完成後可成交參考：缺完成時間者不納入交易；不回填已錯過收盤。':' 歷史發文參考：不代表當時已取得判讀。');$('mode-note').textContent+=' 本模式行情／績效截止：'+(market().series['30m'].length?date(market().series['30m'].at(-1).time):'缺資料')+'（台北）；重算時間：'+date(D.built_at)+'。';
+function render(){const M=model(),s=M.stats;$('asset-description').textContent=asset==='TXF'?D.instruments.TXF.disclosure:'0050 等額本金代理，非原文個股績效。30分鐘行情來自永豐，排除未完整時段；A、B均使用30分鐘行情計算，日線僅保留供來源核對，不參與績效。';$('chart-subtitle').textContent=assetName()+' 代理帳戶 · 單一部位 · 100%名目本金，無槓桿';$('benchmark-legend').hidden=asset==='TXF';document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));$('mode-note').textContent=mode==='B'?'Mode B：與Mode A使用相同的30分鐘棒進場時點；反向訊號後於第一根有效30分鐘棒收盤出場，可於同價反向。':`Mode A：進場規則同Mode B，固定持有 ${D.hold_bars} 根30分鐘棒出場；持倉期間不重疊進場。`;$('mode-note').textContent+=' 以發文時間進行歷史回測，未模擬抓取與判讀延遲。';$('mode-note').textContent+=' 本模式行情／績效截止：'+(market().series['30m'].length?date(market().series['30m'].at(-1).time):'缺資料')+'（台北）；重算時間：'+date(D.built_at)+'。';
  const winRateColor=s.win_rate==null?'var(--muted)':s.win_rate>=60?'var(--green)':s.win_rate>=40?'var(--yellow)':'var(--red)';
  const metrics=[['勝率',s.win_rate==null?'—':s.win_rate.toFixed(1)+'%','僅已結算交易，平手計入分母',winRateColor],['勝',s.wins,'平手 '+s.ties,'var(--green)'],['敗',s.losses,'已結算 '+s.settled,'var(--red)'],['進行中',s.open,'浮動損益未計入勝率','var(--yellow)'],['平均報酬率',pct(s.average),'已結算交易算術平均',s.average==null?'var(--muted)':s.average>=0?'var(--green)':'var(--red)'],['總事件數',D.events.length,'不等於交易筆數','var(--muted)'],['缺資料',s.missing,'行情／判讀／轉倉排除','var(--muted)']];
  $('metrics').innerHTML=metrics.map(([label,value,note,color],i)=>`<div class="stat-card${i===6?' stat-card-secondary':''}" title="${esc(note)}"><div class="val" style="color:${color}">${value}</div><div class="lbl">${label}</div></div>`).join('');
- $('parameter-wrap').hidden=mode!=='A';const a=(basis==='available'?instrument().available_modes:instrument().modes).A.stats;
+ $('parameter-wrap').hidden=mode!=='A';const a=instrument().modes.A.stats;
  $('parameter-row').innerHTML=`<tr><td style="font-weight:700;color:var(--blue)">${D.hold_bars}</td><td>${a.win_rate==null?'—':a.win_rate.toFixed(1)+'%'}</td><td>${pct(a.average)}</td><td>${a.wins}</td><td>${a.losses}</td><td>${a.settled}</td></tr>`;
  $('exit-heading').textContent=`出場日(${mode})`;$('pnl-heading').textContent=`報酬(${mode})`;$('result-heading').textContent=`結果(${mode})`;
  chart(M.curve);renderRows();
@@ -52,7 +52,7 @@ $('freshness').innerHTML=[['Facebook 公開涵蓋截止',date(D.platform_cutoffs
 document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{mode=b.dataset.mode;page=0;render()});document.querySelectorAll('.filters input,.filters select').forEach(el=>el.oninput=()=>{page=0;renderRows()});document.querySelector('.filters').onreset=()=>setTimeout(()=>{page=0;renderRows()},0);$('pending-status').onchange=pending;
 $('export').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(D,null,2)],{type:'application/json'}));a.download='8zz-audited-dashboard.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};freshness();pending();render();
 
-document.querySelectorAll('[data-basis]').forEach(b=>b.onclick=()=>{basis=b.dataset.basis;page=0;render()});
+
 let refreshing=false;
 function validSnapshot(n){
  if(!n.instruments?.TXF?.market||!n.instruments.TXF.modes||!n.instruments.TXF.available_modes)throw Error('invalid_instruments');

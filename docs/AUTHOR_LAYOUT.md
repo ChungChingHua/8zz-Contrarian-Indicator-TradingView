@@ -1,3 +1,5 @@
+> 2026-11-11：已依使用者要求移除額外的時間基準切換，頁面統一發文時間歷史回測。以下其餘原作者版型維持。
+
 # 原作者看板版型
 
 依使用者提供的 https://hansai-art.github.io/8zz-Contrarian-Indicator-TradingView/ 當前HTML與CSS調整同一網站，保留原作者MPL-2.0及hansai-art / Group.G署名。

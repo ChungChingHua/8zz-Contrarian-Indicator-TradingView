@@ -7,18 +7,18 @@ const fixture=JSON.parse(fs.readFileSync('docs/dashboard-data.json','utf8'));
  const requests=[];let calls=0,current=structuredClone(fixture),interval;
  const context={window:{DASHBOARD_DATA:structuredClone(fixture),innerWidth:width,Chart:chartReady?ChartStub:undefined},document:{getElementById:el,querySelector:el,querySelectorAll:()=>[],addEventListener(){}},location:{protocol:'https:'},setTimeout:()=>1,clearTimeout(){},setInterval(fn,ms){interval=fn;assert.equal(ms,60000)},AbortController,fetch:async url=>{requests.push(url);return{ok:true,json:async()=>url.startsWith('data-version')?{schema:1,version:current.version,url:'snapshots/'+current.version+'.json'}:current}}};
  vm.createContext(context);vm.runInContext(fs.readFileSync('docs/dashboard.js','utf8'),context);await new Promise(r=>setImmediate(r));
- for(const selected of ['0050','TXF'])for(const mode of ['A','B'])for(const basis of ['published','available']){
-  vm.runInContext(`asset='${selected}';mode='${mode}';basis='${basis}';page=0`,context);
+ for(const selected of ['0050','TXF'])for(const mode of ['A','B']){
+  vm.runInContext(`asset='${selected}';mode='${mode}';page=0`,context);
   for(const value of ['', 'yes','no']){
    el('traded').value=value;vm.runInContext('render()',context);
-   const rows=(selected==='TXF'?fixture.instruments.TXF:fixture)[basis==='available'?'available_modes':'modes'][mode].rows;
+   const rows=(selected==='TXF'?fixture.instruments.TXF:fixture)['modes'][mode].rows;
    const expected=fixture.events.filter(e=>!value||Boolean(rows[e.id].trade)===(value==='yes'));
    assert.match(el('filter-count').textContent,new RegExp('符合 '+expected.length+' /'));
    if(expected.length)assert.equal((el('event-rows').innerHTML.match(/<tr>/g)||[]).length,expected.length);
    else assert.match(el('event-rows').innerHTML,/沒有符合/);
   }
  }
- vm.runInContext("asset='0050';mode='B';basis='published';page=0",context);el('traded').value='yes';
+ vm.runInContext("asset='0050';mode='B';page=0",context);el('traded').value='yes';
  el('traded').value='';
  for(const result of ['勝','敗','平手','未平倉','missing']){
   el('outcome').value=result;el('flip').value='yes';vm.runInContext('renderRows()',context);
@@ -36,5 +36,5 @@ const fixture=JSON.parse(fs.readFileSync('docs/dashboard-data.json','utf8'));
  const count=requests.filter(u=>u.startsWith('snapshots')).length;await interval();assert.equal(requests.filter(u=>u.startsWith('snapshots')).length,count);
  current=structuredClone(current);current.version='b'.repeat(64);current.instruments.TXF.modes=null;await interval();assert.match(el('refresh-status').textContent,/失敗/);assert.match(el('metrics').innerHTML,/777/);
  el('asset').value='0050';el('asset').onchange();assert.equal(el('benchmark-legend').hidden,false);assert.match(el('event-rows').innerHTML,/0050.TW/);
- results.push({width,chart_ready:chartReady,author_comparison_chart:true,result_and_flip_filters:true,asset_switch:true,trade_filter_all_assets_modes_bases:true,rows_stats_curve:true,poll_preserves_asset_and_filters:true,invalid_futures_snapshot_retained:true,unchanged_version_no_snapshot:true});
+ results.push({width,chart_ready:chartReady,author_comparison_chart:true,result_and_flip_filters:true,asset_switch:true,trade_filter_all_assets_modes:true,rows_stats_curve:true,poll_preserves_asset_and_filters:true,invalid_futures_snapshot_retained:true,unchanged_version_no_snapshot:true});
  }fs.writeFileSync('docs/previews/asset-ui-validation.json',JSON.stringify(results,null,2)+'\n');console.log(JSON.stringify(results));})().catch(e=>{console.error(e);process.exitCode=1});

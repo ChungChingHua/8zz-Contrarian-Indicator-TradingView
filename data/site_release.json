@@ -3,9 +3,9 @@
   "project_id": "appgprj_6af2d13db444819181d0f47426072148",
   "access": "owner-private",
   "source_checkout": "/workspace/sites/8zz-september",
-  "source_commit": "e4f0bc0304e5209f632def5393713688578535eb",
-  "version_id": "appgprj_6af2d13db444819181d0f47426072148~appgver_251a6d31c6dc819186ac13e4030e97ba",
-  "deployment_id": "appgdep_6af2f45f6bc481919d3514396e07caf3",
+  "source_commit": "0e45c8b0551e39ed38b02186bfd4fc51522fbb0b",
+  "version_id": "appgprj_6af2d13db444819181d0f47426072148~appgver_4748982f3e60819183c07526af2baa74",
+  "deployment_id": "appgdep_6af3de933bb881919bbbbb911802f466",
   "publication_policy": "data/publication_policy.json",
   "future_updates": "Reuse this project_id. Rebuild from saved judgments only, enforce publication boundary, package allowlisted assets, push the matching Site source, then deploy the saved version. Do not create a second Site or include November posts.",
   "status": "succeeded",
@@ -16,5 +16,6 @@
   ],
   "futures_session": "daytime_only_0845_1345_Asia_Taipei",
   "entry_rule": "Both modes use first valid 30-minute close strictly after signal; A exits after 17 bars, B on reversal.",
-  "layout_reference": "https://hansai-art.github.io/8zz-Contrarian-Indicator-TradingView/"
+  "layout_reference": "https://hansai-art.github.io/8zz-Contrarian-Indicator-TradingView/",
+  "visible_time_basis": "published_time_historical_reference_only"
 }
