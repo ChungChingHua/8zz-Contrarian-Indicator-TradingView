@@ -364,14 +364,34 @@
       "duration_seconds": "24.198",
       "cost_observed_at": "2026-11-11T12:42:58.343647+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
+    },
+    {
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "keys": [
+        "threads:3997998441305802898",
+        "threads:3998382566671996148",
+        "threads:3998992921966279981",
+        "threads:3999651829557289861",
+        "threads:3999759309092189446",
+        "threads:4000447015792377184",
+        "threads:4000544989498056922",
+        "threads:4000648559305785615",
+        "threads:4000894878716882666",
+        "threads:4001017695143813611",
+        "threads:4001287396876953467",
+        "threads:4001883511148575576"
+      ],
+      "status": "reserved_not_submitted",
+      "posts": {}
     }
   ],
-  "actor_starts_reserved": 3,
+  "actor_starts_reserved": 4,
   "ai_requests": 0,
   "monthly_runs_before": 50,
   "http_requests": {
-    "GET": 42,
+    "GET": 43,
     "POST": 3
   },
-  "updated_at": "2026-11-11T12:43:15.989014+00:00"
+  "updated_at": "2026-11-11T12:44:20.010413+00:00"
 }
