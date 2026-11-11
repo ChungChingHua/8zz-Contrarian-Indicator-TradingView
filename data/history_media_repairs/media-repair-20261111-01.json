@@ -307,8 +307,36 @@
       }
     },
     "threads:3992201729433763729": {
-      "status": "checking",
-      "images_sent_to_ai": 0
+      "status": "cached",
+      "images_sent_to_ai": 0,
+      "download_hints": [
+        {
+          "host": "scontent-arn2-1.cdninstagram.com",
+          "fresh_url_sha256": "84a5a8d1644198fc047d7a7600817818978039174393c8072686b3fc8542b72b",
+          "oe_hint_utc": "2026-11-15T23:22:07+00:00"
+        }
+      ],
+      "image_http_statuses": [
+        200
+      ],
+      "images_downloaded": 1,
+      "scope": {
+        "analysis_scope": "text_and_images",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 1,
+        "image_evidence": [
+          {
+            "sha256": "cb13535acd24292586cdefab592086b0ef9b18ccd165821cb6fb7cecb5c790a3",
+            "bytes": 109070,
+            "mime": "image/jpeg",
+            "attachment_index": 0
+          }
+        ],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": []
+      }
     }
   },
   "max_starts": 2,
