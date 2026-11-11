@@ -1,6 +1,6 @@
 {
   "id": "media-repair-20261111-01",
-  "status": "preflight",
+  "status": "ready",
   "actors": {
     "facebook": {
       "actor": "apify~facebook-posts-scraper",
@@ -117,19 +117,19 @@
         "isMaxTotalChargeUsdSetByUser": true,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": 0,
+      "usageTotalUsd": "0.006",
       "chargedEventCounts": {
-        "post": 0,
+        "post": 1,
         "actor-start": 1,
         "filter-applied": 0
       },
       "accountedChargedEventCounts": {
-        "post": 0,
-        "actor-start": 0,
+        "post": 1,
+        "actor-start": 1,
         "filter-applied": 0
       },
       "duration_seconds": "4.652",
-      "cost_observed_at": "2026-11-11T12:27:18.819557+00:00",
+      "cost_observed_at": "2026-11-11T12:27:51.640260+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution",
       "rows": 1,
       "matched_keys": [
@@ -252,19 +252,19 @@
         "isMaxTotalChargeUsdSetByUser": true,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": 0,
+      "usageTotalUsd": "0.03",
       "chargedEventCounts": {
-        "start": 0,
+        "start": 1,
         "profile": 0,
-        "post": 0
+        "post": 2
       },
       "accountedChargedEventCounts": {
-        "start": 0,
+        "start": 1,
         "profile": 0,
-        "post": 0
+        "post": 2
       },
       "duration_seconds": "17.269",
-      "cost_observed_at": "2026-11-11T12:27:40.548067+00:00",
+      "cost_observed_at": "2026-11-11T12:27:51.697498+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution",
       "rows": 2,
       "matched_keys": [
@@ -379,7 +379,9 @@
   "workflow_run_id": "43020412869",
   "monthly_runs_before": 48,
   "http_requests": {
-    "GET": 11,
+    "GET": 13,
     "POST": 2
-  }
+  },
+  "cache_manifest_posts": 3,
+  "monthly_runs_after": 50
 }
