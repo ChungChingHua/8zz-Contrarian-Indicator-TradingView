@@ -36,6 +36,9 @@
           "status": "input_failure",
           "error_type": "ValueError",
           "safe_reason": "required_refreshed_images_unavailable"
+        },
+        "facebook:1665607648257157": {
+          "status": "cached"
         }
       },
       "input": {
@@ -118,5 +121,5 @@
     "GET": 5,
     "POST": 1
   },
-  "updated_at": "2026-11-11T12:35:58.911424+00:00"
+  "updated_at": "2026-11-11T12:36:00.100205+00:00"
 }
