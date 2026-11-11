@@ -231,8 +231,13 @@
     "user_authorized_media_repair": true,
     "initial_media_repair_ledger": "data/history_media_repairs/media-repair-20261111-01.json",
     "saved_dataset_get_requests": 0,
-    "actor_runs_started": 2,
-    "closed": false
+    "actor_runs_started": 9,
+    "closed": false,
+    "media_repair_ledger": "data/history_media_repairs/20261111-media-repair-01.json",
+    "media_repair_http_counts": {
+      "GET": 127,
+      "POST": 7
+    }
   },
   "session_history": [
     {
