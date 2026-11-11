@@ -5,7 +5,7 @@
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "created_at": "2026-11-11T12:51:29.419359+00:00",
   "max_generations": 25,
-  "reserved_generation_attempts": 0,
+  "reserved_generation_attempts": 1,
   "stopped": false,
   "finished": false,
   "provider_settings": {
@@ -42,9 +42,44 @@
           "post_id": "1672515150899740"
         }
       ],
-      "status": "not_started",
-      "attempts": 0,
-      "context_used": []
+      "status": "unknown",
+      "attempts": 1,
+      "context_used": [],
+      "media_scope": {
+        "analysis_scope": "text_and_images",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 3,
+        "image_evidence": [
+          {
+            "sha256": "6e53dfc86ae9249e85e6807e5eea25d6b10abf4445896edaf7ef72dedfc13ca4",
+            "bytes": 36210,
+            "mime": "image/jpeg",
+            "attachment_index": 1
+          },
+          {
+            "sha256": "f55c8529a172c099939e9b15cb417efed8accc688229cad2572f784ecf444871",
+            "bytes": 34183,
+            "mime": "image/jpeg",
+            "attachment_index": 2
+          },
+          {
+            "sha256": "90755b96452bc619cb0ec07b5867ce96c930dcc8fb7b54c2f1cd0ba7cd3f096e",
+            "bytes": 33896,
+            "mime": "image/jpeg",
+            "attachment_index": 3
+          }
+        ],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": [
+          0
+        ],
+        "cache_verified": true,
+        "media_refresh_session": "20261111-media-repair-01"
+      },
+      "request_sha256": "306c608084b6382550daf524e9ecf497f93cbe37b443b2afcc60a42df5240e03",
+      "dispatch_reserved_at": "2026-11-11T12:51:30.513480+00:00"
     },
     {
       "key": "threads:4001017695143813611",
@@ -623,5 +658,5 @@
       "context_used": []
     }
   ],
-  "updated_at": "2026-11-11T12:51:29.419390+00:00"
+  "updated_at": "2026-11-11T12:51:30.513494+00:00"
 }
