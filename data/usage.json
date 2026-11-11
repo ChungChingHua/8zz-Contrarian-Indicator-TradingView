@@ -133,10 +133,10 @@
             "usageTotalUsd": "0.001"
           },
           {
-            "id": null,
+            "id": "cu9xU76Kw4SJto3Pb",
             "source": "threads",
-            "status": "reserved_not_submitted",
-            "usageTotalUsd": null
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.07"
           }
         ]
       }
