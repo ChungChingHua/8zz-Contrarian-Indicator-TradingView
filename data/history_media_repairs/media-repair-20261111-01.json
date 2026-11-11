@@ -305,6 +305,10 @@
         "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
         "non_media_album_container_indices": []
       }
+    },
+    "threads:3992201729433763729": {
+      "status": "checking",
+      "images_sent_to_ai": 0
     }
   },
   "max_starts": 2,
