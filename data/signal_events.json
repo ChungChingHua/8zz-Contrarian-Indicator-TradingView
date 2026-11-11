@@ -6867,7 +6867,7 @@
     "is_flip": false
   },
   {
-    "event_key": "165ae3a7143d829828a49ec595368567101eedcdba61fcec1e19b3137014fde0",
+    "event_key": "63f8fdf4b82a4dc8faffc5f9e421767b4ee8c38121b8452a813edee1d8fab1de",
     "completed_at": "2026-11-11T12:35:20.347723+00:00",
     "fetched_at": null,
     "available_ms": 1794400520347,
@@ -6881,7 +6881,7 @@
     "direction": -1,
     "strength": 3,
     "summary": "追買(委託單)\n指標: 偏空 ▼ | 強度: 3\n2026-09-23T09:02:50+08:00 第一手天元！！！\n貼文宣稱「第一手天元」且附圖顯示委託狀態為「全部成交」，代表已真金白銀下單且情緒亢奮，強烈偏空訊號。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid024yyHVRELYXh7JjpXnhRyAsQMoAztvQizp44u9HA5WKUQxEMugCZf6o5588UKBKTyl",
-    "target": "4164.TWO",
+    "target": "未辨識",
     "symbol": "0050.TW",
     "proxy": true,
     "urls": [
@@ -6891,7 +6891,7 @@
     "is_flip": false
   },
   {
-    "event_key": "abafa2b65a9404e3e7629ec73756baff16985f1114b2965ea2cbfafd85e3abd0",
+    "event_key": "f5a29716f086b9a2867108310a89a39296bb8da2990233e9fda679a517982818",
     "completed_at": "2026-11-11T12:35:29.208583+00:00",
     "fetched_at": null,
     "available_ms": 1794400529208,
@@ -6905,7 +6905,7 @@
     "direction": -1,
     "strength": 3,
     "summary": "追買(委託單)\n指標: 偏空 ▼ | 強度: 3\n2026-09-23T09:39:13+08:00 早上衝一波\n貼文與圖包含委託單截圖顯示委託成功/全部成交，為真金白銀下單且語氣興奮，屬於極度亢奮的追買（偏空）訊號。\nhttps://www.threads.com/@banini31/post/DdnJlJCmX-R",
-    "target": "6285.TW",
+    "target": "未辨識",
     "symbol": "0050.TW",
     "proxy": true,
     "urls": [
