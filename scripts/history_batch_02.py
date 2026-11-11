@@ -24,9 +24,13 @@ def prepare(post):
     p['attachments']=[m for i,m in normalized]
     parts,scope=h.prepare_media(p)
     mapping=[i for i,m in normalized]
+    translated=set()
     for bucket in ('unanalysed_media','media_failures','image_evidence'):
         for item in scope.get(bucket,[]):
+            # The same failure object can occur in two buckets; translate once.
+            if id(item) in translated:continue
             item['attachment_index']=mapping[item['attachment_index']]
+            translated.add(id(item))
     scope['non_media_album_container_indices']=containers
     return parts,scope
 

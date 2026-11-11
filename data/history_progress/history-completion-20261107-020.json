@@ -119,7 +119,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -163,10 +163,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -427,7 +427,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -471,10 +471,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -603,6 +603,35 @@
         "direction": -1,
         "strength": 3,
         "action": "追買(委託單)",
+        "ticker": "",
+        "reasoning": "貼文宣稱「第一手天元」且附圖顯示委託狀態為「全部成交」，代表已真金白銀下單且情緒亢奮，強烈偏空訊號。",
+        "disposition": "signal",
+        "images": [
+          {
+            "image_index": 0,
+            "visible_text": "委託狀態 全部成交",
+            "observation": "圖中表格顯示商品為友達，委託狀態欄顯示全部成交；但貼文文字提到天元（天元代碼4164.TWO），圖像有成交截圖，故判定為已下單追買",
+            "readable": true
+          }
+        ],
+        "target_notes": "貼文文字短但結合委託成交截圖視為真實下單；以提及標的「天元」對應 yfinance 代碼 4164.TWO。；代碼對應未通過離線核對，輸出代碼留空；原模型候選保留於原回應。",
+        "original_ai_strength": 3,
+        "order_proof_phrases_present": [
+          "全部成交",
+          "委託狀態"
+        ],
+        "order_proof_rule_matched": true,
+        "rule_version": "fork-7b626f2-ai-v1",
+        "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+        "status": "done",
+        "image_evidence_status": "service_transcription_not_human_verified",
+        "context_used": []
+      },
+      "completed_at": "2026-11-11T12:35:20.347723+00:00",
+      "processed_before_ticker_reconciliation": {
+        "direction": -1,
+        "strength": 3,
+        "action": "追買(委託單)",
         "ticker": "4164.TWO",
         "reasoning": "貼文宣稱「第一手天元」且附圖顯示委託狀態為「全部成交」，代表已真金白銀下單且情緒亢奮，強烈偏空訊號。",
         "disposition": "signal",
@@ -627,7 +656,17 @@
         "image_evidence_status": "service_transcription_not_human_verified",
         "context_used": []
       },
-      "completed_at": "2026-11-11T12:35:20.347723+00:00"
+      "ticker_reconciliation": {
+        "from": "4164.TWO",
+        "to": "",
+        "reason": "Original text names 天元; service image transcription names 友達. The proposed 4164 mapping lacks supporting evidence; official TPEx identifies 4164 as 承業醫. Clear unverified ticker, preserve sentiment.",
+        "sources": [
+          "https://ic.tpex.org.tw/company_chain.php?stk_code=4164"
+        ],
+        "no_generation": true,
+        "human_image_verified": false,
+        "direction_strength_unchanged": true
+      }
     },
     {
       "key": "threads:3992201729433763729",
@@ -745,7 +784,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -793,10 +832,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -925,6 +964,37 @@
         "direction": -1,
         "strength": 3,
         "action": "追買(委託單)",
+        "ticker": "",
+        "reasoning": "貼文與圖包含委託單截圖顯示委託成功/全部成交，為真金白銀下單且語氣興奮，屬於極度亢奮的追買（偏空）訊號。",
+        "disposition": "signal",
+        "images": [
+          {
+            "image_index": 0,
+            "visible_text": "全部 委託單筆數:3 刪改 商品 委託狀態 環球晶 全部成交 刪改 環球晶 委託成功 刪改 友達 全部成交",
+            "observation": "截圖顯示多筆委託單，包含環球晶（委託成功/全部成交），為已下單證據。",
+            "readable": true
+          }
+        ],
+        "target_notes": "根據圖中商品名稱判定環球晶（環球晶圓/環球晶投控），對應常見代碼6285.TW；若應以其他代碼請依實際標的修正。；代碼對應未通過離線核對，輸出代碼留空；原模型候選保留於原回應。",
+        "original_ai_strength": 3,
+        "order_proof_phrases_present": [
+          "委託成功",
+          "全部成交",
+          "委託狀態",
+          "委託單"
+        ],
+        "order_proof_rule_matched": true,
+        "rule_version": "fork-7b626f2-ai-v1",
+        "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+        "status": "done",
+        "image_evidence_status": "service_transcription_not_human_verified",
+        "context_used": []
+      },
+      "completed_at": "2026-11-11T12:35:29.208583+00:00",
+      "processed_before_ticker_reconciliation": {
+        "direction": -1,
+        "strength": 3,
+        "action": "追買(委託單)",
         "ticker": "6285.TW",
         "reasoning": "貼文與圖包含委託單截圖顯示委託成功/全部成交，為真金白銀下單且語氣興奮，屬於極度亢奮的追買（偏空）訊號。",
         "disposition": "signal",
@@ -951,7 +1021,18 @@
         "image_evidence_status": "service_transcription_not_human_verified",
         "context_used": []
       },
-      "completed_at": "2026-11-11T12:35:29.208583+00:00"
+      "ticker_reconciliation": {
+        "from": "6285.TW",
+        "to": "",
+        "reason": "Service transcription names 環球晶/友達, but 6285 is 啟碁 (TWSE/company source); the inferred holding and code are unverified. Clear ticker rather than guess a replacement. Sentiment unchanged.",
+        "sources": [
+          "https://www.twse.com.tw/pdf/ch/6285_ch.pdf",
+          "https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=htm"
+        ],
+        "no_generation": true,
+        "human_image_verified": false,
+        "direction_strength_unchanged": true
+      }
     },
     {
       "key": "threads:3992213198011063292",
@@ -1069,7 +1150,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -1117,10 +1198,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -1378,7 +1459,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -1426,10 +1507,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -1687,7 +1768,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -1698,10 +1779,10 @@
           "safety_identifier": null,
           "tools": [],
           "content_filters": null,
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -1959,7 +2040,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -1970,10 +2051,10 @@
           "safety_identifier": null,
           "tools": [],
           "content_filters": null,
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -2231,7 +2312,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -2279,10 +2360,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -2540,7 +2621,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -2620,10 +2701,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -2872,7 +2953,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -2916,10 +2997,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -3170,7 +3251,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -3250,10 +3331,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -3502,7 +3583,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -3546,10 +3627,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -3800,7 +3881,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -3811,10 +3892,10 @@
           "safety_identifier": null,
           "tools": [],
           "content_filters": null,
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -4072,7 +4153,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -4083,10 +4164,10 @@
           "safety_identifier": null,
           "tools": [],
           "content_filters": null,
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -4344,7 +4425,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -4355,10 +4436,10 @@
           "safety_identifier": null,
           "tools": [],
           "content_filters": null,
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -4634,7 +4715,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -4682,10 +4763,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -4936,7 +5017,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -5016,10 +5097,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -5277,7 +5358,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -5357,10 +5438,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -5618,7 +5699,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -5629,10 +5710,10 @@
           "safety_identifier": null,
           "tools": [],
           "content_filters": null,
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -5887,7 +5968,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -5967,10 +6048,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -6218,7 +6299,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -6262,10 +6343,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -6516,7 +6597,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -6564,10 +6645,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -6825,7 +6906,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -6836,10 +6917,10 @@
           "safety_identifier": null,
           "tools": [],
           "content_filters": null,
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {
@@ -7097,7 +7178,7 @@
             }
           },
           "max_tool_calls": null,
-          "presence_penalty": 0.0,
+          "presence_penalty": 0,
           "reasoning": {
             "context": "current_turn",
             "effort": "minimal",
@@ -7177,10 +7258,10 @@
               }
             }
           ],
-          "top_p": 1.0,
+          "top_p": 1,
           "previous_response_id": null,
-          "frequency_penalty": 0.0,
-          "temperature": 1.0,
+          "frequency_penalty": 0,
+          "temperature": 1,
           "tool_choice": "auto",
           "service_tier": "default",
           "text": {

@@ -3,7 +3,7 @@
   "cutoff_utc": "2026-11-07T12:15:59.578797+00:00",
   "created_at": "2026-11-07T12:15:59.578797+00:00",
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
-  "closed": false,
+  "closed": true,
   "acquisition_completed": true,
   "sources": {
     "facebook": {
@@ -232,11 +232,30 @@
     "initial_media_repair_ledger": "data/history_media_repairs/media-repair-20261111-01.json",
     "saved_dataset_get_requests": 0,
     "actor_runs_started": 9,
-    "closed": false,
+    "closed": true,
     "media_repair_ledger": "data/history_media_repairs/20261111-media-repair-01.json",
     "media_repair_http_counts": {
       "GET": 127,
       "POST": 7
+    },
+    "recovered_zero_generation_inputs": 3,
+    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43021582706",
+    "stop_http_status": 429,
+    "cache_artifact": {
+      "run_id": 43021582706,
+      "id": 13856592316,
+      "name": "history-media-cache-20261111-continuation",
+      "size_bytes": 52131162,
+      "expires_at": "2026-11-25T12:58:24Z",
+      "digest": "sha256:e4bd27f0f49fd62b47068888db8215dc14811d3dcb1468c36394a9faf4ab6b67"
+    },
+    "media_repair_observed_usd": "0.520",
+    "media_repair_note": "9 Actor runs total: 2 initial verification + 7 continuation; each capped USD0.10. API run usageTotalUsd sums only, not independently settled invoice. Media API request counts include GET140/POST9; GitHub and image fetches are separate.",
+    "images_supplied": 77,
+    "cache_verified_image_requests": 68,
+    "media_repair_total_http_counts": {
+      "GET": 140,
+      "POST": 9
     }
   },
   "session_history": [
@@ -448,5 +467,15 @@
     }
   ],
   "stop_reason": "provider_access_quota_or_common_failure",
-  "stopped_at": "2026-10-12T08:44:32+08:00"
+  "stopped_at": "2026-10-12T08:44:32+08:00",
+  "closure_reason": "free_request_allowance_exhausted",
+  "service_quota_statement": {
+    "http_status": 429,
+    "source": "service error response in history-completion-20261107-024",
+    "shared_free_requests_per_24h_window": 100,
+    "remaining_free_requests": "exhausted, service statement only",
+    "actual_points_deducted": null,
+    "reset_time": null,
+    "note": "99 HTTP 200 responses and one HTTP 429 this repair session; the earlier successful response was not resent. No paid upgrade or retry."
+  }
 }

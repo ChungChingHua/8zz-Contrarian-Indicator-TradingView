@@ -67,6 +67,15 @@ def frozen_plan(groups,number):
         r.update(number=i,members=[{k:q[k] for k in ('key','source','url','published_at','post_id')} for q in g]);posts.append(r)
     return {'batch_id':SCOPE+'-'+str(number).zfill(3),'max_generations':25,'rule_version':policy.VERSION,'rule_sha256':policy.fingerprint(),'posts':posts}
 
+def session_status_delta(current,baseline,recovered=0):
+    """Report new failures separately from proven-zero-generation recoveries."""
+    if type(recovered) is not int or not 0<=recovered<=baseline.get('input_failure',0):
+        raise ValueError('invalid_zero_generation_recovery_count')
+    transitions={k:current.get(k,0)-baseline.get(k,0) for k in sorted(set(current)|set(baseline))}
+    outcomes=dict(transitions)
+    outcomes['input_failure']=outcomes.get('input_failure',0)+recovered
+    return outcomes,transitions
+
 def report(remote=None):
     data=archive();rows,origins=ledger_records();excluded,legacy=exclusions(data);by_member={}
     for key,r in rows.items():
@@ -144,6 +153,10 @@ def report(remote=None):
             'saved_dataset_get_requests':session.get('saved_dataset_get_requests',0),
             'actual_points_deducted':None,
             'run_url':session.get('run_url'),'stop_http_status':session.get('stop_http_status')}
+        outcomes,transitions=session_status_delta(summary['new_status_counts'],session.get('baseline_status_counts',{}),session.get('recovered_zero_generation_inputs',0))
+        summary['current_session'].update(status_counts=outcomes,status_count_transitions=transitions,recovered_zero_generation_inputs=session.get('recovered_zero_generation_inputs',0))
+        for key in ('cache_artifact','media_repair_ledger','initial_media_repair_ledger','media_repair_http_counts','media_repair_total_http_counts','media_repair_observed_usd','media_repair_note','images_supplied','cache_verified_image_requests'):
+            if key in session:summary['current_session'][key]=copy.deepcopy(session[key])
     h.s.write(ROOT/'data/history_completion_inventory.json',inventory);h.s.write(ROOT/'data/history_completion_summary.json',summary)
     text=['# 一次性歷史補齊執行紀錄','',
       '本次因實際阻塞停止，**尚未補齊全部歷史判讀**。' if control.get('stop_reason') else '請依下方剩餘及待確認清單判斷完成範圍。',

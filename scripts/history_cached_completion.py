@@ -11,7 +11,7 @@ from history_plan import media_identity
 from review_rules import media_plan
 import safe_media
 
-SESSION='20261111-media-repair-01'
+SESSION=os.getenv('AUTHORIZED_RESUME_ID') or '20261111-media-repair-01'
 LEDGER='data/history_media_repairs/'+SESSION+'.json'
 CACHE=Path('/tmp/8zz-history-media-cache')
 MAX_CACHE=128*1024*1024
@@ -174,10 +174,14 @@ def restore_unsent_worker(media,token,key):
 
 
 def main():
-    if os.getenv('AUTHORIZED_HISTORY_SCOPE')!=hc.SCOPE or os.getenv('AUTHORIZED_RESUME_ID')!=SESSION or os.getenv('GITHUB_REF')!='refs/heads/'+h.BRANCH:raise SystemExit('authorization mismatch')
+    if not re.fullmatch(r'[0-9]{8}-media-repair-[0-9]{2}',SESSION) or os.getenv('AUTHORIZED_HISTORY_SCOPE')!=hc.SCOPE or os.getenv('AUTHORIZED_RESUME_ID')!=SESSION or os.getenv('GITHUB_REF')!='refs/heads/'+h.BRANCH:raise SystemExit('authorization mismatch')
     token=os.environ.get('GH_TOKEN','');key=os.environ.get('CHATANYWHERE_API_KEY','');apify=os.environ.pop('APIFY_TOKEN','')
     if not token or not key or not apify:raise SystemExit('missing dedicated credentials')
-    remote=hc.Remote(token);docs=t.Docs(token);media=Media(docs,t.Client(apify))
+    remote=hc.Remote(token)
+    authorized=remote.load(hc.CONTROL,{})
+    if authorized.get('closed') or authorized.get('stop_reason'):return
+    if authorized.get('current_session',{}).get('id')!=SESSION:raise SystemExit('remote session authorization mismatch')
+    docs=t.Docs(token);media=Media(docs,t.Client(apify))
     try:
         control=remote.load(hc.CONTROL,{})
         if control.get('closed') or control.get('stop_reason'):return

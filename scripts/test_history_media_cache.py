@@ -9,6 +9,24 @@ class Tests(unittest.TestCase):
     def image(self,root):
         sha=hashlib.sha256(JPEG).hexdigest();filename=sha+'.bin';(root/filename).write_bytes(JPEG)
         return {'sha256':sha,'filename':filename,'bytes':len(JPEG),'mime':'image/jpeg'}
+    def test_recovery_accounting_preserves_transition_and_counts_new_failures(self):
+        current={'input_failure':4,'completed_signal':185};baseline={'input_failure':4,'completed_signal':138}
+        counts,transitions=c.hc.session_status_delta(current,baseline,3)
+        self.assertEqual(counts['input_failure'],3);self.assertEqual(transitions['input_failure'],0)
+        self.assertEqual(counts['completed_signal'],47);self.assertEqual(current['input_failure'],4)
+        with self.assertRaises(ValueError):c.hc.session_status_delta(current,baseline,5)
+    def test_album_failure_shared_across_buckets_maps_index_once(self):
+        import history_batch_02 as batch
+        p=self.post();p['attachments']=[{'mediaset_token':'pcb.'+p['post_id'],'url':'https://www.facebook.com/album'}]+[{'type':'photo','url':'https://test.fbcdn.net/'+str(i)+'.jpg'} for i in range(4)]
+        original=copy.deepcopy(p)
+        failure={'attachment_index':3,'kind':'image'}
+        scope={'unanalysed_media':[failure],'media_failures':[failure],'image_evidence':[{'attachment_index':0}]}
+        with patch.object(batch.h,'prepare_media',return_value=([],scope)):
+            _,out=batch.prepare(p)
+        self.assertEqual(out['media_failures'][0]['attachment_index'],4)
+        self.assertEqual(out['unanalysed_media'][0]['attachment_index'],4)
+        self.assertEqual(out['image_evidence'][0]['attachment_index'],1)
+        self.assertEqual(p,original)
     def test_cache_tampering_and_traversal_rejected(self):
         with tempfile.TemporaryDirectory() as t:
             root=Path(t);i=self.image(root)
