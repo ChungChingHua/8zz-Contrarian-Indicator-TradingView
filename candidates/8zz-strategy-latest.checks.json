@@ -12,7 +12,7 @@
   "events": 362,
   "events_unchanged": true,
   "source_sha256": "4710a4cc6f2ca3537b3cf7c87213550591d209534e7860d9862bf14de2c5f58f",
-  "strategy_sha256": "a93a35616b6096c06f8d1830da80b1a4b62e9628e976a508f0b1f0aa4b03fc50",
+  "strategy_sha256": "9ef719721f0fda0c0a5c8d0932c15ac27ee058d00388552ce0f5c8f991b3bd2f",
   "data_cutoff_taipei": "2026-11-07T20:15:59.578797+08:00",
   "default_end_date": "2026-11-06",
   "event_scope": "all_saved_indicator_events",

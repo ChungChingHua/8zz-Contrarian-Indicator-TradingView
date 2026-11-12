@@ -22,7 +22,7 @@ class StrategyTests(unittest.TestCase):
         self.assertEqual(hashlib.sha256((ROOT/'candidates/8zz-history-latest.pine').read_bytes()).hexdigest(),before)
         self.assertFalse(json.loads((ROOT/'candidates/8zz-strategy-latest.checks.json').read_text())['tradingview_compiled'])
     def test_orders_have_explicit_execution_and_native_accounting(self):
-        for declaration in ('pyramiding=0','process_orders_on_close=true','calc_on_every_tick=false','calc_on_order_fills=false','margin_long=100','margin_short=100'):
+        for declaration in ('pyramiding=0','process_orders_on_close=true','calc_on_every_tick=false','calc_on_order_fills=false','margin_long=0','margin_short=0'):
             self.assertIn(declaration,self.text)
         self.assertIn('strategy.entry("L", strategy.long',self.text)
         self.assertIn('strategy.entry("S", strategy.short',self.text)
@@ -48,12 +48,12 @@ class StrategyTests(unittest.TestCase):
         self.assertNotIn('alert(',self.text)
 
     def test_regular_equity_bars_are_not_rebased_to_futures_session(self):
-        self.assertIn('input.string("自動依圖表"',self.text)
+        self.assertIn('bool futuresProfile = true',self.text)
         self.assertIn('chartIsFutures = syminfo.type == "futures"',self.text)
         self.assertIn('time >= dayStart and time < dayEnd and (time_close <= dayEnd or closingMinuteMarker)',self.text)
         self.assertNotIn('time(timeframe.period, daySession',self.text)
         self.assertNotIn('time_close(timeframe.period, daySession',self.text)
-        self.assertIn('futuresProfile != chartIsFutures',self.text)
+        self.assertIn('if not correctContract',self.text)
         self.assertIn('str.format_time(time, "yyyy-MM-dd HH:mm", tz)',self.text)
 
     def _eval_session_expressions(self, profile, day, opening, closing, cutoff_day=None):
@@ -156,3 +156,29 @@ class StrategyTests(unittest.TestCase):
         self.assertEqual([c.args[1] for c in publish.call_args_list],['candidates/8zz-history-latest.pine','candidates/8zz-strategy-latest.pine'])
         saved={c.args[0]:c.args[1] for c in docs.save.call_args_list}
         self.assertEqual(saved['candidates/8zz-pine-delivery.json']['events'],len(EVENT_PATTERN.findall(self.source)))
+
+    def test_taiex_margin_costs_and_one_contract_defaults(self):
+        self.assertIn('initial_capital=700000',self.text)
+        self.assertIn('commission_type=strategy.commission.cash_per_contract, commission_value=250',self.text)
+        self.assertIn('float orderQty = 1.0',self.text)
+        self.assertIn('float marginPerContractTwd = 700000.0',self.text)
+        self.assertNotIn('etfCapitalPct',self.text);self.assertNotIn('contractQty = input',self.text)
+        # Native commissions, not duplicate manual equity/P&L deductions.
+        fee=float(re.search(r'commission_value=(\d+)',self.text)[1])
+        point=float(re.search(r'syminfo.pointvalue == (\d+)',self.text)[1])
+        for direction in (1,-1):
+            self.assertEqual(direction*(direction*100)*point-2*fee,19500)
+            self.assertEqual(direction*(-direction*100)*point-2*fee,-20500)
+        self.assertEqual(2*fee,500) # One round trip, also two contracts transacted on reversal.
+    def test_fixed_opening_margin_boundary_and_low_equity_exits(self):
+        expression=re.search(r'bool entryMarginReady = (.+)',self.text)[1].replace('strategy.equity','equity').replace('strategy.position_size','position').replace('math.abs','abs')
+        for equity,position,expected in ((700000,0,True),(699999,0,False),(700250,0,True),(700000,1,False),(700250,1,True),(700250,-1,True)):
+            self.assertEqual(eval(expression,{},dict(equity=equity,position=position,marginPerContractTwd=700000,fillCostPerContractTwd=250,orderQty=1)),expected)
+        self.assertIn('not fixedExitNow and entryMarginReady',self.text)
+        self.assertIn('strategy.close("S", comment="B：反向平空／保證金不足不開多"',self.text)
+        self.assertIn('strategy.close("L", comment="B：反向平多／保證金不足不開空"',self.text)
+        self.assertIn('strategy.close_all(comment="回測截止日盤收盤"',self.text)
+    def test_only_twd_futures_with_200_point_value_pass_contract_guard(self):
+        expression=re.search(r'bool correctContract = (.+)',self.text)[1].replace('syminfo.currency','currency').replace('syminfo.pointvalue','point')
+        for is_future,currency,point,expected in ((True,'TWD',200,True),(True,'TWD',50,False),(True,'TWD',10,False),(False,'TWD',200,False),(True,'USD',200,False)):
+            self.assertEqual(eval(expression,{},dict(chartIsFutures=is_future,currency=currency,point=point)),expected)

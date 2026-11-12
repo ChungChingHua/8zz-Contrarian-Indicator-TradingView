@@ -60,6 +60,8 @@
 
 ## 如何加入或更新 TradingView
 
+目前策略為大台固定1口：起始本金／每口開倉保證金NT$700,000，每點NT$200，每口買賣各計稅金＋手續費NT$250（來回NT$500）。固定保證金採程式資金檢查，詳見[成本與保證金操作](docs/PINE_STRATEGY.md)。指標與策略仍分開下載。
+
 1. 分別開啟最新版 [指標 Pine](candidates/8zz-history-latest.pine) 與 [策略 Pine](candidates/8zz-strategy-latest.pine)，按 Raw 複製各自的**完整內容**。兩份各自建立一個腳本，不要串接成同一檔案。
 2. 在 TradingView 開啟 Pine Editor，備份舊腳本後以完整檔案取代內容。
 3. 儲存、加入圖表／更新圖表，確認編譯成功與事件標籤。

@@ -3,19 +3,16 @@
 // Research backtest only: historical post-time signals, not a live AI feed or broker connection.
 //@version=6
 strategy("8zz 延續版－第一批測試（策略）", overlay=true, max_labels_count=500,
-     pyramiding=0, initial_capital=20000000, currency=currency.TWD,
+     pyramiding=0, initial_capital=700000, currency=currency.TWD,
      default_qty_type=strategy.fixed, default_qty_value=1,
-     commission_type=strategy.commission.cash_per_contract, commission_value=0, slippage=0,
-     margin_long=100, margin_short=100, process_orders_on_close=true,
+     commission_type=strategy.commission.cash_per_contract, commission_value=250, slippage=0,
+     margin_long=0, margin_short=0, process_orders_on_close=true,
      calc_on_every_tick=false, calc_on_order_fills=false)
 
 grpExec = "策略執行"
 exitMode = input.string("B｜反向訊號出場", "出場模式", options=["A｜固定K棒出場", "B｜反向訊號出場"], group=grpExec)
 holdBars = input.int(17, "A：固定持有日盤K棒數", minval=1, maxval=50, group=grpExec)
-marketProfile = input.string("自動依圖表", "圖表市場／部位方式", options=["自動依圖表", "台指期貨日盤", "0050 ETF"], group=grpExec)
-contractQty = input.int(1, "期貨固定口數", minval=1, maxval=100, group=grpExec)
-etfCapitalPct = input.float(100.0, "ETF名目本金比例 (%)", minval=1, maxval=100, group=grpExec)
-allowShort = input.bool(true, "允許偏空訊號放空（未核對借券限制）", group=grpExec)
+allowShort = input.bool(true, "允許偏空訊號放空", group=grpExec)
 showSignals = input.bool(true, "顯示翻轉訊號（成交看策略箭頭）", group=grpExec)
 showPanel = input.bool(true, "顯示原生策略統計提示", group=grpExec)
 
@@ -48,7 +45,12 @@ htfTf = input.timeframe("240", "確認週期", group=grpFilters)
 string tz = "Asia/Taipei"
 bool modeA = exitMode == "A｜固定K棒出場"
 bool chartIsFutures = syminfo.type == "futures"
-bool futuresProfile = marketProfile == "自動依圖表" ? chartIsFutures : marketProfile == "台指期貨日盤"
+bool futuresProfile = true
+bool correctContract = chartIsFutures and syminfo.currency == "TWD" and syminfo.pointvalue == 200
+// Native margin percentages are disabled; enforce fixed opening collateral below.
+// Collateral is not an expense. Maintenance margin / broker margin calls are not modeled.
+float marginPerContractTwd = 700000.0
+float fillCostPerContractTwd = 250.0
 int sessionStartHour = futuresProfile ? 8 : 9
 int sessionStartMinute = futuresProfile ? 45 : 0
 int sessionEndMinute = futuresProfile ? 45 : 30
@@ -75,5 +77,7 @@ float atrPct = ta.atr(atrLen) / close * 100
 float htfClose = request.security(syminfo.tickerid, htfTf, close[1], lookahead=barmerge.lookahead_on)
 float htfEma = request.security(syminfo.tickerid, htfTf, ta.ema(close, emaLen)[1], lookahead=barmerge.lookahead_on)
 float riskAtr = ta.atr(riskAtrLen)
-float orderQty = futuresProfile ? float(contractQty) : math.floor(strategy.equity * etfCapitalPct / 100 / (close * syminfo.pointvalue))
+float orderQty = 1.0
+// Reserve the old position's closing fee on reversal; charge new-entry commission on fill.
+bool entryMarginReady = strategy.equity - math.abs(strategy.position_size) * fillCostPerContractTwd >= marginPerContractTwd * orderQty
 
