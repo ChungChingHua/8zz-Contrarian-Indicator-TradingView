@@ -72,7 +72,13 @@
     "initialization_functions": 19,
     "max_events_per_function": 20,
     "first_bar_calls": 19,
-    "event_initialization_chunk_limit": 20
+    "event_initialization_chunk_limit": 20,
+    "event_encoding": "packed-v1",
+    "packed_event_round_trip": true,
+    "max_payload_bytes": 10249,
+    "payload_byte_limit": 30000,
+    "executable_array_push_statements": 5,
+    "il_tokens_measured": false
   },
   "last_new_valid_response_date": "2026-10-30T16:07:54+08:00",
   "new_stop_post_date": "2026-10-30T22:11:25+08:00",
@@ -238,3 +244,8 @@
 ## 2026/11/12 最新續跑與不重抓規則
 
 更新後APIFY_TOKEN已驗證成功；本次共62次生成、61有效回應、新增18事件，完整Pine362事件，剩74篇。HTTP403為服務回報七天免費點數不足，不是Apify認證失敗；沒有重試。4個新Actor回報US$0.263，月計數61/70。跨13個媒體run、135個預留貼文key，重複啟動0；先快取、再既有dataset，只對從未預留的缺漏啟動新Actor。詳見[本輪完整紀錄](HISTORY_NO_DUPLICATE_MEDIA_20261112.md)。
+
+
+## 2026/11/12 TradingView token 上限修正
+
+兩份362事件Pine已改為packed-v1資料載入，共用5個array.push陳述、19段資料，每段最多20事件／10249 UTF-8 bytes。時間、方向、強度、完整提示與標的五欄逐筆不變，事件之外的指標／策略程式不變。詳見[修正與驗證](PINE_TOKEN_LIMIT_FIX.md)。240項離線測試通過；尚未由TradingView實際重新編譯，不能宣稱已取得編譯token數。未呼叫AI、Apify或通知，遠端處理狀態及截止時間未改。

@@ -49,6 +49,8 @@ def build():
     out=ROOT/'candidates/8zz-strategy-latest.pine';out.write_text(result)
     out.with_suffix('.checks.json').write_text(json.dumps(checks,ensure_ascii=False,indent=2)+'\n')
     delivery={'schema':1,'events':len(after),'same_event_tuples':True,'data_cutoff_taipei':cutoff.isoformat(),
+        'event_fields_sha256':hashlib.sha256(json.dumps(after,ensure_ascii=False,separators=(',',':')).encode()).hexdigest(),
+        'event_encoding':checks.get('event_encoding'),'packed_event_round_trip':checks.get('packed_event_round_trip'),
         'strategy_default_end_date':default_end.isoformat(),'tradingview_compiled':False,
         'indicator':{'path':'candidates/8zz-history-latest.pine','sha256':source_sha},
         'strategy':{'path':'candidates/8zz-strategy-latest.pine','sha256':strategy_sha}}

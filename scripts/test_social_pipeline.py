@@ -112,8 +112,10 @@ class SocialTests(unittest.TestCase):
         from pine_history import reconcile_history
         original,_=reconcile_history((s.ROOT/'data/historical-indicator.pine').read_text())
         generated=(s.ROOT/'8zz-indicator.pine').read_text()
-        import re
-        blocks=lambda t:re.findall(r'array.push\(evt_time,.*?array.push\(evt_ticker,[^\n]+',t,re.S)
-        for block in blocks(original):self.assertIn(block,generated)
+        from update_pine_script import EVENT_PATTERN
+        from pine_initialization import check_initialization
+        fields=EVENT_PATTERN.findall(generated)
+        for event in EVENT_PATTERN.findall(original):self.assertIn(event,fields)
+        self.assertTrue(check_initialization(generated)['packed_event_round_trip'])
 
 if __name__=='__main__':unittest.main()

@@ -1,6 +1,6 @@
 > **最新 Pine 交付：指標＋原生策略，共用全部 362 筆已保存事件。**
 >
-> [指標完整碼](candidates/8zz-history-latest.pine) · [策略完整碼](candidates/8zz-strategy-latest.pine) · [同版核對資訊](candidates/8zz-pine-delivery.json) · [策略操作](docs/PINE_STRATEGY.md)。未完成歷史判讀仍保留待處理，不因此產生訊號。之後每次歷史／正式流程更新會一併產生兩份 Pine；目前排程仍停用、PR未合併。
+> [token上限修正版說明](docs/PINE_TOKEN_LIMIT_FIX.md) · [指標完整碼](candidates/8zz-history-latest.pine) · [策略完整碼](candidates/8zz-strategy-latest.pine) · [同版核對資訊](candidates/8zz-pine-delivery.json) · [策略操作](docs/PINE_STRATEGY.md)。未完成歷史判讀仍保留待處理，不因此產生訊號。之後每次歷史／正式流程更新會一併產生兩份 Pine；目前排程仍停用、PR未合併。
 >
 > 舊階段網站／Telegram驗收紀錄：[操作文件](docs/LIVE_PIPELINE_ACCEPTANCE.md)。這些舊看板或預覽的事件範圍不等於最新完整 Pine，未發布本次網站修改。
 

@@ -14,6 +14,7 @@ class StrategyTests(unittest.TestCase):
         self.assertEqual(EVENT_PATTERN.findall(self.text),expected)
         self.assertGreater(len(expected),0)
         self.assertEqual(check_initialization(self.text)['max_events_per_function'],20)
+        self.assertEqual(check_initialization(self.text)['event_encoding'],'packed-v1')
     def test_native_strategy_is_separate_and_reproducible(self):
         before=hashlib.sha256(self.source.encode()).hexdigest()
         self.assertIn('strategy("8zz',self.text);self.assertNotRegex(self.text,r'(?m)^indicator\(')

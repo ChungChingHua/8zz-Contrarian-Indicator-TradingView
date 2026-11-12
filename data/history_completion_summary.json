@@ -55,7 +55,13 @@
     "initialization_functions": 19,
     "max_events_per_function": 20,
     "first_bar_calls": 19,
-    "event_initialization_chunk_limit": 20
+    "event_initialization_chunk_limit": 20,
+    "event_encoding": "packed-v1",
+    "packed_event_round_trip": true,
+    "max_payload_bytes": 10249,
+    "payload_byte_limit": 30000,
+    "executable_array_push_statements": 5,
+    "il_tokens_measured": false
   },
   "last_new_valid_response_date": "2026-10-30T16:07:54+08:00",
   "new_stop_post_date": "2026-10-30T22:11:25+08:00",

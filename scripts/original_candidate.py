@@ -23,11 +23,13 @@ def build(ledger):
     count=len(EVENT_PATTERN.findall(candidate))
     dates=[r['display_time'][:7].replace('-','/') for r in ledger['records'] if r['status']=='completed_signal']
     if dates:candidate=HEADER_COUNT_PATTERN.sub(lambda m:m[1]+str(count)+m[3]+max(m[4],*dates),candidate,count=1)
-    for event in EVENT_PATTERN.finditer(text):
-        if event.group() not in candidate:raise ValueError('historical_event_changed')
     matches=list(EVENT_PATTERN.finditer(candidate))
+    fields=[m.groups() for m in matches]
+    for event in EVENT_PATTERN.finditer(text):
+        if event.groups() not in fields:raise ValueError('historical_event_changed')
     times=[int(m.group(1)) for m in matches]
-    paired=all(candidate.count('array.push('+name+',')==count for name in ('evt_time','evt_dir','evt_str','evt_tips','evt_ticker'))
+    initialization_checks=check_initialization(candidate)
+    paired=initialization_checks.get('packed_event_round_trip') is True
     ordered=times==sorted(times)
     valid=all(int(m.group(2)) in (-1,0,1) and int(m.group(3)) in (1,2,3) for m in matches)
     if not (paired and ordered and valid):raise ValueError('candidate_structure_invalid')
