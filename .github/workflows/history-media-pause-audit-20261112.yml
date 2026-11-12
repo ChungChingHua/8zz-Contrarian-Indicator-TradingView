@@ -1,0 +1,72 @@
+name: Seal paused media run and refresh existing costs 20261112
+on:
+  push:
+    branches: [codex/social-pipeline-20261106]
+    paths: [.github/workflows/history-media-pause-audit-20261112.yml]
+permissions:
+  contents: write
+concurrency:
+  group: original-author-history-batch-01
+  cancel-in-progress: false
+jobs:
+  seal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: codex/social-pipeline-20261106
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Refresh only three existing runs; abort any still active; no Actor starts or AI
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          PYTHONPATH=scripts python - <<'PY'
+          import json,os
+          import apify_cost_test as t
+          import history_completion as hc
+          import history_worker as h
+          token=os.environ.pop('GH_TOKEN');key=os.environ.pop('APIFY_TOKEN')
+          docs=t.Docs(token);client=t.Client(key);remote=hc.Remote(token)
+          path='data/history_media_repairs/20261112-media-repair-02.json'
+          media=docs.load(path)
+          allowed={'OnrW7LfkbTQhk7urR','ejiRfffjwz4DTcNtY','EKRZxFGDieAmbK9JC'}
+          if {b.get('id') for b in media['batches']}!=allowed:raise SystemExit('run_identity_mismatch_no_requests')
+          audit={'at':h.now(),'actor_starts':0,'ai_requests':0,'runs':[]}
+          for b in media['batches']:
+              row={'id':b['id'],'source':b['source']}
+              try:
+                  run=client.request('/actor-runs/'+b['id'])['data']
+                  row['status_before']=run['status']
+                  if run['status'] in ('READY','RUNNING','TIMING-OUT','ABORTING'):
+                      run=client.request('/actor-runs/'+b['id']+'/abort',{})['data']
+                      row['abort_requested']=True
+                  t.record_run(b,run);t.record_run(row,run)
+              except Exception as exc:row.update(error_type=type(exc).__name__,http_status=getattr(exc,'status',None))
+              audit['runs'].append(row)
+          audit['http_requests']=client.counts
+          media.update(blocked='user_paused_media_cost_review',paused_at=h.now(),pause_audit_http_counts=client.counts)
+          docs.save(path,media)
+          usage=docs.load('data/usage.json')
+          reservation=usage['2026-11']['media_repair_reservations']['20261112-media-repair-02']
+          reservation['runs']=[{k:b.get(k) for k in ('id','source','status','usageTotalUsd')} for b in media['batches']]
+          docs.save('data/usage.json',usage)
+          audit['monthly_runs']=usage['2026-11']['apify_runs']
+          docs.save('data/history_media_repairs/paused-audit-20261112-02.json',audit)
+          c=remote.load(hc.CONTROL,{})
+          c.update(closed=True,stop_reason='user_paused_media_cost_review',closure_reason='media_refresh_cost_question',updated_at=h.now())
+          c['current_session'].update(closed=True,actor_runs_started=media['actor_starts_reserved'],media_repair_ledger=path,media_repair_http_counts=media['http_requests'],pause_audit_http_counts=client.counts,run_url='https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43196120243',stop_http_status=None,cache_artifact={'run_id':43196120243,'id':13933337415,'name':'history-media-cache-20261112-continuation-02','size_bytes':8401125,'expires_at':'2026-11-26T10:04:42Z','digest':'sha256:aec1cce1e5fedc04041b6ea839aabe301f37456bbbbd9a90f0bde0ef6eece4ff'})
+          remote.save(hc.CONTROL,c)
+          hc.report(remote)
+          print(json.dumps({'audit_http':client.counts,'actor_starts':0,'ai_requests':0,'monthly_runs':audit['monthly_runs'],'paused':True}))
+          PY
+      - name: Offline regression and deterministic Pine
+        run: |
+          python -m unittest discover -s scripts -p 'test*.py'
+          python scripts/social_pipeline.py --generate-only
+          git diff --exit-code -- 8zz-indicator.pine
