@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "events": 362,
+  "same_event_tuples": true,
+  "data_cutoff_taipei": "2026-11-07T20:15:59.578797+08:00",
+  "strategy_default_end_date": "2026-11-06",
+  "tradingview_compiled": false,
+  "indicator": {
+    "path": "candidates/8zz-history-latest.pine",
+    "sha256": "6d1649dcb435fe46a51f22652d0006d13e19dd36835cefa09c733ade70c7d546"
+  },
+  "strategy": {
+    "path": "candidates/8zz-strategy-latest.pine",
+    "sha256": "b70025fededf7562d8429df5c111ad930148f2d900d154a9a979028951e5b200"
+  }
+}

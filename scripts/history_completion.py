@@ -102,6 +102,8 @@ def report(remote=None):
     candidates,checks=build({'records':sorted(rows.values(),key=lambda r:(r['unix_ms'],r['key']))})
     out=ROOT/'candidates/8zz-history-latest.pine';out.parent.mkdir(exist_ok=True);out.write_text(candidates)
     h.s.write(out.with_suffix('.checks.json'),checks)
+    from build_pine_strategy import build as build_strategy
+    build_strategy() # Same saved event tuples; no acquisition or judgment requests.
     c=Counter(r['status'] for r in inventory)
     for status in ('completed_signal','completed_no_signal','pending_confirmation','technical_failure','input_failure','unknown','not_started'):c.setdefault(status,0)
     control=h.s.read(ROOT/CONTROL,{})
@@ -173,7 +175,7 @@ def report(remote=None):
       '', '固定使用免費金鑰、.tech/v1、gpt-5-mini、minimal、嚴格格式；模型與推理僅供應商回報。圖片只有實際下載並附入者才標為讀取；影片未分析，圖片下載失敗及技術問題如實記錄。',
       '', '單篇矛盾保留待確認；單篇格式／媒體失敗隔離，不產生訊號或自動重試。連續三篇技術問題觸發共同故障停止（僅操作保護，不是情緒規則）；額度、認證、存取、服務端錯誤或已送出未保存的未知狀態立即保存停止。',
       '', '前後免費點數及實際扣點若未由服務回傳就是未知，不等同零，也不能由 tokens 換算。Apify 維持每 run 180 秒／512MB／maxItems 50／maxTotalChargeUsd 0.10、每月70次；run 回報費用不一定等同完整帳單，未儲值或提高上限。',
-      '', '候選完整 Pine：candidates/8zz-history-latest.pine，保留所有原始歷史事件、作者署名及 MPL-2.0；待確認／技術失敗／unknown 無新增箭頭。使用者已確認前一候選可載入，這份新生成檔未在 TradingView 實際編譯。手動下載全文至 Pine Editor 完整取代、儲存並更新圖表，GitHub 不會自動同步。',
+      '', '成對完整 Pine：candidates/8zz-history-latest.pine（指標）、candidates/8zz-strategy-latest.pine（策略），同版資訊見 candidates/8zz-pine-delivery.json。兩份保留相同全部事件、作者署名及 MPL-2.0；待確認／技術失敗／unknown 無新增箭頭。使用者已確認前一候選可載入，這份新生成檔未在 TradingView 實際編譯。手動下載全文至 Pine Editor 完整取代、儲存並更新圖表，GitHub 不會自動同步。',
       '', '恢復方式：先核對 control 與各帳本；已完成、待確認、失敗、unknown 不自動重送。unknown 須人工查明原請求；quota／access 故障修復後，只續尚未送出項目，重新取得同一已保存 Apify dataset 不會重新啟動 Actor。新執行必須保留同一截止時間與 scope；不得重新抓整段歷史。',
       '', f"下一筆尚未處理日期為 {summary['first_unstarted_date']}（Asia/Taipei）。資料 cutoff 維持不變，恢復媒體只讀既有 dataset，不另啟動 Actor。每次續跑將先前阻塞與基準用量保留在 control，只有本次明確授權的入口才能繼續；完成、待確認、失敗與 unknown 不自動重送。",
       '', '本次 API 次數僅指 AI 生成及 Apify 啟動／讀取；GitHub 進度保存與圖片下載另計，沒有把上述數字宣稱為全部 HTTP 流量。data/usage.json 的 ai_attempts 為舊流程計數，不等於 ChatAnywhere 全部呼叫量，應以本次及既有帳本查核。',
@@ -183,7 +185,7 @@ def report(remote=None):
         for path in ('data/history_completion_inventory.json','data/history_completion_summary.json'):
             remote.save(path,h.s.read(ROOT/path,{}))
         # Pine/docs aren't JSON: send as text via the same authenticated GitHub Contents endpoint.
-        for path in ('candidates/8zz-history-latest.pine','candidates/8zz-history-latest.checks.json','docs/HISTORY_COMPLETION.md'):
+        for path in ('candidates/8zz-history-latest.pine','candidates/8zz-history-latest.checks.json','candidates/8zz-strategy-latest.pine','candidates/8zz-strategy-latest.checks.json','candidates/8zz-pine-delivery.json','docs/HISTORY_COMPLETION.md'):
             publish_text(remote,path,(ROOT/path).read_text())
         from build_audited_dashboard import publish_saved_dashboard
         publish_saved_dashboard(remote)

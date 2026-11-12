@@ -4,7 +4,7 @@ if barstate.isfirst
     if marketProfile != "自動依圖表" and futuresProfile != chartIsFutures
         runtime.error("市場設定與圖表不符：0050圖表請選自動依圖表／0050 ETF，台指圖表請選自動依圖表／台指期貨日盤。這不是夜盤判斷。")
     if startAt >= finishAt
-        runtime.error("開始日期必須早於截止日期，且本資料最多至2026/9/30。")
+        runtime.error("開始日期必須早於截止日期；截止日期請選有日盤行情的交易日。")
     if useHtfConfirm and timeframe.in_seconds(htfTf) <= timeframe.in_seconds()
         runtime.error("高週期確認必須大於30分鐘。")
 
@@ -58,7 +58,7 @@ if barstate.isconfirmed and dayBar
             if eventTime >= decisionClose
                 break
             int d = array.get(evt_dir, eventCursor)
-            if eventTime >= startAt and eventTime < publicationBefore and d != 0
+            if eventTime >= startAt and d != 0
                 bool trendOk = d == 1 ? close > emaBasis and emaBasis >= emaBasis[1] : close < emaBasis and emaBasis <= emaBasis[1]
                 bool rsiOk = d == 1 ? rsiValue >= 50 : rsiValue <= 50
                 bool htfOk = d == 1 ? htfClose >= htfEma : htfClose <= htfEma
@@ -70,7 +70,7 @@ if barstate.isconfirmed and dayBar
             eventCursor += 1
         flipNow := signalDir != beforeDir and signalDir != 0
 
-        // Terminal liquidation is separate from A/B rules; never use October/November fills.
+        // Terminal liquidation follows the selected end date, independently of A/B exits.
         if decisionClose == finishAt
             strategy.cancel_all()
             strategy.close_all(comment="回測截止日盤收盤", immediately=true)

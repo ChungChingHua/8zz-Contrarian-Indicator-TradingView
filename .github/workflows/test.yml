@@ -18,3 +18,8 @@ jobs:
           cp 8zz-indicator.pine /tmp/before.pine
           python scripts/social_pipeline.py
           cmp /tmp/before.pine 8zz-indicator.pine
+
+      - name: Verify paired complete indicator and strategy
+        run: |
+          python scripts/build_pine_strategy.py
+          git diff --exit-code -- candidates/8zz-history-latest.pine candidates/8zz-strategy-latest.pine candidates/8zz-strategy-latest.checks.json candidates/8zz-pine-delivery.json

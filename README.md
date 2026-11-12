@@ -1,6 +1,8 @@
-> **目前交付：PR #1 的 Telegram／增量新文佇列／257 事件可核對看板，正式流程停用。** 保留 hansai-art / Group.G 及 MPL-2.0、原作者完整情緒標準；本輪沒有 Apify、AI、Telegram 發送、歷史補跑、部署或合併。
+> **最新 Pine 交付：指標＋原生策略，共用全部 362 筆已保存事件。**
 >
-> [完整驗收與操作](docs/LIVE_PIPELINE_ACCEPTANCE.md) · [離線預覽 ZIP](docs/8zz-dashboard-preview.zip) · [桌面截圖](docs/previews/desktop.png) · [手機截圖](docs/previews/mobile.png)。`TELEGRAM_CHAT_ID` 尚缺；免費 AI 額度阻塞仍保留。舊階段文件只作過程紀錄。
+> [指標完整碼](candidates/8zz-history-latest.pine) · [策略完整碼](candidates/8zz-strategy-latest.pine) · [同版核對資訊](candidates/8zz-pine-delivery.json) · [策略操作](docs/PINE_STRATEGY.md)。未完成歷史判讀仍保留待處理，不因此產生訊號。之後每次歷史／正式流程更新會一併產生兩份 Pine；目前排程仍停用、PR未合併。
+>
+> 舊階段網站／Telegram驗收紀錄：[操作文件](docs/LIVE_PIPELINE_ACCEPTANCE.md)。這些舊看板或預覽的事件範圍不等於最新完整 Pine，未發布本次網站修改。
 
 # 8zz 巴逆逆反指標 (8zz Banini Reverse Indicator)
 
@@ -58,14 +60,14 @@
 
 ## 如何加入或更新 TradingView
 
-1. 開啟本儲存庫的 `8zz-indicator.pine`，按 Raw 複製**完整內容**；也可下載 Actions 的 `social-update` artifact。
+1. 分別開啟最新版 [指標 Pine](candidates/8zz-history-latest.pine) 與 [策略 Pine](candidates/8zz-strategy-latest.pine)，按 Raw 複製各自的**完整內容**。兩份各自建立一個腳本，不要串接成同一檔案。
 2. 在 TradingView 開啟 Pine Editor，備份舊腳本後以完整檔案取代內容。
 3. 儲存、加入圖表／更新圖表，確認編譯成功與事件標籤。
 4. 使用提醒者需重建提醒，才會採用新腳本。
 
 **GitHub 更新不會自動同步至 TradingView。** 原作者的[指標頁面](https://tw.tradingview.com/script/6pVuUMS1/)仍保留供參考，但本分支新資料須自行更新腳本。
 
-建議使用 30 分鐘或 1 小時線。詳見[完整操作說明](docs/AUTOMATION.md)。
+指標可使用30分鐘或1小時線；原生策略沿用標準30分鐘日盤設定，請依[策略操作](docs/PINE_STRATEGY.md)使用。重建成對檔案：`python scripts/history_completion.py report`（僅讀保存資料，不抓取、不呼叫AI）。
 
 ---
 

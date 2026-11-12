@@ -10,9 +10,7 @@ class StrategyTests(unittest.TestCase):
         cls.text=(ROOT/'candidates/8zz-strategy-latest.pine').read_text()
         cls.source=(ROOT/'candidates/8zz-history-latest.pine').read_text()
     def test_original_judgments_and_initializers_preserved(self):
-        from datetime import datetime
-        cutoff=int(datetime.fromisoformat('2026-10-01T00:00:00+08:00').timestamp()*1000)
-        expected=[m.groups() for m in EVENT_PATTERN.finditer(self.source) if int(m.group(1))<cutoff]
+        expected=EVENT_PATTERN.findall(self.source)
         self.assertEqual(EVENT_PATTERN.findall(self.text),expected)
         self.assertGreater(len(expected),0)
         self.assertEqual(check_initialization(self.text)['max_events_per_function'],20)
@@ -39,9 +37,10 @@ class StrategyTests(unittest.TestCase):
         self.assertIn('if eventTime >= decisionClose\n                break',self.text)
         self.assertIn('flipNow := signalDir != beforeDir',self.text)
     def test_cutoff_and_confirmed_htf_no_secret_or_network(self):
-        self.assertIn('2026, 9, 30',self.text)
+        self.assertIn('int finishAt = requestedEnd',self.text)
+        self.assertNotIn('hardEnd',self.text)
         self.assertIn('strategy.close_all(comment="回測截止日盤收盤"',self.text)
-        self.assertIn('eventTime < publicationBefore',self.text)
+        self.assertNotIn('publicationBefore',self.text)
         self.assertIn('close[1], lookahead=barmerge.lookahead_on',self.text)
         self.assertNotIn('SHIOAJI',self.text);self.assertNotIn('api_key',self.text.lower())
         self.assertNotIn('alertcondition(',self.text)
@@ -128,3 +127,31 @@ class StrategyTests(unittest.TestCase):
         self.assertIn('math.floor(activeRiskStop / syminfo.mintick)',self.text)
         self.assertIn('math.ceil(activeRiskStop / syminfo.mintick)',self.text)
         self.assertIn('not useAtrStop and not useTrailingStop or not na(riskAtr)',self.text)
+
+    def test_default_weekend_uses_saved_previous_open_session(self):
+        from datetime import date
+        from build_pine_strategy import previous_session
+        calendar={'days':{'2026-11-06':{'open':True},'2026-11-07':{'open':False}}}
+        self.assertEqual(previous_session(date(2026,11,7),calendar),date(2026,11,6))
+        calendar['closure_overrides']={'2026-11-06':True}
+        self.assertEqual(previous_session(date(2026,11,7),calendar),date(2026,11,5))
+    def test_delivery_manifest_binds_both_complete_pines(self):
+        manifest=json.loads((ROOT/'candidates/8zz-pine-delivery.json').read_text())
+        self.assertEqual(manifest['events'],len(EVENT_PATTERN.findall(self.source)))
+        self.assertTrue(manifest['same_event_tuples'])
+        for kind in ('indicator','strategy'):
+            self.assertEqual(hashlib.sha256((ROOT/manifest[kind]['path']).read_bytes()).hexdigest(),manifest[kind]['sha256'])
+        from datetime import datetime
+        october=int(datetime.fromisoformat('2026-10-01T00:00:00+08:00').timestamp()*1000)
+        self.assertTrue(any(int(x[0])>=october for x in EVENT_PATTERN.findall(self.text)))
+    def test_live_output_publication_includes_both_pines_and_manifest(self):
+        from unittest.mock import Mock,patch
+        import live_pipeline as live
+        import build_audited_dashboard as dashboard
+        docs=Mock()
+        with patch.object(live.hc,'report') as report,patch.object(live.hc,'publish_text') as publish,patch.object(dashboard,'publish_saved_dashboard'):
+            live.refresh_outputs(docs)
+        report.assert_called_once_with()
+        self.assertEqual([c.args[1] for c in publish.call_args_list],['candidates/8zz-history-latest.pine','candidates/8zz-strategy-latest.pine'])
+        saved={c.args[0]:c.args[1] for c in docs.save.call_args_list}
+        self.assertEqual(saved['candidates/8zz-pine-delivery.json']['events'],len(EVENT_PATTERN.findall(self.source)))

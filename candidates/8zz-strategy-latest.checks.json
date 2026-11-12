@@ -1,12 +1,15 @@
 {
-  "initialization_functions": 16,
+  "initialization_functions": 19,
   "max_events_per_function": 20,
-  "first_bar_calls": 16,
+  "first_bar_calls": 19,
   "event_initialization_chunk_limit": 20,
-  "events": 313,
+  "events": 362,
   "events_unchanged": true,
   "source_sha256": "6d1649dcb435fe46a51f22652d0006d13e19dd36835cefa09c733ade70c7d546",
-  "strategy_sha256": "a3fdea62d2a83ce6f5ebb2ad16f67a0f61b96cb2c7506d7b122063d0870394e8",
+  "strategy_sha256": "b70025fededf7562d8429df5c111ad930148f2d900d154a9a979028951e5b200",
+  "data_cutoff_taipei": "2026-11-07T20:15:59.578797+08:00",
+  "default_end_date": "2026-11-06",
+  "event_scope": "all_saved_indicator_events",
   "tradingview_compiled": false,
   "order_api": "TradingView strategy broker emulator only"
 }

@@ -195,9 +195,10 @@ def refresh_outputs(docs):
     hc.report()
     import build_audited_dashboard as dashboard
     for path in ('data/history_completion_inventory.json','data/history_completion_summary.json',
-                 'candidates/8zz-history-latest.checks.json'):
+                 'candidates/8zz-history-latest.checks.json','candidates/8zz-strategy-latest.checks.json','candidates/8zz-pine-delivery.json'):
         docs.save(path,h.s.read(ROOT/path,{}))
-    hc.publish_text(docs,'candidates/8zz-history-latest.pine',(ROOT/'candidates/8zz-history-latest.pine').read_text())
+    for path in ('candidates/8zz-history-latest.pine','candidates/8zz-strategy-latest.pine'):
+        hc.publish_text(docs,path,(ROOT/path).read_text())
     dashboard.publish_saved_dashboard(docs)
 
 def run(action,docs,apify=None,ai_key='',telegram=None,chat_id='',now=None,calendar=None):
