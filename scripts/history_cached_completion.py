@@ -31,6 +31,29 @@ def checked_cache(info,root=CACHE):
     return info['mime'],data
 
 
+def prepare_restored_cache(root=CACHE):
+    """Verify needed cache; old completed bytes remain in the source artifact."""
+    manifest=json.loads((root/'manifest.json').read_text())
+    excluded,_=hc.exclusions(hc.archive())
+    before=len(manifest['posts'])
+    keep={k:p for k,p in manifest['posts'].items() if k not in excluded}
+    files=set()
+    for key in keep:
+        for image in manifest['images'].get(key,{}).values():
+            checked_cache(image,root)
+            files.add(image['filename'])
+    for path in root.glob('*.bin'):
+        if path.is_symlink():raise ValueError('unsafe_cache_symlink')
+        if path.name not in files and re.fullmatch(r'[a-f0-9]{64}\.bin',path.name):path.unlink()
+    manifest['posts']=keep
+    manifest['images']={k:manifest['images'][k] for k in keep}
+    if 'provenance' in manifest:manifest['provenance']={k:v for k,v in manifest['provenance'].items() if k in keep}
+    manifest['verified_unstarted_at']=h.now()
+    (root/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False));os.chmod(root/'manifest.json',0o600)
+    return {'retained_posts':len(keep),'previously_processed_posts_removed_from_working_copy':before-len(keep),
+            'verified_image_files':len(files),'retained_bytes':sum((root/name).stat().st_size for name in files),
+            'source_artifact_unchanged':True}
+
 class Media:
     def __init__(self,docs,client):
         self.docs=docs;self.client=client
@@ -196,7 +219,7 @@ def main():
     finally:
         media.finalize()
         control=remote.load(hc.CONTROL,{})
-        control['current_session'].update(actor_runs_started=2+media.state['actor_starts_reserved'],saved_dataset_get_requests=0,media_repair_ledger=LEDGER,initial_media_repair_ledger='data/history_media_repairs/media-repair-20261111-01.json',media_repair_http_counts=media.client.counts)
+        control['current_session'].update(actor_runs_started=control['current_session'].get('initial_actor_starts',0)+media.state['actor_starts_reserved'],saved_dataset_get_requests=0,media_repair_ledger=LEDGER,initial_media_repair_ledger='data/history_media_repairs/media-repair-20261111-01.json',media_repair_http_counts=media.client.counts)
         remote.save(hc.CONTROL,control);hc.report(remote)
         print(json.dumps({'session':SESSION,'media_actor_starts':media.state['actor_starts_reserved'],'monthly_apify_runs':media.budget['apify_runs'],'stop_reason':control.get('stop_reason')}))
 

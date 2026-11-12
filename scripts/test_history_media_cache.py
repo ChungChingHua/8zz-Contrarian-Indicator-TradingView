@@ -27,6 +27,20 @@ class Tests(unittest.TestCase):
         self.assertEqual(out['unanalysed_media'][0]['attachment_index'],4)
         self.assertEqual(out['image_evidence'][0]['attachment_index'],1)
         self.assertEqual(p,original)
+    def test_restored_cache_keeps_unstarted_shared_bytes_and_prunes_only_working_copy(self):
+        import json
+        with tempfile.TemporaryDirectory() as t:
+            root=Path(t);info=self.image(root)
+            unused=b'\xff\xd8\xffunused\xff\xd9';sha=hashlib.sha256(unused).hexdigest()
+            (root/(sha+'.bin')).write_bytes(unused)
+            manifest={'posts':{'done':{},'pending':{}},'images':{'done':{'/done.jpg':info},'pending':{'/pending.jpg':info}}}
+            (root/'manifest.json').write_text(json.dumps(manifest))
+            with patch.object(c.hc,'archive',return_value={}),patch.object(c.hc,'exclusions',return_value=({'done'},{})),patch.object(c.urllib.request,'urlopen',side_effect=AssertionError('network forbidden')):
+                stats=c.prepare_restored_cache(root)
+            self.assertEqual(stats['retained_posts'],1);self.assertEqual(stats['verified_image_files'],1)
+            self.assertTrue((root/info['filename']).exists());self.assertFalse((root/(sha+'.bin')).exists())
+            self.assertEqual(set(json.loads((root/'manifest.json').read_text())['posts']),{'pending'})
+            self.assertEqual(c.checked_cache(info,root),('image/jpeg',JPEG))
     def test_cache_tampering_and_traversal_rejected(self):
         with tempfile.TemporaryDirectory() as t:
             root=Path(t);i=self.image(root)
