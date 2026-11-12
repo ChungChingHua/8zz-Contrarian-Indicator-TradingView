@@ -3,7 +3,7 @@
   "cutoff_utc": "2026-11-07T12:15:59.578797+00:00",
   "created_at": "2026-11-07T12:15:59.578797+00:00",
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
-  "closed": false,
+  "closed": true,
   "acquisition_completed": true,
   "sources": {
     "facebook": {
@@ -282,14 +282,76 @@
     },
     "initial_actor_starts": 0,
     "actor_runs_started": 1,
-    "saved_dataset_get_requests": 0,
+    "saved_dataset_get_requests": 2,
     "recovered_zero_generation_inputs": 0,
-    "closed": false,
+    "closed": true,
     "media_repair_ledger": "data/history_media_repairs/20261112-media-repair-03.json",
     "initial_media_repair_ledger": "data/history_media_repairs/media-repair-20261111-01.json",
     "media_repair_http_counts": {
       "GET": 8,
       "POST": 1
+    },
+    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43198190581",
+    "stop_http_status": 403,
+    "cache_artifact": {
+      "run_id": 43198190581,
+      "id": 13934342190,
+      "name": "history-media-cache-20261112-continuation-03",
+      "size_bytes": 10969470,
+      "expires_at": "2026-11-26T10:17:09Z",
+      "digest": "sha256:862cb2a3a97fe4012f928192a30b3e86245e7e533406aabe04fa22b191e0be92"
+    },
+    "media_repair_observed_usd": "0.061",
+    "media_repair_note": "One new Actor, twelve previously unreserved public post URLs; reused two previous datasets. Cost is usageTotalUsd observation, not settled invoice.",
+    "result": {
+      "id": "20261112-media-repair-03",
+      "generation_attempts": 26,
+      "validated_responses": 25,
+      "added_events": 12,
+      "pine_count_delta_since_session": 12,
+      "historical_reference_event_delta_since_session": 0,
+      "service_reported_usage": {
+        "input_tokens": 73551,
+        "output_tokens": 4567,
+        "total_tokens": 78118,
+        "reasoning_tokens": 0
+      },
+      "status_counts": {
+        "completed_no_signal": 10,
+        "completed_signal": 12,
+        "input_failure": 2,
+        "pending_confirmation": 3,
+        "technical_failure": 1
+      },
+      "actor_runs_started": 1,
+      "saved_dataset_get_requests": 2,
+      "actual_points_deducted": null,
+      "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43198190581",
+      "stop_http_status": 403,
+      "status_count_transitions": {
+        "completed_no_signal": 10,
+        "completed_signal": 12,
+        "input_failure": 2,
+        "pending_confirmation": 3,
+        "technical_failure": 1
+      },
+      "recovered_zero_generation_inputs": 0,
+      "media_repair_ledger": "data/history_media_repairs/20261112-media-repair-03.json",
+      "initial_media_repair_ledger": "data/history_media_repairs/media-repair-20261111-01.json",
+      "media_repair_http_counts": {
+        "GET": 8,
+        "POST": 1
+      },
+      "cache_artifact": {
+        "run_id": 43198190581,
+        "id": 13934342190,
+        "name": "history-media-cache-20261112-continuation-03",
+        "size_bytes": 10969470,
+        "expires_at": "2026-11-26T10:17:09Z",
+        "digest": "sha256:862cb2a3a97fe4012f928192a30b3e86245e7e533406aabe04fa22b191e0be92"
+      },
+      "media_repair_observed_usd": "0.061",
+      "media_repair_note": "One new Actor, twelve previously unreserved public post URLs; reused two previous datasets. Cost is usageTotalUsd observation, not settled invoice."
     }
   },
   "session_history": [
@@ -829,5 +891,18 @@
     }
   ],
   "stop_reason": "provider_access_quota_or_common_failure",
-  "stopped_at": "2026-10-30T22:11:25+08:00"
+  "stopped_at": "2026-10-30T22:11:25+08:00",
+  "closure_reason": "seven_day_free_points_insufficient",
+  "service_quota_statement": {
+    "http_status": 403,
+    "error_type": "chatanywhere_error",
+    "source": "service error response in history-completion-20261107-029",
+    "free_points_window_days": 7,
+    "insufficient_points_for_current_request": true,
+    "remaining_free_points": null,
+    "remaining_free_requests": null,
+    "actual_points_deducted": null,
+    "reset_time": null,
+    "note": "Service states seven-day free points insufficient for this request; not a verified zero balance or daily request-limit failure. No retry, paid service, alternate key, model or provider."
+  }
 }

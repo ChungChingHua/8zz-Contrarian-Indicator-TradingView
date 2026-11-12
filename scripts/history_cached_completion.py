@@ -275,7 +275,7 @@ def main():
     finally:
         media.finalize()
         control=remote.load(hc.CONTROL,{})
-        control['current_session'].update(actor_runs_started=control['current_session'].get('initial_actor_starts',0)+media.state['actor_starts_reserved'],saved_dataset_get_requests=0,media_repair_ledger=LEDGER,initial_media_repair_ledger='data/history_media_repairs/media-repair-20261111-01.json',media_repair_http_counts=media.client.counts)
+        control['current_session'].update(actor_runs_started=control['current_session'].get('initial_actor_starts',0)+media.state['actor_starts_reserved'],saved_dataset_get_requests=len(media.state.get('prior_dataset_reuses',[])),media_repair_ledger=LEDGER,initial_media_repair_ledger='data/history_media_repairs/media-repair-20261111-01.json',media_repair_http_counts=media.client.counts)
         remote.save(hc.CONTROL,control);hc.report(remote)
         print(json.dumps({'session':SESSION,'media_actor_starts':media.state['actor_starts_reserved'],'monthly_apify_runs':media.budget['apify_runs'],'stop_reason':control.get('stop_reason')}))
 

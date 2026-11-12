@@ -141,7 +141,18 @@
   "actual_points_deducted": null,
   "quota_headers": {},
   "stop_reason": "provider_access_quota_or_common_failure",
-  "service_quota_statement": null,
+  "service_quota_statement": {
+    "http_status": 403,
+    "error_type": "chatanywhere_error",
+    "source": "service error response in history-completion-20261107-029",
+    "free_points_window_days": 7,
+    "insufficient_points_for_current_request": true,
+    "remaining_free_points": null,
+    "remaining_free_requests": null,
+    "actual_points_deducted": null,
+    "reset_time": null,
+    "note": "Service states seven-day free points insufficient for this request; not a verified zero balance or daily request-limit failure. No retry, paid service, alternate key, model or provider."
+  },
   "all_history_fully_classified": false,
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "provider_model_and_reasoning": "Service-reported gpt-5-mini / minimal, not independently verified",
@@ -168,10 +179,10 @@
       "technical_failure": 1
     },
     "actor_runs_started": 1,
-    "saved_dataset_get_requests": 0,
+    "saved_dataset_get_requests": 2,
     "actual_points_deducted": null,
-    "run_url": null,
-    "stop_http_status": null,
+    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43198190581",
+    "stop_http_status": 403,
     "status_count_transitions": {
       "completed_no_signal": 10,
       "completed_signal": 12,
@@ -185,8 +196,19 @@
     "media_repair_http_counts": {
       "GET": 8,
       "POST": 1
-    }
-  }
+    },
+    "cache_artifact": {
+      "run_id": 43198190581,
+      "id": 13934342190,
+      "name": "history-media-cache-20261112-continuation-03",
+      "size_bytes": 10969470,
+      "expires_at": "2026-11-26T10:17:09Z",
+      "digest": "sha256:862cb2a3a97fe4012f928192a30b3e86245e7e533406aabe04fa22b191e0be92"
+    },
+    "media_repair_observed_usd": "0.061",
+    "media_repair_note": "One new Actor, twelve previously unreserved public post URLs; reused two previous datasets. Cost is usageTotalUsd observation, not settled invoice."
+  },
+  "closure_reason": "seven_day_free_points_insufficient"
 }
 ```
 
@@ -206,8 +228,13 @@
 
 恢復方式：先核對 control 與各帳本；已完成、待確認、失敗、unknown 不自動重送。unknown 須人工查明原請求；quota／access 故障修復後，只續尚未送出項目，重新取得同一已保存 Apify dataset 不會重新啟動 Actor。新執行必須保留同一截止時間與 scope；不得重新抓整段歷史。
 
-下一筆尚未處理日期為 2026-10-30T22:39:26+08:00（Asia/Taipei）。資料 cutoff 維持不變，恢復媒體只讀既有 dataset，不另啟動 Actor。每次續跑將先前阻塞與基準用量保留在 control，只有本次明確授權的入口才能繼續；完成、待確認、失敗與 unknown 不自動重送。
+下一筆尚未處理日期為 2026-10-30T22:39:26+08:00（Asia/Taipei）。資料 cutoff 維持不變。媒體優先使用快取與既有 dataset；只有從未預留過、確實缺漏的貼文才可在既有上限內啟動 Actor。每次續跑將先前阻塞與基準用量保留在 control，只有本次明確授權的入口才能繼續；完成、待確認、失敗與 unknown 不自動重送。
 
 本次 API 次數僅指 AI 生成及 Apify 啟動／讀取；GitHub 進度保存與圖片下載另計，沒有把上述數字宣稱為全部 HTTP 流量。data/usage.json 的 ai_attempts 為舊流程計數，不等於 ChatAnywhere 全部呼叫量，應以本次及既有帳本查核。
 
 只做一次性執行，不啟用持續排程、不發布 Pages、不合併 PR。
+
+
+## 2026/11/12 最新續跑與不重抓規則
+
+更新後APIFY_TOKEN已驗證成功；本次共62次生成、61有效回應、新增18事件，完整Pine362事件，剩74篇。HTTP403為服務回報七天免費點數不足，不是Apify認證失敗；沒有重試。4個新Actor回報US$0.263，月計數61/70。跨13個媒體run、135個預留貼文key，重複啟動0；先快取、再既有dataset，只對從未預留的缺漏啟動新Actor。詳見[本輪完整紀錄](HISTORY_NO_DUPLICATE_MEDIA_20261112.md)。

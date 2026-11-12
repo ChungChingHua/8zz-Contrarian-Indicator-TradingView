@@ -124,7 +124,18 @@
   "actual_points_deducted": null,
   "quota_headers": {},
   "stop_reason": "provider_access_quota_or_common_failure",
-  "service_quota_statement": null,
+  "service_quota_statement": {
+    "http_status": 403,
+    "error_type": "chatanywhere_error",
+    "source": "service error response in history-completion-20261107-029",
+    "free_points_window_days": 7,
+    "insufficient_points_for_current_request": true,
+    "remaining_free_points": null,
+    "remaining_free_requests": null,
+    "actual_points_deducted": null,
+    "reset_time": null,
+    "note": "Service states seven-day free points insufficient for this request; not a verified zero balance or daily request-limit failure. No retry, paid service, alternate key, model or provider."
+  },
   "all_history_fully_classified": false,
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "provider_model_and_reasoning": "Service-reported gpt-5-mini / minimal, not independently verified",
@@ -151,10 +162,10 @@
       "technical_failure": 1
     },
     "actor_runs_started": 1,
-    "saved_dataset_get_requests": 0,
+    "saved_dataset_get_requests": 2,
     "actual_points_deducted": null,
-    "run_url": null,
-    "stop_http_status": null,
+    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43198190581",
+    "stop_http_status": 403,
     "status_count_transitions": {
       "completed_no_signal": 10,
       "completed_signal": 12,
@@ -168,6 +179,17 @@
     "media_repair_http_counts": {
       "GET": 8,
       "POST": 1
-    }
-  }
+    },
+    "cache_artifact": {
+      "run_id": 43198190581,
+      "id": 13934342190,
+      "name": "history-media-cache-20261112-continuation-03",
+      "size_bytes": 10969470,
+      "expires_at": "2026-11-26T10:17:09Z",
+      "digest": "sha256:862cb2a3a97fe4012f928192a30b3e86245e7e533406aabe04fa22b191e0be92"
+    },
+    "media_repair_observed_usd": "0.061",
+    "media_repair_note": "One new Actor, twelve previously unreserved public post URLs; reused two previous datasets. Cost is usageTotalUsd observation, not settled invoice."
+  },
+  "closure_reason": "seven_day_free_points_insufficient"
 }
