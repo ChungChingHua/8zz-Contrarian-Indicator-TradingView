@@ -8449,5 +8449,53 @@
     ],
     "platform": "Threads",
     "is_flip": true
+  },
+  {
+    "event_key": "3a1931122afc3f128e59b0664144878ae599e2d89a929dd89408de32d5956283",
+    "completed_at": "2026-11-12T10:16:21.863160+00:00",
+    "fetched_at": null,
+    "available_ms": 1794478581863,
+    "sentiment": "發文者表示把一年的薪水都賠掉，語氣顯示極度痛苦與絕望，為強烈偏多（被套/痛苦）訊號。",
+    "historical": true,
+    "baseline": false,
+    "media_note": "{\"analysis_scope\": \"text_only_no_attachments\", \"unanalysed_media\": [], \"media_failures\": [], \"images_supplied\": 0, \"image_evidence\": [], \"human_image_verified\": false, \"source_note\": \"Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.\", \"non_media_album_container_indices\": []}",
+    "id": 361,
+    "unix_ms": 1793347041000,
+    "time": "2026-10-30T07:57:21+00:00",
+    "direction": 1,
+    "strength": 3,
+    "summary": "停損\n指標: 偏多 ▲ | 強度: 3\n2026-10-30T15:57:21+08:00 為了抗一年3%的通膨， 把一年的薪水都賠掉了\n發文者表示把一年的薪水都賠掉，語氣顯示極度痛苦與絕望，為強烈偏多（被套/痛苦）訊號。\nhttps://www.threads.com/@banini31/post/DfHGRDtmcwO",
+    "target": "未辨識",
+    "symbol": "0050.TW",
+    "proxy": true,
+    "urls": [
+      "https://www.threads.com/@banini31/post/DfHGRDtmcwO"
+    ],
+    "platform": "Threads",
+    "is_flip": true
+  },
+  {
+    "event_key": "cf4d57c1da0b204f66de16d72872787f4688b3ad80c0f4afa1156cb590c801b1",
+    "completed_at": "2026-11-12T10:16:30.404613+00:00",
+    "fetched_at": null,
+    "available_ms": 1794478590404,
+    "sentiment": "貼文與圖片顯示多檔股票與大漲行情，語氣非痛苦而偏向興奮/得意，屬於亢奮偏空訊號",
+    "historical": true,
+    "baseline": false,
+    "media_note": "{\"analysis_scope\": \"text_and_images\", \"unanalysed_media\": [], \"media_failures\": [], \"images_supplied\": 1, \"image_evidence\": [{\"sha256\": \"befa2588198856c4160f87bb2776aece3f81d72b6336774d4bb79a38a151d625\", \"bytes\": 180797, \"mime\": \"image/jpeg\", \"attachment_index\": 0}], \"human_image_verified\": false, \"source_note\": \"Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.\", \"non_media_album_container_indices\": [], \"cache_verified\": true, \"media_refresh_session\": \"20261112-media-repair-03\"}",
+    "id": 362,
+    "unix_ms": 1793347674000,
+    "time": "2026-10-30T08:07:54+00:00",
+    "direction": -1,
+    "strength": 2,
+    "summary": "展示漲幅行情\n指標: 偏空 ▼ | 強度: 2\n2026-10-30T16:07:54+08:00 有投票權的我，在10/30這天是不是所謂的深綠選民\n貼文與圖片顯示多檔股票與大漲行情，語氣非痛苦而偏向興奮/得意，屬於亢奮偏空訊號\nhttps://www.threads.com/@banini31/post/DfHHeTpmRQC",
+    "target": "未辨識",
+    "symbol": "0050.TW",
+    "proxy": true,
+    "urls": [
+      "https://www.threads.com/@banini31/post/DfHHeTpmRQC"
+    ],
+    "platform": "Threads",
+    "is_flip": true
   }
 ]
