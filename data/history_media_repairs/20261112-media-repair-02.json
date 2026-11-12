@@ -156,6 +156,11 @@
         },
         "facebook:1691586812325907": {
           "status": "cached"
+        },
+        "facebook:1692061625611759": {
+          "status": "input_failure",
+          "error_type": "ValueError",
+          "safe_reason": "video_or_unknown_media_requires_review"
         }
       },
       "input": {
@@ -238,5 +243,5 @@
     "GET": 13,
     "POST": 2
   },
-  "updated_at": "2026-11-12T10:01:17.835143+00:00"
+  "updated_at": "2026-11-12T10:01:18.718045+00:00"
 }
