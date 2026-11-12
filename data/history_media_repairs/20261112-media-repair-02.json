@@ -19,7 +19,11 @@
         "facebook:1689718545846067"
       ],
       "status": "SUCCEEDED",
-      "posts": {},
+      "posts": {
+        "facebook:1686254039525851": {
+          "status": "cached"
+        }
+      },
       "input": {
         "startUrls": [
           {
@@ -97,8 +101,8 @@
   "ai_requests": 0,
   "monthly_runs_before": 57,
   "http_requests": {
-    "GET": 8,
+    "GET": 9,
     "POST": 1
   },
-  "updated_at": "2026-11-12T09:58:53.722648+00:00"
+  "updated_at": "2026-11-12T09:58:55.518568+00:00"
 }
