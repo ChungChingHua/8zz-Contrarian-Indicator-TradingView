@@ -18,7 +18,7 @@
         "facebook:1689059792578609",
         "facebook:1689718545846067"
       ],
-      "status": "reserved_not_submitted",
+      "status": "submission_unknown",
       "posts": {}
     }
   ],
@@ -29,5 +29,5 @@
     "GET": 1,
     "POST": 0
   },
-  "updated_at": "2026-11-12T09:58:25.964762+00:00"
+  "updated_at": "2026-11-12T09:58:26.850219+00:00"
 }
