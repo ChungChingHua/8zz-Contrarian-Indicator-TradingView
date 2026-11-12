@@ -120,8 +120,8 @@
     "GET": 0,
     "POST": 0
   },
-  "last_chunk": "history-completion-20261107-028",
-  "updated_at": "2026-11-12T10:16:02.069921+00:00",
+  "last_chunk": "history-completion-20261107-029",
+  "updated_at": "2026-11-12T10:16:35.344646+00:00",
   "consecutive_isolated_failures": 0,
   "all_unstarted_visited": false,
   "blocker_history": [
@@ -821,5 +821,7 @@
       "media_repair_observed_usd": "0.202",
       "media_repair_note": "Three existing runs: Facebook0.061+0.061, Threads0.080; usageTotalUsd observations, not settled invoice. Paused at user's cost question. Audit GET3, no starts or generation."
     }
-  ]
+  ],
+  "stop_reason": "provider_access_quota_or_common_failure",
+  "stopped_at": "2026-10-30T22:11:25+08:00"
 }
