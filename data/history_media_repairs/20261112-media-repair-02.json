@@ -278,8 +278,57 @@
         "threads:4019913134958031715",
         "threads:4020588135439184397"
       ],
-      "status": "submission_unknown",
-      "posts": {}
+      "status": "READY",
+      "posts": {},
+      "input": {
+        "mode": "urls",
+        "postUrls": [
+          "https://www.threads.com/@banini31/post/De_-y3LmfaL",
+          "https://www.threads.com/@banini31/post/DfBOpaWmbN3",
+          "https://www.threads.com/@banini31/post/DfC6FBTmYK6",
+          "https://www.threads.com/@banini31/post/DfDxyOwACUn",
+          "https://www.threads.com/@banini31/post/DfD4c2EGcQ0",
+          "https://www.threads.com/@banini31/post/DfFE9RhGbPj",
+          "https://www.threads.com/@banini31/post/DfFUqJJGdz0",
+          "https://www.threads.com/@banini31/post/DfGoPvxmd_M",
+          "https://www.threads.com/@banini31/post/DfHHeTpmRQC",
+          "https://www.threads.com/@banini31/post/DfHxEwQk4wZ",
+          "https://www.threads.com/@banini31/post/DfJmbKlGbNj",
+          "https://www.threads.com/@banini31/post/DfL_5txALIN"
+        ],
+        "maxPosts": 12,
+        "includeProfile": false
+      },
+      "id": "EKRZxFGDieAmbK9JC",
+      "startedAt": "2026-11-12T10:04:14.404Z",
+      "finishedAt": null,
+      "buildId": "XIJLhhENkO7p8W54Y",
+      "buildNumber": "0.1.70",
+      "defaultDatasetId": "aaTgEB1pzandfD8FK",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": 0,
+      "chargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "accountedChargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "duration_seconds": null,
+      "cost_observed_at": "2026-11-12T10:04:14.577995+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution"
     }
   ],
   "actor_starts_reserved": 3,
@@ -287,7 +336,7 @@
   "monthly_runs_before": 57,
   "http_requests": {
     "GET": 14,
-    "POST": 2
+    "POST": 3
   },
-  "updated_at": "2026-11-12T10:04:13.260435+00:00"
+  "updated_at": "2026-11-12T10:04:14.578014+00:00"
 }
