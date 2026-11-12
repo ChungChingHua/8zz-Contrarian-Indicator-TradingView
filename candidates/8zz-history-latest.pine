@@ -1,7 +1,7 @@
 // This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © hansai-art / Group.G
 // 8zz 反指標 v2
-// 事件: 360筆 | 期間: 2025/12 ~ 2026/10
+// 事件: 362筆 | 期間: 2025/12 ~ 2026/10
 // 情緒解讀框架：負面情緒（被套、停損、恐慌）→ 偏多 ▲（散戶恐慌→主力拉升）
 //               正面情緒（漲停追買、過度樂觀）→ 偏空 ▼（市場過熱→崩跌機率高）
 // 免責聲明：本指標僅供娛樂參考，不構成任何投資建議。
@@ -1956,6 +1956,19 @@ initEvtChunk018() =>
     array.push(evt_ticker, "0050.TW")
     0
 
+initEvtChunk019() =>
+    array.push(evt_time, 1793347041000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損\n指標: 偏多 ▲ | 強度: 3\n2026-10-30T15:57:21+08:00 為了抗一年3%的通膨， 把一年的薪水都賠掉了\n發文者表示把一年的薪水都賠掉，語氣顯示極度痛苦與絕望，為強烈偏多（被套/痛苦）訊號。\nhttps://www.threads.com/@banini31/post/DfHGRDtmcwO")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1793347674000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "展示漲幅行情\n指標: 偏空 ▼ | 強度: 2\n2026-10-30T16:07:54+08:00 有投票權的我，在10/30這天是不是所謂的深綠選民\n貼文與圖片顯示多檔股票與大漲行情，語氣非痛苦而偏向興奮/得意，屬於亢奮偏空訊號\nhttps://www.threads.com/@banini31/post/DfHHeTpmRQC")
+    array.push(evt_ticker, "")
+    0
+
 if barstate.isfirst
     initEvtChunk001()
     initEvtChunk002()
@@ -1975,6 +1988,7 @@ if barstate.isfirst
     initEvtChunk016()
     initEvtChunk017()
     initEvtChunk018()
+    initEvtChunk019()
 // END GENERATED EVENT INITIALIZATION
 
 var int currentDir = 0
