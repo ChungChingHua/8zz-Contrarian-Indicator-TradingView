@@ -1,12 +1,33 @@
 {
   "session": "20261112-media-repair-02",
-  "batches": [],
-  "actor_starts_reserved": 0,
+  "batches": [
+    {
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "keys": [
+        "facebook:1686254039525851",
+        "facebook:1686423036175618",
+        "facebook:1686697372814851",
+        "facebook:1686730896144832",
+        "facebook:1687261832758405",
+        "facebook:1687673559383899",
+        "facebook:1687718942712694",
+        "facebook:1688735202611068",
+        "facebook:1688765062608082",
+        "facebook:1688804045937517",
+        "facebook:1689059792578609",
+        "facebook:1689718545846067"
+      ],
+      "status": "reserved_not_submitted",
+      "posts": {}
+    }
+  ],
+  "actor_starts_reserved": 1,
   "ai_requests": 0,
   "monthly_runs_before": 57,
   "http_requests": {
-    "GET": 0,
+    "GET": 1,
     "POST": 0
   },
-  "updated_at": "2026-11-12T09:58:17.269131+00:00"
+  "updated_at": "2026-11-12T09:58:25.964762+00:00"
 }
