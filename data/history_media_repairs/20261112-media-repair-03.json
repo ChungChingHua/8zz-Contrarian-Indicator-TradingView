@@ -5,10 +5,10 @@
   "ai_requests": 0,
   "monthly_runs_before": 60,
   "http_requests": {
-    "GET": 0,
+    "GET": 1,
     "POST": 0
   },
-  "updated_at": "2026-11-12T10:12:10.199949+00:00",
+  "updated_at": "2026-11-12T10:12:12.073982+00:00",
   "prior_dataset_reuses": [
     {
       "run_id": "EKRZxFGDieAmbK9JC",
@@ -28,7 +28,11 @@
         "threads:4020588135439184397"
       ],
       "status": "reading_existing_dataset",
-      "posts": {}
+      "posts": {
+        "threads:4017205566745736843": {
+          "status": "cached"
+        }
+      }
     }
   ]
 }
