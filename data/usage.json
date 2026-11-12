@@ -1,6 +1,6 @@
 {
   "2026-11": {
-    "apify_runs": 59,
+    "apify_runs": 60,
     "ai_attempts": 10,
     "cost_test_reservations": {
       "apify-15m-20261110-01": {
@@ -153,7 +153,7 @@
       },
       "20261112-media-repair-02": {
         "ledger": "data/history_media_repairs/20261112-media-repair-02.json",
-        "reserved_starts": 2,
+        "reserved_starts": 3,
         "runs": [
           {
             "id": "OnrW7LfkbTQhk7urR",
@@ -166,6 +166,12 @@
             "source": "facebook",
             "status": "SUCCEEDED",
             "usageTotalUsd": 0
+          },
+          {
+            "id": null,
+            "source": "threads",
+            "status": "reserved_not_submitted",
+            "usageTotalUsd": null
           }
         ]
       }
