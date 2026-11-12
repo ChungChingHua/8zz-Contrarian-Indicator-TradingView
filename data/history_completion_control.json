@@ -3,7 +3,7 @@
   "cutoff_utc": "2026-11-07T12:15:59.578797+00:00",
   "created_at": "2026-11-07T12:15:59.578797+00:00",
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
-  "closed": true,
+  "closed": false,
   "acquisition_completed": true,
   "sources": {
     "facebook": {
@@ -121,7 +121,7 @@
     "POST": 0
   },
   "last_chunk": "history-completion-20261107-024",
-  "updated_at": "2026-11-11T12:57:58.268602+00:00",
+  "updated_at": "2026-11-12T09:57:01.266551+00:00",
   "consecutive_isolated_failures": 0,
   "all_unstarted_visited": false,
   "blocker_history": [
@@ -224,52 +224,47 @@
       },
       "scope_generation_attempts": 485,
       "ref_before_resume": "5a37753bae46d037adba4c90d7f91602724fd155"
+    },
+    {
+      "closed_at": "2026-11-12T09:57:01.266551+00:00",
+      "stop_reason": "apify_authentication_failed",
+      "closure_reason": "apify_token_not_valid",
+      "service_access_statement": {
+        "provider": "Apify",
+        "secret_name": "APIFY_TOKEN",
+        "key_present": true,
+        "http_status": 401,
+        "safe_code": "user-or-token-not-found",
+        "source": "data/history_media_repairs/preflight-diagnostic-20261112.json",
+        "note": "Token rejected by official Apify endpoint; exact credential failure cause unverified. No Actor started or authentication retry."
+      },
+      "scope_generation_attempts": 493,
+      "ref_before_resume": "5a2ccd65f1c3e5e0c0ea4b4497f77e182fbe9cfe",
+      "repair_diagnostic": "data/history_media_repairs/preflight-diagnostic-20261112-02.json"
     }
   ],
   "current_session": {
-    "id": "20261112-media-repair-01",
-    "baseline_generation_attempts": 485,
-    "baseline_validated_responses": 474,
+    "id": "20261112-media-repair-02",
+    "baseline_generation_attempts": 493,
+    "baseline_validated_responses": 482,
     "baseline_usage": {
-      "input_tokens": 1384043,
-      "output_tokens": 75807,
-      "total_tokens": 1459850,
+      "input_tokens": 1407101,
+      "output_tokens": 77336,
+      "total_tokens": 1484437,
       "reasoning_tokens": 0
     },
-    "baseline_total_events": 341,
+    "baseline_total_events": 344,
     "baseline_status_counts": {
-      "pending_confirmation": 64,
-      "completed_no_signal": 229,
-      "completed_signal": 185,
+      "pending_confirmation": 65,
+      "completed_no_signal": 233,
+      "completed_signal": 188,
       "technical_failure": 7,
       "input_failure": 4
     },
-    "first_unstarted_date": "2026-10-12T09:15:16+08:00",
-    "user_reported_free_quota_reset": true,
+    "first_unstarted_date": "2026-10-19T21:45:39+08:00",
+    "user_reported_apify_token_updated": true,
+    "credential_preflight": "data/history_media_repairs/preflight-diagnostic-20261112-02.json",
     "restored_cache_artifact": {
-      "run_id": 43021582706,
-      "id": 13856592316,
-      "name": "history-media-cache-20261111-continuation",
-      "size_bytes": 52131162,
-      "expires_at": "2026-11-25T12:58:24Z",
-      "digest": "sha256:e4bd27f0f49fd62b47068888db8215dc14811d3dcb1468c36394a9faf4ab6b67"
-    },
-    "saved_dataset_get_requests": 0,
-    "initial_actor_starts": 0,
-    "actor_runs_started": 0,
-    "recovered_zero_generation_inputs": 0,
-    "closed": true,
-    "media_repair_ledger": "data/history_media_repairs/20261112-media-repair-01.json",
-    "initial_media_repair_ledger": "data/history_media_repairs/media-repair-20261111-01.json",
-    "media_repair_http_counts": {
-      "GET": 1,
-      "POST": 0
-    },
-    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43190962491",
-    "stop_http_status": null,
-    "apify_stop_http_status": 401,
-    "blocked_service": "Apify actor metadata",
-    "cache_artifact": {
       "run_id": 43190962491,
       "id": 13931291105,
       "name": "history-media-cache-20261112-continuation",
@@ -277,73 +272,11 @@
       "expires_at": "2026-11-26T09:24:39Z",
       "digest": "sha256:07648eedac571984f480aa8c4261c601d73f4583514f280018acfb8dcc9d9790"
     },
-    "diagnostic_http_counts": {
-      "GET": 1,
-      "POST": 0
-    },
-    "service_access_statement": {
-      "provider": "Apify",
-      "secret_name": "APIFY_TOKEN",
-      "key_present": true,
-      "http_status": 401,
-      "safe_code": "user-or-token-not-found",
-      "source": "data/history_media_repairs/preflight-diagnostic-20261112.json",
-      "note": "Token rejected by official Apify endpoint; exact credential failure cause unverified. No Actor started or authentication retry."
-    },
-    "result": {
-      "id": "20261112-media-repair-01",
-      "generation_attempts": 8,
-      "validated_responses": 8,
-      "added_events": 3,
-      "pine_count_delta_since_session": 3,
-      "historical_reference_event_delta_since_session": 0,
-      "service_reported_usage": {
-        "input_tokens": 23058,
-        "output_tokens": 1529,
-        "total_tokens": 24587,
-        "reasoning_tokens": 0
-      },
-      "status_counts": {
-        "completed_no_signal": 4,
-        "completed_signal": 3,
-        "input_failure": 0,
-        "pending_confirmation": 1,
-        "technical_failure": 0
-      },
-      "actor_runs_started": 0,
-      "saved_dataset_get_requests": 0,
-      "actual_points_deducted": null,
-      "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43190962491",
-      "stop_http_status": null,
-      "status_count_transitions": {
-        "completed_no_signal": 4,
-        "completed_signal": 3,
-        "input_failure": 0,
-        "pending_confirmation": 1,
-        "technical_failure": 0
-      },
-      "recovered_zero_generation_inputs": 0,
-      "media_repair_ledger": "data/history_media_repairs/20261112-media-repair-01.json",
-      "initial_media_repair_ledger": "data/history_media_repairs/media-repair-20261111-01.json",
-      "media_repair_http_counts": {
-        "GET": 1,
-        "POST": 0
-      },
-      "apify_stop_http_status": 401,
-      "blocked_service": "Apify actor metadata",
-      "cache_artifact": {
-        "run_id": 43190962491,
-        "id": 13931291105,
-        "name": "history-media-cache-20261112-continuation",
-        "size_bytes": 7269912,
-        "expires_at": "2026-11-26T09:24:39Z",
-        "digest": "sha256:07648eedac571984f480aa8c4261c601d73f4583514f280018acfb8dcc9d9790"
-      },
-      "diagnostic_http_counts": {
-        "GET": 1,
-        "POST": 0
-      }
-    }
+    "initial_actor_starts": 0,
+    "actor_runs_started": 0,
+    "saved_dataset_get_requests": 0,
+    "recovered_zero_generation_inputs": 0,
+    "closed": false
   },
   "session_history": [
     {
@@ -656,18 +589,125 @@
         "images_supplied": 77,
         "cache_verified_image_requests": 68
       }
+    },
+    {
+      "id": "20261112-media-repair-01",
+      "baseline_generation_attempts": 485,
+      "baseline_validated_responses": 474,
+      "baseline_usage": {
+        "input_tokens": 1384043,
+        "output_tokens": 75807,
+        "total_tokens": 1459850,
+        "reasoning_tokens": 0
+      },
+      "baseline_total_events": 341,
+      "baseline_status_counts": {
+        "pending_confirmation": 64,
+        "completed_no_signal": 229,
+        "completed_signal": 185,
+        "technical_failure": 7,
+        "input_failure": 4
+      },
+      "first_unstarted_date": "2026-10-12T09:15:16+08:00",
+      "user_reported_free_quota_reset": true,
+      "restored_cache_artifact": {
+        "run_id": 43021582706,
+        "id": 13856592316,
+        "name": "history-media-cache-20261111-continuation",
+        "size_bytes": 52131162,
+        "expires_at": "2026-11-25T12:58:24Z",
+        "digest": "sha256:e4bd27f0f49fd62b47068888db8215dc14811d3dcb1468c36394a9faf4ab6b67"
+      },
+      "saved_dataset_get_requests": 0,
+      "initial_actor_starts": 0,
+      "actor_runs_started": 0,
+      "recovered_zero_generation_inputs": 0,
+      "closed": true,
+      "media_repair_ledger": "data/history_media_repairs/20261112-media-repair-01.json",
+      "initial_media_repair_ledger": "data/history_media_repairs/media-repair-20261111-01.json",
+      "media_repair_http_counts": {
+        "GET": 1,
+        "POST": 0
+      },
+      "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43190962491",
+      "stop_http_status": null,
+      "apify_stop_http_status": 401,
+      "blocked_service": "Apify actor metadata",
+      "cache_artifact": {
+        "run_id": 43190962491,
+        "id": 13931291105,
+        "name": "history-media-cache-20261112-continuation",
+        "size_bytes": 7269912,
+        "expires_at": "2026-11-26T09:24:39Z",
+        "digest": "sha256:07648eedac571984f480aa8c4261c601d73f4583514f280018acfb8dcc9d9790"
+      },
+      "diagnostic_http_counts": {
+        "GET": 1,
+        "POST": 0
+      },
+      "service_access_statement": {
+        "provider": "Apify",
+        "secret_name": "APIFY_TOKEN",
+        "key_present": true,
+        "http_status": 401,
+        "safe_code": "user-or-token-not-found",
+        "source": "data/history_media_repairs/preflight-diagnostic-20261112.json",
+        "note": "Token rejected by official Apify endpoint; exact credential failure cause unverified. No Actor started or authentication retry."
+      },
+      "result": {
+        "id": "20261112-media-repair-01",
+        "generation_attempts": 8,
+        "validated_responses": 8,
+        "added_events": 3,
+        "pine_count_delta_since_session": 3,
+        "historical_reference_event_delta_since_session": 0,
+        "service_reported_usage": {
+          "input_tokens": 23058,
+          "output_tokens": 1529,
+          "total_tokens": 24587,
+          "reasoning_tokens": 0
+        },
+        "status_counts": {
+          "completed_no_signal": 4,
+          "completed_signal": 3,
+          "input_failure": 0,
+          "pending_confirmation": 1,
+          "technical_failure": 0
+        },
+        "actor_runs_started": 0,
+        "saved_dataset_get_requests": 0,
+        "actual_points_deducted": null,
+        "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43190962491",
+        "stop_http_status": null,
+        "status_count_transitions": {
+          "completed_no_signal": 4,
+          "completed_signal": 3,
+          "input_failure": 0,
+          "pending_confirmation": 1,
+          "technical_failure": 0
+        },
+        "recovered_zero_generation_inputs": 0,
+        "media_repair_ledger": "data/history_media_repairs/20261112-media-repair-01.json",
+        "initial_media_repair_ledger": "data/history_media_repairs/media-repair-20261111-01.json",
+        "media_repair_http_counts": {
+          "GET": 1,
+          "POST": 0
+        },
+        "apify_stop_http_status": 401,
+        "blocked_service": "Apify actor metadata",
+        "cache_artifact": {
+          "run_id": 43190962491,
+          "id": 13931291105,
+          "name": "history-media-cache-20261112-continuation",
+          "size_bytes": 7269912,
+          "expires_at": "2026-11-26T09:24:39Z",
+          "digest": "sha256:07648eedac571984f480aa8c4261c601d73f4583514f280018acfb8dcc9d9790"
+        },
+        "diagnostic_http_counts": {
+          "GET": 1,
+          "POST": 0
+        }
+      }
     }
-  ],
-  "stop_reason": "apify_authentication_failed",
-  "closure_reason": "apify_token_not_valid",
-  "original_stop_reason": "actor_pricing_or_access_Failure",
-  "service_access_statement": {
-    "provider": "Apify",
-    "secret_name": "APIFY_TOKEN",
-    "key_present": true,
-    "http_status": 401,
-    "safe_code": "user-or-token-not-found",
-    "source": "data/history_media_repairs/preflight-diagnostic-20261112.json",
-    "note": "Token rejected by official Apify endpoint; exact credential failure cause unverified. No Actor started or authentication retry."
-  }
+  ]
 }
