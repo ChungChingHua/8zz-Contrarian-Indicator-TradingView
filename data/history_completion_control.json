@@ -3,7 +3,7 @@
   "cutoff_utc": "2026-11-07T12:15:59.578797+00:00",
   "created_at": "2026-11-07T12:15:59.578797+00:00",
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
-  "closed": true,
+  "closed": false,
   "acquisition_completed": true,
   "sources": {
     "facebook": {
@@ -241,61 +241,50 @@
       "scope_generation_attempts": 493,
       "ref_before_resume": "5a2ccd65f1c3e5e0c0ea4b4497f77e182fbe9cfe",
       "repair_diagnostic": "data/history_media_repairs/preflight-diagnostic-20261112-02.json"
+    },
+    {
+      "closed_at": "2026-11-12T10:06:14.041855+00:00",
+      "stop_reason": "user_paused_media_cost_review",
+      "closure_reason": "media_refresh_cost_question",
+      "scope_generation_attempts": 529,
+      "user_authorized_missing_media_only": true,
+      "ref_before_resume": "e61c383db55b6dded512b96fd8b5dd93a3589f62"
     }
   ],
   "current_session": {
-    "id": "20261112-media-repair-02",
-    "baseline_generation_attempts": 493,
-    "baseline_validated_responses": 482,
+    "id": "20261112-media-repair-03",
+    "baseline_generation_attempts": 529,
+    "baseline_validated_responses": 518,
     "baseline_usage": {
-      "input_tokens": 1407101,
-      "output_tokens": 77336,
-      "total_tokens": 1484437,
+      "input_tokens": 1515466,
+      "output_tokens": 82724,
+      "total_tokens": 1598190,
       "reasoning_tokens": 0
     },
-    "baseline_total_events": 344,
+    "baseline_total_events": 350,
     "baseline_status_counts": {
-      "pending_confirmation": 65,
-      "completed_no_signal": 233,
-      "completed_signal": 188,
+      "pending_confirmation": 72,
+      "completed_no_signal": 256,
+      "completed_signal": 194,
       "technical_failure": 7,
-      "input_failure": 4
+      "input_failure": 5
     },
-    "first_unstarted_date": "2026-10-19T21:45:39+08:00",
-    "user_reported_apify_token_updated": true,
-    "credential_preflight": "data/history_media_repairs/preflight-diagnostic-20261112-02.json",
+    "first_unstarted_date": "2026-10-27T21:37:23+08:00",
+    "user_authorized_missing_media_only": true,
+    "media_policy": "Verified cache, then existing dataset; prior reserved URL may never start another Actor. New starts only for never-reserved missing media.",
     "restored_cache_artifact": {
-      "run_id": 43190962491,
-      "id": 13931291105,
-      "name": "history-media-cache-20261112-continuation",
-      "size_bytes": 7269912,
-      "expires_at": "2026-11-26T09:24:39Z",
-      "digest": "sha256:07648eedac571984f480aa8c4261c601d73f4583514f280018acfb8dcc9d9790"
-    },
-    "initial_actor_starts": 0,
-    "actor_runs_started": 3,
-    "saved_dataset_get_requests": 0,
-    "recovered_zero_generation_inputs": 0,
-    "closed": true,
-    "media_repair_ledger": "data/history_media_repairs/20261112-media-repair-02.json",
-    "media_repair_http_counts": {
-      "GET": 14,
-      "POST": 3
-    },
-    "pause_audit_http_counts": {
-      "GET": 3,
-      "POST": 0
-    },
-    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43196120243",
-    "stop_http_status": null,
-    "cache_artifact": {
       "run_id": 43196120243,
       "id": 13933337415,
       "name": "history-media-cache-20261112-continuation-02",
       "size_bytes": 8401125,
       "expires_at": "2026-11-26T10:04:42Z",
       "digest": "sha256:aec1cce1e5fedc04041b6ea839aabe301f37456bbbbd9a90f0bde0ef6eece4ff"
-    }
+    },
+    "initial_actor_starts": 0,
+    "actor_runs_started": 0,
+    "saved_dataset_get_requests": 0,
+    "recovered_zero_generation_inputs": 0,
+    "closed": false
   },
   "session_history": [
     {
@@ -727,8 +716,110 @@
           "POST": 0
         }
       }
+    },
+    {
+      "id": "20261112-media-repair-02",
+      "baseline_generation_attempts": 493,
+      "baseline_validated_responses": 482,
+      "baseline_usage": {
+        "input_tokens": 1407101,
+        "output_tokens": 77336,
+        "total_tokens": 1484437,
+        "reasoning_tokens": 0
+      },
+      "baseline_total_events": 344,
+      "baseline_status_counts": {
+        "pending_confirmation": 65,
+        "completed_no_signal": 233,
+        "completed_signal": 188,
+        "technical_failure": 7,
+        "input_failure": 4
+      },
+      "first_unstarted_date": "2026-10-19T21:45:39+08:00",
+      "user_reported_apify_token_updated": true,
+      "credential_preflight": "data/history_media_repairs/preflight-diagnostic-20261112-02.json",
+      "restored_cache_artifact": {
+        "run_id": 43190962491,
+        "id": 13931291105,
+        "name": "history-media-cache-20261112-continuation",
+        "size_bytes": 7269912,
+        "expires_at": "2026-11-26T09:24:39Z",
+        "digest": "sha256:07648eedac571984f480aa8c4261c601d73f4583514f280018acfb8dcc9d9790"
+      },
+      "initial_actor_starts": 0,
+      "actor_runs_started": 3,
+      "saved_dataset_get_requests": 0,
+      "recovered_zero_generation_inputs": 0,
+      "closed": true,
+      "media_repair_ledger": "data/history_media_repairs/20261112-media-repair-02.json",
+      "media_repair_http_counts": {
+        "GET": 14,
+        "POST": 3
+      },
+      "pause_audit_http_counts": {
+        "GET": 3,
+        "POST": 0
+      },
+      "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43196120243",
+      "stop_http_status": null,
+      "cache_artifact": {
+        "run_id": 43196120243,
+        "id": 13933337415,
+        "name": "history-media-cache-20261112-continuation-02",
+        "size_bytes": 8401125,
+        "expires_at": "2026-11-26T10:04:42Z",
+        "digest": "sha256:aec1cce1e5fedc04041b6ea839aabe301f37456bbbbd9a90f0bde0ef6eece4ff"
+      },
+      "result": {
+        "id": "20261112-media-repair-02",
+        "generation_attempts": 36,
+        "validated_responses": 36,
+        "added_events": 6,
+        "pine_count_delta_since_session": 6,
+        "historical_reference_event_delta_since_session": 0,
+        "service_reported_usage": {
+          "input_tokens": 108365,
+          "output_tokens": 5388,
+          "total_tokens": 113753,
+          "reasoning_tokens": 0
+        },
+        "status_counts": {
+          "completed_no_signal": 23,
+          "completed_signal": 6,
+          "input_failure": 1,
+          "pending_confirmation": 7,
+          "technical_failure": 0
+        },
+        "actor_runs_started": 3,
+        "saved_dataset_get_requests": 0,
+        "actual_points_deducted": null,
+        "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43196120243",
+        "stop_http_status": null,
+        "status_count_transitions": {
+          "completed_no_signal": 23,
+          "completed_signal": 6,
+          "input_failure": 1,
+          "pending_confirmation": 7,
+          "technical_failure": 0
+        },
+        "recovered_zero_generation_inputs": 0,
+        "cache_artifact": {
+          "run_id": 43196120243,
+          "id": 13933337415,
+          "name": "history-media-cache-20261112-continuation-02",
+          "size_bytes": 8401125,
+          "expires_at": "2026-11-26T10:04:42Z",
+          "digest": "sha256:aec1cce1e5fedc04041b6ea839aabe301f37456bbbbd9a90f0bde0ef6eece4ff"
+        },
+        "media_repair_ledger": "data/history_media_repairs/20261112-media-repair-02.json",
+        "media_repair_http_counts": {
+          "GET": 14,
+          "POST": 3
+        },
+        "media_repair_observed_usd": "0.202"
+      },
+      "media_repair_observed_usd": "0.202",
+      "media_repair_note": "Three existing runs: Facebook0.061+0.061, Threads0.080; usageTotalUsd observations, not settled invoice. Paused at user's cost question. Audit GET3, no starts or generation."
     }
-  ],
-  "stop_reason": "user_paused_media_cost_review",
-  "closure_reason": "media_refresh_cost_question"
+  ]
 }

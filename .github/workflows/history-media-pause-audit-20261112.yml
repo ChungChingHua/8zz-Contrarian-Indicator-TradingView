@@ -1,8 +1,6 @@
 name: Seal paused media run and refresh existing costs 20261112
 on:
-  push:
-    branches: [codex/social-pipeline-20261106]
-    paths: [.github/workflows/history-media-pause-audit-20261112.yml]
+  workflow_dispatch: {}
 permissions:
   contents: write
 concurrency:
@@ -10,6 +8,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   seal:
+    if: ${{ false }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -68,5 +67,5 @@ jobs:
       - name: Offline regression and deterministic Pine
         run: |
           python -m unittest discover -s scripts -p 'test*.py'
-          python scripts/social_pipeline.py --generate-only
+          python scripts/social_pipeline.py
           git diff --exit-code -- 8zz-indicator.pine

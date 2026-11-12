@@ -1,15 +1,14 @@
 name: Pause history continuation 20261112
 on:
-  push:
-    branches: [codex/social-pipeline-20261106]
-    paths: [.github/workflows/history-stop-20261112-02.yml]
+  workflow_dispatch: {}
 permissions:
   contents: read
 concurrency:
   group: original-author-history-batch-01
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   pause:
+    if: ${{ false }}
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
