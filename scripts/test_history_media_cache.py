@@ -63,6 +63,45 @@ class Tests(unittest.TestCase):
             (root/i['filename']).write_bytes(b'changed')
             with self.assertRaisesRegex(ValueError,'cache_hash_mismatch'):c.checked_cache(i,root)
             with self.assertRaisesRegex(ValueError,'invalid_cache_filename'):c.checked_cache({**i,'filename':'../outside.bin'},root)
+    def test_prior_reservation_index_covers_legacy_and_unknown_without_new_start(self):
+        from unittest.mock import Mock
+        docs=Mock();docs.load.return_value={'actors':{'facebook':{'requested_keys':['facebook:1'],'status':'submission_unknown'}}}
+        budget={'media_repair_reservations':{'old':{'ledger':'data/history_media_repairs/old.json'}}}
+        prior=c.previous_media_batches(docs,budget)
+        self.assertIn('facebook:1',prior);self.assertIsNone(prior['facebook:1']['batch'].get('id'))
+        docs.load.return_value=None
+        with self.assertRaisesRegex(ValueError,'missing_reserved_media_ledger'):c.previous_media_batches(docs,budget)
+    def test_existing_dataset_is_read_once_and_prefetches_missing_bytes_without_actor_start(self):
+        from unittest.mock import Mock
+        p=self.post();q=self.post(2);m=object.__new__(c.Media)
+        m.state={};m.data={p['key']:p,q['key']:q};m.manifest={'posts':{}};m.save=Mock()
+        batch={'id':'paid-run','status':'SUCCEEDED','defaultDatasetId':'saved-data','keys':[p['key'],q['key']]}
+        m.prior_by_key={p['key']:{'ledger':'data/history_media_repairs/old.json','batch':batch}}
+        m.client=Mock();m.client.request.return_value=[p,q]
+        m.cache_post=Mock()
+        with patch.object(c.hc,'exclusions',return_value=(set(),{})),patch.object(c.h.s,'normalize',side_effect=lambda row,src:(row,None)):
+            m.reuse_prior_dataset(p)
+            with self.assertRaisesRegex(ValueError,'already_attempted'):m.reuse_prior_dataset(p)
+        m.client.request.assert_called_once_with('/datasets/saved-data/items?format=json&limit=100')
+        self.assertEqual(m.cache_post.call_count,2);self.assertEqual(m.state['prior_dataset_reuses'][0]['status'],'existing_dataset_read_complete')
+    def test_unknown_prior_submission_never_reads_dataset_or_starts_actor(self):
+        from unittest.mock import Mock
+        p=self.post();m=object.__new__(c.Media);m.client=Mock()
+        m.prior_by_key={p['key']:{'batch':{'status':'submission_unknown'},'ledger':'data/history_media_repairs/old.json'}}
+        with self.assertRaisesRegex(ValueError,'unresolved_no_duplicate_start'):m.reuse_prior_dataset(p)
+        m.client.request.assert_not_called()
+    def test_new_batch_does_not_include_previously_reserved_urls(self):
+        from unittest.mock import Mock
+        p=self.post();q=self.post(2);m=object.__new__(c.Media)
+        m.state={'batches':[],'actor_starts_reserved':0};m.attempted={q['key']};m.data={p['key']:p,q['key']:q};m.manifest={'posts':{}};m.budget={'apify_runs':60};m.save=Mock();m.budget_save=Mock()
+        def request(path,payload=None):
+            if payload is None:return {'data':{'pricingInfos':[{'startedAt':'2000-01-01T00:00:00Z','pricingModel':'PAY_PER_EVENT'}]}}
+            self.assertEqual([u['url'] for u in payload['startUrls']],[p['url']])
+            raise c.t.Failure('blocked',403)
+        m.client=Mock();m.client.request.side_effect=request
+        with patch.object(c.hc,'exclusions',return_value=(set(),{})):
+            with self.assertRaises(c.MediaStop):m.refresh(p)
+        self.assertEqual(m.client.request.call_count,2);self.assertEqual(m.state['batches'][0]['keys'],[p['key']])
     def test_cached_image_uses_verified_bytes_without_network(self):
         with tempfile.TemporaryDirectory() as t:
             root=Path(t);info=self.image(root);p=self.post();m=object.__new__(c.Media)

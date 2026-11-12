@@ -21,6 +21,23 @@ RECOVER_KEYS=('facebook:1660785808739341','threads:3992201729433763729','threads
 class MediaStop(BaseException):pass
 
 
+def previous_media_batches(docs,budget):
+    """A reserved URL must never cause a second Actor start, even after interruption."""
+    result={}
+    for reservation in budget.get('media_repair_reservations',{}).values():
+        path=reservation.get('ledger','')
+        if path==LEDGER:continue
+        if not re.fullmatch(r'data/history_media_repairs/[A-Za-z0-9_-]+\.json',path):raise ValueError('invalid_prior_media_ledger')
+        saved=docs.load(path)
+        if saved is None:raise ValueError('missing_reserved_media_ledger_no_new_start')
+        batches=list(saved.get('batches',[]))+list(saved.get('actors',{}).values())
+        for batch in batches:
+            for key in batch.get('keys',batch.get('requested_keys',[])):
+                if key in result and result[key]['batch'].get('id')!=batch.get('id'):raise ValueError('duplicate_prior_media_reservations')
+                result[key]={'ledger':path,'batch':batch}
+    return result
+
+
 def checked_cache(info,root=CACHE):
     if not re.fullmatch(r'[a-f0-9]{64}\.bin',info['filename']):raise ValueError('invalid_cache_filename')
     path=root/info['filename']
@@ -65,6 +82,8 @@ class Media:
         self.budget=self.usage.setdefault(self.month,{'apify_runs':0,'ai_attempts':0})
         self.state.setdefault('monthly_runs_before',self.budget['apify_runs'])
         self.attempted={k for b in self.state['batches'] for k in b['keys']}
+        self.prior_by_key=previous_media_batches(docs,self.budget)
+        self.attempted.update(self.prior_by_key)
         self.save()
     def save(self):
         self.state['http_requests']=dict(self.client.counts);self.state['updated_at']=h.now()
@@ -150,7 +169,9 @@ class Media:
     def prepare(self,post):
         if not media_plan(post)['image_attachments']:return original_prepare(post)
         key=post['key']
-        if key not in self.manifest['posts']:self.refresh(post)
+        if key not in self.manifest['posts']:
+            if key in getattr(self,'prior_by_key',{}):self.reuse_prior_dataset(post)
+            else:self.refresh(post)
         if key not in self.manifest['posts']:raise ValueError('refreshed_media_unavailable')
         fresh=self.manifest['posts'][key]
         if any(fresh[k]!=post[k] for k in ('text','source','post_id','published_at')) or media_identity(fresh)!=media_identity(post):raise ValueError('cache_post_identity_mismatch')
@@ -163,6 +184,37 @@ class Media:
         with patch.object(h.s,'download_image',download):parts,scope=original_prepare(p)
         scope['cache_verified']=True;scope['media_refresh_session']=SESSION
         return parts,scope
+
+    def reuse_prior_dataset(self,post):
+        """Read one paid run's existing dataset; never start or retry an Actor."""
+        prior=self.prior_by_key[post['key']];batch=prior['batch']
+        if batch.get('status')!='SUCCEEDED' or not batch.get('defaultDatasetId'):
+            raise ValueError('prior_media_run_unresolved_no_duplicate_start')
+        run_id=batch.get('id')
+        reuses=self.state.setdefault('prior_dataset_reuses',[])
+        if any(r['run_id']==run_id for r in reuses):raise ValueError('prior_dataset_reuse_already_attempted_no_actor_retry')
+        excluded,_=hc.exclusions(self.data)
+        keys=[k for k in batch.get('keys',batch.get('requested_keys',[])) if k in self.data and k not in excluded and k not in self.manifest['posts']]
+        record={'run_id':run_id,'source_ledger':prior['ledger'],'keys':keys,'status':'reading_existing_dataset','posts':{}}
+        reuses.append(record);self.save()
+        try:
+            rows=self.client.request('/datasets/'+batch['defaultDatasetId']+'/items?format=json&limit=100')
+            if not isinstance(rows,list):self.stop('invalid_existing_dataset_shape')
+        except Exception as exc:
+            record.update(error_type=type(exc).__name__,http_status=getattr(exc,'status',None))
+            self.stop('existing_dataset_access_failure_no_actor_retry')
+        found={}
+        for row in rows:
+            p,reason=h.s.normalize(t.plain(row),post['source'])
+            if p and p['key'] in keys:found[p['key']]=p
+        for key in keys:
+            item=record['posts'][key]={}
+            if key not in found:item['status']='post_not_returned'
+            else:
+                try:self.cache_post(found[key],self.data[key]);item['status']='cached'
+                except Exception as exc:item.update(status='input_failure',error_type=type(exc).__name__,safe_reason=str(exc) if isinstance(exc,ValueError) and re.fullmatch('[a-z_]+',str(exc)) else None)
+            self.save()
+        record['status']='existing_dataset_read_complete';self.save()
     def finalize(self):
         for entry in self.state['batches']:
             if not entry.get('id'):continue
