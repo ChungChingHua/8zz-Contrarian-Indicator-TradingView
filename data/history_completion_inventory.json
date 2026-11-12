@@ -5876,31 +5876,31 @@
     "key": "threads:4019208752947907598",
     "url": "https://www.threads.com/@banini31/post/DfHGRDtmcwO",
     "display_time": "2026-10-30T15:57:21+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "threads:4019208752947907598",
+    "evidence": "data/history_progress/history-completion-20261107-029.json",
+    "reason": "發文者表示把一年的薪水都賠掉，語氣顯示極度痛苦與絕望，為強烈偏多（被套/痛苦）訊號。"
   },
   {
     "key": "threads:4019214061460329474",
     "url": "https://www.threads.com/@banini31/post/DfHHeTpmRQC",
     "display_time": "2026-10-30T16:07:54+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "threads:4019214061460329474",
+    "evidence": "data/history_progress/history-completion-20261107-029.json",
+    "reason": "貼文與圖片顯示多檔股票與大漲行情，語氣非痛苦而偏向興奮/得意，屬於亢奮偏空訊號"
   },
   {
     "key": "threads:4019397023426120729",
     "url": "https://www.threads.com/@banini31/post/DfHxEwQk4wZ",
     "display_time": "2026-10-30T22:11:25+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "technical_failure",
+    "stored_status": "technical_failure",
+    "record_key": "threads:4019397023426120729",
+    "evidence": "data/history_progress/history-completion-20261107-029.json",
+    "reason": "provider_http_error"
   },
   {
     "key": "threads:4019411110490389007",
