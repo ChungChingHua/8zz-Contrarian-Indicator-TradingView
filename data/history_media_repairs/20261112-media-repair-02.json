@@ -146,8 +146,79 @@
         "facebook:1694725472012041",
         "facebook:1695032928647962"
       ],
-      "status": "submission_unknown",
-      "posts": {}
+      "status": "READY",
+      "posts": {},
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0H1AnnUMigrUmSVSUvm6iChCMrCkJN2JN1PWwqSzHJAnfCz9CnAS9mdpZurRCwEbLl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0WtNimWNwiYEUFvp9Jd7Tzr3A3BVJjx3Hg9gmCT6VDka8K3GrBMvSqmTCfi3ca6rTl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0tD555kdvR3K6Ligf3ipsZ5nnjS7qWcv62NtYetggtqbV2G9zUeuGZAyeymwEbNLDl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02jGDGURMQTX3x8bN4g19dqoQ2f6Ts7yupHy4BLjDdg7YJkm5cw9Yk4tY3E6okZornl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid031zysfAqAaM3Gjuq92fXEtCD7cnawkzfFdaTxpJjuRfjxWVB1cCRiA3Z1cU6bMdrXl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0pvPahtsRUjAyeHSALat67BH8iMxnA1t3K3Ane5wSL8WyPG1ZBKPVM8vqiCWLyxWTl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02vGDcFe9sqAmo4kaEUZjJ4At7QhwEEiesiyLFvFR5hxFpq6TyitvU6quwjfHpxrYKl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02S9GsSzwbZYvCgRDuvowgigVwveCmX9NcuGQyKj9R7Lj69ewTt1uf1kF3mHXLFytdl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid04dDrE8jKaz6zUMg8KFvjMKTV4DacBcpLZnwFJSryjUf3W8rg8avV7QGrkmRZSg9ml"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02j9DuQggvt2xg3iqgsgsFRoxH4yBC4JP4HVRNqqL4qytYEkk1vzBr1Ls6g5aUw1mzl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0iVSLRnT56c4dX859eabsUywpBe8H3Z6ALuDYSjYCjzj54HUtigmgQTAgSZnaBxool"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0qfCamLj5QAHsDGvfLEXk93CuWjTU2LcE8CftTv8YLpkDGxCYXV8THzKhaDDxGbCDl"
+          }
+        ],
+        "resultsLimit": 1
+      },
+      "id": "ejiRfffjwz4DTcNtY",
+      "startedAt": "2026-11-12T10:01:07.646Z",
+      "finishedAt": null,
+      "buildId": "u95r0Bh3B0teuAUiL",
+      "buildNumber": "0.0.417",
+      "defaultDatasetId": "MvrQtROWtBsY8rBY0",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": 0,
+      "chargedEventCounts": {
+        "post": 0,
+        "actor-start": 0,
+        "filter-applied": 0
+      },
+      "accountedChargedEventCounts": {
+        "post": 0,
+        "actor-start": 0,
+        "filter-applied": 0
+      },
+      "duration_seconds": null,
+      "cost_observed_at": "2026-11-12T10:01:07.841648+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution"
     }
   ],
   "actor_starts_reserved": 2,
@@ -155,7 +226,7 @@
   "monthly_runs_before": 57,
   "http_requests": {
     "GET": 10,
-    "POST": 1
+    "POST": 2
   },
-  "updated_at": "2026-11-12T10:01:06.669619+00:00"
+  "updated_at": "2026-11-12T10:01:07.841666+00:00"
 }
