@@ -8161,5 +8161,53 @@
     ],
     "platform": "Facebook",
     "is_flip": true
+  },
+  {
+    "event_key": "648d256c1bf7304f025252b59830ea7dc2fe649fcd08da8e17bb09a44b168e2c",
+    "completed_at": "2026-11-12T10:03:01.963094+00:00",
+    "fetched_at": null,
+    "available_ms": 1794477781963,
+    "sentiment": "語氣自信且帶有亢奮（宣稱美股反攻、台股自己天下無敵），偏向追漲心態",
+    "historical": true,
+    "baseline": false,
+    "media_note": "{\"analysis_scope\": \"text_and_images\", \"unanalysed_media\": [], \"media_failures\": [], \"images_supplied\": 1, \"image_evidence\": [{\"sha256\": \"b552dcdc055276510339d23f582e3db900d9c8478edbbf14211a98c085741857\", \"bytes\": 98367, \"mime\": \"image/jpeg\", \"attachment_index\": 0}], \"human_image_verified\": false, \"source_note\": \"Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.\", \"non_media_album_container_indices\": [], \"cache_verified\": true, \"media_refresh_session\": \"20261112-media-repair-02\"}",
+    "id": 349,
+    "unix_ms": 1793025080000,
+    "time": "2026-10-26T14:31:20+00:00",
+    "direction": -1,
+    "strength": 2,
+    "summary": "看好/追買語氣\n指標: 偏空 ▼ | 強度: 2\n2026-10-26T22:31:20+08:00 剛剛看了美股，看起來一切都沒有問題了\n台股果然就是躲￼崩王啊\n\n我大台股，果然是天下無敵\n語氣自信且帶有亢奮（宣稱美股反攻、台股自己天下無敵），偏向追漲心態\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0pvPahtsRUjAyeHSALat67BH8iMxnA1t3K3Ane5wSL8WyPG1ZBKPVM8vqiCWLyxWTl",
+    "target": "未辨識",
+    "symbol": "0050.TW",
+    "proxy": true,
+    "urls": [
+      "https://www.facebook.com/DieWithoutBang/posts/pfbid0pvPahtsRUjAyeHSALat67BH8iMxnA1t3K3Ane5wSL8WyPG1ZBKPVM8vqiCWLyxWTl"
+    ],
+    "platform": "Facebook",
+    "is_flip": true
+  },
+  {
+    "event_key": "75ef373cf62076afd9f2def65df779f0ac28c75a5ecb53dbbf0eca1450a3b85d",
+    "completed_at": "2026-11-12T10:03:41.785987+00:00",
+    "fetched_at": null,
+    "available_ms": 1794477821785,
+    "sentiment": "發文語氣得意（每天一柱擎天）並貼出盤面截圖，顯示亢奮/自信情緒，偏空訊號",
+    "historical": true,
+    "baseline": false,
+    "media_note": "{\"analysis_scope\": \"text_and_images\", \"unanalysed_media\": [], \"media_failures\": [], \"images_supplied\": 1, \"image_evidence\": [{\"sha256\": \"7a9ec9476760210bc7bd31a5731ddab56305b9e72c87d65f10d36ab841a1d378\", \"bytes\": 87202, \"mime\": \"image/jpeg\", \"attachment_index\": 0}], \"human_image_verified\": false, \"source_note\": \"Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.\", \"non_media_album_container_indices\": [], \"cache_verified\": true, \"media_refresh_session\": \"20261112-media-repair-02\"}",
+    "id": 350,
+    "unix_ms": 1793063051000,
+    "time": "2026-10-27T01:04:11+00:00",
+    "direction": -1,
+    "strength": 2,
+    "summary": "曬盤/得意\n指標: 偏空 ▼ | 強度: 2\n2026-10-27T09:04:11+08:00 我都有在聽師父的話\n所以每天早上起來都\n一柱擎天！\n發文語氣得意（每天一柱擎天）並貼出盤面截圖，顯示亢奮/自信情緒，偏空訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02vGDcFe9sqAmo4kaEUZjJ4At7QhwEEiesiyLFvFR5hxFpq6TyitvU6quwjfHpxrYKl",
+    "target": "未辨識",
+    "symbol": "0050.TW",
+    "proxy": true,
+    "urls": [
+      "https://www.facebook.com/DieWithoutBang/posts/pfbid02vGDcFe9sqAmo4kaEUZjJ4At7QhwEEiesiyLFvFR5hxFpq6TyitvU6quwjfHpxrYKl"
+    ],
+    "platform": "Facebook",
+    "is_flip": false
   }
 ]
