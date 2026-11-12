@@ -159,19 +159,19 @@
             "id": "OnrW7LfkbTQhk7urR",
             "source": "facebook",
             "status": "SUCCEEDED",
-            "usageTotalUsd": "0.056"
+            "usageTotalUsd": "0.061"
           },
           {
             "id": "ejiRfffjwz4DTcNtY",
             "source": "facebook",
             "status": "SUCCEEDED",
-            "usageTotalUsd": 0
+            "usageTotalUsd": "0.061"
           },
           {
-            "id": null,
+            "id": "EKRZxFGDieAmbK9JC",
             "source": "threads",
-            "status": "reserved_not_submitted",
-            "usageTotalUsd": null
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.08"
           }
         ]
       }
