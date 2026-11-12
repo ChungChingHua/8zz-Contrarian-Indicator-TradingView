@@ -106,7 +106,11 @@ class Media:
         if self.budget['apify_runs']>=70:self.stop('monthly_70_run_guard')
         try:
             meta=self.client.request('/acts/'+actor)['data'];t.pricing(meta,datetime.now(timezone.utc))
-        except Exception as exc:self.stop('actor_pricing_or_access_'+type(exc).__name__)
+        except Exception as exc:
+            known_codes={'apify_http_error','apify_transport_failure','pricing_not_verifiable_no_start','actor_minimum_exceeds_authorized_cap_no_start','unknown_pricing_model_no_start'}
+            self.state['last_error']={'phase':'actor_metadata_or_pricing','error_type':type(exc).__name__,
+                'http_status':getattr(exc,'status',None),'safe_code':getattr(exc,'code',None) if getattr(exc,'code',None) in known_codes else None}
+            self.stop('actor_pricing_or_access_'+type(exc).__name__)
         self.budget['apify_runs']+=1;self.state['actor_starts_reserved']+=1
         entry={'source':source,'actor':actor,'keys':keys,'status':'reserved_not_submitted','posts':{}}
         self.state['batches'].append(entry);self.attempted.update(keys)

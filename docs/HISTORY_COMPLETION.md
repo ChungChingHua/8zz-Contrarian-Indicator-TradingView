@@ -140,7 +140,7 @@
   "other_ai_provider_queries": 0,
   "actual_points_deducted": null,
   "quota_headers": {},
-  "stop_reason": "actor_pricing_or_access_Failure",
+  "stop_reason": "apify_authentication_failed",
   "service_quota_statement": null,
   "all_history_fully_classified": false,
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
@@ -170,7 +170,7 @@
     "actor_runs_started": 0,
     "saved_dataset_get_requests": 0,
     "actual_points_deducted": null,
-    "run_url": null,
+    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43190962491",
     "stop_http_status": null,
     "status_count_transitions": {
       "completed_no_signal": 4,
@@ -185,7 +185,32 @@
     "media_repair_http_counts": {
       "GET": 1,
       "POST": 0
+    },
+    "apify_stop_http_status": 401,
+    "blocked_service": "Apify actor metadata",
+    "cache_artifact": {
+      "run_id": 43190962491,
+      "id": 13931291105,
+      "name": "history-media-cache-20261112-continuation",
+      "size_bytes": 7269912,
+      "expires_at": "2026-11-26T09:24:39Z",
+      "digest": "sha256:07648eedac571984f480aa8c4261c601d73f4583514f280018acfb8dcc9d9790"
+    },
+    "diagnostic_http_counts": {
+      "GET": 1,
+      "POST": 0
     }
+  },
+  "original_stop_reason": "actor_pricing_or_access_Failure",
+  "closure_reason": "apify_token_not_valid",
+  "service_access_statement": {
+    "provider": "Apify",
+    "secret_name": "APIFY_TOKEN",
+    "key_present": true,
+    "http_status": 401,
+    "safe_code": "user-or-token-not-found",
+    "source": "data/history_media_repairs/preflight-diagnostic-20261112.json",
+    "note": "Token rejected by official Apify endpoint; exact credential failure cause unverified. No Actor started or authentication retry."
   }
 }
 ```
@@ -211,3 +236,8 @@
 本次 API 次數僅指 AI 生成及 Apify 啟動／讀取；GitHub 進度保存與圖片下載另計，沒有把上述數字宣稱為全部 HTTP 流量。data/usage.json 的 ai_attempts 為舊流程計數，不等於 ChatAnywhere 全部呼叫量，應以本次及既有帳本查核。
 
 只做一次性執行，不啟用持續排程、不發布 Pages、不合併 PR。
+
+
+## 2026/11/12 憑證阻塞
+
+本輪8次生成均成功，新增3事件；更新圖片時Apify回傳401／user-or-token-not-found。APIFY_TOKEN已注入但被拒，需更新有效值。新Actor0，月計數57/70。不是已確認的AI額度耗盡；仍有139篇未處理。見[續跑與接續紀錄](HISTORY_RESUME_20261112.md)。

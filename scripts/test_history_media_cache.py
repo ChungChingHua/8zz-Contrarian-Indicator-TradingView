@@ -41,6 +41,21 @@ class Tests(unittest.TestCase):
             self.assertTrue((root/info['filename']).exists());self.assertFalse((root/(sha+'.bin')).exists())
             self.assertEqual(set(json.loads((root/'manifest.json').read_text())['posts']),{'pending'})
             self.assertEqual(c.checked_cache(info,root),('image/jpeg',JPEG))
+    def test_metadata_auth_failure_preserves_status_without_start_or_retry(self):
+        p=self.post();m=object.__new__(c.Media);m.state={'batches':[],'actor_starts_reserved':0};m.attempted=set();m.data={p['key']:p};m.manifest={'posts':{}};m.budget={'apify_runs':57};m.save=lambda:None
+        class Client:
+            calls=0
+            def request(self,*args):
+                self.calls+=1
+                raise c.t.Failure('apify_http_error',401)
+        m.client=Client()
+        with patch.object(c.hc,'exclusions',return_value=(set(),{})):
+            with self.assertRaises(c.MediaStop):m.refresh(p)
+            with self.assertRaises(c.MediaStop):m.refresh(p)
+        self.assertEqual(m.client.calls,1)
+        self.assertEqual(m.state['last_error']['http_status'],401)
+        self.assertEqual(m.state['last_error']['safe_code'],'apify_http_error')
+        self.assertEqual(m.state['actor_starts_reserved'],0);self.assertEqual(m.budget['apify_runs'],57)
     def test_cache_tampering_and_traversal_rejected(self):
         with tempfile.TemporaryDirectory() as t:
             root=Path(t);i=self.image(root)

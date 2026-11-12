@@ -258,12 +258,91 @@
     "initial_actor_starts": 0,
     "actor_runs_started": 0,
     "recovered_zero_generation_inputs": 0,
-    "closed": false,
+    "closed": true,
     "media_repair_ledger": "data/history_media_repairs/20261112-media-repair-01.json",
     "initial_media_repair_ledger": "data/history_media_repairs/media-repair-20261111-01.json",
     "media_repair_http_counts": {
       "GET": 1,
       "POST": 0
+    },
+    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43190962491",
+    "stop_http_status": null,
+    "apify_stop_http_status": 401,
+    "blocked_service": "Apify actor metadata",
+    "cache_artifact": {
+      "run_id": 43190962491,
+      "id": 13931291105,
+      "name": "history-media-cache-20261112-continuation",
+      "size_bytes": 7269912,
+      "expires_at": "2026-11-26T09:24:39Z",
+      "digest": "sha256:07648eedac571984f480aa8c4261c601d73f4583514f280018acfb8dcc9d9790"
+    },
+    "diagnostic_http_counts": {
+      "GET": 1,
+      "POST": 0
+    },
+    "service_access_statement": {
+      "provider": "Apify",
+      "secret_name": "APIFY_TOKEN",
+      "key_present": true,
+      "http_status": 401,
+      "safe_code": "user-or-token-not-found",
+      "source": "data/history_media_repairs/preflight-diagnostic-20261112.json",
+      "note": "Token rejected by official Apify endpoint; exact credential failure cause unverified. No Actor started or authentication retry."
+    },
+    "result": {
+      "id": "20261112-media-repair-01",
+      "generation_attempts": 8,
+      "validated_responses": 8,
+      "added_events": 3,
+      "pine_count_delta_since_session": 3,
+      "historical_reference_event_delta_since_session": 0,
+      "service_reported_usage": {
+        "input_tokens": 23058,
+        "output_tokens": 1529,
+        "total_tokens": 24587,
+        "reasoning_tokens": 0
+      },
+      "status_counts": {
+        "completed_no_signal": 4,
+        "completed_signal": 3,
+        "input_failure": 0,
+        "pending_confirmation": 1,
+        "technical_failure": 0
+      },
+      "actor_runs_started": 0,
+      "saved_dataset_get_requests": 0,
+      "actual_points_deducted": null,
+      "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43190962491",
+      "stop_http_status": null,
+      "status_count_transitions": {
+        "completed_no_signal": 4,
+        "completed_signal": 3,
+        "input_failure": 0,
+        "pending_confirmation": 1,
+        "technical_failure": 0
+      },
+      "recovered_zero_generation_inputs": 0,
+      "media_repair_ledger": "data/history_media_repairs/20261112-media-repair-01.json",
+      "initial_media_repair_ledger": "data/history_media_repairs/media-repair-20261111-01.json",
+      "media_repair_http_counts": {
+        "GET": 1,
+        "POST": 0
+      },
+      "apify_stop_http_status": 401,
+      "blocked_service": "Apify actor metadata",
+      "cache_artifact": {
+        "run_id": 43190962491,
+        "id": 13931291105,
+        "name": "history-media-cache-20261112-continuation",
+        "size_bytes": 7269912,
+        "expires_at": "2026-11-26T09:24:39Z",
+        "digest": "sha256:07648eedac571984f480aa8c4261c601d73f4583514f280018acfb8dcc9d9790"
+      },
+      "diagnostic_http_counts": {
+        "GET": 1,
+        "POST": 0
+      }
     }
   },
   "session_history": [
@@ -579,6 +658,16 @@
       }
     }
   ],
-  "stop_reason": "actor_pricing_or_access_Failure",
-  "closure_reason": "media_repair_service_or_budget_block"
+  "stop_reason": "apify_authentication_failed",
+  "closure_reason": "apify_token_not_valid",
+  "original_stop_reason": "actor_pricing_or_access_Failure",
+  "service_access_statement": {
+    "provider": "Apify",
+    "secret_name": "APIFY_TOKEN",
+    "key_present": true,
+    "http_status": 401,
+    "safe_code": "user-or-token-not-found",
+    "source": "data/history_media_repairs/preflight-diagnostic-20261112.json",
+    "note": "Token rejected by official Apify endpoint; exact credential failure cause unverified. No Actor started or authentication retry."
+  }
 }

@@ -123,7 +123,7 @@
   "other_ai_provider_queries": 0,
   "actual_points_deducted": null,
   "quota_headers": {},
-  "stop_reason": "actor_pricing_or_access_Failure",
+  "stop_reason": "apify_authentication_failed",
   "service_quota_statement": null,
   "all_history_fully_classified": false,
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
@@ -153,7 +153,7 @@
     "actor_runs_started": 0,
     "saved_dataset_get_requests": 0,
     "actual_points_deducted": null,
-    "run_url": null,
+    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43190962491",
     "stop_http_status": null,
     "status_count_transitions": {
       "completed_no_signal": 4,
@@ -168,6 +168,31 @@
     "media_repair_http_counts": {
       "GET": 1,
       "POST": 0
+    },
+    "apify_stop_http_status": 401,
+    "blocked_service": "Apify actor metadata",
+    "cache_artifact": {
+      "run_id": 43190962491,
+      "id": 13931291105,
+      "name": "history-media-cache-20261112-continuation",
+      "size_bytes": 7269912,
+      "expires_at": "2026-11-26T09:24:39Z",
+      "digest": "sha256:07648eedac571984f480aa8c4261c601d73f4583514f280018acfb8dcc9d9790"
+    },
+    "diagnostic_http_counts": {
+      "GET": 1,
+      "POST": 0
     }
+  },
+  "original_stop_reason": "actor_pricing_or_access_Failure",
+  "closure_reason": "apify_token_not_valid",
+  "service_access_statement": {
+    "provider": "Apify",
+    "secret_name": "APIFY_TOKEN",
+    "key_present": true,
+    "http_status": 401,
+    "safe_code": "user-or-token-not-found",
+    "source": "data/history_media_repairs/preflight-diagnostic-20261112.json",
+    "note": "Token rejected by official Apify endpoint; exact credential failure cause unverified. No Actor started or authentication retry."
   }
 }
