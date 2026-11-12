@@ -8065,5 +8065,101 @@
     ],
     "platform": "Facebook",
     "is_flip": true
+  },
+  {
+    "event_key": "dca127c867c16a07a75bcf495abeb3cb5d19791e78e7688dd1bb6998a6de97db",
+    "completed_at": "2026-11-12T09:59:37.727067+00:00",
+    "fetched_at": null,
+    "available_ms": 1794477577727,
+    "sentiment": "語氣極度亢奮鼓動追漲且附圖顯示委託全部成交，已真金白銀下單，情緒屬FOMO偏空訊號。",
+    "historical": true,
+    "baseline": false,
+    "media_note": "{\"analysis_scope\": \"text_and_images\", \"unanalysed_media\": [], \"media_failures\": [], \"images_supplied\": 1, \"image_evidence\": [{\"sha256\": \"164e2d9d0a314561ee41926841cc3b260bab026d37f3ec94a87d752e287a3eb2\", \"bytes\": 20930, \"mime\": \"image/jpeg\", \"attachment_index\": 0}], \"human_image_verified\": false, \"source_note\": \"Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.\", \"non_media_album_container_indices\": [], \"cache_verified\": true, \"media_refresh_session\": \"20261112-media-repair-02\"}",
+    "id": 345,
+    "unix_ms": 1792460770000,
+    "time": "2026-10-20T01:46:10+00:00",
+    "direction": -1,
+    "strength": 3,
+    "summary": "追買/加碼\n指標: 偏空 ▼ | 強度: 3\n2026-10-20T09:46:10+08:00 上吧！ 410A! \n我相信你一定可以的！\n光通～ so sexy 上游組件 ~ so sexy \n上吧！\n台股天下無敵～！\n語氣極度亢奮鼓動追漲且附圖顯示委託全部成交，已真金白銀下單，情緒屬FOMO偏空訊號。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0rXSHRLGJcXYryisPHdjzdJRyMkYFcz75QdyPfoJJuaoJdNDGF3UeAf8NBdGhXEoAl",
+    "target": "4104.TWO",
+    "symbol": "0050.TW",
+    "proxy": true,
+    "urls": [
+      "https://www.facebook.com/DieWithoutBang/posts/pfbid0rXSHRLGJcXYryisPHdjzdJRyMkYFcz75QdyPfoJJuaoJdNDGF3UeAf8NBdGhXEoAl"
+    ],
+    "platform": "Facebook",
+    "is_flip": true
+  },
+  {
+    "event_key": "a738a1be36b30a9ee950c1b97823b6e74a2a01504c2beeccc3e21f0c7c979825",
+    "completed_at": "2026-11-12T09:59:49.961332+00:00",
+    "fetched_at": null,
+    "available_ms": 1794477589961,
+    "sentiment": "文中帶有苦求、哀傷與無助語氣，顯示被套或情緒低落，偏多（恐慌/痛苦）訊號。",
+    "historical": true,
+    "baseline": false,
+    "media_note": "{\"analysis_scope\": \"text_and_images\", \"unanalysed_media\": [], \"media_failures\": [], \"images_supplied\": 1, \"image_evidence\": [{\"sha256\": \"c76b3f5f453a6b0f4e56af79fd594a92f98b31b1da0df2632eb72a53754da42b\", \"bytes\": 53016, \"mime\": \"image/jpeg\", \"attachment_index\": 0}], \"human_image_verified\": false, \"source_note\": \"Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.\", \"non_media_album_container_indices\": [], \"cache_verified\": true, \"media_refresh_session\": \"20261112-media-repair-02\"}",
+    "id": 346,
+    "unix_ms": 1792543635000,
+    "time": "2026-10-21T00:47:15+00:00",
+    "direction": 1,
+    "strength": 2,
+    "summary": "求情(求走廊)\n指標: 偏多 ▲ | 強度: 2\n2026-10-21T08:47:15+08:00 早上好 \n今天又是ㄈㄧ！\n\n拜託了， 求求你\n給我人道走廊一下吧！！ 🥲🥲\n文中帶有苦求、哀傷與無助語氣，顯示被套或情緒低落，偏多（恐慌/痛苦）訊號。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0Fxmz6PzMJPEact9vEWAWzQz9RBZWgryDxWKRQekKBu2aqiuquTDUj2TUqzf6QTGAl",
+    "target": "未辨識",
+    "symbol": "0050.TW",
+    "proxy": true,
+    "urls": [
+      "https://www.facebook.com/DieWithoutBang/posts/pfbid0Fxmz6PzMJPEact9vEWAWzQz9RBZWgryDxWKRQekKBu2aqiuquTDUj2TUqzf6QTGAl"
+    ],
+    "platform": "Facebook",
+    "is_flip": true
+  },
+  {
+    "event_key": "fc739a814d4bb0062c76b0828adda26854590f37ec6f4b82ac50b77493beb521",
+    "completed_at": "2026-11-12T09:59:57.667591+00:00",
+    "fetched_at": null,
+    "available_ms": 1794477597667,
+    "sentiment": "發文者說有小額買進且語氣輕鬆帶玩笑，屬於主動買入且情緒偏自信/正向，判為偏空（亢奮）",
+    "historical": true,
+    "baseline": false,
+    "media_note": "{\"analysis_scope\": \"text_and_images\", \"unanalysed_media\": [], \"media_failures\": [], \"images_supplied\": 1, \"image_evidence\": [{\"sha256\": \"019ca3d04ba4d782472249cece464c28014820f93e42d42fd38560f3a50b6536\", \"bytes\": 358157, \"mime\": \"image/jpeg\", \"attachment_index\": 0}], \"human_image_verified\": false, \"source_note\": \"Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.\", \"non_media_album_container_indices\": [], \"cache_verified\": true, \"media_refresh_session\": \"20261112-media-repair-02\"}",
+    "id": 347,
+    "unix_ms": 1792548287000,
+    "time": "2026-10-21T02:04:47+00:00",
+    "direction": -1,
+    "strength": 2,
+    "summary": "小額買進\n指標: 偏空 ▼ | 強度: 2\n2026-10-21T10:04:47+08:00 三小AI\n醜死了～～\n\n剛剛我有小額買進了\n晚一點再掀牌❤️\n發文者說有小額買進且語氣輕鬆帶玩笑，屬於主動買入且情緒偏自信/正向，判為偏空（亢奮）\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02wxWNn3R3NF8Pxx4JwzT8SDVDzRs8xfumyXWERizpSUSuMoiNdrfAhmu8KGmzF8Zel",
+    "target": "未辨識",
+    "symbol": "0050.TW",
+    "proxy": true,
+    "urls": [
+      "https://www.facebook.com/DieWithoutBang/posts/pfbid02wxWNn3R3NF8Pxx4JwzT8SDVDzRs8xfumyXWERizpSUSuMoiNdrfAhmu8KGmzF8Zel"
+    ],
+    "platform": "Facebook",
+    "is_flip": true
+  },
+  {
+    "event_key": "26bdf4988edf885334bb5cf9f3ae0585d4131c1f6bdc4a0721018ff2f29c9b4c",
+    "completed_at": "2026-11-12T10:00:22.265002+00:00",
+    "fetched_at": null,
+    "available_ms": 1794477622265,
+    "sentiment": "多檔持股遭遇停損/爆跌，發文者情緒極度痛苦並表示要爆炸；圖片顯示委託全部成交，依規定強度設為3。",
+    "historical": true,
+    "baseline": false,
+    "media_note": "{\"analysis_scope\": \"text_and_images\", \"unanalysed_media\": [], \"media_failures\": [], \"images_supplied\": 1, \"image_evidence\": [{\"sha256\": \"a7d5e2ff3445122a0049a89a76ad3196087b988a5281c45f4625b38dce0176d4\", \"bytes\": 48023, \"mime\": \"image/jpeg\", \"attachment_index\": 0}], \"human_image_verified\": false, \"source_note\": \"Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.\", \"non_media_album_container_indices\": [], \"cache_verified\": true, \"media_refresh_session\": \"20261112-media-repair-02\"}",
+    "id": 348,
+    "unix_ms": 1792647441000,
+    "time": "2026-10-22T05:37:21+00:00",
+    "direction": 1,
+    "strength": 3,
+    "summary": "情緒崩潰/抱怨(可能爆倉)\n指標: 偏多 ▲ | 強度: 3\n2026-10-22T13:37:21+08:00 買一天直接殺到停損點是哪招_(:_」∠)_ \n我的正二也是爆炸\n華邦電也爆炸\n\n我真的要爆炸了啦(;´༎ຶД༎ຶ`)/\n多檔持股遭遇停損/爆跌，發文者情緒極度痛苦並表示要爆炸；圖片顯示委託全部成交，依規定強度設為3。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0yeoCmfaNLB13YbL7YwoA5DhscN32xrK9ozyWH6NVTT2uNVfjKpA74ihEyqXgRT98l",
+    "target": "未辨識",
+    "symbol": "0050.TW",
+    "proxy": true,
+    "urls": [
+      "https://www.facebook.com/DieWithoutBang/posts/pfbid0yeoCmfaNLB13YbL7YwoA5DhscN32xrK9ozyWH6NVTT2uNVfjKpA74ihEyqXgRT98l"
+    ],
+    "platform": "Facebook",
+    "is_flip": true
   }
 ]
