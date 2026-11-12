@@ -1,7 +1,7 @@
 // This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © hansai-art / Group.G
 // 8zz 反指標 v2
-// 事件: 341筆 | 期間: 2025/12 ~ 2026/10
+// 事件: 344筆 | 期間: 2025/12 ~ 2026/10
 // 情緒解讀框架：負面情緒（被套、停損、恐慌）→ 偏多 ▲（散戶恐慌→主力拉升）
 //               正面情緒（漲停追買、過度樂觀）→ 偏空 ▼（市場過熱→崩跌機率高）
 // 免責聲明：本指標僅供娛樂參考，不構成任何投資建議。
@@ -1859,6 +1859,21 @@ initEvtChunk018() =>
     array.push(evt_str, 3)
     array.push(evt_tips, "買入(委託成功)\n指標: 偏空 ▼ | 強度: 3\n2026-10-10T02:44:02+08:00 我⋯\n只能這樣⋯\n表達我的不滿了(;´༎ຶД༎ຶ`)\n\n阿祖還錢！ 還我帳號啊啊\n圖為買單已提交（委託成功），發文者情緒以行動與慶祝/要求回帳混合，但實際已下單，按規則強度為3且偏空（亢奮/追買）\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0SyYcgZo3VbnyRK1pvKE3gEh71LvDATpnApWr264nWfNdTMx8UPLFAar9EFCesqVCl")
     array.push(evt_ticker, "META")
+    array.push(evt_time, 1791767716000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "降低槓桿/觀望並準備逢回買入\n指標: 偏多 ▲ | 強度: 3\n2026-10-12T09:15:16+08:00 持續降低槓桿\n剩下可能等12點之後再說了～ \n\n如果有拉回那就買一點個股\n如果沒有⋯ 今天就結束這回合 ：）\n\n是說⋯ 國巨跟光聖⋯ 你們拜託加油好嗎(;´༎ຶД༎ຶ`)\n情緒帶有焦慮與祈求（希望個股/ETF表現回升），正在降低槓桿並準備逢回補，屬於痛苦/保守傾向偏多訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0KcRdyAfaUmjMxFcc7fTeaWHctFq15A1vFsSxnCm2q2gbVU5WKtxrL54VRu9QkPdsl")
+    array.push(evt_ticker, "0050.TW")
+    array.push(evt_time, 1791948013000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "鼓舞/帶氣勢\n指標: 偏空 ▼ | 強度: 3\n2026-10-14T11:20:13+08:00 孩子別怕！ \n我來了！ \n我陪著大家一起飛！\n語氣亢奮、鼓舞大家一起飛；配有委託單圖片且可見多筆『全部成交』，代表已下單且情緒高昂，偏空（亢奮追買）訊號。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid036QyCxDvtfyyypeyZjRTc8T1d7fD8BytPsHRj1i62SgXeMVNZMhpMvPngCteHBcQkl")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1792026946000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "遵守停損／已成交委託\n指標: 偏多 ▲ | 強度: 3\n2026-10-15T09:15:46+08:00 ⋯⋯ \n這次我要遵守紀律\n碰-10%就停損\n我也知道國巨可能已經是底了， 川湖也可能等等就V\n但是上次就是沒有遵守紀律讓自己損失極度慘重(;´༎ຶД༎ຶ`)\n發文表示過去因未遵守紀律損失慘重且附上委託單截圖顯示多筆全部成交，情緒為痛苦且已真金白銀下單，偏多且強度最大化\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02dYyhrxt4YvuaADL6ypWrgJz48eDtj4vVjRB3Eo3bQwgWHBW2ZhD2fETVGFjnfkFzl")
+    array.push(evt_ticker, "")
     0
 
 if barstate.isfirst
