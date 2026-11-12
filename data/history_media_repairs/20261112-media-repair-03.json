@@ -8,7 +8,7 @@
     "GET": 1,
     "POST": 0
   },
-  "updated_at": "2026-11-12T10:12:29.865756+00:00",
+  "updated_at": "2026-11-12T10:12:30.786790+00:00",
   "prior_dataset_reuses": [
     {
       "run_id": "EKRZxFGDieAmbK9JC",
@@ -27,7 +27,7 @@
         "threads:4019913134958031715",
         "threads:4020588135439184397"
       ],
-      "status": "reading_existing_dataset",
+      "status": "existing_dataset_read_complete",
       "posts": {
         "threads:4017205566745736843": {
           "status": "cached"
