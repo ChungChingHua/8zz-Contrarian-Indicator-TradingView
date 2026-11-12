@@ -8,7 +8,7 @@
     "GET": 2,
     "POST": 0
   },
-  "updated_at": "2026-11-12T10:13:02.453458+00:00",
+  "updated_at": "2026-11-12T10:13:03.458504+00:00",
   "prior_dataset_reuses": [
     {
       "run_id": "EKRZxFGDieAmbK9JC",
@@ -73,7 +73,7 @@
       "keys": [
         "facebook:1694725472012041"
       ],
-      "status": "reading_existing_dataset",
+      "status": "existing_dataset_read_complete",
       "posts": {
         "facebook:1694725472012041": {
           "status": "input_failure",
