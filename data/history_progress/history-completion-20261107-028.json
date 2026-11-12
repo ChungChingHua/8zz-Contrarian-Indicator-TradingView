@@ -2565,9 +2565,12 @@
           "post_id": "1695345725283349"
         }
       ],
-      "status": "not_started",
+      "status": "input_failure",
       "attempts": 0,
-      "context_used": []
+      "context_used": [],
+      "error_type": "ValueError",
+      "reason": "refreshed_media_unavailable",
+      "auto_retry_eligible": false
     },
     {
       "key": "facebook:1695583228592932",
@@ -2930,6 +2933,6 @@
       "context_used": []
     }
   ],
-  "updated_at": "2026-11-12T10:13:36.109201+00:00",
-  "consecutive_isolated_failures": 0
+  "updated_at": "2026-11-12T10:14:12.653225+00:00",
+  "consecutive_isolated_failures": 1
 }
