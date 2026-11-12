@@ -1,0 +1,17 @@
+name: Pause history continuation 20261112
+on:
+  push:
+    branches: [codex/social-pipeline-20261106]
+    paths: [.github/workflows/history-stop-20261112-02.yml]
+permissions:
+  contents: read
+concurrency:
+  group: original-author-history-batch-01
+  cancel-in-progress: true
+jobs:
+  pause:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Pause only; no service requests or credentials
+        run: echo "History continuation paused for media-cost review"
