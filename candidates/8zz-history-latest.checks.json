@@ -2,6 +2,7 @@
   "historical_events": 151,
   "added_events": 211,
   "total_events": 362,
+  "same_bar_policy": "latest_post_before_filters",
   "historical_blocks_preserved": true,
   "historical_basis": "reconciled_published_author_history",
   "fork_base_events": 150,

@@ -43,12 +43,12 @@ def build():
     if before!=after or not after:raise ValueError('strategy_changed_saved_events')
     checks=check_initialization(result)
     source_sha=hashlib.sha256(source.encode()).hexdigest();strategy_sha=hashlib.sha256(result.encode()).hexdigest()
-    checks.update(events=len(after),events_unchanged=True,source_sha256=source_sha,strategy_sha256=strategy_sha,
+    checks.update(same_bar_policy='latest_post_before_filters',events=len(after),events_unchanged=True,source_sha256=source_sha,strategy_sha256=strategy_sha,
         data_cutoff_taipei=cutoff.isoformat(),default_end_date=default_end.isoformat(),event_scope='all_saved_indicator_events',
         tradingview_compiled=False,order_api='TradingView strategy broker emulator only')
     out=ROOT/'candidates/8zz-strategy-latest.pine';out.write_text(result)
     out.with_suffix('.checks.json').write_text(json.dumps(checks,ensure_ascii=False,indent=2)+'\n')
-    delivery={'schema':1,'events':len(after),'same_event_tuples':True,'data_cutoff_taipei':cutoff.isoformat(),
+    delivery={'schema':1,'events':len(after),'same_event_tuples':True,'same_bar_policy':'latest_post_before_filters','data_cutoff_taipei':cutoff.isoformat(),
         'event_fields_sha256':hashlib.sha256(json.dumps(after,ensure_ascii=False,separators=(',',':')).encode()).hexdigest(),
         'event_encoding':checks.get('event_encoding'),'packed_event_round_trip':checks.get('packed_event_round_trip'),
         'strategy_default_end_date':default_end.isoformat(),'tradingview_compiled':False,

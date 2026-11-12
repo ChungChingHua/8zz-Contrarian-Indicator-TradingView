@@ -51,6 +51,7 @@
     "historical_events": 151,
     "added_events": 211,
     "total_events": 362,
+    "same_bar_policy": "latest_post_before_filters",
     "historical_blocks_preserved": true,
     "historical_basis": "reconciled_published_author_history",
     "fork_base_events": 150,
@@ -249,3 +250,8 @@
 ## 2026/11/12 TradingView token 上限修正
 
 兩份362事件Pine已改為packed-v1資料載入，共用5個array.push陳述、19段資料，每段最多20事件／10249 UTF-8 bytes。時間、方向、強度、完整提示與標的五欄逐筆不變，事件之外的指標／策略程式不變。詳見[修正與驗證](PINE_TOKEN_LIMIT_FIX.md)。240項離線測試通過；尚未由TradingView實際重新編譯，不能宣稱已取得編譯token數。未呼叫AI、Apify或通知，遠端處理狀態及截止時間未改。
+
+
+## 同棒最後發文規則
+
+依使用者要求，指標及策略都先在同一根有效K棒接收窗選最後發文的方向事件，再對該筆套濾網與顯示／交易；先前同棒事件只保留資料，不再觸發箭頭或中途翻轉統計。全部362事件、原判讀、抓取截止與遠端進度未改。指標背景與訊號年齡在採用事件後更新。249項離線回歸通過，仍未由TradingView實際編譯。詳見[同棒規則](PINE_SAME_BAR_POLICY.md)。

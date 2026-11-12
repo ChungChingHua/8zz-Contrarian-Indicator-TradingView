@@ -621,22 +621,28 @@ if barstate.isconfirmed and dayBar
 
     if inWindow
         int beforeDir = signalDir
+        // SAME BAR POLICY: latest-post-v1
+        int selectedEventIndex = na
         while eventCursor < array.size(evt_time)
             int eventTime = array.get(evt_time, eventCursor)
             // Strictly after event time, identical for A and B.
             if eventTime >= decisionClose
                 break
-            int d = array.get(evt_dir, eventCursor)
-            if eventTime >= startAt and d != 0
-                bool trendOk = d == 1 ? close > emaBasis and emaBasis >= emaBasis[1] : close < emaBasis and emaBasis <= emaBasis[1]
-                bool rsiOk = d == 1 ? rsiValue >= 50 : rsiValue <= 50
-                bool htfOk = d == 1 ? htfClose >= htfEma : htfClose <= htfEma
-                bool passFilters = (not useTrendFilter or trendOk) and (not useRsiFilter or rsiOk) and (not useVolFilter or atrPct >= minAtrPct) and (not useHtfConfirm or htfOk)
-                if passFilters
-                    signalDir := d
-                    eligibleEvents += 1
-                    lastTip := array.get(evt_tips, eventCursor)
+            if eventTime >= startAt and array.get(evt_dir, eventCursor) != 0
+                if na(selectedEventIndex) or eventTime >= array.get(evt_time, selectedEventIndex)
+                    selectedEventIndex := eventCursor
             eventCursor += 1
+        // Select by publication time first; a filtered latest event never restores an older one.
+        if not na(selectedEventIndex)
+            int d = array.get(evt_dir, selectedEventIndex)
+            bool trendOk = d == 1 ? close > emaBasis and emaBasis >= emaBasis[1] : close < emaBasis and emaBasis <= emaBasis[1]
+            bool rsiOk = d == 1 ? rsiValue >= 50 : rsiValue <= 50
+            bool htfOk = d == 1 ? htfClose >= htfEma : htfClose <= htfEma
+            bool passFilters = (not useTrendFilter or trendOk) and (not useRsiFilter or rsiOk) and (not useVolFilter or atrPct >= minAtrPct) and (not useHtfConfirm or htfOk)
+            if passFilters
+                signalDir := d
+                eligibleEvents += 1
+                lastTip := array.get(evt_tips, selectedEventIndex)
         flipNow := signalDir != beforeDir and signalDir != 0
 
         // Terminal liquidation follows the selected end date, independently of A/B exits.
@@ -755,7 +761,7 @@ if showPanel and barstate.islast
     table.cell(info, 1, 2, str.tostring(judged) + " / " + (na(nativeWinRate) ? "—" : str.tostring(nativeWinRate, "#.##") + "%"), text_color=color.white)
     table.cell(info, 0, 3, "目前持倉", text_color=color.gray)
     table.cell(info, 1, 3, str.tostring(strategy.position_size), text_color=color.white)
-    table.cell(info, 0, 4, "已處理保存事件", text_color=color.gray)
+    table.cell(info, 0, 4, "採用事件／保存總數", text_color=color.gray)
     table.cell(info, 1, 4, str.tostring(eligibleEvents) + " / " + str.tostring(array.size(evt_time)), text_color=color.white)
     table.cell(info, 0, 5, "圖表開始前略過事件", text_color=color.gray)
     table.cell(info, 1, 5, str.tostring(skippedBeforeChart) + "（需載入完整歷史）", text_color=skippedBeforeChart > 0 ? color.yellow : color.white)
