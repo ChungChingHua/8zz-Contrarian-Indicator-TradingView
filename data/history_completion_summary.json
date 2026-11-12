@@ -150,7 +150,7 @@
       "pending_confirmation": 3,
       "technical_failure": 1
     },
-    "actor_runs_started": 0,
+    "actor_runs_started": 1,
     "saved_dataset_get_requests": 0,
     "actual_points_deducted": null,
     "run_url": null,
@@ -162,6 +162,12 @@
       "pending_confirmation": 3,
       "technical_failure": 1
     },
-    "recovered_zero_generation_inputs": 0
+    "recovered_zero_generation_inputs": 0,
+    "media_repair_ledger": "data/history_media_repairs/20261112-media-repair-03.json",
+    "initial_media_repair_ledger": "data/history_media_repairs/media-repair-20261111-01.json",
+    "media_repair_http_counts": {
+      "GET": 8,
+      "POST": 1
+    }
   }
 }
