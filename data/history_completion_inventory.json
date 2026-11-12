@@ -5163,81 +5163,81 @@
     "key": "facebook:1678928546925067",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0KcRdyAfaUmjMxFcc7fTeaWHctFq15A1vFsSxnCm2q2gbVU5WKtxrL54VRu9QkPdsl",
     "display_time": "2026-10-12T09:15:16+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "facebook:1678928546925067",
+    "evidence": "data/history_progress/history-completion-20261107-025.json",
+    "reason": "情緒帶有焦慮與祈求（希望個股/ETF表現回升），正在降低槓桿並準備逢回補，屬於痛苦/保守傾向偏多訊號"
   },
   {
     "key": "facebook:1679923533492235",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0V74c523FKY5F5G56Dd5uVZgD5UkU2XY7xKu26cdh3cti4RK51Dr7Ryp2ystgo7nWl",
     "display_time": "2026-10-13T08:41:07+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "facebook:1679923533492235",
+    "evidence": "data/history_progress/history-completion-20261107-025.json",
+    "reason": "內容為安撫式語句且無明確個人持倉或交易情緒，需更多資訊判定；同時附有個人照片屬生活貼文，非投資決策相關，跳過。"
   },
   {
     "key": "facebook:1680982506719671",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid036QyCxDvtfyyypeyZjRTc8T1d7fD8BytPsHRj1i62SgXeMVNZMhpMvPngCteHBcQkl",
     "display_time": "2026-10-14T11:20:13+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "facebook:1680982506719671",
+    "evidence": "data/history_progress/history-completion-20261107-025.json",
+    "reason": "語氣亢奮、鼓舞大家一起飛；配有委託單圖片且可見多筆『全部成交』，代表已下單且情緒高昂，偏空（亢奮追買）訊號。"
   },
   {
     "key": "facebook:1681897799961475",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02dYyhrxt4YvuaADL6ypWrgJz48eDtj4vVjRB3Eo3bQwgWHBW2ZhD2fETVGFjnfkFzl",
     "display_time": "2026-10-15T09:15:46+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "facebook:1681897799961475",
+    "evidence": "data/history_progress/history-completion-20261107-025.json",
+    "reason": "發文表示過去因未遵守紀律損失慘重且附上委託單截圖顯示多筆全部成交，情緒為痛苦且已真金白銀下單，偏多且強度最大化"
   },
   {
     "key": "facebook:1684796916338230",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02UczfDiB1J7RdwT2VoFhg2bSNkPdLXTzEUpizm59Wp117Q8aAbMdLsCacqupAWHcql",
     "display_time": "2026-10-18T09:46:15+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "facebook:1684796916338230",
+    "evidence": "data/history_progress/history-completion-20261107-025.json",
+    "reason": "內容為工作/生活相關詢問（指甲bonding問題），與投資無關，跳過"
   },
   {
     "key": "facebook:1684876712996917",
     "url": "https://www.facebook.com/reel/1104211675725950/",
     "display_time": "2026-10-18T11:56:39+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1684876712996917",
+    "evidence": "data/history_progress/history-completion-20261107-025.json",
+    "reason": "內容含模糊威脅/計畫但沒有任何投資相關情緒或持倉/交易行為可判定，依規則跳過。"
   },
   {
     "key": "facebook:1685757009575554",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02yfLpDTT5YCDzkHtLC1EbtbSTAJc9g84CWj8bvRJgw4NmypLrR7Ke3scdUA7heJrfl",
     "display_time": "2026-10-19T09:23:55+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "facebook:1685757009575554",
+    "evidence": "data/history_progress/history-completion-20261107-025.json",
+    "reason": "貼文內容為自我慶祝/活動宣告加上截圖行情，未明確提及個人持倉或交易動作，投資情緒與決策不明確，依規則跳過。"
   },
   {
     "key": "facebook:1685839076234014",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02UniNrWhr5a8dnABkXYBV2xoHmqKpUFtN1VgcrUduxw1XBqxrWCBvD7Sq9GfDhRrYl",
     "display_time": "2026-10-19T11:29:06+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "facebook:1685839076234014",
+    "evidence": "data/history_progress/history-completion-20261107-025.json",
+    "reason": "內容主要是人生/情緒宣洩（私訊與感情比喻），與投資立場無關，跳過。"
   },
   {
     "key": "facebook:1686254039525851",
