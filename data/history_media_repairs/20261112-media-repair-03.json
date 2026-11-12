@@ -116,19 +116,19 @@
         "isMaxTotalChargeUsdSetByUser": true,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": "0.056",
+      "usageTotalUsd": "0.061",
       "chargedEventCounts": {
-        "post": 11,
+        "post": 12,
         "actor-start": 1,
         "filter-applied": 0
       },
       "accountedChargedEventCounts": {
-        "post": 11,
+        "post": 12,
         "actor-start": 1,
         "filter-applied": 0
       },
       "duration_seconds": "8.919",
-      "cost_observed_at": "2026-11-12T10:13:51.027290+00:00",
+      "cost_observed_at": "2026-11-12T10:16:57.202158+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     }
   ],
@@ -136,10 +136,10 @@
   "ai_requests": 0,
   "monthly_runs_before": 60,
   "http_requests": {
-    "GET": 7,
+    "GET": 8,
     "POST": 1
   },
-  "updated_at": "2026-11-12T10:14:10.632731+00:00",
+  "updated_at": "2026-11-12T10:16:57.202183+00:00",
   "prior_dataset_reuses": [
     {
       "run_id": "EKRZxFGDieAmbK9JC",
@@ -213,5 +213,6 @@
         }
       }
     }
-  ]
+  ],
+  "monthly_runs_after": 61
 }
