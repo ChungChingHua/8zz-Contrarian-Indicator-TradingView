@@ -180,10 +180,10 @@
         "reserved_starts": 1,
         "runs": [
           {
-            "id": null,
+            "id": "CQr5RPX2mgWDJZsqe",
             "source": "facebook",
-            "status": "reserved_not_submitted",
-            "usageTotalUsd": null
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.056"
           }
         ]
       }
