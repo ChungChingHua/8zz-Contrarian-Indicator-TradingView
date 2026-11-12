@@ -7993,5 +7993,77 @@
     ],
     "platform": "Facebook",
     "is_flip": false
+  },
+  {
+    "event_key": "ae8d50d3dfbb31b3795d851b5e4f2d409cfa1789feedee58ca5540a40aeddb73",
+    "completed_at": "2026-11-12T09:23:30.839034+00:00",
+    "fetched_at": null,
+    "available_ms": 1794475410839,
+    "sentiment": "情緒帶有焦慮與祈求（希望個股/ETF表現回升），正在降低槓桿並準備逢回補，屬於痛苦/保守傾向偏多訊號",
+    "historical": true,
+    "baseline": false,
+    "media_note": "{\"analysis_scope\": \"text_and_images\", \"unanalysed_media\": [], \"media_failures\": [], \"images_supplied\": 1, \"image_evidence\": [{\"sha256\": \"77d51e1890b5c29dd71cd09f558f585a927f0646b9bd3004cc570854a85f880a\", \"bytes\": 29953, \"mime\": \"image/jpeg\", \"attachment_index\": 0}], \"human_image_verified\": false, \"source_note\": \"Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.\", \"non_media_album_container_indices\": [], \"cache_verified\": true, \"media_refresh_session\": \"20261112-media-repair-01\"}",
+    "id": 342,
+    "unix_ms": 1791767716000,
+    "time": "2026-10-12T01:15:16+00:00",
+    "direction": 1,
+    "strength": 3,
+    "summary": "降低槓桿/觀望並準備逢回買入\n指標: 偏多 ▲ | 強度: 3\n2026-10-12T09:15:16+08:00 持續降低槓桿\n剩下可能等12點之後再說了～ \n\n如果有拉回那就買一點個股\n如果沒有⋯ 今天就結束這回合 ：）\n\n是說⋯ 國巨跟光聖⋯ 你們拜託加油好嗎(;´༎ຶД༎ຶ`)\n情緒帶有焦慮與祈求（希望個股/ETF表現回升），正在降低槓桿並準備逢回補，屬於痛苦/保守傾向偏多訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0KcRdyAfaUmjMxFcc7fTeaWHctFq15A1vFsSxnCm2q2gbVU5WKtxrL54VRu9QkPdsl",
+    "target": "0050.TW",
+    "symbol": "0050.TW",
+    "proxy": true,
+    "urls": [
+      "https://www.facebook.com/DieWithoutBang/posts/pfbid0KcRdyAfaUmjMxFcc7fTeaWHctFq15A1vFsSxnCm2q2gbVU5WKtxrL54VRu9QkPdsl"
+    ],
+    "platform": "Facebook",
+    "is_flip": true
+  },
+  {
+    "event_key": "bdef20e15491dd77ad0bf67c532ca259c698dd226121cceafc24dfae3588fd01",
+    "completed_at": "2026-11-12T09:23:45.869720+00:00",
+    "fetched_at": null,
+    "available_ms": 1794475425869,
+    "sentiment": "語氣亢奮、鼓舞大家一起飛；配有委託單圖片且可見多筆『全部成交』，代表已下單且情緒高昂，偏空（亢奮追買）訊號。",
+    "historical": true,
+    "baseline": false,
+    "media_note": "{\"analysis_scope\": \"text_and_images\", \"unanalysed_media\": [], \"media_failures\": [], \"images_supplied\": 1, \"image_evidence\": [{\"sha256\": \"8123490123083139da7df33ebc9d627fe699ac6b66ba3ae0c4bc145796f00c2c\", \"bytes\": 58911, \"mime\": \"image/jpeg\", \"attachment_index\": 0}], \"human_image_verified\": false, \"source_note\": \"Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.\", \"non_media_album_container_indices\": [], \"cache_verified\": true, \"media_refresh_session\": \"20261112-media-repair-01\"}",
+    "id": 343,
+    "unix_ms": 1791948013000,
+    "time": "2026-10-14T03:20:13+00:00",
+    "direction": -1,
+    "strength": 3,
+    "summary": "鼓舞/帶氣勢\n指標: 偏空 ▼ | 強度: 3\n2026-10-14T11:20:13+08:00 孩子別怕！ \n我來了！ \n我陪著大家一起飛！\n語氣亢奮、鼓舞大家一起飛；配有委託單圖片且可見多筆『全部成交』，代表已下單且情緒高昂，偏空（亢奮追買）訊號。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid036QyCxDvtfyyypeyZjRTc8T1d7fD8BytPsHRj1i62SgXeMVNZMhpMvPngCteHBcQkl",
+    "target": "未辨識",
+    "symbol": "0050.TW",
+    "proxy": true,
+    "urls": [
+      "https://www.facebook.com/DieWithoutBang/posts/pfbid036QyCxDvtfyyypeyZjRTc8T1d7fD8BytPsHRj1i62SgXeMVNZMhpMvPngCteHBcQkl"
+    ],
+    "platform": "Facebook",
+    "is_flip": true
+  },
+  {
+    "event_key": "8415b490fbcc358b9b785651235a78299f08810ce3cc67f1e838ba43807ed1d6",
+    "completed_at": "2026-11-12T09:23:52.598310+00:00",
+    "fetched_at": null,
+    "available_ms": 1794475432598,
+    "sentiment": "發文表示過去因未遵守紀律損失慘重且附上委託單截圖顯示多筆全部成交，情緒為痛苦且已真金白銀下單，偏多且強度最大化",
+    "historical": true,
+    "baseline": false,
+    "media_note": "{\"analysis_scope\": \"text_and_images\", \"unanalysed_media\": [], \"media_failures\": [], \"images_supplied\": 1, \"image_evidence\": [{\"sha256\": \"ac14e56b3dd00436e882b8b6768065c3eef9e65839c2a65edd5fd9aff510adf2\", \"bytes\": 52057, \"mime\": \"image/jpeg\", \"attachment_index\": 0}], \"human_image_verified\": false, \"source_note\": \"Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.\", \"non_media_album_container_indices\": [], \"cache_verified\": true, \"media_refresh_session\": \"20261112-media-repair-01\"}",
+    "id": 344,
+    "unix_ms": 1792026946000,
+    "time": "2026-10-15T01:15:46+00:00",
+    "direction": 1,
+    "strength": 3,
+    "summary": "遵守停損／已成交委託\n指標: 偏多 ▲ | 強度: 3\n2026-10-15T09:15:46+08:00 ⋯⋯ \n這次我要遵守紀律\n碰-10%就停損\n我也知道國巨可能已經是底了， 川湖也可能等等就V\n但是上次就是沒有遵守紀律讓自己損失極度慘重(;´༎ຶД༎ຶ`)\n發文表示過去因未遵守紀律損失慘重且附上委託單截圖顯示多筆全部成交，情緒為痛苦且已真金白銀下單，偏多且強度最大化\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02dYyhrxt4YvuaADL6ypWrgJz48eDtj4vVjRB3Eo3bQwgWHBW2ZhD2fETVGFjnfkFzl",
+    "target": "未辨識",
+    "symbol": "0050.TW",
+    "proxy": true,
+    "urls": [
+      "https://www.facebook.com/DieWithoutBang/posts/pfbid02dYyhrxt4YvuaADL6ypWrgJz48eDtj4vVjRB3Eo3bQwgWHBW2ZhD2fETVGFjnfkFzl"
+    ],
+    "platform": "Facebook",
+    "is_flip": true
   }
 ]
