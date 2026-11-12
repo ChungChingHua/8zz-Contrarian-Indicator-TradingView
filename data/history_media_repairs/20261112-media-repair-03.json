@@ -24,6 +24,9 @@
           "status": "input_failure",
           "error_type": "ValueError",
           "safe_reason": "video_or_unknown_media_requires_review"
+        },
+        "facebook:1695583228592932": {
+          "status": "cached"
         }
       },
       "input": {
@@ -106,7 +109,7 @@
     "GET": 7,
     "POST": 1
   },
-  "updated_at": "2026-11-12T10:13:52.592186+00:00",
+  "updated_at": "2026-11-12T10:13:53.884169+00:00",
   "prior_dataset_reuses": [
     {
       "run_id": "EKRZxFGDieAmbK9JC",
