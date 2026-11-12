@@ -6,7 +6,7 @@
   "created_at": "2026-11-12T10:16:17.116301+00:00",
   "max_generations": 25,
   "reserved_generation_attempts": 3,
-  "stopped": false,
+  "stopped": true,
   "finished": false,
   "provider_settings": {
     "base": "https://api.chatanywhere.tech/v1",
@@ -672,7 +672,7 @@
           "post_id": "4019397023426120729"
         }
       ],
-      "status": "unknown",
+      "status": "technical_failure",
       "attempts": 1,
       "context_used": [],
       "media_scope": {
@@ -701,7 +701,36 @@
         "media_refresh_session": "20261112-media-repair-03"
       },
       "request_sha256": "1f4ec027d8d337705cc0d09de4f091c47bbfe919c7a326a7b1f4a68b98cba1de",
-      "dispatch_reserved_at": "2026-11-12T10:16:31.618524+00:00"
+      "dispatch_reserved_at": "2026-11-12T10:16:31.618524+00:00",
+      "http_status": 403,
+      "remaining_headers": {},
+      "raw_response": {
+        "json": {
+          "error": {
+            "message": "7天免费点数不足以支持本次请求，请等待当前额度窗口结束，或访问 https://chatanywhere.tech/ 购买付费API。The free points available in the current 7-day window are insufficient for this request. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: [REDACTED_KEY_IDENTIFIER])【如果您遇到问题，欢迎加入QQ群咨询：1003520025】",
+            "type": "chatanywhere_error",
+            "param": null,
+            "code": "403 FORBIDDEN"
+          }
+        },
+        "complete_json_sha256": "2090f4a8b4600a4811fc66c2e60852ca3aa0bf95eb7fd0cbd5671bad7ac37957",
+        "redaction_note": "Opaque encrypted_content omitted and provider key identifiers redacted; classification and usage retained. Pre-redaction parsed JSON hash retained, not original HTTP bytes."
+      },
+      "service_response": {
+        "model_claim": null,
+        "reasoning_claim": {
+          "effort": null
+        },
+        "format_claim": {
+          "type": null,
+          "strict": false
+        },
+        "usage": null
+      },
+      "api_error_code": null,
+      "error_type": "ValueError",
+      "reason": "provider_http_error",
+      "completed_at": "2026-11-12T10:16:34.073612+00:00"
     },
     {
       "key": "threads:4019411110490389007",
@@ -1232,6 +1261,7 @@
       "context_used": []
     }
   ],
-  "updated_at": "2026-11-12T10:16:31.618561+00:00",
-  "consecutive_isolated_failures": 0
+  "updated_at": "2026-11-12T10:16:34.073629+00:00",
+  "consecutive_isolated_failures": 0,
+  "stop_reason": "provider_access_quota_or_common_failure"
 }
