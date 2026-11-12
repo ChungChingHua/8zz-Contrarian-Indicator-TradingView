@@ -8,5 +8,27 @@
     "GET": 0,
     "POST": 0
   },
-  "updated_at": "2026-11-12T10:12:02.111847+00:00"
+  "updated_at": "2026-11-12T10:12:10.199949+00:00",
+  "prior_dataset_reuses": [
+    {
+      "run_id": "EKRZxFGDieAmbK9JC",
+      "source_ledger": "data/history_media_repairs/20261112-media-repair-02.json",
+      "keys": [
+        "threads:4017205566745736843",
+        "threads:4017556761037353847",
+        "threads:4018029249265500858",
+        "threads:4018274248635196711",
+        "threads:4018303565345440820",
+        "threads:4018640045381104611",
+        "threads:4018709099462647028",
+        "threads:4019076721425375180",
+        "threads:4019214061460329474",
+        "threads:4019397023426120729",
+        "threads:4019913134958031715",
+        "threads:4020588135439184397"
+      ],
+      "status": "reading_existing_dataset",
+      "posts": {}
+    }
+  ]
 }
