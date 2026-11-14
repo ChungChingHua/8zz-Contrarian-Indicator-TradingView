@@ -57,11 +57,18 @@
       "processed": false,
       "cap_usd": null,
       "max_items": 50,
-      "run_id": "hinVUOAgNEM17Le6K"
+      "run_id": "hinVUOAgNEM17Le6K",
+      "status": "SUCCEEDED",
+      "reported_cost": {
+        "usageTotalUsd": 0
+      },
+      "finished_at": "2026-11-14T10:21:56.529Z",
+      "possible_cost_truncation": false,
+      "dataset_id": "tJDEvARp6qnYbQN1F"
     }
   ],
   "apify_http_counts": {
-    "GET": 9,
+    "GET": 12,
     "POST": 2
   },
   "prior_control_snapshot": "data/history_completion_before_latest_20261114.json",
