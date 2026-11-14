@@ -1,0 +1,50 @@
+{
+  "batch_id": "history-completion-20261107-033",
+  "max_generations": 25,
+  "rule_version": "fork-7b626f2-ai-v1",
+  "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+  "posts": [
+    {
+      "key": "threads:4024090220249602678",
+      "content_hash": "3e5b3a7be1d0f879d2694ddf8839f30ccc8d9b2d4ae89fb83c821e040d739035",
+      "post_id": "4024090220249602678",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DfYcLwaGdp2",
+      "published_at": "2026-11-06T01:35:57+00:00",
+      "display_time": "2026-11-06T09:35:57+08:00",
+      "unix_ms": 1793928957000,
+      "text": "我只能為大家祈福",
+      "number": 1,
+      "members": [
+        {
+          "key": "threads:4024090220249602678",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DfYcLwaGdp2",
+          "published_at": "2026-11-06T01:35:57+00:00",
+          "post_id": "4024090220249602678"
+        }
+      ]
+    },
+    {
+      "key": "threads:4025043302263849308",
+      "content_hash": "12c866e869bf6a032bb360fedc340fab637ed6bf6b6c91c08c850fd5b4e1a4f1",
+      "post_id": "4025043302263849308",
+      "source": "threads",
+      "url": "https://www.threads.com/t/Dfb047NAIFc",
+      "published_at": "2026-11-07T09:09:34+00:00",
+      "display_time": "2026-11-07T17:09:34+08:00",
+      "unix_ms": 1794042574000,
+      "text": "薩爾達大全套❤️\n精靈卡套找不到了(;´༎ຶД༎ຶ`)\n\n是說當時完全是靠攻略本才能全破\n唉， 講出攻略本是不是透露年紀了？",
+      "number": 2,
+      "members": [
+        {
+          "key": "threads:4025043302263849308",
+          "source": "threads",
+          "url": "https://www.threads.com/t/Dfb047NAIFc",
+          "published_at": "2026-11-07T09:09:34+00:00",
+          "post_id": "4025043302263849308"
+        }
+      ]
+    }
+  ]
+}
