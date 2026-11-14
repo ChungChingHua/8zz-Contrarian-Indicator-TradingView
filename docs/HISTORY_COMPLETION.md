@@ -2,11 +2,11 @@
 
 本次因實際阻塞停止，**尚未補齊全部歷史判讀**。
 
-資料抓取截止 UTC 2026-11-07T12:15:59.578797+00:00（Asia/Taipei 為 2026-11-07T20:15:59.578797+08:00）；共 666 篇。已走訪至 2026-11-05T01:23:43+08:00，其中待確認／失敗另列；本輪最後有效回應 2026-11-07T17:09:34+08:00，最新事件 2026-11-07T00:54:48+08:00。
+資料抓取截止 UTC 2026-11-14T10:21:07.585530+00:00（Asia/Taipei 為 2026-11-14T18:21:07.585530+08:00）；共 710 篇。已走訪至 2026-11-05T01:23:43+08:00，其中待確認／失敗另列；本輪最後有效回應 2026-11-07T17:09:34+08:00，最新事件 2026-11-07T00:54:48+08:00。
 
 完整 Pine 380 事件 = 原歷史 151 + 累計新增 229；其中此歷史 scope 累計新增 224。本次續跑新增 1。
 
-狀態依來源貼文計：有訊號 231、無訊號 306、待確認 99、失敗 20、狀態不明 0、尚未處理 10（去重後 10 組）。跨平台同組會對應多筆貼文，但只產生一個事件。
+狀態依來源貼文計：有訊號 231、無訊號 306、待確認 99、失敗 20、狀態不明 0、尚未處理 54（去重後 54 組）。跨平台同組會對應多筆貼文，但只產生一個事件。
 
 本 scope 累計生成 HTTP 619 次，成功固定格式回應 604；6 筆 HTTP 回應無 usage，不假定其零 tokens。已回報用量輸入 1774850／輸出 97311／合計 1872161 tokens。實際點數扣除未知；即時免費請求／點數餘額與重設時刻若無服務回傳即為未知，先前阻塞保留於 control.blocker_history。
 
@@ -17,18 +17,18 @@
 ```json
 {
   "scope": "history-completion-20261107",
-  "cutoff_utc": "2026-11-07T12:15:59.578797+00:00",
-  "cutoff_taipei": "2026-11-07T20:15:59.578797+08:00",
+  "cutoff_utc": "2026-11-14T10:21:07.585530+00:00",
+  "cutoff_taipei": "2026-11-14T18:21:07.585530+08:00",
   "acquisition_completed": true,
-  "archive_posts": 666,
+  "archive_posts": 710,
   "data_range_by_source": {
     "facebook": {
       "first": "2026-07-20T08:32:36+08:00",
-      "latest_post": "2026-11-07T17:08:22+08:00"
+      "latest_post": "2026-11-13T23:21:14+08:00"
     },
     "threads": {
       "first": "2026-07-20T13:02:00+08:00",
-      "latest_post": "2026-11-07T17:09:34+08:00"
+      "latest_post": "2026-11-14T10:54:32+08:00"
     }
   },
   "post_status_counts": {
@@ -37,11 +37,11 @@
     "pending_confirmation": 99,
     "technical_failure": 13,
     "input_failure": 7,
-    "not_started": 10,
+    "not_started": 54,
     "unknown": 0
   },
-  "remaining_not_started_groups": 10,
-  "remaining_not_started_platform_posts": 10,
+  "remaining_not_started_groups": 54,
+  "remaining_not_started_platform_posts": 54,
   "latest_attempted_or_reviewed_date": "2026-11-07T17:09:34+08:00",
   "all_posts_visited_before_first_unstarted": "2026-11-05T01:23:43+08:00",
   "successfully_completed_contiguous_prefix": "2026-07-20T18:41:00+08:00",
@@ -104,41 +104,41 @@
   "http_responses_without_usage": 6,
   "service_reported_cached_input_tokens": 1217280,
   "apify_http_counts": {
-    "GET": 26,
+    "GET": 13,
     "POST": 2
   },
   "apify_runs": [
     {
       "source": "facebook",
-      "run_id": "TQsq3MaaGMBqd77i0",
+      "run_id": "1eDyx3uOHnTVfD5Ln",
       "status": "SUCCEEDED",
       "counts": {
-        "fetched": 5,
-        "accepted": 5,
-        "new": 4,
-        "overlap": 1,
+        "fetched": 20,
+        "accepted": 20,
+        "new": 20,
+        "overlap": 0,
         "excluded": {}
       },
       "reported_cost": {
-        "usageTotalUsd": 0.022
+        "usageTotalUsd": 0.127
       },
       "http_status": null
     },
     {
       "source": "threads",
-      "run_id": "mGp428lwhhYyYDGPQ",
+      "run_id": "hinVUOAgNEM17Le6K",
       "status": "SUCCEEDED",
       "counts": {
-        "fetched": 6,
-        "accepted": 4,
-        "new": 3,
-        "overlap": 1,
+        "fetched": 27,
+        "accepted": 24,
+        "new": 24,
+        "overlap": 0,
         "excluded": {
-          "reply_repost_or_unknown": 2
+          "reply_repost_or_unknown": 3
         }
       },
       "reported_cost": {
-        "usageTotalUsd": 0.02
+        "usageTotalUsd": 0
       },
       "http_status": null
     }
@@ -187,11 +187,6 @@
       "technical_failure": 0
     },
     "recovered_zero_generation_inputs": 0,
-    "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-03.json",
-    "media_repair_http_counts": {
-      "GET": 7,
-      "POST": 1
-    },
     "cache_artifact": {
       "run_id": 43570686068,
       "id": 14103938782,
@@ -200,53 +195,13 @@
       "expires_at": "2026-11-28T07:22:33Z",
       "digest": "sha256:a9601b9e92a727334fd1f55057c1cf746dbcef7dd5c1c99a5b4bbfdf70ad23a8"
     },
+    "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-03.json",
+    "media_repair_http_counts": {
+      "GET": 7,
+      "POST": 1
+    },
     "media_repair_observed_usd": "0.030",
     "media_repair_note": "One new run for two previously unreserved Threads URLs; lower provider cap accepted within USD0.10. API observations, not settled bill."
-  },
-  "resume_request_totals": {
-    "date_taipei": "2026-11-14",
-    "generation_attempts": 64,
-    "validated_responses": 61,
-    "added_events": 18,
-    "status_counts": {
-      "completed_signal": 18,
-      "completed_no_signal": 32,
-      "pending_confirmation": 11,
-      "technical_failure": 3
-    },
-    "service_reported_usage": {
-      "input_tokens": 185833,
-      "output_tokens": 10020,
-      "total_tokens": 195853,
-      "reasoning_tokens": 0
-    },
-    "new_actor_starts": 4,
-    "observed_actor_cost_usd": "0.172",
-    "Apify_http_counts": {
-      "GET": 53,
-      "POST": 5
-    },
-    "actual_points_deducted": null
-  },
-  "service_budget_statement": {
-    "provider": "Apify",
-    "source": "data/history_media_repairs/final-budget-20261114.json",
-    "maximum_usd": 5,
-    "used_usd": "4.978514389197657",
-    "remaining_headroom_usd_derived": "0.021485610802343",
-    "observed_at": "2026-11-14T07:22:09.580563+00:00",
-    "note": "Usage headroom is not cash balance or independently settled invoice. No top-up or limit increase.",
-    "project_monthly_run_count": 65,
-    "project_monthly_run_limit": 70
-  },
-  "cap_guard_incident": {
-    "requested_cap_usd": "0.10",
-    "returned_cap_usd": "0.057529",
-    "aborted_run": "aN1ESUqN4kVceCqBH",
-    "dataset_items": 0,
-    "observed_charge_usd": "0.001",
-    "cause": "Local equality check rejected a verified lower cap; corrected to finite positive cap <= USD0.10 plus user-cap acknowledgement.",
-    "restarted": false
   }
 }
 ```
@@ -261,7 +216,7 @@
 
 單篇矛盾保留待確認；單篇格式／媒體失敗隔離，不產生訊號或自動重試。連續三篇技術問題觸發共同故障停止（僅操作保護，不是情緒規則）；額度、認證、存取、服務端錯誤或已送出未保存的未知狀態立即保存停止。
 
-前後免費點數及實際扣點若未由服務回傳就是未知，不等同零，也不能由 tokens 換算。Apify 維持每 run 180 秒／512MB／maxItems 50／maxTotalChargeUsd 0.10、每月70次；run 回報費用不一定等同完整帳單，未儲值或提高上限。
+前後免費點數及實際扣點若未由服務回傳就是未知，不等同零，也不能由 tokens 換算。Apify 每 run 保留180秒／512MB／maxItems 50及禁止自動重啟；依使用者最新指示不設程式單次費用上限或每月啟動次數上限，啟動與費用仍記帳，服務端額度／認證／截斷異常仍保存停止；run回報費用不是獨立結算帳單。
 
 成對完整 Pine：candidates/8zz-history-latest.pine（指標）、candidates/8zz-strategy-latest.pine（策略），同版資訊見 candidates/8zz-pine-delivery.json。兩份保留相同全部事件、作者署名及 MPL-2.0；待確認／技術失敗／unknown 無新增箭頭。使用者已確認前一候選可載入，這份新生成檔未在 TradingView 實際編譯。手動下載全文至 Pine Editor 完整取代、儲存並更新圖表，GitHub 不會自動同步。
 
@@ -272,8 +227,3 @@
 本次 API 次數僅指 AI 生成及 Apify 啟動／讀取；GitHub 進度保存與圖片下載另計，沒有把上述數字宣稱為全部 HTTP 流量。data/usage.json 的 ai_attempts 為舊流程計數，不等於 ChatAnywhere 全部呼叫量，應以本次及既有帳本查核。
 
 只做一次性執行，不啟用持續排程、不發布 Pages、不合併 PR。
-
-
-## 2026/11/14 最新續跑
-
-本輪64次生成、61筆有效結果，新增18事件；完整指標及策略380事件。剩10篇Facebook圖片不可讀，最早缺口11/5 03:04；其他可讀資料已處理至11/7 17:09。3筆本輪ticker格式失敗、既有待確認與失敗均保留，尚未全部補齊。Apify本輪4run回報US$0.172，月預留65/70，帳號月用量差額約US$0.0215；不是AI額度阻塞。較低費用上限被誤拒的本地檢查已修正。詳見[完整續跑及缺漏清單](HISTORY_RESUME_20261114.md)。
