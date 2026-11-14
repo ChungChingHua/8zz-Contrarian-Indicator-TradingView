@@ -227,6 +227,11 @@
             "usageTotalUsd": "0.03"
           }
         ]
+      },
+      "20261114-media-repair-04": {
+        "ledger": "data/history_media_repairs/20261114-media-repair-04.json",
+        "reserved_starts": 0,
+        "runs": []
       }
     }
   }
