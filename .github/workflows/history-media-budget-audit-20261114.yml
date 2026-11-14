@@ -1,8 +1,6 @@
 name: Inspect existing media cap and budget 20261114
 on:
-  push:
-    branches: [codex/social-pipeline-20261106]
-    paths: [.github/workflows/history-media-budget-audit-20261114.yml]
+  workflow_dispatch: {}
 permissions:
   contents: write
   actions: read
@@ -11,6 +9,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   audit:
+    if: ${{ false }}
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:

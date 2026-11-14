@@ -1,5 +1,6 @@
 """Continue author-policy history with fresh exact-post media and verified byte cache. MPL-2.0."""
 import copy,hashlib,json,os,re,subprocess,time,urllib.parse
+from decimal import Decimal,InvalidOperation
 from datetime import datetime,timezone
 from pathlib import Path
 from unittest.mock import patch
@@ -19,6 +20,15 @@ MAX_BATCH=12
 RECOVER_KEYS=('facebook:1660785808739341','threads:3992201729433763729','threads:3992213198011063292')
 
 class MediaStop(BaseException):pass
+
+
+def acknowledged_cap(options):
+    """A verified lower provider cap remains within the user's USD0.10 ceiling."""
+    value=options.get('maxTotalChargeUsd')
+    if isinstance(value,bool) or options.get('isMaxTotalChargeUsdSetByUser') is not True:return False
+    try:amount=Decimal(str(value))
+    except (InvalidOperation,ValueError):return False
+    return amount.is_finite() and Decimal('0')<amount<=t.CAP
 
 
 def previous_media_batches(docs,budget):
@@ -141,7 +151,7 @@ class Media:
         options={'timeout':180,'memory':512,'maxItems':50,'maxTotalChargeUsd':'0.10','restartOnError':'false'}
         try:
             run=self.client.request('/acts/'+actor+'/runs?'+urllib.parse.urlencode(options),body)['data'];t.record_run(entry,run);self.save()
-            if str(run.get('options',{}).get('maxTotalChargeUsd')) not in ('0.1','0.10'):
+            if not acknowledged_cap(run.get('options',{})):
                 self.client.request('/actor-runs/'+run['id']+'/abort',{});self.stop('cap_not_acknowledged_aborted')
             for attempt in range(50):
                 run=self.client.request('/actor-runs/'+entry['id'])['data']

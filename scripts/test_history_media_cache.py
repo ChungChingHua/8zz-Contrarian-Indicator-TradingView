@@ -63,6 +63,37 @@ class Tests(unittest.TestCase):
             (root/i['filename']).write_bytes(b'changed')
             with self.assertRaisesRegex(ValueError,'cache_hash_mismatch'):c.checked_cache(i,root)
             with self.assertRaisesRegex(ValueError,'invalid_cache_filename'):c.checked_cache({**i,'filename':'../outside.bin'},root)
+    def test_provider_lowered_cap_remains_within_authorized_ceiling(self):
+        for amount in ('0.10','0.1','0.057529'):
+            self.assertTrue(c.acknowledged_cap({'maxTotalChargeUsd':amount,'isMaxTotalChargeUsdSetByUser':True}))
+    def test_missing_unverified_or_unsafe_caps_are_rejected(self):
+        for amount in (None,True,'0','-0.01','0.100001','NaN','Infinity','invalid'):
+            self.assertFalse(c.acknowledged_cap({'maxTotalChargeUsd':amount,'isMaxTotalChargeUsdSetByUser':True}))
+        self.assertFalse(c.acknowledged_cap({'maxTotalChargeUsd':'0.1'}))
+        self.assertFalse(c.acknowledged_cap({'maxTotalChargeUsd':'0.057529','isMaxTotalChargeUsdSetByUser':False}))
+    def test_reduced_cap_run_is_not_aborted_or_resubmitted(self):
+        from unittest.mock import Mock
+        p=self.post();m=object.__new__(c.Media)
+        m.state={'batches':[],'actor_starts_reserved':0};m.attempted=set();m.data={p['key']:p};m.manifest={'posts':{}};m.budget={'apify_runs':64};m.save=Mock();m.budget_save=Mock()
+        run={'id':'existing-run','status':'SUCCEEDED','defaultDatasetId':'saved','options':{'maxTotalChargeUsd':'0.057529','isMaxTotalChargeUsdSetByUser':True}}
+        class Client:
+            starts=0;aborts=0
+            def request(self,path,payload=None):
+                if path.endswith('/abort'):self.aborts+=1;raise AssertionError('lower safe cap must not be aborted')
+                if '/runs?' in path:
+                    self.starts+=1
+                    self.asserted_ceiling='maxTotalChargeUsd=0.10' in path
+                    return {'data':run}
+                if path.startswith('/acts/'):return {'data':{'pricingInfos':[{'startedAt':'2000-01-01T00:00:00Z','pricingModel':'PAY_PER_EVENT'}]}}
+                if path.startswith('/actor-runs/'):return {'data':run}
+                if path.startswith('/datasets/'):return []
+                raise AssertionError('unexpected request')
+        m.client=Client()
+        with patch.object(c.hc,'exclusions',return_value=(set(),{})):
+            m.refresh(p)
+            with self.assertRaisesRegex(ValueError,'already_attempted_no_retry'):m.refresh(p)
+        self.assertEqual(m.client.starts,1);self.assertEqual(m.client.aborts,0);self.assertTrue(m.client.asserted_ceiling)
+        self.assertEqual(m.budget['apify_runs'],65);self.assertNotIn('blocked',m.state)
     def test_prior_reservation_index_covers_legacy_and_unknown_without_new_start(self):
         from unittest.mock import Mock
         docs=Mock();docs.load.return_value={'actors':{'facebook':{'requested_keys':['facebook:1'],'status':'submission_unknown'}}}

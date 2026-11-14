@@ -3,7 +3,7 @@
   "cutoff_utc": "2026-11-07T12:15:59.578797+00:00",
   "created_at": "2026-11-07T12:15:59.578797+00:00",
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
-  "closed": true,
+  "closed": false,
   "acquisition_completed": true,
   "sources": {
     "facebook": {
@@ -270,49 +270,52 @@
       "scope_generation_attempts": 555,
       "ref_before_resume": "60833babf621be5a75e59e57245cbaaa5aa48b97",
       "user_reported_quota_reset_date": "2026-11-14"
+    },
+    {
+      "stop_reason": "cap_not_acknowledged_aborted",
+      "closure_reason": "media_repair_service_or_budget_block",
+      "scope_generation_attempts": 601,
+      "cap_returned_usd": "0.057529",
+      "cap_requested_usd": "0.10",
+      "aborted_run": "aN1ESUqN4kVceCqBH",
+      "dataset_items": 0,
+      "diagnostic": "data/history_media_repairs/budget-audit-20261114.json"
     }
   ],
   "current_session": {
-    "id": "20261114-media-repair-01",
-    "baseline_generation_attempts": 555,
-    "baseline_validated_responses": 543,
+    "id": "20261114-media-repair-02",
+    "baseline_generation_attempts": 601,
+    "baseline_validated_responses": 587,
     "baseline_usage": {
-      "input_tokens": 1589017,
-      "output_tokens": 87291,
-      "total_tokens": 1676308,
+      "input_tokens": 1726339,
+      "output_tokens": 94796,
+      "total_tokens": 1821135,
       "reasoning_tokens": 0
     },
-    "baseline_total_events": 362,
+    "baseline_total_events": 370,
     "baseline_status_counts": {
-      "pending_confirmation": 75,
-      "completed_no_signal": 266,
-      "completed_signal": 206,
-      "technical_failure": 8,
+      "pending_confirmation": 83,
+      "completed_no_signal": 294,
+      "completed_signal": 214,
+      "technical_failure": 10,
       "input_failure": 7
     },
-    "first_unstarted_date": "2026-10-30T22:39:26+08:00",
-    "user_reported_free_quota_reset": true,
-    "user_authorized_missing_media_only": true,
-    "media_policy": "Verified cache, then existing dataset; prior reserved URL may never start another Actor. New starts only for never-reserved missing media.",
+    "first_unstarted_date": "2026-11-05T03:04:10+08:00",
+    "existing_public_media_only": true,
+    "new_actor_starts_authorized": 0,
     "restored_cache_artifact": {
-      "run_id": 43198190581,
-      "id": 13934342190,
-      "name": "history-media-cache-20261112-continuation-03",
-      "size_bytes": 10969470,
-      "expires_at": "2026-11-26T10:17:09Z",
-      "digest": "sha256:862cb2a3a97fe4012f928192a30b3e86245e7e533406aabe04fa22b191e0be92"
+      "run_id": 43568403861,
+      "id": 14104315037,
+      "name": "history-media-cache-20261114-continuation",
+      "size_bytes": 6190841,
+      "expires_at": "2026-11-28T07:01:07Z",
+      "digest": "sha256:431068ef0e36667489fc4bec4075d64f1d144151e2542b0cacf69c03a6382212"
     },
     "initial_actor_starts": 0,
-    "actor_runs_started": 3,
+    "actor_runs_started": 0,
     "saved_dataset_get_requests": 0,
     "recovered_zero_generation_inputs": 0,
-    "closed": false,
-    "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-01.json",
-    "initial_media_repair_ledger": "data/history_media_repairs/media-repair-20261111-01.json",
-    "media_repair_http_counts": {
-      "GET": 41,
-      "POST": 4
-    }
+    "closed": false
   },
   "session_history": [
     {
@@ -951,8 +954,98 @@
         "media_repair_observed_usd": "0.061",
         "media_repair_note": "One new Actor, twelve previously unreserved public post URLs; reused two previous datasets. Cost is usageTotalUsd observation, not settled invoice."
       }
+    },
+    {
+      "id": "20261114-media-repair-01",
+      "baseline_generation_attempts": 555,
+      "baseline_validated_responses": 543,
+      "baseline_usage": {
+        "input_tokens": 1589017,
+        "output_tokens": 87291,
+        "total_tokens": 1676308,
+        "reasoning_tokens": 0
+      },
+      "baseline_total_events": 362,
+      "baseline_status_counts": {
+        "pending_confirmation": 75,
+        "completed_no_signal": 266,
+        "completed_signal": 206,
+        "technical_failure": 8,
+        "input_failure": 7
+      },
+      "first_unstarted_date": "2026-10-30T22:39:26+08:00",
+      "user_reported_free_quota_reset": true,
+      "user_authorized_missing_media_only": true,
+      "media_policy": "Verified cache, then existing dataset; prior reserved URL may never start another Actor. New starts only for never-reserved missing media.",
+      "restored_cache_artifact": {
+        "run_id": 43198190581,
+        "id": 13934342190,
+        "name": "history-media-cache-20261112-continuation-03",
+        "size_bytes": 10969470,
+        "expires_at": "2026-11-26T10:17:09Z",
+        "digest": "sha256:862cb2a3a97fe4012f928192a30b3e86245e7e533406aabe04fa22b191e0be92"
+      },
+      "initial_actor_starts": 0,
+      "actor_runs_started": 3,
+      "saved_dataset_get_requests": 0,
+      "recovered_zero_generation_inputs": 0,
+      "closed": true,
+      "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-01.json",
+      "initial_media_repair_ledger": "data/history_media_repairs/media-repair-20261111-01.json",
+      "media_repair_http_counts": {
+        "GET": 41,
+        "POST": 4
+      },
+      "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43568403861",
+      "cache_artifact": {
+        "run_id": 43568403861,
+        "id": 14104315037,
+        "name": "history-media-cache-20261114-continuation",
+        "size_bytes": 6190841,
+        "expires_at": "2026-11-28T07:01:07Z",
+        "digest": "sha256:431068ef0e36667489fc4bec4075d64f1d144151e2542b0cacf69c03a6382212"
+      },
+      "result": {
+        "id": "20261114-media-repair-01",
+        "generation_attempts": 46,
+        "validated_responses": 44,
+        "added_events": 8,
+        "pine_count_delta_since_session": 8,
+        "historical_reference_event_delta_since_session": 0,
+        "service_reported_usage": {
+          "input_tokens": 137322,
+          "output_tokens": 7505,
+          "total_tokens": 144827,
+          "reasoning_tokens": 0
+        },
+        "status_counts": {
+          "completed_no_signal": 28,
+          "completed_signal": 8,
+          "input_failure": 0,
+          "pending_confirmation": 8,
+          "technical_failure": 2
+        },
+        "actor_runs_started": 3,
+        "saved_dataset_get_requests": 0,
+        "actual_points_deducted": null,
+        "run_url": null,
+        "stop_http_status": null,
+        "status_count_transitions": {
+          "completed_no_signal": 28,
+          "completed_signal": 8,
+          "input_failure": 0,
+          "pending_confirmation": 8,
+          "technical_failure": 2
+        },
+        "recovered_zero_generation_inputs": 0,
+        "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-01.json",
+        "initial_media_repair_ledger": "data/history_media_repairs/media-repair-20261111-01.json",
+        "media_repair_http_counts": {
+          "GET": 41,
+          "POST": 4
+        }
+      },
+      "media_repair_observed_usd": "0.142"
     }
-  ],
-  "stop_reason": "cap_not_acknowledged_aborted",
-  "closure_reason": "media_repair_service_or_budget_block"
+  ]
 }
