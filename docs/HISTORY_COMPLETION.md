@@ -1,14 +1,14 @@
 # 一次性歷史補齊執行紀錄
 
-本次因實際阻塞停止，**尚未補齊全部歷史判讀**。
+請依下方剩餘及待確認清單判斷完成範圍。
 
-資料抓取截止 UTC 2026-11-14T10:21:07.585530+00:00（Asia/Taipei 為 2026-11-14T18:21:07.585530+08:00）；共 710 篇。已走訪至 2026-11-05T01:23:43+08:00，其中待確認／失敗另列；本輪最後有效回應 2026-11-07T17:09:34+08:00，最新事件 2026-11-07T00:54:48+08:00。
+資料抓取截止 UTC 2026-11-14T10:21:07.585530+00:00（Asia/Taipei 為 2026-11-14T18:21:07.585530+08:00）；共 710 篇。已走訪至 2026-11-05T01:23:43+08:00，其中待確認／失敗另列；本輪最後有效回應 2026-11-11T12:14:41+08:00，最新事件 2026-11-11T12:14:41+08:00。
 
-完整 Pine 380 事件 = 原歷史 151 + 累計新增 229；其中此歷史 scope 累計新增 224。本次續跑新增 1。
+完整 Pine 393 事件 = 原歷史 151 + 累計新增 242；其中此歷史 scope 累計新增 237。本次續跑新增 13。
 
-狀態依來源貼文計：有訊號 231、無訊號 306、待確認 99、失敗 20、狀態不明 0、尚未處理 54（去重後 54 組）。跨平台同組會對應多筆貼文，但只產生一個事件。
+狀態依來源貼文計：有訊號 244、無訊號 316、待確認 101、失敗 20、狀態不明 0、尚未處理 29（去重後 29 組）。跨平台同組會對應多筆貼文，但只產生一個事件。
 
-本 scope 累計生成 HTTP 619 次，成功固定格式回應 604；6 筆 HTTP 回應無 usage，不假定其零 tokens。已回報用量輸入 1774850／輸出 97311／合計 1872161 tokens。實際點數扣除未知；即時免費請求／點數餘額與重設時刻若無服務回傳即為未知，先前阻塞保留於 control.blocker_history。
+本 scope 累計生成 HTTP 644 次，成功固定格式回應 629；6 筆 HTTP 回應無 usage，不假定其零 tokens。已回報用量輸入 1842420／輸出 101035／合計 1943455 tokens。實際點數扣除未知；即時免費請求／點數餘額與重設時刻若無服務回傳即為未知，先前阻塞保留於 control.blocker_history。
 
 原始程式曾未處理 429 的 usage=null，導致最後彙整步驟失敗；已修正並以全部已保存回應離線重建，不新增任何生成。供應商錯誤原含遮蔽後的金鑰識別片段，最新帳本已進一步去除該片段，保留清理前 JSON hash；完整金鑰未輸出。
 
@@ -32,25 +32,25 @@
     }
   },
   "post_status_counts": {
-    "completed_signal": 231,
-    "completed_no_signal": 306,
-    "pending_confirmation": 99,
+    "completed_signal": 244,
+    "completed_no_signal": 316,
+    "pending_confirmation": 101,
     "technical_failure": 13,
     "input_failure": 7,
-    "not_started": 54,
+    "not_started": 29,
     "unknown": 0
   },
-  "remaining_not_started_groups": 54,
-  "remaining_not_started_platform_posts": 54,
-  "latest_attempted_or_reviewed_date": "2026-11-07T17:09:34+08:00",
+  "remaining_not_started_groups": 29,
+  "remaining_not_started_platform_posts": 29,
+  "latest_attempted_or_reviewed_date": "2026-11-11T12:14:41+08:00",
   "all_posts_visited_before_first_unstarted": "2026-11-05T01:23:43+08:00",
   "successfully_completed_contiguous_prefix": "2026-07-20T18:41:00+08:00",
   "first_unstarted_date": "2026-11-05T03:04:10+08:00",
-  "latest_signal_date": "2026-11-07T00:54:48+08:00",
+  "latest_signal_date": "2026-11-11T12:14:41+08:00",
   "pine": {
     "historical_events": 151,
-    "added_events": 229,
-    "total_events": 380,
+    "added_events": 242,
+    "total_events": 393,
     "same_bar_policy": "latest_post_before_filters",
     "historical_blocks_preserved": true,
     "historical_basis": "reconciled_published_author_history",
@@ -70,9 +70,9 @@
     "timestamps_ordered": true,
     "directions_strengths_valid": true,
     "tradingview_compiled": false,
-    "initialization_functions": 19,
+    "initialization_functions": 20,
     "max_events_per_function": 20,
-    "first_bar_calls": 19,
+    "first_bar_calls": 20,
     "event_initialization_chunk_limit": 20,
     "event_encoding": "packed-v1",
     "packed_event_round_trip": true,
@@ -81,28 +81,28 @@
     "executable_array_push_statements": 5,
     "il_tokens_measured": false
   },
-  "last_new_valid_response_date": "2026-11-07T17:09:34+08:00",
+  "last_new_valid_response_date": "2026-11-11T12:14:41+08:00",
   "new_stop_post_date": null,
-  "new_generation_attempts": 619,
-  "new_http_responses": 619,
+  "new_generation_attempts": 644,
+  "new_http_responses": 644,
   "new_status_counts": {
-    "pending_confirmation": 86,
-    "completed_no_signal": 298,
-    "completed_signal": 224,
+    "pending_confirmation": 88,
+    "completed_no_signal": 308,
+    "completed_signal": 237,
     "technical_failure": 11,
     "input_failure": 7
   },
   "service_reported_usage": {
-    "input_tokens": 1774850,
-    "output_tokens": 97311,
-    "total_tokens": 1872161,
+    "input_tokens": 1842420,
+    "output_tokens": 101035,
+    "total_tokens": 1943455,
     "reasoning_tokens": 0
   },
-  "new_validated_responses": 604,
-  "images_attached": 437,
-  "videos_unanalysed": 75,
+  "new_validated_responses": 629,
+  "images_attached": 450,
+  "videos_unanalysed": 78,
   "http_responses_without_usage": 6,
-  "service_reported_cached_input_tokens": 1217280,
+  "service_reported_cached_input_tokens": 1266048,
   "apify_http_counts": {
     "GET": 13,
     "POST": 2
@@ -147,7 +147,7 @@
   "other_ai_provider_queries": 0,
   "actual_points_deducted": null,
   "quota_headers": {},
-  "stop_reason": "remaining_missing_facebook_media",
+  "stop_reason": null,
   "service_quota_statement": null,
   "all_history_fully_classified": false,
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
@@ -155,53 +155,38 @@
   "usage_tracking_note": "ChatAnywhere request accounting is from durable ledgers; legacy usage.json ai_attempts is not the cumulative ChatAnywhere total.",
   "accounting_note": "Post counts include all prior tests, failures, reviews and cross-platform members; Pine counts are events, not posts. Tokens are service reports, not points or verified bills.",
   "current_session": {
-    "id": "20261114-media-repair-03",
-    "generation_attempts": 2,
-    "validated_responses": 2,
-    "added_events": 1,
-    "pine_count_delta_since_session": 1,
+    "id": "20261114-media-repair-04",
+    "generation_attempts": 25,
+    "validated_responses": 25,
+    "added_events": 13,
+    "pine_count_delta_since_session": 13,
     "historical_reference_event_delta_since_session": 0,
     "service_reported_usage": {
-      "input_tokens": 6167,
-      "output_tokens": 423,
-      "total_tokens": 6590,
+      "input_tokens": 67570,
+      "output_tokens": 3724,
+      "total_tokens": 71294,
       "reasoning_tokens": 0
     },
     "status_counts": {
-      "completed_no_signal": 1,
-      "completed_signal": 1,
+      "completed_no_signal": 10,
+      "completed_signal": 13,
       "input_failure": 0,
-      "pending_confirmation": 0,
+      "pending_confirmation": 2,
       "technical_failure": 0
     },
-    "actor_runs_started": 1,
+    "actor_runs_started": 0,
     "saved_dataset_get_requests": 0,
     "actual_points_deducted": null,
-    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43570686068",
+    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43585240072",
     "stop_http_status": null,
     "status_count_transitions": {
-      "completed_no_signal": 1,
-      "completed_signal": 1,
+      "completed_no_signal": 10,
+      "completed_signal": 13,
       "input_failure": 0,
-      "pending_confirmation": 0,
+      "pending_confirmation": 2,
       "technical_failure": 0
     },
-    "recovered_zero_generation_inputs": 0,
-    "cache_artifact": {
-      "run_id": 43570686068,
-      "id": 14103938782,
-      "name": "history-media-cache-20261114-last-threads",
-      "size_bytes": 336296,
-      "expires_at": "2026-11-28T07:22:33Z",
-      "digest": "sha256:a9601b9e92a727334fd1f55057c1cf746dbcef7dd5c1c99a5b4bbfdf70ad23a8"
-    },
-    "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-03.json",
-    "media_repair_http_counts": {
-      "GET": 7,
-      "POST": 1
-    },
-    "media_repair_observed_usd": "0.030",
-    "media_repair_note": "One new run for two previously unreserved Threads URLs; lower provider cap accepted within USD0.10. API observations, not settled bill."
+    "recovered_zero_generation_inputs": 0
   }
 }
 ```
