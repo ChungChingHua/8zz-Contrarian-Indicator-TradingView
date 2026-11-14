@@ -23,7 +23,7 @@ class MediaStop(BaseException):pass
 
 
 def previous_media_batches(docs,budget):
-    """A reserved URL must never cause a second Actor start, even after interruption."""
+    """Unknown or nonempty predecessors never cause another Actor start."""
     result={}
     for reservation in budget.get('media_repair_reservations',{}).values():
         path=reservation.get('ledger','')
@@ -34,7 +34,13 @@ def previous_media_batches(docs,budget):
         batches=list(saved.get('batches',[]))+list(saved.get('actors',{}).values())
         for batch in batches:
             for key in batch.get('keys',batch.get('requested_keys',[])):
-                if key in result and result[key]['batch'].get('id')!=batch.get('id'):raise ValueError('duplicate_prior_media_reservations')
+                if key in result and result[key]['batch'].get('id')!=batch.get('id'):
+                    old=result[key]['batch'];proof=batch.get('empty_predecessor',{})
+                    if not (old.get('id') and old.get('status')=='ABORTED' and
+                        proof.get('run_id')==old['id'] and proof.get('dataset_id')==old.get('defaultDatasetId') and
+                        proof.get('terminal_status')=='ABORTED' and type(proof.get('dataset_items')) is int and
+                        proof['dataset_items']==0 and proof.get('verified_at') and not old.get('posts')):
+                        raise ValueError('duplicate_prior_media_reservations')
                 result[key]={'ledger':path,'batch':batch}
     return result
 
