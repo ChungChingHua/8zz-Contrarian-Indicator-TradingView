@@ -177,7 +177,7 @@
     "actor_runs_started": 1,
     "saved_dataset_get_requests": 0,
     "actual_points_deducted": null,
-    "run_url": null,
+    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43570686068",
     "stop_http_status": null,
     "status_count_transitions": {
       "completed_no_signal": 1,
@@ -191,7 +191,62 @@
     "media_repair_http_counts": {
       "GET": 7,
       "POST": 1
-    }
+    },
+    "cache_artifact": {
+      "run_id": 43570686068,
+      "id": 14103938782,
+      "name": "history-media-cache-20261114-last-threads",
+      "size_bytes": 336296,
+      "expires_at": "2026-11-28T07:22:33Z",
+      "digest": "sha256:a9601b9e92a727334fd1f55057c1cf746dbcef7dd5c1c99a5b4bbfdf70ad23a8"
+    },
+    "media_repair_observed_usd": "0.030",
+    "media_repair_note": "One new run for two previously unreserved Threads URLs; lower provider cap accepted within USD0.10. API observations, not settled bill."
+  },
+  "resume_request_totals": {
+    "date_taipei": "2026-11-14",
+    "generation_attempts": 64,
+    "validated_responses": 61,
+    "added_events": 18,
+    "status_counts": {
+      "completed_signal": 18,
+      "completed_no_signal": 32,
+      "pending_confirmation": 11,
+      "technical_failure": 3
+    },
+    "service_reported_usage": {
+      "input_tokens": 185833,
+      "output_tokens": 10020,
+      "total_tokens": 195853,
+      "reasoning_tokens": 0
+    },
+    "new_actor_starts": 4,
+    "observed_actor_cost_usd": "0.172",
+    "Apify_http_counts": {
+      "GET": 53,
+      "POST": 5
+    },
+    "actual_points_deducted": null
+  },
+  "service_budget_statement": {
+    "provider": "Apify",
+    "source": "data/history_media_repairs/final-budget-20261114.json",
+    "maximum_usd": 5,
+    "used_usd": "4.978514389197657",
+    "remaining_headroom_usd_derived": "0.021485610802343",
+    "observed_at": "2026-11-14T07:22:09.580563+00:00",
+    "note": "Usage headroom is not cash balance or independently settled invoice. No top-up or limit increase.",
+    "project_monthly_run_count": 65,
+    "project_monthly_run_limit": 70
+  },
+  "cap_guard_incident": {
+    "requested_cap_usd": "0.10",
+    "returned_cap_usd": "0.057529",
+    "aborted_run": "aN1ESUqN4kVceCqBH",
+    "dataset_items": 0,
+    "observed_charge_usd": "0.001",
+    "cause": "Local equality check rejected a verified lower cap; corrected to finite positive cap <= USD0.10 plus user-cap acknowledgement.",
+    "restarted": false
   }
 }
 ```
@@ -217,3 +272,8 @@
 本次 API 次數僅指 AI 生成及 Apify 啟動／讀取；GitHub 進度保存與圖片下載另計，沒有把上述數字宣稱為全部 HTTP 流量。data/usage.json 的 ai_attempts 為舊流程計數，不等於 ChatAnywhere 全部呼叫量，應以本次及既有帳本查核。
 
 只做一次性執行，不啟用持續排程、不發布 Pages、不合併 PR。
+
+
+## 2026/11/14 最新續跑
+
+本輪64次生成、61筆有效結果，新增18事件；完整指標及策略380事件。剩10篇Facebook圖片不可讀，最早缺口11/5 03:04；其他可讀資料已處理至11/7 17:09。3筆本輪ticker格式失敗、既有待確認與失敗均保留，尚未全部補齊。Apify本輪4run回報US$0.172，月預留65/70，帳號月用量差額約US$0.0215；不是AI額度阻塞。較低費用上限被誤拒的本地檢查已修正。詳見[完整續跑及缺漏清單](HISTORY_RESUME_20261114.md)。

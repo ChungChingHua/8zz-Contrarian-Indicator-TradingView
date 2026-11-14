@@ -1,0 +1,1362 @@
+[
+  {
+    "key": "facebook:1604744667676789",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid033QtWmAt8rSXVRvNhxaRtYTvHeqnWrXBTsZDyS5oRJ4wFJbzaLesrzYN8PGPQpdyBl",
+    "display_time": "2026-07-20T21:10:06+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1604744667676789",
+    "evidence": "data/history_progress/original-author-20261107-01.json",
+    "reason": "發文內容短促且無明確表達個人投資立場或情緒（玩笑/挑釁語氣），且圖片無法分析，依規則對不確定投資關聯的貼文跳過。"
+  },
+  {
+    "key": "threads:3945439042850755420",
+    "url": "https://www.threads.com/@banini31/post/DbBA-fYE5Nc",
+    "display_time": "2026-07-20T21:10:07+08:00",
+    "status": "pending_confirmation",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": [
+      "data/history_batch_02_plan.json:held_possible_duplicates"
+    ],
+    "reason": "Previous test or review; original-author policy not re-generated or silently assumed validated"
+  },
+  {
+    "key": "threads:3946164126477408639",
+    "url": "https://www.threads.com/@banini31/post/DbDl12IE1l_",
+    "display_time": "2026-07-21T21:10:44+08:00",
+    "status": "pending_confirmation",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": [
+      "data/quality_samples.json",
+      "data/history_batch_01_plan.json"
+    ],
+    "reason": "Previous test or review; original-author policy not re-generated or silently assumed validated"
+  },
+  {
+    "key": "threads:3946650318310848111",
+    "url": "https://www.threads.com/@banini31/post/DbFUY3jmbZv",
+    "display_time": "2026-07-22T13:16:42+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "technical_failure",
+    "record_key": "threads:3946650318310848111",
+    "evidence": "data/history_progress/original-author-20261107-02.json",
+    "reason": "contradictory_output_fields"
+  },
+  {
+    "key": "threads:3946957967252913143",
+    "url": "https://www.threads.com/@banini31/post/DbGaVv9gfv3",
+    "display_time": "2026-07-22T23:27:58+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3946957967252913143",
+    "evidence": "data/history_progress/history-completion-20261107-001.json",
+    "reason": "只有情緒驚恐但未提及任何持倉或交易動作，且有未分析影片，無法判定是否與投資決策相關，依規則跳過並標示待確認。"
+  },
+  {
+    "key": "threads:3947625854684204191",
+    "url": "https://www.threads.com/@banini31/post/DbIyMymmYyf",
+    "display_time": "2026-07-23T21:34:55+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3947625854684204191",
+    "evidence": "data/history_progress/history-completion-20261107-001.json",
+    "reason": "內容僅為短問候“miss me ?”，無明確投資相關資訊或情緒，屬於無法判定投資立場的模糊貼文，依規則跳過。"
+  },
+  {
+    "key": "threads:3949529164986203658",
+    "url": "https://www.threads.com/@banini31/post/DbPi9mdDD4K",
+    "display_time": "2026-07-26T12:36:29+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3949529164986203658",
+    "evidence": "data/history_progress/history-completion-20261107-001.json",
+    "reason": "只有模糊感嘆「眼前一片紅」，沒有明確表達持倉、交易或強烈情緒方向，依規則屬於無法判定的貼文，需跳過並標記待確認。"
+  },
+  {
+    "key": "facebook:1609313503886572",
+    "url": "https://www.facebook.com/reel/1062451519584688/",
+    "display_time": "2026-07-26T12:36:44+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1609313503886572",
+    "evidence": "data/history_progress/history-completion-20261107-001.json",
+    "reason": "只有模糊情緒表述「眼前一遍紅」，沒有明確提到持倉或交易動作，屬於情緒模糊無法判定→跳過"
+  },
+  {
+    "key": "facebook:1610126397138616",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0ko7MYcc7amyA4Sc9AgTEh4DJkFqjczHmZhhDrazNQPqgSvkEF9JAkLQz8XKVmLMZl",
+    "display_time": "2026-07-27T12:05:07+08:00",
+    "status": "pending_confirmation",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": [
+      "data/quality_samples.json",
+      "data/history_batch_01_plan.json"
+    ],
+    "reason": "Previous test or review; original-author policy not re-generated or silently assumed validated"
+  },
+  {
+    "key": "threads:3950497144775886357",
+    "url": "https://www.threads.com/@banini31/post/DbS_Dj4j8YV",
+    "display_time": "2026-07-27T20:39:41+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3950497144775886357",
+    "evidence": "data/history_progress/history-completion-20261107-002.json",
+    "reason": "內容模糊、沒有明確投資立場或動作，僅情緒句短語且貼文中媒體為未分析的影片，依規定無法判定→跳過"
+  },
+  {
+    "key": "facebook:1610439617107294",
+    "url": "https://www.facebook.com/reel/1685982349150567/",
+    "display_time": "2026-07-27T20:40:00+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1610439617107294",
+    "evidence": "data/history_progress/history-completion-20261107-002.json",
+    "reason": "內容只有短句情緒表達且無投資動作或持倉資訊，無法判定與投資相關，依規則跳過"
+  },
+  {
+    "key": "facebook:1610525107098745",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02PHVaMMFiJ5ynoqsVvHt6GpqHneX172wkKmVxW9k2NSTA1gWR9vJBp73zMc64K52al",
+    "display_time": "2026-07-27T22:37:32+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1610525107098745",
+    "evidence": "data/history_progress/history-completion-20261107-002.json",
+    "reason": "貼文只有一句模糊問句，無明確持倉或情緒指向，依規則無法判定投資立場或情緒。"
+  },
+  {
+    "key": "threads:3950564341804764264",
+    "url": "https://www.threads.com/@banini31/post/DbTOVZ_mQxo",
+    "display_time": "2026-07-27T22:53:10+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3950564341804764264",
+    "evidence": "data/history_progress/history-completion-20261107-002.json",
+    "reason": "貼文與圖片內容模糊、情緒與投資動作不明，屬於無法判定/非明確投資貼文，跳過"
+  },
+  {
+    "key": "threads:3952464799527950315",
+    "url": "https://www.threads.com/@banini31/post/DbZ-ctLGVfr",
+    "display_time": "2026-07-30T13:49:02+08:00",
+    "status": "pending_confirmation",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": [
+      "data/quality_samples.json",
+      "data/history_batch_01_plan.json"
+    ],
+    "reason": "Previous test or review; original-author policy not re-generated or silently assumed validated"
+  },
+  {
+    "key": "threads:3953444967578978947",
+    "url": "https://www.threads.com/@banini31/post/DbddUBzmcqD",
+    "display_time": "2026-07-31T22:16:27+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3953444967578978947",
+    "evidence": "data/history_progress/history-completion-20261107-003.json",
+    "reason": "內容僅表達樂觀期待但無具體持倉或交易動作，屬於情緒模糊/無法判定投資立場，依規則跳過"
+  },
+  {
+    "key": "facebook:1614145923403330",
+    "url": "https://www.facebook.com/reel/1413970350687669/",
+    "display_time": "2026-07-31T23:30:39+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1614145923403330",
+    "evidence": "data/history_progress/history-completion-20261107-003.json",
+    "reason": "內容為對突發狀況的驚訝詢問，並附影片未分析；無法判定與投資相關，依規則標記為跳過並待確認。"
+  },
+  {
+    "key": "threads:3953997841772928141",
+    "url": "https://www.threads.com/@banini31/post/DbfbBaBiVyN",
+    "display_time": "2026-08-01T16:34:58+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3953997841772928141",
+    "evidence": "data/history_progress/history-completion-20261107-003.json",
+    "reason": "只有曖昧的心情文字，且附帶影片未分析，無法判斷是否與投資有關或情緒立場，依規定標記為跳過（pending_confirmation）"
+  },
+  {
+    "key": "threads:3955514815163221984",
+    "url": "https://www.threads.com/@banini31/post/Dbkz8RlmUfg",
+    "display_time": "2026-08-03T18:48:52+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3955514815163221984",
+    "evidence": "data/history_progress/history-completion-20261107-004.json",
+    "reason": "貼文文字過短（唉……不是）且圖為行情截圖，無明確表達個人持倉或情緒傾向，依規則無法判定投資立場，跳過。"
+  },
+  {
+    "key": "threads:3956236087476207953",
+    "url": "https://www.threads.com/@banini31/post/DbnX8KxmcFR",
+    "display_time": "2026-08-04T18:41:55+08:00",
+    "status": "technical_failure",
+    "stored_status": "technical_failure",
+    "record_key": "threads:3956236087476207953",
+    "evidence": "data/history_progress/history-completion-20261107-004.json",
+    "reason": "provider_http_error"
+  },
+  {
+    "key": "threads:3956901737587102745",
+    "url": "https://www.threads.com/@banini31/post/DbpvSpwAVQZ",
+    "display_time": "2026-08-05T16:44:29+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3956901737587102745",
+    "evidence": "data/history_progress/history-completion-20261107-005.json",
+    "reason": "與投資無明確關聯且僅為政治祈禱，依規則跳過"
+  },
+  {
+    "key": "threads:3957372935942154863",
+    "url": "https://www.threads.com/@banini31/post/Dbrabfak6pv",
+    "display_time": "2026-08-06T08:20:37+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3957372935942154863",
+    "evidence": "data/history_progress/history-completion-20261107-005.json",
+    "reason": "內容情緒悲觀但未提及任何投資持倉或交易動作，根據規則屬於無法判定投資立場的貼文 → 跳過"
+  },
+  {
+    "key": "facebook:1619175659567023",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0DfecTLy5chrHPu4SGwrQXpdrq3khfDSi6xeviUjy5xSBsHT7oLvfVSpSwYn3gFbYl",
+    "display_time": "2026-08-06T17:52:45+08:00",
+    "status": "input_failure",
+    "stored_status": "input_failure",
+    "record_key": "facebook:1619175659567023",
+    "evidence": "data/history_progress/history-completion-20261107-005.json",
+    "reason": "video_or_unknown_media_requires_review"
+  },
+  {
+    "key": "threads:3958223690278707712",
+    "url": "https://www.threads.com/@banini31/post/Dbub3mImSIA",
+    "display_time": "2026-08-07T12:30:55+08:00",
+    "status": "technical_failure",
+    "stored_status": "technical_failure",
+    "record_key": "threads:3958223690278707712",
+    "evidence": "data/history_progress/history-completion-20261107-005.json",
+    "reason": "invalid_ticker_format"
+  },
+  {
+    "key": "threads:3958585128126154013",
+    "url": "https://www.threads.com/@banini31/post/DbvuDNXGoUd",
+    "display_time": "2026-08-08T00:29:04+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3958585128126154013",
+    "evidence": "data/history_progress/history-completion-20261107-005.json",
+    "reason": "僅有模糊喊話『IC設計！再來一張！』且附帶未分析影片，無法判斷是否為投資情緒或實際持倉/操作，依規則待確認跳過。"
+  },
+  {
+    "key": "facebook:1620359249448664",
+    "url": "https://www.facebook.com/reel/1333371218786536/",
+    "display_time": "2026-08-08T00:29:16+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1620359249448664",
+    "evidence": "data/history_progress/history-completion-20261107-005.json",
+    "reason": "只有一句短宣或口號（無具體持倉/情緒訊息），且影片未分析無法判定是否與投資情緒相關，依規則標記為跳過並待確認。"
+  },
+  {
+    "key": "threads:3960768681160677229",
+    "url": "https://www.threads.com/@banini31/post/Db3eiFmExdt",
+    "display_time": "2026-08-11T00:47:24+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3960768681160677229",
+    "evidence": "data/history_progress/history-completion-20261107-006.json",
+    "reason": "提到生活商品與群組事務，對於明天開盤只是疑問/擔憂但沒有明確情緒或投資決策，且有影片未分析，依規則無法判定→跳過"
+  },
+  {
+    "key": "threads:3961303471202654991",
+    "url": "https://www.threads.com/@banini31/post/Db5YITojlsP",
+    "display_time": "2026-08-11T18:29:56+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3961303471202654991",
+    "evidence": "data/history_progress/history-completion-20261107-006.json",
+    "reason": "勸阻性文字無個人持倉或交易情緒（與投資行為無關或過於模糊）"
+  },
+  {
+    "key": "threads:3962181930888398262",
+    "url": "https://www.threads.com/@banini31/post/Db8f3k-EwW2",
+    "display_time": "2026-08-12T23:35:16+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3962181930888398262",
+    "evidence": "data/history_progress/history-completion-20261107-006.json",
+    "reason": "貼文主要描述個人損益回不去與市場感受，但情緒模糊且無明確投資動作或強烈情緒指向，依規則為無法判定需跳過（pending）。"
+  },
+  {
+    "key": "threads:3962880666359113918",
+    "url": "https://www.threads.com/@banini31/post/Db--vhFmSi-",
+    "display_time": "2026-08-13T22:43:30+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3962880666359113918",
+    "evidence": "data/history_progress/history-completion-20261107-006.json",
+    "reason": "僅描述生理不適／情緒模糊，無明確投資相關行為或立場，屬於無關或無法判定的貼文。"
+  },
+  {
+    "key": "threads:3963215194281844557",
+    "url": "https://www.threads.com/@banini31/post/DcAKzifmZ9N",
+    "display_time": "2026-08-14T09:48:09+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3963215194281844557",
+    "evidence": "data/history_progress/history-completion-20261107-006.json",
+    "reason": "文字模糊無明確投資立場或情緒（只有抱怨式疑問），無法判定是否與持倉/交易相關，依規則跳過。"
+  },
+  {
+    "key": "facebook:1627125755438680",
+    "url": "https://www.facebook.com/reel/1367447982168379/",
+    "display_time": "2026-08-15T18:33:14+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1627125755438680",
+    "evidence": "data/history_progress/history-completion-20261107-007.json",
+    "reason": "貼文內容模糊、只有短句且附帶未分析的影片，無法判斷是否與投資情緒或動作相關，依規則標示為待確認。"
+  },
+  {
+    "key": "threads:3965019878185354001",
+    "url": "https://www.threads.com/@banini31/post/DcGlJJWmcMR",
+    "display_time": "2026-08-16T21:33:44+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3965019878185354001",
+    "evidence": "data/history_progress/history-completion-20261107-007.json",
+    "reason": "僅為問句/八卦性質文字，無投資立場或持倉/交易情緒可判定。"
+  },
+  {
+    "key": "threads:3965465837607697263",
+    "url": "https://www.threads.com/@banini31/post/DcIKitbjbtv",
+    "display_time": "2026-08-17T12:19:48+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3965465837607697263",
+    "evidence": "data/history_progress/history-completion-20261107-007.json",
+    "reason": "貼文內容為對話/引述且包含未分析的影片，無法判定是否與投資情緒或交易行為有關，依規則標記為待確認。"
+  },
+  {
+    "key": "facebook:1628673155283940",
+    "url": "https://www.facebook.com/reel/1259698219531332/",
+    "display_time": "2026-08-17T12:20:00+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1628673155283940",
+    "evidence": "data/history_progress/history-completion-20261107-007.json",
+    "reason": "貼文為影片文字截取且媒體未分析，內容意義不明且與投資無關或情緒不明，依規則標記為待確認/跳過。"
+  },
+  {
+    "key": "facebook:1629435205207735",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0BaXyVMKvDPkLvQ1uJMQaU7TGmocjZxnvT3Z59xVvEd1XHk9HnbsbBVPFmCCBxBrYl",
+    "display_time": "2026-08-18T09:41:59+08:00",
+    "status": "pending_confirmation",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": [
+      "data/quality_samples.json",
+      "data/history_batch_01_plan.json"
+    ],
+    "reason": "Previous test or review; original-author policy not re-generated or silently assumed validated"
+  },
+  {
+    "key": "threads:3966804636812428272",
+    "url": "https://www.threads.com/@banini31/post/DcM68zWk8Pw",
+    "display_time": "2026-08-19T08:39:44+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3966804636812428272",
+    "evidence": "data/history_progress/history-completion-20261107-008.json",
+    "reason": "英文短句無上下文、無明確投資情緒或持倉資訊，依原作者規則無法判定→跳過"
+  },
+  {
+    "key": "threads:3967992217718057018",
+    "url": "https://www.threads.com/@banini31/post/DcRI-YQmWg6",
+    "display_time": "2026-08-20T23:59:14+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3967992217718057018",
+    "evidence": "data/history_progress/history-completion-20261107-008.json",
+    "reason": "只有短筆記文字，與投資立場或情緒無關或無法判斷，依規則跳過。"
+  },
+  {
+    "key": "facebook:1632674428217146",
+    "url": "https://www.facebook.com/reel/923659410206797/",
+    "display_time": "2026-08-21T23:10:10+08:00",
+    "status": "technical_failure",
+    "stored_status": "technical_failure",
+    "record_key": "facebook:1632674428217146",
+    "evidence": "data/history_progress/history-completion-20261107-009.json",
+    "reason": "provider_http_error"
+  },
+  {
+    "key": "threads:3970178407434460369",
+    "url": "https://www.threads.com/@banini31/post/DcY6DoGDpzR",
+    "display_time": "2026-08-24T00:22:51+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3970178407434460369",
+    "evidence": "data/history_progress/history-completion-20261107-010.json",
+    "reason": "內容情緒模糊、只有抱怨與市場看法，且附影片未分析無法確定是否有個人交易或強烈情緒訊號，依規則待確認。"
+  },
+  {
+    "key": "facebook:1634512594699996",
+    "url": "https://www.facebook.com/reel/28310192458671946/",
+    "display_time": "2026-08-24T00:23:01+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1634512594699996",
+    "evidence": "data/history_progress/history-completion-20261107-010.json",
+    "reason": "內容情緒模糊且無明確自我持倉或交易動作（只是抱怨市場方向混亂與評論他股），根據規則屬於情緒不明或非投資決策貼文，跳過。"
+  },
+  {
+    "key": "facebook:1634810338003555",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0TZQEndQH8J1odG1fuTHZEjTCUab5qZxENrgNxKhEyykyzEyDnNd182w6EqicQ4ZAl",
+    "display_time": "2026-08-24T08:57:22+08:00",
+    "status": "technical_failure",
+    "stored_status": "technical_failure",
+    "record_key": "facebook:1634810338003555",
+    "evidence": "data/history_progress/history-completion-20261107-010.json",
+    "reason": "invalid_ticker_format"
+  },
+  {
+    "key": "threads:3970849556983265402",
+    "url": "https://www.threads.com/@banini31/post/DcbSqI0gTh6",
+    "display_time": "2026-08-24T22:36:18+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3970849556983265402",
+    "evidence": "data/history_progress/history-completion-20261107-010.json",
+    "reason": "僅為情緒安慰/勸說文字，無明確持倉或交易動作，屬於情緒模糊或非投資決策貼文，依規則跳過。"
+  },
+  {
+    "key": "facebook:1635311621286760",
+    "url": "https://www.facebook.com/reel/894922286727955/",
+    "display_time": "2026-08-24T22:36:30+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1635311621286760",
+    "evidence": "data/history_progress/history-completion-20261107-010.json",
+    "reason": "內容只是勸慰/泛泛情緒表達，無明確投資立場或動作，依規則跳過"
+  },
+  {
+    "key": "threads:3971208920530747764",
+    "url": "https://www.threads.com/@banini31/post/DcckXkNGQF0",
+    "display_time": "2026-08-25T10:30:15+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3971208920530747764",
+    "evidence": "data/history_progress/history-completion-20261107-010.json",
+    "reason": "contradictory_output_fields"
+  },
+  {
+    "key": "facebook:1636210244530231",
+    "url": "https://www.facebook.com/reel/1618772002935265/",
+    "display_time": "2026-08-25T23:12:55+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1636210244530231",
+    "evidence": "data/history_progress/history-completion-20261107-011.json",
+    "reason": "貼文只包含模糊情緒與未分析的影片，無明確投資立場或持倉動作，依規則待確認跳過。"
+  },
+  {
+    "key": "facebook:1638326184318637",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02J74EFoyiMKqeee8KUHj4e1kh5DVSM9CMbfgDGNhfv2HtdU1Rx68jdqoxu9cBKAqtl",
+    "display_time": "2026-08-28T10:15:46+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1638326184318637",
+    "evidence": "data/history_progress/history-completion-20261107-012.json",
+    "reason": "contradictory_output_fields"
+  },
+  {
+    "key": "facebook:1639514640866458",
+    "url": "https://www.facebook.com/reel/1607909284318858/",
+    "display_time": "2026-08-29T18:45:46+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1639514640866458",
+    "evidence": "data/history_progress/history-completion-20261107-012.json",
+    "reason": "生活日常文字，與投資無關或無法判定（影片未分析），依規則跳過"
+  },
+  {
+    "key": "facebook:1640562917428297",
+    "url": "https://www.facebook.com/reel/29266616599605070/",
+    "display_time": "2026-08-30T23:11:29+08:00",
+    "status": "technical_failure",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": [
+      "data/quality_samples.json",
+      "data/history_batch_01_plan.json"
+    ],
+    "reason": "Previous test or review; original-author policy not re-generated or silently assumed validated; preserved input error: video_or_unknown_media_requires_review"
+  },
+  {
+    "key": "threads:3975826775481777809",
+    "url": "https://www.threads.com/@banini31/post/Dcs-WMxE_6R",
+    "display_time": "2026-08-31T19:25:07+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3975826775481777809",
+    "evidence": "data/history_progress/history-completion-20261107-012.json",
+    "reason": "貼文主要是聊天與威脅/宣言，沒有明確投資持倉或情緒指向，且圖片為群組聊天截圖屬被動轉貼或對話，無法判定投資情緒，依規則跳過"
+  },
+  {
+    "key": "facebook:1641729327311656",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02gQsLLpKikJCrqrCKDDm5tDKHzFEAL8LpyrqzzbmjXYZXViDvZkC5mqMhHr7vuzxml",
+    "display_time": "2026-09-01T09:01:11+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1641729327311656",
+    "evidence": "data/history_progress/history-completion-20261107-012.json",
+    "reason": "貼文與圖片顯示為情緒或系統錯誤表達（物理性阻擋、系統繁忙提示），無明確投資立場或交易動作，屬於無關或無法判定情緒的貼文，跳過。"
+  },
+  {
+    "key": "threads:3976670236946722691",
+    "url": "https://www.threads.com/@banini31/post/Dcv-ILeE--D",
+    "display_time": "2026-09-01T23:20:57+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3976670236946722691",
+    "evidence": "data/history_progress/history-completion-20261107-013.json",
+    "reason": "討論展會與配置改變為未具體投資決策或情緒不明；包含廣告感謝與影片未分析，無法判定投資情緒，依規定跳過"
+  },
+  {
+    "key": "facebook:1642260133925242",
+    "url": "https://www.facebook.com/reel/1344136827503775/",
+    "display_time": "2026-09-01T23:21:08+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1642260133925242",
+    "evidence": "data/history_progress/history-completion-20261107-013.json",
+    "reason": "內容為市場觀點與改配置意圖，但沒有明確述及自身持倉變動或當下情緒，且附影片未分析，依規則無法判定投資立場→跳過"
+  },
+  {
+    "key": "threads:3977738069172942215",
+    "url": "https://www.threads.com/@banini31/post/Dczw7LumfWH",
+    "display_time": "2026-09-03T10:42:30+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3977738069172942215",
+    "evidence": "data/history_progress/history-completion-20261107-013.json",
+    "reason": "貼文語句含糊、與投資行為或情緒無明確關聯，根據規則為待確認類型；跳過"
+  },
+  {
+    "key": "facebook:1643940687090520",
+    "url": "https://www.facebook.com/reel/4484843558455744/",
+    "display_time": "2026-09-03T22:33:59+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1643940687090520",
+    "evidence": "data/history_progress/history-completion-20261107-013.json",
+    "reason": "貼文只有抱怨/宣傳與含糊玩笑（無明確投資立場或情緒訊號），依規則跳過"
+  },
+  {
+    "key": "facebook:1644296170388305",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02TzxNtq7NwDn6qXhh67kMT4UFJi5pRKni5Rw37Vcnu5DVCpzDFhhBHbEuRV5Cti4Hl",
+    "display_time": "2026-09-04T08:47:31+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1644296170388305",
+    "evidence": "data/history_progress/history-completion-20261107-013.json",
+    "reason": "貼文語句含糾結/希望但沒有明確持倉或交易動作，且引用內容與投資持倉無關或只是抱怨/募款式訊息，依規則無法判定為投資情緒訊號，故跳過"
+  },
+  {
+    "key": "facebook:1644567720361150",
+    "url": "https://www.facebook.com/reel/919300347914420/",
+    "display_time": "2026-09-04T16:11:55+08:00",
+    "status": "technical_failure",
+    "stored_status": "technical_failure",
+    "record_key": "facebook:1644567720361150",
+    "evidence": "data/history_progress/history-completion-20261107-014.json",
+    "reason": "provider_http_error"
+  },
+  {
+    "key": "facebook:1644925936991995",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02zEejyGeLh7mGC3FQ8b3Hu3SeFPqFuSvnc24xpGvUTuVcVohh6EDdeg26nuieNepsl",
+    "display_time": "2026-09-05T00:26:08+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1644925936991995",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "文字單一句「穩了」無明確投資情緒或持倉資訊，且附圖為商品/模型展示，無法判定投資立場，依規則跳過。"
+  },
+  {
+    "key": "threads:3981044309394915733",
+    "url": "https://www.threads.com/@banini31/post/Dc_grT4kwGV",
+    "display_time": "2026-09-08T00:11:27+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3981044309394915733",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "僅為未分析影片中的願望/計畫性文字，無明確投資情緒或持倉動作，依規則跳過。"
+  },
+  {
+    "key": "facebook:1647832213368034",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid08aLyMLAVJmS4n1iEMoFLcaxZpWdRSctJumDmtbN3z6249wtZ2oYTJttAaGU944NNl",
+    "display_time": "2026-09-08T09:10:37+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1647832213368034",
+    "evidence": "data/history_progress/history-completion-20261107-015.json",
+    "reason": "contradictory_output_fields"
+  },
+  {
+    "key": "threads:3981333267379483868",
+    "url": "https://www.threads.com/@banini31/post/DdAiYM-mXTc",
+    "display_time": "2026-09-08T09:45:32+08:00",
+    "status": "pending_confirmation",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": [
+      "data/quality_samples.json",
+      "data/history_batch_01_plan.json"
+    ],
+    "reason": "Previous test or review; original-author policy not re-generated or silently assumed validated"
+  },
+  {
+    "key": "threads:3982054325774574238",
+    "url": "https://www.threads.com/@banini31/post/DdDGU-8GeKe",
+    "display_time": "2026-09-09T09:38:08+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3982054325774574238",
+    "evidence": "data/history_progress/history-completion-20261107-016.json",
+    "reason": "僅描述價格回復與心情符號，無明確持倉或交易動作且情緒不明確，屬於無法判定的中性貼文"
+  },
+  {
+    "key": "threads:3982460560196312214",
+    "url": "https://www.threads.com/@banini31/post/DdEiseOgRyW",
+    "display_time": "2026-09-09T23:05:18+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3982460560196312214",
+    "evidence": "data/history_progress/history-completion-20261107-016.json",
+    "reason": "貼文只是一句短句且沒有明確投資相關情緒或動作，無法判定是否與投資有關，依規則跳過並標記待確認。"
+  },
+  {
+    "key": "threads:3984534794318484493",
+    "url": "https://www.threads.com/@banini31/post/DdL6UjSiZQN",
+    "display_time": "2026-09-12T19:46:25+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3984534794318484493",
+    "evidence": "data/history_progress/history-completion-20261107-016.json",
+    "reason": "引用影片未分析且文中無明確提到發文者的持倉或交易動作，投資情緒不明確，依規則跳過"
+  },
+  {
+    "key": "facebook:1652757396208849",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid07yQ2rUecECZj9wV4Edem5rQrdbK7ErLopasrZ3aYsLYhVfCSBgbWUxs87cVKAq8al",
+    "display_time": "2026-09-14T00:41:36+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1652757396208849",
+    "evidence": "data/history_progress/history-completion-20261107-016.json",
+    "reason": "貼文內容情緒模糊且未明確提及個人持倉或交易動作，且圖片無法分析，依規則無法判定是否與投資相關，標記為待確認。"
+  },
+  {
+    "key": "facebook:1653020096182579",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0XXchjrPC8VRKUZu1LNkprRXKA7mDsJWXRos2hefRTsMoFBJpkFnCof2Np1i48xLcl",
+    "display_time": "2026-09-14T08:51:11+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1653020096182579",
+    "evidence": "data/history_progress/history-completion-20261107-016.json",
+    "reason": "文字情緒模糊且缺乏明確投資動作（圖片無法解析），依原作者規則無法判定是否為投資相關情緒，需補圖或更多資訊後再判定。"
+  },
+  {
+    "key": "threads:3986461686903670719",
+    "url": "https://www.threads.com/@banini31/post/DdSwch2mQe_",
+    "display_time": "2026-09-15T11:34:47+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3986461686903670719",
+    "evidence": "data/history_progress/history-completion-20261107-017.json",
+    "reason": "發文明確說完全不知道怎麼操作，表示本人無投資立場或無法判斷情緒，按規則跳過。"
+  },
+  {
+    "key": "facebook:1654271576057431",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid06CQsS8J2wHntjrpDuu6C2TxCx9TLsaqbUEw5Dm5yFBNJHwWASidyft3WM4csTbJcl",
+    "display_time": "2026-09-15T19:33:44+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1654271576057431",
+    "evidence": "data/history_progress/history-completion-20261107-017.json",
+    "reason": "文字含糊（像是感嘆/不確定被賣掉），附圖為車窗風景，無明確投資持倉或交易情緒，依規則跳過。"
+  },
+  {
+    "key": "threads:3986702757176535755",
+    "url": "https://www.threads.com/@banini31/post/DdTnQkCk-rL",
+    "display_time": "2026-09-15T19:33:45+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1654271576057431",
+    "evidence": "data/history_progress/history-completion-20261107-017.json",
+    "reason": "文字含糊（像是感嘆/不確定被賣掉），附圖為車窗風景，無明確投資持倉或交易情緒，依規則跳過。"
+  },
+  {
+    "key": "threads:3986872678347273907",
+    "url": "https://www.threads.com/@banini31/post/DdUN5PdmXaz",
+    "display_time": "2026-09-16T01:11:21+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3986872678347273907",
+    "evidence": "data/history_progress/history-completion-20261107-017.json",
+    "reason": "貼文文字極短且無明確投資相關內容／情緒，圖片為手錶圖示無投資線索，無法判定是否與投資有關，依規則標記跳過並待確認。"
+  },
+  {
+    "key": "threads:3987409652849319049",
+    "url": "https://www.threads.com/@banini31/post/DdWH_P8DByJ",
+    "display_time": "2026-09-16T18:58:15+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3987409652849319049",
+    "evidence": "data/history_progress/history-completion-20261107-017.json",
+    "reason": "只有斷裂句式詩意文字，無明確投資相關情緒或動作，依規則無法判定需跳過"
+  },
+  {
+    "key": "facebook:1655108109307111",
+    "url": "https://www.facebook.com/reel/1580343806889465/",
+    "display_time": "2026-09-16T18:58:36+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1655108109307111",
+    "evidence": "data/history_progress/history-completion-20261107-017.json",
+    "reason": "文字片段含糾結/劇情式描述，且與投資動作或情緒無明確關聯，依規則無法判定需待確認。"
+  },
+  {
+    "key": "threads:3990477748527805750",
+    "url": "https://www.threads.com/@banini31/post/DdhBl6tGbU2",
+    "display_time": "2026-09-21T00:33:59+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3990477748527805750",
+    "evidence": "data/history_progress/history-completion-20261107-018.json",
+    "reason": "contradictory_output_fields"
+  },
+  {
+    "key": "threads:3991477554377251934",
+    "url": "https://www.threads.com/@banini31/post/Ddkk7Admdxe",
+    "display_time": "2026-09-22T09:40:25+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3991477554377251934",
+    "evidence": "data/history_progress/history-completion-20261107-018.json",
+    "reason": "貼文文字模糊只有「我好感動⋯ 終於」無明確投資情緒或動作；圖片顯示指數/ETF數字但未表明為發文者持倉或情緒，依規則無法判定投資立場，跳過。"
+  },
+  {
+    "key": "facebook:1660497925434796",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0LBBtoy5xzW4517NDY2XPgfFW3xG6KRBFQD3hTjWRQHqYYhLPRfdTzqHvsAtgGTwPl",
+    "display_time": "2026-09-23T00:16:32+08:00",
+    "status": "technical_failure",
+    "stored_status": "technical_failure",
+    "record_key": "facebook:1660497925434796",
+    "evidence": "data/history_progress/history-completion-20261107-019.json",
+    "reason": "provider_http_error"
+  },
+  {
+    "key": "threads:3992181950169821287",
+    "url": "https://www.threads.com/@banini31/post/DdnFFUKmTBn",
+    "display_time": "2026-09-23T08:59:55+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3992181950169821287",
+    "evidence": "data/history_progress/history-completion-20261107-020.json",
+    "reason": "文字內容語意模糊，僅表示看到類似圖片效果後冷掉，無明確持倉或交易情緒/動作，屬於無法判定的投資關聯貼文，依規則跳過。"
+  },
+  {
+    "key": "facebook:1663843951766860",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02FPuLQAv2Rpv9V1mu2K3qTn6rQ6xcNaaweNTLMbQJyVbVwGcVxJpArfN62NzVTYJ4l",
+    "display_time": "2026-09-26T15:21:36+08:00",
+    "status": "input_failure",
+    "stored_status": "input_failure",
+    "record_key": "facebook:1663843951766860",
+    "evidence": "data/history_progress/history-completion-20261107-020.json",
+    "reason": "media_refresh_already_attempted_no_retry"
+  },
+  {
+    "key": "threads:3995863016709627007",
+    "url": "https://www.threads.com/@banini31/post/Dd0KD4iGRx_",
+    "display_time": "2026-09-28T10:53:33+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3995863016709627007",
+    "evidence": "data/history_progress/history-completion-20261107-020.json",
+    "reason": "發文只有短英文情緒性文字與一張指數截圖，未提及個人持倉或交易行為，投資立場不明，依規則跳過。"
+  },
+  {
+    "key": "threads:3996263338018367259",
+    "url": "https://www.threads.com/@banini31/post/Dd1lFUzgGcb",
+    "display_time": "2026-09-29T00:08:55+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3996263338018367259",
+    "evidence": "data/history_progress/history-completion-20261107-021.json",
+    "reason": "貼文內容含有情緒描述但未提及任何投資動作或持倉，難以判定與投資立場，依規則此類模糊/非投資貼文跳過。"
+  },
+  {
+    "key": "threads:3999166911804435004",
+    "url": "https://www.threads.com/@banini31/post/Dd_5R4nmWo8",
+    "display_time": "2026-10-03T00:17:48+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:3999166911804435004",
+    "evidence": "data/history_progress/history-completion-20261107-022.json",
+    "reason": "僅有模糊短句『漲翻了⋯_(:_」∠)_』沒有明確表達持倉、交易動作或可判定情緒（既非明顯亢奮也非痛苦），依規則無法判定，給予跳過。"
+  },
+  {
+    "key": "facebook:1671838414300747",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02Q95J9MuPn1NHeLtRt7DTbuY3vW9fiVcykJYETJMEJRugPPsHsMGYMHhQ8uG32vmdl",
+    "display_time": "2026-10-04T18:41:09+08:00",
+    "status": "input_failure",
+    "stored_status": "input_failure",
+    "record_key": "facebook:1671838414300747",
+    "evidence": "data/history_progress/history-completion-20261107-022.json",
+    "reason": "media_refresh_already_attempted_no_retry"
+  },
+  {
+    "key": "threads:4001017695143813611",
+    "url": "https://www.threads.com/@banini31/post/DeGeGU7GWHr",
+    "display_time": "2026-10-05T13:34:58+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:4001017695143813611",
+    "evidence": "data/history_progress/history-completion-20261107-023.json",
+    "reason": "內容僅提到誤判買入價與圖片數字表格，情緒與投資立場不明確，依規則為待確認/非投資訊號類型。"
+  },
+  {
+    "key": "threads:4001676363577286598",
+    "url": "https://www.threads.com/@banini31/post/DeIz3NtGd_G",
+    "display_time": "2026-10-06T11:23:38+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:4001676363577286598",
+    "evidence": "data/history_progress/history-completion-20261107-023.json",
+    "reason": "原文短且無明確投資情緒或動作（僅罵髒話），依規則無法判定是否與投資相關，標記為跳過。"
+  },
+  {
+    "key": "threads:4001891695529102192",
+    "url": "https://www.threads.com/@banini31/post/DeJk0tNmQtw",
+    "display_time": "2026-10-06T18:31:27+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:4001891695529102192",
+    "evidence": "data/history_progress/history-completion-20261107-023.json",
+    "reason": "內容僅「誓救822 嗚嗚」過於模糊，無法判斷是否與投資行為或情緒有關，依規定標記為跳過並待確認。"
+  },
+  {
+    "key": "facebook:1677083933776195",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02KWrXycGuhhwybdSC9Wd4gycXqWrToUEZ3FLnjY1JZWvKikVesD9r9kE9KNL9MQ5Xl",
+    "display_time": "2026-10-10T10:54:33+08:00",
+    "status": "input_failure",
+    "stored_status": "input_failure",
+    "record_key": "facebook:1677083933776195",
+    "evidence": "data/history_progress/history-completion-20261107-023.json",
+    "reason": "refreshed_media_unavailable"
+  },
+  {
+    "key": "facebook:1678910576926864",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02pQ2cpL9uxozzVnzhWjeLkEZaCpMLzq8StAre2qcPgi5T5TQn7aK5BWoo5e53jwJal",
+    "display_time": "2026-10-12T08:44:32+08:00",
+    "status": "technical_failure",
+    "stored_status": "technical_failure",
+    "record_key": "facebook:1678910576926864",
+    "evidence": "data/history_progress/history-completion-20261107-024.json",
+    "reason": "provider_http_error"
+  },
+  {
+    "key": "facebook:1684876712996917",
+    "url": "https://www.facebook.com/reel/1104211675725950/",
+    "display_time": "2026-10-18T11:56:39+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1684876712996917",
+    "evidence": "data/history_progress/history-completion-20261107-025.json",
+    "reason": "內容含模糊威脅/計畫但沒有任何投資相關情緒或持倉/交易行為可判定，依規則跳過。"
+  },
+  {
+    "key": "facebook:1687261832758405",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0PtfF5qBJfWVRshB6qr2yLjccH5GPLCYVwQVCPFKou9qo6EVDvoyKzobeCFiKdWqKl",
+    "display_time": "2026-10-20T22:29:59+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1687261832758405",
+    "evidence": "data/history_progress/history-completion-20261107-026.json",
+    "reason": "文字詢問 Terafab 並無明確表態或交易行為，情緒不確定需待確認"
+  },
+  {
+    "key": "threads:4013300040710323046",
+    "url": "https://www.threads.com/@banini31/post/DeyGx-nmXtm",
+    "display_time": "2026-10-22T12:17:48+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:4013300040710323046",
+    "evidence": "data/history_progress/history-completion-20261107-026.json",
+    "reason": "貼文僅有單字「復活！」且無上下文或持倉/操作資訊，無法判定是否與投資相關或情緒立場，依規則跳過。"
+  },
+  {
+    "key": "threads:4013355304012566409",
+    "url": "https://www.threads.com/@banini31/post/DeyTWKlGU-J",
+    "display_time": "2026-10-22T14:07:36+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:4013355304012566409",
+    "evidence": "data/history_progress/history-completion-20261107-026.json",
+    "reason": "貼文與截圖僅顯示資產趨勢圖及數字片段（995...），未明確表達投資情緒或交易動作，無法判定是否為投資相關情緒訊號，依規則pending_confirmation。"
+  },
+  {
+    "key": "facebook:1692061625611759",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02jGDGURMQTX3x8bN4g19dqoQ2f6Ts7yupHy4BLjDdg7YJkm5cw9Yk4tY3E6okZornl",
+    "display_time": "2026-10-25T23:34:51+08:00",
+    "status": "input_failure",
+    "stored_status": "input_failure",
+    "record_key": "facebook:1692061625611759",
+    "evidence": "data/history_progress/history-completion-20261107-026.json",
+    "reason": "media_refresh_already_attempted_no_retry"
+  },
+  {
+    "key": "facebook:1693100245507897",
+    "url": "https://www.facebook.com/reel/1103668618943035/",
+    "display_time": "2026-10-27T00:32:25+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1693100245507897",
+    "evidence": "data/history_progress/history-completion-20261107-027.json",
+    "reason": "貼文內容為籠統安慰/宣稱（沒有明確提到個人持倉或交易動作），且包含未分析影片，依規則無法判定投資情緒→跳過"
+  },
+  {
+    "key": "threads:4016570723686326822",
+    "url": "https://www.threads.com/@banini31/post/De9ucrgjqIm",
+    "display_time": "2026-10-27T00:36:06+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:4016570723686326822",
+    "evidence": "data/history_progress/history-completion-20261107-027.json",
+    "reason": "內容圍繞自我外表與一句籠統安慰「台股沒事的」，沒有明確投資立場或強烈情緒，屬於模糊/與投資無關的貼文。"
+  },
+  {
+    "key": "threads:4016823237825133030",
+    "url": "https://www.threads.com/@banini31/post/De-n3PoGfnm",
+    "display_time": "2026-10-27T08:57:46+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:4016823237825133030",
+    "evidence": "data/history_progress/history-completion-20261107-027.json",
+    "reason": "內容只有一句泛泛的「是不是有點小緊張啊」，情緒與投資行為關聯模糊，無法判定投資立場或強烈情緒，依規則標為跳過。"
+  },
+  {
+    "key": "threads:4016869462100271392",
+    "url": "https://www.threads.com/@banini31/post/De-yX5VmeEg",
+    "display_time": "2026-10-27T10:29:36+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:4016869462100271392",
+    "evidence": "data/history_progress/history-completion-20261107-027.json",
+    "reason": "貼文語句模糊（情緒與標的不明），圖片顯示委託單筆數0，未顯示下單或持倉資訊，依規則無法判定投資立場，pending"
+  },
+  {
+    "key": "facebook:1694725472012041",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0iVSLRnT56c4dX859eabsUywpBe8H3Z6ALuDYSjYCjzj54HUtigmgQTAgSZnaBxool",
+    "display_time": "2026-10-28T12:23:42+08:00",
+    "status": "input_failure",
+    "stored_status": "input_failure",
+    "record_key": "facebook:1694725472012041",
+    "evidence": "data/history_progress/history-completion-20261107-028.json",
+    "reason": "refreshed_media_unavailable"
+  },
+  {
+    "key": "threads:4018029249265500858",
+    "url": "https://www.threads.com/@banini31/post/DfC6FBTmYK6",
+    "display_time": "2026-10-29T00:53:53+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:4018029249265500858",
+    "evidence": "data/history_progress/history-completion-20261107-028.json",
+    "reason": "文字與圖片情緒模糊，無明確投資立場或情緒指向，無法判定是否與交易相關，依規則跳過（pending）。"
+  },
+  {
+    "key": "facebook:1695345725283349",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0n1SbWNJ5J1s1CX9QRtdm5hT8wNvUmoznW3xEX6Wpz71Kmnmi8UehxmW9QA2wJpiel",
+    "display_time": "2026-10-29T02:10:19+08:00",
+    "status": "input_failure",
+    "stored_status": "input_failure",
+    "record_key": "facebook:1695345725283349",
+    "evidence": "data/history_progress/history-completion-20261107-028.json",
+    "reason": "refreshed_media_unavailable"
+  },
+  {
+    "key": "threads:4018555144178827832",
+    "url": "https://www.threads.com/@banini31/post/DfExpzHGQI4",
+    "display_time": "2026-10-29T18:18:45+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:4018555144178827832",
+    "evidence": "data/history_progress/history-completion-20261107-028.json",
+    "reason": "僅談能撐到大盤再跌20%，沒有明確表達持倉、情緒或交易動作，屬於模糊/無投資立場貼文，依規則跳過"
+  },
+  {
+    "key": "facebook:1696581131826475",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0euW28fo5eBPr4X7SsmhcDaoVxD1Un5iz7SkPvY23szM8j9mV73JoHmcVgzw8xs5el",
+    "display_time": "2026-10-30T08:05:00+08:00",
+    "status": "pending_confirmation",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": [
+      "data/quality_samples.json",
+      "data/history_batch_01_plan.json"
+    ],
+    "reason": "Previous test or review; original-author policy not re-generated or silently assumed validated"
+  },
+  {
+    "key": "threads:4019030137849324500",
+    "url": "https://www.threads.com/@banini31/post/DfGdp3cGSPU",
+    "display_time": "2026-10-30T10:02:29+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:4019030137849324500",
+    "evidence": "data/history_progress/history-completion-20261107-028.json",
+    "reason": "短句諷刺整體市場走勢，沒提個人持倉或情緒，屬於模糊/非投資立場貼文"
+  },
+  {
+    "key": "threads:4019397023426120729",
+    "url": "https://www.threads.com/@banini31/post/DfHxEwQk4wZ",
+    "display_time": "2026-10-30T22:11:25+08:00",
+    "status": "technical_failure",
+    "stored_status": "technical_failure",
+    "record_key": "threads:4019397023426120729",
+    "evidence": "data/history_progress/history-completion-20261107-029.json",
+    "reason": "provider_http_error"
+  },
+  {
+    "key": "threads:4019411110490389007",
+    "url": "https://www.threads.com/@banini31/post/DfH0Rv3CboP",
+    "display_time": "2026-10-30T22:39:26+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:4019411110490389007",
+    "evidence": "data/history_progress/history-completion-20261107-030.json",
+    "reason": "僅有模糊情緒宣洩與影片未分析，無法判定是否與投資或具體持倉/交易相關，依規則跳過"
+  },
+  {
+    "key": "facebook:1697221465095775",
+    "url": "https://www.facebook.com/reel/1658738105594536/",
+    "display_time": "2026-10-30T22:53:24+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1697221465095775",
+    "evidence": "data/history_progress/history-completion-20261107-030.json",
+    "reason": "情緒模糊、未提及投資相關內容或持倉/交易動作，無法判定是否為投資貼文，依規定跳過"
+  },
+  {
+    "key": "facebook:1699682981516290",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0LGeaWsBbZvrCBGLpgTbYso5Jps5QjRnp64aMnWZSEefjNiU3yR8njj4wnNrwRrrvl",
+    "display_time": "2026-11-02T09:11:47+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1699682981516290",
+    "evidence": "data/history_progress/history-completion-20261107-030.json",
+    "reason": "貼文語氣猶豫且只有短句疑問，情緒模糊無明確投資立場；雖附成交畫面但未表明是自己下單或情緒（需進一步確認），依規則待確認應標示跳過。"
+  },
+  {
+    "key": "threads:4021225916827511230",
+    "url": "https://www.threads.com/@banini31/post/DfOQ6p-GSm-",
+    "display_time": "2026-11-02T10:45:06+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:4021225916827511230",
+    "evidence": "data/history_progress/history-completion-20261107-030.json",
+    "reason": "文字模糊（只說想買，但沒有明確投資立場或強烈情緒），依規則為無法判定且非明確投資訊號，跳過"
+  },
+  {
+    "key": "facebook:1700042071480381",
+    "url": "https://www.facebook.com/reel/1807869340130340/",
+    "display_time": "2026-11-02T18:11:47+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1700042071480381",
+    "evidence": "data/history_progress/history-completion-20261107-030.json",
+    "reason": "只有宣告/提到直播精華且影片未分析，無明確持倉或情緒表態，屬於活動/內容通知或無法判定的貼文，跳過"
+  },
+  {
+    "key": "facebook:1700739848077270",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0QLS7RfJ7kwGj1ct2QuwXyXsWpc3JFPPJmErLch4T9ZjHPPuVAgAvCtYknCCPDHVXl",
+    "display_time": "2026-11-03T11:09:22+08:00",
+    "status": "technical_failure",
+    "stored_status": "technical_failure",
+    "record_key": "facebook:1700739848077270",
+    "evidence": "data/history_progress/history-completion-20261107-031.json",
+    "reason": "invalid_ticker_format"
+  },
+  {
+    "key": "facebook:1700801464737775",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02jJceL7bYipqZizXBXgTFv5g1SNkbKnuEgiRWyBqmVevUiVUVQ3BNi3yNbNTF56UVl",
+    "display_time": "2026-11-03T12:39:33+08:00",
+    "status": "technical_failure",
+    "stored_status": "technical_failure",
+    "record_key": "facebook:1700801464737775",
+    "evidence": "data/history_progress/history-completion-20261107-031.json",
+    "reason": "invalid_ticker_format"
+  },
+  {
+    "key": "facebook:1701657014652220",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0TLQUEWb6eohHKrDMRc1EzUEWiQ2ctMSyYfcdBwhGFfXhWZTo9RdHf6PurPWPeke6l",
+    "display_time": "2026-11-04T09:05:14+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1701657014652220",
+    "evidence": "data/history_progress/history-completion-20261107-031.json",
+    "reason": "文中猶豫是否為死貓跳/反彈，情緒不明確且帶疑問；圖片為即時報價截圖但未表明本人持倉或交易動作，依規則為待判定跳過。"
+  },
+  {
+    "key": "threads:4022686058848824985",
+    "url": "https://www.threads.com/@banini31/post/DfTc6hMma6Z",
+    "display_time": "2026-11-04T11:06:09+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:4022686058848824985",
+    "evidence": "data/history_progress/history-completion-20261107-031.json",
+    "reason": "貼文只有一句英文感嘆且無具體投資立場或情緒線索，無法判定是否與投資相關，依規則跳過並標記待確認。"
+  },
+  {
+    "key": "threads:4023093022586172008",
+    "url": "https://www.threads.com/@banini31/post/DfU5cntmfJo",
+    "display_time": "2026-11-05T00:34:42+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:4023093022586172008",
+    "evidence": "data/history_progress/history-completion-20261107-031.json",
+    "reason": "文字內容不明且無法判斷是否與投資情緒或動作相關，依規定標記為跳過並待確認"
+  },
+  {
+    "key": "facebook:1702487071235881",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0vzGJfezAr6mDRnz1VmhY5avBR5HhZXiRE5pxW7MrGstFaoUc1upnZZWXG1nD7BFjl",
+    "display_time": "2026-11-05T03:04:10+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": "media_http_status_rejected",
+    "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+    "generation_attempts": 0,
+    "auto_retry": false
+  },
+  {
+    "key": "facebook:1702731291211459",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid035tHJPGrDoLRNT1A9XfjfBXvDSyrmn5iWmw2KR3FDGtACoaExAgTaYHC8v88ySNUWl",
+    "display_time": "2026-11-05T09:23:04+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": "media_http_status_rejected",
+    "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+    "generation_attempts": 0,
+    "auto_retry": false
+  },
+  {
+    "key": "threads:4023406251229152584",
+    "url": "https://www.threads.com/@banini31/post/DfWAqsnmYVI",
+    "display_time": "2026-11-05T10:57:02+08:00",
+    "status": "technical_failure",
+    "stored_status": "technical_failure",
+    "record_key": "threads:4023406251229152584",
+    "evidence": "data/history_progress/history-completion-20261107-032.json",
+    "reason": "invalid_ticker_format"
+  },
+  {
+    "key": "facebook:1702897424528179",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02FgHSPLV7qxuLxZPP3DLuZoNFMduPa9PpMuQ45gmmdEPFrPfgom5cGkwh8DeLcb1Kl",
+    "display_time": "2026-11-05T13:17:14+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": "media_http_status_rejected",
+    "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+    "generation_attempts": 0,
+    "auto_retry": false
+  },
+  {
+    "key": "facebook:1703163464501575",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02o4AKSbPWCCPWpq62E1UnSNcUdfWCHRfSEAEruZ7RW4fH6sdqB6oXioXAGkmzVnCrl",
+    "display_time": "2026-11-05T19:46:58+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": "media_http_status_rejected",
+    "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+    "generation_attempts": 0,
+    "auto_retry": false
+  },
+  {
+    "key": "facebook:1490457366336470",
+    "url": "https://www.facebook.com/DieWithoutBang/videos/1490457366336470/",
+    "display_time": "2026-11-05T22:38:53+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1490457366336470",
+    "evidence": "data/history_progress/history-completion-20261107-032.json",
+    "reason": "內容模糊無明確投資立場或情緒，且僅有影片未分析，依規定無法判定→跳過"
+  },
+  {
+    "key": "threads:4023823803965107814",
+    "url": "https://www.threads.com/@banini31/post/DfXfm46Ge5m",
+    "display_time": "2026-11-06T00:46:38+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:4023823803965107814",
+    "evidence": "data/history_progress/history-completion-20261107-032.json",
+    "reason": "單一句「我不行了⋯⋯」情緒模糊、無法判斷是否與投資相關，依規定跳過並標示待確認。"
+  },
+  {
+    "key": "facebook:1703429887808266",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0YAJxviLNDv2BGBsdTXgEsHe6YvfRZtgBC3yrc6WksVY3wPGiAc4RsAPYNtx8t1i5l",
+    "display_time": "2026-11-06T00:47:04+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": "media_http_status_rejected",
+    "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+    "generation_attempts": 0,
+    "auto_retry": false
+  },
+  {
+    "key": "threads:4023888423198910089",
+    "url": "https://www.threads.com/@banini31/post/DfXuTOQk-aJ",
+    "display_time": "2026-11-06T02:55:01+08:00",
+    "status": "pending_confirmation",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": [
+      "data/quality_samples.json",
+      "data/history_batch_01_plan.json"
+    ],
+    "reason": "Previous test or review; original-author policy not re-generated or silently assumed validated"
+  },
+  {
+    "key": "facebook:1703740244443897",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid08wkUP46KGJHSyn1sEhxNV7GG8xZah94T9bVfGe5rfkr9FWtXq4ygRLkYDm9MAqfzl",
+    "display_time": "2026-11-06T08:26:00+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": "media_http_status_rejected",
+    "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+    "generation_attempts": 0,
+    "auto_retry": false
+  },
+  {
+    "key": "facebook:1703774981107090",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid03143n7ECXc3swjAwzFvjXJFrfksuaecAmRtRR5uV5yaYAvtNQVrh2WDpG1ciUKMXsl",
+    "display_time": "2026-11-06T09:15:20+08:00",
+    "status": "pending_confirmation",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": [
+      "data/quality_samples.json",
+      "data/social_smoke_results.json",
+      "data/quality_cached_review.json",
+      "data/history_batch_01_plan.json",
+      "data/social_posts.json:analysis"
+    ],
+    "reason": "Previous test or review; original-author policy not re-generated or silently assumed validated"
+  },
+  {
+    "key": "facebook:1703792734438648",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid037J5afqWKJv53P9DQt53pwWgXp4e9Lbbwp3fJBQZWf4EPZfakWZGf2GMGHUuEHSdBl",
+    "display_time": "2026-11-06T09:40:10+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": "required_refreshed_images_unavailable",
+    "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+    "generation_attempts": 0,
+    "auto_retry": false
+  },
+  {
+    "key": "threads:4024145772782621524",
+    "url": "https://www.threads.com/@banini31/post/DfYo0JvGRNU",
+    "display_time": "2026-11-06T11:26:20+08:00",
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:4024145772782621524",
+    "evidence": "data/history_progress/history-completion-20261107-032.json",
+    "reason": "文字含糊且無明確投資情緒或持倉/交易行為，無法判定是否與投資決策相關，依規定跳過並標記待確認。"
+  },
+  {
+    "key": "facebook:1704381977713057",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02kBj3Uxp5CURaSThii1CG1Y7ujWoYAVTKv7ZcE4zE7otPMcLGRX7E9wp1aH65jen5l",
+    "display_time": "2026-11-06T22:03:04+08:00",
+    "status": "technical_failure",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": [
+      "data/social_posts.json:analysis"
+    ],
+    "reason": "Previous test or review; original-author policy not re-generated or silently assumed validated; preserved archive error: OSError"
+  },
+  {
+    "key": "threads:4024468641932717746",
+    "url": "https://www.threads.com/t/DfZyOhEGS6y",
+    "display_time": "2026-11-06T22:07:49+08:00",
+    "status": "pending_confirmation",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": [
+      "data/quality_samples.json",
+      "data/social_smoke_results.json",
+      "data/quality_cached_review.json",
+      "data/history_batch_01_plan.json",
+      "data/social_posts.json:analysis"
+    ],
+    "reason": "Previous test or review; original-author policy not re-generated or silently assumed validated"
+  },
+  {
+    "key": "facebook:1704945814323340",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02SKKe6t1xozYuPPTpT1dezwLh49AYvwJDQgqZpvHNx4eW9m8hhY127syMwEfwgA2Gl",
+    "display_time": "2026-11-07T10:23:30+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": "media_http_status_rejected",
+    "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+    "generation_attempts": 0,
+    "auto_retry": false
+  },
+  {
+    "key": "facebook:1705156784302243",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02HVzyozMABc2YGDoXvrdLj2mb7jaUXuuDMvBGvZyzwFeUVfkkyS3PU1wNRbkDrwg7l",
+    "display_time": "2026-11-07T15:09:17+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": "media_http_status_rejected",
+    "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+    "generation_attempts": 0,
+    "auto_retry": false
+  },
+  {
+    "key": "facebook:1705237887627466",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid035ydhaSUH8aqj99cm6yxckf9sbjK9Ez8udykEy2RmFBmFAYGpykhp2j2bBTnu8uvHl",
+    "display_time": "2026-11-07T17:08:22+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": "media_http_status_rejected",
+    "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+    "generation_attempts": 0,
+    "auto_retry": false
+  }
+]
