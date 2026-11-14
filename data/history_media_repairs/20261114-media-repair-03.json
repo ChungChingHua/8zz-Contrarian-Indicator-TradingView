@@ -8,7 +8,7 @@
         "threads:4024090220249602678",
         "threads:4025043302263849308"
       ],
-      "status": "READY",
+      "status": "SUCCEEDED",
       "posts": {},
       "input": {
         "mode": "urls",
@@ -21,7 +21,7 @@
       },
       "id": "fPBlsZbRm65xzhyGX",
       "startedAt": "2026-11-14T07:21:30.049Z",
-      "finishedAt": null,
+      "finishedAt": "2026-11-14T07:21:36.788Z",
       "buildId": "1MVQMWBVN6xDpnUfb",
       "buildNumber": "0.1.72",
       "defaultDatasetId": "COJDJEKRg8kj5Nkw5",
@@ -37,17 +37,17 @@
       },
       "usageTotalUsd": 0,
       "chargedEventCounts": {
-        "start": 0,
+        "start": 1,
         "profile": 0,
-        "post": 0
+        "post": 2
       },
       "accountedChargedEventCounts": {
         "start": 0,
         "profile": 0,
         "post": 0
       },
-      "duration_seconds": null,
-      "cost_observed_at": "2026-11-14T07:21:30.224100+00:00",
+      "duration_seconds": "6.605",
+      "cost_observed_at": "2026-11-14T07:21:39.952129+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     }
   ],
@@ -55,8 +55,8 @@
   "ai_requests": 0,
   "monthly_runs_before": 64,
   "http_requests": {
-    "GET": 1,
+    "GET": 4,
     "POST": 1
   },
-  "updated_at": "2026-11-14T07:21:30.224118+00:00"
+  "updated_at": "2026-11-14T07:21:39.952149+00:00"
 }
