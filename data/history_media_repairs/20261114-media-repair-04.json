@@ -5,8 +5,13 @@
   "ai_requests": 0,
   "monthly_runs_before": 67,
   "http_requests": {
-    "GET": 0,
+    "GET": 1,
     "POST": 0
   },
-  "updated_at": "2026-11-14T10:26:05.730775+00:00"
+  "updated_at": "2026-11-14T10:26:06.914861+00:00",
+  "old_missing_recovery": {
+    "status": "held_no_resend",
+    "error_type": "Failure",
+    "http_status": 403
+  }
 }
