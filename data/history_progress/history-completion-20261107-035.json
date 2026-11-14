@@ -6,7 +6,7 @@
   "created_at": "2026-11-14T10:28:47.919106+00:00",
   "max_generations": 25,
   "reserved_generation_attempts": 12,
-  "stopped": false,
+  "stopped": true,
   "finished": false,
   "provider_settings": {
     "base": "https://api.chatanywhere.tech/v1",
@@ -3755,7 +3755,7 @@
           "post_id": "4028902292942561181"
         }
       ],
-      "status": "unknown",
+      "status": "technical_failure",
       "attempts": 1,
       "context_used": [],
       "media_scope": {
@@ -3778,7 +3778,36 @@
         "media_refresh_session": "20261114-media-repair-04"
       },
       "request_sha256": "b64e09df90e62a86c61b18145f30dd35cce177b3f314e98c1098778eba827ca5",
-      "dispatch_reserved_at": "2026-11-14T10:29:47.784546+00:00"
+      "dispatch_reserved_at": "2026-11-14T10:29:47.784546+00:00",
+      "http_status": 403,
+      "remaining_headers": {},
+      "raw_response": {
+        "json": {
+          "error": {
+            "message": "当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: [REDACTED_KEY_IDENTIFIER])【如果您遇到问题，欢迎加入QQ群咨询：1003520025】",
+            "type": "chatanywhere_error",
+            "param": null,
+            "code": "403 FORBIDDEN"
+          }
+        },
+        "complete_json_sha256": "7b1e8cd16652e295be6995e1d85a486465d2f730512051cb5535c1c650b92a2f",
+        "redaction_note": "Opaque encrypted_content omitted and provider key identifiers redacted; classification and usage retained. Pre-redaction parsed JSON hash retained, not original HTTP bytes."
+      },
+      "service_response": {
+        "model_claim": null,
+        "reasoning_claim": {
+          "effort": null
+        },
+        "format_claim": {
+          "type": null,
+          "strict": false
+        },
+        "usage": null
+      },
+      "api_error_code": null,
+      "error_type": "ValueError",
+      "reason": "provider_http_error",
+      "completed_at": "2026-11-14T10:29:49.786312+00:00"
     },
     {
       "key": "facebook:1711187147032540",
@@ -3949,6 +3978,7 @@
       "context_used": []
     }
   ],
-  "updated_at": "2026-11-14T10:29:47.784559+00:00",
-  "consecutive_isolated_failures": 0
+  "updated_at": "2026-11-14T10:29:49.786323+00:00",
+  "consecutive_isolated_failures": 0,
+  "stop_reason": "provider_access_quota_or_common_failure"
 }
