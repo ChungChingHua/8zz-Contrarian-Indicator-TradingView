@@ -8497,5 +8497,77 @@
     ],
     "platform": "Threads",
     "is_flip": true
+  },
+  {
+    "event_key": "74c9ab449d24f4ec55b4180a26f61fb175611ef727dafc5589bd5d9d24675ebf",
+    "completed_at": "2026-11-14T06:52:46.256264+00:00",
+    "fetched_at": null,
+    "available_ms": 1794639166256,
+    "sentiment": "發文者語氣偏悲觀、打算在週一大量停損並建議減碼主動式ETF，為主動防守/看空傾向，屬於偏空訊號",
+    "historical": true,
+    "baseline": false,
+    "media_note": "{\"analysis_scope\": \"text_only_no_attachments\", \"unanalysed_media\": [], \"media_failures\": [], \"images_supplied\": 0, \"image_evidence\": [], \"human_image_verified\": false, \"source_note\": \"Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.\", \"non_media_album_container_indices\": []}",
+    "id": 363,
+    "unix_ms": 1793386691000,
+    "time": "2026-10-30T18:58:11+00:00",
+    "direction": -1,
+    "strength": 2,
+    "summary": "減碼/停損預告\n指標: 偏空 ▼ | 強度: 2\n2026-10-31T02:58:11+08:00 這波感覺比7月更恐怖了\n多虧個大AI公司不是很好的財報\n\n週一開始要大量停損了\n主動式ETF也該減碼了\n發文者語氣偏悲觀、打算在週一大量停損並建議減碼主動式ETF，為主動防守/看空傾向，屬於偏空訊號\nhttps://www.threads.com/@banini31/post/DfIR5KwE-Vz",
+    "target": "未辨識",
+    "symbol": "0050.TW",
+    "proxy": true,
+    "urls": [
+      "https://www.threads.com/@banini31/post/DfIR5KwE-Vz"
+    ],
+    "platform": "Threads",
+    "is_flip": false
+  },
+  {
+    "event_key": "3bcf6a93a1b288adfb2f9345e5d751d39c6a13c431ab196d3d4c6a57c04c9622",
+    "completed_at": "2026-11-14T06:57:14.164205+00:00",
+    "fetched_at": null,
+    "available_ms": 1794639434164,
+    "sentiment": "歌詞與文字表達被多頭斷頭、韭菜受傷的悲傷情緒，屬於痛苦被套傾向偏多訊號",
+    "historical": true,
+    "baseline": false,
+    "media_note": "{\"analysis_scope\": \"text_and_images\", \"unanalysed_media\": [], \"media_failures\": [], \"images_supplied\": 1, \"image_evidence\": [{\"sha256\": \"b8122767982d3207f1faded69d3723d45673c77af0f5a8499cdbad4bd349ae64\", \"bytes\": 38591, \"mime\": \"image/jpeg\", \"attachment_index\": 0}], \"human_image_verified\": false, \"source_note\": \"Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.\", \"non_media_album_container_indices\": [], \"cache_verified\": true, \"media_refresh_session\": \"20261114-media-repair-01\"}",
+    "id": 364,
+    "unix_ms": 1793559234000,
+    "time": "2026-11-01T18:53:54+00:00",
+    "direction": 1,
+    "strength": 2,
+    "summary": "表達悲傷/被套\n指標: 偏多 ▲ | 強度: 2\n2026-11-02T02:53:54+08:00 天亮以後～說分手\n是多頭讓人斷頭\n走在那投資風沙\n誰看見韭菜有血有淚🥲\n歌詞與文字表達被多頭斷頭、韭菜受傷的悲傷情緒，屬於痛苦被套傾向偏多訊號\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid02YNS2PDrHgHD6PJP9sDnbSkrx7m1o7KN3wvDrNr9XgXiAdhMzBXt2mAA7PHdp5F2Gl",
+    "target": "未辨識",
+    "symbol": "0050.TW",
+    "proxy": true,
+    "urls": [
+      "https://www.facebook.com/DieWithoutBang/posts/pfbid02YNS2PDrHgHD6PJP9sDnbSkrx7m1o7KN3wvDrNr9XgXiAdhMzBXt2mAA7PHdp5F2Gl"
+    ],
+    "platform": "Facebook",
+    "is_flip": true
+  },
+  {
+    "event_key": "9e54c8c7fbc9eda7b6b47cb0c5cdba6ca26fb5038868a1fd4f9bfe49544bd051",
+    "completed_at": "2026-11-14T06:57:33.629528+00:00",
+    "fetched_at": null,
+    "available_ms": 1794639453629,
+    "sentiment": "發文帶有強烈想買的亢奮語氣且附上委託下單介面截圖（真金白銀下單跡象），依規定情緒強度強制為3，屬追買/亢奮偏空訊號。",
+    "historical": true,
+    "baseline": false,
+    "media_note": "{\"analysis_scope\": \"text_and_images\", \"unanalysed_media\": [], \"media_failures\": [], \"images_supplied\": 1, \"image_evidence\": [{\"sha256\": \"1061a0691fb3067041d606c74243b14780c2696623cf7cd435ff8d014417d235\", \"bytes\": 78358, \"mime\": \"image/jpeg\", \"attachment_index\": 0}], \"human_image_verified\": false, \"source_note\": \"Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.\", \"non_media_album_container_indices\": [], \"cache_verified\": true, \"media_refresh_session\": \"20261114-media-repair-01\"}",
+    "id": 365,
+    "unix_ms": 1793591504000,
+    "time": "2026-11-02T03:51:44+00:00",
+    "direction": -1,
+    "strength": 3,
+    "summary": "欲買（委託介面）\n指標: 偏空 ▼ | 強度: 3\n2026-11-02T11:51:44+08:00 好想買喔～\n大V天龍耶～ \n我看錯了嗎～ 我要堅持到期中選舉結束嗎\n發文帶有強烈想買的亢奮語氣且附上委託下單介面截圖（真金白銀下單跡象），依規定情緒強度強制為3，屬追買/亢奮偏空訊號。\nhttps://www.facebook.com/DieWithoutBang/posts/pfbid0UJktKrPhrKL5K1qAAkACBRvAxTxn13yF6VmgBQqdfRbfj5c56LtxNvrYazRjbdvdl",
+    "target": "00631L.TW",
+    "symbol": "0050.TW",
+    "proxy": true,
+    "urls": [
+      "https://www.facebook.com/DieWithoutBang/posts/pfbid0UJktKrPhrKL5K1qAAkACBRvAxTxn13yF6VmgBQqdfRbfj5c56LtxNvrYazRjbdvdl"
+    ],
+    "platform": "Facebook",
+    "is_flip": true
   }
 ]
