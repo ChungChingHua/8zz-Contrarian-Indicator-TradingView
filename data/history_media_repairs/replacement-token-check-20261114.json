@@ -1,0 +1,15 @@
+{
+  "at": "2026-11-14T10:11:44.056034+00:00",
+  "actor_starts": 0,
+  "AI_requests": 0,
+  "actors": {},
+  "passed": false,
+  "checking_source": "facebook",
+  "error_type": "Failure",
+  "http_status": 404,
+  "safe_code": "apify_http_error",
+  "http_requests": {
+    "GET": 1,
+    "POST": 0
+  }
+}
