@@ -8,7 +8,7 @@
     "GET": 0,
     "POST": 0
   },
-  "updated_at": "2026-11-14T07:12:36.725713+00:00",
+  "updated_at": "2026-11-14T07:12:38.199924+00:00",
   "existing_media_preflight": [
     {
       "key": "facebook:1702487071235881",
@@ -431,6 +431,14 @@
     {
       "key": "facebook:1705237887627466",
       "display_time": "2026-11-07T17:08:22+08:00",
+      "status": "held_media_unavailable",
+      "already_cached": false,
+      "error_type": "ValueError",
+      "reason": "media_http_status_rejected"
+    },
+    {
+      "key": "threads:4025043302263849308",
+      "display_time": "2026-11-07T17:09:34+08:00",
       "status": "held_media_unavailable",
       "already_cached": false,
       "error_type": "ValueError",
