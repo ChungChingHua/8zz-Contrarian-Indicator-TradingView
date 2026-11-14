@@ -234,14 +234,32 @@
       "duration_seconds": "41.871",
       "cost_observed_at": "2026-11-14T06:56:45.996087+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
+    },
+    {
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "keys": [
+        "facebook:1702487071235881",
+        "facebook:1702731291211459",
+        "facebook:1702897424528179",
+        "facebook:1703163464501575",
+        "facebook:1703429887808266",
+        "facebook:1703740244443897",
+        "facebook:1703792734438648",
+        "facebook:1704945814323340",
+        "facebook:1705156784302243",
+        "facebook:1705237887627466"
+      ],
+      "status": "reserved_not_submitted",
+      "posts": {}
     }
   ],
-  "actor_starts_reserved": 2,
+  "actor_starts_reserved": 3,
   "ai_requests": 0,
   "monthly_runs_before": 61,
   "http_requests": {
-    "GET": 37,
+    "GET": 38,
     "POST": 2
   },
-  "updated_at": "2026-11-14T06:57:06.681110+00:00"
+  "updated_at": "2026-11-14T07:00:35.080262+00:00"
 }
