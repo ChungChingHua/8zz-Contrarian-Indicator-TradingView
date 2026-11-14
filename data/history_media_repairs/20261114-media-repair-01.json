@@ -250,8 +250,73 @@
         "facebook:1705156784302243",
         "facebook:1705237887627466"
       ],
-      "status": "submission_unknown",
-      "posts": {}
+      "status": "READY",
+      "posts": {},
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0vzGJfezAr6mDRnz1VmhY5avBR5HhZXiRE5pxW7MrGstFaoUc1upnZZWXG1nD7BFjl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid035tHJPGrDoLRNT1A9XfjfBXvDSyrmn5iWmw2KR3FDGtACoaExAgTaYHC8v88ySNUWl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02FgHSPLV7qxuLxZPP3DLuZoNFMduPa9PpMuQ45gmmdEPFrPfgom5cGkwh8DeLcb1Kl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02o4AKSbPWCCPWpq62E1UnSNcUdfWCHRfSEAEruZ7RW4fH6sdqB6oXioXAGkmzVnCrl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0YAJxviLNDv2BGBsdTXgEsHe6YvfRZtgBC3yrc6WksVY3wPGiAc4RsAPYNtx8t1i5l"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid08wkUP46KGJHSyn1sEhxNV7GG8xZah94T9bVfGe5rfkr9FWtXq4ygRLkYDm9MAqfzl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid037J5afqWKJv53P9DQt53pwWgXp4e9Lbbwp3fJBQZWf4EPZfakWZGf2GMGHUuEHSdBl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02SKKe6t1xozYuPPTpT1dezwLh49AYvwJDQgqZpvHNx4eW9m8hhY127syMwEfwgA2Gl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02HVzyozMABc2YGDoXvrdLj2mb7jaUXuuDMvBGvZyzwFeUVfkkyS3PU1wNRbkDrwg7l"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid035ydhaSUH8aqj99cm6yxckf9sbjK9Ez8udykEy2RmFBmFAYGpykhp2j2bBTnu8uvHl"
+          }
+        ],
+        "resultsLimit": 1
+      },
+      "id": "aN1ESUqN4kVceCqBH",
+      "startedAt": "2026-11-14T07:00:37.501Z",
+      "finishedAt": null,
+      "buildId": "YrRcdVQKNazTl1teV",
+      "buildNumber": "0.0.421",
+      "defaultDatasetId": "yv2pVJKq2araXljnc",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.057529",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": 0,
+      "chargedEventCounts": {
+        "post": 0,
+        "actor-start": 0,
+        "filter-applied": 0
+      },
+      "accountedChargedEventCounts": {
+        "post": 0,
+        "actor-start": 0,
+        "filter-applied": 0
+      },
+      "duration_seconds": null,
+      "cost_observed_at": "2026-11-14T07:00:37.771487+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution"
     }
   ],
   "actor_starts_reserved": 3,
@@ -259,7 +324,7 @@
   "monthly_runs_before": 61,
   "http_requests": {
     "GET": 38,
-    "POST": 2
+    "POST": 3
   },
-  "updated_at": "2026-11-14T07:00:36.181839+00:00"
+  "updated_at": "2026-11-14T07:00:37.771506+00:00"
 }
