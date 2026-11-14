@@ -1,7 +1,7 @@
 {
   "historical_events": 151,
-  "added_events": 214,
-  "total_events": 365,
+  "added_events": 219,
+  "total_events": 370,
   "same_bar_policy": "latest_post_before_filters",
   "historical_blocks_preserved": true,
   "historical_basis": "reconciled_published_author_history",
