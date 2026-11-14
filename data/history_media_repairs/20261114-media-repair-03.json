@@ -8,8 +8,47 @@
         "threads:4024090220249602678",
         "threads:4025043302263849308"
       ],
-      "status": "submission_unknown",
-      "posts": {}
+      "status": "READY",
+      "posts": {},
+      "input": {
+        "mode": "urls",
+        "postUrls": [
+          "https://www.threads.com/@banini31/post/DfYcLwaGdp2",
+          "https://www.threads.com/t/Dfb047NAIFc"
+        ],
+        "maxPosts": 12,
+        "includeProfile": false
+      },
+      "id": "fPBlsZbRm65xzhyGX",
+      "startedAt": "2026-11-14T07:21:30.049Z",
+      "finishedAt": null,
+      "buildId": "1MVQMWBVN6xDpnUfb",
+      "buildNumber": "0.1.72",
+      "defaultDatasetId": "COJDJEKRg8kj5Nkw5",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.057529",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": 0,
+      "chargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "accountedChargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "duration_seconds": null,
+      "cost_observed_at": "2026-11-14T07:21:30.224100+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution"
     }
   ],
   "actor_starts_reserved": 1,
@@ -17,7 +56,7 @@
   "monthly_runs_before": 64,
   "http_requests": {
     "GET": 1,
-    "POST": 0
+    "POST": 1
   },
-  "updated_at": "2026-11-14T07:21:28.674713+00:00"
+  "updated_at": "2026-11-14T07:21:30.224118+00:00"
 }
