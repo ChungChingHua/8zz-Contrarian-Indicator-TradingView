@@ -6565,11 +6565,11 @@
     "key": "threads:4024090220249602678",
     "url": "https://www.threads.com/@banini31/post/DfYcLwaGdp2",
     "display_time": "2026-11-06T09:35:57+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "threads:4024090220249602678",
+    "evidence": "data/history_progress/history-completion-20261107-033.json",
+    "reason": "貼文附上委託單截圖顯示台灣50（元大台灣50正2）全部成交，發文語氣悲憫（祈福），情緒偏向痛苦/被套，且有真金白銀成交強制設強度3。"
   },
   {
     "key": "facebook:1703792734438648",
@@ -6693,10 +6693,10 @@
     "key": "threads:4025043302263849308",
     "url": "https://www.threads.com/t/Dfb047NAIFc",
     "display_time": "2026-11-07T17:09:34+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:4025043302263849308",
+    "evidence": "data/history_progress/history-completion-20261107-033.json",
+    "reason": "內容為遊戲/生活分享與懷舊閒聊，與投資無關，跳過"
   }
 ]
