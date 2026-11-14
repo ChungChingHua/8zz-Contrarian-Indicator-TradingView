@@ -1,0 +1,65 @@
+name: Verify corrected Apify permissions 20261114
+on:
+  push:
+    branches: [codex/social-pipeline-20261106]
+    paths: [.github/workflows/apify-scoped-id-recheck-20261114.yml]
+permissions:
+  contents: write
+concurrency:
+  group: original-author-history-batch-01
+  cancel-in-progress: false
+jobs:
+  check:
+    if: ${{ github.ref == 'refs/heads/codex/social-pipeline-20261106' && github.run_attempt == 1 && github.event.head_commit.message == 'Verify corrected scoped Actor permissions before continuation' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Two read-only Actor metadata requests; no starts or AI
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          PYTHONPATH=scripts python - <<'PY'
+          import json,os,re,urllib.request,urllib.error
+          from datetime import datetime,timezone
+          import apify_cost_test as t
+          client=t.Client(os.environ.pop('APIFY_TOKEN'));docs=t.Docs(os.environ.pop('GH_TOKEN'))
+          from history_worker import StopRedirect
+          def metadata(actor_id):
+              client.counts['GET']+=1
+              req=urllib.request.Request('https://api.apify.com/v2/acts/'+actor_id,headers={'Authorization':'Bearer '+client.key})
+              try:
+                  with urllib.request.build_opener(StopRedirect()).open(req,timeout=30) as res:return json.load(res)['data']
+              except urllib.error.HTTPError as exc:
+                  try:error=json.loads(exc.read(65536)).get('error',{})
+                  except ValueError:error={}
+                  code=error.get('type','')
+                  out['provider_error_code']=code if re.fullmatch('[a-z0-9_-]{1,80}',str(code)) and client.key not in str(code) else None
+                  message=str(error.get('message','')).lower()
+                  out['error_flags']={k:k in message for k in ('permission','not found','scope','token','actor')}
+                  out['content_type']=exc.headers.get_content_type()
+                  raise t.Failure('apify_http_error',exc.code) from None
+          path='data/history_media_repairs/scoped-id-recheck-20261114.json'
+          prior=docs.load(path)
+          if prior is not None:raise SystemExit('Existing diagnostic checkpoint; no automatic replay')
+          out={'at':datetime.now(timezone.utc).isoformat(),'actor_starts':0,'AI_requests':0,'actors':{},'passed':False}
+          try:
+              if not client.key:raise ValueError('missing_dedicated_secret')
+              for source,actor in {'facebook':'KoJrdxJCTtpon81KY','threads':'yacNYZpu9F3C8EATQ'}.items():
+                  out['checking_source']=source
+                  meta=metadata(actor)
+                  out['actors'][source]={'actor':actor,'metadata_http_status':200,'id':meta.get('id'),'defaultRunOptions':t.plain(meta.get('defaultRunOptions',{})),'pricing':t.pricing(meta,datetime.now(timezone.utc))}
+              out['passed']=True
+          except Exception as exc:
+              out.update(error_type=type(exc).__name__,http_status=getattr(exc,'status',None),safe_code=getattr(exc,'code',None))
+          out['http_requests']=dict(client.counts)
+          docs.save(path,t.plain(out))
+          print(json.dumps(t.plain(out)))
+          if not out['passed']:raise SystemExit(1)
+          PY
