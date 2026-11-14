@@ -16,6 +16,12 @@ allowShort = input.bool(true, "允許偏空訊號放空", group=grpExec)
 showSignals = input.bool(true, "顯示翻轉訊號（成交看策略箭頭）", group=grpExec)
 showPanel = input.bool(true, "顯示原生策略統計提示", group=grpExec)
 
+grpQuality = "進場品質門檻"
+minQualityScore = input.float(0.0, "新倉最低品質分數（含）", minval=0.0, maxval=100.0, step=1.0, group=grpQuality,
+     tooltip="0＝不限制。比較訊號發生時的原指標品質分數，不使用之後衰減的面板分數；僅限制開倉／反向新倉，不阻擋任何出場。仍只在方向翻轉時進場，不事後補單。分數不是勝率。")
+assetProfile = input.string("台股個股", "品質計分標的類型（與指標一致）", options=["ETF", "台股個股", "美股個股", "商品"], group=grpQuality,
+     tooltip="僅影響原指標品質加減分；預設與指標相同。請與指標的標的類型及濾網設定一致；本策略交易仍只限大台。")
+
 grpRisk = "風險出場（可獨立開關）"
 useAtrStop = input.bool(true, "啟用ATR固定停損", group=grpRisk)
 useTrailingStop = input.bool(true, "啟用獲利後移動停損", group=grpRisk)
@@ -42,6 +48,7 @@ minAtrPct = input.float(1.0, "最低ATR波動率 (%)", minval=0.1, maxval=20, gr
 useHtfConfirm = input.bool(false, "已完成高週期結構確認", group=grpFilters)
 htfTf = input.timeframe("240", "確認週期", group=grpFilters)
 
+__QUALITY_SCORING__
 string tz = "Asia/Taipei"
 bool modeA = exitMode == "A｜固定K棒出場"
 bool chartIsFutures = syminfo.type == "futures"

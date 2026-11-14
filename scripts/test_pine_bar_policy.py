@@ -9,7 +9,7 @@ def execute_subset(block,scope):
     lines=[]
     for raw in textwrap.dedent(block).splitlines():
         if not raw.strip() or raw.lstrip().startswith('//'):continue
-        line=re.sub(r'^(\s*)(?:int|bool|string) ',r'\1',raw).replace(':=','=')
+        line=re.sub(r'^(\s*)(?:int|bool|string|float) ',r'\1',raw).replace(':=','=')
         line=line.replace('time_close[1]','previous_close').replace('emaBasis[1]','previous_ema')
         line=re.sub(r'= na$', '= None',line)
         if line.lstrip().startswith('for i = '):
@@ -61,7 +61,7 @@ class SameBarTests(unittest.TestCase):
         events=[(100,1),(200,-1)];_,selected=self.select(events)
         start=self.strategy.index('        if not na(selectedEventIndex)')
         end=self.strategy.index('\n\n        // Terminal liquidation',start)
-        scope=dict(selected,evt_tips=['older-long','latest-short'],signalDir=0,beforeDir=0,eligibleEvents=0,lastTip='',close=100,emaBasis=90,previous_ema=90,rsiValue=60,htfClose=100,htfEma=90,useTrendFilter=False,useRsiFilter=True,useVolFilter=False,useHtfConfirm=False,atrPct=2,minAtrPct=1)
+        scope=dict(selected,evt_str=[3,1],signalQuality=lambda *args:58,minQualityScore=0,qualityEntryOk=False,lastSignalScore=None,evt_tips=['older-long','latest-short'],signalDir=0,beforeDir=0,eligibleEvents=0,lastTip='',close=100,emaBasis=90,previous_ema=90,rsiValue=60,htfClose=100,htfEma=90,useTrendFilter=False,useRsiFilter=True,useVolFilter=False,useHtfConfirm=False,atrPct=2,minAtrPct=1)
         out=execute_subset(self.strategy[start:end],scope)
         self.assertFalse(out['passFilters']);self.assertEqual(out['signalDir'],0);self.assertFalse(out['flipNow']);self.assertEqual(out['lastTip'],'')
     def test_indicator_only_applies_one_event_and_refreshes_background_after_it(self):

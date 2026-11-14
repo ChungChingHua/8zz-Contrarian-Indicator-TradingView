@@ -16,6 +16,12 @@ allowShort = input.bool(true, "允許偏空訊號放空", group=grpExec)
 showSignals = input.bool(true, "顯示翻轉訊號（成交看策略箭頭）", group=grpExec)
 showPanel = input.bool(true, "顯示原生策略統計提示", group=grpExec)
 
+grpQuality = "進場品質門檻"
+minQualityScore = input.float(0.0, "新倉最低品質分數（含）", minval=0.0, maxval=100.0, step=1.0, group=grpQuality,
+     tooltip="0＝不限制。比較訊號發生時的原指標品質分數，不使用之後衰減的面板分數；僅限制開倉／反向新倉，不阻擋任何出場。仍只在方向翻轉時進場，不事後補單。分數不是勝率。")
+assetProfile = input.string("台股個股", "品質計分標的類型（與指標一致）", options=["ETF", "台股個股", "美股個股", "商品"], group=grpQuality,
+     tooltip="僅影響原指標品質加減分；預設與指標相同。請與指標的標的類型及濾網設定一致；本策略交易仍只限大台。")
+
 grpRisk = "風險出場（可獨立開關）"
 useAtrStop = input.bool(true, "啟用ATR固定停損", group=grpRisk)
 useTrailingStop = input.bool(true, "啟用獲利後移動停損", group=grpRisk)
@@ -41,6 +47,35 @@ atrLen = input.int(14, "ATR長度", minval=2, maxval=100, group=grpFilters)
 minAtrPct = input.float(1.0, "最低ATR波動率 (%)", minval=0.1, maxval=20, group=grpFilters)
 useHtfConfirm = input.bool(false, "已完成高週期結構確認", group=grpFilters)
 htfTf = input.timeframe("240", "確認週期", group=grpFilters)
+
+// Quality formula copied from this paired indicator; score is not a win probability.
+TREND_FILTER_BONUS = 8.0
+TREND_FILTER_PENALTY = -18.0
+RSI_FILTER_BONUS = 6.0
+RSI_FILTER_PENALTY = -12.0
+VOL_FILTER_BONUS = 4.0
+VOL_FILTER_PENALTY = -10.0
+HTF_FILTER_BONUS = 10.0
+HTF_FILTER_PENALTY = -18.0
+
+clampFloat(value, minValue, maxValue) =>
+    math.max(minValue, math.min(maxValue, value))
+
+profileBias(profile) =>
+    switch profile
+        "台股個股" => 8.0
+        "美股個股" => 3.0
+        "ETF" => -8.0
+        => -4.0
+
+qualityLabel(score) =>
+    score >= 80 ? "A" : score >= 65 ? "B" : score >= 50 ? "C" : "D"
+
+signalQuality(s, trendOk, rsiOk, volatilityOk, htfOk) =>
+    baseScore = 35.0 + s * 15.0 + profileBias(assetProfile)
+    filterScore = (useTrendFilter ? (trendOk ? TREND_FILTER_BONUS : TREND_FILTER_PENALTY) : 0.0) + (useRsiFilter ? (rsiOk ? RSI_FILTER_BONUS : RSI_FILTER_PENALTY) : 0.0) + (useVolFilter ? (volatilityOk ? VOL_FILTER_BONUS : VOL_FILTER_PENALTY) : 0.0) + (useHtfConfirm ? (htfOk ? HTF_FILTER_BONUS : HTF_FILTER_PENALTY) : 0.0)
+    score = clampFloat(baseScore + filterScore, 0, 100)
+    score
 
 string tz = "Asia/Taipei"
 bool modeA = exitMode == "A｜固定K棒出場"
@@ -632,6 +667,7 @@ var int dayBarCount = 0
 var int entryDayBarA = na
 var int skippedBeforeChart = 0
 var int eligibleEvents = 0
+var float lastSignalScore = na
 var bool cutoffReached = false
 var float entryRiskAtr = na
 var float riskEntryPrice = na
@@ -649,6 +685,7 @@ if barstate.isfirst
         skippedBeforeChart += 1
         eventCursor += 1
 
+bool qualityEntryOk = false
 bool flipNow = false
 bool submittedLong = false
 bool submittedShort = false
@@ -680,9 +717,12 @@ if barstate.isconfirmed and dayBar
             bool rsiOk = d == 1 ? rsiValue >= 50 : rsiValue <= 50
             bool htfOk = d == 1 ? htfClose >= htfEma : htfClose <= htfEma
             bool passFilters = (not useTrendFilter or trendOk) and (not useRsiFilter or rsiOk) and (not useVolFilter or atrPct >= minAtrPct) and (not useHtfConfirm or htfOk)
+            float score = signalQuality(array.get(evt_str, selectedEventIndex), trendOk, rsiOk, atrPct >= minAtrPct, htfOk)
             if passFilters
                 signalDir := d
                 eligibleEvents += 1
+                lastSignalScore := score
+                qualityEntryOk := minQualityScore == 0 or (not na(score) and score >= minQualityScore)
                 lastTip := array.get(evt_tips, selectedEventIndex)
         flipNow := signalDir != beforeDir and signalDir != 0
 
@@ -701,7 +741,7 @@ if barstate.isconfirmed and dayBar
             if flipNow and orderQty > 0 and (not useAtrStop and not useTrailingStop or not na(riskAtr))
                 if modeA
                     // Do not open at the same close as the old A position exits.
-                    if strategy.position_size == 0 and not fixedExitNow and entryMarginReady
+                    if strategy.position_size == 0 and not fixedExitNow and entryMarginReady and qualityEntryOk
                         if signalDir == 1
                             strategy.entry("L", strategy.long, qty=orderQty, comment="A：偏多翻轉")
                             entryDayBarA := dayBarCount
@@ -713,18 +753,24 @@ if barstate.isconfirmed and dayBar
                 else
                     // Opposite strategy.entry reverses the existing net position at the same close.
                     if signalDir == 1
-                        if entryMarginReady
+                        if entryMarginReady and qualityEntryOk
                             strategy.entry("L", strategy.long, qty=orderQty, comment="B：偏多翻轉")
                             submittedLong := true
                         else if strategy.position_size < 0
-                            strategy.close("S", comment="B：反向平空／保證金不足不開多", immediately=true)
+                            if not qualityEntryOk
+                                strategy.close("S", comment="B：反向平空／品質不足不開多", immediately=true)
+                            else
+                                strategy.close("S", comment="B：反向平空／保證金不足不開多", immediately=true)
                             exitSubmitted := true
                     else if allowShort
-                        if entryMarginReady
+                        if entryMarginReady and qualityEntryOk
                             strategy.entry("S", strategy.short, qty=orderQty, comment="B：偏空翻轉")
                             submittedShort := true
                         else if strategy.position_size > 0
-                            strategy.close("L", comment="B：反向平多／保證金不足不開空", immediately=true)
+                            if not qualityEntryOk
+                                strategy.close("L", comment="B：反向平多／品質不足不開空", immediately=true)
+                            else
+                                strategy.close("L", comment="B：反向平多／保證金不足不開空", immediately=true)
                             exitSubmitted := true
                     else if strategy.position_size > 0
                         strategy.close("L", comment="B：偏空訊號平多", immediately=true)
@@ -787,11 +833,12 @@ if barstate.isconfirmed and decisionClose > finishAt
 plotshape(showSignals and flipNow and signalDir == 1, title="偏多翻轉訊號（非成交）", style=shape.triangleup, location=location.belowbar, color=color.lime, size=size.small, text="訊號")
 plotshape(showSignals and flipNow and signalDir == -1, title="偏空翻轉訊號（非成交）", style=shape.triangledown, location=location.abovebar, color=color.red, size=size.small, text="訊號")
 if showSignals and flipNow and str.length(lastTip) > 0
-    label.new(bar_index, signalDir == 1 ? low : high, "", style=label.style_none, tooltip=lastTip, textcolor=color.gray)
+    string qualityTip = lastTip + "\n訊號發生時品質: " + str.tostring(lastSignalScore, "#.0") + " / 100 (" + qualityLabel(lastSignalScore) + ")\n新倉門檻: " + str.tostring(minQualityScore, "#.0") + (qualityEntryOk ? "（通過；仍需符合進場條件）" : "（不足，不開新倉）")
+    label.new(bar_index, signalDir == 1 ? low : high, "", style=label.style_none, tooltip=qualityTip, textcolor=color.gray)
 bgcolor(dayBar and inWindow ? (signalDir == 1 ? color.new(color.green, 95) : signalDir == -1 ? color.new(color.red, 95) : na) : na)
 
 if showPanel and barstate.islast
-    var table info = table.new(position.top_right, 2, 11, bgcolor=color.new(color.black, 10), border_width=1)
+    var table info = table.new(position.top_right, 2, 13, bgcolor=color.new(color.black, 10), border_width=1)
     int judged = strategy.closedtrades
     float nativeWinRate = judged > 0 ? strategy.wintrades * 100.0 / judged : na
     table.cell(info, 0, 0, "8zz 原生策略回測", text_color=color.white)
@@ -817,4 +864,9 @@ if showPanel and barstate.islast
     table.cell(info, 1, 9, "NT$700,000 / " + (entryMarginReady ? "權益足夠" : "不足，暫停新倉"), text_color=entryMarginReady ? color.white : color.yellow)
     table.cell(info, 0, 10, "合約／點值", text_color=color.gray)
     table.cell(info, 1, 10, "大台固定1口／每點NT$200", text_color=color.white)
+
+    table.cell(info, 0, 11, "最新訊號品質（發生時）", text_color=color.gray)
+    table.cell(info, 1, 11, na(lastSignalScore) ? "尚無" : str.tostring(lastSignalScore, "#.0") + " / 100 (" + qualityLabel(lastSignalScore) + ")", text_color=color.white)
+    table.cell(info, 0, 12, "新倉最低品質", text_color=color.gray)
+    table.cell(info, 1, 12, minQualityScore == 0 ? "0（不限制）" : str.tostring(minQualityScore, "#.0") + " 分以上（含）", text_color=color.aqua)
 

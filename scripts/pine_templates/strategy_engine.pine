@@ -22,6 +22,7 @@ var int dayBarCount = 0
 var int entryDayBarA = na
 var int skippedBeforeChart = 0
 var int eligibleEvents = 0
+var float lastSignalScore = na
 var bool cutoffReached = false
 var float entryRiskAtr = na
 var float riskEntryPrice = na
@@ -39,6 +40,7 @@ if barstate.isfirst
         skippedBeforeChart += 1
         eventCursor += 1
 
+bool qualityEntryOk = false
 bool flipNow = false
 bool submittedLong = false
 bool submittedShort = false
@@ -70,9 +72,12 @@ if barstate.isconfirmed and dayBar
             bool rsiOk = d == 1 ? rsiValue >= 50 : rsiValue <= 50
             bool htfOk = d == 1 ? htfClose >= htfEma : htfClose <= htfEma
             bool passFilters = (not useTrendFilter or trendOk) and (not useRsiFilter or rsiOk) and (not useVolFilter or atrPct >= minAtrPct) and (not useHtfConfirm or htfOk)
+            float score = signalQuality(array.get(evt_str, selectedEventIndex), trendOk, rsiOk, atrPct >= minAtrPct, htfOk)
             if passFilters
                 signalDir := d
                 eligibleEvents += 1
+                lastSignalScore := score
+                qualityEntryOk := minQualityScore == 0 or (not na(score) and score >= minQualityScore)
                 lastTip := array.get(evt_tips, selectedEventIndex)
         flipNow := signalDir != beforeDir and signalDir != 0
 
@@ -91,7 +96,7 @@ if barstate.isconfirmed and dayBar
             if flipNow and orderQty > 0 and (not useAtrStop and not useTrailingStop or not na(riskAtr))
                 if modeA
                     // Do not open at the same close as the old A position exits.
-                    if strategy.position_size == 0 and not fixedExitNow and entryMarginReady
+                    if strategy.position_size == 0 and not fixedExitNow and entryMarginReady and qualityEntryOk
                         if signalDir == 1
                             strategy.entry("L", strategy.long, qty=orderQty, comment="A：偏多翻轉")
                             entryDayBarA := dayBarCount
@@ -103,18 +108,24 @@ if barstate.isconfirmed and dayBar
                 else
                     // Opposite strategy.entry reverses the existing net position at the same close.
                     if signalDir == 1
-                        if entryMarginReady
+                        if entryMarginReady and qualityEntryOk
                             strategy.entry("L", strategy.long, qty=orderQty, comment="B：偏多翻轉")
                             submittedLong := true
                         else if strategy.position_size < 0
-                            strategy.close("S", comment="B：反向平空／保證金不足不開多", immediately=true)
+                            if not qualityEntryOk
+                                strategy.close("S", comment="B：反向平空／品質不足不開多", immediately=true)
+                            else
+                                strategy.close("S", comment="B：反向平空／保證金不足不開多", immediately=true)
                             exitSubmitted := true
                     else if allowShort
-                        if entryMarginReady
+                        if entryMarginReady and qualityEntryOk
                             strategy.entry("S", strategy.short, qty=orderQty, comment="B：偏空翻轉")
                             submittedShort := true
                         else if strategy.position_size > 0
-                            strategy.close("L", comment="B：反向平多／保證金不足不開空", immediately=true)
+                            if not qualityEntryOk
+                                strategy.close("L", comment="B：反向平多／品質不足不開空", immediately=true)
+                            else
+                                strategy.close("L", comment="B：反向平多／保證金不足不開空", immediately=true)
                             exitSubmitted := true
                     else if strategy.position_size > 0
                         strategy.close("L", comment="B：偏空訊號平多", immediately=true)
@@ -177,11 +188,12 @@ if barstate.isconfirmed and decisionClose > finishAt
 plotshape(showSignals and flipNow and signalDir == 1, title="偏多翻轉訊號（非成交）", style=shape.triangleup, location=location.belowbar, color=color.lime, size=size.small, text="訊號")
 plotshape(showSignals and flipNow and signalDir == -1, title="偏空翻轉訊號（非成交）", style=shape.triangledown, location=location.abovebar, color=color.red, size=size.small, text="訊號")
 if showSignals and flipNow and str.length(lastTip) > 0
-    label.new(bar_index, signalDir == 1 ? low : high, "", style=label.style_none, tooltip=lastTip, textcolor=color.gray)
+    string qualityTip = lastTip + "\n訊號發生時品質: " + str.tostring(lastSignalScore, "#.0") + " / 100 (" + qualityLabel(lastSignalScore) + ")\n新倉門檻: " + str.tostring(minQualityScore, "#.0") + (qualityEntryOk ? "（通過；仍需符合進場條件）" : "（不足，不開新倉）")
+    label.new(bar_index, signalDir == 1 ? low : high, "", style=label.style_none, tooltip=qualityTip, textcolor=color.gray)
 bgcolor(dayBar and inWindow ? (signalDir == 1 ? color.new(color.green, 95) : signalDir == -1 ? color.new(color.red, 95) : na) : na)
 
 if showPanel and barstate.islast
-    var table info = table.new(position.top_right, 2, 11, bgcolor=color.new(color.black, 10), border_width=1)
+    var table info = table.new(position.top_right, 2, 13, bgcolor=color.new(color.black, 10), border_width=1)
     int judged = strategy.closedtrades
     float nativeWinRate = judged > 0 ? strategy.wintrades * 100.0 / judged : na
     table.cell(info, 0, 0, "8zz 原生策略回測", text_color=color.white)
@@ -207,3 +219,8 @@ if showPanel and barstate.islast
     table.cell(info, 1, 9, "NT$700,000 / " + (entryMarginReady ? "權益足夠" : "不足，暫停新倉"), text_color=entryMarginReady ? color.white : color.yellow)
     table.cell(info, 0, 10, "合約／點值", text_color=color.gray)
     table.cell(info, 1, 10, "大台固定1口／每點NT$200", text_color=color.white)
+
+    table.cell(info, 0, 11, "最新訊號品質（發生時）", text_color=color.gray)
+    table.cell(info, 1, 11, na(lastSignalScore) ? "尚無" : str.tostring(lastSignalScore, "#.0") + " / 100 (" + qualityLabel(lastSignalScore) + ")", text_color=color.white)
+    table.cell(info, 0, 12, "新倉最低品質", text_color=color.gray)
+    table.cell(info, 1, 12, minQualityScore == 0 ? "0（不限制）" : str.tostring(minQualityScore, "#.0") + " 分以上（含）", text_color=color.aqua)
