@@ -13,9 +13,9 @@
   "events": 380,
   "events_unchanged": true,
   "source_sha256": "1769478f8dd5e12160d19d14cc613ef0578c73b58f486237bbb11b3f27b40a45",
-  "strategy_sha256": "2fc1f777c024f4e6cb917d46ca25e901e048f10783b7a7e6ff097630e0b02e07",
-  "data_cutoff_taipei": "2026-11-07T20:15:59.578797+08:00",
-  "default_end_date": "2026-11-06",
+  "strategy_sha256": "172a331b2968c6d5883dec51b83a9e5a2331abbc33ed2f83abda9b626579b1d3",
+  "data_cutoff_taipei": "2026-11-14T18:21:07.585530+08:00",
+  "default_end_date": "2026-11-13",
   "event_scope": "all_saved_indicator_events",
   "tradingview_compiled": false,
   "order_api": "TradingView strategy broker emulator only"
