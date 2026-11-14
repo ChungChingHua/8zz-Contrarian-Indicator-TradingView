@@ -3,7 +3,7 @@
   "cutoff_utc": "2026-11-07T12:15:59.578797+00:00",
   "created_at": "2026-11-07T12:15:59.578797+00:00",
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
-  "closed": false,
+  "closed": true,
   "acquisition_completed": true,
   "sources": {
     "facebook": {
@@ -1159,12 +1159,12 @@
     "facebook:1703163464501575",
     "facebook:1703429887808266",
     "facebook:1703740244443897",
-    "threads:4024090220249602678",
     "facebook:1703792734438648",
     "facebook:1704945814323340",
     "facebook:1705156784302243",
-    "facebook:1705237887627466",
-    "threads:4025043302263849308"
+    "facebook:1705237887627466"
   ],
-  "existing_media_preflight_ledger": "data/history_media_repairs/20261114-media-repair-02.json"
+  "existing_media_preflight_ledger": "data/history_media_repairs/20261114-media-repair-02.json",
+  "stop_reason": "remaining_missing_facebook_media",
+  "closure_reason": "missing_images_and_low_apify_headroom"
 }
