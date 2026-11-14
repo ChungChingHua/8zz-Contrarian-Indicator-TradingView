@@ -48,6 +48,15 @@
         "overlap": 0,
         "excluded": {}
       }
+    },
+    {
+      "source": "threads",
+      "start_utc": "2026-11-07T10:15:59.578797+00:00",
+      "end_utc": "2026-11-14T10:21:07.585530+00:00",
+      "submission_unknown": true,
+      "processed": false,
+      "cap_usd": null,
+      "max_items": 50
     }
   ],
   "apify_http_counts": {
