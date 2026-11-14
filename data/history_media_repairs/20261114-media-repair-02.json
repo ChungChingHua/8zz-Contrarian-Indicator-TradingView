@@ -8,7 +8,7 @@
     "GET": 0,
     "POST": 0
   },
-  "updated_at": "2026-11-14T07:12:38.199924+00:00",
+  "updated_at": "2026-11-14T07:14:25.413193+00:00",
   "existing_media_preflight": [
     {
       "key": "facebook:1702487071235881",
@@ -444,5 +444,6 @@
       "error_type": "ValueError",
       "reason": "media_http_status_rejected"
     }
-  ]
+  ],
+  "monthly_runs_after": 64
 }
