@@ -1,6 +1,6 @@
 # 一次性歷史補齊執行紀錄
 
-請依下方剩餘及待確認清單判斷完成範圍。
+本次因實際阻塞停止，**尚未補齊全部歷史判讀**。
 
 資料抓取截止 UTC 2026-11-07T12:15:59.578797+00:00（Asia/Taipei 為 2026-11-07T20:15:59.578797+08:00）；共 666 篇。已走訪至 2026-11-05T01:23:43+08:00，其中待確認／失敗另列；本輪最後有效回應 2026-11-07T14:37:09+08:00，最新事件 2026-11-07T00:54:48+08:00。
 
@@ -147,7 +147,7 @@
   "other_ai_provider_queries": 0,
   "actual_points_deducted": null,
   "quota_headers": {},
-  "stop_reason": null,
+  "stop_reason": "missing_public_media_no_new_actor",
   "service_quota_statement": null,
   "all_history_fully_classified": false,
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
@@ -186,7 +186,12 @@
       "pending_confirmation": 3,
       "technical_failure": 1
     },
-    "recovered_zero_generation_inputs": 0
+    "recovered_zero_generation_inputs": 0,
+    "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-02.json",
+    "media_repair_http_counts": {
+      "GET": 0,
+      "POST": 0
+    }
   }
 }
 ```
