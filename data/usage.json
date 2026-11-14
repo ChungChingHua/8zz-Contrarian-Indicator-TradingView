@@ -192,10 +192,10 @@
         "reserved_starts": 1,
         "runs": [
           {
-            "id": null,
+            "id": "T5aL34lZ0cAhRu17S",
             "source": "threads",
-            "status": "reserved_not_submitted",
-            "usageTotalUsd": null
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.07"
           }
         ]
       }
