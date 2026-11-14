@@ -6698,5 +6698,445 @@
     "record_key": "threads:4025043302263849308",
     "evidence": "data/history_progress/history-completion-20261107-033.json",
     "reason": "內容為遊戲/生活分享與懷舊閒聊，與投資無關，跳過"
+  },
+  {
+    "key": "threads:4025550108146350298",
+    "url": "https://www.threads.com/t/DfdoH69mTja",
+    "display_time": "2026-11-08T09:56:30+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1706036964214225",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02m7u3hqZJ4gnLco6m85qhvQqDVvfccFgq82X48has3KA7g8zcoLcTDzjWbBpvFG2Jl",
+    "display_time": "2026-11-08T10:00:33+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4025972125223971105",
+    "url": "https://www.threads.com/t/DffIFE_mWkh",
+    "display_time": "2026-11-08T23:54:58+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1707142260770362",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02ESs9pNvcvdQu5MFTsts6D6o99t7YrbcRqZfv9DamKHgqR6Q9DVa47tFzmA46XQmYl",
+    "display_time": "2026-11-09T09:28:06+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4026272618643056038",
+    "url": "https://www.threads.com/t/DfgMZ1TGeWm",
+    "display_time": "2026-11-09T09:52:00+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4026296453345914037",
+    "url": "https://www.threads.com/t/DfgR0rGGSy1",
+    "display_time": "2026-11-09T10:39:21+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1707279274089994",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02tk6AgSUm2vKzRavguRH9tfsgXSfXbEd7n3uPDjWZmEcUkbQkDVVL3SL44zqjhMGPl",
+    "display_time": "2026-11-09T12:36:40+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1707722754045646",
+    "url": "https://www.facebook.com/reel/1152551660798473/",
+    "display_time": "2026-11-09T22:16:42+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4026647813303313518",
+    "url": "https://www.threads.com/t/DfhhtojjCRu",
+    "display_time": "2026-11-09T22:17:28+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4026685187656644582",
+    "url": "https://www.threads.com/t/DfhqNgImffm",
+    "display_time": "2026-11-09T23:31:42+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1707830474034874",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0PiwmoP3UGkbYmUQF5gbMLWrQ8jdqwYyJBTPMfhK8dDLpH6x7UxaeW5vmMdRekGHEl",
+    "display_time": "2026-11-10T00:20:19+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4026780710220697727",
+    "url": "https://www.threads.com/t/Dfh_7idGZB_",
+    "display_time": "2026-11-10T02:41:29+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1708163567334898",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid024fr4J8Lkq5vTq1GMep5WeRaxYtZCUg63JuJLVuR6ZyDjPreiyQoQ2wAhYGKbbuY9l",
+    "display_time": "2026-11-10T08:27:07+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1708197577331497",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid022LyMy4tC8jXHdDX9Wy8eLmb68k4MwxkADM8RGfu57Yuemer9E2BEMmM4fFTnkS4ol",
+    "display_time": "2026-11-10T09:19:52+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4027013070392517757",
+    "url": "https://www.threads.com/t/Dfi0w0umeR9",
+    "display_time": "2026-11-10T10:23:08+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4027027180417050470",
+    "url": "https://www.threads.com/t/Dfi3-Jtmedm",
+    "display_time": "2026-11-10T10:51:10+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4027056616092826145",
+    "url": "https://www.threads.com/t/Dfi-qf0mXoh",
+    "display_time": "2026-11-10T11:49:39+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1708750210609567",
+    "url": "https://www.facebook.com/reel/1598584782020837/",
+    "display_time": "2026-11-10T21:21:12+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4027405115971988012",
+    "url": "https://www.threads.com/t/DfkN51oGeos",
+    "display_time": "2026-11-10T23:22:04+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4027439123892129807",
+    "url": "https://www.threads.com/t/DfkVot-GdAP",
+    "display_time": "2026-11-11T00:29:38+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4027509015852588961",
+    "url": "https://www.threads.com/t/Dfklhx7k5-h",
+    "display_time": "2026-11-11T02:48:30+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1709288087222446",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0DZsAxC18eVZHafJ8vf5yyDh4okAQ6LZHFmKKm4MZEa33s3a1CZD9a65vAymMHoabl",
+    "display_time": "2026-11-11T08:39:49+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1709341027217152",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02DbwSKaob1p7ct11zPsXC23tYkxQaJMhvfSe3cRXCsi3eK7GD5gAWoNH3Mw33VKqtl",
+    "display_time": "2026-11-11T10:08:05+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4027793267760924866",
+    "url": "https://www.threads.com/t/DflmKMJmYjC",
+    "display_time": "2026-11-11T12:13:15+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1709445763873345",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid05qn1JeKqYgi8PrWa3Yjm1QE4S1BKBWWbQccncoqk49tWZsWZH649yjL18hdd3pbql",
+    "display_time": "2026-11-11T12:14:41+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4027848978889003863",
+    "url": "https://www.threads.com/t/Dfly05LmVNX",
+    "display_time": "2026-11-11T14:03:56+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4027935237988803561",
+    "url": "https://www.threads.com/t/DfmGcIOmePp",
+    "display_time": "2026-11-11T16:55:19+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1710065987144656",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02emCqMda9tX6Vqa2oTFHGyLU9Nuiq9RqodsBkNYBvEWt7RZ94E5tqyurgzaKpmRfPl",
+    "display_time": "2026-11-12T01:11:27+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4028185869932717304",
+    "url": "https://www.threads.com/t/Dfm_bTalmT4",
+    "display_time": "2026-11-12T01:13:19+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1710452580439330",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02Qi4U6vELYD1vfdEPUi5cdNbU6f4xf8U6kXxUVwCU9FwPSiC76NXCzEX8zRUSxVbZl",
+    "display_time": "2026-11-12T10:24:01+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1710543473763574",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02CG5AP5gH66y44unMA4WQPRQ71qYCQQSoMT5L2FnwrgdKkYctU7pXrtoi9N3sDPnml",
+    "display_time": "2026-11-12T12:33:42+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4028531458973464504",
+    "url": "https://www.threads.com/t/DfoOASSmXe4",
+    "display_time": "2026-11-12T12:39:54+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4028565970327512929",
+    "url": "https://www.threads.com/t/DfoV2ffmSdh",
+    "display_time": "2026-11-12T13:48:28+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1710903840394204",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02un9yDuaoe39bo8RKwQbEKmvqrXYDC4fZAFBMD2WxT3MS5KRHQ8H6rAHEEcpdywLcl",
+    "display_time": "2026-11-12T20:35:57+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4028773206264440076",
+    "url": "https://www.threads.com/t/DfpE-LAAOUM",
+    "display_time": "2026-11-12T20:40:13+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1710977397053515",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02NbXWbXRCuf6TFrxZWKowNVCLcR6cK2PN4JC2k1SuEcfEUgTPH7mtN8JfPjHGjZ2zl",
+    "display_time": "2026-11-12T21:59:30+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4028902292942561181",
+    "url": "https://www.threads.com/t/DfpiUoVmR-d",
+    "display_time": "2026-11-13T00:56:41+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1711187147032540",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02AWHj3RuRgtZPvdPiZkQwGfqRJhW81qiAuGixwBpQU2vtVfHMgVUPHRCasqR3aizjl",
+    "display_time": "2026-11-13T01:45:26+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1711452657005989",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0T1BsmxWfpEE1oFUqCu4uEmWFRzgJq3hn6BQvCEehmrG9wLHQTU3pLLqhWQN7HakSl",
+    "display_time": "2026-11-13T07:57:41+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1711515410333047",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid026b8bNeR6qcGWSBSSCyUysr6UfAmAPDz9wfjbtzjnUMFjsfUNHKbLyNV6jva3d8yYl",
+    "display_time": "2026-11-13T09:25:09+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1712186250265963",
+    "url": "https://www.facebook.com/reel/2160900154802469/",
+    "display_time": "2026-11-13T23:21:14+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4029579593664549218",
+    "url": "https://www.threads.com/t/Dfr8UpyidFi",
+    "display_time": "2026-11-13T23:22:24+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4029622132984581375",
+    "url": "https://www.threads.com/t/DfsF_rnmQz_",
+    "display_time": "2026-11-14T00:46:53+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4029927973335964218",
+    "url": "https://www.threads.com/t/DftLiPpGZo6",
+    "display_time": "2026-11-14T10:54:32+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
   }
 ]
