@@ -1,20 +1,20 @@
 {
   "schema": 1,
-  "events": 380,
+  "events": 393,
   "same_event_tuples": true,
   "same_bar_policy": "latest_post_before_filters",
   "data_cutoff_taipei": "2026-11-14T18:21:07.585530+08:00",
-  "event_fields_sha256": "5860069c6a3faeed890f89160f85c07277b7a969d21b10001bb7607fd787d1ff",
+  "event_fields_sha256": "02c2882570bb21417b29882992deb859b22bb130da21ee9c5ffb982514d06a70",
   "event_encoding": "packed-v1",
   "packed_event_round_trip": true,
   "strategy_default_end_date": "2026-11-13",
   "tradingview_compiled": false,
   "indicator": {
     "path": "candidates/8zz-history-latest.pine",
-    "sha256": "1769478f8dd5e12160d19d14cc613ef0578c73b58f486237bbb11b3f27b40a45"
+    "sha256": "d3ee8e84ec5397e038f8ded02ee1de227f7eb9db56250adfe6a6cab923ff638b"
   },
   "strategy": {
     "path": "candidates/8zz-strategy-latest.pine",
-    "sha256": "172a331b2968c6d5883dec51b83a9e5a2331abbc33ed2f83abda9b626579b1d3"
+    "sha256": "494b595f14f19cd5c7a3aa9b53a212529b074690ca183b0dd587b95bb55ecdd4"
   }
 }
