@@ -8,7 +8,7 @@
     "GET": 0,
     "POST": 0
   },
-  "updated_at": "2026-11-14T07:12:26.090807+00:00",
+  "updated_at": "2026-11-14T07:12:27.210491+00:00",
   "existing_media_preflight": [
     {
       "key": "facebook:1702487071235881",
@@ -306,6 +306,14 @@
       "already_cached": false,
       "error_type": "ValueError",
       "reason": "media_http_status_rejected"
+    },
+    {
+      "key": "facebook:1703792734438648",
+      "display_time": "2026-11-06T09:40:10+08:00",
+      "status": "held_media_unavailable",
+      "already_cached": false,
+      "error_type": "ValueError",
+      "reason": "required_refreshed_images_unavailable"
     }
   ]
 }
