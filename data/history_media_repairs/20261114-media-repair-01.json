@@ -18,7 +18,7 @@
         "threads:4023487463029312236",
         "threads:4023673308822738059"
       ],
-      "status": "reserved_not_submitted",
+      "status": "submission_unknown",
       "posts": {}
     }
   ],
@@ -29,5 +29,5 @@
     "GET": 1,
     "POST": 0
   },
-  "updated_at": "2026-11-14T06:53:39.568679+00:00"
+  "updated_at": "2026-11-14T06:53:40.690053+00:00"
 }
