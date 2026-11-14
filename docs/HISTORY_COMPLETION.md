@@ -186,7 +186,12 @@
       "pending_confirmation": 3,
       "technical_failure": 1
     },
-    "recovered_zero_generation_inputs": 0
+    "recovered_zero_generation_inputs": 0,
+    "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-04.json",
+    "media_repair_http_counts": {
+      "GET": 1,
+      "POST": 0
+    }
   }
 }
 ```
