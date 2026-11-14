@@ -92,19 +92,19 @@
         "isMaxTotalChargeUsdSetByUser": true,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": "0.07",
+      "usageTotalUsd": "0.08",
       "chargedEventCounts": {
         "start": 1,
         "profile": 0,
-        "post": 10
+        "post": 12
       },
       "accountedChargedEventCounts": {
         "start": 1,
         "profile": 0,
-        "post": 10
+        "post": 12
       },
       "duration_seconds": "89.043",
-      "cost_observed_at": "2026-11-14T06:55:11.828967+00:00",
+      "cost_observed_at": "2026-11-14T07:00:42.656056+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     },
     {
@@ -220,19 +220,19 @@
         "isMaxTotalChargeUsdSetByUser": true,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": "0.056",
+      "usageTotalUsd": "0.061",
       "chargedEventCounts": {
-        "post": 11,
+        "post": 12,
         "actor-start": 1,
         "filter-applied": 0
       },
       "accountedChargedEventCounts": {
-        "post": 11,
+        "post": 12,
         "actor-start": 1,
         "filter-applied": 0
       },
       "duration_seconds": "41.871",
-      "cost_observed_at": "2026-11-14T06:56:45.996087+00:00",
+      "cost_observed_at": "2026-11-14T07:00:42.924078+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     },
     {
@@ -250,7 +250,7 @@
         "facebook:1705156784302243",
         "facebook:1705237887627466"
       ],
-      "status": "READY",
+      "status": "ABORTED",
       "posts": {},
       "input": {
         "startUrls": [
@@ -289,7 +289,7 @@
       },
       "id": "aN1ESUqN4kVceCqBH",
       "startedAt": "2026-11-14T07:00:37.501Z",
-      "finishedAt": null,
+      "finishedAt": "2026-11-14T07:00:39.185Z",
       "buildId": "YrRcdVQKNazTl1teV",
       "buildNumber": "0.0.421",
       "defaultDatasetId": "yv2pVJKq2araXljnc",
@@ -306,7 +306,7 @@
       "usageTotalUsd": 0,
       "chargedEventCounts": {
         "post": 0,
-        "actor-start": 0,
+        "actor-start": 1,
         "filter-applied": 0
       },
       "accountedChargedEventCounts": {
@@ -314,8 +314,8 @@
         "actor-start": 0,
         "filter-applied": 0
       },
-      "duration_seconds": null,
-      "cost_observed_at": "2026-11-14T07:00:37.771487+00:00",
+      "duration_seconds": "1.448",
+      "cost_observed_at": "2026-11-14T07:00:43.128656+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     }
   ],
@@ -323,9 +323,10 @@
   "ai_requests": 0,
   "monthly_runs_before": 61,
   "http_requests": {
-    "GET": 38,
+    "GET": 41,
     "POST": 4
   },
-  "updated_at": "2026-11-14T07:00:39.314345+00:00",
-  "blocked": "cap_not_acknowledged_aborted"
+  "updated_at": "2026-11-14T07:00:43.128681+00:00",
+  "blocked": "cap_not_acknowledged_aborted",
+  "monthly_runs_after": 64
 }
