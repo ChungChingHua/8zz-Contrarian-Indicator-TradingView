@@ -20,8 +20,9 @@
       "previous_completed_until": "2026-11-07T12:15:59.578797+00:00",
       "start_utc": "2026-11-07T10:15:59.578797+00:00",
       "end_utc": "2026-11-14T10:21:07.585530+00:00",
-      "complete": false,
-      "prior_acquisition": {}
+      "complete": true,
+      "prior_acquisition": {},
+      "completed_until": "2026-11-14T10:21:07.585530+00:00"
     }
   },
   "runs": [
@@ -54,7 +55,7 @@
       "start_utc": "2026-11-07T10:15:59.578797+00:00",
       "end_utc": "2026-11-14T10:21:07.585530+00:00",
       "submission_unknown": false,
-      "processed": false,
+      "processed": true,
       "cap_usd": null,
       "max_items": 50,
       "run_id": "hinVUOAgNEM17Le6K",
