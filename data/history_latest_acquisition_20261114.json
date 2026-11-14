@@ -64,11 +64,20 @@
       },
       "finished_at": "2026-11-14T10:21:56.529Z",
       "possible_cost_truncation": false,
-      "dataset_id": "tJDEvARp6qnYbQN1F"
+      "dataset_id": "tJDEvARp6qnYbQN1F",
+      "counts": {
+        "fetched": 27,
+        "accepted": 24,
+        "new": 24,
+        "overlap": 0,
+        "excluded": {
+          "reply_repost_or_unknown": 3
+        }
+      }
     }
   ],
   "apify_http_counts": {
-    "GET": 12,
+    "GET": 13,
     "POST": 2
   },
   "prior_control_snapshot": "data/history_completion_before_latest_20261114.json",
