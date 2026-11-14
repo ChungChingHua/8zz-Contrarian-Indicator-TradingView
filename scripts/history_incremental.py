@@ -1,4 +1,5 @@
 """Bounded incremental Apify acquisition for the one-time completion. MPL-2.0."""
+from apify_run_policy import run_options,provider_charge_limited
 import json,os,time,urllib.request,urllib.error,urllib.parse
 from datetime import datetime,timedelta,timezone
 from pathlib import Path
@@ -82,17 +83,16 @@ def execute(remote,client):
                     control['stop_reason']='apify_submission_unknown';save();return
                 if not active:
                     usage=remote.load('data/usage.json',{});month=datetime.now(timezone.utc).strftime('%Y-%m');budget=usage.setdefault(month,{'apify_runs':0,'ai_attempts':0})
-                    if budget['apify_runs']>=70:control['stop_reason']='existing_monthly_apify_budget_exhausted';save();return
                     budget['apify_runs']+=1;remote.save('data/usage.json',usage)
                     end=state.get('page_before') or state['end_utc'];start=state['start_utc']
-                    active={'source':source,'start_utc':start,'end_utc':end,'submission_unknown':True,'processed':False,'cap_usd':0.10,'max_items':50}
+                    active={'source':source,'start_utc':start,'end_utc':end,'submission_unknown':True,'processed':False,'cap_usd':None,'max_items':50}
                     control['runs'].append(active);save() # ACK before chargeable POST.
                     if source=='facebook':
                         actor='apify~facebook-posts-scraper';body={'startUrls':[{'url':'https://www.facebook.com/DieWithoutBang'}],'resultsLimit':50,'onlyPostsNewerThan':start.replace('+00:00','Z'),'onlyPostsOlderThan':end.replace('+00:00','Z')}
                     else:
                         actor='automation-lab~threads-scraper';body={'mode':'posts','usernames':['banini31'],'maxPosts':50,'includeProfile':False,'postedAfter':start.replace('+00:00','Z'),'postedBefore':end.replace('+00:00','Z')}
                     try:
-                        run=client.request('/acts/'+actor+'/runs?'+urllib.parse.urlencode({'timeout':180,'memory':512,'maxItems':50,'maxTotalChargeUsd':0.10}),body)['data']
+                        run=client.request('/acts/'+actor+'/runs?'+urllib.parse.urlencode(run_options()),body)['data']
                     except AcquisitionError as exc:
                         active['http_status']=exc.status
                         if exc.status in (400,401,402,403,404,422):active['submission_unknown']=False
@@ -104,8 +104,7 @@ def execute(remote,client):
                     time.sleep(4)
                 active['status']=run['status'];active['reported_cost']={k:run[k] for k in ('usageTotalUsd','externalChargedTotalUsd') if isinstance(run.get(k),(int,float))}
                 active['finished_at']=run.get('finishedAt')
-                msg=str(run.get('statusMessage','')).lower()
-                active['possible_cost_truncation']=any(isinstance(run.get(k),(int,float)) and run[k]>=0.10 for k in ('usageTotalUsd','externalChargedTotalUsd')) or any(word in msg for word in ('maximum total charge','max total charge','max charge'))
+                active['possible_cost_truncation']=provider_charge_limited(run)
                 if run['status']!='SUCCEEDED':control['stop_reason']='apify_run_not_successful';save();return
                 active['dataset_id']=run['defaultDatasetId'];save()
                 rows,dates=ingest_run(active)

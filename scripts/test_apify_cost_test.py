@@ -50,26 +50,30 @@ class Test(unittest.TestCase):
         self.assertEqual(r['actors']['facebook']['usageTotalUsd'],'0.00000123456789')
         self.assertEqual(r['actors']['facebook']['cost_category'],'no_new_post_check')
         before=dict(c.counts);self.assertEqual(t.execute(d,c),r);self.assertEqual(c.counts,before)
-    def test_guard_no_start(self):
-        d,c,r=self.go(Docs(69));self.assertEqual(c.counts['POST'],0)
-        self.assertEqual(r['error_code'],'existing_monthly_70_run_guard_no_start')
+    def test_starts_above_old_monthly_limit_are_still_accounted(self):
+        d,c,r=self.go(Docs(100));self.assertEqual(c.counts['POST'],2)
+        self.assertEqual(d.data['data/usage.json']['2026-11']['apify_runs'],102)
+        self.assertEqual(r['status'],'completed')
+        self.assertTrue(all('maxTotalChargeUsd' not in path for path,body in c.calls if body is not None))
     def test_unknown_never_retry(self):
         d,c,r=self.go(c=Client(error=True));self.assertEqual(c.counts['POST'],1)
         self.assertEqual(r['actors']['facebook']['status'],'submission_unknown')
         t.execute(d,c);self.assertEqual(c.counts['POST'],1)
-    def test_missing_cap_aborts_without_second_start(self):
+    def test_provider_options_do_not_require_old_ceiling(self):
         d,c,r=self.go(c=Client(cap='1'))
-        self.assertEqual(r['error_code'],'cap_not_acknowledged_run_aborted')
-        self.assertEqual(c.counts['POST'],2) # one start + one abort; never second Actor
-        self.assertEqual(sum('/runs?' in p and b is not None for p,b in c.calls),1)
+        self.assertEqual(r['status'],'completed')
+        self.assertEqual(c.counts['POST'],2)
+        self.assertFalse(any('/abort' in p for p,b in c.calls))
     def test_results_not_called_no_posts(self):
         with patch.object(t.h.s,'normalize',return_value=(None,'other_author')):
             _,_,r=self.go(c=Client(count=1))
         self.assertEqual(r['actors']['facebook']['cost_category'],'results_present')
         self.assertEqual(r['actors']['facebook']['accepted_count'],0)
     def test_actor_minimum_preflight(self):
+        pricing=t.pricing({'pricingInfos':[{'startedAt':'2026-01-01T00:00:00Z','pricingModel':'PAY_PER_EVENT','minimalMaxTotalChargeUsd':1}]}, NOW)
+        self.assertEqual(pricing['minimalMaxTotalChargeUsd'],1)
         with self.assertRaises(t.Failure):
-            t.pricing({'pricingInfos':[{'startedAt':'2026-01-01T00:00:00Z','pricingModel':'PAY_PER_EVENT','minimalMaxTotalChargeUsd':1}]}, NOW)
+            t.pricing({'pricingInfos':[]},NOW)
     def test_formal_input_parity(self):
         tree=ast.parse(Path(__file__).with_name('live_pipeline.py').read_text())
         acquire=next(x for x in tree.body if isinstance(x,ast.FunctionDef) and x.name=='acquire')

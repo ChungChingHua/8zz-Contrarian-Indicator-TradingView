@@ -40,7 +40,7 @@ def build(state):
         '只加總每次 `usageTotalUsd` 一次。`usageUsd` 是分項，計費事件是明細，`externalChargedTotalUsd` 是另一欄位，全部獨立保存、不重複相加。官方文件指出 usageTotalUsd 為 run 總成本，而 externalChargedTotalUsd 僅適用 multi-tenant Standby 對其他使用者的計費；未把它視為本次額外帳單。', '',
         '每個已知 run 完成後都安排一次唯讀刷新；沒有為費用查詢啟動新 run。原始提交／初次完成／最後查詢快照都保存在獨立帳本。若仍有成本缺失或刷新失敗，見下列清單。即使事件計數已對帳，也未獨立核對最終已結算帳單，API 數值仍可能延遲更新，零不代表免費。', '',
         '官方依據：[啟動費用上限](https://docs.apify.com/api/v2/actors-runs-post)、[run 費用定義與完成後可能延遲](https://docs.apify.com/api/v2/actor-run-get)。', '',
-        '每月共用啟動帳：'+str(state.get('monthly_runs_before'))+' → '+str(state.get('monthly_runs_after'))+'／70；本次授權上限 US$4.00（40×US$0.10），不是實際扣款。預留在提交前經 GitHub CAS 保存；結果不明不得重送。', '',
+        '每月共用啟動帳：'+str(state.get('monthly_runs_before'))+' → '+str(state.get('monthly_runs_after'))+'；帳本原始單次上限：'+str(state.get('cap_usd_per_start'))+' USD，總授權上限：'+str(state.get('maximum_authorized_usd'))+' USD（None 表示未設程式費用上限），不是實際扣款。現行程式已取消每月啟動次數限制。預留在提交前經 GitHub CAS 保存；結果不明不得重送。', '',
         'Apify HTTP 請求：`'+json.dumps(state.get('apify_http_requests',{}))+'`。POST 包括啟動與任何必要的安全中止，實際啟動以各 run 與預留明細為準；本次不進行 AI、Telegram、網站呼叫或媒體辨識。', '',
         '## 每月估算（不是報價或最終帳單）', '',
         '| 交易日數 | 以本次全天 API 成本直接相乘 | 預計 Actor 啟動次數 |', '|---|---:|---:|']
@@ -56,12 +56,12 @@ def build(state):
     estimates=cost.get('monthly_estimates_usd')
     for n in (20,22,23):
         lines.append('| '+str(n)+' | '+('US$'+estimates[str(n)] if estimates else '未完成全天／成本缺失，無法據此估算')+' | '+str(40*n)+' |')
-    lines += ['', '以上僅包含本次核實的抓取 run 成本，不包含 AI、Telegram、網站、匯率／稅、GitHub Actions 或其他未核實成本；文章量、定價、免費方案與延遲結算均可能改變。每天 40 次啟動對應每月 800／880／920 次，**超過現有每月 70 次保護值**；此估算不代表現有流程可以連續跑完整月。本次沒有提高保護值或啟用排程。', '',
+    lines += ['', '以上僅包含本次核實的抓取 run 成本，不包含 AI、Telegram、網站、匯率／稅、GitHub Actions 或其他未核實成本；文章量、定價、免費方案與延遲結算均可能改變。每天 40 次啟動對應每月 800／880／920 次，現行程式不設每月啟動次數上限，服務端額度與費用仍可能限制執行；此估算不保證可連續執行整月，排程仍關閉。', '',
         '## Actor 與參數', '']
     for source,actor in d.t.ACTORS.items():
         versions=sorted({str(e.get('buildNumber','未取得'))+' (`'+str(e.get('buildId','未取得'))+'`)' for e in runs if e['source']==source})
         lines.append('- '+source+'：`'+actor+'`；實際版本：'+', '.join(versions))
-    lines += ['', '沿用正式流程的 input：Facebook startUrls／resultsLimit=50／onlyPostsNewerThan／onlyPostsOlderThan；Threads mode=posts／usernames=[banini31]／maxPosts=50／includeProfile=false／postedAfter／postedBefore。離線測試直接擷取正式 input 分支比對。query 參數 timeout=180、memory=512、maxItems=50、maxTotalChargeUsd=0.10；restartOnError=false，禁止平台重啟。實際 options、版本與 build ID 都保存於逐 run 帳本；若平台調整實際記憶體，以 options 為準。', '',
+    lines += ['', '沿用正式流程的 input：Facebook startUrls／resultsLimit=50／onlyPostsNewerThan／onlyPostsOlderThan；Threads mode=posts／usernames=[banini31]／maxPosts=50／includeProfile=false／postedAfter／postedBefore。離線測試直接擷取正式 input 分支比對。query 參數 timeout=180、memory=512、maxItems=50；現行不傳 maxTotalChargeUsd，歷史 run 的費用限制以帳本 requested_options／options 為準；restartOnError=false，禁止平台重啟。實際 options、版本與 build ID 都保存於逐 run 帳本；若平台調整實際記憶體，以 options 為準。', '',
         '## 逐輪、逐平台明細', '',
         '全部為台灣時間（UTC+8）。「有效」限指定作者／Threads 明確非回覆非轉貼，且在該實際查詢區間內；「重複／新增」依**本次獨立帳本的平台＋貼文 ID**，不與正式文章帳本比對。相同內容若在兩平台各有 ID，仍分平台計數，不代表跨平台獨立文章總數。其他作者／回覆等排除數與窗外文章另見 JSON／CSV。', '',
         '| 輪 | 截止 | 平台 | 實際查詢起點→終點 | 版本 | run ID | 狀態 | runTimeSecs | 有效 | 診斷 | 重複 | 新增 | US$ | 游標／受限 |',

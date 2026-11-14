@@ -1,4 +1,5 @@
 """Bounded repair of three proven-unsent image failures. No AI calls. MPL-2.0."""
+from apify_run_policy import run_options,provider_charge_limited
 import copy,hashlib,json,os,re,subprocess,time,urllib.parse
 from datetime import datetime,timezone
 from pathlib import Path
@@ -24,14 +25,13 @@ def save_private(path,value):
 def run(docs,client):
     prior=docs.load(LEDGER)
     if prior is not None:return prior # Unknown/failed starts are never automatically re-submitted.
-    state={'id':ID,'status':'preflight','actors':{},'posts':{},'max_starts':2,'cap_usd_per_start':'0.10',
+    state={'id':ID,'status':'preflight','actors':{},'posts':{},'max_starts':2,'cap_usd_per_start':None,
         'ai_requests':0,'actor_starts_reserved':0,'artifact_name':ID+'-cache','workflow_run_id':os.getenv('GITHUB_RUN_ID')}
     def save():state['http_requests']=dict(client.counts);docs.save(LEDGER,state)
     data=archive();raw=json.loads(subprocess.run(['git','show','51e27179cc4fa3447ce9e011c2e7d194ad5a9520:data/social_posts.json'],capture_output=True,check=True).stdout)
     usage=docs.load('data/usage.json') or {};month=datetime.now(timezone.utc).strftime('%Y-%m')
     budget=usage.setdefault(month,{'apify_runs':0,'ai_attempts':0})
     state['monthly_runs_before']=budget['apify_runs'];save()
-    if budget['apify_runs']+2>70:state['status']='blocked_monthly_70_guard';save();return state
     try:
         for source,actor in t.ACTORS.items():
             meta=client.request('/acts/'+actor)['data'];pricing=t.pricing(meta,datetime.now(timezone.utc))
@@ -44,16 +44,15 @@ def run(docs,client):
             budget.setdefault('media_repair_reservations',{}).setdefault(ID,{'ledger':LEDGER,'reserved_starts':0})['reserved_starts']+=1
             docs.save('data/usage.json',usage)
             state['actor_starts_reserved']+=1;entry.update(status='submission_unknown',requested_keys=keys,input=body);save()
-            query=urllib.parse.urlencode({'timeout':180,'memory':512,'maxItems':50,'maxTotalChargeUsd':'0.10','restartOnError':'false'})
+            query=urllib.parse.urlencode(run_options())
             run=client.request('/acts/'+entry['actor']+'/runs?'+query,body)['data'];t.record_run(entry,run);save()
-            if str(run.get('options',{}).get('maxTotalChargeUsd')) not in ('0.1','0.10'):
-                client.request('/actor-runs/'+run['id']+'/abort',{});raise ValueError('cap_not_acknowledged_aborted')
             for attempt in range(50):
                 run=client.request('/actor-runs/'+entry['id'])['data']
                 if run['status'] not in ('READY','RUNNING','TIMING-OUT','ABORTING'):break
                 time.sleep(4)
             t.record_run(entry,run);save()
             if run['status']!='SUCCEEDED':raise ValueError('actor_not_successful')
+            if provider_charge_limited(run):raise ValueError('provider_charge_limit_may_have_truncated_media')
             rows=client.request('/datasets/'+run['defaultDatasetId']+'/items?format=json&limit=100')
             if not isinstance(rows,list):raise ValueError('invalid_dataset')
             entry['rows']=len(rows);found={}

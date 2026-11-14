@@ -1,6 +1,7 @@
 """Incremental live queue using existing Apify client, author worker and GitHub CAS.
 Default disabled. No history generation. MPL-2.0 © hansai-art / Group.G.
 """
+from apify_run_policy import run_options,provider_charge_limited
 import argparse
 import copy
 import json
@@ -61,9 +62,8 @@ def acquire(source,state,docs,client,now,raw):
     if not active:
         usage=docs.load('data/usage.json',{});month=now.astimezone(timezone.utc).strftime('%Y-%m')
         budget=usage.setdefault(month,{'apify_runs':0,'ai_attempts':0})
-        if budget['apify_runs']>=70:s['last_error']='existing_monthly_apify_budget_exhausted';save();return
         budget['apify_runs']+=1;docs.save('data/usage.json',usage)
-        active=w['active']={'submission_unknown':True,'reserved_at':now.isoformat(),'cap_usd':0.10,'max_items':50}
+        active=w['active']={'submission_unknown':True,'reserved_at':now.isoformat(),'cap_usd':None,'max_items':50}
         save() # Durable reservation before POST. No retry of ambiguous submission.
         start=w['start'];end=w.get('page_before',w['end'])
         if source=='facebook':
@@ -75,7 +75,7 @@ def acquire(source,state,docs,client,now,raw):
             body={'mode':'posts','usernames':['banini31'],'maxPosts':50,'includeProfile':False,
                 'postedAfter':start.replace('+00:00','Z'),'postedBefore':end.replace('+00:00','Z')}
         try:
-            run=client.request('/acts/'+actor+'/runs?'+urllib.parse.urlencode({'timeout':180,'memory':512,'maxItems':50,'maxTotalChargeUsd':0.10}),body)['data']
+            run=client.request('/acts/'+actor+'/runs?'+urllib.parse.urlencode(run_options()),body)['data']
             active.update(run_id=run['id'],submission_unknown=False);save()
         except acq.AcquisitionError as exc:
             if exc.status in (400,401,402,403,404,422):active['submission_unknown']=False
@@ -90,7 +90,7 @@ def acquire(source,state,docs,client,now,raw):
     if run['status']!='SUCCEEDED':s['blocked']='apify_run_not_successful';save();return
     cost={k:run[k] for k in ('usageTotalUsd','externalChargedTotalUsd') if isinstance(run.get(k),(int,float))}
     active['reported_cost']=cost
-    if any(v>=.10 for v in cost.values()) or any(x in str(run.get('statusMessage','')).lower() for x in ('max total charge','maximum total charge','max charge')):
+    if provider_charge_limited(run):
         s['blocked']='apify_cost_cap_may_have_truncated_window';save();return
     rows=[];offset=0
     while True:

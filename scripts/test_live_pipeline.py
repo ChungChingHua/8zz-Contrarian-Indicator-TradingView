@@ -122,8 +122,8 @@ class AcquisitionTests(unittest.TestCase):
     def setup_docs(self):
         state=l.initial_state();state['sources']['facebook']['completed_until']='2026-11-06T05:30:00+00:00'
         return state,Docs({l.CONTROL:state})
-    def client(self,rows,status='SUCCEEDED',cost=.02):
-        client=Mock();client.request.side_effect=[{'data':{'id':'run-fixture'}},{'data':{'status':status,'defaultDatasetId':'dataset','usageTotalUsd':cost}},rows]
+    def client(self,rows,status='SUCCEEDED',cost=.02,cap=None):
+        client=Mock();client.request.side_effect=[{'data':{'id':'run-fixture'}},{'data':{'status':status,'defaultDatasetId':'dataset','usageTotalUsd':cost,'options':{} if cap is None else {'maxTotalChargeUsd':cap}}},rows]
         return client
     def test_overnight_weekend_incremental_and_dedupe(self):
         state,docs=self.setup_docs();client=self.client([self.row()]);raw={}
@@ -139,7 +139,7 @@ class AcquisitionTests(unittest.TestCase):
     def test_failed_truncated_or_invalid_rows_never_advance(self):
         for status,cost,rows in [('FAILED',.02,[]),('SUCCEEDED',.10,[]),('SUCCEEDED',.02,[{'postId':'bad','user':{'id':'100044238139017'}}])]:
             state,docs=self.setup_docs();before=state['sources']['facebook']['completed_until']
-            with patch.object(l.hc,'archive',return_value={}):l.acquire('facebook',state,docs,self.client(rows,status,cost),NOW,{})
+            with patch.object(l.hc,'archive',return_value={}):l.acquire('facebook',state,docs,self.client(rows,status,cost,cap=.10 if cost==.10 else None),NOW,{})
             self.assertEqual(state['sources']['facebook']['completed_until'],before)
             self.assertTrue(state['sources']['facebook'].get('blocked'))
     def test_saturated_page_retains_cutoff_and_window(self):
@@ -153,10 +153,26 @@ class AcquisitionTests(unittest.TestCase):
         client.reset_mock();l.acquire('facebook',state,docs,client,NOW,{})
         client.request.assert_not_called()
         self.assertEqual(state['sources']['facebook']['blocked'],'apify_submission_unknown')
-    def test_existing_seventy_run_budget_unchanged(self):
-        state,docs=self.setup_docs();docs.data['data/usage.json']={'2026-11':{'apify_runs':70,'ai_attempts':0}}
-        client=Mock();l.acquire('facebook',state,docs,client,NOW,{})
-        client.request.assert_not_called();self.assertEqual(state['sources']['facebook']['last_error'],'existing_monthly_apify_budget_exhausted')
+    def test_above_old_monthly_and_dollar_limits_retains_accounting(self):
+        state,docs=self.setup_docs();docs.data['data/usage.json']={'2026-11':{'apify_runs':100,'ai_attempts':0}}
+        client=self.client([self.row()],cost=1.0)
+        with patch.object(l.hc,'archive',return_value={}):l.acquire('facebook',state,docs,client,NOW,{})
+        self.assertEqual(docs.data['data/usage.json']['2026-11']['apify_runs'],101)
+        self.assertEqual(state['sources']['facebook']['completed_until'],NOW.isoformat())
+        self.assertNotIn('maxTotalChargeUsd',client.request.call_args_list[0].args[0])
+    def test_provider_rejection_stops_without_resubmission_above_old_limit(self):
+        for status in (401,402,403):
+            state,docs=self.setup_docs()
+            docs.data['data/usage.json']={'2026-11':{'apify_runs':100,'ai_attempts':0}}
+            before=state['sources']['facebook']['completed_until']
+            client=Mock();client.request.side_effect=l.acq.AcquisitionError(status,'rejected')
+            l.acquire('facebook',state,docs,client,NOW,{})
+            l.acquire('facebook',state,docs,client,NOW,{})
+            self.assertEqual(client.request.call_count,1)
+            self.assertEqual(state['sources']['facebook']['http_status'],status)
+            self.assertEqual(state['sources']['facebook']['completed_until'],before)
+            self.assertEqual(docs.data['data/usage.json']['2026-11']['apify_runs'],101)
+
     def test_duplicate_schedule_round_no_processing(self):
         state=l.initial_state();state['rounds'][c.due_slot(NOW,calendar())]={'status':'reserved'}
         docs=Docs({l.CONTROL:state});client=Mock()

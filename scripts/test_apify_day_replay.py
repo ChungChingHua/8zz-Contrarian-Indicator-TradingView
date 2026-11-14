@@ -58,9 +58,11 @@ class TestReplay(unittest.TestCase):
         self.assertEqual(r['runs'][0]['diagnostic_rows'],1);self.assertEqual(r['runs'][0]['valid_posts'],0)
         self.assertEqual(r['incomplete_windows'],[])
         before=dict(c.counts);d.execute(docs,c);self.assertEqual(c.counts,before)
-    def test_monthly_guard(self):
-        _,c,r=self.go(Docs(31));self.assertEqual(c.counts['POST'],0)
-        self.assertIn('monthly_70',r['error_code'])
+    def test_no_monthly_guard_but_reservations_remain(self):
+        docs,c,r=self.go(Docs(100));self.assertEqual(c.counts['POST'],40)
+        self.assertEqual(r['status'],'completed')
+        self.assertEqual(docs.data['data/usage.json']['2026-11']['apify_runs'],140)
+        self.assertTrue(all('maxTotalChargeUsd' not in p for p,b in c.calls if b is not None))
     def test_unknown_submission_is_not_resent(self):
         docs,c,r=self.go(client=Client(unknown=True));self.assertEqual(c.counts['POST'],1)
         self.assertEqual(r['runs'][0]['status'],'submission_unknown');self.assertEqual(r['monthly_runs_after'],9)
@@ -90,7 +92,7 @@ class TestReplay(unittest.TestCase):
         self.assertEqual(len(posts),1);self.assertEqual(entry['duplicates'],1);self.assertEqual(entry['first_new'],0)
     def test_final_cost_can_revoke_cursor(self):
         r={'test_cursors':{},'runs':[{'round':1,'source':'facebook','status':'SUCCEEDED','result_count':1,
-            'query_start_utc':d.stamp(d.INITIAL-timedelta(hours=2)),'query_end_utc':d.stamp(d.FIRST),'usageTotalUsd':'.10'}]}
+            'options':{'maxTotalChargeUsd':'.10'},'query_start_utc':d.stamp(d.INITIAL-timedelta(hours=2)),'query_end_utc':d.stamp(d.FIRST),'usageTotalUsd':'.10'}]}
         d.reconcile_coverage(r);self.assertEqual(r['test_cursors']['facebook'],d.stamp(d.INITIAL))
     def test_formal_actor_input_parity(self):
         tree=ast.parse(Path(__file__).with_name('live_pipeline.py').read_text())

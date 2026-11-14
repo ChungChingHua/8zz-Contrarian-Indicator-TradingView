@@ -1,6 +1,6 @@
 """Continue author-policy history with fresh exact-post media and verified byte cache. MPL-2.0."""
+from apify_run_policy import run_options,provider_charge_limited
 import copy,hashlib,json,os,re,subprocess,time,urllib.parse
-from decimal import Decimal,InvalidOperation
 from datetime import datetime,timezone
 from pathlib import Path
 from unittest.mock import patch
@@ -20,16 +20,6 @@ MAX_BATCH=12
 RECOVER_KEYS=('facebook:1660785808739341','threads:3992201729433763729','threads:3992213198011063292')
 
 class MediaStop(BaseException):pass
-
-
-def acknowledged_cap(options):
-    """A verified lower provider cap remains within the user's USD0.10 ceiling."""
-    if not isinstance(options,dict):return False
-    value=options.get('maxTotalChargeUsd')
-    if isinstance(value,bool) or options.get('isMaxTotalChargeUsdSetByUser') is not True:return False
-    try:amount=Decimal(str(value))
-    except (InvalidOperation,ValueError):return False
-    return amount.is_finite() and Decimal('0')<amount<=t.CAP
 
 
 def previous_media_batches(docs,budget):
@@ -133,7 +123,6 @@ class Media:
             if p['source']!=post['source'] or p['unix_ms']<post['unix_ms'] or p['key']==post['key'] or p['key'] in excluded or p['key'] in self.attempted or p['key'] in self.manifest['posts']:continue
             if media_plan(p)['image_attachments']:candidates.append(p)
         keys=[p['key'] for p in candidates];source=post['source'];actor=t.ACTORS[source]
-        if self.budget['apify_runs']>=70:self.stop('monthly_70_run_guard')
         try:
             meta=self.client.request('/acts/'+actor)['data'];t.pricing(meta,datetime.now(timezone.utc))
         except Exception as exc:
@@ -149,17 +138,16 @@ class Media:
         urls=[p['url'] for p in candidates]
         body={'startUrls':[{'url':u} for u in urls],'resultsLimit':1} if source=='facebook' else {'mode':'urls','postUrls':urls,'maxPosts':MAX_BATCH,'includeProfile':False}
         entry['input']=body
-        options={'timeout':180,'memory':512,'maxItems':50,'maxTotalChargeUsd':'0.10','restartOnError':'false'}
+        options=run_options()
         try:
             run=self.client.request('/acts/'+actor+'/runs?'+urllib.parse.urlencode(options),body)['data'];t.record_run(entry,run);self.save()
-            if not acknowledged_cap(run.get('options',{})):
-                self.client.request('/actor-runs/'+run['id']+'/abort',{});self.stop('cap_not_acknowledged_aborted')
             for attempt in range(50):
                 run=self.client.request('/actor-runs/'+entry['id'])['data']
                 if run['status'] not in ('READY','RUNNING','TIMING-OUT','ABORTING'):break
                 time.sleep(4)
             t.record_run(entry,run);self.save()
             if run['status']!='SUCCEEDED':self.stop('actor_service_failure')
+            if provider_charge_limited(run):self.stop('provider_charge_limit_may_have_truncated_media')
             rows=self.client.request('/datasets/'+run['defaultDatasetId']+'/items?format=json&limit=100')
             if not isinstance(rows,list):self.stop('invalid_dataset_shape')
         except Exception as exc:

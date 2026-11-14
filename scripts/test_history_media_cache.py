@@ -63,27 +63,18 @@ class Tests(unittest.TestCase):
             (root/i['filename']).write_bytes(b'changed')
             with self.assertRaisesRegex(ValueError,'cache_hash_mismatch'):c.checked_cache(i,root)
             with self.assertRaisesRegex(ValueError,'invalid_cache_filename'):c.checked_cache({**i,'filename':'../outside.bin'},root)
-    def test_provider_lowered_cap_remains_within_authorized_ceiling(self):
-        for amount in ('0.10','0.1','0.057529'):
-            self.assertTrue(c.acknowledged_cap({'maxTotalChargeUsd':amount,'isMaxTotalChargeUsdSetByUser':True}))
-    def test_missing_unverified_or_unsafe_caps_are_rejected(self):
-        for options in (None,[],0):self.assertFalse(c.acknowledged_cap(options))
-        for amount in (None,True,'0','-0.01','0.100001','NaN','Infinity','invalid'):
-            self.assertFalse(c.acknowledged_cap({'maxTotalChargeUsd':amount,'isMaxTotalChargeUsdSetByUser':True}))
-        self.assertFalse(c.acknowledged_cap({'maxTotalChargeUsd':'0.1'}))
-        self.assertFalse(c.acknowledged_cap({'maxTotalChargeUsd':'0.057529','isMaxTotalChargeUsdSetByUser':False}))
-    def test_reduced_cap_run_is_not_aborted_or_resubmitted(self):
+    def test_no_cap_high_cost_run_is_not_aborted_or_resubmitted(self):
         from unittest.mock import Mock
         p=self.post();m=object.__new__(c.Media)
-        m.state={'batches':[],'actor_starts_reserved':0};m.attempted=set();m.data={p['key']:p};m.manifest={'posts':{}};m.budget={'apify_runs':64};m.save=Mock();m.budget_save=Mock()
-        run={'id':'existing-run','status':'SUCCEEDED','defaultDatasetId':'saved','options':{'maxTotalChargeUsd':'0.057529','isMaxTotalChargeUsdSetByUser':True}}
+        m.state={'batches':[],'actor_starts_reserved':0};m.attempted=set();m.data={p['key']:p};m.manifest={'posts':{}};m.budget={'apify_runs':100};m.save=Mock();m.budget_save=Mock()
+        run={'id':'existing-run','status':'SUCCEEDED','defaultDatasetId':'saved','options':{},'usageTotalUsd':'1.00'}
         class Client:
             starts=0;aborts=0
             def request(self,path,payload=None):
                 if path.endswith('/abort'):self.aborts+=1;raise AssertionError('lower safe cap must not be aborted')
                 if '/runs?' in path:
                     self.starts+=1
-                    self.asserted_ceiling='maxTotalChargeUsd=0.10' in path
+                    self.no_ceiling='maxTotalChargeUsd' not in path
                     return {'data':run}
                 if path.startswith('/acts/'):return {'data':{'pricingInfos':[{'startedAt':'2000-01-01T00:00:00Z','pricingModel':'PAY_PER_EVENT'}]}}
                 if path.startswith('/actor-runs/'):return {'data':run}
@@ -93,8 +84,8 @@ class Tests(unittest.TestCase):
         with patch.object(c.hc,'exclusions',return_value=(set(),{})):
             m.refresh(p)
             with self.assertRaisesRegex(ValueError,'already_attempted_no_retry'):m.refresh(p)
-        self.assertEqual(m.client.starts,1);self.assertEqual(m.client.aborts,0);self.assertTrue(m.client.asserted_ceiling)
-        self.assertEqual(m.budget['apify_runs'],65);self.assertNotIn('blocked',m.state)
+        self.assertEqual(m.client.starts,1);self.assertEqual(m.client.aborts,0);self.assertTrue(m.client.no_ceiling)
+        self.assertEqual(m.budget['apify_runs'],101);self.assertNotIn('blocked',m.state)
     def test_prior_reservation_index_covers_legacy_and_unknown_without_new_start(self):
         from unittest.mock import Mock
         docs=Mock();docs.load.return_value={'actors':{'facebook':{'requested_keys':['facebook:1'],'status':'submission_unknown'}}}
@@ -149,16 +140,8 @@ class Tests(unittest.TestCase):
         p=self.post();m=object.__new__(c.Media);q=copy.deepcopy(p);q['text']='changed'
         m.manifest={'posts':{p['key']:q},'images':{}}
         with self.assertRaisesRegex(ValueError,'cache_post_identity_mismatch'):m.prepare(p)
-    def test_monthly_guard_prevents_any_provider_request(self):
-        p=self.post();m=object.__new__(c.Media);m.state={'batches':[]};m.attempted=set();m.data={p['key']:p};m.manifest={'posts':{}};m.budget={'apify_runs':70};m.save=lambda:None
-        class Client:
-            def request(self,*args):raise AssertionError('no request allowed')
-        m.client=Client()
-        with patch.object(c.hc,'exclusions',return_value=(set(),{})):
-            with self.assertRaises(c.MediaStop):m.refresh(p)
-        self.assertEqual(m.state['blocked'],'monthly_70_run_guard')
     def test_actor_failure_is_not_retried_and_batch_is_bounded(self):
-        m=object.__new__(c.Media);m.state={'batches':[],'actor_starts_reserved':0};m.attempted=set();m.data={p['key']:p for p in [self.post(n) for n in range(1,20)]};m.manifest={'posts':{}};m.budget={'apify_runs':50};m.save=lambda:None;m.budget_save=lambda:None
+        m=object.__new__(c.Media);m.state={'batches':[],'actor_starts_reserved':0};m.attempted=set();m.data={p['key']:p for p in [self.post(n) for n in range(1,20)]};m.manifest={'posts':{}};m.budget={'apify_runs':100};m.save=lambda:None;m.budget_save=lambda:None
         class Client:
             posts=0;payload=None
             def request(self,path,payload=None):
@@ -170,6 +153,6 @@ class Tests(unittest.TestCase):
             with self.assertRaises(c.MediaStop):m.refresh(m.data['facebook:1'])
             with self.assertRaises(c.MediaStop):m.refresh(m.data['facebook:1'])
         self.assertEqual(client.posts,1);self.assertEqual(len(client.payload['startUrls']),12)
-        self.assertEqual(m.budget['apify_runs'],51)
+        self.assertEqual(m.budget['apify_runs'],101)
 
 if __name__=='__main__':unittest.main()

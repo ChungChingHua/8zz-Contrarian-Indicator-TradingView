@@ -1,3 +1,5 @@
+> **Apify 現行設定：** 已依使用者指示移除程式單次費用與每月啟動次數上限，保留去重、記帳與失敗停止。詳見[政策與驗證](docs/APIFY_LIMIT_POLICY.md)。此次不啟動抓取或 AI，排程保持關閉。
+
 > **最新 Pine 交付：指標＋原生策略，共用全部 362 筆已保存事件。**
 >
 > [token上限修正版說明](docs/PINE_TOKEN_LIMIT_FIX.md) · [指標完整碼](candidates/8zz-history-latest.pine) · [策略完整碼](candidates/8zz-strategy-latest.pine) · [同版核對資訊](candidates/8zz-pine-delivery.json) · [策略操作](docs/PINE_STRATEGY.md)。未完成歷史判讀仍保留待處理，不因此產生訊號。之後每次歷史／正式流程更新會一併產生兩份 Pine；目前排程仍停用、PR未合併。

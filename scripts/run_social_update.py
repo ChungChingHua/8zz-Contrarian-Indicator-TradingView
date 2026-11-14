@@ -32,8 +32,8 @@ def main():
     # Reserve attempts before network calls: crashes consume budget conservatively.
     ai_budget=int(os.getenv('MONTHLY_AI_LIMIT','400'))
     if not 1<=ai_budget<=2000:raise SystemExit('MONTHLY_AI_LIMIT must be 1..2000')
-    if budget['apify_runs']+runs>70 or budget['ai_attempts']+reserved_ai>ai_budget:
-        raise SystemExit(f'Monthly budget exhausted (70 Apify runs / {ai_budget} AI attempts)')
+    if budget['ai_attempts']+reserved_ai>ai_budget:
+        raise SystemExit(f'Monthly AI attempt budget exhausted ({ai_budget} attempts)')
     budget['apify_runs']+=runs;budget['ai_attempts']+=reserved_ai
     write(ROOT/'data/usage.json',usage)
     if mode not in ('classify-only','smoke'):

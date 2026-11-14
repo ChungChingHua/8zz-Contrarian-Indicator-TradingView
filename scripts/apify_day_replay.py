@@ -1,6 +1,7 @@
 """Authorized after-the-fact trading-day acquisition cost replay. MPL-2.0.
 Public posts only; no classification, notifications, production cursor reads or writes.
 """
+from apify_run_policy import run_options,provider_charge_limited
 import csv
 import io
 import json
@@ -21,7 +22,7 @@ TAIPEI = ZoneInfo('Asia/Taipei')
 INITIAL = datetime(2026, 11, 9, 13, 30, tzinfo=TAIPEI).astimezone(timezone.utc)
 FIRST = datetime(2026, 11, 10, 8, 45, tzinfo=TAIPEI).astimezone(timezone.utc)
 SLOTS = [FIRST + timedelta(minutes=15*i) for i in range(20)]
-OPTIONS = {'timeout': 180, 'memory': 512, 'maxItems': 50, 'maxTotalChargeUsd': '0.10', 'restartOnError': 'false'}
+OPTIONS = run_options()
 CAP_WORDS = ('maximum total charge', 'max total charge', 'max charge', 'max paid', 'maximum number of items')
 
 
@@ -43,9 +44,7 @@ class Documents(t.Docs):
 
 
 def limited(entry):
-    return (entry.get('result_count', 0) >= 50 or entry.get('cap_message', False) or
-            any(entry.get(k) is not None and Decimal(str(entry[k])) >= t.CAP
-                for k in ('usageTotalUsd', 'externalChargedTotalUsd')))
+    return entry.get('result_count',0)>=50 or entry.get('cap_message',False) or provider_charge_limited(entry)
 
 
 def capture(entry, run, phase):
@@ -138,7 +137,7 @@ def execute(docs, client, pause=time.sleep):
     prior=docs.load(LEDGER)
     if prior is not None: return prior  # Never re-submit any portion of an existing authorized replay.
     state={'test_id':ID,'status':'preflight','created_at':stamp(now()),'maximum_starts':40,
-        'cap_usd_per_start':'0.10','maximum_authorized_usd':'4.00','automatic_retries':0,
+        'cap_usd_per_start':None,'maximum_authorized_usd':None,'automatic_retries':0,
         'initial_test_cutoff_utc':stamp(INITIAL),'simulated_cutoffs_utc':[stamp(x) for x in SLOTS],
         'test_cursors':{s:stamp(INITIAL) for s in t.ACTORS},'runs':[],'pricing':{},'reserved_starts':0,
         'after_the_fact':True,'posts_ledger':POSTS,'formal_shas_before':docs.formal_shas()}
@@ -149,7 +148,7 @@ def execute(docs, client, pause=time.sleep):
     def chargebook():
         if usage is None: return
         reservation=usage[month].setdefault('cost_test_reservations',{}).setdefault(ID,{})
-        reservation.update(ledger=LEDGER,authorized_max_starts=40,authorized_maximum_usd='4.00',
+        reservation.update(ledger=LEDGER,authorized_max_starts=40,authorized_maximum_usd=None,
             reserved_starts=state['reserved_starts'],started_run_ids=[e['id'] for e in state['runs'] if e.get('id')],
             observed_cost=state.get('costs',{}),unresolved_submissions=sum(e.get('status')=='submission_unknown' for e in state['runs']))
         docs.save('data/usage.json',usage)
@@ -158,7 +157,6 @@ def execute(docs, client, pause=time.sleep):
         usage=docs.load('data/usage.json') or {};month=now().strftime('%Y-%m')
         budget=usage.setdefault(month,{'apify_runs':0,'ai_attempts':0})
         state['monthly_runs_before']=budget['apify_runs']
-        if budget['apify_runs']+40>70: raise t.Failure('monthly_70_run_guard_insufficient_for_40_no_start')
         for source,actor in t.ACTORS.items():
             meta=client.request('/acts/'+actor)['data']
             state['pricing'][source]={'actor':actor,'pricing':t.pricing(meta,now()),'defaultRunOptions':t.plain(meta.get('defaultRunOptions',{}))}
@@ -172,7 +170,6 @@ def execute(docs, client, pause=time.sleep):
                     'query_start_taipei':start.astimezone(TAIPEI).isoformat(),'query_end_taipei':end.astimezone(TAIPEI).isoformat(),
                     'input':t.inputs(source,stamp(start),stamp(end)),'requested_options':OPTIONS.copy(),'status':'reserved_not_submitted'}
                 state['runs'].append(entry)
-                if budget['apify_runs']>=70: raise t.Failure('monthly_70_run_guard')
                 budget['apify_runs']+=1;state['reserved_starts']+=1
                 chargebook();save() # Shared budget ACK before submission intent.
                 entry['status']='submission_unknown';save() # Intent ACK before POST; ambiguous never re-sent.
@@ -183,9 +180,6 @@ def execute(docs, client, pause=time.sleep):
                     entry.update(error_code=exc.code,http_status=exc.status);raise
                 capture(entry,run,'submission');save()
                 opts=run.get('options',{})
-                if Decimal(str(opts.get('maxTotalChargeUsd','-1'))) != t.CAP or opts.get('isMaxTotalChargeUsdSetByUser') is not True:
-                    client.request('/actor-runs/'+run['id']+'/abort',{})
-                    raise t.Failure('cap_not_acknowledged_abort_no_new_start')
                 if opts.get('restartOnError') is not False: raise t.Failure('restart_policy_not_acknowledged')
                 for attempt in range(50):
                     run=client.request('/actor-runs/'+entry['id'])['data']
@@ -208,8 +202,6 @@ def execute(docs, client, pause=time.sleep):
                 streak=state.setdefault('uncertain_streak',{})
                 streak[source]=streak.get(source,0)+1 if entry['uncertain_rows'] else 0
                 if streak[source]>=2: raise t.Failure('persistent_unrecognized_dataset_stop')
-                if entry.get('usageTotalUsd') is not None and Decimal(str(entry['usageTotalUsd']))>t.CAP:
-                    raise t.Failure('reported_cost_exceeds_authorized_cap_stop')
                 if not limited(entry) and not entry['uncertain_rows']: state['test_cursors'][source]=stamp(end)
                 else: entry['cursor_not_advanced']=True
                 save()

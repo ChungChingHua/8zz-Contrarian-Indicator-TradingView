@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Bounded Apify acquisition. Persist run IDs before polling; never retry POST blindly."""
+from apify_run_policy import run_options,provider_charge_limited
 import argparse
 import os
 import sys
@@ -40,7 +41,7 @@ def fetch(source, limit, smoke=False):
                   'postedAfter':start,'postedBefore':end}
         s.update(window_start=start,window_end=s.get('window_end',end),submission_uncertain=True)
         write(state_path,state)
-        query=urllib.parse.urlencode({'timeout':180,'memory':512,'maxItems':limit,'maxTotalChargeUsd':0.10})
+        query=urllib.parse.urlencode(run_options(max_items=limit))
         # POST may have succeeded even if the connection fails. Leave uncertain marker.
         try:
             run=request_json(f'{BASE}/acts/{actor}/runs?{query}',headers,body,retries=1)['data']
@@ -60,6 +61,7 @@ def fetch(source, limit, smoke=False):
     if run['status']!='SUCCEEDED':
         # Keep ID for inspection/recovery; do not silently resubmit paid failures.
         raise RuntimeError('Apify run not successful; saved run ID retained')
+    if provider_charge_limited(run):raise RuntimeError('Apify provider limit may have truncated data; run ID and cursor retained')
     rows=[]
     offset=0
     while True:

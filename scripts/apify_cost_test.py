@@ -1,6 +1,7 @@
 """One authorized, isolated 15-minute acquisition cost experiment. MPL-2.0.
 No AI, notifications, cursor advancement or submission retries.
 """
+from apify_run_policy import run_options,provider_charge_limited
 import json
 import os
 import time
@@ -15,7 +16,6 @@ import history_worker as h
 TEST_ID = 'apify-15m-20261110-01'
 PATH = 'data/cost_tests/' + TEST_ID + '.json'
 ACTORS = {'facebook': 'apify~facebook-posts-scraper', 'threads': 'automation-lab~threads-scraper'}
-CAP = Decimal('0.10')
 DOC = 'https://docs.apify.com/api/v2/actors-runs-post'
 
 
@@ -91,9 +91,7 @@ def pricing(actor, now):
                if p.get('startedAt') and datetime.fromisoformat(p['startedAt'].replace('Z', '+00:00')) <= now]
     if not records: raise Failure('pricing_not_verifiable_no_start')
     p = max(records, key=lambda x: x['startedAt'])
-    if p.get('minimalMaxTotalChargeUsd') is not None and Decimal(str(p['minimalMaxTotalChargeUsd'])) > CAP:
-        raise Failure('actor_minimum_exceeds_authorized_cap_no_start')
-    # Current API explicitly documents maxTotalChargeUsd for ALL pricing models.
+    # Retain pricing metadata checks without imposing an application cost ceiling.
     if p.get('pricingModel') not in ('PAY_PER_EVENT', 'PRICE_PER_DATASET_ITEM', 'FLAT_PRICE_PER_MONTH', 'FREE'):
         raise Failure('unknown_pricing_model_no_start')
     return {k: p[k] for k in ('pricingModel', 'startedAt', 'minimalMaxTotalChargeUsd',
@@ -113,7 +111,7 @@ def record_run(entry, run):
 def execute(docs, client, clock=lambda: datetime.now(timezone.utc), pause=time.sleep):
     prior = docs.load(PATH)
     if prior is not None: return prior  # Never resubmit this authorized test, including ambiguous starts.
-    state = {'test_id': TEST_ID, 'status': 'preflight', 'actors': {}, 'cap_usd_per_run': '0.10',
+    state = {'test_id': TEST_ID, 'status': 'preflight', 'actors': {}, 'cap_usd_per_run': None,
              'cap_documentation': DOC, 'maximum_starts': 2, 'automatic_retries': 0}
     def save():
         state['http_requests'] = dict(client.counts)
@@ -133,24 +131,17 @@ def execute(docs, client, clock=lambda: datetime.now(timezone.utc), pause=time.s
         month = end.strftime('%Y-%m'); usage = docs.load('data/usage.json') or {}
         budget = usage.setdefault(month, {'apify_runs': 0, 'ai_attempts': 0})
         state['monthly_runs_before'] = budget['apify_runs']
-        if budget['apify_runs'] + 2 > 70: raise Failure('existing_monthly_70_run_guard_no_start')
         budget['apify_runs'] += 2
         budget.setdefault('cost_test_reservations', {})[TEST_ID] = {'reserved_starts': 2,
-            'maximum_total_usd': '0.20', 'ledger': PATH}
+            'maximum_total_usd': None, 'ledger': PATH}
         docs.save('data/usage.json', usage)  # CAS remote ACK before any paid POST.
         state['reserved_starts'] = 2; state['monthly_runs_after'] = budget['apify_runs']; save()
         for source, entry in state['actors'].items():
             body = inputs(source, state['start_utc'], state['end_utc'])
             entry.update(status='submission_unknown', input=body); save()
-            query = urllib.parse.urlencode({'timeout': 180, 'memory': 512, 'maxItems': 50,
-                'maxTotalChargeUsd': '0.10', 'restartOnError': 'false'})
+            query = urllib.parse.urlencode(run_options())
             run = client.request('/acts/' + entry['actor'] + '/runs?' + query, body)['data']
             record_run(entry, run); save()  # Run ID persisted before the next submission.
-            options = run.get('options', {})
-            if Decimal(str(options.get('maxTotalChargeUsd', '-1'))) != CAP:
-                # No new starts; abort this known run to stop an unenforced cap.
-                client.request('/actor-runs/' + run['id'] + '/abort', {})
-                raise Failure('cap_not_acknowledged_run_aborted')
         for source, entry in state['actors'].items():
             for attempt in range(50):
                 run = client.request('/actor-runs/' + entry['id'])['data']
@@ -158,6 +149,7 @@ def execute(docs, client, clock=lambda: datetime.now(timezone.utc), pause=time.s
                 if run['status'] not in ('READY', 'RUNNING', 'TIMING-OUT', 'ABORTING'): break
                 if attempt < 49: pause(5)
             if run['status'] != 'SUCCEEDED': raise Failure('actor_not_successful_stop')
+            if provider_charge_limited(run): raise Failure('provider_charge_limit_may_have_truncated_results')
             rows = []; offset = 0
             while True:
                 page = client.request('/datasets/' + run['defaultDatasetId'] +
