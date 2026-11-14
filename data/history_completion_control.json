@@ -3,7 +3,7 @@
   "cutoff_utc": "2026-11-14T10:21:07.585530+00:00",
   "created_at": "2026-11-07T12:15:59.578797+00:00",
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
-  "closed": false,
+  "closed": true,
   "acquisition_completed": true,
   "sources": {
     "facebook": {
