@@ -83,8 +83,8 @@
     "GET": 0,
     "POST": 0
   },
-  "last_chunk": "history-completion-20261107-034",
-  "updated_at": "2026-11-14T10:28:28.378855+00:00",
+  "last_chunk": "history-completion-20261107-035",
+  "updated_at": "2026-11-14T10:29:51.261226+00:00",
   "consecutive_isolated_failures": 0,
   "all_unstarted_visited": false,
   "blocker_history": [
@@ -1212,7 +1212,7 @@
     "facebook:1705237887627466"
   ],
   "existing_media_preflight_ledger": "data/history_media_repairs/20261114-media-repair-02.json",
-  "stop_reason": null,
+  "stop_reason": "provider_access_quota_or_common_failure",
   "closure_reason": "missing_images_and_low_apify_headroom",
   "service_budget_statement": {
     "provider": "Apify",
@@ -1375,5 +1375,6 @@
       }
     }
   ],
-  "latest_extension_id": "latest-history-20261114"
+  "latest_extension_id": "latest-history-20261114",
+  "stopped_at": "2026-11-13T00:56:41+08:00"
 }
