@@ -273,8 +273,13 @@
     "recovered_zero_generation_inputs": 0,
     "actor_runs_started": 0,
     "saved_dataset_get_requests": 0,
-    "closed": false,
-    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43585240072"
+    "closed": true,
+    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43585240072",
+    "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-04.json",
+    "media_repair_http_counts": {
+      "GET": 1,
+      "POST": 0
+    }
   },
   "session_history": [
     {
