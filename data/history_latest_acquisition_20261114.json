@@ -28,15 +28,16 @@
       "source": "facebook",
       "start_utc": "2026-11-07T10:15:59.578797+00:00",
       "end_utc": "2026-11-14T10:21:07.585530+00:00",
-      "submission_unknown": true,
+      "submission_unknown": false,
       "processed": false,
       "cap_usd": null,
-      "max_items": 50
+      "max_items": 50,
+      "run_id": "1eDyx3uOHnTVfD5Ln"
     }
   ],
   "apify_http_counts": {
     "GET": 0,
-    "POST": 0
+    "POST": 1
   },
   "prior_control_snapshot": "data/history_completion_before_latest_20261114.json",
   "prior_http_counts": {
