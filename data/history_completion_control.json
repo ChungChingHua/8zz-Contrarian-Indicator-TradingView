@@ -315,7 +315,12 @@
     "actor_runs_started": 0,
     "saved_dataset_get_requests": 0,
     "recovered_zero_generation_inputs": 0,
-    "closed": false
+    "closed": true,
+    "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-02.json",
+    "media_repair_http_counts": {
+      "GET": 0,
+      "POST": 0
+    }
   },
   "session_history": [
     {
