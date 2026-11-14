@@ -1,0 +1,533 @@
+{
+  "batch_id": "history-completion-20261107-024",
+  "max_generations": 25,
+  "rule_version": "fork-7b626f2-ai-v1",
+  "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+  "posts": [
+    {
+      "key": "facebook:1677726727045249",
+      "content_hash": "a06faf09c9aab9e102f82939550a0cda1a958d13619faf01165b4290cd30d357",
+      "post_id": "1677726727045249",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0sQSNdDN9zw5BvTZ9UDdw5YkaCPdu2svc1Deohvwyhore54LrWLiAUEZ9c1Pu8qkql",
+      "published_at": "2026-10-10T18:43:15+00:00",
+      "display_time": "2026-10-11T02:43:15+08:00",
+      "unix_ms": 1791657795000,
+      "text": "請愛我",
+      "number": 1,
+      "members": [
+        {
+          "key": "facebook:1677726727045249",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0sQSNdDN9zw5BvTZ9UDdw5YkaCPdu2svc1Deohvwyhore54LrWLiAUEZ9c1Pu8qkql",
+          "published_at": "2026-10-10T18:43:15+00:00",
+          "post_id": "1677726727045249"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1678203293664259",
+      "content_hash": "5fca0c38fa067bd600c893d1fb7f6c72a7118423ffa5fb301873bf575e9b59c6",
+      "post_id": "1678203293664259",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid023B8SZd3bU7gFZbcRq7iw8mXbTmdRqzpHz2dsPpFxCwrGaQX1DzCVXS2whdWdQsnSl",
+      "published_at": "2026-10-11T08:07:31+00:00",
+      "display_time": "2026-10-11T16:07:31+08:00",
+      "unix_ms": 1791706051000,
+      "text": "你好臉書\n我想買便宜的Fenix 9pro,銀色的， 運動的時候要用\n有人推哪邊嗎？ \n我大概還要一個月才能復原， 所以不及\n\n附上一張網路上看到的哭泣貓貓",
+      "number": 2,
+      "members": [
+        {
+          "key": "facebook:1678203293664259",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid023B8SZd3bU7gFZbcRq7iw8mXbTmdRqzpHz2dsPpFxCwrGaQX1DzCVXS2whdWdQsnSl",
+          "published_at": "2026-10-11T08:07:31+00:00",
+          "post_id": "1678203293664259"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1678581570293098",
+      "content_hash": "32ef5a8c699ce75a44e8c2fa1652699147399499348e9f8d3c2f1cabf18dd35a",
+      "post_id": "1678581570293098",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02TekZ5LV5BmwB4Pv2tH3rGcYBip6UXqfagfBeoyokYYe5amYpHqVqVeWFCm9MjsU8l",
+      "published_at": "2026-10-11T16:00:20+00:00",
+      "display_time": "2026-10-12T00:00:20+08:00",
+      "unix_ms": 1791734420000,
+      "text": "烏克蘭要準備停戰了\n看來我錯了\n可能沒有開低了，直接飛天了吧？",
+      "number": 3,
+      "members": [
+        {
+          "key": "facebook:1678581570293098",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02TekZ5LV5BmwB4Pv2tH3rGcYBip6UXqfagfBeoyokYYe5amYpHqVqVeWFCm9MjsU8l",
+          "published_at": "2026-10-11T16:00:20+00:00",
+          "post_id": "1678581570293098"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1678910576926864",
+      "content_hash": "a81403d7df0dd7e82bd7aaafb49a955d3aac57d30441e4559e80a2983a421945",
+      "post_id": "1678910576926864",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02pQ2cpL9uxozzVnzhWjeLkEZaCpMLzq8StAre2qcPgi5T5TQn7aK5BWoo5e53jwJal",
+      "published_at": "2026-10-12T00:44:32+00:00",
+      "display_time": "2026-10-12T08:44:32+08:00",
+      "unix_ms": 1791765872000,
+      "text": "早安\n這把穩了吧！？ \n可憐的我上週賣出的股票⋯ 是不是該買一些回來？",
+      "number": 4,
+      "members": [
+        {
+          "key": "facebook:1678910576926864",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02pQ2cpL9uxozzVnzhWjeLkEZaCpMLzq8StAre2qcPgi5T5TQn7aK5BWoo5e53jwJal",
+          "published_at": "2026-10-12T00:44:32+00:00",
+          "post_id": "1678910576926864"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1678928546925067",
+      "content_hash": "90bf16cd3d34fec29dbbe7187f13635abd792a12acfe47d013bfc8c4fbe78d9c",
+      "post_id": "1678928546925067",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0KcRdyAfaUmjMxFcc7fTeaWHctFq15A1vFsSxnCm2q2gbVU5WKtxrL54VRu9QkPdsl",
+      "published_at": "2026-10-12T01:15:16+00:00",
+      "display_time": "2026-10-12T09:15:16+08:00",
+      "unix_ms": 1791767716000,
+      "text": "持續降低槓桿\n剩下可能等12點之後再說了～ \n\n如果有拉回那就買一點個股\n如果沒有⋯ 今天就結束這回合 ：）\n\n是說⋯ 國巨跟光聖⋯ 你們拜託加油好嗎(;´༎ຶД༎ຶ`)",
+      "number": 5,
+      "members": [
+        {
+          "key": "facebook:1678928546925067",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0KcRdyAfaUmjMxFcc7fTeaWHctFq15A1vFsSxnCm2q2gbVU5WKtxrL54VRu9QkPdsl",
+          "published_at": "2026-10-12T01:15:16+00:00",
+          "post_id": "1678928546925067"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1679923533492235",
+      "content_hash": "3cb6adb7131005c868161ad203c3b2bd5a7d9823fd78323a9d8d91f0802a9906",
+      "post_id": "1679923533492235",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0V74c523FKY5F5G56Dd5uVZgD5UkU2XY7xKu26cdh3cti4RK51Dr7Ryp2ystgo7nWl",
+      "published_at": "2026-10-13T00:41:07+00:00",
+      "display_time": "2026-10-13T08:41:07+08:00",
+      "unix_ms": 1791852067000,
+      "text": "沒⋯沒事的\n台股沒事的！ 不要被美國人騙了！",
+      "number": 6,
+      "members": [
+        {
+          "key": "facebook:1679923533492235",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0V74c523FKY5F5G56Dd5uVZgD5UkU2XY7xKu26cdh3cti4RK51Dr7Ryp2ystgo7nWl",
+          "published_at": "2026-10-13T00:41:07+00:00",
+          "post_id": "1679923533492235"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1680982506719671",
+      "content_hash": "eace397448446c30c03b0d804686b9e7ed0b99cc82ba1685945f588d24502028",
+      "post_id": "1680982506719671",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid036QyCxDvtfyyypeyZjRTc8T1d7fD8BytPsHRj1i62SgXeMVNZMhpMvPngCteHBcQkl",
+      "published_at": "2026-10-14T03:20:13+00:00",
+      "display_time": "2026-10-14T11:20:13+08:00",
+      "unix_ms": 1791948013000,
+      "text": "孩子別怕！ \n我來了！ \n我陪著大家一起飛！",
+      "number": 7,
+      "members": [
+        {
+          "key": "facebook:1680982506719671",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid036QyCxDvtfyyypeyZjRTc8T1d7fD8BytPsHRj1i62SgXeMVNZMhpMvPngCteHBcQkl",
+          "published_at": "2026-10-14T03:20:13+00:00",
+          "post_id": "1680982506719671"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1681897799961475",
+      "content_hash": "8bdf34c020ccce0a0fcd7ba51d46cd65f9febfaf1677341f526ffe3233e3a168",
+      "post_id": "1681897799961475",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02dYyhrxt4YvuaADL6ypWrgJz48eDtj4vVjRB3Eo3bQwgWHBW2ZhD2fETVGFjnfkFzl",
+      "published_at": "2026-10-15T01:15:46+00:00",
+      "display_time": "2026-10-15T09:15:46+08:00",
+      "unix_ms": 1792026946000,
+      "text": "⋯⋯ \n這次我要遵守紀律\n碰-10%就停損\n我也知道國巨可能已經是底了， 川湖也可能等等就V\n但是上次就是沒有遵守紀律讓自己損失極度慘重(;´༎ຶД༎ຶ`)",
+      "number": 8,
+      "members": [
+        {
+          "key": "facebook:1681897799961475",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02dYyhrxt4YvuaADL6ypWrgJz48eDtj4vVjRB3Eo3bQwgWHBW2ZhD2fETVGFjnfkFzl",
+          "published_at": "2026-10-15T01:15:46+00:00",
+          "post_id": "1681897799961475"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1684796916338230",
+      "content_hash": "f2b04ffdeaf21401d974a161602b0e5fe51e04fe2233bfb523a6d36560d71326",
+      "post_id": "1684796916338230",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02UczfDiB1J7RdwT2VoFhg2bSNkPdLXTzEUpizm59Wp117Q8aAbMdLsCacqupAWHcql",
+      "published_at": "2026-10-18T01:46:15+00:00",
+      "display_time": "2026-10-18T09:46:15+08:00",
+      "unix_ms": 1792287975000,
+      "text": "啊啊啊啊～ 我的指甲沒有bonding 好，現在peeling了\n請問我要highlight 哪個部門， 叫他們寫8D\nA. 黃光\nB. 蝕刻\nC. CMP \nD. 現場PM team MO\nE. 誰說只有前端，後段封裝也要負責啊\n\n請選擇",
+      "number": 9,
+      "members": [
+        {
+          "key": "facebook:1684796916338230",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02UczfDiB1J7RdwT2VoFhg2bSNkPdLXTzEUpizm59Wp117Q8aAbMdLsCacqupAWHcql",
+          "published_at": "2026-10-18T01:46:15+00:00",
+          "post_id": "1684796916338230"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1684876712996917",
+      "content_hash": "31c0aa9267d4258ddbf36603f7c2b591b0c0c76316a23aae22caca21d43fc6bd",
+      "post_id": "1684876712996917",
+      "source": "facebook",
+      "url": "https://www.facebook.com/reel/1104211675725950/",
+      "published_at": "2026-10-18T03:56:39+00:00",
+      "display_time": "2026-10-18T11:56:39+08:00",
+      "unix_ms": 1792295799000,
+      "text": "明天我就好好教育他們！",
+      "number": 10,
+      "members": [
+        {
+          "key": "facebook:1684876712996917",
+          "source": "facebook",
+          "url": "https://www.facebook.com/reel/1104211675725950/",
+          "published_at": "2026-10-18T03:56:39+00:00",
+          "post_id": "1684876712996917"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1685757009575554",
+      "content_hash": "0afd8ba74a3cc59944a0c0ccdc042027e8ef09ade6b4527ed947d9ad79159ff1",
+      "post_id": "1685757009575554",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02yfLpDTT5YCDzkHtLC1EbtbSTAJc9g84CWj8bvRJgw4NmypLrR7Ke3scdUA7heJrfl",
+      "published_at": "2026-10-19T01:23:55+00:00",
+      "display_time": "2026-10-19T09:23:55+08:00",
+      "unix_ms": 1792373035000,
+      "text": "看來我的指導有方\n可以安心準備擺攤了～(⊙ω⊙)/\n\n跟我一起喊\n大V天龍～～",
+      "number": 11,
+      "members": [
+        {
+          "key": "facebook:1685757009575554",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02yfLpDTT5YCDzkHtLC1EbtbSTAJc9g84CWj8bvRJgw4NmypLrR7Ke3scdUA7heJrfl",
+          "published_at": "2026-10-19T01:23:55+00:00",
+          "post_id": "1685757009575554"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1685839076234014",
+      "content_hash": "58ae223349f8d2576624d73000043fc6897d28a530944e183a900a738a265835",
+      "post_id": "1685839076234014",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02UniNrWhr5a8dnABkXYBV2xoHmqKpUFtN1VgcrUduxw1XBqxrWCBvD7Sq9GfDhRrYl",
+      "published_at": "2026-10-19T03:29:06+00:00",
+      "display_time": "2026-10-19T11:29:06+08:00",
+      "unix_ms": 1792380546000,
+      "text": "身為標準的現代女性\n該甩掉沒用的軟爛男的時候就要果斷\n\n不要像小聯跟阿祥一樣， 都已經爛成狗皮膏藥，甩都甩不掉了_(:_」∠)_",
+      "number": 12,
+      "members": [
+        {
+          "key": "facebook:1685839076234014",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02UniNrWhr5a8dnABkXYBV2xoHmqKpUFtN1VgcrUduxw1XBqxrWCBvD7Sq9GfDhRrYl",
+          "published_at": "2026-10-19T03:29:06+00:00",
+          "post_id": "1685839076234014"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1686254039525851",
+      "content_hash": "f7b8497cb8659f298380b2eb2d1e894a2fd09b8a9b5bd58aed5d7be1f76268f1",
+      "post_id": "1686254039525851",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02J6QCXMoxwcEpkayCNCPoivpVvNETVJweY5ye5A16Ba43NWdRAGpJpkaaHqpzLhpAl",
+      "published_at": "2026-10-19T13:45:39+00:00",
+      "display_time": "2026-10-19T21:45:39+08:00",
+      "unix_ms": 1792417539000,
+      "text": "明天就是這樣走了\n我已經教會韓國人玩股票了！ 不用怕",
+      "number": 13,
+      "members": [
+        {
+          "key": "facebook:1686254039525851",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02J6QCXMoxwcEpkayCNCPoivpVvNETVJweY5ye5A16Ba43NWdRAGpJpkaaHqpzLhpAl",
+          "published_at": "2026-10-19T13:45:39+00:00",
+          "post_id": "1686254039525851"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1686423036175618",
+      "content_hash": "b2d55c120d25c05e01e662e8b1c05e6b273dab3b4fd5332c9fa4ad7535d70ddf",
+      "post_id": "1686423036175618",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02kA61JgrMS3HXANvNXbhDGspgHzdfTRjbhyR1Y6vjBduKfR93XiuNfy6azzfFfR7Dl",
+      "published_at": "2026-10-19T17:10:46+00:00",
+      "display_time": "2026-10-20T01:10:46+08:00",
+      "unix_ms": 1792429846000,
+      "text": "網路上的東西真的都是看看笑笑就好\n大多數都是假的\n\n就像我也可以說：\n其實我早就財富自由身家數億，開了一間年營業額15億的公司，現在上班只是體驗人生\n然後每天發發天空啊～海～自己運動的照片再加上一些廢話～\n這樣一定還是有人會相信～\n然後就會開始覺得自己不好⋯ \n\n孰不知我其實只是個朝九晚五，整天只想靠股票翻身，每個月最大的目標就是能付房貸，公司開了一年就倒了_(:_」∠)_⋯ \n所以我交貨便的取貨率低於50%真的很痛苦⋯",
+      "number": 14,
+      "members": [
+        {
+          "key": "facebook:1686423036175618",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02kA61JgrMS3HXANvNXbhDGspgHzdfTRjbhyR1Y6vjBduKfR93XiuNfy6azzfFfR7Dl",
+          "published_at": "2026-10-19T17:10:46+00:00",
+          "post_id": "1686423036175618"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1686697372814851",
+      "content_hash": "7fe0f7760d105ea5aa8bfab84bff067764ee3103a98276b4119f36fcc831461f",
+      "post_id": "1686697372814851",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid05eQyhyoAmAWLW93ReDCSzBJBt5Yt7BXfV8DG2wExoBJV85yNkMnyFmyAgTKphs8Vl",
+      "published_at": "2026-10-20T00:49:07+00:00",
+      "display_time": "2026-10-20T08:49:07+08:00",
+      "unix_ms": 1792457347000,
+      "text": "上工～ \n拍張照老闆才知道我有好好工作\n順便看看有哪些好公司可以買（？）",
+      "number": 15,
+      "members": [
+        {
+          "key": "facebook:1686697372814851",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid05eQyhyoAmAWLW93ReDCSzBJBt5Yt7BXfV8DG2wExoBJV85yNkMnyFmyAgTKphs8Vl",
+          "published_at": "2026-10-20T00:49:07+00:00",
+          "post_id": "1686697372814851"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1686730896144832",
+      "content_hash": "b4939bbfb133dd638b2aa6820e82344f29cf87538ea5a1fad573e7b2cb06151d",
+      "post_id": "1686730896144832",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0rXSHRLGJcXYryisPHdjzdJRyMkYFcz75QdyPfoJJuaoJdNDGF3UeAf8NBdGhXEoAl",
+      "published_at": "2026-10-20T01:46:10+00:00",
+      "display_time": "2026-10-20T09:46:10+08:00",
+      "unix_ms": 1792460770000,
+      "text": "上吧！ 410A! \n我相信你一定可以的！\n光通～ so sexy 上游組件 ~ so sexy \n上吧！\n台股天下無敵～！",
+      "number": 16,
+      "members": [
+        {
+          "key": "facebook:1686730896144832",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0rXSHRLGJcXYryisPHdjzdJRyMkYFcz75QdyPfoJJuaoJdNDGF3UeAf8NBdGhXEoAl",
+          "published_at": "2026-10-20T01:46:10+00:00",
+          "post_id": "1686730896144832"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1687261832758405",
+      "content_hash": "ea41fa95fac739296500179f4fa5f80bef29a5d9d6d4d5d8c607f76573fd4d33",
+      "post_id": "1687261832758405",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0PtfF5qBJfWVRshB6qr2yLjccH5GPLCYVwQVCPFKou9qo6EVDvoyKzobeCFiKdWqKl",
+      "published_at": "2026-10-20T14:29:59+00:00",
+      "display_time": "2026-10-20T22:29:59+08:00",
+      "unix_ms": 1792506599000,
+      "text": "恩⋯⋯ \nTerafab是那個Terafab嗎？ \nhmm",
+      "number": 17,
+      "members": [
+        {
+          "key": "facebook:1687261832758405",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0PtfF5qBJfWVRshB6qr2yLjccH5GPLCYVwQVCPFKou9qo6EVDvoyKzobeCFiKdWqKl",
+          "published_at": "2026-10-20T14:29:59+00:00",
+          "post_id": "1687261832758405"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1687673559383899",
+      "content_hash": "c50df389e6d0ff525bc208a6d89aabfdaf41be60bd413f218df3dfe8aefaefc2",
+      "post_id": "1687673559383899",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0Fxmz6PzMJPEact9vEWAWzQz9RBZWgryDxWKRQekKBu2aqiuquTDUj2TUqzf6QTGAl",
+      "published_at": "2026-10-21T00:47:15+00:00",
+      "display_time": "2026-10-21T08:47:15+08:00",
+      "unix_ms": 1792543635000,
+      "text": "早上好 \n今天又是ㄈㄧ！\n\n拜託了， 求求你\n給我人道走廊一下吧！！ 🥲🥲",
+      "number": 18,
+      "members": [
+        {
+          "key": "facebook:1687673559383899",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0Fxmz6PzMJPEact9vEWAWzQz9RBZWgryDxWKRQekKBu2aqiuquTDUj2TUqzf6QTGAl",
+          "published_at": "2026-10-21T00:47:15+00:00",
+          "post_id": "1687673559383899"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1687718942712694",
+      "content_hash": "2c1a3d972f6f6c6b4f925c8919f829634993211277c7bfdd61020defea0066b5",
+      "post_id": "1687718942712694",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02wxWNn3R3NF8Pxx4JwzT8SDVDzRs8xfumyXWERizpSUSuMoiNdrfAhmu8KGmzF8Zel",
+      "published_at": "2026-10-21T02:04:47+00:00",
+      "display_time": "2026-10-21T10:04:47+08:00",
+      "unix_ms": 1792548287000,
+      "text": "三小AI\n醜死了～～\n\n剛剛我有小額買進了\n晚一點再掀牌❤️",
+      "number": 19,
+      "members": [
+        {
+          "key": "facebook:1687718942712694",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02wxWNn3R3NF8Pxx4JwzT8SDVDzRs8xfumyXWERizpSUSuMoiNdrfAhmu8KGmzF8Zel",
+          "published_at": "2026-10-21T02:04:47+00:00",
+          "post_id": "1687718942712694"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1688735202611068",
+      "content_hash": "7b440b3eefb7924f19fde50dc7cd7397c6e63749c414b97b42c1f77b480c70b2",
+      "post_id": "1688735202611068",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0J2ab2iw7igK3xEd9Xi6DDKTEVadAWzTh2SqazJ87psiCf5Q5XAao6G3YqkXNHx1Ql",
+      "published_at": "2026-10-22T03:49:40+00:00",
+      "display_time": "2026-10-22T11:49:40+08:00",
+      "unix_ms": 1792640980000,
+      "text": "好冷喔\n韓國好冷喔\n心也好冷喔_(:_」∠)_",
+      "number": 20,
+      "members": [
+        {
+          "key": "facebook:1688735202611068",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0J2ab2iw7igK3xEd9Xi6DDKTEVadAWzTh2SqazJ87psiCf5Q5XAao6G3YqkXNHx1Ql",
+          "published_at": "2026-10-22T03:49:40+00:00",
+          "post_id": "1688735202611068"
+        }
+      ]
+    },
+    {
+      "key": "threads:4013300040710323046",
+      "content_hash": "5b2d08c02ff4a65371e2efd4a05ef000076cd00acd1cda7183b323fef44ee1ae",
+      "post_id": "4013300040710323046",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DeyGx-nmXtm",
+      "published_at": "2026-10-22T04:17:48+00:00",
+      "display_time": "2026-10-22T12:17:48+08:00",
+      "unix_ms": 1792642668000,
+      "text": "復活！",
+      "number": 21,
+      "members": [
+        {
+          "key": "threads:4013300040710323046",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DeyGx-nmXtm",
+          "published_at": "2026-10-22T04:17:48+00:00",
+          "post_id": "4013300040710323046"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1688765062608082",
+      "content_hash": "4656be997d0b716d624798d692a8778e34a0ac6ffb45ab15c98d8537b27f0cc7",
+      "post_id": "1688765062608082",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid04QfRCpwEpcMB5cWd8qaTSxCvh1zmpvDhdpvHEcvPT94UZZSHtDpxWW7LgGL6pxWVl",
+      "published_at": "2026-10-22T04:36:55+00:00",
+      "display_time": "2026-10-22T12:36:55+08:00",
+      "unix_ms": 1792643815000,
+      "text": "股票好朋友的帳號復活！\n但是還沒辦法申請藍勾勾～ 因為他還在辦理上一次banned掉後的退款⋯⋯⋯",
+      "number": 22,
+      "members": [
+        {
+          "key": "facebook:1688765062608082",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid04QfRCpwEpcMB5cWd8qaTSxCvh1zmpvDhdpvHEcvPT94UZZSHtDpxWW7LgGL6pxWVl",
+          "published_at": "2026-10-22T04:36:55+00:00",
+          "post_id": "1688765062608082"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1688804045937517",
+      "content_hash": "c25b9b926b7458d38e1a5898f44ffbf0bab4f04a6deb5d273c6501428ff5ef8d",
+      "post_id": "1688804045937517",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0yeoCmfaNLB13YbL7YwoA5DhscN32xrK9ozyWH6NVTT2uNVfjKpA74ihEyqXgRT98l",
+      "published_at": "2026-10-22T05:37:21+00:00",
+      "display_time": "2026-10-22T13:37:21+08:00",
+      "unix_ms": 1792647441000,
+      "text": "買一天直接殺到停損點是哪招_(:_」∠)_ \n我的正二也是爆炸\n華邦電也爆炸\n\n我真的要爆炸了啦(;´༎ຶД༎ຶ`)/",
+      "number": 23,
+      "members": [
+        {
+          "key": "facebook:1688804045937517",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0yeoCmfaNLB13YbL7YwoA5DhscN32xrK9ozyWH6NVTT2uNVfjKpA74ihEyqXgRT98l",
+          "published_at": "2026-10-22T05:37:21+00:00",
+          "post_id": "1688804045937517"
+        }
+      ]
+    },
+    {
+      "key": "threads:4013355304012566409",
+      "content_hash": "06b718b8dc1a0e5f389958b92f586e80677e46d3174792defb4e8041e03531fe",
+      "post_id": "4013355304012566409",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DeyTWKlGU-J",
+      "published_at": "2026-10-22T06:07:36+00:00",
+      "display_time": "2026-10-22T14:07:36+08:00",
+      "unix_ms": 1792649256000,
+      "text": "995.....",
+      "number": 24,
+      "members": [
+        {
+          "key": "threads:4013355304012566409",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DeyTWKlGU-J",
+          "published_at": "2026-10-22T06:07:36+00:00",
+          "post_id": "4013355304012566409"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1689059792578609",
+      "content_hash": "9885d363095165522e46e60259db3dc8321a62e329b99b1e3a65426c58a51ad9",
+      "post_id": "1689059792578609",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02SuHYig6mhAnexAexoPZjdcT4J941StExj3JimsxUxwMchTCuiiTruVUrRUc7hJ8Vl",
+      "published_at": "2026-10-22T12:06:02+00:00",
+      "display_time": "2026-10-22T20:06:02+08:00",
+      "unix_ms": 1792670762000,
+      "text": "好消息大家\n明天不會跌了！！！\n\n然後我是Johnny Cage",
+      "number": 25,
+      "members": [
+        {
+          "key": "facebook:1689059792578609",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02SuHYig6mhAnexAexoPZjdcT4J941StExj3JimsxUxwMchTCuiiTruVUrRUc7hJ8Vl",
+          "published_at": "2026-10-22T12:06:02+00:00",
+          "post_id": "1689059792578609"
+        }
+      ]
+    }
+  ]
+}

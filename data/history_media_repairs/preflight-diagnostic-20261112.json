@@ -1,0 +1,15 @@
+{
+  "actor": "apify~facebook-posts-scraper",
+  "key_present": true,
+  "requests": 1,
+  "actor_starts": 0,
+  "ai_requests": 0,
+  "at": "2026-11-12T09:30:56.404420+00:00",
+  "http_status": 401,
+  "content_type": "application/json",
+  "safe_code": "user-or-token-not-found",
+  "fixed_error_markers": [
+    "token is not valid",
+    "not found"
+  ]
+}

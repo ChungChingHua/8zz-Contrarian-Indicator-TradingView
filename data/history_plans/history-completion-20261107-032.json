@@ -1,0 +1,344 @@
+{
+  "batch_id": "history-completion-20261107-032",
+  "max_generations": 25,
+  "rule_version": "fork-7b626f2-ai-v1",
+  "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+  "posts": [
+    {
+      "key": "threads:4023362009123385848",
+      "content_hash": "bc95770c3aaa4568e75a2cf517e59628d18e5022d9a86d686446a1f62e884a5e",
+      "post_id": "4023362009123385848",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DfV2m48mfH4",
+      "published_at": "2026-11-05T01:29:08+00:00",
+      "display_time": "2026-11-05T09:29:08+08:00",
+      "unix_ms": 1793842148000,
+      "text": "不好意思， 可以麻煩你的股價不要跟買賣量搶位置嗎",
+      "number": 1,
+      "members": [
+        {
+          "key": "threads:4023362009123385848",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DfV2m48mfH4",
+          "published_at": "2026-11-05T01:29:08+00:00",
+          "post_id": "4023362009123385848"
+        }
+      ]
+    },
+    {
+      "key": "threads:4023406251229152584",
+      "content_hash": "86d85befac9aaa5d53dd39e7466bd78b5272790845a3ff866097c8fbc2b55c91",
+      "post_id": "4023406251229152584",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DfWAqsnmYVI",
+      "published_at": "2026-11-05T02:57:02+00:00",
+      "display_time": "2026-11-05T10:57:02+08:00",
+      "unix_ms": 1793847422000,
+      "text": "我試試看放在留言區+延遲發文的效果會不會比較差\n\n事實證明\n不會\n\n我的手機應該被監控了",
+      "number": 2,
+      "members": [
+        {
+          "key": "threads:4023406251229152584",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DfWAqsnmYVI",
+          "published_at": "2026-11-05T02:57:02+00:00",
+          "post_id": "4023406251229152584"
+        }
+      ]
+    },
+    {
+      "key": "threads:4023487463029312236",
+      "content_hash": "99574bebbf61eff43ea4d3a18d5df5b86d87b3fec269a2eee82a6130e80b86a1",
+      "post_id": "4023487463029312236",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DfWTIfAGYrs",
+      "published_at": "2026-11-05T05:38:23+00:00",
+      "display_time": "2026-11-05T13:38:23+08:00",
+      "unix_ms": 1793857103000,
+      "text": "毀滅吧",
+      "number": 3,
+      "members": [
+        {
+          "key": "threads:4023487463029312236",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DfWTIfAGYrs",
+          "published_at": "2026-11-05T05:38:23+00:00",
+          "post_id": "4023487463029312236"
+        }
+      ]
+    },
+    {
+      "key": "threads:4023514051880026001",
+      "content_hash": "69db8631175b92516c4a7cd29fde301c8767ca09f3bf1909a3a904179fceea13",
+      "post_id": "4023514051880026001",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DfWZLZzGf-R",
+      "published_at": "2026-11-05T06:31:13+00:00",
+      "display_time": "2026-11-05T14:31:13+08:00",
+      "unix_ms": 1793860273000,
+      "text": "股市性質已經改了 \n\n奉勸大家\n個股該停損就要停\nETF可能要放超過10年的準備 \n\n我明天再跌就要出亞翔了",
+      "number": 4,
+      "members": [
+        {
+          "key": "threads:4023514051880026001",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DfWZLZzGf-R",
+          "published_at": "2026-11-05T06:31:13+00:00",
+          "post_id": "4023514051880026001"
+        }
+      ]
+    },
+    {
+      "key": "threads:4023673308822738059",
+      "content_hash": "38a32b3572cb9283d724c0d6cbeee3c3c7541c46b1df877e08f0069f3e9f9d67",
+      "post_id": "4023673308822738059",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DfW9Y5YmZSL",
+      "published_at": "2026-11-05T11:47:38+00:00",
+      "display_time": "2026-11-05T19:47:38+08:00",
+      "unix_ms": 1793879258000,
+      "text": "981A就是爛啦\n韓國就是爛啦",
+      "number": 5,
+      "members": [
+        {
+          "key": "threads:4023673308822738059",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DfW9Y5YmZSL",
+          "published_at": "2026-11-05T11:47:38+00:00",
+          "post_id": "4023673308822738059"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1490457366336470",
+      "content_hash": "94653f0a539915490ad7eb6a8bd4e226be7dcbc33016aab416b774913703c5a6",
+      "post_id": "1490457366336470",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/videos/1490457366336470/",
+      "published_at": "2026-11-05T14:38:53+00:00",
+      "display_time": "2026-11-05T22:38:53+08:00",
+      "unix_ms": 1793889533000,
+      "text": "買股票最重要的就是陪伴我來陪伴大家半小時了",
+      "number": 6,
+      "members": [
+        {
+          "key": "facebook:1490457366336470",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/videos/1490457366336470/",
+          "published_at": "2026-11-05T14:38:53+00:00",
+          "post_id": "1490457366336470"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1703338611150727",
+      "content_hash": "94e423036173533c7fc9b379f2f22b6db5fc3b4ba0f7366fd7e271b10a402e39",
+      "post_id": "1703338611150727",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0eVarjX9YAs2FGqHshooqXT8jkMcGkLECE8Jvnp7DnSUiMzmLBz9nh5UQ3TuQbTEEl",
+      "published_at": "2026-11-05T15:03:12+00:00",
+      "display_time": "2026-11-05T23:03:12+08:00",
+      "unix_ms": 1793890992000,
+      "text": "直播斷了_(:_」∠)_",
+      "number": 7,
+      "members": [
+        {
+          "key": "facebook:1703338611150727",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0eVarjX9YAs2FGqHshooqXT8jkMcGkLECE8Jvnp7DnSUiMzmLBz9nh5UQ3TuQbTEEl",
+          "published_at": "2026-11-05T15:03:12+00:00",
+          "post_id": "1703338611150727"
+        }
+      ]
+    },
+    {
+      "key": "threads:4023791850322304792",
+      "content_hash": "c2d9b9da7d480d675a828318c37e4a38960c80443601e585bef2ea8834f4ea1c",
+      "post_id": "4023791850322304792",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DfXYV5wkp8Y",
+      "published_at": "2026-11-05T15:43:11+00:00",
+      "display_time": "2026-11-05T23:43:11+08:00",
+      "unix_ms": 1793893391000,
+      "text": "窩真的不行了⋯\n既然要爛，就趕快到底給我個痛快",
+      "number": 8,
+      "members": [
+        {
+          "key": "threads:4023791850322304792",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DfXYV5wkp8Y",
+          "published_at": "2026-11-05T15:43:11+00:00",
+          "post_id": "4023791850322304792"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1703372617813993",
+      "content_hash": "cfddf11668056709780903aafcd0692cd5be23cf8429954b4f74b1b436f6b4df",
+      "post_id": "1703372617813993",
+      "source": "facebook",
+      "url": "https://www.facebook.com/reel/2011878842835276/",
+      "published_at": "2026-11-05T15:43:14+00:00",
+      "display_time": "2026-11-05T23:43:14+08:00",
+      "unix_ms": 1793893394000,
+      "text": "窩真的不行了⋯\n既然要爛，就趕快到底給我個痛快",
+      "number": 9,
+      "members": [
+        {
+          "key": "facebook:1703372617813993",
+          "source": "facebook",
+          "url": "https://www.facebook.com/reel/2011878842835276/",
+          "published_at": "2026-11-05T15:43:14+00:00",
+          "post_id": "1703372617813993"
+        }
+      ]
+    },
+    {
+      "key": "threads:4023823803965107814",
+      "content_hash": "d4a1849adbe2aebf45f49721dcf65ba86307ca4eacb2217e34c07c883e65fe86",
+      "post_id": "4023823803965107814",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DfXfm46Ge5m",
+      "published_at": "2026-11-05T16:46:38+00:00",
+      "display_time": "2026-11-06T00:46:38+08:00",
+      "unix_ms": 1793897198000,
+      "text": "我不行了⋯⋯",
+      "number": 10,
+      "members": [
+        {
+          "key": "threads:4023823803965107814",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DfXfm46Ge5m",
+          "published_at": "2026-11-05T16:46:38+00:00",
+          "post_id": "4023823803965107814"
+        }
+      ]
+    },
+    {
+      "key": "threads:4023835308781547008",
+      "content_hash": "9fbbbfb58e32a163e04c37af2377456e780163f14281f0685bd89f92d5a94ffd",
+      "post_id": "4023835308781547008",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DfXiOTmmS4A",
+      "published_at": "2026-11-05T17:09:30+00:00",
+      "display_time": "2026-11-06T01:09:30+08:00",
+      "unix_ms": 1793898570000,
+      "text": "這波的虧損夠我買\n一塊黑冰糖+一塊Reverso+一塊綠面皇家橡樹\n然後再飛一趟瑞士去參觀工廠_(:_」∠)_▓",
+      "number": 11,
+      "members": [
+        {
+          "key": "threads:4023835308781547008",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DfXiOTmmS4A",
+          "published_at": "2026-11-05T17:09:30+00:00",
+          "post_id": "4023835308781547008"
+        }
+      ]
+    },
+    {
+      "key": "threads:4024145772782621524",
+      "content_hash": "20ca4c01789d922d8b4bc8f46be3f24efa93b9b32695598d5bd15be455dba99c",
+      "post_id": "4024145772782621524",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DfYo0JvGRNU",
+      "published_at": "2026-11-06T03:26:20+00:00",
+      "display_time": "2026-11-06T11:26:20+08:00",
+      "unix_ms": 1793935580000,
+      "text": "我犧牲自己是讓大家逃走， 不是進場啊_(:_」∠)_",
+      "number": 12,
+      "members": [
+        {
+          "key": "threads:4024145772782621524",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DfYo0JvGRNU",
+          "published_at": "2026-11-06T03:26:20+00:00",
+          "post_id": "4024145772782621524"
+        }
+      ]
+    },
+    {
+      "key": "threads:4024396519826903198",
+      "content_hash": "4a4209c74d1dc2cfd46daf5d7383bbc8f7d5f12c69d3610aee40d7b018365bcc",
+      "post_id": "4024396519826903198",
+      "source": "threads",
+      "url": "https://www.threads.com/t/DfZh1AHmdCe",
+      "published_at": "2026-11-06T11:44:31+00:00",
+      "display_time": "2026-11-06T19:44:31+08:00",
+      "unix_ms": 1793965471000,
+      "text": "今天小編來幫忙拍reels\n小編：我覺得你下嘴唇可以打一點玻尿酸，或人中縮短一點\n我： 蛤～不要咧，跟黑人女生一樣喔\n小編：跟張元英一樣\n我： 喔，好，週末就去打\n\n這證明的廣告代言人對於受眾的重要性",
+      "number": 13,
+      "members": [
+        {
+          "key": "threads:4024396519826903198",
+          "source": "threads",
+          "url": "https://www.threads.com/t/DfZh1AHmdCe",
+          "published_at": "2026-11-06T11:44:31+00:00",
+          "post_id": "4024396519826903198"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1704519381032650",
+      "content_hash": "ecdbab5eac6260c785ab5506c00f95dbe4db8e4937d74c0ef0c2a48e4815aa82",
+      "post_id": "1704519381032650",
+      "source": "facebook",
+      "url": "https://www.facebook.com/reel/1167452465741747/",
+      "published_at": "2026-11-06T16:34:29+00:00",
+      "display_time": "2026-11-07T00:34:29+08:00",
+      "unix_ms": 1793982869000,
+      "text": "其實股市的走勢已經不是3-5月那個瘋狂的大多頭了～\n之後更可能像22-23年那種緩坡而已\n\n要歐硬的可能需要更多的耐心跟勇氣",
+      "number": 14,
+      "members": [
+        {
+          "key": "facebook:1704519381032650",
+          "source": "facebook",
+          "url": "https://www.facebook.com/reel/1167452465741747/",
+          "published_at": "2026-11-06T16:34:29+00:00",
+          "post_id": "1704519381032650"
+        }
+      ]
+    },
+    {
+      "key": "threads:4024552660493334032",
+      "content_hash": "8d3d0bfff1de57798c9c794af43e546195926e16a2566252a199dd0d420c0d4c",
+      "post_id": "4024552660493334032",
+      "source": "threads",
+      "url": "https://www.threads.com/t/DfaFVJcjvYQ",
+      "published_at": "2026-11-06T16:54:48+00:00",
+      "display_time": "2026-11-07T00:54:48+08:00",
+      "unix_ms": 1793984088000,
+      "text": "其實股市的走勢已經不是3-5月那個瘋狂的大多頭了～\n之後更可能像22-23年那種緩坡而已\n\n要歐硬的可能需要更多的耐心跟勇氣",
+      "number": 15,
+      "members": [
+        {
+          "key": "threads:4024552660493334032",
+          "source": "threads",
+          "url": "https://www.threads.com/t/DfaFVJcjvYQ",
+          "published_at": "2026-11-06T16:54:48+00:00",
+          "post_id": "4024552660493334032"
+        }
+      ]
+    },
+    {
+      "key": "threads:4024966593813495052",
+      "content_hash": "edf6405721a72840391edb800c69d074f37d32b8762ee9a4a5532b326290b5fa",
+      "post_id": "4024966593813495052",
+      "source": "threads",
+      "url": "https://www.threads.com/t/Dfbjcq5ET0M",
+      "published_at": "2026-11-07T06:37:09+00:00",
+      "display_time": "2026-11-07T14:37:09+08:00",
+      "unix_ms": 1794033429000,
+      "text": "薩爾達switch2大全套 or ipad min512G or 玻尿酸豐唇\n\n都幾？",
+      "number": 16,
+      "members": [
+        {
+          "key": "threads:4024966593813495052",
+          "source": "threads",
+          "url": "https://www.threads.com/t/Dfbjcq5ET0M",
+          "published_at": "2026-11-07T06:37:09+00:00",
+          "post_id": "4024966593813495052"
+        }
+      ]
+    }
+  ]
+}

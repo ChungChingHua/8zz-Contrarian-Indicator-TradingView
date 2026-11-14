@@ -1,0 +1,18 @@
+{
+  "session": "20261114-media-repair-04",
+  "batches": [],
+  "actor_starts_reserved": 0,
+  "ai_requests": 0,
+  "monthly_runs_before": 67,
+  "http_requests": {
+    "GET": 1,
+    "POST": 0
+  },
+  "updated_at": "2026-11-14T10:30:10.590115+00:00",
+  "old_missing_recovery": {
+    "status": "held_no_resend",
+    "error_type": "Failure",
+    "http_status": 403
+  },
+  "monthly_runs_after": 67
+}

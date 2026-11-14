@@ -1,0 +1,11 @@
+name: Manual dispatch verification (completed, disabled)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  completed:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Manual entry verified. One-shot verifier stopped; no secrets or dispatch permissions.'

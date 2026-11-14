@@ -1,0 +1,25 @@
+name: Offline pipeline tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s scripts -p 'test*.py' -v
+      - name: Verify deterministic complete Pine
+        run: |
+          cp 8zz-indicator.pine /tmp/before.pine
+          python scripts/social_pipeline.py
+          cmp /tmp/before.pine 8zz-indicator.pine
+
+      - name: Verify paired complete indicator and strategy
+        run: |
+          python scripts/build_pine_strategy.py
+          git diff --exit-code -- candidates/8zz-history-latest.pine candidates/8zz-strategy-latest.pine candidates/8zz-strategy-latest.checks.json candidates/8zz-pine-delivery.json

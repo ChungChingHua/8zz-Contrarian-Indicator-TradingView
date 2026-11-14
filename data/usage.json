@@ -1,0 +1,238 @@
+{
+  "2026-11": {
+    "apify_runs": 67,
+    "ai_attempts": 10,
+    "cost_test_reservations": {
+      "apify-15m-20261110-01": {
+        "reserved_starts": 2,
+        "maximum_total_usd": "0.20",
+        "ledger": "data/cost_tests/apify-15m-20261110-01.json",
+        "reported_cost_usd_by_source": {
+          "facebook": "0.008",
+          "threads": "0"
+        },
+        "observed_total_usd": "0.008",
+        "billing_finality": "unverified; delayed accounting observed; details in ledger"
+      },
+      "apify-day-replay-20261110-01": {
+        "ledger": "data/cost_tests/apify-day-replay-20261110-01.json",
+        "authorized_max_starts": 40,
+        "authorized_maximum_usd": "4.00",
+        "reserved_starts": 40,
+        "started_run_ids": [
+          "MXhmyJIHGVMwSRnIM",
+          "TVMgaCk5hf6rxRD3Z",
+          "QF6JdWnedlwwg4uPD",
+          "iJlqii0dTKD8w4TIH",
+          "ormQFzbtWeerOtiIJ",
+          "mswhTBTOhsYd8IJrg",
+          "ywZRkpSaAebFFevZ0",
+          "CwQcq7PXI6qq7qINQ",
+          "iFDNLcKhGtusw9yNA",
+          "DUOqGvzI1lb9BpeRl",
+          "5ILbdTjXzMTzLwpkg",
+          "PjmdrRN6cUY3uRFfI",
+          "hk3TteEjm3dbxBmCt",
+          "8PbOhmSlYYa2xm7vJ",
+          "3QsJ1gtb6xToruZPS",
+          "pOhCLNgleFNllhKIs",
+          "FmJMqtGYXG5Ei3djK",
+          "WlibTWniKSYUOEyrC",
+          "mQuisgE588RM8u2r8",
+          "7uTdyKiApCagAMvPD",
+          "ydaXEEODEYkxZ2lvb",
+          "p9xlcRwompwulTf98",
+          "TDodssCJIiWLFrOIv",
+          "TLmrNwdpdtT5t4rGy",
+          "b4TQdvZARxDfSNLwc",
+          "JhBwQD109rIaGvNSP",
+          "ri6zWY7Qz8zCzhN3u",
+          "wrntgz0A8meWqn5a3",
+          "ftcalJJrLlsWml6JQ",
+          "q9dBLxmyUE8K6CTJg",
+          "bqSoY71uueYqAudp8",
+          "qM9OH7YzoEZLCiKDx",
+          "TytSeDcdjmUYAVPgh",
+          "0QfL1dW12FgZnZIAT",
+          "0D02MfXJcA9cfOQyH",
+          "WtSFzLrRdWNhy5gau",
+          "Oj9NE5ScBXIT9vPC6",
+          "kWt9Urhq4kCqkuhm8",
+          "OOXjrQahLFqRxZtAL",
+          "ttRbjiJIOVqzJI5Xw"
+        ],
+        "observed_cost": {
+          "platform_usd": {
+            "facebook": "0.202",
+            "threads": "0.455"
+          },
+          "observed_total_usd": "0.657",
+          "missing_costs": [],
+          "basis": "Sum usageTotalUsd once per run; do not add usageUsd/event charges/externalChargedTotalUsd.",
+          "billing_finality": "API observations only; not independently settled invoice. Zero does not establish free service.",
+          "monthly_estimates_usd": {
+            "20": "13.140",
+            "22": "14.454",
+            "23": "15.111"
+          }
+        },
+        "unresolved_submissions": 0
+      }
+    },
+    "media_repair_reservations": {
+      "media-repair-20261111-01": {
+        "ledger": "data/history_media_repairs/media-repair-20261111-01.json",
+        "reserved_starts": 2,
+        "runs": [
+          {
+            "source": "facebook",
+            "id": "9Ese4DLwPHsgVPn46",
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.006"
+          },
+          {
+            "source": "threads",
+            "id": "cpP8JIHtvctY2cOJ3",
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.03"
+          }
+        ]
+      },
+      "20261111-media-repair-01": {
+        "ledger": "data/history_media_repairs/20261111-media-repair-01.json",
+        "reserved_starts": 7,
+        "runs": [
+          {
+            "id": "Rrgbhmob2fwP8Hy8k",
+            "source": "facebook",
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.061"
+          },
+          {
+            "id": "RsGX7akhZCyEo6Nem",
+            "source": "threads",
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.08"
+          },
+          {
+            "id": "sfTEBbx4xdszoRE42",
+            "source": "facebook",
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.061"
+          },
+          {
+            "id": "bzUVWdIk2BknUi8CM",
+            "source": "threads",
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.08"
+          },
+          {
+            "id": "wYEIM1iuL5stQ3S1x",
+            "source": "facebook",
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.061"
+          },
+          {
+            "id": "cu9xU76Kw4SJto3Pb",
+            "source": "threads",
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.08"
+          },
+          {
+            "id": "bvjp4TpwMPdRByGbe",
+            "source": "facebook",
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.061"
+          }
+        ]
+      },
+      "20261112-media-repair-01": {
+        "ledger": "data/history_media_repairs/20261112-media-repair-01.json",
+        "reserved_starts": 0,
+        "runs": []
+      },
+      "20261112-media-repair-02": {
+        "ledger": "data/history_media_repairs/20261112-media-repair-02.json",
+        "reserved_starts": 3,
+        "runs": [
+          {
+            "id": "OnrW7LfkbTQhk7urR",
+            "source": "facebook",
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.061"
+          },
+          {
+            "id": "ejiRfffjwz4DTcNtY",
+            "source": "facebook",
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.061"
+          },
+          {
+            "id": "EKRZxFGDieAmbK9JC",
+            "source": "threads",
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.08"
+          }
+        ]
+      },
+      "20261112-media-repair-03": {
+        "ledger": "data/history_media_repairs/20261112-media-repair-03.json",
+        "reserved_starts": 1,
+        "runs": [
+          {
+            "id": "CQr5RPX2mgWDJZsqe",
+            "source": "facebook",
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.061"
+          }
+        ]
+      },
+      "20261114-media-repair-01": {
+        "ledger": "data/history_media_repairs/20261114-media-repair-01.json",
+        "reserved_starts": 3,
+        "runs": [
+          {
+            "id": "T5aL34lZ0cAhRu17S",
+            "source": "threads",
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.08"
+          },
+          {
+            "id": "i22Es0nKg6gd7bpEZ",
+            "source": "facebook",
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.061"
+          },
+          {
+            "id": "aN1ESUqN4kVceCqBH",
+            "source": "facebook",
+            "status": "ABORTED",
+            "usageTotalUsd": "0.001"
+          }
+        ]
+      },
+      "20261114-media-repair-02": {
+        "ledger": "data/history_media_repairs/20261114-media-repair-02.json",
+        "reserved_starts": 0,
+        "runs": []
+      },
+      "20261114-media-repair-03": {
+        "ledger": "data/history_media_repairs/20261114-media-repair-03.json",
+        "reserved_starts": 1,
+        "runs": [
+          {
+            "id": "fPBlsZbRm65xzhyGX",
+            "source": "threads",
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.03"
+          }
+        ]
+      },
+      "20261114-media-repair-04": {
+        "ledger": "data/history_media_repairs/20261114-media-repair-04.json",
+        "reserved_starts": 0,
+        "runs": []
+      }
+    }
+  }
+}

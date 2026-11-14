@@ -1,0 +1,68 @@
+{
+  "scope": "20261112-updated-token-continuation",
+  "prior_session": "20261112-media-repair-02",
+  "current_session": "20261112-media-repair-03",
+  "runs": 13,
+  "unique_reserved_posts": 135,
+  "duplicates": [],
+  "verified_no_duplicate_actor_post_urls": true,
+  "new_runs": [
+    {
+      "id": "OnrW7LfkbTQhk7urR",
+      "source": "facebook",
+      "usageTotalUsd": "0.061"
+    },
+    {
+      "id": "ejiRfffjwz4DTcNtY",
+      "source": "facebook",
+      "usageTotalUsd": "0.061"
+    },
+    {
+      "id": "EKRZxFGDieAmbK9JC",
+      "source": "threads",
+      "usageTotalUsd": "0.08"
+    },
+    {
+      "id": "CQr5RPX2mgWDJZsqe",
+      "source": "facebook",
+      "usageTotalUsd": "0.061"
+    }
+  ],
+  "totals": {
+    "generation_attempts": 62,
+    "validated_responses": 61,
+    "added_events": 18,
+    "completed_no_signal": 33,
+    "pending_confirmation": 10,
+    "input_failures": 3,
+    "technical_failures": 1,
+    "unknown": 0,
+    "service_reported_usage": {
+      "input_tokens": 181916,
+      "output_tokens": 9955,
+      "total_tokens": 191871
+    },
+    "actual_points_deducted": null,
+    "actor_starts": 4,
+    "observed_actor_cost_usd": "0.263",
+    "monthly_apify_runs": 61
+  },
+  "billing_finality": "API usageTotalUsd observations only; no independently settled bill; tokens and points are distinct",
+  "known_apify_http_minimum": {
+    "GET": 26,
+    "POST": 4
+  },
+  "http_count_note": "Includes updated-token diagnostic GET1, persisted paused-session GET14/POST3, cost refresh GET3, resumed-session GET8/POST1. Cancellation may have interrupted saving an in-flight polling GET; these are confirmed minimum counts, not all network traffic.",
+  "quota_statement": {
+    "http_status": 403,
+    "error_type": "chatanywhere_error",
+    "source": "service error response in history-completion-20261107-029",
+    "free_points_window_days": 7,
+    "insufficient_points_for_current_request": true,
+    "remaining_free_points": null,
+    "remaining_free_requests": null,
+    "actual_points_deducted": null,
+    "reset_time": null,
+    "note": "Service states seven-day free points insufficient for this request; not a verified zero balance or daily request-limit failure. No retry, paid service, alternate key, model or provider."
+  }
+}

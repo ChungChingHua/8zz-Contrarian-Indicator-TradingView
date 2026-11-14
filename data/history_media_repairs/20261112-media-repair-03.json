@@ -1,0 +1,218 @@
+{
+  "session": "20261112-media-repair-03",
+  "batches": [
+    {
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "keys": [
+        "facebook:1695345725283349",
+        "facebook:1695583228592932",
+        "facebook:1695596645258257",
+        "facebook:1695733915244530",
+        "facebook:1696096421874946",
+        "facebook:1696626785155243",
+        "facebook:1696893978461857",
+        "facebook:1697806305037291",
+        "facebook:1697994318351823",
+        "facebook:1698742791610309",
+        "facebook:1698860361598552",
+        "facebook:1698996758251579"
+      ],
+      "status": "SUCCEEDED",
+      "posts": {
+        "facebook:1695345725283349": {
+          "status": "input_failure",
+          "error_type": "ValueError",
+          "safe_reason": "video_or_unknown_media_requires_review"
+        },
+        "facebook:1695583228592932": {
+          "status": "cached"
+        },
+        "facebook:1695596645258257": {
+          "status": "cached"
+        },
+        "facebook:1695733915244530": {
+          "status": "cached"
+        },
+        "facebook:1696096421874946": {
+          "status": "cached"
+        },
+        "facebook:1696626785155243": {
+          "status": "cached"
+        },
+        "facebook:1696893978461857": {
+          "status": "cached"
+        },
+        "facebook:1697806305037291": {
+          "status": "cached"
+        },
+        "facebook:1697994318351823": {
+          "status": "cached"
+        },
+        "facebook:1698742791610309": {
+          "status": "cached"
+        },
+        "facebook:1698860361598552": {
+          "status": "cached"
+        },
+        "facebook:1698996758251579": {
+          "status": "cached"
+        }
+      },
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0n1SbWNJ5J1s1CX9QRtdm5hT8wNvUmoznW3xEX6Wpz71Kmnmi8UehxmW9QA2wJpiel"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0EjMRjrPk9M7wJmZnC9pFA6Hpg69e74RKfpV9gRk16E7N1ZTHWQja6RWavxu2K9fLl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02mYaJS46FeESEDPUoeQTDGhqeQswPqqta4zVSmWto8W817zxjcmwWYJzkr6yrgWPHl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid038cqfRE3PY5zZDJzxgZPqMPK2dr685UWhKoL1anMer65ETnkhW6kF3RwhEEtriCzl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid026mwRvMjnMR8fzwcn9RiubRpU86TDwtjr4TzFHBRSpqaNWQ1EfbVfRzdc9MAeddBtl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0uV1HoixF5ff48tUr4WJsqZ1HGeJKjxg8bLqu3WMKib7yY2j74FXbAJg7nxKVUysdl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02TJmQ2FNKHvjKYyWECN3zNMhKJ7SAuPrQbrfQrW5613xEz7mPkqGb4Z846yxrkeAhl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0b4PH4csWz7nMuZVMNu3o4FAZirCTTRP35nTHw5uPyyEbFkaPbNvrPc4GGEmByfjFl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid03fXQzmpG7fUZrTDVMMFmmt2KEHYkrenT6RzofPSTUbrZD7QY4tr7kjJdGuwmidAjl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02P5b9dFzH72tqp3mjk17GKQVvtAz176xBBAutw471qSUgBmdNEyLtAt2Ghdq1YY3pl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0jRPRXuHjiDVhFtjmFHzYJw3HNpLF7YGFzKtkCpe4KbmqPMzdfz6FMH8i5hXWygj1l"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0hdxx1yZAYk5KRVqqSzTA7K2puhuLs2VaQabA95UWueeNJhcbdmCKUtwbswhNdxxkl"
+          }
+        ],
+        "resultsLimit": 1
+      },
+      "id": "CQr5RPX2mgWDJZsqe",
+      "startedAt": "2026-11-12T10:13:41.230Z",
+      "finishedAt": "2026-11-12T10:13:50.288Z",
+      "buildId": "u95r0Bh3B0teuAUiL",
+      "buildNumber": "0.0.417",
+      "defaultDatasetId": "9Xs9hNwgGdHOI8Hk8",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.061",
+      "chargedEventCounts": {
+        "post": 12,
+        "actor-start": 1,
+        "filter-applied": 0
+      },
+      "accountedChargedEventCounts": {
+        "post": 12,
+        "actor-start": 1,
+        "filter-applied": 0
+      },
+      "duration_seconds": "8.919",
+      "cost_observed_at": "2026-11-12T10:16:57.202158+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution"
+    }
+  ],
+  "actor_starts_reserved": 1,
+  "ai_requests": 0,
+  "monthly_runs_before": 60,
+  "http_requests": {
+    "GET": 8,
+    "POST": 1
+  },
+  "updated_at": "2026-11-12T10:16:57.202183+00:00",
+  "prior_dataset_reuses": [
+    {
+      "run_id": "EKRZxFGDieAmbK9JC",
+      "source_ledger": "data/history_media_repairs/20261112-media-repair-02.json",
+      "keys": [
+        "threads:4017205566745736843",
+        "threads:4017556761037353847",
+        "threads:4018029249265500858",
+        "threads:4018274248635196711",
+        "threads:4018303565345440820",
+        "threads:4018640045381104611",
+        "threads:4018709099462647028",
+        "threads:4019076721425375180",
+        "threads:4019214061460329474",
+        "threads:4019397023426120729",
+        "threads:4019913134958031715",
+        "threads:4020588135439184397"
+      ],
+      "status": "existing_dataset_read_complete",
+      "posts": {
+        "threads:4017205566745736843": {
+          "status": "cached"
+        },
+        "threads:4017556761037353847": {
+          "status": "cached"
+        },
+        "threads:4018029249265500858": {
+          "status": "cached"
+        },
+        "threads:4018274248635196711": {
+          "status": "cached"
+        },
+        "threads:4018303565345440820": {
+          "status": "cached"
+        },
+        "threads:4018640045381104611": {
+          "status": "cached"
+        },
+        "threads:4018709099462647028": {
+          "status": "cached"
+        },
+        "threads:4019076721425375180": {
+          "status": "cached"
+        },
+        "threads:4019214061460329474": {
+          "status": "cached"
+        },
+        "threads:4019397023426120729": {
+          "status": "cached"
+        },
+        "threads:4019913134958031715": {
+          "status": "cached"
+        },
+        "threads:4020588135439184397": {
+          "status": "cached"
+        }
+      }
+    },
+    {
+      "run_id": "ejiRfffjwz4DTcNtY",
+      "source_ledger": "data/history_media_repairs/20261112-media-repair-02.json",
+      "keys": [
+        "facebook:1694725472012041"
+      ],
+      "status": "existing_dataset_read_complete",
+      "posts": {
+        "facebook:1694725472012041": {
+          "status": "input_failure",
+          "error_type": "ValueError",
+          "safe_reason": "required_refreshed_images_unavailable"
+        }
+      }
+    }
+  ],
+  "monthly_runs_after": 61
+}

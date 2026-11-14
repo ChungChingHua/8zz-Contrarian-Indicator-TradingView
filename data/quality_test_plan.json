@@ -1,0 +1,119 @@
+{
+  "scope": "2026-11-07-independent-quality-ten-v1",
+  "protocol_sha256": "a1fa9e748994ac713a05bf0633f3b152bca0a86c325e268534456046faab5846",
+  "context_policy": "same_post_only",
+  "maximum_generations": 10,
+  "retries": 0,
+  "samples": [
+    {
+      "key": "facebook:1696581131826475",
+      "post_id": "1696581131826475",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0euW28fo5eBPr4X7SsmhcDaoVxD1Un5iz7SkPvY23szM8j9mV73JoHmcVgzw8xs5el",
+      "published_at": "2026-10-30T00:05:00+00:00",
+      "display_time": "2026-10-30T08:05:00+08:00",
+      "text": "連我的BTC單都沒了\n這一波應該⋯ 狠恐怖\n感覺比七月的還猛_(:_」∠)_\n\n大家風控要做好， 該停損停損啊",
+      "number": 1,
+      "image_count": 1
+    },
+    {
+      "key": "threads:3981333267379483868",
+      "post_id": "3981333267379483868",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DdAiYM-mXTc",
+      "published_at": "2026-09-08T01:45:32+00:00",
+      "display_time": "2026-09-08T09:45:32+08:00",
+      "text": "爽啦！ 喬喬賺錢了！\n加碼再賺！\n台股簡單啦",
+      "number": 2,
+      "image_count": 0
+    },
+    {
+      "key": "threads:3952464799527950315",
+      "post_id": "3952464799527950315",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbZ-ctLGVfr",
+      "published_at": "2026-07-30T05:49:02+00:00",
+      "display_time": "2026-07-30T13:49:02+08:00",
+      "text": "我還有\n\n原本價值300萬的個股還沒停損\n至於主動ETF.. 隨便他了_(:_」∠)_",
+      "number": 3,
+      "image_count": 0
+    },
+    {
+      "key": "threads:4024468641932717746",
+      "post_id": "4024468641932717746",
+      "source": "threads",
+      "url": "https://www.threads.com/t/DfZyOhEGS6y",
+      "published_at": "2026-11-06T14:07:49+00:00",
+      "display_time": "2026-11-06T22:07:49+08:00",
+      "text": "沒事， 就是給大家看看我的新GShock\n然後跟大家說， 看來下週穩了",
+      "number": 4,
+      "image_count": 1
+    },
+    {
+      "key": "facebook:1640562917428297",
+      "post_id": "1640562917428297",
+      "source": "facebook",
+      "url": "https://www.facebook.com/reel/29266616599605070/",
+      "published_at": "2026-08-30T15:11:29+00:00",
+      "display_time": "2026-08-30T23:11:29+08:00",
+      "text": "買欣興，欣興會被警調\n買康霈，康霈會⋯\n\n但是投資自己，一定沒有錯！\n因為不管是男人/女人，都有一個愛美的心～\n為了自己而變美，一點都沒錯❤️\n\n這次感謝 宸曜美學 給我這個機會\n幫忙評估了我的狀況給出推薦方案\n打了我一直想打卻捨不得打得鳳凰電波跟眼周音波🤣\n而且還很貼心的用盡各種減痛的方式讓我用到最推薦的功率❤️\n\n每次做完醫美真的覺得\n為了變美的你我都是勇士⋯🤣\n\n#業配  #說我是巴逆逆派來的\n#台北市醫美 #宸曜美學",
+      "number": 5,
+      "image_count": 1
+    },
+    {
+      "key": "facebook:1629435205207735",
+      "post_id": "1629435205207735",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0BaXyVMKvDPkLvQ1uJMQaU7TGmocjZxnvT3Z59xVvEd1XHk9HnbsbBVPFmCCBxBrYl",
+      "published_at": "2026-08-18T01:41:59+00:00",
+      "display_time": "2026-08-18T09:41:59+08:00",
+      "text": "今天穩了！\n大家一起跟我念！ 一天100點，台股5萬點！",
+      "number": 6,
+      "image_count": 1
+    },
+    {
+      "key": "facebook:1610126397138616",
+      "post_id": "1610126397138616",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0ko7MYcc7amyA4Sc9AgTEh4DJkFqjczHmZhhDrazNQPqgSvkEF9JAkLQz8XKVmLMZl",
+      "published_at": "2026-07-27T04:05:07+00:00",
+      "display_time": "2026-07-27T12:05:07+08:00",
+      "text": "今日我的庫存\n我好痛苦_(:_」∠)_ \n為什麼我要貪心買個股⋯\n目前貸款買的部分都是大虧⋯⋯⋯⋯⋯",
+      "number": 7,
+      "image_count": 1
+    },
+    {
+      "key": "facebook:1703774981107090",
+      "post_id": "1703774981107090",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid03143n7ECXc3swjAwzFvjXJFrfksuaecAmRtRR5uV5yaYAvtNQVrh2WDpG1ciUKMXsl",
+      "published_at": "2026-11-06T01:15:20+00:00",
+      "display_time": "2026-11-06T09:15:20+08:00",
+      "text": "市場跟我說\n孩子， 你不用停損...\n因為你停不掉_(:_」∠)_",
+      "number": 8,
+      "image_count": 1
+    },
+    {
+      "key": "threads:4023888423198910089",
+      "post_id": "4023888423198910089",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DfXuTOQk-aJ",
+      "published_at": "2026-11-05T18:55:01+00:00",
+      "display_time": "2026-11-06T02:55:01+08:00",
+      "text": "恐慌的睡不著",
+      "number": 9,
+      "image_count": 0
+    },
+    {
+      "key": "threads:3946164126477408639",
+      "post_id": "3946164126477408639",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbDl12IE1l_",
+      "published_at": "2026-07-21T13:10:44+00:00",
+      "display_time": "2026-07-21T21:10:44+08:00",
+      "text": "現在的我呈現一個\n因為部分停損，所以大漲不爽\n因為還沒損完，所以續跌痛苦\n的狀態矛盾狀態_(:_」∠)_\n\nLittle sunday 果乾團購： 今日update\n因為群創回到50， 獎金變成5萬了❤️\n\n團購連結： 鳳梨真的好吃\nhttps://littlesunday-fruits.my1shop.com/banini",
+      "number": 10,
+      "image_count": 1
+    }
+  ]
+}

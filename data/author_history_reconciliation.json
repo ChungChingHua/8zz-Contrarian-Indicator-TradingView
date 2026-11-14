@@ -1,0 +1,17 @@
+{
+  "version": "author-published-history-v1",
+  "reference_file": "data/author-published-20260410.pine",
+  "reference_sha256": "69a66131c35d44132fb9078415053762a05962cbddc73ccc96517808c7635d33",
+  "uploaded_bytes_sha256": "8638d180061451c939e60a19c358143ad35f4f8b95afce60206de4c7a9489185",
+  "fork_base_file": "data/historical-indicator.pine",
+  "fork_base_sha256": "7981501206633be8164cf7455eabbe3883c0940dd9e6f57b05141274487c135c",
+  "provenance": "Original published Pine provided by user on 2026-11-10 to resolve the 0050 1h April 9 discrepancy. Event literals only; do not execute or copy the hard-coded performance panel.",
+  "reference_event_count": 65,
+  "retimed_events": [
+    {
+      "fork_unix_ms": 1775786641000,
+      "reference_unix_ms": 1775786640000,
+      "reason": "Same FB 04/10 10:04 event; use exact timestamp and complete annotation from the supplied published source."
+    }
+  ]
+}

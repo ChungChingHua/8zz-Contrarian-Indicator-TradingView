@@ -1,0 +1,65 @@
+name: Inspect existing media cap and budget 20261114
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: original-author-history-batch-01
+  cancel-in-progress: false
+jobs:
+  audit:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: codex/social-pipeline-20261106
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: history-media-cache-20261114-continuation
+          run-id: 43568403861
+          github-token: ${{ github.token }}
+          path: /tmp/8zz-history-media-cache
+      - name: Read existing runs, dataset metadata and usage limit only; no starts or AI
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          PYTHONPATH=scripts python - <<'PY'
+          import json,os
+          from decimal import Decimal
+          import history_worker as h
+          import history_completion as hc
+          import apify_cost_test as t
+          import history_cached_completion as m
+          client=t.Client(os.environ.pop('APIFY_TOKEN'));docs=t.Docs(os.environ.pop('GH_TOKEN'))
+          path='data/history_media_repairs/20261114-media-repair-01.json'
+          state=docs.load(path)
+          result={'at':h.now(),'actor_starts':0,'ai_requests':0,'runs':[],'cache':m.prepare_restored_cache()}
+          try:
+              limits=client.request('/users/me/limits')['data']
+              maximum=limits.get('limits',{}).get('maxMonthlyUsageUsd');used=limits.get('current',{}).get('monthlyUsageUsd')
+              result['account_usage_limit']={'maximum_usd':maximum,'used_usd':used,'cycle':{k:limits.get('monthlyUsageCycle',{}).get(k) for k in ('startAt','endAt')},'remaining_headroom_usd_derived':None if maximum is None or used is None else max(Decimal('0'),Decimal(str(maximum))-Decimal(str(used))),'note':'Limit minus current usage, not cash balance or settled invoice.'}
+              for old in state['batches']:
+                  run=client.request('/actor-runs/'+old['id'])['data']
+                  t.record_run(old,run)
+                  row={'source':old['source']};t.record_run(row,run)
+                  if old['id']=='aN1ESUqN4kVceCqBH' and run.get('defaultDatasetId'):
+                      dataset=client.request('/datasets/'+run['defaultDatasetId'])['data']
+                      row['dataset_counts']={k:dataset.get(k) for k in ('itemCount','cleanItemCount')}
+                  result['runs'].append(row)
+              docs.save(path,state)
+              usage=docs.load('data/usage.json');reservation=usage['2026-11']['media_repair_reservations']['20261114-media-repair-01']
+              reservation['runs']=[{k:b.get(k) for k in ('id','source','status','usageTotalUsd')} for b in state['batches']]
+              docs.save('data/usage.json',usage)
+          except Exception as exc:result.update(error_type=type(exc).__name__,http_status=getattr(exc,'status',None))
+          result['http_requests']=client.counts
+          docs.save('data/history_media_repairs/budget-audit-20261114.json',result)
+          print(json.dumps(t.plain(result)))
+          PY

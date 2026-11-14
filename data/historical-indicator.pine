@@ -1,0 +1,1068 @@
+// This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © hansai-art / Group.G
+// 8zz 反指標 v2
+// 事件: 150筆 | 期間: 2025/12 ~ 2026/07
+// 情緒解讀框架：負面情緒（被套、停損、恐慌）→ 偏多 ▲（散戶恐慌→主力拉升）
+//               正面情緒（漲停追買、過度樂觀）→ 偏空 ▼（市場過熱→崩跌機率高）
+// 免責聲明：本指標僅供娛樂參考，不構成任何投資建議。
+
+//@version=6
+indicator("8zz反指標v2", overlay=true, max_labels_count=500)
+
+grp1 = "顯示"
+offset_atr = input.float(0.5, "箭頭距離 (ATR倍數)", minval=0.1, maxval=3.0, step=0.1, group=grp1, tooltip="越小越貼近K棒 建議0.3~0.8")
+showDots   = input.bool(true, "顯示加倉箭頭", group=grp1)
+showBg     = input.bool(true, "顯示背景色帶", group=grp1)
+showPanel  = input.bool(true, "顯示資訊面板", group=grp1)
+panelPos   = input.string("右下", "資訊面板位置", options=["右上", "右下"], group=grp1)
+
+grp2 = "訊號治理"
+holdBars = input.int(17, "固定觀察K棒數", minval=1, maxval=50, group=grp2, tooltip="模式A: 翻轉後固定幾根K棒判定勝敗（建議使用30分鐘線，17根≈8.5小時）")
+signalLifeBars = input.int(24, "訊號有效K棒", minval=1, maxval=200, group=grp2, tooltip="超過此 K 棒數後，訊號視為過期；箭頭仍保留在歷史上，但背景與有效方向會停用")
+showFilteredMarks = input.bool(false, "顯示被濾掉的原始訊號", group=grp2)
+
+grp3 = "濾網"
+useTrendFilter = input.bool(false, "EMA 趨勢濾網", group=grp3)
+emaLen = input.int(55, "EMA 長度", minval=5, maxval=300, group=grp3)
+useRsiFilter = input.bool(false, "RSI 動能濾網", group=grp3)
+rsiLen = input.int(14, "RSI 長度", minval=2, maxval=100, group=grp3)
+useVolFilter = input.bool(false, "ATR 波動濾網", group=grp3)
+atrLen = input.int(14, "ATR 長度", minval=2, maxval=100, group=grp3)
+minAtrPct = input.float(1.0, "最低 ATR 波動率 (%)", minval=0.1, maxval=20.0, step=0.1, group=grp3)
+useHtfConfirm = input.bool(false, "高週期結構確認", group=grp3)
+htfTf = input.timeframe("240", "確認週期", group=grp3)
+
+grp4 = "執行"
+assetProfile = input.string("台股個股", "標的類型", options=["ETF", "台股個股", "美股個股", "商品"], group=grp4)
+baseRiskPct = input.float(20.0, "基礎建議倉位 (%)", minval=5.0, maxval=100.0, step=5.0, group=grp4)
+maxPyramid = input.int(5, "最大加碼次數", minval=1, maxval=5, group=grp4)
+sellBatchPct = input.float(20.0, "每次賣出比例 (%)", minval=5.0, maxval=100.0, step=5.0, group=grp4, tooltip="每個賣出訊號建議賣出的倉位比例，預設每次賣 20%")
+
+float gap = ta.atr(14) * offset_atr
+emaBasis = ta.ema(close, emaLen)
+rsiValue = ta.rsi(close, rsiLen)
+atrPct = ta.atr(atrLen) / close * 100.0
+htfClose = request.security(syminfo.tickerid, htfTf, close)
+htfEma = request.security(syminfo.tickerid, htfTf, ta.ema(close, emaLen))
+
+TREND_FILTER_BONUS = 8.0
+TREND_FILTER_PENALTY = -18.0
+RSI_FILTER_BONUS = 6.0
+RSI_FILTER_PENALTY = -12.0
+VOL_FILTER_BONUS = 4.0
+VOL_FILTER_PENALTY = -10.0
+HTF_FILTER_BONUS = 10.0
+HTF_FILTER_PENALTY = -18.0
+
+clampFloat(value, minValue, maxValue) =>
+    math.max(minValue, math.min(maxValue, value))
+
+profileBias(profile) =>
+    switch profile
+        "台股個股" => 8.0
+        "美股個股" => 3.0
+        "ETF" => -8.0
+        => -4.0
+
+profileStopAtr(profile) =>
+    switch profile
+        "台股個股" => 1.5
+        "美股個股" => 1.7
+        "ETF" => 1.8
+        => 2.2
+
+qualityLabel(score) =>
+    score >= 80 ? "A" : score >= 65 ? "B" : score >= 50 ? "C" : "D"
+
+positionFactor(score) =>
+    score >= 80 ? 1.0 : score >= 65 ? 0.75 : score >= 50 ? 0.5 : 0.25
+
+filterBadge(enabled, isFilterPassed) =>
+    not enabled ? "關" : isFilterPassed ? "通過" : "阻擋"
+
+formatSignalAge(eventTime, isSignalExpired, eventAgeHours) =>
+    if eventTime <= 0
+        "尚無事件"
+    else if isSignalExpired
+        "已過期"
+    else if not na(eventAgeHours) and eventAgeHours < 1
+        str.tostring(eventAgeHours * 60, "#") + " 分鐘前"
+    else if not na(eventAgeHours) and eventAgeHours < 48
+        str.tostring(eventAgeHours, "#.0") + " 小時前"
+    else
+        "48 小時以上"
+
+formatFilterSummary(useTrendFilter, trendOk, useRsiFilter, rsiOk, useVolFilter, volatilityOk, useHtfConfirm, htfOk) =>
+    "EMA " + filterBadge(useTrendFilter, trendOk) + " / RSI " + filterBadge(useRsiFilter, rsiOk) + " / ATR " + filterBadge(useVolFilter, volatilityOk) + " / HTF " + filterBadge(useHtfConfirm, htfOk)
+
+var int[] evt_time = array.new_int(0)
+var int[] evt_dir = array.new_int(0)
+var int[] evt_str = array.new_int(0)
+var string[] evt_tips = array.new_string(0)
+var string[] evt_ticker = array.new_string(0)
+
+if barstate.isfirst
+    array.push(evt_time, 1764721680000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "被困(解套) | TSM\n指標: 偏多 ▲ | 強度: ★☆☆\nFB 12/03 08:28 TSM終於要回本了")
+    array.push(evt_ticker, "TSM")
+    array.push(evt_time, 1765162380000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損 | 虧損23%\n指標: 偏多 ▲ | 強度: ★★★\nFB 12/08 10:53 虧損23% 慘痛停損 買0050也早回本了")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1765422360000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "被困 | 漢唐+白銀\n指標: 偏多 ▲ | 強度: ★★☆\nFB 12/11 11:06 補一點漢唐 希望白銀救我")
+    array.push(evt_ticker, "SI=F")
+    array.push(evt_time, 1765504200000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買進(誤觸)\n指標: 偏空 ▼ | 強度: ★★☆\nFB 12/12 09:50 賣按成買 白白浪費手續費")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1765599000000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "被困 | 白銀\n指標: 偏多 ▲ | 強度: ★★☆\nFB 12/13 12:10 我的白銀怎辦 開場就要跌4%嗎")
+    array.push(evt_ticker, "SI=F")
+    array.push(evt_time, 1765845780000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "觀望停利\n指標: 偏多 ▲ | 強度: ★☆☆\nFB 12/16 08:43 開始修正了 不會額外買進 看情況停利")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1765851240000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "停損 | 個股\n指標: 偏多 ▲ | 強度: ★★☆\nFB 12/16 10:14 我也一直在停損 這是今天的份")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1766225820000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買進 | ETF\n指標: 偏空 ▼ | 強度: ★★☆\nFB 12/20 18:17 買了奈米聖誕樹 大盤往下砍2-3%買一次")
+    array.push(evt_ticker, "0050.TW")
+    array.push(evt_time, 1767316140000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買進 | 漲停股\n指標: 偏空 ▼ | 強度: ★★☆\nFB 01/02 09:09 你就別解漲停 我就買")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1767662040000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "觀望 | 台積電\n指標: 偏空 ▼ | 強度: ★☆☆\nFB 01/06 09:14 台積電要是回到1500以下我就切GG")
+    array.push(evt_ticker, "2330.TW")
+    array.push(evt_time, 1767665760000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買進 | 三貓\n指標: 偏空 ▼ | 強度: ★★☆\nFB 01/06 10:16 市價掛看看 三貓最近很猛")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1767750240000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "被套 | 漲停買入\n指標: 偏多 ▲ | 強度: ★★★\nFB 01/07 09:44 我漲停買的啊")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1768196760000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買進 | 白銀\n指標: 偏空 ▼ | 強度: ★★☆\nFB 01/12 13:46 明天買白銀好了")
+    array.push(evt_ticker, "SI=F")
+    array.push(evt_time, 1768266540000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "被套 | 白銀\n指標: 偏多 ▲ | 強度: ★★☆\nFB 01/13 09:09 白銀怎麼輸！？")
+    array.push(evt_ticker, "SI=F")
+    array.push(evt_time, 1768282860000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "加碼 | 白銀\n指標: 偏空 ▼ | 強度: ★★☆\nFB 01/13 13:41 買了白銀的我無敵了吧")
+    array.push(evt_ticker, "SI=F")
+    array.push(evt_time, 1768478820000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買進 | 亞翔+洋基\n指標: 偏空 ▼ | 強度: ★★☆\nFB 01/15 20:07 明天開盤買亞翔跟洋基 擴廠買廠務")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1768526280000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買進 | 亞翔\n指標: 偏空 ▼ | 強度: ★★☆\nFB 01/16 09:18 轉移目標到亞翔")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1768802460000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "持有 | 華邦電\n指標: 偏空 ▼ | 強度: ★☆☆\nFB 01/19 14:01 華崩電回到漲停了？明天給我賺錢吧")
+    array.push(evt_ticker, "2344.TW")
+    array.push(evt_time, 1768817220000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "買進 | 漲停進場\n指標: 偏空 ▼ | 強度: ★★★\nFB 01/19 18:07 我今天才買漲停進場")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1768870920000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "被套 | 跌停\n指標: 偏多 ▲ | 強度: ★★★\nFB 01/20 09:02 跌停是怎樣？不是說新聞早反應嗎")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1768912320000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "加碼 | 記憶體\n指標: 偏空 ▼ | 強度: ★★☆\nFB 01/20 20:32 明天一定持續買進記憶體")
+    array.push(evt_ticker, "2337.TW")
+    array.push(evt_time, 1769043840000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損 | 記憶體\n指標: 偏多 ▲ | 強度: ★★★\nFB 01/22 09:04 停損到剩一張 3張當作白做工")
+    array.push(evt_ticker, "2337.TW")
+    array.push(evt_time, 1769070660000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "被套 | 記憶體\n指標: 偏多 ▲ | 強度: ★★★\nFB 01/22 16:31 回不去了 等着停損 房貸怎麼辦")
+    array.push(evt_ticker, "2337.TW")
+    array.push(evt_time, 1769131020000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "被套 | 群創\n指標: 偏多 ▲ | 強度: ★★☆\nFB 01/23 09:17 相信群創 身心受創 相信黃董 真的不懂")
+    array.push(evt_ticker, "3481.TW")
+    array.push(evt_time, 1769391360000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "被套 | 旺宏\n指標: 偏多 ▲ | 強度: ★★☆\nFB 01/26 09:36 輕鬆拿捏 廢物旺宏")
+    array.push(evt_ticker, "2337.TW")
+    array.push(evt_time, 1769582880000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "持有看多 | 美光(MU)\n指標: 偏空 ▼ | 強度: ★★☆\nFB 01/28 14:48 加入美光 人生發光")
+    array.push(evt_ticker, "MU")
+    array.push(evt_time, 1769797080000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "追高 | 白銀\n指標: 偏空 ▼ | 強度: ★★★\nFB 01/31 02:18 99我的白銀啊啊啊")
+    array.push(evt_ticker, "SI=F")
+    array.push(evt_time, 1770089280000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損 | 白銀\n指標: 偏多 ▲ | 強度: ★★★\nFB 02/03 11:28 白銀就是詐騙 再也不買了")
+    array.push(evt_ticker, "SI=F")
+    array.push(evt_time, 1770108480000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買進 | 美光(MU)\n指標: 偏空 ▼ | 強度: ★★☆\nFB 02/03 16:48 大美光爸爸 我來了")
+    array.push(evt_ticker, "MU")
+    array.push(evt_time, 1770168060000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買進 | 旺宏+華邦\n指標: 偏空 ▼ | 強度: ★★☆\nFB 02/04 09:21 今天買很強力的旺宏")
+    array.push(evt_ticker, "2337.TW")
+    array.push(evt_time, 1770600540000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損賣出 | 鈦昇\n指標: 偏多 ▲ | 強度: ★★★\nFB 02/09 09:29 持續停損鈦昇")
+    array.push(evt_ticker, "8027.TWO")
+    array.push(evt_time, 1770635400000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "停損賣出\n指標: 偏多 ▲ | 強度: ★★☆\nFB 02/09 19:10 大盤漲800 我跌8%")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1770775080000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "認命 | 台積電(2330)\n指標: 偏多 ▲ | 強度: ★★☆\nFB 02/11 09:58 乖乖買台積好了")
+    array.push(evt_ticker, "2330.TW")
+    array.push(evt_time, 1770782580000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "被困 | 群創(3481)\n指標: 偏多 ▲ | 強度: ★★☆\nFB 02/11 12:03 買進群創 身心受創")
+    array.push(evt_ticker, "3481.TW")
+    array.push(evt_time, 1771953120000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買進 | TSM\n指標: 偏空 ▼ | 強度: ★★☆\nFB 02/25 01:12 上吧TSM!")
+    array.push(evt_ticker, "TSM")
+    array.push(evt_time, 1772688720000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買進 | 美光(MU)\n指標: 偏空 ▼ | 強度: ★★☆\nFB 03/05 13:32 美光爸爸我來了")
+    array.push(evt_ticker, "MU")
+    array.push(evt_time, 1773019440000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "被套 | 抄底虧7位數\n指標: 偏多 ▲ | 強度: ★★★\nFB 03/09 09:24 一天33%沒了")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1773106080000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損賣出\n指標: 偏多 ▲ | 強度: ★★★\nFB 03/10 09:28 已停損 一次19%")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1773192240000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "抄底買進\n指標: 偏空 ▼ | 強度: ★★☆\nFB 03/11 09:24 相信光！")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1773421380000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損賣出\n指標: 偏多 ▲ | 強度: ★★★\nFB 03/14 01:03 壯烈犧牲")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1773592080000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "被困 | 旺宏\n指標: 偏多 ▲ | 強度: ★★☆\nFB 03/16 00:28 不停損 只攤平!")
+    array.push(evt_ticker, "2337.TW")
+    array.push(evt_time, 1773912720000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "賣出 | 白銀\n指標: 偏多 ▲ | 強度: ★★☆\nFB 03/19 17:32 該賣銀就該賣銀")
+    array.push(evt_ticker, "SI=F")
+    array.push(evt_time, 1773969420000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "減碼 | 白銀\n指標: 偏多 ▲ | 強度: ★★☆\nFB 03/20 09:17 持續減碼白銀")
+    array.push(evt_ticker, "SI=F")
+    array.push(evt_time, 1774226940000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "出清 | 個股+白銀\n指標: 偏多 ▲ | 強度: ★★★\nFB 03/23 08:49 全部出清")
+    array.push(evt_ticker, "SI=F")
+    array.push(evt_time, 1774264320000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "停損 | 白銀\n指標: 偏多 ▲ | 強度: ★★☆\nFB 03/23 19:12 白銀白白停損了？")
+    array.push(evt_ticker, "SI=F")
+    array.push(evt_time, 1774399440000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損 | 旺宏\n指標: 偏多 ▲ | 強度: ★★★\nFB 03/25 08:44 碰停損線認份停損")
+    array.push(evt_ticker, "2337.TW")
+    array.push(evt_time, 1774401960000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買進 | 華星光\n指標: 偏空 ▼ | 強度: ★★☆\nFB 03/25 09:26 只有他沒漲停")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1774490460000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "持有看多 | 美光(MU)\n指標: 偏空 ▼ | 強度: ★☆☆\nFB 03/26 10:01 美光在山裡面")
+    array.push(evt_ticker, "MU")
+    array.push(evt_time, 1774587180000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "出清停損 | 華星光+記憶體\n指標: 偏多 ▲ | 強度: ★★★\nFB 03/27 12:53 記憶體沒救了")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1774832640000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買進 | 期S&P石油\n指標: 偏空 ▼ | 強度: ★★☆\nFB 03/30 09:04 先占格位置就好")
+    array.push(evt_ticker, "CL=F")
+    array.push(evt_time, 1774843560000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "觀望 | 鈦昇\n指標: 偏空 ▼ | 強度: ★☆☆\nFB 03/30 12:06 該去找阿鈦了")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1774921140000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "賣出 | 華星光\n指標: 偏多 ▲ | 強度: ★★☆\nFB 03/31 09:39 我是渣女！")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1774936560000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "被套 | 抄底越抄越底\n指標: 偏多 ▲ | 強度: ★★★\nFB 03/31 13:56 心碎了 年薪消失了")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1775010480000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "認命 | 0050\n指標: 偏多 ▲ | 強度: ★★☆\nFB 04/01 10:28 補一點好了")
+    array.push(evt_ticker, "0050.TW")
+    array.push(evt_time, 1775093460000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買進 | QQQ+0050\n指標: 偏空 ▼ | 強度: ★★☆\nFB 04/02 09:31 你再跌我再買！74.90")
+    array.push(evt_ticker, "QQQ")
+    array.push(evt_time, 1775139840000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "停損 | MU\n指標: 偏多 ▲ | 強度: ★★☆\nFB 04/02 22:24 分段停損 還有庫存")
+    array.push(evt_ticker, "MU")
+    array.push(evt_time, 1775527320000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "買進 | 布蘭特正2+石油\n指標: 偏空 ▼ | 強度: ★★☆\nFB 04/07 10:02 Make Oil Great Again!")
+    array.push(evt_ticker, "CL=F")
+    array.push(evt_time, 1775608020000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "被套 | 布蘭特正2\n指標: 偏多 ▲ | 強度: ★★★\nFB 04/08 08:27 要住公園了嗎")
+    array.push(evt_ticker, "CL=F")
+    array.push(evt_time, 1775610900000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "被困 | 布蘭特正2\n指標: 偏多 ▲ | 強度: ★★☆\nFB 04/08 09:15 太痛了 油正二又30%")
+    array.push(evt_ticker, "CL=F")
+    array.push(evt_time, 1775697840000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損 | 鈦昇\n指標: 偏多 ▲ | 強度: ★★★\nFB 04/09 09:24 停損渣男鈦昇")
+    array.push(evt_ticker, "8027.TWO")
+    array.push(evt_time, 1775697900000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "衝動買進 | 信驊\n指標: 偏空 ▼ | 強度: ★★★\nFB 04/09 09:25 停損渣男鈦昇後買信驊")
+    array.push(evt_ticker, "5274.TWO")
+    array.push(evt_time, 1775708100000)
+    array.push(evt_dir, 0)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "驗證(觀察) | 鈦昇漲停\n指標: 觀察 - 非交易訊號\nFB 04/09 12:15 停損後鈦昇漲停")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1775786641000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "買進 | 亞翔\n指標: 偏空 ▼ | 強度: ★★★\nFB 04/10 10:04 買趨勢猛的！破除迷信！")
+    array.push(evt_ticker, "2383.TW")
+    array.push(evt_time, 1775792400000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "持有 | 台光電\n指標: 偏空 ▼ | 強度: ★☆☆\nFB 04/10 11:40 我不是冥燈！")
+    array.push(evt_ticker, "6139.TW")
+    array.push(evt_time, 1776042564000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "心態穩\n指標: 偏空 ▼ | 強度: ★☆☆\nFB 04/13 01:09 開低走高不用怕吧 今天的我的心態很穩的 不過局勢不穩，今天不會加倉～  我要開會了，大家收盤後見啦")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1776389208000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "漲停買\n指標: 偏空 ▼ | 強度: ★★★\nFB 04/17 01:26 嘿！ 你以為我忘記買聯電了嗎！？ 好啦， 我真的忘記， 我是看到群組在喊才想起來的✌️  今天沒漲停買到了～（雖然...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1777610681000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "無腦看多\n指標: 偏空 ▼ | 強度: ★★★\nFB 05/01 12:44 我發現， 今年真的就是無腦的多 什麼東西都是雜音！ 星期一又要大漲了❤️")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1777657023000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "延後停利\n指標: 偏空 ▼ | 強度: ★★☆\nFB 05/02 01:37 其實我好想全賣掉獲利了結 但是又覺得大家都在慶祝， 那乾脆一起_(:_」∠)_")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1777983718000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "信貸投入\n指標: 偏空 ▼ | 強度: ★★★\nFB 05/05 20:21 壓力大到腦袋一直嗡嗡嗡的響～(;´༎ຶД༎ຶ`)/ 工作壓力+fomo壓力+一堆奇怪事情的壓力  對了，我的信貸下...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1778036601000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "貸款買股\n指標: 偏空 ▼ | 強度: ★★★\nFB 05/06 11:03 信貸投資之 貸款買股的第一天⋯⋯_(:_」∠)_  唯一幸運的地方是 還好他額度只給我20萬⋯")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1778458691000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "會漲\n指標: 偏空 ▼ | 強度: ★★☆\nFB 05/11 08:18 早上好～ 今天又會漲多少呢？")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1778475308000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "虧損\n指標: 偏多 ▲ | 強度: ★★★\nFB 05/11 12:55 人生最痛苦是賣了聯發科買了聯電跟設備股⋯⋯⋯  尤其是設備股今天給我爆跌(;´༎ຶД༎ຶ`)")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1778520558000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "極度看多\n指標: 偏空 ▼ | 強度: ★★★\nFB 05/12 01:29 你會跌，我會跌，雅美也會跌 但是台股⋯不會跌 這幾天真的是做多9成勝率⋯除了台積電 我真的不知道我的腦袋到底是放什...")
+    array.push(evt_ticker, "2330.TW")
+    array.push(evt_time, 1778720991000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "換股\n指標: 偏多 ▲ | 強度: ★★☆\nFB 05/14 09:09 (;´༎ຶД༎ຶ`) 那個⋯ 我正式宣告沒現金又不知道買啥了 昨天把台達賣了，換了一個今天的緩跌試搓_(:_」∠)_")
+    array.push(evt_ticker, "2308.TW")
+    array.push(evt_time, 1778768347000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "FOMO\n指標: 偏空 ▼ | 強度: ★★★\nFB 05/14 22:19 最近大家可能會比較少看到我買賣文章， 因為挪動的資金已經沒有了 甚至超買到證券一直打來提醒補錢(;´༎ຶД༎ຶ`)...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1779077684000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "減碼\n指標: 偏多 ▲ | 強度: ★★☆\nFB 05/18 12:14 反正我先減碼 現在的我學會千萬不要在開盤後一小時後恐慌  明天看情況再想哪吧：）  #冥燈消滅")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1779124580000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "崩跌恐慌\n指標: 偏多 ▲ | 強度: ★★★\nFB 05/19 01:16 明天看到3字頭？ 不不不 明天台股休市不是嗎？  大概一個月後才會開市吧？")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1779182950000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "貸款投資後悔\n指標: 偏多 ▲ | 強度: ★★★\nFB 05/19 17:29 貸款投資第九天 沒事不要貸款投資…………  雖然Gshock我都是買來當裝飾品 但是BZ5000金色的不香嗎  6...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1779241416000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損\n指標: 偏多 ▲ | 強度: ★★★\nFB 05/20 09:43 現在每天一早起來資產就少一隻超霸(⊙ω⊙) 我981是不是真的該賣， 然後轉去中華電 重點是我的個股今天還是崩啊啊...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1779255886000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "跌停\n指標: 偏多 ▲ | 強度: ★★★\nFB 05/20 13:44 那個，不好意思，跌太多心情有點差 我已經說200次了，我就這個帳號會講股票 沒有Line 沒有秘書 沒有助手 沒有...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1779321775000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "減碼\n指標: 偏多 ▲ | 強度: ★★☆\nFB 05/21 08:02 大家早 今天是反彈賣股的好日子❤️ 雖然我的避險put就這樣炸掉了_(:_」∠)_ 每次都這樣唉  說真的，要是這...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1779326595000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "等\n指標: 偏多 ▲ | 強度: ★☆☆\nFB 05/21 09:23 趁好不容易沒虧錢先跑了 手上有現金才能等之後大整理的機會～❤️  還是拿去買已經在谷底的散熱？")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1779342310000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "跌停\n指標: 偏多 ▲ | 強度: ★★★\nFB 05/21 13:45 收盤了 跌停了 跟我的人生一樣 在谷底了⋯ 不，還會再往下吧 爛泥一般")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1779354266000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "虧損\n指標: 偏多 ▲ | 強度: ★★★\nFB 05/21 17:04 對不起大家 我不行了 負面的情緒揮不掉：） 今天賠錢只是其中一件事 一堆不好的事情一直在發生 這個世界很美好，錯的...")
+    array.push(evt_ticker, "")
+
+    array.push(evt_time, 1779671744000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "等待買進\n指標: 偏多 ▲ | 強度: ★☆☆\nFB 05/25 09:15 你乖，不要亂漲 我等等就來接你了～～❤️")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1779677620000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "分散買進\n指標: 偏空 ▼ | 強度: ★★☆\nFB 05/25 10:53 買一個個股 叫單押 買一堆個股， 叫ETF 所以我有買ETF 🤣🤣")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1779771009000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "苦樂參半\n指標: 偏多 ▲ | 強度: ★☆☆\nFB 05/26 12:50 我的人生充滿了矛盾 這大概就是痛並快樂著🥲")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1779844693000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "追強勢股\n指標: 偏空 ▼ | 強度: ★★★\nFB 05/27 09:18 汰弱扶強！ 爬不起來就丟棄！   我已經不是反指標了～ 我要成為買啥漲啥的福神了～～")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1780028911000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "漲停追買\n指標: 偏空 ▼ | 強度: ★★☆\nFB 05/29 12:28 單純弔祭 買了100股 🤣🤣🤣🤣🤣🤣   號稱要下市的股票居然要掛漲停才買的到⋯ 只能說狂熱時期發生什麼都不意外了")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1780282364000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "虧損\n指標: 偏多 ▲ | 強度: ★★☆\nFB 06/01 10:52 說是這樣說 明明漲800點⋯ 為什麼我感覺是跌的(;´༎ຶД༎ຶ`)")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1780361335000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "體感下跌\n指標: 偏多 ▲ | 強度: ★★☆\nFB 06/02 08:48 今天應該是拉積盤 權值股穩了⋯  希望不會是體感-500點_(:_」∠)_")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1780459661000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損\n指標: 偏多 ▲ | 強度: ★★★\nFB 06/03 12:07 你哭著對我說 比特幣都是騙人的～ 這不可能，還不想停損 也許你不會懂 從我買以太以後 我的天空～早就都塌了～ 🫠 ...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1780540786000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "追買\n指標: 偏空 ▼ | 強度: ★★★\nFB 06/04 10:39 前進美光 人生發光～\\(⊙ω⊙)/")
+    array.push(evt_ticker, "MU")
+    array.push(evt_time, 1780594671000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "中小型股弱勢\n指標: 偏多 ▲ | 強度: ★☆☆\nFB 06/05 01:37 明天又是拉積盤 滿手中小的我表示⋯")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1780621139000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "無敵\n指標: 偏空 ▼ | 強度: ★★★\nFB 06/05 08:58 我到現在還是不知道這在漲啥⋯ 但是聽說超級無敵難買到的")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1780669430000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "美股恐慌\n指標: 偏多 ▲ | 強度: ★★☆\nFB 06/05 22:23 正想著最近總算小賺可以買一隻錶的時候 看到美股⋯  完了，又要36000見了_(:_」∠)_")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1780723179000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "不懂\n指標: 偏多 ▲ | 強度: ★★☆\nFB 06/06 13:19 誰可以救救我  這次至少20%回檔～ 我已經All in 腳麻了啊啊 看不懂的可以google用圖片搜尋")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1780807005000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損\n指標: 偏多 ▲ | 強度: ★★★\nFB 06/07 12:36 你的跌停是我的跌停 我的跌停是你的跌停  停損晚點沒關係")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1780827953000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "賣出\n指標: 偏多 ▲ | 強度: ★★☆\nFB 06/07 18:25 持續賣出_(:_」∠)_ 好痛苦啊啊啊啊啊啊啊 痛苦到好想買東西")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1780881857000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "持股重挫\n指標: 偏多 ▲ | 強度: ★★★\nFB 06/08 09:24 開群組 50檔有49檔綠的 唯一紅的是反一  持股4個綠燈⋯再一燈就晉級了")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1780891024000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "跌停\n指標: 偏多 ▲ | 強度: ★★★\nFB 06/08 11:57 我上星期好不容易才排到的 你就賞了一個跌停給我⋯⋯⋯  第五個燈Get🫠🫠🫠")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1780914810000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損\n指標: 偏多 ▲ | 強度: ★★★\nFB 06/08 18:33 首先還是要先感謝乾爹~阮慕驊老師的贊助~ 阮老師這次說要用他的『系統化投資法』來破解我的衰神神話! 他說看不下去我...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1781055132000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "換股加碼\n指標: 偏空 ▼ | 強度: ★★☆\nFB 06/10 09:32 萬元股沒啥動力，還是賣了～ 想轉鈦昇⋯發現買不起_(:_」∠)_⋯而且漲停也排不到 轉買正二  今天沒有想像中恐慌...")
+    array.push(evt_ticker, "00631L.TW")
+    array.push(evt_time, 1781137527000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "住套房\n指標: 偏多 ▲ | 強度: ★★★\nFB 06/11 08:25 中文翻譯：  你怎麼做都沒意義 你以為可以把錢錢拿回來 但是股市不是這樣運作 我知道這很不健康，但是我就是停不下來...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1781224933000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損\n指標: 偏多 ▲ | 強度: ★★★\nFB 06/12 08:42 🫠 我昨天停損是為了什麼⋯_(:_」∠)_")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1781266787000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "回血\n指標: 偏空 ▼ | 強度: ★☆☆\nFB 06/12 20:19 今天回血了 可以買36mmDJ了 但是我好像沒排隊的資格～  還是買卡西歐好了……")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1781484518000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "不敢加碼\n指標: 偏多 ▲ | 強度: ★★☆\nFB 06/15 08:48 今天的問題不是會不會漲 而是漲多少 不過我不敢加碼⋯頂多把0050換正二了_(:_」∠)_ 總覺得回檔還沒完")
+    array.push(evt_ticker, "00631L.TW")
+    array.push(evt_time, 1781494684000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "怎麼辦\n指標: 偏多 ▲ | 強度: ★★☆\nFB 06/15 11:38 長成這樣是要買什麼啦！！！😭😭😭😭 我覺得每個都好高了⋯ 怎麼辦？！？！  是不是應該等過前高再買， 反正也沒差幾點了")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1781536492000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "多軍勝出\n指標: 偏空 ▼ | 強度: ★★☆\nFB 06/15 23:14 這樣不會無聊了吧！保潔你怎麼看！  明天是不是還是由多軍持續勝出， 或是空軍的逆轉勝  目前年度賽事已經不知不覺由...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1781541959000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "停利\n指標: 偏多 ▲ | 強度: ★★☆\nFB 06/16 00:45 這是今天美股的顏色 也是石油的顏色  難道我的理論錯了嗎？難道真的不是反彈嗎？  很多人說；啊那個巴逆逆，你不是有...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1781629529000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損\n指標: 偏多 ▲ | 強度: ★★★\nFB 06/17 01:05 這兩年真的停損會覺得自己是笨蛋 年初鈦昇95停損， 聯電97停損，華崩電120停損，聯發科跌5%停利，國巨應該還在...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1781666520000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損\n指標: 偏多 ▲ | 強度: ★★★\nFB 06/17 11:22 Why... 為什麼下殺了 我剛剛買還是紅的阿阿！？ 我停損一個芭樂股轉過來，你不可以這樣耶！")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1781746867000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "看多\n指標: 偏空 ▼ | 強度: ★★☆\nFB 06/18 09:41 那個⋯起床囉_(:_」∠)_ 大家都往上跑了喔⋯")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1781757086000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "多頭\n指標: 偏空 ▼ | 強度: ★★☆\nFB 06/18 12:31 來吧！ 我準備好了！ 大多頭三年總資產才漲10%不到！")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1782091636000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "怎麼辦\n指標: 偏多 ▲ | 強度: ★★☆\nFB 06/22 09:27 ：）  我不敢追 怎麼辦")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1782094511000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "本金耗盡\n指標: 偏多 ▲ | 強度: ★★☆\nFB 06/22 10:15 愛你越久我越被動 只因我的錢不再為你揮霍 是我讓我的心失去自由 卻再也沒有本金放縱～～")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1782179300000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "被套\n指標: 偏多 ▲ | 強度: ★★☆\nFB 06/23 09:48 愛普掰～～  洗到脫皮了")
+    array.push(evt_ticker, "6531.TW")
+    array.push(evt_time, 1782261401000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "刪 App\n指標: 偏多 ▲ | 強度: ★★★\nFB 06/24 08:36 就 今天又是刪app的好日子")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1782311867000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "抄底恐慌\n指標: 偏多 ▲ | 強度: ★★★\nFB 06/24 22:37 tomorrow will be fine:)  我今天抄底了，明天會漲的  應該吧 我先去公園站位置了  賺錢的...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1782359737000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "看多\n指標: 偏空 ▼ | 強度: ★★☆\nFB 06/25 11:55 故事不是這樣演的啊！ 昨天希望今天能漲，但是不是這種不健康的漲 應該是外資空單減碼啊～～  然後開始無限箱型整理⋯...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1782436889000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "準備抄底\n指標: 偏多 ▲ | 強度: ★★☆\nFB 06/26 09:21 準備現金抄底！  應該還會跌幾天～")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1782448557000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "怕\n指標: 偏多 ▲ | 強度: ★☆☆\nFB 06/26 12:35 Hello 大家好 我們這次是食用/實用的乾爹～ BeRule 植物蛋白粉❤️～ 說真的， 我個人是植物蛋白的愛好...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1782452402000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "損失\n指標: 偏多 ▲ | 強度: ★★★\nFB 06/26 13:40 看來阿祖知道我現在很痛苦😩😩😩 我剛剛帳面一度三個綠燈 正二也虧了10%  怎麼損失比兩週前還要痛啊⋯⋯  正在虧...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1782582888000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "不懂\n指標: 偏多 ▲ | 強度: ★★☆\nFB 06/28 01:54 我不喜歡PO獲利，  一方面是我的短期投資真的都很慘烈 另一方面是覺得沒必要沒事把錢包扒開給人看還帶著大家一起fo...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1782695513000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "逃命\n指標: 偏多 ▲ | 強度: ★★☆\nFB 06/29 09:11 人道走廊")
+    array.push(evt_ticker, "2327.TW")
+    array.push(evt_time, 1782794738000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "誘多恐懼\n指標: 偏多 ▲ | 強度: ★★☆\nFB 06/30 12:45 我這次不會再被騙了! 這一定是誘多!! 不買不賣~看狀況 但是如果明天我一看到鈦爛跌, 我一定馬上出!!  回到4...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1782868563000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "等\n指標: 偏多 ▲ | 強度: ★☆☆\nFB 07/01 09:16 當沖沖了 4930-4990 明明再等個半小時⋯⋯就5100了_(:_」∠)_  我一直都很相信小編的創意 be ...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1782879666000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "怎麼辦\n指標: 偏多 ▲ | 強度: ★★☆\nFB 07/01 12:21 你既然要漲就不要跌麻～～ 你要跌就不要漲咩～  最近每天這樣洗刷刷好累喔_(:_」∠)_  為什麼其他網紅跟新聞都...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1782953194000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "崩跌\n指標: 偏多 ▲ | 強度: ★★★\nFB 07/02 08:46 這不用說了吧⋯ 今天真的毀了_(:_」∠)_   說好的台股50000點呢？")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1783006503000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "虧損\n指標: 偏多 ▲ | 強度: ★★☆\nFB 07/02 23:35 誰可以⋯救救我 以前我買台股，早上才虧錢 後來我買美股，晚上也虧錢 另外我買比特吧，全天候虧錢～😩")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1783018973000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損\n指標: 偏多 ▲ | 強度: ★★★\nFB 07/03 03:02 每當我閉上眼，再睜開眼 只看見跌破，哪裡有什麼突破～  黑K是真的漲是假的～沒什麼看錯 一百天前你不是你我不是我 ...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1783041441000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "公園\n指標: 偏多 ▲ | 強度: ★★★\nFB 07/03 09:17 早上好  請問大家，雙北有哪些好住的公園_(:_」∠)_")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1783047848000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "虧損\n指標: 偏多 ▲ | 強度: ★★★\nFB 07/03 11:04 親愛的朋友你好 這個帳號的主人因為不堪股票虧損 已經決定今天不看盤了， 在週五的台股痛失一位戰友，是一件非常悲哀的事情")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1783301437000)
+    array.push(evt_dir, -1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "追買\n指標: 偏空 ▼ | 強度: ★★☆\nFB 07/06 09:30 有這麼怕嗎⋯ 直接不給我買嗎？   沒關係， 你就別給我下來！ 修度唉丟！")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1783398079000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損\n指標: 偏多 ▲ | 強度: ★★★\nFB 07/07 12:21 請問今天是跌2000點還是3000點？ 台半你也太誇張了吧～  哪有這樣的 早上想賣掉， 發現迪迪落迪迪落⋯ 賣不...")
+    array.push(evt_ticker, "5425.TWO")
+    array.push(evt_time, 1783437130000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "恐慌\n指標: 偏多 ▲ | 強度: ★★★\nFB 07/07 23:12 剛剛看了一下美股  完了完了完了～ 這次我真的屎定了～ 這次不是開玩笑的～😩😩 明天不知道會有幾隻庫存亮燈_(:_...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1783503900000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "公園\n指標: 偏多 ▲ | 強度: ★★★\nFB 07/08 17:45 第一次希望有颱風假不是因為我想放假 是希望證交所放假_(:_」∠)_   颱風要來了，大家做好防颱準備⋯ 不要選河...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1783515242000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "停損\n指標: 偏多 ▲ | 強度: ★★☆\nFB 07/08 20:54 停損？停損有什麼難的  玩股票要活得久， 就是學會停損 雖然再大牛市真的蠻蠢的，但是等真的發生什麼大事的時候你會感...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1783567680000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "恐慌看空\n指標: 偏多 ▲ | 強度: ★★★\nFB 07/09 11:28 破除迷信，雖然我覺得不可能會漲了 看來股市要開始走弱了～  高點下來已經燒掉110萬， 這個星期已經蒸發60了（對...")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1783599900000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "加碼反一\n指標: 偏多 ▲ | 強度: ★★☆\nFB 07/09 20:25 反一買了就真的止跌了（笑）")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1783916179000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "虧損\n指標: 偏多 ▲ | 強度: ★★★\nFB 07/13 12:16 今天繼續蒸發30萬_(:_」∠)_ 反一的避險效益真的是搞笑  早上一度是多空都虧得狀態  不少我的持股明明指數不...")
+    array.push(evt_ticker, "2303.TW")
+    array.push(evt_time, 1783992006000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "被套\n指標: 偏多 ▲ | 強度: ★★☆\nFB 07/14 09:20 合晶⋯ 你不能這樣對我啊_(:_」∠)_ 故事不能這麼針對我啊啊啊啊")
+    array.push(evt_ticker, "6182.TWO")
+    array.push(evt_time, 1784005500000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "停損\n指標: 偏多 ▲ | 強度: ★★★\nFB 07/14 13:05 停損了啦 隨便了啦 股票就是騙人的爛東西 今天應該繼續探底")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1784025548000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "盯盤疲憊\n指標: 偏多 ▲ | 強度: ★☆☆\nFB 07/14 18:39 這兩天玩股票有一點耗螢幕_(:_」∠)_")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1784081143000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "加碼反一\n指標: 偏多 ▲ | 強度: ★★★\nFB 07/15 10:05 今天是給你逃命的啊啊啊 我才不會進場啊啊啊！  我不會被騙的！ 我加碼反一跟你說！")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1784126619000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "虧損\n指標: 偏多 ▲ | 強度: ★★★\nFB 07/15 22:43 可以教一下美國人怎麼救記憶體嗎⋯⋯  我快不行了⋯⋯ 我期待今天會破千的啊⋯_(:_」∠)_ 早知道拿去買東西啦啦啦")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1784182015000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "死貓反彈\n指標: 偏多 ▲ | 強度: ★★☆\nFB 07/16 14:06 你這樣讓我好混亂啊_(:_」∠)_  死貓吧！ 是死貓跳吧！ 明天應該繼續跌吧？！")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1784251340000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 1)
+    array.push(evt_tips, "轉向非AI\n指標: 偏多 ▲ | 強度: ★☆☆\nFB 07/17 09:22 看來要把眼光看到AI以外的了_(:_」∠)_")
+    array.push(evt_ticker, "")
+    array.push(evt_time, 1784393816000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 2)
+    array.push(evt_tips, "看空\n指標: 偏多 ▲ | 強度: ★★☆\nFB 07/19 00:56 想到星期一還要繼續跌就好煩喔 漲了八成也是跌多反彈")
+    array.push(evt_ticker, "")
+
+    array.push(evt_time, 1784512756000)
+    array.push(evt_dir, 1)
+    array.push(evt_str, 3)
+    array.push(evt_tips, "虧損\n指標: 偏多 ▲ | 強度: ★★★\nFB 07/20 09:59 投的錢是3月的2倍 但是拿回來的錢只有3月的8成 怎麼可以天天跌⋯(;´༎ຶД༎ຶ`)")
+    array.push(evt_ticker, "")
+
+var int currentDir = 0
+var int posCount = 0
+var int flipBar = 0
+var float flipPrice = 0.0
+var int flipDir = 0
+var int lastEvtTime = 0
+var int lastSignalBar = na
+var float lastSignalScore = na
+var int winsA = 0
+var int lossesA = 0
+var int winsB = 0
+var int lossesB = 0
+var float pnlSumA = 0.0
+var float pnlSumB = 0.0
+var int totalFlips = 0
+var int[] recentB = array.new_int(0)
+var int totalHoldBarsB = 0
+
+trendLongOk = close > emaBasis and emaBasis >= emaBasis[1]
+trendShortOk = close < emaBasis and emaBasis <= emaBasis[1]
+rsiLongOk = rsiValue >= 50
+rsiShortOk = rsiValue <= 50
+volatilityOk = atrPct >= minAtrPct
+htfLongOk = htfClose >= htfEma
+htfShortOk = htfClose <= htfEma
+
+int barsSinceSignal = not na(lastSignalBar) ? bar_index - lastSignalBar : na
+int remainingBars = not na(barsSinceSignal) ? math.max(signalLifeBars - barsSinceSignal, 0) : na
+float agedScore = not na(lastSignalScore) and not na(barsSinceSignal) ? clampFloat(lastSignalScore - barsSinceSignal * 25.0 / signalLifeBars, 0, 100) : na
+isSignalExpired = currentDir != 0 and not na(remainingBars) and remainingBars <= 0
+effectiveDir = isSignalExpired ? 0 : currentDir
+expiredNow = isSignalExpired and (bar_index == 0 or not isSignalExpired[1])
+
+bool flipSignalNow = false
+bool addSignalNow = false
+bool filteredSignalNow = false
+int alertDir = 0
+var string lastFilterText = "等待事件"
+
+if totalFlips > 0 and currentDir != 0 and bar_index - flipBar == holdBars
+    pnlPctA = (flipDir == 1 ? close - flipPrice : flipPrice - close) / flipPrice * 100
+    pnlSumA += pnlPctA
+    if pnlPctA > 0
+        winsA += 1
+    else
+        lossesA += 1
+
+if array.size(evt_time) > 0
+    for i = 0 to array.size(evt_time) - 1
+        if time_close > array.get(evt_time, i) and time_close[1] <= array.get(evt_time, i)
+            d = array.get(evt_dir, i)
+            s = array.get(evt_str, i)
+            tip = array.get(evt_tips, i)
+            trendOk = d == 1 ? trendLongOk : trendShortOk
+            rsiOk = d == 1 ? rsiLongOk : rsiShortOk
+            htfOk = d == 1 ? htfLongOk : htfShortOk
+            passFilters = (not useTrendFilter or trendOk) and (not useRsiFilter or rsiOk) and (not useVolFilter or volatilityOk) and (not useHtfConfirm or htfOk)
+            filterText = formatFilterSummary(useTrendFilter, trendOk, useRsiFilter, rsiOk, useVolFilter, volatilityOk, useHtfConfirm, htfOk)
+            baseScore = 35.0 + s * 15.0 + profileBias(assetProfile)
+            filterScore = (useTrendFilter ? (trendOk ? TREND_FILTER_BONUS : TREND_FILTER_PENALTY) : 0.0) + (useRsiFilter ? (rsiOk ? RSI_FILTER_BONUS : RSI_FILTER_PENALTY) : 0.0) + (useVolFilter ? (volatilityOk ? VOL_FILTER_BONUS : VOL_FILTER_PENALTY) : 0.0) + (useHtfConfirm ? (htfOk ? HTF_FILTER_BONUS : HTF_FILTER_PENALTY) : 0.0)
+            score = clampFloat(baseScore + filterScore, 0, 100)
+            scoreText = "品質分數: " + str.tostring(score, "#.0") + " (" + qualityLabel(score) + ")"
+            filterStatusText = "濾網: " + filterText
+            positionText = d == 1 ? "建議買入: " + str.tostring(baseRiskPct * positionFactor(score), "#.0") + "% (依強度)" : "建議賣出: " + str.tostring(sellBatchPct, "#.0") + "% / 次"
+            richTip = tip + "\n" + scoreText + "\n" + filterStatusText + "\n" + positionText
+
+            lastFilterText := filterText
+            if passFilters
+                alertDir := d
+                lastEvtTime := array.get(evt_time, i)
+                lastSignalBar := bar_index
+                lastSignalScore := score
+                isFlip = d != currentDir
+
+                if isFlip
+                    if totalFlips > 0
+                        pnlPctB = (flipDir == 1 ? close - flipPrice : flipPrice - close) / flipPrice * 100
+                        pnlSumB += pnlPctB
+                        totalHoldBarsB += bar_index - flipBar
+                        if pnlPctB > 0
+                            winsB += 1
+                            array.push(recentB, 1)
+                        else
+                            lossesB += 1
+                            array.push(recentB, 0)
+                        if array.size(recentB) > 20
+                            array.shift(recentB)
+                    currentDir := d
+                    posCount := 1
+                    flipBar := bar_index
+                    flipPrice := close
+                    flipDir := d
+                    totalFlips += 1
+                    flipSignalNow := true
+                    labelSize = s == 3 ? size.huge : s == 2 ? size.large : size.normal
+                    if d == 1
+                        label.new(bar_index, low - gap, "▲",
+                             color=color.new(color.black, 100),
+                             textcolor=#00E676,
+                             style=label.style_label_up,
+                             size=labelSize,
+                             tooltip=richTip)
+                    else
+                        label.new(bar_index, high + gap, "▼",
+                             color=color.new(color.black, 100),
+                             textcolor=#FF1744,
+                             style=label.style_label_down,
+                             size=labelSize,
+                             tooltip=richTip)
+                else
+                    posCount := math.min(posCount + 1, maxPyramid)
+                    addSignalNow := true
+                    if showDots
+                        dotCol = d == 1 ? color.new(#00E676, 50) : color.new(#FF1744, 50)
+                        dotY = d == 1 ? low - gap * 2 : high + gap * 2
+                        label.new(bar_index, dotY, d == 1 ? "▲" : "▼",
+                             color=color.new(color.black, 100),
+                             textcolor=dotCol,
+                             style=d == 1 ? label.style_label_up : label.style_label_down,
+                             size=size.large,
+                             tooltip=richTip)
+            else
+                filteredSignalNow := true
+                if showFilteredMarks
+                    label.new(bar_index, d == 1 ? low - gap : high + gap, "×",
+                         color=color.new(color.black, 100),
+                         textcolor=color.new(color.gray, 0),
+                         style=d == 1 ? label.style_label_up : label.style_label_down,
+                         size=size.small,
+                         tooltip=tip + "\n原始事件遭濾網擋下\n" + filterText)
+
+color bgCol = na
+if showBg and effectiveDir == 1
+    bgCol := color.new(#00E676, 95)
+if showBg and effectiveDir == -1
+    bgCol := color.new(#FF1744, 95)
+bgcolor(bgCol)
+
+float avgPnlA = winsA + lossesA > 0 ? pnlSumA / (winsA + lossesA) : na
+judgedBCount = winsB + lossesB
+float avgPnlB = judgedBCount > 0 ? pnlSumB / judgedBCount : na
+float avgHoldB = judgedBCount > 0 ? totalHoldBarsB * 1.0 / judgedBCount : na
+float recentWinB = na
+if array.size(recentB) > 0
+    recentWins = 0
+    for i = 0 to array.size(recentB) - 1
+        recentWins += array.get(recentB, i)
+    recentWinB := recentWins / array.size(recentB) * 100
+
+activeTrendOk = effectiveDir == 1 ? trendLongOk : effectiveDir == -1 ? trendShortOk : true
+activeRsiOk = effectiveDir == 1 ? rsiLongOk : effectiveDir == -1 ? rsiShortOk : true
+activeHtfOk = effectiveDir == 1 ? htfLongOk : effectiveDir == -1 ? htfShortOk : true
+riskPct = effectiveDir == 0 or na(agedScore) ? 0.0 : baseRiskPct * positionFactor(agedScore)
+stopAtr = profileStopAtr(assetProfile)
+riskText = effectiveDir == 0 ? "等待下一筆翻轉" : effectiveDir == 1 ? str.tostring(riskPct, "#.0") + "% / 停損 " + str.tostring(stopAtr, "#.1") + " ATR / 分批買入" : "每次賣 " + str.tostring(sellBatchPct, "#.0") + "% / 停損 " + str.tostring(stopAtr, "#.1") + " ATR / 逐批出場"
+qualityText = not na(agedScore) ? str.tostring(agedScore, "#.0") + " / 100 (" + qualityLabel(agedScore) + ")" : "尚無"
+float ageHours = lastEvtTime > 0 ? (timenow - lastEvtTime) / 3600000.0 : na
+ageText = formatSignalAge(lastEvtTime, isSignalExpired, ageHours)
+validityText = effectiveDir == 0 ? (isSignalExpired ? "等待新訊號" : "尚未啟用") : str.tostring(remainingBars) + " 根 K 棒內有效"
+filterCompact = formatFilterSummary(useTrendFilter, activeTrendOk, useRsiFilter, activeRsiOk, useVolFilter, volatilityOk, useHtfConfirm, activeHtfOk)
+positionPctText = str.tostring((posCount * 100.0) / maxPyramid, "#.0")
+
+if showPanel
+    pos = panelPos == "右上" ? position.top_right : position.bottom_right
+    var table t = table.new(pos, 2, 13, bgcolor=color.new(#111111, 5), border_color=color.new(#555555, 0), border_width=1)
+    if barstate.islast
+        dashboardDirectionLabel = effectiveDir == 1 ? "偏多 ▲" : effectiveDir == -1 ? "偏空 ▼" : isSignalExpired ? "訊號過期" : "等訊號"
+        dirCol = effectiveDir == 1 ? #00E676 : effectiveDir == -1 ? #FF1744 : color.gray
+        judgedA = winsA + lossesA
+        winRateA = judgedA > 0 ? winsA / judgedA * 100 : 0
+        wrColA = winRateA >= 60 ? #00E676 : winRateA >= 40 ? #ffeb3b : #FF1744
+        judgedB = winsB + lossesB
+        winRateB = judgedB > 0 ? winsB / judgedB * 100 : 0
+        wrColB = winRateB >= 60 ? #00E676 : winRateB >= 40 ? #ffeb3b : #FF1744
+        qualityCol = not na(agedScore) ? agedScore >= 80 ? #00E676 : agedScore >= 65 ? #ffeb3b : #FF7043 : color.gray
+        ageCol = isSignalExpired ? color.gray : not na(ageHours) and ageHours < 24 ? color.white : #ffeb3b
+        suggest = winRateB > winRateA ? "建議: 用翻轉平倉作主策略" : winRateA > winRateB ? "建議: 固定 " + str.tostring(holdBars) + " 棒出場" : "建議: 兩者差不多，優先看品質分數"
+        sugCol = winRateB > winRateA ? #00E676 : winRateA > winRateB ? #ffeb3b : color.gray
+        table.cell(t, 0, 0, "8zz反指標v2", text_color=color.white, text_size=size.small, bgcolor=color.new(#333333, 0))
+        table.cell(t, 1, 0, assetProfile, text_color=color.white, text_size=size.small, bgcolor=color.new(#333333, 0))
+        table.cell(t, 0, 1, "方向", text_color=color.gray, text_size=size.tiny)
+        table.cell(t, 1, 1, dashboardDirectionLabel, text_color=dirCol, text_size=size.normal)
+        table.cell(t, 0, 2, "倉位", text_color=color.gray, text_size=size.tiny)
+        table.cell(t, 1, 2, str.tostring(posCount) + "/" + str.tostring(maxPyramid) + " (" + positionPctText + "%)", text_color=color.white, text_size=size.small)
+        table.cell(t, 0, 3, "訊號品質", text_color=color.gray, text_size=size.tiny)
+        table.cell(t, 1, 3, qualityText, text_color=qualityCol, text_size=size.small)
+        table.cell(t, 0, 4, "訊號年齡", text_color=color.gray, text_size=size.tiny)
+        table.cell(t, 1, 4, ageText, text_color=ageCol, text_size=size.small)
+        table.cell(t, 0, 5, "有效期", text_color=color.gray, text_size=size.tiny)
+        table.cell(t, 1, 5, validityText, text_color=isSignalExpired ? color.gray : color.white, text_size=size.small)
+        table.cell(t, 0, 6, "風控", text_color=color.gray, text_size=size.tiny)
+        table.cell(t, 1, 6, riskText, text_color=color.white, text_size=size.small)
+        table.cell(t, 0, 7, "濾網", text_color=color.gray, text_size=size.tiny)
+        table.cell(t, 1, 7, filterCompact, text_color=color.white, text_size=size.tiny)
+        table.cell(t, 0, 8, "Mode A (固定" + str.tostring(holdBars) + "棒)", text_color=color.gray, text_size=size.tiny)
+        table.cell(t, 1, 8, str.tostring(winRateA, "#.0") + "%  " + str.tostring(winsA) + "W/" + str.tostring(lossesA) + "L", text_color=wrColA, text_size=size.small)
+        table.cell(t, 0, 9, "Mode B (翻轉平倉)", text_color=color.gray, text_size=size.tiny)
+        table.cell(t, 1, 9, str.tostring(winRateB, "#.0") + "%  " + str.tostring(winsB) + "W/" + str.tostring(lossesB) + "L", text_color=wrColB, text_size=size.small)
+        table.cell(t, 0, 10, "詳細戰績", text_color=color.gray, text_size=size.tiny)
+        table.cell(t, 1, 10, "hansai-art.github.io", text_color=#4FC3F7, text_size=size.tiny)
+        table.cell(t, 0, 11, suggest, text_color=sugCol, text_size=size.tiny)
+        table.cell(t, 1, 11, lastFilterText, text_color=color.gray, text_size=size.tiny)
+        table.cell(t, 0, 12, "情緒解讀", text_color=color.gray, text_size=size.tiny)
+        table.cell(t, 1, 12, "被套/停損→▲偏多 | 追漲/樂觀→▼偏空", text_color=color.new(#aaaaaa, 0), text_size=size.tiny)
+
+alertcondition(flipSignalNow and alertDir == 1, "8zz 多頭翻轉", "8zz 社群情緒反轉框架出現偏多翻轉訊號")
+alertcondition(flipSignalNow and alertDir == -1, "8zz 空頭翻轉", "8zz 社群情緒反轉框架出現偏空翻轉訊號")
+alertcondition(addSignalNow, "8zz 同向加碼", "8zz 社群情緒反轉框架出現同向加碼訊號")
+alertcondition(filteredSignalNow, "8zz 原始事件遭濾網擋下", "有事件觸發，但被目前濾網條件擋下")
+alertcondition(expiredNow, "8zz 訊號失效", "目前有效訊號已過期，等待下一次翻轉")
+

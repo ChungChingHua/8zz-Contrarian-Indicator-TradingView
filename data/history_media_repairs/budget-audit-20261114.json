@@ -1,0 +1,134 @@
+{
+  "at": "2026-11-14T07:06:10.977851+00:00",
+  "actor_starts": 0,
+  "ai_requests": 0,
+  "runs": [
+    {
+      "source": "threads",
+      "id": "T5aL34lZ0cAhRu17S",
+      "status": "SUCCEEDED",
+      "startedAt": "2026-11-14T06:53:41.910Z",
+      "finishedAt": "2026-11-14T06:55:11.149Z",
+      "buildId": "1MVQMWBVN6xDpnUfb",
+      "buildNumber": "0.1.72",
+      "defaultDatasetId": "JjMSrKNhWMC5CFW26",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.08",
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 12
+      },
+      "accountedChargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 12
+      },
+      "duration_seconds": "89.043",
+      "cost_observed_at": "2026-11-14T07:06:11.607200+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution"
+    },
+    {
+      "source": "facebook",
+      "id": "i22Es0nKg6gd7bpEZ",
+      "status": "SUCCEEDED",
+      "startedAt": "2026-11-14T06:56:02.502Z",
+      "finishedAt": "2026-11-14T06:56:44.531Z",
+      "buildId": "YrRcdVQKNazTl1teV",
+      "buildNumber": "0.0.421",
+      "defaultDatasetId": "JeUiW3Icdcvy4KoXP",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.061",
+      "chargedEventCounts": {
+        "post": 12,
+        "actor-start": 1,
+        "filter-applied": 0
+      },
+      "accountedChargedEventCounts": {
+        "post": 12,
+        "actor-start": 1,
+        "filter-applied": 0
+      },
+      "duration_seconds": "41.871",
+      "cost_observed_at": "2026-11-14T07:06:11.851211+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution"
+    },
+    {
+      "source": "facebook",
+      "id": "aN1ESUqN4kVceCqBH",
+      "status": "ABORTED",
+      "startedAt": "2026-11-14T07:00:37.501Z",
+      "finishedAt": "2026-11-14T07:00:39.185Z",
+      "buildId": "YrRcdVQKNazTl1teV",
+      "buildNumber": "0.0.421",
+      "defaultDatasetId": "yv2pVJKq2araXljnc",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.057529",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.001",
+      "chargedEventCounts": {
+        "post": 0,
+        "actor-start": 1,
+        "filter-applied": 0
+      },
+      "accountedChargedEventCounts": {
+        "post": 0,
+        "actor-start": 1,
+        "filter-applied": 0
+      },
+      "duration_seconds": "1.448",
+      "cost_observed_at": "2026-11-14T07:06:12.077588+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "dataset_counts": {
+        "itemCount": 0,
+        "cleanItemCount": 0
+      }
+    }
+  ],
+  "cache": {
+    "retained_posts": 4,
+    "previously_processed_posts_removed_from_working_copy": 27,
+    "verified_image_files": 4,
+    "retained_bytes": 431202,
+    "source_artifact_unchanged": true
+  },
+  "account_usage_limit": {
+    "maximum_usd": 5,
+    "used_usd": "4.94849842413089",
+    "cycle": {
+      "startAt": "2026-11-06T00:00:00.000Z",
+      "endAt": "2026-12-05T23:59:59.999Z"
+    },
+    "remaining_headroom_usd_derived": "0.05150157586911",
+    "note": "Limit minus current usage, not cash balance or settled invoice."
+  },
+  "http_requests": {
+    "GET": 5,
+    "POST": 0
+  }
+}
