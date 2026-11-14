@@ -8,5 +8,15 @@
     "GET": 0,
     "POST": 0
   },
-  "updated_at": "2026-11-14T07:12:02.986559+00:00"
+  "updated_at": "2026-11-14T07:12:04.638557+00:00",
+  "existing_media_preflight": [
+    {
+      "key": "facebook:1702487071235881",
+      "display_time": "2026-11-05T03:04:10+08:00",
+      "status": "held_media_unavailable",
+      "already_cached": false,
+      "error_type": "ValueError",
+      "reason": "media_http_status_rejected"
+    }
+  ]
 }
