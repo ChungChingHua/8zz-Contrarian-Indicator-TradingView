@@ -1,0 +1,12 @@
+{
+  "session": "20261114-media-repair-03",
+  "batches": [],
+  "actor_starts_reserved": 0,
+  "ai_requests": 0,
+  "monthly_runs_before": 64,
+  "http_requests": {
+    "GET": 0,
+    "POST": 0
+  },
+  "updated_at": "2026-11-14T07:21:22.357643+00:00"
+}
