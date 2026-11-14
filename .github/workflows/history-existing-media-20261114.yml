@@ -1,8 +1,6 @@
 name: Continue history with existing public media only 20261114
 on:
-  push:
-    branches: [codex/social-pipeline-20261106]
-    paths: [.github/workflows/history-existing-media-20261114.yml]
+  workflow_dispatch: {}
 permissions:
   contents: write
   actions: read
@@ -11,7 +9,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   resume:
-    if: github.event_name == 'push'
+    if: ${{ false }}
     runs-on: ubuntu-latest
     timeout-minutes: 330
     env:

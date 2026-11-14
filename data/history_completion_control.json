@@ -3,7 +3,7 @@
   "cutoff_utc": "2026-11-07T12:15:59.578797+00:00",
   "created_at": "2026-11-07T12:15:59.578797+00:00",
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
-  "closed": true,
+  "closed": false,
   "acquisition_completed": true,
   "sources": {
     "facebook": {
@@ -280,47 +280,53 @@
       "aborted_run": "aN1ESUqN4kVceCqBH",
       "dataset_items": 0,
       "diagnostic": "data/history_media_repairs/budget-audit-20261114.json"
+    },
+    {
+      "stop_reason": "missing_public_media_no_new_actor",
+      "closure_reason": "existing_media_exhausted",
+      "scope_generation_attempts": 617,
+      "remaining_media": 12,
+      "existing_media_ledger": "data/history_media_repairs/20261114-media-repair-02.json"
     }
   ],
   "current_session": {
-    "id": "20261114-media-repair-02",
-    "baseline_generation_attempts": 601,
-    "baseline_validated_responses": 587,
+    "id": "20261114-media-repair-03",
+    "baseline_generation_attempts": 617,
+    "baseline_validated_responses": 602,
     "baseline_usage": {
-      "input_tokens": 1726339,
-      "output_tokens": 94796,
-      "total_tokens": 1821135,
+      "input_tokens": 1768683,
+      "output_tokens": 96888,
+      "total_tokens": 1865571,
       "reasoning_tokens": 0
     },
-    "baseline_total_events": 370,
+    "baseline_total_events": 379,
     "baseline_status_counts": {
-      "pending_confirmation": 83,
-      "completed_no_signal": 294,
-      "completed_signal": 214,
-      "technical_failure": 10,
+      "pending_confirmation": 86,
+      "completed_no_signal": 297,
+      "completed_signal": 223,
+      "technical_failure": 11,
       "input_failure": 7
     },
     "first_unstarted_date": "2026-11-05T03:04:10+08:00",
-    "existing_public_media_only": true,
-    "new_actor_starts_authorized": 0,
+    "target_keys": [
+      "threads:4024090220249602678",
+      "threads:4025043302263849308"
+    ],
+    "maximum_generation_requests": 2,
+    "maximum_new_actor_starts": 1,
     "restored_cache_artifact": {
-      "run_id": 43568403861,
-      "id": 14104315037,
-      "name": "history-media-cache-20261114-continuation",
-      "size_bytes": 6190841,
-      "expires_at": "2026-11-28T07:01:07Z",
-      "digest": "sha256:431068ef0e36667489fc4bec4075d64f1d144151e2542b0cacf69c03a6382212"
+      "run_id": 43569933014,
+      "id": 14103483714,
+      "name": "history-media-cache-20261114-existing-media",
+      "size_bytes": 387480,
+      "expires_at": "2026-11-28T07:14:39Z",
+      "digest": "sha256:586f38bc7fcb68b2410790c069aa7f421330e423f0f99a06aed64fe82d5c80fb"
     },
     "initial_actor_starts": 0,
     "actor_runs_started": 0,
     "saved_dataset_get_requests": 0,
     "recovered_zero_generation_inputs": 0,
-    "closed": true,
-    "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-02.json",
-    "media_repair_http_counts": {
-      "GET": 0,
-      "POST": 0
-    }
+    "closed": false
   },
   "session_history": [
     {
@@ -1051,10 +1057,96 @@
         }
       },
       "media_repair_observed_usd": "0.142"
+    },
+    {
+      "id": "20261114-media-repair-02",
+      "baseline_generation_attempts": 601,
+      "baseline_validated_responses": 587,
+      "baseline_usage": {
+        "input_tokens": 1726339,
+        "output_tokens": 94796,
+        "total_tokens": 1821135,
+        "reasoning_tokens": 0
+      },
+      "baseline_total_events": 370,
+      "baseline_status_counts": {
+        "pending_confirmation": 83,
+        "completed_no_signal": 294,
+        "completed_signal": 214,
+        "technical_failure": 10,
+        "input_failure": 7
+      },
+      "first_unstarted_date": "2026-11-05T03:04:10+08:00",
+      "existing_public_media_only": true,
+      "new_actor_starts_authorized": 0,
+      "restored_cache_artifact": {
+        "run_id": 43568403861,
+        "id": 14104315037,
+        "name": "history-media-cache-20261114-continuation",
+        "size_bytes": 6190841,
+        "expires_at": "2026-11-28T07:01:07Z",
+        "digest": "sha256:431068ef0e36667489fc4bec4075d64f1d144151e2542b0cacf69c03a6382212"
+      },
+      "initial_actor_starts": 0,
+      "actor_runs_started": 0,
+      "saved_dataset_get_requests": 0,
+      "recovered_zero_generation_inputs": 0,
+      "closed": true,
+      "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-02.json",
+      "media_repair_http_counts": {
+        "GET": 0,
+        "POST": 0
+      },
+      "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43569933014",
+      "result": {
+        "id": "20261114-media-repair-02",
+        "generation_attempts": 16,
+        "validated_responses": 15,
+        "added_events": 9,
+        "pine_count_delta_since_session": 9,
+        "historical_reference_event_delta_since_session": 0,
+        "service_reported_usage": {
+          "input_tokens": 42344,
+          "output_tokens": 2092,
+          "total_tokens": 44436,
+          "reasoning_tokens": 0
+        },
+        "status_counts": {
+          "completed_no_signal": 3,
+          "completed_signal": 9,
+          "input_failure": 0,
+          "pending_confirmation": 3,
+          "technical_failure": 1
+        },
+        "actor_runs_started": 0,
+        "saved_dataset_get_requests": 0,
+        "actual_points_deducted": null,
+        "run_url": null,
+        "stop_http_status": null,
+        "status_count_transitions": {
+          "completed_no_signal": 3,
+          "completed_signal": 9,
+          "input_failure": 0,
+          "pending_confirmation": 3,
+          "technical_failure": 1
+        },
+        "recovered_zero_generation_inputs": 0,
+        "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-02.json",
+        "media_repair_http_counts": {
+          "GET": 0,
+          "POST": 0
+        }
+      },
+      "cache_artifact": {
+        "run_id": 43569933014,
+        "id": 14103483714,
+        "name": "history-media-cache-20261114-existing-media",
+        "size_bytes": 387480,
+        "expires_at": "2026-11-28T07:14:39Z",
+        "digest": "sha256:586f38bc7fcb68b2410790c069aa7f421330e423f0f99a06aed64fe82d5c80fb"
+      }
     }
   ],
-  "stop_reason": "missing_public_media_no_new_actor",
-  "closure_reason": "existing_media_exhausted",
   "held_missing_media_keys": [
     "facebook:1702487071235881",
     "facebook:1702731291211459",

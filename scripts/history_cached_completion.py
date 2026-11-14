@@ -24,6 +24,7 @@ class MediaStop(BaseException):pass
 
 def acknowledged_cap(options):
     """A verified lower provider cap remains within the user's USD0.10 ceiling."""
+    if not isinstance(options,dict):return False
     value=options.get('maxTotalChargeUsd')
     if isinstance(value,bool) or options.get('isMaxTotalChargeUsdSetByUser') is not True:return False
     try:amount=Decimal(str(value))

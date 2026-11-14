@@ -1,0 +1,66 @@
+name: Process only two missing Threads posts 20261114
+on:
+  push:
+    branches: [codex/social-pipeline-20261106]
+    paths: [.github/workflows/history-last-threads-20261114.yml]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: original-author-history-batch-01
+  cancel-in-progress: false
+jobs:
+  resume:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    env:
+      AUTHORIZED_HISTORY_SCOPE: history-completion-20261107
+      AUTHORIZED_RESUME_ID: 20261114-media-repair-03
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: codex/social-pipeline-20261106
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Offline regression before any generation
+        run: python -m unittest discover -s scripts -p 'test*.py'
+      - name: Restore latest verified cache from previous continuation
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: history-media-cache-20261114-existing-media
+          run-id: 43569933014
+          github-token: ${{ github.token }}
+          path: /tmp/8zz-history-media-cache
+      - name: Verify remaining cache and trim only this working copy
+        run: |
+          PYTHONPATH=scripts python - <<'PY'
+          import json
+          from history_cached_completion import prepare_restored_cache
+          print(json.dumps(prepare_restored_cache()))
+          PY
+      - name: Only two never-reserved Threads posts, no Facebook repeat
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          CHATANYWHERE_API_KEY: ${{ secrets.CHATANYWHERE_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/history_last_threads_20261114.py
+      - name: Preserve verified cache without signed URL queries
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: history-media-cache-20261114-last-threads
+          path: /tmp/8zz-history-media-cache/
+          if-no-files-found: ignore
+          retention-days: 14
+      - name: Save paired complete indicator and strategy without generation
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/history_completion.py publish-report
+      - name: Final offline checks
+        if: always()
+        run: python -m unittest discover -s scripts -p 'test*.py'

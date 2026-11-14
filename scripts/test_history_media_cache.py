@@ -67,6 +67,7 @@ class Tests(unittest.TestCase):
         for amount in ('0.10','0.1','0.057529'):
             self.assertTrue(c.acknowledged_cap({'maxTotalChargeUsd':amount,'isMaxTotalChargeUsdSetByUser':True}))
     def test_missing_unverified_or_unsafe_caps_are_rejected(self):
+        for options in (None,[],0):self.assertFalse(c.acknowledged_cap(options))
         for amount in (None,True,'0','-0.01','0.100001','NaN','Infinity','invalid'):
             self.assertFalse(c.acknowledged_cap({'maxTotalChargeUsd':amount,'isMaxTotalChargeUsdSetByUser':True}))
         self.assertFalse(c.acknowledged_cap({'maxTotalChargeUsd':'0.1'}))
