@@ -39,11 +39,18 @@
       },
       "finished_at": "2026-11-14T10:21:38.860Z",
       "possible_cost_truncation": false,
-      "dataset_id": "wUMLTZcJlGUM7iEVQ"
+      "dataset_id": "wUMLTZcJlGUM7iEVQ",
+      "counts": {
+        "fetched": 20,
+        "accepted": 20,
+        "new": 20,
+        "overlap": 0,
+        "excluded": {}
+      }
     }
   ],
   "apify_http_counts": {
-    "GET": 8,
+    "GET": 9,
     "POST": 1
   },
   "prior_control_snapshot": "data/history_completion_before_latest_20261114.json",
