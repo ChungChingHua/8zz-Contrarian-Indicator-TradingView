@@ -1,12 +1,33 @@
 {
   "session": "20261114-media-repair-01",
-  "batches": [],
-  "actor_starts_reserved": 0,
+  "batches": [
+    {
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "keys": [
+        "threads:4020696021219218589",
+        "threads:4021321841096903754",
+        "threads:4021890374356799160",
+        "threads:4021970379841567975",
+        "threads:4022644970884768463",
+        "threads:4022703226042831167",
+        "threads:4022757610051153640",
+        "threads:4023110973024452589",
+        "threads:4023362009123385848",
+        "threads:4023406251229152584",
+        "threads:4023487463029312236",
+        "threads:4023673308822738059"
+      ],
+      "status": "reserved_not_submitted",
+      "posts": {}
+    }
+  ],
+  "actor_starts_reserved": 1,
   "ai_requests": 0,
   "monthly_runs_before": 61,
   "http_requests": {
-    "GET": 0,
+    "GET": 1,
     "POST": 0
   },
-  "updated_at": "2026-11-14T06:52:26.275199+00:00"
+  "updated_at": "2026-11-14T06:53:39.568679+00:00"
 }
