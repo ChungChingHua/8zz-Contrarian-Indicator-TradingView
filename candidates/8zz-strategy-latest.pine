@@ -28,8 +28,8 @@ showRiskStop = input.bool(true, "顯示目前有效停損線", group=grpRisk)
 
 grpDates = "歷史測試範圍（只取日期，台北時間）"
 startDate = input.time(timestamp("01 Dec 2025 00:00 +0800"), "開始日期", group=grpDates)
-endDate = input.time(timestamp("06 Nov 2026 00:00 +0800"), "截止日期（日盤收盤強制平倉）", group=grpDates,
-     tooltip="資料抓取截止：2026-11-07T20:15:59.578797+08:00。使用全部已保存事件；尚未判讀的貼文沒有訊號。截止日期請選有日盤行情的交易日，截止日收盤強制平倉。")
+endDate = input.time(timestamp("13 Nov 2026 00:00 +0800"), "截止日期（日盤收盤強制平倉）", group=grpDates,
+     tooltip="資料抓取截止：2026-11-14T18:21:07.585530+08:00。使用全部已保存事件；尚未判讀的貼文沒有訊號。截止日期請選有日盤行情的交易日，截止日收盤強制平倉。")
 
 grpFilters = "原有濾網（預設全部關閉）"
 useTrendFilter = input.bool(false, "EMA趨勢濾網", group=grpFilters)
