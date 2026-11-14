@@ -1,8 +1,6 @@
 name: Verify replacement Apify token 20261114
 on:
-  push:
-    branches: [codex/social-pipeline-20261106]
-    paths: [.github/workflows/apify-new-token-check-20261114.yml]
+  workflow_dispatch: {}
 permissions:
   contents: write
 concurrency:
@@ -10,7 +8,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   check:
-    if: ${{ github.ref == 'refs/heads/codex/social-pipeline-20261106' && github.run_attempt == 1 && github.event.head_commit.message == 'Verify replacement Apify token before latest-history continuation' }}
+    if: ${{ false }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
