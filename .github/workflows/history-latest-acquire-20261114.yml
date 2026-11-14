@@ -1,8 +1,6 @@
 name: Acquire only missing latest history 20261114
 on:
-  push:
-    branches: [codex/social-pipeline-20261106]
-    paths: [.github/workflows/history-latest-acquire-20261114.yml]
+  workflow_dispatch: {}
 permissions:
   contents: write
 concurrency:
@@ -10,7 +8,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   acquire:
-    if: ${{ github.ref == 'refs/heads/codex/social-pipeline-20261106' && github.run_attempt == 1 && github.event.head_commit.message == 'Continue latest history from verified successful cutoffs' }}
+    if: ${{ false }}
     runs-on: ubuntu-latest
     timeout-minutes: 40
     env:

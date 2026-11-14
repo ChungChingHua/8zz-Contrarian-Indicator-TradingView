@@ -131,7 +131,17 @@
   "actual_points_deducted": null,
   "quota_headers": {},
   "stop_reason": "provider_access_quota_or_common_failure",
-  "service_quota_statement": null,
+  "service_quota_statement": {
+    "provider": "ChatAnywhere",
+    "http_status": 403,
+    "reported_limit": 100,
+    "reported_window": "current 24-hour window",
+    "shared_across_free_models": true,
+    "service_statement": "The shared free request limit is exhausted; this is not an Apify acquisition failure.",
+    "reset_at": null,
+    "actual_points_deducted": null,
+    "remaining_points": null
+  },
   "all_history_fully_classified": false,
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "provider_model_and_reasoning": "Service-reported gpt-5-mini / minimal, not independently verified",
@@ -161,7 +171,7 @@
     "saved_dataset_get_requests": 0,
     "actual_points_deducted": null,
     "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43585240072",
-    "stop_http_status": null,
+    "stop_http_status": 403,
     "status_count_transitions": {
       "completed_no_signal": 15,
       "completed_signal": 18,
@@ -174,6 +184,18 @@
     "media_repair_http_counts": {
       "GET": 1,
       "POST": 0
-    }
+    },
+    "cache_artifact": {
+      "run_id": 43585240072,
+      "id": 14110406487,
+      "name": "history-latest-classified-cache-20261114",
+      "size_bytes": 2770906,
+      "expires_at": "2026-11-28T10:30:28Z",
+      "digest": "sha256:8cab10c08f0c4f8dcdbb59ac1549a8f36e322b01aa41183e57ff9d19a8531546"
+    },
+    "images_supplied": 22,
+    "images_with_validated_response": 21,
+    "unanalysed_videos": 4,
+    "acquisition_actor_runs_started": 2
   }
 }

@@ -279,7 +279,20 @@
     "media_repair_http_counts": {
       "GET": 1,
       "POST": 0
-    }
+    },
+    "stop_http_status": 403,
+    "cache_artifact": {
+      "run_id": 43585240072,
+      "id": 14110406487,
+      "name": "history-latest-classified-cache-20261114",
+      "size_bytes": 2770906,
+      "expires_at": "2026-11-28T10:30:28Z",
+      "digest": "sha256:8cab10c08f0c4f8dcdbb59ac1549a8f36e322b01aa41183e57ff9d19a8531546"
+    },
+    "acquisition_actor_runs_started": 2,
+    "images_supplied": 22,
+    "images_with_validated_response": 21,
+    "unanalysed_videos": 4
   },
   "session_history": [
     {
@@ -1218,7 +1231,7 @@
   ],
   "existing_media_preflight_ledger": "data/history_media_repairs/20261114-media-repair-02.json",
   "stop_reason": "provider_access_quota_or_common_failure",
-  "closure_reason": "missing_images_and_low_apify_headroom",
+  "closure_reason": "chatanywhere_shared_24h_free_request_limit",
   "service_budget_statement": {
     "provider": "Apify",
     "source": "data/history_media_repairs/final-budget-20261114.json",
@@ -1381,5 +1394,16 @@
     }
   ],
   "latest_extension_id": "latest-history-20261114",
-  "stopped_at": "2026-11-13T00:56:41+08:00"
+  "stopped_at": "2026-11-13T00:56:41+08:00",
+  "service_quota_statement": {
+    "provider": "ChatAnywhere",
+    "http_status": 403,
+    "reported_limit": 100,
+    "reported_window": "current 24-hour window",
+    "shared_across_free_models": true,
+    "service_statement": "The shared free request limit is exhausted; this is not an Apify acquisition failure.",
+    "reset_at": null,
+    "actual_points_deducted": null,
+    "remaining_points": null
+  }
 }
