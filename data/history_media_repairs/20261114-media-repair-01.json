@@ -104,7 +104,7 @@
         "post": 12
       },
       "duration_seconds": "89.043",
-      "cost_observed_at": "2026-11-14T07:00:42.656056+00:00",
+      "cost_observed_at": "2026-11-14T07:06:11.607174+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     },
     {
@@ -232,7 +232,7 @@
         "filter-applied": 0
       },
       "duration_seconds": "41.871",
-      "cost_observed_at": "2026-11-14T07:00:42.924078+00:00",
+      "cost_observed_at": "2026-11-14T07:06:11.851189+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     },
     {
@@ -303,7 +303,7 @@
         "isMaxTotalChargeUsdSetByUser": true,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": 0,
+      "usageTotalUsd": "0.001",
       "chargedEventCounts": {
         "post": 0,
         "actor-start": 1,
@@ -311,11 +311,11 @@
       },
       "accountedChargedEventCounts": {
         "post": 0,
-        "actor-start": 0,
+        "actor-start": 1,
         "filter-applied": 0
       },
       "duration_seconds": "1.448",
-      "cost_observed_at": "2026-11-14T07:00:43.128656+00:00",
+      "cost_observed_at": "2026-11-14T07:06:12.077564+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     }
   ],
