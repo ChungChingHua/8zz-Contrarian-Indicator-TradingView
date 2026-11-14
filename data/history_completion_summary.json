@@ -130,7 +130,7 @@
   "other_ai_provider_queries": 0,
   "actual_points_deducted": null,
   "quota_headers": {},
-  "stop_reason": null,
+  "stop_reason": "missing_public_media_no_new_actor",
   "service_quota_statement": null,
   "all_history_fully_classified": false,
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
@@ -169,6 +169,11 @@
       "pending_confirmation": 3,
       "technical_failure": 1
     },
-    "recovered_zero_generation_inputs": 0
+    "recovered_zero_generation_inputs": 0,
+    "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-02.json",
+    "media_repair_http_counts": {
+      "GET": 0,
+      "POST": 0
+    }
   }
 }
