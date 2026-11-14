@@ -8,7 +8,7 @@
     "GET": 0,
     "POST": 0
   },
-  "updated_at": "2026-11-14T07:12:34.178051+00:00",
+  "updated_at": "2026-11-14T07:12:35.345526+00:00",
   "existing_media_preflight": [
     {
       "key": "facebook:1702487071235881",
@@ -419,6 +419,14 @@
         "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
         "non_media_album_container_indices": []
       }
+    },
+    {
+      "key": "facebook:1705156784302243",
+      "display_time": "2026-11-07T15:09:17+08:00",
+      "status": "held_media_unavailable",
+      "already_cached": false,
+      "error_type": "ValueError",
+      "reason": "media_http_status_rejected"
     }
   ]
 }
