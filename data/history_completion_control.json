@@ -303,10 +303,16 @@
       "digest": "sha256:862cb2a3a97fe4012f928192a30b3e86245e7e533406aabe04fa22b191e0be92"
     },
     "initial_actor_starts": 0,
-    "actor_runs_started": 0,
+    "actor_runs_started": 3,
     "saved_dataset_get_requests": 0,
     "recovered_zero_generation_inputs": 0,
-    "closed": false
+    "closed": false,
+    "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-01.json",
+    "initial_media_repair_ledger": "data/history_media_repairs/media-repair-20261111-01.json",
+    "media_repair_http_counts": {
+      "GET": 41,
+      "POST": 4
+    }
   },
   "session_history": [
     {
