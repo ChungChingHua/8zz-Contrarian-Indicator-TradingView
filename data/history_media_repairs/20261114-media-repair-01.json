@@ -250,7 +250,7 @@
         "facebook:1705156784302243",
         "facebook:1705237887627466"
       ],
-      "status": "reserved_not_submitted",
+      "status": "submission_unknown",
       "posts": {}
     }
   ],
@@ -261,5 +261,5 @@
     "GET": 38,
     "POST": 2
   },
-  "updated_at": "2026-11-14T07:00:35.080262+00:00"
+  "updated_at": "2026-11-14T07:00:36.181839+00:00"
 }
