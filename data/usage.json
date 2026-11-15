@@ -243,10 +243,10 @@
         "reserved_starts": 1,
         "runs": [
           {
-            "id": null,
+            "id": "xPpzRUxhRvhRbi0Td",
             "source": "facebook",
-            "status": "reserved_not_submitted",
-            "usageTotalUsd": null
+            "status": "SUCCEEDED",
+            "usageTotalUsd": "0.026000000000000002"
           }
         ]
       }
