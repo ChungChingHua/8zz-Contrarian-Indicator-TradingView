@@ -1,17 +1,17 @@
 {
   "scope": "history-completion-20261107",
-  "cutoff_utc": "2026-11-14T10:21:07.585530+00:00",
-  "cutoff_taipei": "2026-11-14T18:21:07.585530+08:00",
+  "cutoff_utc": "2026-11-15T08:55:04.406470+00:00",
+  "cutoff_taipei": "2026-11-15T16:55:04.406470+08:00",
   "acquisition_completed": true,
-  "archive_posts": 710,
+  "archive_posts": 717,
   "data_range_by_source": {
     "facebook": {
       "first": "2026-07-20T08:32:36+08:00",
-      "latest_post": "2026-11-13T23:21:14+08:00"
+      "latest_post": "2026-11-15T15:30:34+08:00"
     },
     "threads": {
       "first": "2026-07-20T13:02:00+08:00",
-      "latest_post": "2026-11-14T10:54:32+08:00"
+      "latest_post": "2026-11-15T15:31:11+08:00"
     }
   },
   "post_status_counts": {
@@ -20,11 +20,11 @@
     "pending_confirmation": 102,
     "technical_failure": 14,
     "input_failure": 7,
-    "not_started": 17,
+    "not_started": 24,
     "unknown": 0
   },
-  "remaining_not_started_groups": 17,
-  "remaining_not_started_platform_posts": 17,
+  "remaining_not_started_groups": 24,
+  "remaining_not_started_platform_posts": 24,
   "latest_attempted_or_reviewed_date": "2026-11-13T00:56:41+08:00",
   "all_posts_visited_before_first_unstarted": "2026-11-05T01:23:43+08:00",
   "successfully_completed_contiguous_prefix": "2026-07-20T18:41:00+08:00",
@@ -87,38 +87,36 @@
   "http_responses_without_usage": 7,
   "service_reported_cached_input_tokens": 1289600,
   "apify_http_counts": {
-    "GET": 13,
+    "GET": 8,
     "POST": 2
   },
   "apify_runs": [
     {
       "source": "facebook",
-      "run_id": "1eDyx3uOHnTVfD5Ln",
+      "run_id": "7XocIieNSafu8En1Q",
       "status": "SUCCEEDED",
       "counts": {
-        "fetched": 20,
-        "accepted": 20,
-        "new": 20,
+        "fetched": 2,
+        "accepted": 2,
+        "new": 2,
         "overlap": 0,
         "excluded": {}
       },
       "reported_cost": {
-        "usageTotalUsd": 0.127
+        "usageTotalUsd": 0.001
       },
       "http_status": null
     },
     {
       "source": "threads",
-      "run_id": "hinVUOAgNEM17Le6K",
+      "run_id": "c37pGgiCfqvBLdZmv",
       "status": "SUCCEEDED",
       "counts": {
-        "fetched": 27,
-        "accepted": 24,
-        "new": 24,
+        "fetched": 5,
+        "accepted": 5,
+        "new": 5,
         "overlap": 0,
-        "excluded": {
-          "reply_repost_or_unknown": 3
-        }
+        "excluded": {}
       },
       "reported_cost": {
         "usageTotalUsd": 0
@@ -180,11 +178,6 @@
       "technical_failure": 1
     },
     "recovered_zero_generation_inputs": 0,
-    "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-04.json",
-    "media_repair_http_counts": {
-      "GET": 1,
-      "POST": 0
-    },
     "cache_artifact": {
       "run_id": 43585240072,
       "id": 14110406487,
@@ -193,9 +186,11 @@
       "expires_at": "2026-11-28T10:30:28Z",
       "digest": "sha256:8cab10c08f0c4f8dcdbb59ac1549a8f36e322b01aa41183e57ff9d19a8531546"
     },
-    "images_supplied": 22,
-    "images_with_validated_response": 21,
-    "unanalysed_videos": 4,
-    "acquisition_actor_runs_started": 2
+    "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-04.json",
+    "media_repair_http_counts": {
+      "GET": 1,
+      "POST": 0
+    },
+    "images_supplied": 22
   }
 }
