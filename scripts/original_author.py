@@ -44,7 +44,12 @@ def parse(response,image_count,unanalysed_media=()):
     texts=[c['text'] for x in output if x.get('type')=='message' for c in x.get('content',[]) if c.get('type')=='output_text']
     if len(texts)!=1:raise ValueError('missing_output')
     a=json.loads(texts[0]);validate(a,SCHEMA)
-    if a['ticker'] and not re.fullmatch(r'[A-Za-z0-9^][A-Za-z0-9.^=\-]{0,19}',a['ticker']):raise ValueError('invalid_ticker_format')
+    if a['ticker'] and not re.fullmatch(r'[A-Za-z0-9^][A-Za-z0-9.^=\-]{0,19}',a['ticker']):
+        # Metadata failure is not an extra sentiment veto. Never invent a symbol.
+        a['original_ai_ticker']=a['ticker']
+        a['ticker']=''
+        a['ticker_resolution']={'status':'unresolved_metadata','reason':'unsupported_name_multiple_or_uncertain_symbol',
+            'sentiment_unchanged':True,'manual_verification_required':True}
     if (a['direction']!=0)!=(a['disposition']=='signal'):raise ValueError('contradictory_output_fields')
     unavailable={x['attachment_index'] for x in unanalysed_media if x.get('kind')=='image'}
     if image_count==0 and a['images'] and all(x['image_index'] in unavailable and x['readable'] is False and not x['visible_text'].strip() for x in a['images']):

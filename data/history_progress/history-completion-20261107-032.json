@@ -383,7 +383,7 @@
           "post_id": "4023406251229152584"
         }
       ],
-      "status": "technical_failure",
+      "status": "completed_signal",
       "attempts": 1,
       "context_used": [],
       "media_scope": {
@@ -677,10 +677,54 @@
           "reasoning_tokens": 0
         }
       },
-      "error_type": "ValueError",
-      "reason": "invalid_ticker_format",
       "auto_retry_eligible": false,
-      "completed_at": "2026-11-14T07:12:53.246915+00:00"
+      "completed_at": "2026-11-14T07:12:53.246915+00:00",
+      "local_validation_history": [
+        {
+          "status": "technical_failure",
+          "reason": "invalid_ticker_format",
+          "error_type": "ValueError",
+          "resolution": "Offline ticker metadata clear; all other schema, direction, model, reasoning and image-coverage validations rerun. No new generation.",
+          "audit": "data/offline_ticker_repair_20261115.json",
+          "at": "2026-11-15T09:24:01.664339+00:00"
+        }
+      ],
+      "processed": {
+        "direction": -1,
+        "strength": 3,
+        "action": "委託/全部成交(買賣)",
+        "ticker": "",
+        "reasoning": "貼文附委託單截圖並顯示全部成交，代表已真金白銀下單且情緒偏亢奮/在操作中，強度依規則設為3",
+        "disposition": "signal",
+        "images": [
+          {
+            "image_index": 0,
+            "visible_text": "刪改 商品 委託狀態 刪改 國巨* 全部成交",
+            "observation": "圖片顯示委託狀態為全部成交及標的國巨，為委託單截圖證據",
+            "readable": true
+          }
+        ],
+        "target_notes": "原文中未直接寫明買或賣，但委託截圖顯示全部成交且語氣在發文脈絡為操作相關，依規則視為已下單並判定情緒強度3。",
+        "original_ai_ticker": "國巨",
+        "ticker_resolution": {
+          "status": "unresolved_metadata",
+          "reason": "unsupported_name_multiple_or_uncertain_symbol",
+          "sentiment_unchanged": true,
+          "manual_verification_required": true
+        },
+        "original_ai_strength": 3,
+        "order_proof_phrases_present": [
+          "全部成交",
+          "委託狀態"
+        ],
+        "order_proof_rule_matched": true,
+        "rule_version": "fork-7b626f2-ai-v1",
+        "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+        "status": "done",
+        "image_evidence_status": "service_transcription_not_human_verified",
+        "context_used": []
+      },
+      "offline_reprocessed_at": "2026-11-15T09:24:01.664345+00:00"
     },
     {
       "key": "threads:4023487463029312236",

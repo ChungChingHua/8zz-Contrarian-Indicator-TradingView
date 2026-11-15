@@ -4,11 +4,11 @@
 
 資料抓取截止 UTC 2026-11-15T08:55:04.406470+00:00（Asia/Taipei 為 2026-11-15T16:55:04.406470+08:00）；共 717 篇。已走訪至 2026-11-15T15:31:11+08:00，其中待確認／失敗另列；本輪最後有效回應 2026-11-15T15:31:11+08:00，最新事件 2026-11-15T10:33:27+08:00。
 
-完整 Pine 405 事件 = 原歷史 151 + 累計新增 254；其中此歷史 scope 累計新增 249。本次續跑新增 6。
+完整 Pine 411 事件 = 原歷史 151 + 累計新增 260；其中此歷史 scope 累計新增 255。本次續跑新增 255。
 
-狀態依來源貼文計：有訊號 256、無訊號 334、待確認 105、失敗 22、狀態不明 0、尚未處理 0（去重後 0 組）。跨平台同組會對應多筆貼文，但只產生一個事件。
+狀態依來源貼文計：有訊號 262、無訊號 334、待確認 105、失敗 16、狀態不明 0、尚未處理 0（去重後 0 組）。跨平台同組會對應多筆貼文，但只產生一個事件。
 
-本 scope 累計生成 HTTP 680 次，成功固定格式回應 663；7 筆 HTTP 回應無 usage，不假定其零 tokens。已回報用量輸入 1943849／輸出 106907／合計 2050756 tokens。實際點數扣除未知；即時免費請求／點數餘額與重設時刻若無服務回傳即為未知，先前阻塞保留於 control.blocker_history。
+本 scope 累計生成 HTTP 680 次，成功固定格式回應 669；7 筆 HTTP 回應無 usage，不假定其零 tokens。已回報用量輸入 1943849／輸出 106907／合計 2050756 tokens。實際點數扣除未知；即時免費請求／點數餘額與重設時刻若無服務回傳即為未知，先前阻塞保留於 control.blocker_history。
 
 原始程式曾未處理 429 的 usage=null，導致最後彙整步驟失敗；已修正並以全部已保存回應離線重建，不新增任何生成。供應商錯誤原含遮蔽後的金鑰識別片段，最新帳本已進一步去除該片段，保留清理前 JSON hash；完整金鑰未輸出。
 
@@ -32,10 +32,10 @@
     }
   },
   "post_status_counts": {
-    "completed_signal": 256,
+    "completed_signal": 262,
     "completed_no_signal": 334,
     "pending_confirmation": 105,
-    "technical_failure": 15,
+    "technical_failure": 9,
     "input_failure": 7,
     "unknown": 0,
     "not_started": 0
@@ -49,8 +49,8 @@
   "latest_signal_date": "2026-11-15T10:33:27+08:00",
   "pine": {
     "historical_events": 151,
-    "added_events": 254,
-    "total_events": 405,
+    "added_events": 260,
+    "total_events": 411,
     "same_bar_policy": "latest_post_before_filters",
     "historical_blocks_preserved": true,
     "historical_basis": "reconciled_published_author_history",
@@ -76,7 +76,7 @@
     "event_initialization_chunk_limit": 20,
     "event_encoding": "packed-v1",
     "packed_event_round_trip": true,
-    "max_payload_bytes": 10249,
+    "max_payload_bytes": 10486,
     "payload_byte_limit": 30000,
     "executable_array_push_statements": 5,
     "il_tokens_measured": false
@@ -88,8 +88,8 @@
   "new_status_counts": {
     "pending_confirmation": 92,
     "completed_no_signal": 326,
-    "completed_signal": 249,
-    "technical_failure": 13,
+    "completed_signal": 255,
+    "technical_failure": 7,
     "input_failure": 7
   },
   "service_reported_usage": {
@@ -98,7 +98,7 @@
     "total_tokens": 2050756,
     "reasoning_tokens": 0
   },
-  "new_validated_responses": 663,
+  "new_validated_responses": 669,
   "images_attached": 476,
   "videos_unanalysed": 83,
   "http_responses_without_usage": 7,
@@ -148,59 +148,36 @@
   "stop_reason": null,
   "service_quota_statement": {
     "provider": "ChatAnywhere",
-    "http_status": 403,
-    "reported_limit": 100,
-    "reported_window": "current 24-hour window",
-    "shared_across_free_models": true,
-    "service_statement": "The shared free request limit is exhausted; this is not an Apify acquisition failure.",
-    "reset_at": null,
+    "observed_sessions": [
+      "20261115-media-repair-01",
+      "20261115-media-repair-02"
+    ],
+    "http_200_responses": 24,
+    "quota_rejection_this_resume": false,
+    "remaining_requests": null,
+    "remaining_points": null,
     "actual_points_deducted": null,
-    "remaining_points": null
+    "reset_at": null,
+    "note": "Prior 24-hour exhaustion observation is historical. Current responses succeeded but remaining allowance and actual points are not reported."
   },
   "all_history_fully_classified": false,
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "provider_model_and_reasoning": "Service-reported gpt-5-mini / minimal, not independently verified",
   "usage_tracking_note": "ChatAnywhere request accounting is from durable ledgers; legacy usage.json ai_attempts is not the cumulative ChatAnywhere total.",
   "accounting_note": "Post counts include all prior tests, failures, reviews and cross-platform members; Pine counts are events, not posts. Tokens are service reports, not points or verified bills.",
-  "current_session": {
-    "id": "20261115-media-repair-02",
-    "generation_attempts": 10,
-    "validated_responses": 10,
-    "added_events": 6,
-    "pine_count_delta_since_session": 6,
-    "historical_reference_event_delta_since_session": 0,
-    "service_reported_usage": {
-      "input_tokens": 31400,
-      "output_tokens": 1969,
-      "total_tokens": 33369,
-      "reasoning_tokens": 0
-    },
-    "status_counts": {
-      "completed_no_signal": 3,
-      "completed_signal": 6,
-      "input_failure": 0,
-      "pending_confirmation": 1,
-      "technical_failure": 0
-    },
-    "actor_runs_started": 1,
-    "saved_dataset_get_requests": 0,
-    "actual_points_deducted": null,
-    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43697338687",
-    "stop_http_status": null,
-    "status_count_transitions": {
-      "completed_no_signal": 3,
-      "completed_signal": 6,
-      "input_failure": 0,
-      "pending_confirmation": 1,
-      "technical_failure": 0
-    },
-    "recovered_zero_generation_inputs": 0,
-    "media_repair_ledger": "data/history_media_repairs/20261115-media-repair-02.json",
-    "media_repair_http_counts": {
-      "GET": 7,
-      "POST": 1
+  "offline_repair_history": [
+    {
+      "id": "offline-ticker-metadata-20261115",
+      "at": "2026-11-15T09:24:01.672858+00:00",
+      "provider_requests": 0,
+      "reused_responses": 6,
+      "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+      "raw_responses_unchanged": true,
+      "generation_attempts_unchanged": true,
+      "audit": "data/offline_ticker_repair_20261115.json",
+      "recovered_technical_failures": 6
     }
-  }
+  ]
 }
 ```
 

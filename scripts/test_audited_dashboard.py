@@ -34,9 +34,13 @@ class AuditTests(unittest.TestCase):
         from datetime import datetime
         d=json.loads((ROOT/'docs/dashboard-data.json').read_text())
         limit=int(datetime.fromisoformat(d['publication']['before']).timestamp()*1000)
-        expected=[e for e in events() if e['unix_ms']<limit]
+        built_at=int(datetime.fromisoformat(d['built_at']).timestamp()*1000)
+        # Published website is a saved snapshot; later offline repairs must not be backdated into it.
+        expected=[e for e in events() if e['unix_ms']<limit and (e['available_ms'] is None or e['available_ms']<=built_at)]
         self.assertEqual(len(d['events']),len(expected))
         self.assertEqual(sum(e['direction']==0 for e in d['events']),sum(e['direction']==0 for e in expected))
+        fields=('unix_ms','direction','strength','summary','target')
+        self.assertEqual([tuple(e[k] for k in fields) for e in d['events']],[tuple(e[k] for k in fields) for e in expected])
         for mode,m in d['modes'].items():
             s=m['stats'];ts=m['trades'];closed=[t for t in ts if t['exit']]
             self.assertEqual(s['settled'],s['wins']+s['losses']+s['ties'])

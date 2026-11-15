@@ -1154,11 +1154,11 @@
     "key": "threads:3958223690278707712",
     "url": "https://www.threads.com/@banini31/post/Dbub3mImSIA",
     "display_time": "2026-08-07T12:30:55+08:00",
-    "status": "technical_failure",
-    "stored_status": "technical_failure",
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
     "record_key": "threads:3958223690278707712",
     "evidence": "data/history_progress/history-completion-20261107-005.json",
-    "reason": "invalid_ticker_format"
+    "reason": "貼文配圖為漲幅與綠色收益數字，短句情緒帶有嘲諷/得意（廢物聯盟唉⋯），屬於歡喜晒賺、偏空訊號"
   },
   {
     "key": "threads:3958585128126154013",
@@ -2187,11 +2187,11 @@
     "key": "facebook:1634810338003555",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0TZQEndQH8J1odG1fuTHZEjTCUab5qZxENrgNxKhEyykyzEyDnNd182w6EqicQ4ZAl",
     "display_time": "2026-08-24T08:57:22+08:00",
-    "status": "technical_failure",
-    "stored_status": "technical_failure",
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
     "record_key": "facebook:1634810338003555",
     "evidence": "data/history_progress/history-completion-20261107-010.json",
-    "reason": "invalid_ticker_format"
+    "reason": "發文者說想不虧且被傷太多，語氣悲傷、畏縮，傾向痛苦/被套的偏多情緒。"
   },
   {
     "key": "threads:3970458357555855537",
@@ -6196,11 +6196,11 @@
     "key": "facebook:1700739848077270",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0QLS7RfJ7kwGj1ct2QuwXyXsWpc3JFPPJmErLch4T9ZjHPPuVAgAvCtYknCCPDHVXl",
     "display_time": "2026-11-03T11:09:22+08:00",
-    "status": "technical_failure",
-    "stored_status": "technical_failure",
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
     "record_key": "facebook:1700739848077270",
     "evidence": "data/history_progress/history-completion-20261107-031.json",
-    "reason": "invalid_ticker_format"
+    "reason": "發文語氣帶有憂慮與負面情緒（質疑、悲傷的表情），且貼出個股走勢圖暗示對手上持股抱持負面情緒，屬於偏多（痛苦/被套）的情緒；強度為明顯。"
   },
   {
     "key": "threads:4021970379841567975",
@@ -6216,11 +6216,11 @@
     "key": "facebook:1700801464737775",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02jJceL7bYipqZizXBXgTFv5g1SNkbKnuEgiRWyBqmVevUiVUVQ3BNi3yNbNTF56UVl",
     "display_time": "2026-11-03T12:39:33+08:00",
-    "status": "technical_failure",
-    "stored_status": "technical_failure",
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
     "record_key": "facebook:1700801464737775",
     "evidence": "data/history_progress/history-completion-20261107-031.json",
-    "reason": "invalid_ticker_format"
+    "reason": "歌詞化抱怨顯示被套、情緒悲痛；且附件為委託單顯示「禾伸堂 全部成交」，有真金白銀成交紀錄，因此情緒極度痛苦偏多訊號"
   },
   {
     "key": "threads:4022092829258483247",
@@ -6396,11 +6396,11 @@
     "key": "threads:4023406251229152584",
     "url": "https://www.threads.com/@banini31/post/DfWAqsnmYVI",
     "display_time": "2026-11-05T10:57:02+08:00",
-    "status": "technical_failure",
-    "stored_status": "technical_failure",
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
     "record_key": "threads:4023406251229152584",
     "evidence": "data/history_progress/history-completion-20261107-032.json",
-    "reason": "invalid_ticker_format"
+    "reason": "貼文附委託單截圖並顯示全部成交，代表已真金白銀下單且情緒偏亢奮/在操作中，強度依規則設為3"
   },
   {
     "key": "facebook:1702897424528179",
@@ -7093,11 +7093,11 @@
     "key": "facebook:1711515410333047",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid026b8bNeR6qcGWSBSSCyUysr6UfAmAPDz9wfjbtzjnUMFjsfUNHKbLyNV6jva3d8yYl",
     "display_time": "2026-11-13T09:25:09+08:00",
-    "status": "technical_failure",
-    "stored_status": "technical_failure",
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
     "record_key": "facebook:1711515410333047",
     "evidence": "data/history_progress/history-completion-20261107-036.json",
-    "reason": "invalid_ticker_format"
+    "reason": "貼文與截圖顯示發文者對漲停狂歡且附上委託單/成交截圖，情緒亢奮FOMO並已下單/成交，強烈偏空訊號"
   },
   {
     "key": "facebook:1712186250265963",

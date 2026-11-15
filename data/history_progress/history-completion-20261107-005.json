@@ -4748,7 +4748,7 @@
           "post_id": "3958223690278707712"
         }
       ],
-      "status": "technical_failure",
+      "status": "completed_signal",
       "attempts": 1,
       "context_used": [],
       "media_scope": {
@@ -5040,9 +5040,50 @@
           "reasoning_tokens": 0
         }
       },
-      "error_type": "ValueError",
-      "reason": "invalid_ticker_format",
-      "auto_retry_eligible": false
+      "auto_retry_eligible": false,
+      "local_validation_history": [
+        {
+          "status": "technical_failure",
+          "reason": "invalid_ticker_format",
+          "error_type": "ValueError",
+          "resolution": "Offline ticker metadata clear; all other schema, direction, model, reasoning and image-coverage validations rerun. No new generation.",
+          "audit": "data/offline_ticker_repair_20261115.json",
+          "at": "2026-11-15T09:24:01.612621+00:00"
+        }
+      ],
+      "processed": {
+        "direction": -1,
+        "strength": 2,
+        "action": "曬績效(得意)",
+        "ticker": "",
+        "reasoning": "貼文配圖為漲幅與綠色收益數字，短句情緒帶有嘲諷/得意（廢物聯盟唉⋯），屬於歡喜晒賺、偏空訊號",
+        "disposition": "signal",
+        "images": [
+          {
+            "image_index": 0,
+            "visible_text": "聯電 115.50 6.00 4.94%  國巨* 539.00 31.00 5.44%",
+            "observation": "截圖顯示聯電與國巨股價與漲幅，為正報酬的績效截圖，文字可讀",
+            "readable": true
+          }
+        ],
+        "target_notes": "根據圖中中文名稱對應台股代碼：聯電=6282.TWO，國巨=6269.TWO；若原作者非指持倉則仍以晒賺情緒判定偏空。",
+        "original_ai_ticker": "6282.TWO, 6269.TWO",
+        "ticker_resolution": {
+          "status": "unresolved_metadata",
+          "reason": "unsupported_name_multiple_or_uncertain_symbol",
+          "sentiment_unchanged": true,
+          "manual_verification_required": true
+        },
+        "original_ai_strength": 2,
+        "order_proof_phrases_present": [],
+        "order_proof_rule_matched": false,
+        "rule_version": "fork-7b626f2-ai-v1",
+        "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+        "status": "done",
+        "image_evidence_status": "service_transcription_not_human_verified",
+        "context_used": []
+      },
+      "offline_reprocessed_at": "2026-11-15T09:24:01.612638+00:00"
     },
     {
       "key": "threads:3958585128126154013",

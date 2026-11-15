@@ -3977,7 +3977,7 @@
           "post_id": "1634810338003555"
         }
       ],
-      "status": "technical_failure",
+      "status": "completed_signal",
       "attempts": 1,
       "context_used": [],
       "media_scope": {
@@ -4237,9 +4237,50 @@
           "reasoning_tokens": 0
         }
       },
-      "error_type": "ValueError",
-      "reason": "invalid_ticker_format",
-      "auto_retry_eligible": false
+      "auto_retry_eligible": false,
+      "local_validation_history": [
+        {
+          "status": "technical_failure",
+          "reason": "invalid_ticker_format",
+          "error_type": "ValueError",
+          "resolution": "Offline ticker metadata clear; all other schema, direction, model, reasoning and image-coverage validations rerun. No new generation.",
+          "audit": "data/offline_ticker_repair_20261115.json",
+          "at": "2026-11-15T09:24:01.622198+00:00"
+        }
+      ],
+      "processed": {
+        "direction": 1,
+        "strength": 2,
+        "action": "不想虧損/情緒受傷",
+        "ticker": "",
+        "reasoning": "發文者說想不虧且被傷太多，語氣悲傷、畏縮，傾向痛苦/被套的偏多情緒。",
+        "disposition": "signal",
+        "images": [
+          {
+            "image_index": 0,
+            "visible_text": "",
+            "observation": "機場自拍，無投資相關文字可讀",
+            "readable": false
+          }
+        ],
+        "target_notes": "貼文提到「愛普」但未明確代碼；若指蘋果(Apple)應為 AAPL，但原文未清楚指出，ticker留空較保守。",
+        "original_ai_ticker": "APPL?",
+        "ticker_resolution": {
+          "status": "unresolved_metadata",
+          "reason": "unsupported_name_multiple_or_uncertain_symbol",
+          "sentiment_unchanged": true,
+          "manual_verification_required": true
+        },
+        "original_ai_strength": 2,
+        "order_proof_phrases_present": [],
+        "order_proof_rule_matched": false,
+        "rule_version": "fork-7b626f2-ai-v1",
+        "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+        "status": "done",
+        "image_evidence_status": "service_transcription_not_human_verified",
+        "context_used": []
+      },
+      "offline_reprocessed_at": "2026-11-15T09:24:01.622204+00:00"
     },
     {
       "key": "threads:3970458357555855537",

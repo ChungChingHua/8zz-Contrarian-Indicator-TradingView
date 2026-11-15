@@ -60,7 +60,7 @@ def events():
         flip=d!=0 and d!=direction
         if d:direction=d
         r=by_time.get(ts,{})
-        completed=r.get('completed_at') # No old dispatch time, ledger mtime or present time substitutions.
+        completed=r.get('offline_reprocessed_at') or r.get('completed_at') # A repaired failure only becomes usable at its actual revalidation time.
         key=hashlib.sha256(json.dumps([ts,d,int(s),tip,ticker],ensure_ascii=False).encode()).hexdigest()
         fetched=next((all_posts[m['key']].get('fetched_at') for m in r.get('members',[]) if m['key'] in all_posts and all_posts[m['key']].get('fetched_at')),None)
         live_posts=read('data/live_posts.json') if (ROOT/'data/live_posts.json').exists() else {}

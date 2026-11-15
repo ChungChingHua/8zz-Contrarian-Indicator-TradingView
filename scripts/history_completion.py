@@ -139,6 +139,7 @@ def report(remote=None):
        'rule_sha256':policy.fingerprint(),'provider_model_and_reasoning':'Service-reported gpt-5-mini / minimal, not independently verified',
        'usage_tracking_note':'ChatAnywhere request accounting is from durable ledgers; legacy usage.json ai_attempts is not the cumulative ChatAnywhere total.',
        'accounting_note':'Post counts include all prior tests, failures, reviews and cross-platform members; Pine counts are events, not posts. Tokens are service reports, not points or verified bills.'}
+    summary['offline_repair_history']=copy.deepcopy(control.get('offline_repair_history',[]))
     session=control.get('current_session',{})
     if session:
         base_usage=session.get('baseline_usage',{})

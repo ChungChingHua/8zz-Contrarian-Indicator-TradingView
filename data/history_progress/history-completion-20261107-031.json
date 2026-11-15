@@ -1386,7 +1386,7 @@
           "post_id": "1700739848077270"
         }
       ],
-      "status": "technical_failure",
+      "status": "completed_signal",
       "attempts": 1,
       "context_used": [],
       "media_scope": {
@@ -1688,10 +1688,57 @@
           "reasoning_tokens": 0
         }
       },
-      "error_type": "ValueError",
-      "reason": "invalid_ticker_format",
       "auto_retry_eligible": false,
-      "completed_at": "2026-11-14T06:58:51.312545+00:00"
+      "completed_at": "2026-11-14T06:58:51.312545+00:00",
+      "local_validation_history": [
+        {
+          "status": "technical_failure",
+          "reason": "invalid_ticker_format",
+          "error_type": "ValueError",
+          "resolution": "Offline ticker metadata clear; all other schema, direction, model, reasoning and image-coverage validations rerun. No new generation.",
+          "audit": "data/offline_ticker_repair_20261115.json",
+          "at": "2026-11-15T09:24:01.661977+00:00"
+        }
+      ],
+      "processed": {
+        "direction": 1,
+        "strength": 2,
+        "action": "疑惑/憂慮",
+        "ticker": "",
+        "reasoning": "發文語氣帶有憂慮與負面情緒（質疑、悲傷的表情），且貼出個股走勢圖暗示對手上持股抱持負面情緒，屬於偏多（痛苦/被套）的情緒；強度為明顯。",
+        "disposition": "signal",
+        "images": [
+          {
+            "image_index": 0,
+            "visible_text": "612.00 611.00 613.00 3026 631.00 608.00 574.00",
+            "observation": "股票走勢截圖（3026）顯示當日盤中價位與走勢，為個人持股相關圖像。",
+            "readable": true
+          },
+          {
+            "image_index": 1,
+            "visible_text": "478.50 478.50 479.00 2327 491.00 476.50 449.00",
+            "observation": "股票走勢截圖（2327）顯示當日盤中價位與走勢，為個人持股相關圖像。",
+            "readable": true
+          }
+        ],
+        "target_notes": "貼文文字含情緒化問句與哭臉，兩張圖分別為3026與2327走勢，推定為本人持股情緒表達。",
+        "original_ai_ticker": "3026.TW;2327.TW",
+        "ticker_resolution": {
+          "status": "unresolved_metadata",
+          "reason": "unsupported_name_multiple_or_uncertain_symbol",
+          "sentiment_unchanged": true,
+          "manual_verification_required": true
+        },
+        "original_ai_strength": 2,
+        "order_proof_phrases_present": [],
+        "order_proof_rule_matched": false,
+        "rule_version": "fork-7b626f2-ai-v1",
+        "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+        "status": "done",
+        "image_evidence_status": "service_transcription_not_human_verified",
+        "context_used": []
+      },
+      "offline_reprocessed_at": "2026-11-15T09:24:01.661990+00:00"
     },
     {
       "key": "threads:4021970379841567975",
@@ -2066,7 +2113,7 @@
           "post_id": "1700801464737775"
         }
       ],
-      "status": "technical_failure",
+      "status": "completed_signal",
       "attempts": 1,
       "context_used": [],
       "media_scope": {
@@ -2360,10 +2407,55 @@
           "reasoning_tokens": 0
         }
       },
-      "error_type": "ValueError",
-      "reason": "invalid_ticker_format",
       "auto_retry_eligible": false,
-      "completed_at": "2026-11-14T06:59:03.881543+00:00"
+      "completed_at": "2026-11-14T06:59:03.881543+00:00",
+      "local_validation_history": [
+        {
+          "status": "technical_failure",
+          "reason": "invalid_ticker_format",
+          "error_type": "ValueError",
+          "resolution": "Offline ticker metadata clear; all other schema, direction, model, reasoning and image-coverage validations rerun. No new generation.",
+          "audit": "data/offline_ticker_repair_20261115.json",
+          "at": "2026-11-15T09:24:01.662343+00:00"
+        }
+      ],
+      "processed": {
+        "direction": 1,
+        "strength": 3,
+        "action": "被套/委託成交",
+        "ticker": "",
+        "reasoning": "歌詞化抱怨顯示被套、情緒悲痛；且附件為委託單顯示「禾伸堂 全部成交」，有真金白銀成交紀錄，因此情緒極度痛苦偏多訊號",
+        "disposition": "signal",
+        "images": [
+          {
+            "image_index": 0,
+            "visible_text": "全部 委託單筆數:2 (頁次\n刪改 商品 委託狀態\n刪改 禾伸堂 全部成交\n刪改 禾伸堂 全部取消",
+            "observation": "截圖顯示委託單，標的為禾伸堂，部分成交紀錄可見。",
+            "readable": true
+          }
+        ],
+        "target_notes": "原作者規則要求ticker為yfinance代碼；禾伸堂對應台灣代號為1795.TWO，但如需精確請二次確認。",
+        "original_ai_ticker": "可轉換為1795.TW?",
+        "ticker_resolution": {
+          "status": "unresolved_metadata",
+          "reason": "unsupported_name_multiple_or_uncertain_symbol",
+          "sentiment_unchanged": true,
+          "manual_verification_required": true
+        },
+        "original_ai_strength": 3,
+        "order_proof_phrases_present": [
+          "全部成交",
+          "委託狀態",
+          "委託單"
+        ],
+        "order_proof_rule_matched": true,
+        "rule_version": "fork-7b626f2-ai-v1",
+        "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+        "status": "done",
+        "image_evidence_status": "service_transcription_not_human_verified",
+        "context_used": []
+      },
+      "offline_reprocessed_at": "2026-11-15T09:24:01.662346+00:00"
     },
     {
       "key": "threads:4022092829258483247",
