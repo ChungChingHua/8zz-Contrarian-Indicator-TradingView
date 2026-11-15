@@ -1,8 +1,6 @@
 name: Continue latest history once 20261115
 on:
-  push:
-    branches: [codex/social-pipeline-20261106]
-    paths: [.github/workflows/history-continue-20261115.yml]
+  workflow_dispatch: {}
 permissions:
   contents: write
   actions: read
@@ -11,7 +9,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   continue:
-    if: ${{ github.ref == 'refs/heads/codex/social-pipeline-20261106' && github.run_attempt == 1 && github.event.head_commit.message == 'Continue remaining history and only new source windows 20261115' }}
+    if: ${{ false }}
     runs-on: ubuntu-latest
     timeout-minutes: 330
     env:

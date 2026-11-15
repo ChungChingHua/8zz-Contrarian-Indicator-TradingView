@@ -84,7 +84,7 @@
   "last_chunk": "history-completion-20261107-037",
   "updated_at": "2026-11-15T09:05:21.607005+00:00",
   "consecutive_isolated_failures": 0,
-  "all_unstarted_visited": false,
+  "all_unstarted_visited": true,
   "blocker_history": [
     {
       "closed_at": "2026-11-07T12:26:42.937202+00:00",
@@ -277,6 +277,14 @@
     "media_repair_http_counts": {
       "GET": 7,
       "POST": 1
+    },
+    "cache_artifact": {
+      "run_id": 43697338687,
+      "id": 14155446115,
+      "name": "history-missing-media-cache-20261115",
+      "size_bytes": 783549,
+      "expires_at": "2026-11-29T09:05:57Z",
+      "digest": "sha256:7d4dbf44def2b7fae07dd59df2d0ad663092eede78897d5dbc5c61142a601eab"
     }
   },
   "session_history": [
@@ -1270,24 +1278,60 @@
       "media_repair_http_counts": {
         "GET": 0,
         "POST": 0
+      },
+      "result": {
+        "id": "20261115-media-repair-01",
+        "generation_attempts": 14,
+        "validated_responses": 13,
+        "added_events": 1,
+        "pine_count_delta_since_session": 1,
+        "historical_reference_event_delta_since_session": 0,
+        "service_reported_usage": {
+          "input_tokens": 38752,
+          "output_tokens": 1876,
+          "total_tokens": 40628,
+          "reasoning_tokens": 0
+        },
+        "status_counts": {
+          "completed_no_signal": 10,
+          "completed_signal": 1,
+          "input_failure": 0,
+          "pending_confirmation": 2,
+          "technical_failure": 1
+        },
+        "actor_runs_started": 0,
+        "saved_dataset_get_requests": 0,
+        "actual_points_deducted": null,
+        "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43696697885",
+        "stop_http_status": null,
+        "status_count_transitions": {
+          "completed_no_signal": 10,
+          "completed_signal": 1,
+          "input_failure": 0,
+          "pending_confirmation": 2,
+          "technical_failure": 1
+        },
+        "recovered_zero_generation_inputs": 0,
+        "media_repair_ledger": "data/history_media_repairs/20261115-media-repair-01.json",
+        "media_repair_http_counts": {
+          "GET": 0,
+          "POST": 0
+        }
+      },
+      "cache_artifact": {
+        "run_id": 43696697885,
+        "id": 14154309313,
+        "name": "history-latest-classified-cache-20261115",
+        "size_bytes": 4547495,
+        "expires_at": "2026-11-29T08:58:32Z",
+        "digest": "sha256:d59c39e87f202780f0f13409c180efc8b75de3b6b4c61e7386510c2a3b3442ab"
       }
     }
   ],
   "held_missing_media_keys": [],
   "existing_media_preflight_ledger": "data/history_media_repairs/20261114-media-repair-02.json",
   "stop_reason": null,
-  "closure_reason": "chatanywhere_shared_24h_free_request_limit",
-  "service_budget_statement": {
-    "provider": "Apify",
-    "source": "data/history_media_repairs/final-budget-20261114.json",
-    "maximum_usd": 5,
-    "used_usd": "4.978514389197657",
-    "remaining_headroom_usd_derived": "0.021485610802343",
-    "observed_at": "2026-11-14T07:22:09.580563+00:00",
-    "note": "Usage headroom is not cash balance or independently settled invoice. No top-up or limit increase.",
-    "project_monthly_run_count": 65,
-    "project_monthly_run_limit": 70
-  },
+  "closure_reason": "all_never_dispatched_posts_visited_reviews_and_failures_preserved",
   "cap_guard_incident": {
     "requested_cap_usd": "0.10",
     "returned_cap_usd": "0.057529",
@@ -1517,15 +1561,94 @@
   ],
   "latest_extension_id": "latest-history-20261115",
   "stopped_at": "2026-11-13T00:56:41+08:00",
+  "historical_service_statements": [
+    {
+      "field": "service_quota_statement",
+      "value": {
+        "provider": "ChatAnywhere",
+        "http_status": 403,
+        "reported_limit": 100,
+        "reported_window": "current 24-hour window",
+        "shared_across_free_models": true,
+        "service_statement": "The shared free request limit is exhausted; this is not an Apify acquisition failure.",
+        "reset_at": null,
+        "actual_points_deducted": null,
+        "remaining_points": null
+      },
+      "superseded_by_session": "20261115-media-repair-01",
+      "note": "Previous observation retained; not current remaining allowance."
+    },
+    {
+      "field": "service_budget_statement",
+      "value": {
+        "provider": "Apify",
+        "source": "data/history_media_repairs/final-budget-20261114.json",
+        "maximum_usd": 5,
+        "used_usd": "4.978514389197657",
+        "remaining_headroom_usd_derived": "0.021485610802343",
+        "observed_at": "2026-11-14T07:22:09.580563+00:00",
+        "note": "Usage headroom is not cash balance or independently settled invoice. No top-up or limit increase.",
+        "project_monthly_run_count": 65,
+        "project_monthly_run_limit": 70
+      },
+      "superseded_by_session": "20261115-media-repair-01",
+      "note": "Previous observation retained; not current remaining allowance."
+    }
+  ],
   "service_quota_statement": {
     "provider": "ChatAnywhere",
-    "http_status": 403,
-    "reported_limit": 100,
-    "reported_window": "current 24-hour window",
-    "shared_across_free_models": true,
-    "service_statement": "The shared free request limit is exhausted; this is not an Apify acquisition failure.",
-    "reset_at": null,
+    "observed_sessions": [
+      "20261115-media-repair-01",
+      "20261115-media-repair-02"
+    ],
+    "http_200_responses": 24,
+    "quota_rejection_this_resume": false,
+    "remaining_requests": null,
+    "remaining_points": null,
     "actual_points_deducted": null,
-    "remaining_points": null
+    "reset_at": null,
+    "note": "Prior 24-hour exhaustion observation is historical. Current responses succeeded but remaining allowance and actual points are not reported."
+  },
+  "latest_request_totals": {
+    "date_taipei": "2026-11-15",
+    "generation_attempts": 24,
+    "http_200_responses": 24,
+    "validated_responses": 23,
+    "added_events": 7,
+    "status_counts": {
+      "completed_signal": 7,
+      "completed_no_signal": 13,
+      "pending_confirmation": 3,
+      "technical_failure": 1
+    },
+    "new_platform_posts": 7,
+    "old_media_posts_repaired": 10,
+    "source_actor_starts": 2,
+    "media_actor_starts": 1,
+    "Apify_http_counts": {
+      "GET": 20,
+      "POST": 3
+    },
+    "service_reported_usage": {
+      "input_tokens": 70152,
+      "output_tokens": 3845,
+      "total_tokens": 73997,
+      "reasoning_tokens": 0
+    },
+    "observed_run_cost_usd": "0.111000000000000004",
+    "actual_points_deducted": null,
+    "remaining_AI_allowance": null,
+    "remaining_Apify_allowance": null,
+    "automatic_retries": 0
+  },
+  "resolved_missing_media": {
+    "keys": 10,
+    "original_run": "aN1ESUqN4kVceCqBH",
+    "current_repair_run": "xPpzRUxhRvhRbi0Td",
+    "evidence_method": "offline_pinned_previous_official_API_snapshot",
+    "source_commit": "c137481646469c46b42fde0ac2151c04181c9a14",
+    "source_path": "data/history_media_repairs/budget-audit-20261114.json",
+    "snapshot_observed_at": "2026-11-14T07:06:12.077588+00:00",
+    "note": "Past recorded ABORTED, dataset0 and charged posts0; not a current read of the denied old run. New run targeted only ten never-dispatched missing-media posts."
   }
 }
