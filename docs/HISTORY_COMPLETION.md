@@ -1,14 +1,14 @@
 # 一次性歷史補齊執行紀錄
 
-本次因實際阻塞停止，**尚未補齊全部歷史判讀**。
+請依下方剩餘及待確認清單判斷完成範圍。
 
-資料抓取截止 UTC 2026-11-15T08:55:04.406470+00:00（Asia/Taipei 為 2026-11-15T16:55:04.406470+08:00）；共 717 篇。已走訪至 2026-11-05T01:23:43+08:00，其中待確認／失敗另列；本輪最後有效回應 2026-11-12T21:59:30+08:00，最新事件 2026-11-12T13:48:28+08:00。
+資料抓取截止 UTC 2026-11-15T08:55:04.406470+00:00（Asia/Taipei 為 2026-11-15T16:55:04.406470+08:00）；共 717 篇。已走訪至 2026-11-05T01:23:43+08:00，其中待確認／失敗另列；本輪最後有效回應 2026-11-15T15:31:11+08:00，最新事件 2026-11-15T10:33:27+08:00。
 
-完整 Pine 398 事件 = 原歷史 151 + 累計新增 247；其中此歷史 scope 累計新增 242。本次續跑新增 18。
+完整 Pine 399 事件 = 原歷史 151 + 累計新增 248；其中此歷史 scope 累計新增 243。本次續跑新增 1。
 
-狀態依來源貼文計：有訊號 249、無訊號 321、待確認 102、失敗 21、狀態不明 0、尚未處理 24（去重後 24 組）。跨平台同組會對應多筆貼文，但只產生一個事件。
+狀態依來源貼文計：有訊號 250、無訊號 331、待確認 104、失敗 22、狀態不明 0、尚未處理 10（去重後 10 組）。跨平台同組會對應多筆貼文，但只產生一個事件。
 
-本 scope 累計生成 HTTP 656 次，成功固定格式回應 640；7 筆 HTTP 回應無 usage，不假定其零 tokens。已回報用量輸入 1873697／輸出 103062／合計 1976759 tokens。實際點數扣除未知；即時免費請求／點數餘額與重設時刻若無服務回傳即為未知，先前阻塞保留於 control.blocker_history。
+本 scope 累計生成 HTTP 670 次，成功固定格式回應 653；7 筆 HTTP 回應無 usage，不假定其零 tokens。已回報用量輸入 1912449／輸出 104938／合計 2017387 tokens。實際點數扣除未知；即時免費請求／點數餘額與重設時刻若無服務回傳即為未知，先前阻塞保留於 control.blocker_history。
 
 原始程式曾未處理 429 的 usage=null，導致最後彙整步驟失敗；已修正並以全部已保存回應離線重建，不新增任何生成。供應商錯誤原含遮蔽後的金鑰識別片段，最新帳本已進一步去除該片段，保留清理前 JSON hash；完整金鑰未輸出。
 
@@ -32,25 +32,25 @@
     }
   },
   "post_status_counts": {
-    "completed_signal": 249,
-    "completed_no_signal": 321,
-    "pending_confirmation": 102,
-    "technical_failure": 14,
+    "completed_signal": 250,
+    "completed_no_signal": 331,
+    "pending_confirmation": 104,
+    "technical_failure": 15,
     "input_failure": 7,
-    "not_started": 24,
+    "not_started": 10,
     "unknown": 0
   },
-  "remaining_not_started_groups": 24,
-  "remaining_not_started_platform_posts": 24,
-  "latest_attempted_or_reviewed_date": "2026-11-13T00:56:41+08:00",
+  "remaining_not_started_groups": 10,
+  "remaining_not_started_platform_posts": 10,
+  "latest_attempted_or_reviewed_date": "2026-11-15T15:31:11+08:00",
   "all_posts_visited_before_first_unstarted": "2026-11-05T01:23:43+08:00",
   "successfully_completed_contiguous_prefix": "2026-07-20T18:41:00+08:00",
   "first_unstarted_date": "2026-11-05T03:04:10+08:00",
-  "latest_signal_date": "2026-11-12T13:48:28+08:00",
+  "latest_signal_date": "2026-11-15T10:33:27+08:00",
   "pine": {
     "historical_events": 151,
-    "added_events": 247,
-    "total_events": 398,
+    "added_events": 248,
+    "total_events": 399,
     "same_bar_policy": "latest_post_before_filters",
     "historical_blocks_preserved": true,
     "historical_basis": "reconciled_published_author_history",
@@ -81,28 +81,28 @@
     "executable_array_push_statements": 5,
     "il_tokens_measured": false
   },
-  "last_new_valid_response_date": "2026-11-12T21:59:30+08:00",
+  "last_new_valid_response_date": "2026-11-15T15:31:11+08:00",
   "new_stop_post_date": "2026-11-13T00:56:41+08:00",
-  "new_generation_attempts": 656,
-  "new_http_responses": 656,
+  "new_generation_attempts": 670,
+  "new_http_responses": 670,
   "new_status_counts": {
-    "pending_confirmation": 89,
-    "completed_no_signal": 313,
-    "completed_signal": 242,
-    "technical_failure": 12,
+    "pending_confirmation": 91,
+    "completed_no_signal": 323,
+    "completed_signal": 243,
+    "technical_failure": 13,
     "input_failure": 7
   },
   "service_reported_usage": {
-    "input_tokens": 1873697,
-    "output_tokens": 103062,
-    "total_tokens": 1976759,
+    "input_tokens": 1912449,
+    "output_tokens": 104938,
+    "total_tokens": 2017387,
     "reasoning_tokens": 0
   },
-  "new_validated_responses": 640,
-  "images_attached": 459,
-  "videos_unanalysed": 79,
+  "new_validated_responses": 653,
+  "images_attached": 466,
+  "videos_unanalysed": 83,
   "http_responses_without_usage": 7,
-  "service_reported_cached_input_tokens": 1289600,
+  "service_reported_cached_input_tokens": 1313024,
   "apify_http_counts": {
     "GET": 8,
     "POST": 2
@@ -145,7 +145,7 @@
   "other_ai_provider_queries": 0,
   "actual_points_deducted": null,
   "quota_headers": {},
-  "stop_reason": "provider_access_quota_or_common_failure",
+  "stop_reason": null,
   "service_quota_statement": {
     "provider": "ChatAnywhere",
     "http_status": 403,
@@ -163,52 +163,38 @@
   "usage_tracking_note": "ChatAnywhere request accounting is from durable ledgers; legacy usage.json ai_attempts is not the cumulative ChatAnywhere total.",
   "accounting_note": "Post counts include all prior tests, failures, reviews and cross-platform members; Pine counts are events, not posts. Tokens are service reports, not points or verified bills.",
   "current_session": {
-    "id": "20261114-media-repair-04",
-    "generation_attempts": 37,
-    "validated_responses": 36,
-    "added_events": 18,
-    "pine_count_delta_since_session": 18,
+    "id": "20261115-media-repair-01",
+    "generation_attempts": 14,
+    "validated_responses": 13,
+    "added_events": 1,
+    "pine_count_delta_since_session": 1,
     "historical_reference_event_delta_since_session": 0,
     "service_reported_usage": {
-      "input_tokens": 98847,
-      "output_tokens": 5751,
-      "total_tokens": 104598,
+      "input_tokens": 38752,
+      "output_tokens": 1876,
+      "total_tokens": 40628,
       "reasoning_tokens": 0
     },
     "status_counts": {
-      "completed_no_signal": 15,
-      "completed_signal": 18,
+      "completed_no_signal": 10,
+      "completed_signal": 1,
       "input_failure": 0,
-      "pending_confirmation": 3,
+      "pending_confirmation": 2,
       "technical_failure": 1
     },
     "actor_runs_started": 0,
     "saved_dataset_get_requests": 0,
     "actual_points_deducted": null,
-    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43585240072",
-    "stop_http_status": 403,
+    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43696697885",
+    "stop_http_status": null,
     "status_count_transitions": {
-      "completed_no_signal": 15,
-      "completed_signal": 18,
+      "completed_no_signal": 10,
+      "completed_signal": 1,
       "input_failure": 0,
-      "pending_confirmation": 3,
+      "pending_confirmation": 2,
       "technical_failure": 1
     },
-    "recovered_zero_generation_inputs": 0,
-    "cache_artifact": {
-      "run_id": 43585240072,
-      "id": 14110406487,
-      "name": "history-latest-classified-cache-20261114",
-      "size_bytes": 2770906,
-      "expires_at": "2026-11-28T10:30:28Z",
-      "digest": "sha256:8cab10c08f0c4f8dcdbb59ac1549a8f36e322b01aa41183e57ff9d19a8531546"
-    },
-    "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-04.json",
-    "media_repair_http_counts": {
-      "GET": 1,
-      "POST": 0
-    },
-    "images_supplied": 22
+    "recovered_zero_generation_inputs": 0
   }
 }
 ```
