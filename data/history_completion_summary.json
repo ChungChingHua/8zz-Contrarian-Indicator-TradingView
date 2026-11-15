@@ -128,7 +128,7 @@
   "other_ai_provider_queries": 0,
   "actual_points_deducted": null,
   "quota_headers": {},
-  "stop_reason": null,
+  "stop_reason": "prior_missing_media_not_verified_for_resend",
   "service_quota_statement": {
     "provider": "ChatAnywhere",
     "http_status": 403,
@@ -177,6 +177,11 @@
       "pending_confirmation": 2,
       "technical_failure": 1
     },
-    "recovered_zero_generation_inputs": 0
+    "recovered_zero_generation_inputs": 0,
+    "media_repair_ledger": "data/history_media_repairs/20261115-media-repair-01.json",
+    "media_repair_http_counts": {
+      "GET": 0,
+      "POST": 0
+    }
   }
 }
