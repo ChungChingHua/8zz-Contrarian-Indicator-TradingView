@@ -1,0 +1,49 @@
+{
+  "observed_at": "2026-11-15T08:58:30.038754+00:00",
+  "runs": [
+    {
+      "source": "facebook",
+      "run_id": "7XocIieNSafu8En1Q",
+      "status": "SUCCEEDED",
+      "actId": "KoJrdxJCTtpon81KY",
+      "buildId": "YrRcdVQKNazTl1teV",
+      "buildNumber": "0.0.421",
+      "startedAt": "2026-11-15T08:55:10.706Z",
+      "finishedAt": "2026-11-15T08:55:19.441Z",
+      "usageTotalUsd": "0.015",
+      "externalChargedTotalUsd": null,
+      "chargedEventCounts": {
+        "post": 2,
+        "actor-start": 1,
+        "filter-applied": 2
+      }
+    },
+    {
+      "source": "threads",
+      "run_id": "c37pGgiCfqvBLdZmv",
+      "status": "SUCCEEDED",
+      "actId": "yacNYZpu9F3C8EATQ",
+      "buildId": "YjucZXGASL25tEUHb",
+      "buildNumber": "0.1.74",
+      "startedAt": "2026-11-15T08:55:30.603Z",
+      "finishedAt": "2026-11-15T08:55:37.456Z",
+      "usageTotalUsd": "0.045",
+      "externalChargedTotalUsd": null,
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 5
+      }
+    }
+  ],
+  "new_starts_by_cost_refresh": 0,
+  "actual_AI_points_deducted": null,
+  "billing_finality": "API observations, not independently settled invoice. Zero does not establish free execution.",
+  "account_remaining_allowance": null,
+  "account_allowance_note": "Scoped /users/me/limits previously denied; no repeated denied query.",
+  "observed_run_total_usd": "0.060",
+  "http_requests": {
+    "GET": 2,
+    "POST": 0
+  }
+}
