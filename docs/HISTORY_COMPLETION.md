@@ -1,6 +1,6 @@
 # 一次性歷史補齊執行紀錄
 
-請依下方剩餘及待確認清單判斷完成範圍。
+本次因實際阻塞停止，**尚未補齊全部歷史判讀**。
 
 資料抓取截止 UTC 2026-11-15T08:55:04.406470+00:00（Asia/Taipei 為 2026-11-15T16:55:04.406470+08:00）；共 717 篇。已走訪至 2026-11-05T01:23:43+08:00，其中待確認／失敗另列；本輪最後有效回應 2026-11-15T15:31:11+08:00，最新事件 2026-11-15T10:33:27+08:00。
 
@@ -145,7 +145,7 @@
   "other_ai_provider_queries": 0,
   "actual_points_deducted": null,
   "quota_headers": {},
-  "stop_reason": null,
+  "stop_reason": "prior_missing_media_not_verified_for_resend",
   "service_quota_statement": {
     "provider": "ChatAnywhere",
     "http_status": 403,
@@ -194,7 +194,12 @@
       "pending_confirmation": 2,
       "technical_failure": 1
     },
-    "recovered_zero_generation_inputs": 0
+    "recovered_zero_generation_inputs": 0,
+    "media_repair_ledger": "data/history_media_repairs/20261115-media-repair-01.json",
+    "media_repair_http_counts": {
+      "GET": 0,
+      "POST": 0
+    }
   }
 }
 ```
