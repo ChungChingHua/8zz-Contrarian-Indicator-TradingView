@@ -8,5 +8,31 @@
     "GET": 0,
     "POST": 0
   },
-  "updated_at": "2026-11-15T09:03:33.564542+00:00"
+  "updated_at": "2026-11-15T09:03:34.639410+00:00",
+  "verified_empty_predecessor": {
+    "run_id": "aN1ESUqN4kVceCqBH",
+    "dataset_id": "yv2pVJKq2araXljnc",
+    "terminal_status": "ABORTED",
+    "dataset_items": 0,
+    "verified_at": "2026-11-15T09:03:34.639382+00:00",
+    "verification_method": "offline_pinned_previous_official_API_snapshot",
+    "source_git_commit": "c137481646469c46b42fde0ac2151c04181c9a14",
+    "source_path": "data/history_media_repairs/budget-audit-20261114.json",
+    "source_sha256": "be681da028b6c31e39ecb6db9247ceb396e94de109312dadac0be591aa30e4d5",
+    "provider_observed_at": "2026-11-14T07:06:12.077588+00:00",
+    "current_old_run_access": "not_queried; previous scoped token denied. This evidence describes the recorded terminal run, not a new API observation."
+  },
+  "recovery_candidate_keys": [
+    "facebook:1702487071235881",
+    "facebook:1702731291211459",
+    "facebook:1702897424528179",
+    "facebook:1703163464501575",
+    "facebook:1703429887808266",
+    "facebook:1703740244443897",
+    "facebook:1703792734438648",
+    "facebook:1704945814323340",
+    "facebook:1705156784302243",
+    "facebook:1705237887627466"
+  ],
+  "recovery_note": "User authorized unfetched missing public posts. Recorded official terminal ABORTED/zero-post/empty-dataset evidence is pinned and hash verified. One new session attempt; no unknown or completed request is replayed."
 }
