@@ -7073,140 +7073,140 @@
     "key": "facebook:1711187147032540",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02AWHj3RuRgtZPvdPiZkQwGfqRJhW81qiAuGixwBpQU2vtVfHMgVUPHRCasqR3aizjl",
     "display_time": "2026-11-13T01:45:26+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "facebook:1711187147032540",
+    "evidence": "data/history_progress/history-completion-20261107-036.json",
+    "reason": "內容以生活與經營社群、情緒抱怨為主，沒有明確投資動作或強烈投資情緒，屬於跳過。"
   },
   {
     "key": "facebook:1711452657005989",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0T1BsmxWfpEE1oFUqCu4uEmWFRzgJq3hn6BQvCEehmrG9wLHQTU3pLLqhWQN7HakSl",
     "display_time": "2026-11-13T07:57:41+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "facebook:1711452657005989",
+    "evidence": "data/history_progress/history-completion-20261107-036.json",
+    "reason": "貼文內容只是預測大盤崩跌且附上TSM股價圖，但沒提及發文者持倉或交易動作，屬於被動觀察或評論，依規則跳過。"
   },
   {
     "key": "facebook:1711515410333047",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid026b8bNeR6qcGWSBSSCyUysr6UfAmAPDz9wfjbtzjnUMFjsfUNHKbLyNV6jva3d8yYl",
     "display_time": "2026-11-13T09:25:09+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "technical_failure",
+    "stored_status": "technical_failure",
+    "record_key": "facebook:1711515410333047",
+    "evidence": "data/history_progress/history-completion-20261107-036.json",
+    "reason": "invalid_ticker_format"
   },
   {
     "key": "facebook:1712186250265963",
     "url": "https://www.facebook.com/reel/2160900154802469/",
     "display_time": "2026-11-13T23:21:14+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1712186250265963",
+    "evidence": "data/history_progress/history-completion-20261107-036.json",
+    "reason": "內容為抱怨/戲謔遊戲或個人對話，與投資無關且有未分析影片，依規定跳過並標示為需確認"
   },
   {
     "key": "threads:4029579593664549218",
     "url": "https://www.threads.com/t/Dfr8UpyidFi",
     "display_time": "2026-11-13T23:22:24+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:4029579593664549218",
+    "evidence": "data/history_progress/history-completion-20261107-036.json",
+    "reason": "內容為對話/抱怨遊戲情節或客服式質疑，未提及個人持倉或交易動作，屬於非投資貼文，跳過"
   },
   {
     "key": "threads:4029622132984581375",
     "url": "https://www.threads.com/t/DfsF_rnmQz_",
     "display_time": "2026-11-14T00:46:53+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "threads:4029622132984581375",
+    "evidence": "data/history_progress/history-completion-20261107-036.json",
+    "reason": "只有籠統悲觀預期（看來準備崩盤了），無明確自我持倉或交易情緒與動作，依規則屬於無法判定投資立場的模糊貼文，跳過"
   },
   {
     "key": "threads:4029927973335964218",
     "url": "https://www.threads.com/t/DftLiPpGZo6",
     "display_time": "2026-11-14T10:54:32+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:4029927973335964218",
+    "evidence": "data/history_progress/history-completion-20261107-036.json",
+    "reason": "僅為對合約結算的感想/教訓性評論，沒有提及個人持倉或交易情緒與動作，屬於與投資決策無明確關聯的貼文，跳過"
   },
   {
     "key": "facebook:1713402286811026",
     "url": "https://www.facebook.com/reel/1654964376087063/",
     "display_time": "2026-11-15T00:59:17+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "facebook:1713402286811026",
+    "evidence": "data/history_progress/history-completion-20261107-036.json",
+    "reason": "主要在分享買錶與個人生活風格，影片未分析且無明確投資持倉或情緒表述，屬於與投資無關或模糊貼文，跳過。"
   },
   {
     "key": "threads:4030353700266598712",
     "url": "https://www.threads.com/t/DfusVYvkmE4",
     "display_time": "2026-11-15T01:00:24+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:4030353700266598712",
+    "evidence": "data/history_progress/history-completion-20261107-036.json",
+    "reason": "生活消費分享（買錶）且影片未分析，內容與投資立場無關，依規則跳過"
   },
   {
     "key": "threads:4030449832615456486",
     "url": "https://www.threads.com/t/DfvCMS-E67m",
     "display_time": "2026-11-15T04:11:22+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:4030449832615456486",
+    "evidence": "data/history_progress/history-completion-20261107-036.json",
+    "reason": "生活閒聊、談疲累及經營IG，無明確投資立場或持倉動作，屬於非投資貼文需跳過。"
   },
   {
     "key": "threads:4030642136806956039",
     "url": "https://www.threads.com/t/Dfvt6sNGZwH",
     "display_time": "2026-11-15T10:33:27+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "threads:4030642136806956039",
+    "evidence": "data/history_progress/history-completion-20261107-036.json",
+    "reason": "對虛擬幣表達強烈負面看法（被騙、失望），情緒偏向痛苦/悲觀但未提及具體交易動作或金額，屬偏多情緒但強度為明顯而非極端。"
   },
   {
     "key": "threads:4030720656484699170",
     "url": "https://www.threads.com/t/Dfv_xTWmYwi",
     "display_time": "2026-11-15T13:09:27+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:4030720656484699170",
+    "evidence": "data/history_progress/history-completion-20261107-036.json",
+    "reason": "內容為手錶錶帶長度建議，與投資無關，跳過。"
   },
   {
     "key": "facebook:1714129566738298",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid035itqFRyiCGXafrFUVyhgEFfpybavuQ7gwVEHycxUpFqd4CdJWLwdZZn3CzpG4fj9l",
     "display_time": "2026-11-15T15:30:34+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "facebook:1714129566738298",
+    "evidence": "data/history_progress/history-completion-20261107-036.json",
+    "reason": "生活日常與飲食照片，沒有任何投資情緒或持倉動作，跳過。"
   },
   {
     "key": "threads:4030791985395698529",
     "url": "https://www.threads.com/t/DfwP_RlAIth",
     "display_time": "2026-11-15T15:31:11+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "threads:4030791985395698529",
+    "evidence": "data/history_progress/history-completion-20261107-036.json",
+    "reason": "生活日常（臉水腫、吃番茄麵）且未提及投資或持倉，跳過。"
   }
 ]
