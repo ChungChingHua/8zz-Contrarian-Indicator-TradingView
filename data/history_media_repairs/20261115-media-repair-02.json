@@ -17,7 +17,11 @@
         "facebook:1705237887627466"
       ],
       "status": "SUCCEEDED",
-      "posts": {},
+      "posts": {
+        "facebook:1702487071235881": {
+          "status": "cached"
+        }
+      },
       "empty_predecessor": {
         "run_id": "aN1ESUqN4kVceCqBH",
         "dataset_id": "yv2pVJKq2araXljnc",
@@ -102,10 +106,10 @@
   "ai_requests": 0,
   "monthly_runs_before": 69,
   "http_requests": {
-    "GET": 5,
+    "GET": 6,
     "POST": 1
   },
-  "updated_at": "2026-11-15T09:03:55.857241+00:00",
+  "updated_at": "2026-11-15T09:03:58.450544+00:00",
   "verified_empty_predecessor": {
     "run_id": "aN1ESUqN4kVceCqBH",
     "dataset_id": "yv2pVJKq2araXljnc",
