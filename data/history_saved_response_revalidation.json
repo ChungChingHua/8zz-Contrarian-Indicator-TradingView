@@ -1,0 +1,31 @@
+{
+  "method": "Offline saved response revalidation; zero API requests",
+  "raw_response_hash": "01f5b5789abb75f732d40d762e5c4a05caeae2a81d5de1e3b543bdab8cfa6b2c",
+  "reason": "Honest unread-image placeholder is metadata, not evidence of actually analysed image; original schema/core values retained",
+  "reserved_generation_attempts": 1,
+  "processed": {
+    "direction": -1,
+    "strength": 2,
+    "action": "賣出/尋找賣點",
+    "ticker": "",
+    "reasoning": "語氣偏自信/尋求賣出機會（『看有什麼可以賣的轉去傳產』），屬於主動找賣點的樂觀/亢奮傾向，偏空。",
+    "disposition": "signal",
+    "images": [],
+    "target_notes": "",
+    "unanalysed_image_notes": [
+      {
+        "image_index": 0,
+        "visible_text": "",
+        "observation": "貼文標記有一張圖片但未提供/無法分析（network_unreachable）",
+        "readable": false
+      }
+    ],
+    "rule_version": "fork-7b626f2-ai-v1",
+    "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+    "status": "done",
+    "image_evidence_status": "service_transcription_not_human_verified",
+    "context_used": []
+  },
+  "raw_response_unchanged": true,
+  "remaining_unstarted": 4
+}

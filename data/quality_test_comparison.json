@@ -1,0 +1,352 @@
+{
+  "comparison_timing": "after_generation_only",
+  "candidates_sent_to_model": false,
+  "gold_labels": false,
+  "rows": [
+    {
+      "number": 1,
+      "key": "facebook:1696581131826475",
+      "original_candidate": {
+        "sentiment": "panic",
+        "direction": 1,
+        "strength": 2,
+        "target": "BTC",
+        "ticker": "",
+        "acceptable_decisions": [
+          "signal",
+          "insufficient_information"
+        ],
+        "basis": "本人說 BTC 單沒了、這波很恐怖，並提醒停損；恐慌情緒的反向方向為 +1，不因之後漲跌改標。BTC 逐字在原文。尚須核對圖片是否引入矛盾。",
+        "requires_image_review": true
+      },
+      "revised_candidate": {
+        "sentiment": "panic",
+        "direction": 1,
+        "strength": 2,
+        "target": "BTC",
+        "ticker": "",
+        "acceptable_decisions": [
+          "signal",
+          "insufficient_information"
+        ],
+        "basis": "本人說 BTC 單沒了、這波很恐怖，並提醒停損；恐慌情緒的反向方向為 +1，不因之後漲跌改標。BTC 逐字在原文。尚須核對圖片是否引入矛盾。",
+        "requires_image_review": true
+      },
+      "differences": [
+        "與參考強度不同：2 → 3",
+        "標的候選集合不同（須按僅提及／持倉／本人立場及圖片待確認分辨，非錯誤判分）"
+      ],
+      "model_answer_available": true,
+      "gold_label": false
+    },
+    {
+      "number": 2,
+      "key": "threads:3981333267379483868",
+      "original_candidate": {
+        "sentiment": "euphoria",
+        "direction": -1,
+        "strength": 2,
+        "target": "台股",
+        "ticker": "",
+        "acceptable_decisions": [
+          "signal"
+        ],
+        "basis": "本人「爽啦」「加碼再賺」「台股簡單啦」是明確投資歡呼，反向方向 -1；台股在原文，不能把喬喬猜成特定股票代號。",
+        "requires_image_review": false
+      },
+      "revised_candidate": {
+        "sentiment": "euphoria",
+        "direction": -1,
+        "strength": 2,
+        "target": "台股",
+        "ticker": "",
+        "acceptable_decisions": [
+          "signal"
+        ],
+        "basis": "本人「爽啦」「加碼再賺」「台股簡單啦」是明確投資歡呼，反向方向 -1；台股在原文，不能把喬喬猜成特定股票代號。",
+        "requires_image_review": false
+      },
+      "differences": [
+        "標的候選集合不同（須按僅提及／持倉／本人立場及圖片待確認分辨，非錯誤判分）"
+      ],
+      "model_answer_available": true,
+      "gold_label": false
+    },
+    {
+      "number": 3,
+      "key": "threads:3952464799527950315",
+      "original_candidate": {
+        "sentiment": "neutral",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "neutral",
+          "insufficient_information"
+        ],
+        "basis": "原文報告個股及主動 ETF 未停損，未描述明確恐慌或亢奮；持有／未停損本身不是情緒訊號。「隨便他了」也可能是無奈，故中性只是候選，確認前亦接受資訊不足；不猜 ETF 代號。",
+        "requires_image_review": false
+      },
+      "revised_candidate": {
+        "sentiment": "neutral",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "neutral",
+          "insufficient_information"
+        ],
+        "basis": "原文報告個股及主動 ETF 未停損，未描述明確恐慌或亢奮；持有／未停損本身不是情緒訊號。「隨便他了」也可能是無奈，故中性只是候選，確認前亦接受資訊不足；不猜 ETF 代號。",
+        "requires_image_review": false
+      },
+      "differences": [
+        "與原候選方向不同：0 → 1",
+        "與本輪修正候選方向不同：0 → 1",
+        "與參考強度不同：1 → 2",
+        "情緒類別與原候選不同：neutral → panic",
+        "標的候選集合不同（須按僅提及／持倉／本人立場及圖片待確認分辨，非錯誤判分）"
+      ],
+      "model_answer_available": true,
+      "gold_label": false
+    },
+    {
+      "number": 4,
+      "key": "threads:4024468641932717746",
+      "original_candidate": {
+        "sentiment": "unrelated",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "unrelated",
+          "insufficient_information"
+        ],
+        "basis": "新 GShock 與「下週穩了」未提供投資情境或標的。舊服務描述圖片是手錶，但本輪未人工看圖；圖片若確為生活物品，確定無關，否則保留資訊不足，不能硬判看多。",
+        "requires_image_review": true
+      },
+      "revised_candidate": {
+        "sentiment": "unrelated",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "unrelated",
+          "insufficient_information"
+        ],
+        "basis": "新 GShock 與「下週穩了」未提供投資情境或標的。舊服務描述圖片是手錶，但本輪未人工看圖；圖片若確為生活物品，確定無關，否則保留資訊不足，不能硬判看多。",
+        "requires_image_review": true
+      },
+      "differences": [
+        "相關性與原無關候選不同：insufficient_information"
+      ],
+      "model_answer_available": true,
+      "gold_label": false
+    },
+    {
+      "number": 5,
+      "key": "facebook:1640562917428297",
+      "original_candidate": {
+        "sentiment": "unrelated",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "unrelated",
+          "insufficient_information"
+        ],
+        "basis": "主題為醫美業配與投資自己；欣興、康霈只是引子，沒有本人明確交易情緒或立場。不能因出現股票名就輸出這兩檔訊號。附圖待核。",
+        "requires_image_review": true
+      },
+      "revised_candidate": {
+        "sentiment": "unrelated",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "unrelated",
+          "insufficient_information"
+        ],
+        "basis": "主題為醫美業配與投資自己；欣興、康霈只是引子，沒有本人明確交易情緒或立場。不能因出現股票名就輸出這兩檔訊號。附圖待核。",
+        "requires_image_review": true
+      },
+      "differences": [],
+      "model_answer_available": false,
+      "gold_label": false
+    },
+    {
+      "number": 6,
+      "key": "facebook:1629435205207735",
+      "original_candidate": {
+        "sentiment": "euphoria",
+        "direction": -1,
+        "strength": 2,
+        "target": "台股",
+        "ticker": "",
+        "acceptable_decisions": [
+          "signal",
+          "insufficient_information"
+        ],
+        "basis": "本人「今天穩了」「一天100點、台股5萬點」是台股亢奮。平台 OCR 顯示 ADR 報價表，屬待人工核對的交易資訊圖片候選；即使表中有多檔，也不能把每檔變成評論標的，不能用後來漲跌作答案。",
+        "requires_image_review": true
+      },
+      "revised_candidate": {
+        "sentiment": "euphoria",
+        "direction": -1,
+        "strength": 2,
+        "target": "台股",
+        "ticker": "",
+        "acceptable_decisions": [
+          "signal",
+          "insufficient_information"
+        ],
+        "basis": "本人「今天穩了」「一天100點、台股5萬點」是台股亢奮。平台 OCR 顯示 ADR 報價表，屬待人工核對的交易資訊圖片候選；即使表中有多檔，也不能把每檔變成評論標的，不能用後來漲跌作答案。",
+        "requires_image_review": true
+      },
+      "differences": [
+        "標的候選集合不同（須按僅提及／持倉／本人立場及圖片待確認分辨，非錯誤判分）"
+      ],
+      "model_answer_available": true,
+      "gold_label": false
+    },
+    {
+      "number": 7,
+      "key": "facebook:1610126397138616",
+      "original_candidate": {
+        "sentiment": "panic",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "insufficient_information"
+        ],
+        "basis": "文字「今日我的庫存」「好痛苦」「貸款買的部分都是大虧」支持強烈投資痛苦，但未提供單一標的。平台未提供可讀圖片描述，本輪未人工核圖，不能宣稱圖內確有庫存或從中猜標的；即使圖內有多檔持股也不等於對每檔表態。預期資訊不足、方向0，標的空白。",
+        "requires_image_review": true
+      },
+      "revised_candidate": {
+        "sentiment": "panic",
+        "direction": 1,
+        "strength": 3,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "insufficient_information"
+        ],
+        "basis": "文字「今日我的庫存」「好痛苦」「貸款買的部分都是大虧」支持強烈投資痛苦，但未提供單一標的。平台未提供可讀圖片描述，本輪未人工核圖，不能宣稱圖內確有庫存或從中猜標的；即使圖內有多檔持股也不等於對每檔表態。相關性、情緒與標的分開：投資痛苦明確，候選反向方向+1、強度3；標的空白或待核圖不會使情緒歸零。",
+        "requires_image_review": true
+      },
+      "differences": [
+        "與原候選方向不同：0 → 1"
+      ],
+      "model_answer_available": true,
+      "gold_label": false
+    },
+    {
+      "number": 8,
+      "key": "facebook:1703774981107090",
+      "original_candidate": {
+        "sentiment": "insufficient_information",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "insufficient_information"
+        ],
+        "basis": "「不用停損、因為停不掉」可能為自嘲或流動性等問題，不能單憑字眼斷定恐慌強度。亞翔／6139 不在原文，舊模型答案沒有可追溯圖片文字證據，須留空。「市場跟我說」是修辭，不當作第三方文章。",
+        "requires_image_review": true
+      },
+      "revised_candidate": {
+        "sentiment": "insufficient_information",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "insufficient_information"
+        ],
+        "basis": "「不用停損、因為停不掉」可能為自嘲或流動性等問題，不能單憑字眼斷定恐慌強度。亞翔／6139 不在原文，舊模型答案沒有可追溯圖片文字證據，須留空。「市場跟我說」是修辭，不當作第三方文章。",
+        "requires_image_review": true
+      },
+      "differences": [
+        "與原候選方向不同：0 → 1",
+        "與本輪修正候選方向不同：0 → 1",
+        "與參考強度不同：1 → 2",
+        "標的候選集合不同（須按僅提及／持倉／本人立場及圖片待確認分辨，非錯誤判分）"
+      ],
+      "model_answer_available": true,
+      "gold_label": false
+    },
+    {
+      "number": 9,
+      "key": "threads:4023888423198910089",
+      "original_candidate": {
+        "sentiment": "insufficient_information",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "insufficient_information"
+        ],
+        "basis": "只有「恐慌的睡不著」，無圖片、無標的或投資情境。不能讀鄰近／之後貼文把恐慌原因補成股票；也不能肯定無關，應為資訊不足。",
+        "requires_image_review": false
+      },
+      "revised_candidate": {
+        "sentiment": "insufficient_information",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "insufficient_information"
+        ],
+        "basis": "只有「恐慌的睡不著」，無圖片、無標的或投資情境。不能讀鄰近／之後貼文把恐慌原因補成股票；也不能肯定無關，應為資訊不足。",
+        "requires_image_review": false
+      },
+      "differences": [],
+      "model_answer_available": true,
+      "gold_label": false
+    },
+    {
+      "number": 10,
+      "key": "threads:3946164126477408639",
+      "original_candidate": {
+        "sentiment": "insufficient_information",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "insufficient_information"
+        ],
+        "basis": "本人明說漲不爽、跌痛苦的矛盾情緒；群創股價在果乾團購獎金段落，不足以指定為本人交易立場標的。先區分本人情緒與業配，方向0，不以群創之後表現決定。",
+        "requires_image_review": true
+      },
+      "revised_candidate": {
+        "sentiment": "insufficient_information",
+        "direction": 0,
+        "strength": 1,
+        "target": "",
+        "ticker": "",
+        "acceptable_decisions": [
+          "insufficient_information"
+        ],
+        "basis": "本人明說漲不爽、跌痛苦的矛盾情緒；群創股價在果乾團購獎金段落，不足以指定為本人交易立場標的。先區分本人情緒與業配，方向0，不以群創之後表現決定。",
+        "requires_image_review": true
+      },
+      "differences": [
+        "與參考強度不同：1 → 2",
+        "標的候選集合不同（須按僅提及／持倉／本人立場及圖片待確認分辨，非錯誤判分）"
+      ],
+      "model_answer_available": true,
+      "gold_label": false
+    }
+  ]
+}

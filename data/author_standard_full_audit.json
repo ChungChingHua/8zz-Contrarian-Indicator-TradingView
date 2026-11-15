@@ -1,0 +1,72 @@
+{
+  "scope": "Whole-file comparison, plus offline original-policy/postprocessing verification; no new model judgment",
+  "reference_lines": 640,
+  "reference_events": 65,
+  "reference_sha256": "69a66131c35d44132fb9078415053762a05962cbddc73ccc96517808c7635d33",
+  "full_pre_data_configuration_matches_fork_except_event_count_comment": true,
+  "whole_post_data_runtime_matches_fork_except_three_hardcoded_panel_cells_and_final_newline": true,
+  "event_trigger_filter_flip_arrow_background_logic_in_supplied_original_matches_fork": true,
+  "candidate_runtime_matches_intended_accounting_transform": true,
+  "published_history_all_65_literals_preserved": true,
+  "current_ai_policy_version": "fork-7b626f2-ai-v1",
+  "current_ai_policy_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+  "original_system_and_ten_examples_are_in_active_payload": true,
+  "original_few_shot_postprocessing_cases_verified": [
+    {
+      "original_user_example": "我今天停損出場了，損失超過10萬，心情很差",
+      "original_direction": 1,
+      "postprocessed_direction": 1
+    },
+    {
+      "original_user_example": "停損渣男鈦昇後買信驊，情緒衝動了",
+      "original_direction": 1,
+      "postprocessed_direction": 1
+    },
+    {
+      "original_user_example": "今天漲停板追進去了！感覺這支會繼續飆！",
+      "original_direction": -1,
+      "postprocessed_direction": -1
+    },
+    {
+      "original_user_example": "加碼台積電，長期看好半導體",
+      "original_direction": -1,
+      "postprocessed_direction": -1
+    },
+    {
+      "original_user_example": "今天天氣真好，出去走走",
+      "original_direction": 0,
+      "postprocessed_direction": 0
+    },
+    {
+      "original_user_example": "我已經變成工具了嗎？大家都在跟單，好無奈",
+      "original_direction": 0,
+      "postprocessed_direction": 0
+    },
+    {
+      "original_user_example": "yeah~ 來錄影了，如果大家都把我寫成工具…",
+      "original_direction": 0,
+      "postprocessed_direction": 0
+    },
+    {
+      "original_user_example": "花了我250元買的錄面，說什麼都要炫富一下 不要問我明天買啥了… 我完全沒想法😅! 跌的也還沒到停損範圍，就放著",
+      "original_direction": 0,
+      "postprocessed_direction": 0
+    },
+    {
+      "original_user_example": "今天衝啊啊啊啊！！！今天大回血了❤️ 一定會更好的！！ 突然想到，被動元件好像炒的沒有pcb/abf跟記憶體兇，感覺可以補一下 日月光只是看ADR很猛，掛著買看看好了\n[委托單截圖]\n日月光投控 委託成功\n尖點 全部成交\n尖點 全部取消",
+      "original_direction": -1,
+      "postprocessed_direction": -1
+    },
+    {
+      "original_user_example": "這篇沒有名牌 只是因為私訊問我是不是有開群組啊 今天怎麼沒開示啊 為什麼還沒有對帳單啊 的人實在太多了 我也不...",
+      "original_direction": 0,
+      "postprocessed_direction": 0
+    }
+  ],
+  "revenge_buy_example_already_bullish_in_active_policy": true,
+  "new_generation_requests": 0,
+  "new_apify_requests": 0,
+  "not_verified": "No new online model accuracy test, no TradingView compilation, and no claim that 65 abbreviated historical tooltips define all future classification cases.",
+  "candidate_non_data_prefix_matches_expected_generator": true,
+  "original_policy_or_prompt_modified_this_review": false
+}

@@ -1,0 +1,332 @@
+{
+  "session": "20261114-media-repair-01",
+  "batches": [
+    {
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "keys": [
+        "threads:4020696021219218589",
+        "threads:4021321841096903754",
+        "threads:4021890374356799160",
+        "threads:4021970379841567975",
+        "threads:4022644970884768463",
+        "threads:4022703226042831167",
+        "threads:4022757610051153640",
+        "threads:4023110973024452589",
+        "threads:4023362009123385848",
+        "threads:4023406251229152584",
+        "threads:4023487463029312236",
+        "threads:4023673308822738059"
+      ],
+      "status": "SUCCEEDED",
+      "posts": {
+        "threads:4020696021219218589": {
+          "status": "cached"
+        },
+        "threads:4021321841096903754": {
+          "status": "cached"
+        },
+        "threads:4021890374356799160": {
+          "status": "cached"
+        },
+        "threads:4021970379841567975": {
+          "status": "cached"
+        },
+        "threads:4022644970884768463": {
+          "status": "cached"
+        },
+        "threads:4022703226042831167": {
+          "status": "cached"
+        },
+        "threads:4022757610051153640": {
+          "status": "cached"
+        },
+        "threads:4023110973024452589": {
+          "status": "cached"
+        },
+        "threads:4023362009123385848": {
+          "status": "cached"
+        },
+        "threads:4023406251229152584": {
+          "status": "cached"
+        },
+        "threads:4023487463029312236": {
+          "status": "cached"
+        },
+        "threads:4023673308822738059": {
+          "status": "cached"
+        }
+      },
+      "input": {
+        "mode": "urls",
+        "postUrls": [
+          "https://www.threads.com/@banini31/post/DfMYbqOmRSd",
+          "https://www.threads.com/@banini31/post/DfOmuiaGcxK",
+          "https://www.threads.com/@banini31/post/DfQn_yRGY64",
+          "https://www.threads.com/@banini31/post/DfQ6MBLmXzn",
+          "https://www.threads.com/@banini31/post/DfTTknDGSLP",
+          "https://www.threads.com/@banini31/post/DfTg0VZGdE_",
+          "https://www.threads.com/@banini31/post/DfTtLucmS7o",
+          "https://www.threads.com/@banini31/post/DfU9h1XGT_t",
+          "https://www.threads.com/@banini31/post/DfV2m48mfH4",
+          "https://www.threads.com/@banini31/post/DfWAqsnmYVI",
+          "https://www.threads.com/@banini31/post/DfWTIfAGYrs",
+          "https://www.threads.com/@banini31/post/DfW9Y5YmZSL"
+        ],
+        "maxPosts": 12,
+        "includeProfile": false
+      },
+      "id": "T5aL34lZ0cAhRu17S",
+      "startedAt": "2026-11-14T06:53:41.910Z",
+      "finishedAt": "2026-11-14T06:55:11.149Z",
+      "buildId": "1MVQMWBVN6xDpnUfb",
+      "buildNumber": "0.1.72",
+      "defaultDatasetId": "JjMSrKNhWMC5CFW26",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.08",
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 12
+      },
+      "accountedChargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 12
+      },
+      "duration_seconds": "89.043",
+      "cost_observed_at": "2026-11-14T07:06:11.607174+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution"
+    },
+    {
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "keys": [
+        "facebook:1699456358205619",
+        "facebook:1699682981516290",
+        "facebook:1699797961504792",
+        "facebook:1699886744829247",
+        "facebook:1700645711420017",
+        "facebook:1700739848077270",
+        "facebook:1700801464737775",
+        "facebook:1701227338028521",
+        "facebook:1701657014652220",
+        "facebook:1701759947975260",
+        "facebook:1701847044633217",
+        "facebook:1702074981277090"
+      ],
+      "status": "SUCCEEDED",
+      "posts": {
+        "facebook:1699456358205619": {
+          "status": "cached"
+        },
+        "facebook:1699682981516290": {
+          "status": "cached"
+        },
+        "facebook:1699797961504792": {
+          "status": "cached"
+        },
+        "facebook:1699886744829247": {
+          "status": "cached"
+        },
+        "facebook:1700645711420017": {
+          "status": "cached"
+        },
+        "facebook:1700739848077270": {
+          "status": "cached"
+        },
+        "facebook:1700801464737775": {
+          "status": "cached"
+        },
+        "facebook:1701227338028521": {
+          "status": "cached"
+        },
+        "facebook:1701657014652220": {
+          "status": "cached"
+        },
+        "facebook:1701759947975260": {
+          "status": "cached"
+        },
+        "facebook:1701847044633217": {
+          "status": "cached"
+        },
+        "facebook:1702074981277090": {
+          "status": "cached"
+        }
+      },
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02YNS2PDrHgHD6PJP9sDnbSkrx7m1o7KN3wvDrNr9XgXiAdhMzBXt2mAA7PHdp5F2Gl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0LGeaWsBbZvrCBGLpgTbYso5Jps5QjRnp64aMnWZSEefjNiU3yR8njj4wnNrwRrrvl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0UJktKrPhrKL5K1qAAkACBRvAxTxn13yF6VmgBQqdfRbfj5c56LtxNvrYazRjbdvdl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02QWhTwVLmbQSZSaUKp85Q4gV88pnMZEBpnV7NGRBugBfireYFHBCLGFszre55i9oil"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02yg79tsjW3ELf2pHC4oipZ2mhEMbTsucf4C99JtWHUfzrobPMR2wLjgqqDRLTDmHBl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0QLS7RfJ7kwGj1ct2QuwXyXsWpc3JFPPJmErLch4T9ZjHPPuVAgAvCtYknCCPDHVXl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02jJceL7bYipqZizXBXgTFv5g1SNkbKnuEgiRWyBqmVevUiVUVQ3BNi3yNbNTF56UVl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02hKqPZsjKAdhMHKi8xXTwxxuoGqkRF3QpGRCzNJoymyEP5KE73vCvn71YQf3H557Cl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0TLQUEWb6eohHKrDMRc1EzUEWiQ2ctMSyYfcdBwhGFfXhWZTo9RdHf6PurPWPeke6l"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02S33pdSvSeEjyY77Aqb3UL5s8ym2JspWZmHNR7x1oyQpFf5Vee9m4YWhW3suXgFiJl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0Zbxx9xTjMWEGWEC1EkSpoW1h6BZ5YyC1uLa7d9k872DWWHX6WGftvpmJZRYrgKHVl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02HkrQSKMQbtRXxMXpPRpnezU5pottqK9djC1rvdf8AzaF2ycorT59VGeNe1xYdis7l"
+          }
+        ],
+        "resultsLimit": 1
+      },
+      "id": "i22Es0nKg6gd7bpEZ",
+      "startedAt": "2026-11-14T06:56:02.502Z",
+      "finishedAt": "2026-11-14T06:56:44.531Z",
+      "buildId": "YrRcdVQKNazTl1teV",
+      "buildNumber": "0.0.421",
+      "defaultDatasetId": "JeUiW3Icdcvy4KoXP",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.061",
+      "chargedEventCounts": {
+        "post": 12,
+        "actor-start": 1,
+        "filter-applied": 0
+      },
+      "accountedChargedEventCounts": {
+        "post": 12,
+        "actor-start": 1,
+        "filter-applied": 0
+      },
+      "duration_seconds": "41.871",
+      "cost_observed_at": "2026-11-14T07:06:11.851189+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution"
+    },
+    {
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "keys": [
+        "facebook:1702487071235881",
+        "facebook:1702731291211459",
+        "facebook:1702897424528179",
+        "facebook:1703163464501575",
+        "facebook:1703429887808266",
+        "facebook:1703740244443897",
+        "facebook:1703792734438648",
+        "facebook:1704945814323340",
+        "facebook:1705156784302243",
+        "facebook:1705237887627466"
+      ],
+      "status": "ABORTED",
+      "posts": {},
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0vzGJfezAr6mDRnz1VmhY5avBR5HhZXiRE5pxW7MrGstFaoUc1upnZZWXG1nD7BFjl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid035tHJPGrDoLRNT1A9XfjfBXvDSyrmn5iWmw2KR3FDGtACoaExAgTaYHC8v88ySNUWl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02FgHSPLV7qxuLxZPP3DLuZoNFMduPa9PpMuQ45gmmdEPFrPfgom5cGkwh8DeLcb1Kl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02o4AKSbPWCCPWpq62E1UnSNcUdfWCHRfSEAEruZ7RW4fH6sdqB6oXioXAGkmzVnCrl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0YAJxviLNDv2BGBsdTXgEsHe6YvfRZtgBC3yrc6WksVY3wPGiAc4RsAPYNtx8t1i5l"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid08wkUP46KGJHSyn1sEhxNV7GG8xZah94T9bVfGe5rfkr9FWtXq4ygRLkYDm9MAqfzl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid037J5afqWKJv53P9DQt53pwWgXp4e9Lbbwp3fJBQZWf4EPZfakWZGf2GMGHUuEHSdBl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02SKKe6t1xozYuPPTpT1dezwLh49AYvwJDQgqZpvHNx4eW9m8hhY127syMwEfwgA2Gl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02HVzyozMABc2YGDoXvrdLj2mb7jaUXuuDMvBGvZyzwFeUVfkkyS3PU1wNRbkDrwg7l"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid035ydhaSUH8aqj99cm6yxckf9sbjK9Ez8udykEy2RmFBmFAYGpykhp2j2bBTnu8uvHl"
+          }
+        ],
+        "resultsLimit": 1
+      },
+      "id": "aN1ESUqN4kVceCqBH",
+      "startedAt": "2026-11-14T07:00:37.501Z",
+      "finishedAt": "2026-11-14T07:00:39.185Z",
+      "buildId": "YrRcdVQKNazTl1teV",
+      "buildNumber": "0.0.421",
+      "defaultDatasetId": "yv2pVJKq2araXljnc",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.057529",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.001",
+      "chargedEventCounts": {
+        "post": 0,
+        "actor-start": 1,
+        "filter-applied": 0
+      },
+      "accountedChargedEventCounts": {
+        "post": 0,
+        "actor-start": 1,
+        "filter-applied": 0
+      },
+      "duration_seconds": "1.448",
+      "cost_observed_at": "2026-11-14T07:06:12.077564+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution"
+    }
+  ],
+  "actor_starts_reserved": 3,
+  "ai_requests": 0,
+  "monthly_runs_before": 61,
+  "http_requests": {
+    "GET": 41,
+    "POST": 4
+  },
+  "updated_at": "2026-11-14T07:00:43.128681+00:00",
+  "blocked": "cap_not_acknowledged_aborted",
+  "monthly_runs_after": 64
+}

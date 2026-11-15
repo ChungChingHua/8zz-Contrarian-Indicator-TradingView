@@ -1,0 +1,226 @@
+if barstate.isfirst
+    if not timeframe.isminutes or timeframe.multiplier != 30
+        runtime.error("請切換標準30分鐘K線，勿用日線或其他週期。")
+    if not correctContract
+        runtime.error("本策略限新台幣大台期貨，每點NT$200。請使用大台圖表；小台、微台、ETF或其他幣別不適用。")
+    if startAt >= finishAt
+        runtime.error("開始日期必須早於截止日期；截止日期請選有日盤行情的交易日。")
+    if useHtfConfirm and timeframe.in_seconds(htfTf) <= timeframe.in_seconds()
+        runtime.error("高週期確認必須大於30分鐘。")
+
+
+// Session orders alone cannot remove overnight mark-to-market/drawdown from the broker emulator.
+if barstate.isconfirmed and inWindow and not dayBar
+    string actualBar = str.format_time(time, "yyyy-MM-dd HH:mm", tz) + " → " + str.format_time(time_close, "HH:mm", tz)
+    string expectedDay = futuresProfile ? "08:45–13:45" : "09:00–13:30"
+    runtime.error("非日盤或跨邊界K棒（台北）：" + actualBar + "；本圖表日盤=" + expectedDay + "。請確認圖表市場設定及常規／日盤交易時段。")
+
+// Native broker-emulator execution: one net position; same-bar events coalesce.
+var int eventCursor = 0
+var int signalDir = 0
+var int dayBarCount = 0
+var int entryDayBarA = na
+var int skippedBeforeChart = 0
+var int eligibleEvents = 0
+var float lastSignalScore = na
+var bool cutoffReached = false
+var float entryRiskAtr = na
+var float riskEntryPrice = na
+var float favorableExtreme = na
+var float activeRiskStop = na
+var bool trailActive = false
+var int riskDirection = 0
+
+
+// Never backfill old signals at the first available chart bar.
+if barstate.isfirst
+    while eventCursor < array.size(evt_time)
+        if array.get(evt_time, eventCursor) >= time
+            break
+        skippedBeforeChart += 1
+        eventCursor += 1
+
+bool qualityEntryOk = false
+bool flipNow = false
+bool submittedLong = false
+bool submittedShort = false
+bool exitSubmitted = false
+string lastTip = ""
+
+if barstate.isconfirmed and dayBar
+    dayBarCount += 1
+    if strategy.position_size == 0
+        entryDayBarA := na
+
+    if inWindow
+        int beforeDir = signalDir
+        // SAME BAR POLICY: latest-post-v1
+        int selectedEventIndex = na
+        while eventCursor < array.size(evt_time)
+            int eventTime = array.get(evt_time, eventCursor)
+            // Strictly after event time, identical for A and B.
+            if eventTime >= decisionClose
+                break
+            if eventTime >= startAt and array.get(evt_dir, eventCursor) != 0
+                if na(selectedEventIndex) or eventTime >= array.get(evt_time, selectedEventIndex)
+                    selectedEventIndex := eventCursor
+            eventCursor += 1
+        // Select by publication time first; a filtered latest event never restores an older one.
+        if not na(selectedEventIndex)
+            int d = array.get(evt_dir, selectedEventIndex)
+            bool trendOk = d == 1 ? close > emaBasis and emaBasis >= emaBasis[1] : close < emaBasis and emaBasis <= emaBasis[1]
+            bool rsiOk = d == 1 ? rsiValue >= 50 : rsiValue <= 50
+            bool htfOk = d == 1 ? htfClose >= htfEma : htfClose <= htfEma
+            bool passFilters = (not useTrendFilter or trendOk) and (not useRsiFilter or rsiOk) and (not useVolFilter or atrPct >= minAtrPct) and (not useHtfConfirm or htfOk)
+            float score = signalQuality(array.get(evt_str, selectedEventIndex), trendOk, rsiOk, atrPct >= minAtrPct, htfOk)
+            if passFilters
+                signalDir := d
+                eligibleEvents += 1
+                lastSignalScore := score
+                qualityEntryOk := minQualityScore == 0 or (not na(score) and score >= minQualityScore)
+                lastTip := array.get(evt_tips, selectedEventIndex)
+        flipNow := signalDir != beforeDir and signalDir != 0
+
+        // Terminal liquidation follows the selected end date, independently of A/B exits.
+        if decisionClose == finishAt
+            strategy.cancel_all()
+            strategy.close_all(comment="回測截止日盤收盤", immediately=true)
+            cutoffReached := true
+        else
+            bool fixedExitNow = modeA and strategy.position_size != 0 and not na(entryDayBarA) and dayBarCount - entryDayBarA >= holdBars
+            if fixedExitNow
+                strategy.close_all(comment="A：固定K棒出場", immediately=true)
+                entryDayBarA := na
+                exitSubmitted := true
+
+            if flipNow and orderQty > 0 and (not useAtrStop and not useTrailingStop or not na(riskAtr))
+                if modeA
+                    // Do not open at the same close as the old A position exits.
+                    if strategy.position_size == 0 and not fixedExitNow and entryMarginReady and qualityEntryOk
+                        if signalDir == 1
+                            strategy.entry("L", strategy.long, qty=orderQty, comment="A：偏多翻轉")
+                            entryDayBarA := dayBarCount
+                            submittedLong := true
+                        else if allowShort
+                            strategy.entry("S", strategy.short, qty=orderQty, comment="A：偏空翻轉")
+                            entryDayBarA := dayBarCount
+                            submittedShort := true
+                else
+                    // Opposite strategy.entry reverses the existing net position at the same close.
+                    if signalDir == 1
+                        if entryMarginReady and qualityEntryOk
+                            strategy.entry("L", strategy.long, qty=orderQty, comment="B：偏多翻轉")
+                            submittedLong := true
+                        else if strategy.position_size < 0
+                            if not qualityEntryOk
+                                strategy.close("S", comment="B：反向平空／品質不足不開多", immediately=true)
+                            else
+                                strategy.close("S", comment="B：反向平空／保證金不足不開多", immediately=true)
+                            exitSubmitted := true
+                    else if allowShort
+                        if entryMarginReady and qualityEntryOk
+                            strategy.entry("S", strategy.short, qty=orderQty, comment="B：偏空翻轉")
+                            submittedShort := true
+                        else if strategy.position_size > 0
+                            if not qualityEntryOk
+                                strategy.close("L", comment="B：反向平多／品質不足不開空", immediately=true)
+                            else
+                                strategy.close("L", comment="B：反向平多／保證金不足不開空", immediately=true)
+                            exitSubmitted := true
+                    else if strategy.position_size > 0
+                        strategy.close("L", comment="B：偏空訊號平多", immediately=true)
+                        exitSubmitted := true
+
+// Stops are submitted with the entry at its signal close. Stop orders can fill
+// intrabar from the next available tick; later close-confirmed updates never
+// use this bar's high/low to claim an earlier fill within this same bar.
+if barstate.isconfirmed and dayBar and inWindow and not cutoffReached
+    bool newRiskEntry = submittedLong or submittedShort
+    if newRiskEntry
+        strategy.cancel("L-risk")
+        strategy.cancel("S-risk")
+        riskDirection := submittedLong ? 1 : -1
+        entryRiskAtr := riskAtr
+        // With process_orders_on_close, close is the reference submission price;
+        // configured entry slippage is incorporated when actual fills are visible.
+        riskEntryPrice := close
+        favorableExtreme := close
+        trailActive := false
+        activeRiskStop := useAtrStop ? riskEntryPrice - riskDirection * entryRiskAtr * atrStopMult : na
+    else if strategy.position_size == 0
+        strategy.cancel("L-risk")
+        strategy.cancel("S-risk")
+        riskDirection := 0
+        entryRiskAtr := na
+        riskEntryPrice := na
+        favorableExtreme := na
+        activeRiskStop := na
+        trailActive := false
+    else if riskDirection != 0
+        // Anchor to actual average fill once known; fixed stop may only tighten.
+        riskEntryPrice := strategy.position_avg_price
+        favorableExtreme := riskDirection == 1 ? math.max(favorableExtreme, high) : math.min(favorableExtreme, low)
+        float hardStop = useAtrStop ? riskEntryPrice - riskDirection * entryRiskAtr * atrStopMult : na
+        if not na(hardStop)
+            activeRiskStop := na(activeRiskStop) ? hardStop : riskDirection == 1 ? math.max(activeRiskStop, hardStop) : math.min(activeRiskStop, hardStop)
+        if useTrailingStop and riskDirection * (favorableExtreme - riskEntryPrice) >= entryRiskAtr * trailActivationMult
+            trailActive := true
+        if useTrailingStop and trailActive
+            float trailStop = favorableExtreme - riskDirection * entryRiskAtr * trailDistanceMult
+            activeRiskStop := na(activeRiskStop) ? trailStop : riskDirection == 1 ? math.max(activeRiskStop, trailStop) : math.min(activeRiskStop, trailStop)
+
+    if not na(activeRiskStop) and riskDirection != 0 and not exitSubmitted
+        // Round outwards to an exchange tick; never submit fractional ticks.
+        float tickStop = riskDirection == 1 ? math.floor(activeRiskStop / syminfo.mintick) * syminfo.mintick : math.ceil(activeRiskStop / syminfo.mintick) * syminfo.mintick
+        if riskDirection == 1
+            strategy.exit("L-risk", from_entry="L", stop=tickStop, comment=trailActive ? "移動停損" : "ATR停損")
+        else
+            strategy.exit("S-risk", from_entry="S", stop=tickStop, comment=trailActive ? "移動停損" : "ATR停損")
+    else
+        strategy.cancel("L-risk")
+        strategy.cancel("S-risk")
+
+plot(showRiskStop and not cutoffReached and (strategy.position_size != 0 or submittedLong or submittedShort) ? activeRiskStop : na, title="有效停損（收盤更新，之後生效）", color=trailActive ? color.orange : color.red, style=plot.style_linebr, linewidth=2)
+
+if barstate.isconfirmed and decisionClose > finishAt
+    strategy.cancel_all()
+
+plotshape(showSignals and flipNow and signalDir == 1, title="偏多翻轉訊號（非成交）", style=shape.triangleup, location=location.belowbar, color=color.lime, size=size.small, text="訊號")
+plotshape(showSignals and flipNow and signalDir == -1, title="偏空翻轉訊號（非成交）", style=shape.triangledown, location=location.abovebar, color=color.red, size=size.small, text="訊號")
+if showSignals and flipNow and str.length(lastTip) > 0
+    string qualityTip = lastTip + "\n訊號發生時品質: " + str.tostring(lastSignalScore, "#.0") + " / 100 (" + qualityLabel(lastSignalScore) + ")\n新倉門檻: " + str.tostring(minQualityScore, "#.0") + (qualityEntryOk ? "（通過；仍需符合進場條件）" : "（不足，不開新倉）")
+    label.new(bar_index, signalDir == 1 ? low : high, "", style=label.style_none, tooltip=qualityTip, textcolor=color.gray)
+bgcolor(dayBar and inWindow ? (signalDir == 1 ? color.new(color.green, 95) : signalDir == -1 ? color.new(color.red, 95) : na) : na)
+
+if showPanel and barstate.islast
+    var table info = table.new(position.top_right, 2, 13, bgcolor=color.new(color.black, 10), border_width=1)
+    int judged = strategy.closedtrades
+    float nativeWinRate = judged > 0 ? strategy.wintrades * 100.0 / judged : na
+    table.cell(info, 0, 0, "8zz 原生策略回測", text_color=color.white)
+    table.cell(info, 1, 0, modeA ? "A：固定" + str.tostring(holdBars) + "棒" : "B：等反轉", text_color=color.aqua)
+    table.cell(info, 0, 1, "交易時段", text_color=color.gray)
+    table.cell(info, 1, 1, futuresProfile ? "台指日盤08:45–13:45" : "台股09:00–13:30", text_color=color.white)
+    table.cell(info, 0, 2, "原生已平倉／勝率", text_color=color.gray)
+    table.cell(info, 1, 2, str.tostring(judged) + " / " + (na(nativeWinRate) ? "—" : str.tostring(nativeWinRate, "#.##") + "%"), text_color=color.white)
+    table.cell(info, 0, 3, "目前持倉", text_color=color.gray)
+    table.cell(info, 1, 3, str.tostring(strategy.position_size), text_color=color.white)
+    table.cell(info, 0, 4, "採用事件／保存總數", text_color=color.gray)
+    table.cell(info, 1, 4, str.tostring(eligibleEvents) + " / " + str.tostring(array.size(evt_time)), text_color=color.white)
+    table.cell(info, 0, 5, "圖表開始前略過事件", text_color=color.gray)
+    table.cell(info, 1, 5, str.tostring(skippedBeforeChart) + "（需載入完整歷史）", text_color=skippedBeforeChart > 0 ? color.yellow : color.white)
+    table.cell(info, 0, 6, "回測截止", text_color=color.gray)
+    table.cell(info, 1, 6, str.format_time(finishAt, "yyyy-MM-dd HH:mm", tz), text_color=color.white)
+    table.cell(info, 0, 7, "截止日收盤棒", text_color=color.gray)
+    table.cell(info, 1, 7, cutoffReached ? "已處理／截止平倉" : "尚未載入或資料缺漏", text_color=cutoffReached ? color.white : color.yellow)
+    table.cell(info, 0, 8, "成本／實際成交", text_color=color.gray)
+    table.cell(info, 1, 8, "每口單邊NT$250／來回NT$500", text_color=color.yellow)
+
+    table.cell(info, 0, 9, "每口開倉保證金", text_color=color.gray)
+    table.cell(info, 1, 9, "NT$700,000 / " + (entryMarginReady ? "權益足夠" : "不足，暫停新倉"), text_color=entryMarginReady ? color.white : color.yellow)
+    table.cell(info, 0, 10, "合約／點值", text_color=color.gray)
+    table.cell(info, 1, 10, "大台固定1口／每點NT$200", text_color=color.white)
+
+    table.cell(info, 0, 11, "最新訊號品質（發生時）", text_color=color.gray)
+    table.cell(info, 1, 11, na(lastSignalScore) ? "尚無" : str.tostring(lastSignalScore, "#.0") + " / 100 (" + qualityLabel(lastSignalScore) + ")", text_color=color.white)
+    table.cell(info, 0, 12, "新倉最低品質", text_color=color.gray)
+    table.cell(info, 1, 12, minQualityScore == 0 ? "0（不限制）" : str.tostring(minQualityScore, "#.0") + " 分以上（含）", text_color=color.aqua)

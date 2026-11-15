@@ -1,0 +1,11 @@
+name: Authorized one Threads minimal evaluation (consumed)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  consumed:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Authorization consumed. No secrets, provider queries or generation; general pipeline remains paused.'

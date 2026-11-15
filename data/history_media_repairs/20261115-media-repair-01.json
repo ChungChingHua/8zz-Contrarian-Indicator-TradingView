@@ -1,0 +1,19 @@
+{
+  "session": "20261115-media-repair-01",
+  "batches": [],
+  "actor_starts_reserved": 0,
+  "ai_requests": 0,
+  "monthly_runs_before": 69,
+  "http_requests": {
+    "GET": 0,
+    "POST": 0
+  },
+  "updated_at": "2026-11-15T08:58:11.582442+00:00",
+  "old_missing_recovery": {
+    "status": "held_no_resend",
+    "http_status": 403,
+    "evidence": "data/history_media_repairs/20261114-media-repair-04.json",
+    "note": "Previous scoped-key access denied. No credential/scope change reported; no repeated old-run request or unverified Actor restart."
+  },
+  "monthly_runs_after": 69
+}

@@ -1,0 +1,63 @@
+name: Acquire only missing latest history 20261114
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: original-author-history-batch-01
+  cancel-in-progress: false
+jobs:
+  acquire:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      AUTHORIZED_LATEST_HISTORY: latest-history-20261114
+      AUTHORIZED_HISTORY_SCOPE: history-completion-20261107
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Offline regression before any acquisition
+        run: python -m unittest discover -s scripts -p 'test*.py'
+      - name: Incremental acquisition only; no AI or notifications
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/history_latest_acquire_20261114.py
+      - name: Preserve only verified image cache from this acquisition
+        if: success()
+        run: |
+          PYTHONPATH=scripts python - <<'PY'
+          import json,os
+          from pathlib import Path
+          import history_cached_completion as m
+          import history_completion as hc
+          import history_worker as h
+          from review_rules import media_plan
+          m.CACHE.mkdir(exist_ok=True,mode=0o700)
+          manifest={'posts':{},'images':{},'created_at':h.now()}
+          (m.CACHE/'manifest.json').write_text(json.dumps(manifest))
+          media=object.__new__(m.Media);media.manifest=manifest
+          data=hc.archive();excluded,_=hc.exclusions(data);audit=[]
+          for key,p in h.s.read(hc.RAW,{}).items():
+              if key in excluded or not media_plan(p)['image_attachments']:continue
+              row={'key':key,'status':'checking'}
+              try:media.cache_post(p,data[key]);row.update(status='cached',images=len(manifest['images'][key]))
+              except Exception as exc:row.update(status='unavailable',error_type=type(exc).__name__)
+              audit.append(row)
+          h.s.write(hc.ROOT/'data/history_latest_image_preflight_20261114.json',audit)
+          print(json.dumps({'new_image_posts':len(audit),'cached':sum(x['status']=='cached' for x in audit)}))
+          PY
+      - name: Upload verified bytes and query-redacted manifest; no raw datasets
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: history-latest-acquisition-cache-20261114
+          path: /tmp/8zz-history-media-cache/
+          if-no-files-found: ignore
+          retention-days: 14

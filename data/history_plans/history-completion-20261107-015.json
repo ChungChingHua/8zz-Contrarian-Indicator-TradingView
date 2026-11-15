@@ -1,0 +1,533 @@
+{
+  "batch_id": "history-completion-20261107-015",
+  "max_generations": 25,
+  "rule_version": "fork-7b626f2-ai-v1",
+  "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+  "posts": [
+    {
+      "key": "threads:3978695960142483647",
+      "content_hash": "94d3b3379760a3a0d1e80b630b518bb6f49663bb9967f8ca9e1750966603afbf",
+      "post_id": "3978695960142483647",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dc3KuVNkxC_",
+      "published_at": "2026-09-04T10:25:40+00:00",
+      "display_time": "2026-09-04T18:25:40+08:00",
+      "unix_ms": 1788517540000,
+      "text": "聯邦銀行房貸的超級超級超級抱怨文\n我的房貸原本是20年償還，每個月9萬1，\n去年跟業務接洽改成30年償還，每個月6萬多\n\n今天接到聯邦銀行的房貸部門打電話來\n口氣非常不好的問我說我房貸已經拖很久了，什麼時候要還\n我一開始嚇到， 想說⋯是不是我的自動轉帳到期我忘了還是怎樣⋯ \n連忙道歉後趕快轉錢進去房貸帳戶\n\n然後我就檢查了一下聯邦的帳戶⋯ \n不對啊⋯上過月為止都有匯款啊，怎麼會很久沒繳\n後來我看了一下扣款金額⋯ 9萬1？ \n唉？為什麼是9萬1！？\n不是應該是6萬多嗎？\n\n後來打電話區去詢問， 查詢後才知道\n去年送件後，他們臨時改變決議，拒絕我的延長申請\n\n然後也沒通知我⋯就從12月一直到現在才通知我！\n等於我原本規劃的現金流要瞬間繳出20多萬！\n\n這到底是要多爛的公司才做的出來的事情\n當初要是不讓我延長，我直接換銀行就好了，還需要跟你搞這麼多？\n\n然後我也只能無能狂怒爆罵行員_(:_」∠)_",
+      "number": 1,
+      "members": [
+        {
+          "key": "threads:3978695960142483647",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dc3KuVNkxC_",
+          "published_at": "2026-09-04T10:25:40+00:00",
+          "post_id": "3978695960142483647"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1644654240352498",
+      "content_hash": "27da4cd4222063c49e71000134a3b638faa5a10667f99d3fbc34ab93660ba701",
+      "post_id": "1644654240352498",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02oRMB99St8xQgeHYaGKhV2iqRXoEoeN8nkkLFe9dxGoee5cWjWRp4SaxzGjxYseCnl",
+      "published_at": "2026-09-04T10:25:48+00:00",
+      "display_time": "2026-09-04T18:25:48+08:00",
+      "unix_ms": 1788517548000,
+      "text": "聯邦銀行房貸的超級超級超級抱怨文\n我的房貸原本是20年償還，每個月9萬1，\n去年跟業務接洽改成30年償還，每個月6萬多\n\n今天接到聯邦銀行的房貸部門打電話來\n口氣非常不好的問我說我房貸已經很拖很久了，什麼時候要還款\n我一開始嚇到， 想說⋯是不是我的自動轉帳到期我忘了還是怎樣⋯ \n連忙道歉後趕快轉錢進去房貸帳戶\n\n然後我就檢查了一下聯邦的帳戶⋯ \n不對啊⋯上過月為止都有匯款啊，怎麼會很久沒繳\n後來我看了一下扣款金額⋯ 9萬1？ \n唉？為什麼是9萬1！？\n不是應該是6萬多嗎？\n\n後來打電話區去詢問， 查詢後才知道\n去年送件後，他們臨時改變決議，拒絕我的延長申請\n\n然後也沒通知我⋯就從12月一直到現在才通知我！\n等於我原本規劃的現金流要瞬間繳出20多萬！\n\n這到底是要多爛的公司才做的出來的事情\n當初要是不讓我延長，我直接換銀行就好了，還需要跟你搞這麼多？\n\n然後我也只能無能狂怒爆罵行員_(:_」∠)_",
+      "number": 2,
+      "members": [
+        {
+          "key": "facebook:1644654240352498",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02oRMB99St8xQgeHYaGKhV2iqRXoEoeN8nkkLFe9dxGoee5cWjWRp4SaxzGjxYseCnl",
+          "published_at": "2026-09-04T10:25:48+00:00",
+          "post_id": "1644654240352498"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1644925936991995",
+      "content_hash": "fec66b83c84a9cb194eeab090d32944f07b0398d8454061dc3bdc52a9fff0fde",
+      "post_id": "1644925936991995",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02zEejyGeLh7mGC3FQ8b3Hu3SeFPqFuSvnc24xpGvUTuVcVohh6EDdeg26nuieNepsl",
+      "published_at": "2026-09-04T16:26:08+00:00",
+      "display_time": "2026-09-05T00:26:08+08:00",
+      "unix_ms": 1788539168000,
+      "text": "穩了",
+      "number": 3,
+      "members": [
+        {
+          "key": "facebook:1644925936991995",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02zEejyGeLh7mGC3FQ8b3Hu3SeFPqFuSvnc24xpGvUTuVcVohh6EDdeg26nuieNepsl",
+          "published_at": "2026-09-04T16:26:08+00:00",
+          "post_id": "1644925936991995"
+        }
+      ]
+    },
+    {
+      "key": "threads:3978913518573938332",
+      "content_hash": "078ef2a3f1667028f4307f3356caf6c6a776b5dfac5d26f5bace10076566fdb6",
+      "post_id": "3978913518573938332",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dc38MOSmWac",
+      "published_at": "2026-09-04T17:37:55+00:00",
+      "display_time": "2026-09-05T01:37:55+08:00",
+      "unix_ms": 1788543475000,
+      "text": "懷念一下 西班牙藝術品\n摳腳的男孩",
+      "number": 4,
+      "members": [
+        {
+          "key": "threads:3978913518573938332",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dc38MOSmWac",
+          "published_at": "2026-09-04T17:37:55+00:00",
+          "post_id": "3978913518573938332"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1645281390289783",
+      "content_hash": "d56782f61f723c10ddb883401277018876948f898ecbe9d3039b8c94bbc4abf6",
+      "post_id": "1645281390289783",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0kv6mUpYnqe8JUogtMPZVi9nYh8PMWAUK9Tr8DX21HXebWvHDxmZmCdenJS7ts54Fl",
+      "published_at": "2026-09-05T02:49:28+00:00",
+      "display_time": "2026-09-05T10:49:28+08:00",
+      "unix_ms": 1788576568000,
+      "text": "昨天大家歡天喜地，而滿身黃金的我be like..\n全世界484只有我股票虧錢⋯_(:_」∠)_",
+      "number": 5,
+      "members": [
+        {
+          "key": "facebook:1645281390289783",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0kv6mUpYnqe8JUogtMPZVi9nYh8PMWAUK9Tr8DX21HXebWvHDxmZmCdenJS7ts54Fl",
+          "published_at": "2026-09-05T02:49:28+00:00",
+          "post_id": "1645281390289783"
+        }
+      ]
+    },
+    {
+      "key": "threads:3979191132542458314",
+      "content_hash": "ad7f0ff93ec7f47694bac41ba0e4e4c6be237d2d0cac30ed1755055cd9d624aa",
+      "post_id": "3979191132542458314",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dc47UCck9nK",
+      "published_at": "2026-09-05T02:49:30+00:00",
+      "display_time": "2026-09-05T10:49:30+08:00",
+      "unix_ms": 1788576570000,
+      "text": "昨天大家歡天喜地，而滿身黃金的我be like..\n全世界484只有我股票虧錢⋯_(:_」∠)_",
+      "number": 6,
+      "members": [
+        {
+          "key": "threads:3979191132542458314",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dc47UCck9nK",
+          "published_at": "2026-09-05T02:49:30+00:00",
+          "post_id": "3979191132542458314"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1645485060269416",
+      "content_hash": "9494579a40a4f501c3d6fcf22fbde8deccad5aada49ff282a8d7c07a5522784a",
+      "post_id": "1645485060269416",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02qhVYLNgBU2pTnGWWt5eXmyRiReXCPhqsxEC5grFuGz4XxU3VG6xWzExcm9YyS1HSl",
+      "published_at": "2026-09-05T08:20:42+00:00",
+      "display_time": "2026-09-05T16:20:42+08:00",
+      "unix_ms": 1788596442000,
+      "text": "到處蹭錶的我(⊙ω⊙)/",
+      "number": 7,
+      "members": [
+        {
+          "key": "facebook:1645485060269416",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02qhVYLNgBU2pTnGWWt5eXmyRiReXCPhqsxEC5grFuGz4XxU3VG6xWzExcm9YyS1HSl",
+          "published_at": "2026-09-05T08:20:42+00:00",
+          "post_id": "1645485060269416"
+        }
+      ]
+    },
+    {
+      "key": "threads:3979362045691265549",
+      "content_hash": "c0ed21f05a62ac25192dc9abe982181d8c5bc9446db87851a02ad28b2de9326d",
+      "post_id": "3979362045691265549",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dc5iLJuGYIN",
+      "published_at": "2026-09-05T08:29:04+00:00",
+      "display_time": "2026-09-05T16:29:04+08:00",
+      "unix_ms": 1788596944000,
+      "text": "蹭錶❤️ 好厚～ 但是有200m防水耶",
+      "number": 8,
+      "members": [
+        {
+          "key": "threads:3979362045691265549",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dc5iLJuGYIN",
+          "published_at": "2026-09-05T08:29:04+00:00",
+          "post_id": "3979362045691265549"
+        }
+      ]
+    },
+    {
+      "key": "threads:3979598062725699188",
+      "content_hash": "8ded3478dd1c125ffed451dcac5b4229e1cb956acb127f7bafdcdf363b345589",
+      "post_id": "3979598062725699188",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dc6X1ptmRZ0",
+      "published_at": "2026-09-05T16:17:59+00:00",
+      "display_time": "2026-09-06T00:17:59+08:00",
+      "unix_ms": 1788625079000,
+      "text": "人生後悔的事情\n\n吃飯的時候看尼古喵喵第9集",
+      "number": 9,
+      "members": [
+        {
+          "key": "threads:3979598062725699188",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dc6X1ptmRZ0",
+          "published_at": "2026-09-05T16:17:59+00:00",
+          "post_id": "3979598062725699188"
+        }
+      ]
+    },
+    {
+      "key": "threads:3980050733085612771",
+      "content_hash": "8dfeb8ff2fafbadd3d430625c34ac0b5497a5e052ac5cbdf46278f4b10269a5d",
+      "post_id": "3980050733085612771",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dc7-w31mdrj",
+      "published_at": "2026-09-06T07:17:22+00:00",
+      "display_time": "2026-09-06T15:17:22+08:00",
+      "unix_ms": 1788679042000,
+      "text": "巴逆逆真的是越來越飄了\n一直接業配跟團購\n冥燈也越來越不準\n難道不知道網紅就不能用流量賺錢嗎？ \n\n真是的\n居然還不會每天提醒跟檢舉那些詐騙！\n被騙到怎麼辦啊！ 她要負責啊",
+      "number": 10,
+      "members": [
+        {
+          "key": "threads:3980050733085612771",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dc7-w31mdrj",
+          "published_at": "2026-09-06T07:17:22+00:00",
+          "post_id": "3980050733085612771"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1647007733450482",
+      "content_hash": "a242fa128da07c36de2bd5597eeb58a1047ea1454269ad7e1233e4b0a0aed550",
+      "post_id": "1647007733450482",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02rj81M2m8MaUX3wVZCw29wrbpKS7u53v9uC7Bq9qEvZHcHDiHGoUCSBxV1z8dbGtTl",
+      "published_at": "2026-09-07T03:06:05+00:00",
+      "display_time": "2026-09-07T11:06:05+08:00",
+      "unix_ms": 1788750365000,
+      "text": "Jojo!!!!!\nWryyyyyy\n\n我其實是參考最近很夯的資金板塊流動\n外加今天漲幅挑的⋯ \n\n簡單說就是追高_(:_」∠)_\n所以買的非常少，嘗試追資金流動的方式投資\n停損點也會設定非常低",
+      "number": 11,
+      "members": [
+        {
+          "key": "facebook:1647007733450482",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02rj81M2m8MaUX3wVZCw29wrbpKS7u53v9uC7Bq9qEvZHcHDiHGoUCSBxV1z8dbGtTl",
+          "published_at": "2026-09-07T03:06:05+00:00",
+          "post_id": "1647007733450482"
+        }
+      ]
+    },
+    {
+      "key": "threads:3980649994563169395",
+      "content_hash": "9c64ce823edb92829dcfd7d7f5cd866ac4b05fb8d34b32964a75b055d124a189",
+      "post_id": "3980649994563169395",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dc-HBRlGSxz",
+      "published_at": "2026-09-07T03:07:59+00:00",
+      "display_time": "2026-09-07T11:07:59+08:00",
+      "unix_ms": 1788750479000,
+      "text": "第一次嘗試追資金流動的方式買股\n不知道結果會怎樣\n覺得自己好韭菜⋯⋯\n\n（說的好像平常就不韭）",
+      "number": 12,
+      "members": [
+        {
+          "key": "threads:3980649994563169395",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dc-HBRlGSxz",
+          "published_at": "2026-09-07T03:07:59+00:00",
+          "post_id": "3980649994563169395"
+        }
+      ]
+    },
+    {
+      "key": "threads:3980690201396218913",
+      "content_hash": "b41d9838beb91c58bedd94752c98d63f4faead7591f0c5ba2cea23c83efa1a8c",
+      "post_id": "3980690201396218913",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dc-QKXHGYwh",
+      "published_at": "2026-09-07T04:27:52+00:00",
+      "display_time": "2026-09-07T12:27:52+08:00",
+      "unix_ms": 1788755272000,
+      "text": "滿手981的我:\n今天有漲？",
+      "number": 13,
+      "members": [
+        {
+          "key": "threads:3980690201396218913",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dc-QKXHGYwh",
+          "published_at": "2026-09-07T04:27:52+00:00",
+          "post_id": "3980690201396218913"
+        }
+      ]
+    },
+    {
+      "key": "threads:3980855765490068395",
+      "content_hash": "f4e3d6a599d82d684115545d3ff0ff8c8cd1a48d632a40d25363ec5dc2f2898f",
+      "post_id": "3980855765490068395",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dc-1zosGeur",
+      "published_at": "2026-09-07T09:56:49+00:00",
+      "display_time": "2026-09-07T17:56:49+08:00",
+      "unix_ms": 1788775009000,
+      "text": "雖然灌水灌很大\n平心而論\n18組其實也蠻厲害了\n\n我只會唱 Cindy baby",
+      "number": 14,
+      "members": [
+        {
+          "key": "threads:3980855765490068395",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dc-1zosGeur",
+          "published_at": "2026-09-07T09:56:49+00:00",
+          "post_id": "3980855765490068395"
+        }
+      ]
+    },
+    {
+      "key": "threads:3980878218413074328",
+      "content_hash": "a6046c92c5de274a7dfc929b2eff08b5efbd303f8aec5d29d9ccdb50f9fb8084",
+      "post_id": "3980878218413074328",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dc-66XmmeeY",
+      "published_at": "2026-09-07T10:41:25+00:00",
+      "display_time": "2026-09-07T18:41:25+08:00",
+      "unix_ms": 1788777685000,
+      "text": "再漲一天\n我就要減碼了",
+      "number": 15,
+      "members": [
+        {
+          "key": "threads:3980878218413074328",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dc-66XmmeeY",
+          "published_at": "2026-09-07T10:41:25+00:00",
+          "post_id": "3980878218413074328"
+        }
+      ]
+    },
+    {
+      "key": "threads:3981010106129039698",
+      "content_hash": "f4e293b8d9f9c93805c895441af95e96a0ae176ff14a27a119f9b5be187ae45e",
+      "post_id": "3981010106129039698",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dc_Y5lnD8FS",
+      "published_at": "2026-09-07T15:03:28+00:00",
+      "display_time": "2026-09-07T23:03:28+08:00",
+      "unix_ms": 1788793408000,
+      "text": "今天大漲, 其實手上不少股票也都有漲到\n說是這樣說, 但是我越看越燥...\n\n一開始實在是不知道甚麼原因\n後來看了一下持股\n\n恩, 有的-30%, 有的欣興-13%, 有的漲歸漲, 帶識別說6月了, 比8月反彈那波還低\n有的只是剛好回到崩盤前\n整體損益大概需要總持股金額在漲個30%才回到前高(還不算上已經實現的虧損)\n\n難怪我越看整個人越燥= =",
+      "number": 16,
+      "members": [
+        {
+          "key": "threads:3981010106129039698",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dc_Y5lnD8FS",
+          "published_at": "2026-09-07T15:03:28+00:00",
+          "post_id": "3981010106129039698"
+        }
+      ]
+    },
+    {
+      "key": "threads:3981044309394915733",
+      "content_hash": "1d51e27c9287e0fb888376ac0c3a0db321056428dd11de9005e9f813822b9212",
+      "post_id": "3981044309394915733",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/Dc_grT4kwGV",
+      "published_at": "2026-09-07T16:11:27+00:00",
+      "display_time": "2026-09-08T00:11:27+08:00",
+      "unix_ms": 1788797487000,
+      "text": "一切結束後，我要開一艘捕蝦船，然後開一間蝦子吃到飽餐廳",
+      "number": 17,
+      "members": [
+        {
+          "key": "threads:3981044309394915733",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/Dc_grT4kwGV",
+          "published_at": "2026-09-07T16:11:27+00:00",
+          "post_id": "3981044309394915733"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1647832213368034",
+      "content_hash": "16b4712b628d5c0aa97483f04e40723fa8c1291acd8369f0891585db61db55d3",
+      "post_id": "1647832213368034",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid08aLyMLAVJmS4n1iEMoFLcaxZpWdRSctJumDmtbN3z6249wtZ2oYTJttAaGU944NNl",
+      "published_at": "2026-09-08T01:10:37+00:00",
+      "display_time": "2026-09-08T09:10:37+08:00",
+      "unix_ms": 1788829837000,
+      "text": "why.....\n明明只要再一天⋯⋯\n為什麼啊！\n\n還有那個富喬⋯⋯\nwhyyyyyy",
+      "number": 18,
+      "members": [
+        {
+          "key": "facebook:1647832213368034",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid08aLyMLAVJmS4n1iEMoFLcaxZpWdRSctJumDmtbN3z6249wtZ2oYTJttAaGU944NNl",
+          "published_at": "2026-09-08T01:10:37+00:00",
+          "post_id": "1647832213368034"
+        }
+      ]
+    },
+    {
+      "key": "threads:3981360607673265704",
+      "content_hash": "e44df8b963c5139b8b23ddd9731f8f8de902a85daace57793c261a09d84a2bd4",
+      "post_id": "3981360607673265704",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DdAomDnGS4o",
+      "published_at": "2026-09-08T02:39:51+00:00",
+      "display_time": "2026-09-08T10:39:51+08:00",
+      "unix_ms": 1788835191000,
+      "text": "哼\n這點價差， 我才不要",
+      "number": 19,
+      "members": [
+        {
+          "key": "threads:3981360607673265704",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DdAomDnGS4o",
+          "published_at": "2026-09-08T02:39:51+00:00",
+          "post_id": "3981360607673265704"
+        }
+      ]
+    },
+    {
+      "key": "threads:3981603709717649610",
+      "content_hash": "bf2c7bcaa4de97b14c3f02a41c6348c4ae21a12a4c6a27d4f2dc8c3f3174a6b3",
+      "post_id": "3981603709717649610",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DdBf3qCGRjK",
+      "published_at": "2026-09-08T10:42:51+00:00",
+      "display_time": "2026-09-08T18:42:51+08:00",
+      "unix_ms": 1788864171000,
+      "text": "看到讓人對這個社會感到失望的新聞\n有些人真的連人權都配不上\n\n真的應該跟那個影片一樣，由家屬決定手術移除哪個部位，一直到家屬原諒為止",
+      "number": 20,
+      "members": [
+        {
+          "key": "threads:3981603709717649610",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DdBf3qCGRjK",
+          "published_at": "2026-09-08T10:42:51+00:00",
+          "post_id": "3981603709717649610"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1648241563327099",
+      "content_hash": "b6f03e3f2282e0358c59770b1e47200a59984e8ac4937c23371ad1a38ab4138d",
+      "post_id": "1648241563327099",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02Z3kJkwv442wAELansCx349F5XSErwkatUvUKve69DbQrA1qeVQT2jiC8VUF7bdQrl",
+      "published_at": "2026-09-08T12:24:43+00:00",
+      "display_time": "2026-09-08T20:24:43+08:00",
+      "unix_ms": 1788870283000,
+      "text": "新的業配⋯好難想梗\n請問大家最近有什麼網路梗可以給我參考一下的？ \n\n感謝大家～\n最近接了一些業配，也請大家多支持多包容🤣",
+      "number": 21,
+      "members": [
+        {
+          "key": "facebook:1648241563327099",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02Z3kJkwv442wAELansCx349F5XSErwkatUvUKve69DbQrA1qeVQT2jiC8VUF7bdQrl",
+          "published_at": "2026-09-08T12:24:43+00:00",
+          "post_id": "1648241563327099"
+        }
+      ]
+    },
+    {
+      "key": "threads:3981792363412658982",
+      "content_hash": "44f584f409f6bbf71f7871c8df53dd73f5ea9ebf60b7579ffef21a49649b2ebd",
+      "post_id": "3981792363412658982",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DdCKw7ekxsm",
+      "published_at": "2026-09-08T16:57:40+00:00",
+      "display_time": "2026-09-09T00:57:40+08:00",
+      "unix_ms": 1788886660000,
+      "text": "我好緊張啊～\n明天究竟是低買高賣， 還是不堪一擊呢？\n我想在美聯儲開獎之前減碼啊\n\n新版護身符只到週五為止喔❤️ \n去我的脆看看吧！",
+      "number": 22,
+      "members": [
+        {
+          "key": "threads:3981792363412658982",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DdCKw7ekxsm",
+          "published_at": "2026-09-08T16:57:40+00:00",
+          "post_id": "3981792363412658982"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1648440373307218",
+      "content_hash": "3e99bd0dadd86879bd25b57a89758150ed3ed6a96229e26bdbe608ba1e3843ff",
+      "post_id": "1648440373307218",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0ZAjkj97nuG6dQrNKmfo2BPY3ei9uM9QBF44eDSNqp8GEMNTxte5iVWPgAqAKCAodl",
+      "published_at": "2026-09-08T16:57:48+00:00",
+      "display_time": "2026-09-09T00:57:48+08:00",
+      "unix_ms": 1788886668000,
+      "text": "我好緊張啊～\n明天究竟是低買高賣， 還是不堪一擊呢？\n我想在美聯儲開獎之前減碼啊\n\n新版護身符只到週五為止喔❤️ \n去我的脆看看吧！",
+      "number": 23,
+      "members": [
+        {
+          "key": "facebook:1648440373307218",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0ZAjkj97nuG6dQrNKmfo2BPY3ei9uM9QBF44eDSNqp8GEMNTxte5iVWPgAqAKCAodl",
+          "published_at": "2026-09-08T16:57:48+00:00",
+          "post_id": "1648440373307218"
+        }
+      ]
+    },
+    {
+      "key": "threads:3981874055762638922",
+      "content_hash": "2bec2576c37ebd3a0cb1a44733940dca5b4b2306667b15e77e2621503863ad44",
+      "post_id": "3981874055762638922",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DdCdVtaE3hK",
+      "published_at": "2026-09-08T19:39:59+00:00",
+      "display_time": "2026-09-09T03:39:59+08:00",
+      "unix_ms": 1788896399000,
+      "text": "其實我能做的還有健身\n我一直沒做\n\n我要改變！\n先從每天深蹲100下開始！",
+      "number": 24,
+      "members": [
+        {
+          "key": "threads:3981874055762638922",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DdCdVtaE3hK",
+          "published_at": "2026-09-08T19:39:59+00:00",
+          "post_id": "3981874055762638922"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1648724669945455",
+      "content_hash": "c14a9d08532d557941c7dba2bf21c367bf2edb9ce25d3e755fec361f0d274025",
+      "post_id": "1648724669945455",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02Ehbzi9n627ZvNTkS2Fdsf9KaPxcU2xPEBj9ax4TP3aV3XC4m2AQwhaSTUFKpyFVil",
+      "published_at": "2026-09-09T01:22:18+00:00",
+      "display_time": "2026-09-09T09:22:18+08:00",
+      "unix_ms": 1788916938000,
+      "text": "終於要回到起跌點了_(:_」∠)_\n再給我一根上去我就解套了！\n\n衝啊啊啊！",
+      "number": 25,
+      "members": [
+        {
+          "key": "facebook:1648724669945455",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02Ehbzi9n627ZvNTkS2Fdsf9KaPxcU2xPEBj9ax4TP3aV3XC4m2AQwhaSTUFKpyFVil",
+          "published_at": "2026-09-09T01:22:18+00:00",
+          "post_id": "1648724669945455"
+        }
+      ]
+    }
+  ]
+}

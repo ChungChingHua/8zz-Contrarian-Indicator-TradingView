@@ -1,0 +1,7 @@
+{
+  "maximum_usd": 5,
+  "used_usd": "4.978514389197657",
+  "remaining_headroom_usd_derived": "0.021485610802343",
+  "observed_at": "2026-11-14T07:22:09.580563+00:00",
+  "note": "Usage limit headroom, not cash balance or settled bill."
+}

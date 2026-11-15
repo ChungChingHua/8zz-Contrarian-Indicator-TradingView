@@ -1,0 +1,1859 @@
+{
+  "date_taipei": "2026-11-14",
+  "scope": "history-completion-20261107",
+  "data_cutoff_taipei": "2026-11-07T20:15:59.578797+08:00",
+  "summary": {
+    "date_taipei": "2026-11-14",
+    "generation_attempts": 64,
+    "validated_responses": 61,
+    "added_events": 18,
+    "status_counts": {
+      "completed_signal": 18,
+      "completed_no_signal": 32,
+      "pending_confirmation": 11,
+      "technical_failure": 3
+    },
+    "service_reported_usage": {
+      "input_tokens": 185833,
+      "output_tokens": 10020,
+      "total_tokens": 195853,
+      "reasoning_tokens": 0
+    },
+    "new_actor_starts": 4,
+    "observed_actor_cost_usd": "0.172",
+    "Apify_http_counts": {
+      "GET": 53,
+      "POST": 5
+    },
+    "actual_points_deducted": null
+  },
+  "final_post_status_counts": {
+    "completed_signal": 231,
+    "completed_no_signal": 306,
+    "pending_confirmation": 99,
+    "technical_failure": 13,
+    "input_failure": 7,
+    "not_started": 10,
+    "unknown": 0
+  },
+  "pine": {
+    "historical_events": 151,
+    "added_events": 229,
+    "total_events": 380,
+    "same_bar_policy": "latest_post_before_filters",
+    "historical_blocks_preserved": true,
+    "historical_basis": "reconciled_published_author_history",
+    "fork_base_events": 150,
+    "author_reference_events": 65,
+    "historical_reference_changes": {
+      "updated_events": 5,
+      "retimed_events": 1,
+      "inserted_events": 1,
+      "unchanged_fork_events": 144
+    },
+    "archived_fork_source_unchanged": true,
+    "fork_base_literals_preserved": false,
+    "historical_neutral_events_preserved": 0,
+    "new_events_nonzero": true,
+    "arrays_paired": true,
+    "timestamps_ordered": true,
+    "directions_strengths_valid": true,
+    "tradingview_compiled": false,
+    "initialization_functions": 19,
+    "max_events_per_function": 20,
+    "first_bar_calls": 19,
+    "event_initialization_chunk_limit": 20,
+    "event_encoding": "packed-v1",
+    "packed_event_round_trip": true,
+    "max_payload_bytes": 10249,
+    "payload_byte_limit": 30000,
+    "executable_array_push_statements": 5,
+    "il_tokens_measured": false
+  },
+  "continuous_visited_until": "2026-11-05T01:23:43+08:00",
+  "last_valid_response": "2026-11-07T17:09:34+08:00",
+  "latest_event": "2026-11-07T00:54:48+08:00",
+  "first_unstarted": "2026-11-05T03:04:10+08:00",
+  "remaining_missing_media": [
+    {
+      "key": "facebook:1702487071235881",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0vzGJfezAr6mDRnz1VmhY5avBR5HhZXiRE5pxW7MrGstFaoUc1upnZZWXG1nD7BFjl",
+      "display_time": "2026-11-05T03:04:10+08:00",
+      "status": "not_started",
+      "stored_status": null,
+      "record_key": null,
+      "evidence": null,
+      "reason": "media_http_status_rejected",
+      "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+      "generation_attempts": 0,
+      "auto_retry": false
+    },
+    {
+      "key": "facebook:1702731291211459",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid035tHJPGrDoLRNT1A9XfjfBXvDSyrmn5iWmw2KR3FDGtACoaExAgTaYHC8v88ySNUWl",
+      "display_time": "2026-11-05T09:23:04+08:00",
+      "status": "not_started",
+      "stored_status": null,
+      "record_key": null,
+      "evidence": null,
+      "reason": "media_http_status_rejected",
+      "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+      "generation_attempts": 0,
+      "auto_retry": false
+    },
+    {
+      "key": "facebook:1702897424528179",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02FgHSPLV7qxuLxZPP3DLuZoNFMduPa9PpMuQ45gmmdEPFrPfgom5cGkwh8DeLcb1Kl",
+      "display_time": "2026-11-05T13:17:14+08:00",
+      "status": "not_started",
+      "stored_status": null,
+      "record_key": null,
+      "evidence": null,
+      "reason": "media_http_status_rejected",
+      "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+      "generation_attempts": 0,
+      "auto_retry": false
+    },
+    {
+      "key": "facebook:1703163464501575",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02o4AKSbPWCCPWpq62E1UnSNcUdfWCHRfSEAEruZ7RW4fH6sdqB6oXioXAGkmzVnCrl",
+      "display_time": "2026-11-05T19:46:58+08:00",
+      "status": "not_started",
+      "stored_status": null,
+      "record_key": null,
+      "evidence": null,
+      "reason": "media_http_status_rejected",
+      "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+      "generation_attempts": 0,
+      "auto_retry": false
+    },
+    {
+      "key": "facebook:1703429887808266",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0YAJxviLNDv2BGBsdTXgEsHe6YvfRZtgBC3yrc6WksVY3wPGiAc4RsAPYNtx8t1i5l",
+      "display_time": "2026-11-06T00:47:04+08:00",
+      "status": "not_started",
+      "stored_status": null,
+      "record_key": null,
+      "evidence": null,
+      "reason": "media_http_status_rejected",
+      "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+      "generation_attempts": 0,
+      "auto_retry": false
+    },
+    {
+      "key": "facebook:1703740244443897",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid08wkUP46KGJHSyn1sEhxNV7GG8xZah94T9bVfGe5rfkr9FWtXq4ygRLkYDm9MAqfzl",
+      "display_time": "2026-11-06T08:26:00+08:00",
+      "status": "not_started",
+      "stored_status": null,
+      "record_key": null,
+      "evidence": null,
+      "reason": "media_http_status_rejected",
+      "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+      "generation_attempts": 0,
+      "auto_retry": false
+    },
+    {
+      "key": "facebook:1703792734438648",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid037J5afqWKJv53P9DQt53pwWgXp4e9Lbbwp3fJBQZWf4EPZfakWZGf2GMGHUuEHSdBl",
+      "display_time": "2026-11-06T09:40:10+08:00",
+      "status": "not_started",
+      "stored_status": null,
+      "record_key": null,
+      "evidence": null,
+      "reason": "required_refreshed_images_unavailable",
+      "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+      "generation_attempts": 0,
+      "auto_retry": false
+    },
+    {
+      "key": "facebook:1704945814323340",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02SKKe6t1xozYuPPTpT1dezwLh49AYvwJDQgqZpvHNx4eW9m8hhY127syMwEfwgA2Gl",
+      "display_time": "2026-11-07T10:23:30+08:00",
+      "status": "not_started",
+      "stored_status": null,
+      "record_key": null,
+      "evidence": null,
+      "reason": "media_http_status_rejected",
+      "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+      "generation_attempts": 0,
+      "auto_retry": false
+    },
+    {
+      "key": "facebook:1705156784302243",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02HVzyozMABc2YGDoXvrdLj2mb7jaUXuuDMvBGvZyzwFeUVfkkyS3PU1wNRbkDrwg7l",
+      "display_time": "2026-11-07T15:09:17+08:00",
+      "status": "not_started",
+      "stored_status": null,
+      "record_key": null,
+      "evidence": null,
+      "reason": "media_http_status_rejected",
+      "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+      "generation_attempts": 0,
+      "auto_retry": false
+    },
+    {
+      "key": "facebook:1705237887627466",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid035ydhaSUH8aqj99cm6yxckf9sbjK9Ez8udykEy2RmFBmFAYGpykhp2j2bBTnu8uvHl",
+      "display_time": "2026-11-07T17:08:22+08:00",
+      "status": "not_started",
+      "stored_status": null,
+      "record_key": null,
+      "evidence": null,
+      "reason": "media_http_status_rejected",
+      "media_evidence": "data/history_media_repairs/20261114-media-repair-02.json",
+      "generation_attempts": 0,
+      "auto_retry": false
+    }
+  ],
+  "service_budget_statement": {
+    "provider": "Apify",
+    "source": "data/history_media_repairs/final-budget-20261114.json",
+    "maximum_usd": 5,
+    "used_usd": "4.978514389197657",
+    "remaining_headroom_usd_derived": "0.021485610802343",
+    "observed_at": "2026-11-14T07:22:09.580563+00:00",
+    "note": "Usage headroom is not cash balance or independently settled invoice. No top-up or limit increase.",
+    "project_monthly_run_count": 65,
+    "project_monthly_run_limit": 70
+  },
+  "cap_guard_incident": {
+    "requested_cap_usd": "0.10",
+    "returned_cap_usd": "0.057529",
+    "aborted_run": "aN1ESUqN4kVceCqBH",
+    "dataset_items": 0,
+    "observed_charge_usd": "0.001",
+    "cause": "Local equality check rejected a verified lower cap; corrected to finite positive cap <= USD0.10 plus user-cap acknowledgement.",
+    "restarted": false
+  },
+  "media_run_audit": {
+    "runs": 17,
+    "unique_reserved_post_keys": 171,
+    "duplicate_reserved_post_keys": [],
+    "note": "Media update reservations include aborted runs; unique keys are not a count of successful downloads."
+  },
+  "request_setting": {
+    "provider": "ChatAnywhere",
+    "base_url": "https://api.chatanywhere.tech/v1",
+    "model": "gpt-5-mini",
+    "reasoning_effort": "minimal"
+  },
+  "service_returned": {
+    "models": [
+      "gpt-5-mini"
+    ],
+    "reasoning_claims": [
+      "{\"effort\":\"minimal\"}"
+    ],
+    "independently_verified": false
+  },
+  "media_scope_totals": {
+    "images_attached": 40,
+    "unanalysed_video_attachments": 10,
+    "human_image_verification_claimed": false
+  },
+  "actor_runs": [
+    {
+      "id": "T5aL34lZ0cAhRu17S",
+      "source": "threads",
+      "status": "SUCCEEDED",
+      "buildNumber": "0.1.72",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.08"
+    },
+    {
+      "id": "i22Es0nKg6gd7bpEZ",
+      "source": "facebook",
+      "status": "SUCCEEDED",
+      "buildNumber": "0.0.421",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.061"
+    },
+    {
+      "id": "aN1ESUqN4kVceCqBH",
+      "source": "facebook",
+      "status": "ABORTED",
+      "buildNumber": "0.0.421",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.057529",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.001"
+    },
+    {
+      "id": "fPBlsZbRm65xzhyGX",
+      "source": "threads",
+      "status": "SUCCEEDED",
+      "buildNumber": "0.1.72",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.057529",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.03"
+    }
+  ],
+  "records": [
+    {
+      "key": "threads:4019411110490389007",
+      "display_time": "2026-10-30T22:39:26+08:00",
+      "status": "pending_confirmation",
+      "text_excerpt": "啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊～\n我會復活的！",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfH0Rv3CboP"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "僅有模糊情緒宣洩與影片未分析，無法判定是否與投資或具體持倉/交易相關，依規則跳過",
+      "images_attached": 0,
+      "unanalysed_media": [
+        {
+          "attachment_index": 0,
+          "kind": "video",
+          "status": "影片未分析"
+        }
+      ],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2478,
+        "input_tokens": 2385,
+        "output_tokens": 93,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "facebook:1697221465095775",
+      "display_time": "2026-10-30T22:53:24+08:00",
+      "status": "pending_confirmation",
+      "text_excerpt": "好討厭的感覺啊啊啊啊啊啊",
+      "urls": [
+        "https://www.facebook.com/reel/1658738105594536/"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "情緒模糊、未提及投資相關內容或持倉/交易動作，無法判定是否為投資貼文，依規定跳過",
+      "images_attached": 0,
+      "unanalysed_media": [
+        {
+          "attachment_index": 0,
+          "kind": "video",
+          "status": "影片未分析"
+        }
+      ],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2465,
+        "input_tokens": 2374,
+        "output_tokens": 91,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "threads:4019541362773058931",
+      "display_time": "2026-10-31T02:58:11+08:00",
+      "status": "completed_signal",
+      "text_excerpt": "這波感覺比7月更恐怖了\n多虧個大AI公司不是很好的財報\n\n週一開始要大量停損了\n主動式ETF也該減碼了",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfIR5KwE-Vz"
+      ],
+      "direction": -1,
+      "strength": 2,
+      "target": "",
+      "reason": "發文者語氣偏悲觀、打算在週一大量停損並建議減碼主動式ETF，為主動防守/看空傾向，屬於偏空訊號",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2505,
+        "input_tokens": 2384,
+        "output_tokens": 121,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "threads:4019775202938936919",
+      "display_time": "2026-10-31T10:42:47+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "請問下週會不會放颱風假\n你知道⋯ 大概放到股市反彈的那種",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfJHD_YGV5X"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "發文只是問颱風假與股市反彈的時間，沒有表達個人持倉或交易情緒，屬於與投資無關或模糊，跳過",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2464,
+        "input_tokens": 2366,
+        "output_tokens": 98,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "facebook:1697806305037291",
+      "display_time": "2026-10-31T13:02:02+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "啊～～～～～ 啊啊 ～ 啊～ \n聽說很厲害的電影體驗\n\n我只在意那隻機械哥吉拉有沒有在賣就是了_(:_」∠)_",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/posts/pfbid0b4PH4csWz7nMuZVMNu3o4FAZirCTTRP35nTHw5uPyyEbFkaPbNvrPc4GGEmByfjFl"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "貼文內容為電影/生活分享與查詢商品是否有在賣，並無明確投資立場或持倉動作，屬與投資無關，跳過",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3531,
+        "input_tokens": 3392,
+        "output_tokens": 139,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "threads:4019913134958031715",
+      "display_time": "2026-10-31T15:16:50+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "當我開啟視覺輔助之後看到的風景",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfJmbKlGbNj"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "與投資無關的風景/視覺貼文，沒有提及持倉或交易動作，跳過",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3476,
+        "input_tokens": 3355,
+        "output_tokens": 121,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "facebook:1697994318351823",
+      "display_time": "2026-10-31T17:53:47+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "今天的簡易萬聖節裝扮😆\n那個不是煙， 只是捲起來的發票_(:_」∠)_",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/posts/pfbid03fXQzmpG7fUZrTDVMMFmmt2KEHYkrenT6RzofPSTUbrZD7QY4tr7kjJdGuwmidAjl"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "純萬聖節裝扮照片與生活分享，與投資無關，跳過。",
+      "images_attached": 4,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 6544,
+        "input_tokens": 6337,
+        "output_tokens": 207,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "threads:4020203758240263175",
+      "display_time": "2026-11-01T00:54:15+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "11月了 \n我已經在想哲哲送的雞排要不要加辣▓",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfKogSmmewH"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "與投資無關的生活閒聊（討論雞排），跳過",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2429,
+        "input_tokens": 2358,
+        "output_tokens": 71,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "facebook:1698742791610309",
+      "display_time": "2026-11-01T10:50:24+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "我的身材 Be like \n我的臉： 囧 \n\n我的心⋯ 不想面對星期一(⊙ω⊙)/\n下午去迷信一下！",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/posts/pfbid02P5b9dFzH72tqp3mjk17GKQVvtAz176xBBAutw471qSUgBmdNEyLtAt2Ghdq1YY3pl"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "生活/心情抱怨，與投資無關，跳過",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2930,
+        "input_tokens": 2828,
+        "output_tokens": 102,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "threads:4020588135439184397",
+      "display_time": "2026-11-01T13:37:57+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "JoJo我不做人啦(;´༎ຶД༎ຶ`)～～",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfL_5txALIN"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "貼文與圖片為漫畫/情緒宣洩（非投資相關），無明確持倉或交易行為，跳過",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3360,
+        "input_tokens": 3189,
+        "output_tokens": 171,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "facebook:1698860361598552",
+      "display_time": "2026-11-01T13:41:16+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "其實替身很厲害唉\n你會發現幾乎沒有任何明確指示就會自動自發做事\n標準勞模啊",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/posts/pfbid0jRPRXuHjiDVhFtjmFHzYJw3HNpLF7YGFzKtkCpe4KbmqPMzdfz6FMH8i5hXWygj1l"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "內容為讚美替身/漫畫分享，與投資無關，跳過",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2976,
+        "input_tokens": 2826,
+        "output_tokens": 150,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "facebook:1698996758251579",
+      "display_time": "2026-11-01T17:07:15+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "悲報\n師大這邊的公園全都客滿了\n請問大安森林公園的朋友可以回報一下有沒有空位嗎！？\n\n在線等！ 急！",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/posts/pfbid0hdxx1yZAYk5KRVqqSzTA7K2puhuLs2VaQabA95UWueeNJhcbdmCKUtwbswhNdxxkl"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "與投資無關的生活／社交尋位貼文，跳過",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3018,
+        "input_tokens": 2912,
+        "output_tokens": 106,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "threads:4020696021219218589",
+      "display_time": "2026-11-01T17:12:17+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "公園客滿了， 怎辦",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfMYbqOmRSd"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "純生活情境（公園客滿）與投資無關，跳過",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3465,
+        "input_tokens": 3350,
+        "output_tokens": 115,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "threads:4020803341664229325",
+      "display_time": "2026-11-01T20:45:31+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "我想開直播講廢話▓",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfMw1YLmZfN"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "發文只是想開直播講廢話，為活動/閒聊性質，與投資立場無關，跳過",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2429,
+        "input_tokens": 2346,
+        "output_tokens": 83,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "threads:4020845944988352108",
+      "display_time": "2026-11-01T22:10:10+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "直播重點； 請問誰有賣便宜的finex 9pro 43mm 珊瑚橘",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfM6hVnmb5s"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "內容是直播或物品詢問，與投資決策無關，跳過",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2438,
+        "input_tokens": 2366,
+        "output_tokens": 72,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "threads:4020981664209683905",
+      "display_time": "2026-11-02T02:39:49+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "我還沒睡不是因為要上班\n是因為我想跟我的財產多相處一點",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfNZYT_k8XB"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "情緒語句詩意但未提及持倉或交易意圖，屬於非投資相關貼文，跳過",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2446,
+        "input_tokens": 2362,
+        "output_tokens": 84,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "facebook:1699456358205619",
+      "display_time": "2026-11-02T02:53:54+08:00",
+      "status": "completed_signal",
+      "text_excerpt": "天亮以後～說分手\n是多頭讓人斷頭\n走在那投資風沙\n誰看見韭菜有血有淚🥲",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/posts/pfbid02YNS2PDrHgHD6PJP9sDnbSkrx7m1o7KN3wvDrNr9XgXiAdhMzBXt2mAA7PHdp5F2Gl"
+      ],
+      "direction": 1,
+      "strength": 2,
+      "target": "",
+      "reason": "歌詞與文字表達被多頭斷頭、韭菜受傷的悲傷情緒，屬於痛苦被套傾向偏多訊號",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3395,
+        "input_tokens": 3212,
+        "output_tokens": 183,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "facebook:1699682981516290",
+      "display_time": "2026-11-02T09:11:47+08:00",
+      "status": "pending_confirmation",
+      "text_excerpt": "其實好像⋯\n還好唉？ \n小娜似乎也是漲的\n難到是我錯了？",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/posts/pfbid0LGeaWsBbZvrCBGLpgTbYso5Jps5QjRnp64aMnWZSEefjNiU3yR8njj4wnNrwRrrvl"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "2327.TWO",
+      "reason": "貼文語氣猶豫且只有短句疑問，情緒模糊無明確投資立場；雖附成交畫面但未表明是自己下單或情緒（需進一步確認），依規則待確認應標示跳過。",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3538,
+        "input_tokens": 3258,
+        "output_tokens": 280,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "threads:4021225916827511230",
+      "display_time": "2026-11-02T10:45:06+08:00",
+      "status": "pending_confirmation",
+      "text_excerpt": "V了耶\n我好想買▓",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfOQ6p-GSm-"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "文字模糊（只說想買，但沒有明確投資立場或強烈情緒），依規則為無法判定且非明確投資訊號，跳過",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2442,
+        "input_tokens": 2347,
+        "output_tokens": 95,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "facebook:1699797961504792",
+      "display_time": "2026-11-02T11:51:44+08:00",
+      "status": "completed_signal",
+      "text_excerpt": "好想買喔～\n大V天龍耶～ \n我看錯了嗎～ 我要堅持到期中選舉結束嗎",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/posts/pfbid0UJktKrPhrKL5K1qAAkACBRvAxTxn13yF6VmgBQqdfRbfj5c56LtxNvrYazRjbdvdl"
+      ],
+      "direction": -1,
+      "strength": 3,
+      "target": "00631L.TW",
+      "reason": "發文帶有強烈想買的亢奮語氣且附上委託下單介面截圖（真金白銀下單跡象），依規定情緒強度強制為3，屬追買/亢奮偏空訊號。",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3322,
+        "input_tokens": 3001,
+        "output_tokens": 321,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "threads:4021269157585176567",
+      "display_time": "2026-11-02T12:11:01+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "招喚小貓～～(⊙ω⊙)",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfOav5EGUf3"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "只有喚貓的閒聊貼文，與投資無關",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2420,
+        "input_tokens": 2350,
+        "output_tokens": 70,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "threads:4021321841096903754",
+      "display_time": "2026-11-02T13:55:41+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "我沒有輸， \n我有買嗎？\n我一股都沒有買耶！",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfOmuiaGcxK"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "發文說自己沒買、且圖顯示委託單筆數0，為被動說明無持倉/無下單，屬於與投資決策無關或中性訊息，跳過",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3215,
+        "input_tokens": 3036,
+        "output_tokens": 179,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "facebook:1699886744829247",
+      "display_time": "2026-11-02T14:09:54+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "我忍住了！\n我今天也會忍住不跳舞⋯\n應該吧？ 可能吧！\n昨天我講了45分鐘， 不能打自己臉啊😆😆😆",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/posts/pfbid02QWhTwVLmbQSZSaUKp85Q4gV88pnMZEBpnV7NGRBugBfireYFHBCLGFszre55i9oil"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "發文者表示『我一股都沒有買』並貼出委託單顯示委託筆數0，內容矛盾且無明確投資情緒或動作，屬於無投資立場或不確定，依規則跳過。",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3046,
+        "input_tokens": 2837,
+        "output_tokens": 209,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "facebook:1700042071480381",
+      "display_time": "2026-11-02T18:11:47+08:00",
+      "status": "pending_confirmation",
+      "text_excerpt": "昨天直播精華？ 已證明有用！ 至少現在為止",
+      "urls": [
+        "https://www.facebook.com/reel/1807869340130340/"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "只有宣告/提到直播精華且影片未分析，無明確持倉或情緒表態，屬於活動/內容通知或無法判定的貼文，跳過",
+      "images_attached": 0,
+      "unanalysed_media": [
+        {
+          "attachment_index": 0,
+          "kind": "video",
+          "status": "影片未分析"
+        }
+      ],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2503,
+        "input_tokens": 2376,
+        "output_tokens": 127,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "threads:4021516826589116321",
+      "display_time": "2026-11-02T20:23:05+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "說真的\n要是不買東西\n我真的不知道要怎麼對未來有啥期待",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfPTD8zGbeh"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "語句表達對未來缺乏期待與購買行為相關，但沒有明確投資立場或持倉/交易情緒，屬模糊無投資決策的貼文，依規則跳過",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2464,
+        "input_tokens": 2358,
+        "output_tokens": 106,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-030.json"
+    },
+    {
+      "key": "threads:4021596080672236965",
+      "display_time": "2026-11-02T23:00:35+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "不要碰投資⋯ 真的不要碰\n我們沒有這個東西也能獲得幸福啊！ \n好不好⋯ 答應我，不要再碰投資了",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfPlFP6kmWl"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "純勸世/呼籲不要投資的情緒宣洩，沒有提及自己持倉或交易行為，與投資決策無關，跳過",
+      "images_attached": 0,
+      "unanalysed_media": [
+        {
+          "attachment_index": 0,
+          "kind": "video",
+          "status": "影片未分析"
+        }
+      ],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2495,
+        "input_tokens": 2402,
+        "output_tokens": 93,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "facebook:1700261191458469",
+      "display_time": "2026-11-02T23:02:24+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "剛剛發生的⋯\n不要碰投資⋯ 真的不要碰\n我們沒有這個東西也能獲得幸福啊！ \n好不好⋯ 答應我，不要再碰投資了",
+      "urls": [
+        "https://www.facebook.com/reel/2329145881218209/"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "內容是籠統勸退投資、情緒宣洩但未提及個人持倉或交易動作，屬於與投資決策無關或無明確立場的貼文，跳過。",
+      "images_attached": 0,
+      "unanalysed_media": [
+        {
+          "attachment_index": 0,
+          "kind": "video",
+          "status": "影片未分析"
+        }
+      ],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2519,
+        "input_tokens": 2413,
+        "output_tokens": 106,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "facebook:1700645711420017",
+      "display_time": "2026-11-03T08:40:32+08:00",
+      "status": "completed_signal",
+      "text_excerpt": "oh~man.....\n今天真的會出大事(;´༎ຶД༎ຶ`)\n老闆！ 我愛工作～😩\n\n我5月真的不該貸款買股票的⋯\n這兩波下來， 主動式體無完膚",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/posts/pfbid02yg79tsjW3ELf2pHC4oipZ2mhEMbTsucf4C99JtWHUfzrobPMR2wLjgqqDRLTDmHBl"
+      ],
+      "direction": 1,
+      "strength": 3,
+      "target": "",
+      "reason": "發文者因為貸款買股遭遇大幅下跌、情緒極度痛苦並自責，屬於強烈被套/恐慌情緒，偏多訊號",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3005,
+        "input_tokens": 2832,
+        "output_tokens": 173,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "threads:4021890374356799160",
+      "display_time": "2026-11-03T08:45:15+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "我覺得公園都要住不起了",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfQn_yRGY64"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "貼文內容為抱怨房價／社會議題，並附上大盤跌幅圖但未提及個人持倉或交易動作，投資情緒不明確，依規則跳過。",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3377,
+        "input_tokens": 3177,
+        "output_tokens": 200,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "facebook:1700739848077270",
+      "display_time": "2026-11-03T11:09:22+08:00",
+      "status": "technical_failure",
+      "text_excerpt": "請問被動是什麼很賤的東西嗎？ \n這兩個東西還有留著的必要嗎？\n那些說要主動的\n991A是不是要準備破發了啊(;´༎ຶД༎ຶ`)",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/posts/pfbid0QLS7RfJ7kwGj1ct2QuwXyXsWpc3JFPPJmErLch4T9ZjHPPuVAgAvCtYknCCPDHVXl"
+      ],
+      "direction": null,
+      "strength": null,
+      "target": null,
+      "reason": "invalid_ticker_format",
+      "images_attached": 2,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 4461,
+        "input_tokens": 4133,
+        "output_tokens": 328,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "threads:4021970379841567975",
+      "display_time": "2026-11-03T11:24:13+08:00",
+      "status": "completed_signal",
+      "text_excerpt": "原來就算我今年4月就買主動式還是虧錢的啊(;´༎ຶД༎ຶ`)",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfQ6MBLmXzn"
+      ],
+      "direction": 1,
+      "strength": 2,
+      "target": "",
+      "reason": "發文者表示買主動式投資仍虧錢並情緒低落，屬於痛苦/被套傾向，偏多訊號",
+      "images_attached": 2,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 4372,
+        "input_tokens": 4023,
+        "output_tokens": 349,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "facebook:1700801464737775",
+      "display_time": "2026-11-03T12:39:33+08:00",
+      "status": "technical_failure",
+      "text_excerpt": "baby我們股價好像跳樓機\n股價沒有升空就突然落地\n你帶給我一場瘋狂\n那天的獎金 難得歐硬\n給的股價 卻把我困在套房\n\n其實你不是不漲了吧\n只是有些利空 沒處理\n怎麼你閉口不語\n是不是我正好 買到了高點\n就承認 還是會漲吧\n就騙騙我 也可以😭",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/posts/pfbid02jJceL7bYipqZizXBXgTFv5g1SNkbKnuEgiRWyBqmVevUiVUVQ3BNi3yNbNTF56UVl"
+      ],
+      "direction": null,
+      "strength": null,
+      "target": null,
+      "reason": "invalid_ticker_format",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3130,
+        "input_tokens": 2881,
+        "output_tokens": 249,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "threads:4022092829258483247",
+      "display_time": "2026-11-03T15:27:30+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "一個月前： 家裡長輩250萬放在銀行定存， 我要怎麼說服他\n一個月後： 長輩是對的_(:_」∠)_",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfRWB5FmQYv"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "敘述為對家人理財立場的轉變，沒有明確表達本人持倉或交易情緒，屬於中性/非投資決策貼文。",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2477,
+        "input_tokens": 2381,
+        "output_tokens": 96,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "facebook:1701227338028521",
+      "display_time": "2026-11-03T22:24:30+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "我⋯ \n恩⋯ \n還是不要說話好了_(:_」∠)_",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/posts/pfbid02hKqPZsjKAdhMHKi8xXTwxxuoGqkRF3QpGRCzNJoymyEP5KE73vCvn71YQf3H557Cl"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "文字與圖片顯示發文者不想說話、情緒低落但未提及投資持倉或交易動作，屬於情緒模糊/非投資決策貼文，跳過",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3501,
+        "input_tokens": 3360,
+        "output_tokens": 141,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "threads:4022334419507983542",
+      "display_time": "2026-11-03T23:27:30+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "人生什麼都輸人，輸給一堆年輕人\n論財力，我輸給股癌\n論長相，我輸給卡寶\n論身材，我輸給李多慧\n論知識，我輸給啾啾鞋 \n論食量，我輸給千千\n論肌肉量，我輸給蓋伊\n論脂肪，我輸給統神\n論不穿上衣，我輸給太陽\n論流量，我輸給椅子\n論拳頭，我輸給超哥\n論爭議，我輸給愛麗莎莎\n論外交，我輸",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfSM9fimbS2"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "非投資相關的自我嘲諷/人生感嘆，與持倉或交易無關，跳過",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2587,
+        "input_tokens": 2506,
+        "output_tokens": 81,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "facebook:1701657014652220",
+      "display_time": "2026-11-04T09:05:14+08:00",
+      "status": "pending_confirmation",
+      "text_excerpt": "好想⋯\n買⋯\n今天是死貓跳嗎？ 還是真的反彈？\n看看美光盤後是真的有點⋯不是很好\n\n但是搞不好今天是反攻第一天啊",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/posts/pfbid0TLQUEWb6eohHKrDMRc1EzUEWiQ2ctMSyYfcdBwhGFfXhWZTo9RdHf6PurPWPeke6l"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "00631L.TW",
+      "reason": "文中猶豫是否為死貓跳/反彈，情緒不明確且帶疑問；圖片為即時報價截圖但未表明本人持倉或交易動作，依規則為待判定跳過。",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3769,
+        "input_tokens": 3507,
+        "output_tokens": 262,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "threads:4022644970884768463",
+      "display_time": "2026-11-04T09:44:30+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "如果要成為人生勝利組就不要怕貸款，因為\n萬貸男，孟恭 \n\n（上午廢文 1/1）",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfTTknDGSLP"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "貼文為勉勵/廢文內容，並附公司圖示，但未提及任何個人持倉或交易情緒，與投資決策無關，跳過。",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3700,
+        "input_tokens": 3561,
+        "output_tokens": 139,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "threads:4022686058848824985",
+      "display_time": "2026-11-04T11:06:09+08:00",
+      "status": "pending_confirmation",
+      "text_excerpt": "wtf is happening",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfTc6hMma6Z"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "貼文只有一句英文感嘆且無具體投資立場或情緒線索，無法判定是否與投資相關，依規則跳過並標記待確認。",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2437,
+        "input_tokens": 2341,
+        "output_tokens": 96,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "facebook:1701759947975260",
+      "display_time": "2026-11-04T11:26:00+08:00",
+      "status": "completed_signal",
+      "text_excerpt": "共和黨慘輸\nAI川普美國支持SI大總統要隕落了 \n接下來只會有更多阻礙\n\n正二已經跌到我都忍不住笑出來了\n接下來應該還有一段\n我是不是該把期貨帳戶打開來了",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/posts/pfbid02S33pdSvSeEjyY77Aqb3UL5s8ym2JspWZmHNR7x1oyQpFf5Vee9m4YWhW3suXgFiJl"
+      ],
+      "direction": 1,
+      "strength": 3,
+      "target": "",
+      "reason": "發文先笑看個股下跌（情緒輕蔑），接著說要打開期貨並配上委託單截圖顯示全部成交，代表已真金白銀下單且帶有進場企圖，依規則情緒強度強制為3，整體屬於痛苦/趁跌布局的偏多訊號（disposition=signal）。",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3233,
+        "input_tokens": 2961,
+        "output_tokens": 272,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "threads:4022703226042831167",
+      "display_time": "2026-11-04T11:40:15+08:00",
+      "status": "completed_signal",
+      "text_excerpt": "無忌， 你要記得那些叫你一次無腦all in 0050，甚至叫你貸款進場的人⋯_(:_」∠)_",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfTg0VZGdE_"
+      ],
+      "direction": 1,
+      "strength": 3,
+      "target": "0050.TW",
+      "reason": "多張對帳單顯示元大台灣50(0050)長期虧損多次紀錄，發文語氣為被套與挫折，屬於痛苦偏多訊號。",
+      "images_attached": 2,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 4934,
+        "input_tokens": 4652,
+        "output_tokens": 282,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "threads:4022757610051153640",
+      "display_time": "2026-11-04T13:28:18+08:00",
+      "status": "completed_signal",
+      "text_excerpt": "去你ㄇ的",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfTtLucmS7o"
+      ],
+      "direction": 1,
+      "strength": 3,
+      "target": "",
+      "reason": "附圖為多筆委託/成交紀錄（全部成交），代表已真金白銀下單且情緒帶有強烈反向情緒（短語「去你ㄇ的」顯示負面痛苦/憤怒），依規則強度3且視為偏多（痛苦/被套/負面情緒）信號。",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3144,
+        "input_tokens": 2872,
+        "output_tokens": 272,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "facebook:1701847044633217",
+      "display_time": "2026-11-04T13:30:09+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "唉， 不是\n針對性不要這麼強好嗎\n🫠🫠🫠🫠🫠🫠🫠🫠",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/posts/pfbid0Zbxx9xTjMWEGWEC1EkSpoW1h6BZ5YyC1uLa7d9k872DWWHX6WGftvpmJZRYrgKHVl"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "貼文文字情緒模糊（抱怨針對性強），圖為盤勢截圖但無明確表達持倉或交易動作，屬於與投資決策無關或無法判定，依規則跳過",
+      "images_attached": 2,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 4406,
+        "input_tokens": 4108,
+        "output_tokens": 298,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "facebook:1702074981277090",
+      "display_time": "2026-11-04T18:37:23+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "我錯惹嗎？ \n難到巴逆錯惹嗎！？\n今天難道是真的最低點嗎！\n明天要認錯嗎？ \n\n小編叫我跳舞我該跳嗎？",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/posts/pfbid02HkrQSKMQbtRXxMXpPRpnezU5pottqK9djC1rvdf8AzaF2ycorT59VGeNe1xYdis7l"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "貼文語句情緒模糊且帶有疑問，並附生活照片，無法確定與投資持倉或交易動作相關，依規則跳過。",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3064,
+        "input_tokens": 2920,
+        "output_tokens": 144,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "threads:4023093022586172008",
+      "display_time": "2026-11-05T00:34:42+08:00",
+      "status": "pending_confirmation",
+      "text_excerpt": "抄⋯⋯\nㄉ⋯⋯那",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfU5cntmfJo"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "文字內容不明且無法判斷是否與投資情緒或動作相關，依規定標記為跳過並待確認",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2437,
+        "input_tokens": 2352,
+        "output_tokens": 85,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "threads:4023110973024452589",
+      "display_time": "2026-11-05T01:10:22+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "原來這就是頂流網黃\n我還在為了每個月為了減緩掉的訂閱努力的比狗還累，賺那個幾百元\n人家一個留言就賺了250萬美",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfU9h1XGT_t"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "內容為轉貼/炫富截圖與抱怨收入差距，未提及個人持倉或交易情緒，與投資決策無關，故跳過。",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 4034,
+        "input_tokens": 3681,
+        "output_tokens": 353,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "threads:4023117691469019223",
+      "display_time": "2026-11-05T01:23:43+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "努力是徒勞的\n沒用的人還是沒用\n\n我",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfU_DmZmbhX"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "情緒為自我貶抑非與投資相關的立場表達，無具體投資行為或持倉資訊，依規則跳過。",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2446,
+        "input_tokens": 2354,
+        "output_tokens": 92,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-031.json"
+    },
+    {
+      "key": "threads:4023362009123385848",
+      "display_time": "2026-11-05T09:29:08+08:00",
+      "status": "completed_signal",
+      "text_excerpt": "不好意思， 可以麻煩你的股價不要跟買賣量搶位置嗎",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfV2m48mfH4"
+      ],
+      "direction": 1,
+      "strength": 2,
+      "target": "6139.TW",
+      "reason": "貼文語氣抱怨且附上持股價位與盤面圖，顯示被套/情緒低落，屬偏多（痛苦）訊號。",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3501,
+        "input_tokens": 3307,
+        "output_tokens": 194,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-032.json"
+    },
+    {
+      "key": "threads:4023406251229152584",
+      "display_time": "2026-11-05T10:57:02+08:00",
+      "status": "technical_failure",
+      "text_excerpt": "我試試看放在留言區+延遲發文的效果會不會比較差\n\n事實證明\n不會\n\n我的手機應該被監控了",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfWAqsnmYVI"
+      ],
+      "direction": null,
+      "strength": null,
+      "target": null,
+      "reason": "invalid_ticker_format",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3598,
+        "input_tokens": 3350,
+        "output_tokens": 248,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-032.json"
+    },
+    {
+      "key": "threads:4023487463029312236",
+      "display_time": "2026-11-05T13:38:23+08:00",
+      "status": "completed_signal",
+      "text_excerpt": "毀滅吧",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfWTIfAGYrs"
+      ],
+      "direction": 1,
+      "strength": 3,
+      "target": "",
+      "reason": "貼文與圖片顯示多筆「全部成交」委託單，且原文短句情緒消極（毀滅吧），代表發文者情緒極度痛苦/崩潰；有真金白銀下單強度設定為3，偏多信號。",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3578,
+        "input_tokens": 3347,
+        "output_tokens": 231,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-032.json"
+    },
+    {
+      "key": "threads:4023514051880026001",
+      "display_time": "2026-11-05T14:31:13+08:00",
+      "status": "completed_signal",
+      "text_excerpt": "股市性質已經改了 \n\n奉勸大家\n個股該停損就要停\nETF可能要放超過10年的準備 \n\n我明天再跌就要出亞翔了",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfWZLZzGf-R"
+      ],
+      "direction": 1,
+      "strength": 2,
+      "target": "",
+      "reason": "作者情緒偏負面、提醒大家該停損並威脅若再跌就出場，呈現痛苦/擔憂傾向，偏多訊號",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2490,
+        "input_tokens": 2388,
+        "output_tokens": 102,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-032.json"
+    },
+    {
+      "key": "threads:4023673308822738059",
+      "display_time": "2026-11-05T19:47:38+08:00",
+      "status": "completed_signal",
+      "text_excerpt": "981A就是爛啦\n韓國就是爛啦",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfW9Y5YmZSL"
+      ],
+      "direction": 1,
+      "strength": 3,
+      "target": "",
+      "reason": "帳單顯示大幅虧損（總損益約-415k），發文語句帶負面情緒，屬於痛苦被套的偏多訊號",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3933,
+        "input_tokens": 3720,
+        "output_tokens": 213,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-032.json"
+    },
+    {
+      "key": "facebook:1490457366336470",
+      "display_time": "2026-11-05T22:38:53+08:00",
+      "status": "pending_confirmation",
+      "text_excerpt": "買股票最重要的就是陪伴我來陪伴大家半小時了",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/videos/1490457366336470/"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "內容模糊無明確投資立場或情緒，且僅有影片未分析，依規定無法判定→跳過",
+      "images_attached": 0,
+      "unanalysed_media": [
+        {
+          "attachment_index": 0,
+          "kind": "video",
+          "status": "影片未分析"
+        }
+      ],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2495,
+        "input_tokens": 2377,
+        "output_tokens": 118,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-032.json"
+    },
+    {
+      "key": "facebook:1703338611150727",
+      "display_time": "2026-11-05T23:03:12+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "直播斷了_(:_」∠)_",
+      "urls": [
+        "https://www.facebook.com/DieWithoutBang/posts/pfbid0eVarjX9YAs2FGqHshooqXT8jkMcGkLECE8Jvnp7DnSUiMzmLBz9nh5UQ3TuQbTEEl"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "僅為直播中斷的簡短通知/抱怨，與投資決策無關，依規則跳過",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2430,
+        "input_tokens": 2348,
+        "output_tokens": 82,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-032.json"
+    },
+    {
+      "key": "threads:4023791850322304792",
+      "display_time": "2026-11-05T23:43:11+08:00",
+      "status": "completed_signal",
+      "text_excerpt": "窩真的不行了⋯\n既然要爛，就趕快到底給我個痛快",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfXYV5wkp8Y"
+      ],
+      "direction": 1,
+      "strength": 3,
+      "target": "",
+      "reason": "語句表達強烈絕望與想要快速了結（痛苦且情緒極端），屬於偏多（被套/痛苦）信號。",
+      "images_attached": 0,
+      "unanalysed_media": [
+        {
+          "attachment_index": 0,
+          "kind": "video",
+          "status": "影片未分析"
+        }
+      ],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2487,
+        "input_tokens": 2385,
+        "output_tokens": 102,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-032.json"
+    },
+    {
+      "key": "facebook:1703372617813993",
+      "display_time": "2026-11-05T23:43:14+08:00",
+      "status": "completed_signal",
+      "text_excerpt": "窩真的不行了⋯\n既然要爛，就趕快到底給我個痛快",
+      "urls": [
+        "https://www.facebook.com/reel/2011878842835276/"
+      ],
+      "direction": 1,
+      "strength": 3,
+      "target": "",
+      "reason": "語句表達強烈絕望與放棄（痛苦、被套情緒），但未提及具體買賣標的或中性觀望，依情緒為偏多且強度為極端。",
+      "images_attached": 0,
+      "unanalysed_media": [
+        {
+          "attachment_index": 0,
+          "kind": "video",
+          "status": "影片未分析"
+        }
+      ],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2496,
+        "input_tokens": 2385,
+        "output_tokens": 111,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-032.json"
+    },
+    {
+      "key": "threads:4023823803965107814",
+      "display_time": "2026-11-06T00:46:38+08:00",
+      "status": "pending_confirmation",
+      "text_excerpt": "我不行了⋯⋯",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfXfm46Ge5m"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "單一句「我不行了⋯⋯」情緒模糊、無法判斷是否與投資相關，依規定跳過並標示待確認。",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2438,
+        "input_tokens": 2345,
+        "output_tokens": 93,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-032.json"
+    },
+    {
+      "key": "threads:4023835308781547008",
+      "display_time": "2026-11-06T01:09:30+08:00",
+      "status": "completed_signal",
+      "text_excerpt": "這波的虧損夠我買\n一塊黑冰糖+一塊Reverso+一塊綠面皇家橡樹\n然後再飛一趟瑞士去參觀工廠_(:_」∠)_▓",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfXiOTmmS4A"
+      ],
+      "direction": 1,
+      "strength": 2,
+      "target": "",
+      "reason": "以虧損金額換算奢侈品暗示被套且帶有苦中作樂的負面情緒，偏多（痛苦/被套）",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2499,
+        "input_tokens": 2398,
+        "output_tokens": 101,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-032.json"
+    },
+    {
+      "key": "threads:4024145772782621524",
+      "display_time": "2026-11-06T11:26:20+08:00",
+      "status": "pending_confirmation",
+      "text_excerpt": "我犧牲自己是讓大家逃走， 不是進場啊_(:_」∠)_",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfYo0JvGRNU"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "文字含糊且無明確投資情緒或持倉/交易行為，無法判定是否與投資決策相關，依規定跳過並標記待確認。",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2457,
+        "input_tokens": 2360,
+        "output_tokens": 97,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-032.json"
+    },
+    {
+      "key": "threads:4024396519826903198",
+      "display_time": "2026-11-06T19:44:31+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "今天小編來幫忙拍reels\n小編：我覺得你下嘴唇可以打一點玻尿酸，或人中縮短一點\n我： 蛤～不要咧，跟黑人女生一樣喔\n小編：跟張元英一樣\n我： 喔，好，週末就去打\n\n這證明的廣告代言人對於受眾的重要性",
+      "urls": [
+        "https://www.threads.com/t/DfZh1AHmdCe"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "與投資無關的生活/廣告拍攝內容，未提及持倉或交易行為。",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2510,
+        "input_tokens": 2432,
+        "output_tokens": 78,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-032.json"
+    },
+    {
+      "key": "facebook:1704519381032650",
+      "display_time": "2026-11-07T00:34:29+08:00",
+      "status": "completed_signal",
+      "text_excerpt": "其實股市的走勢已經不是3-5月那個瘋狂的大多頭了～\n之後更可能像22-23年那種緩坡而已\n\n要歐硬的可能需要更多的耐心跟勇氣",
+      "urls": [
+        "https://www.facebook.com/reel/1167452465741747/"
+      ],
+      "direction": -1,
+      "strength": 2,
+      "target": "",
+      "reason": "語氣是觀點性、市場展望偏悲觀/保守且帶有自信判斷，屬於主動看空或減少期待，判定為偏空訊號（強度明顯）",
+      "images_attached": 0,
+      "unanalysed_media": [
+        {
+          "attachment_index": 0,
+          "kind": "video",
+          "status": "影片未分析"
+        }
+      ],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2530,
+        "input_tokens": 2418,
+        "output_tokens": 112,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-032.json"
+    },
+    {
+      "key": "threads:4024552660493334032",
+      "display_time": "2026-11-07T00:54:48+08:00",
+      "status": "completed_signal",
+      "text_excerpt": "其實股市的走勢已經不是3-5月那個瘋狂的大多頭了～\n之後更可能像22-23年那種緩坡而已\n\n要歐硬的可能需要更多的耐心跟勇氣",
+      "urls": [
+        "https://www.threads.com/t/DfaFVJcjvYQ"
+      ],
+      "direction": -1,
+      "strength": 2,
+      "target": "",
+      "reason": "發文者語氣宏觀評論市場趨勢、表現出相對自信/冷靜的看空或保守觀點，屬於主動預期下跌或不看多的情緒偏空。",
+      "images_attached": 0,
+      "unanalysed_media": [
+        {
+          "attachment_index": 0,
+          "kind": "video",
+          "status": "影片未分析"
+        }
+      ],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2535,
+        "input_tokens": 2418,
+        "output_tokens": 117,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-032.json"
+    },
+    {
+      "key": "threads:4024966593813495052",
+      "display_time": "2026-11-07T14:37:09+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "薩爾達switch2大全套 or ipad min512G or 玻尿酸豐唇\n\n都幾？",
+      "urls": [
+        "https://www.threads.com/t/Dfbjcq5ET0M"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "列出消費選擇（非投資相關）且未提及任何持倉或交易動作，屬於生活日常/詢價貼文，跳過",
+      "images_attached": 0,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 2459,
+        "input_tokens": 2366,
+        "output_tokens": 93,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-032.json"
+    },
+    {
+      "key": "threads:4024090220249602678",
+      "display_time": "2026-11-06T09:35:57+08:00",
+      "status": "completed_signal",
+      "text_excerpt": "我只能為大家祈福",
+      "urls": [
+        "https://www.threads.com/@banini31/post/DfYcLwaGdp2"
+      ],
+      "direction": 1,
+      "strength": 3,
+      "target": "0050.TW",
+      "reason": "貼文附上委託單截圖顯示台灣50（元大台灣50正2）全部成交，發文語氣悲憫（祈福），情緒偏向痛苦/被套，且有真金白銀成交強制設強度3。",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3247,
+        "input_tokens": 2941,
+        "output_tokens": 306,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-033.json"
+    },
+    {
+      "key": "threads:4025043302263849308",
+      "display_time": "2026-11-07T17:09:34+08:00",
+      "status": "completed_no_signal",
+      "text_excerpt": "薩爾達大全套❤️\n精靈卡套找不到了(;´༎ຶД༎ຶ`)\n\n是說當時完全是靠攻略本才能全破\n唉， 講出攻略本是不是透露年紀了？",
+      "urls": [
+        "https://www.threads.com/t/Dfb047NAIFc"
+      ],
+      "direction": 0,
+      "strength": 1,
+      "target": "",
+      "reason": "內容為遊戲/生活分享與懷舊閒聊，與投資無關，跳過",
+      "images_attached": 1,
+      "unanalysed_media": [],
+      "http_status": 200,
+      "usage": {
+        "total_tokens": 3343,
+        "input_tokens": 3226,
+        "output_tokens": 117,
+        "reasoning_tokens": 0
+      },
+      "evidence": "data/history_progress/history-completion-20261107-033.json"
+    }
+  ]
+}

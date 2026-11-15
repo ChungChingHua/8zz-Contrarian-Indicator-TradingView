@@ -1,0 +1,97 @@
+{
+  "actor": "apify~facebook-posts-scraper",
+  "key_present": true,
+  "requests": 1,
+  "actor_starts": 0,
+  "ai_requests": 0,
+  "at": "2026-11-12T09:57:01.266551+00:00",
+  "http_status": 200,
+  "content_type": "application/json",
+  "pricing_record_count": 6,
+  "pricing": {
+    "pricingModel": "PAY_PER_EVENT",
+    "startedAt": "2026-03-11T14:56:37.208Z",
+    "minimalMaxTotalChargeUsd": "0.0062",
+    "pricingPerEvent": {
+      "actorChargeEvents": {
+        "post": {
+          "eventTitle": "Post",
+          "eventDescription": "Each post written to the dataset.",
+          "isOneTimeEvent": false,
+          "eventTieredPricingUsd": {
+            "FREE": {
+              "tieredEventPriceUsd": "0.005"
+            },
+            "BRONZE": {
+              "tieredEventPriceUsd": "0.004"
+            },
+            "SILVER": {
+              "tieredEventPriceUsd": "0.0025"
+            },
+            "GOLD": {
+              "tieredEventPriceUsd": "0.002"
+            },
+            "PLATINUM": {
+              "tieredEventPriceUsd": "0.0016"
+            },
+            "DIAMOND": {
+              "tieredEventPriceUsd": "0.0008"
+            }
+          },
+          "isPrimaryEvent": true
+        },
+        "actor-start": {
+          "eventTitle": "Actor start",
+          "eventDescription": "Flat charge for starting an Actor run.",
+          "isOneTimeEvent": true,
+          "eventTieredPricingUsd": {
+            "FREE": {
+              "tieredEventPriceUsd": "0.001"
+            },
+            "BRONZE": {
+              "tieredEventPriceUsd": "0.001"
+            },
+            "SILVER": {
+              "tieredEventPriceUsd": "0.001"
+            },
+            "GOLD": {
+              "tieredEventPriceUsd": "0.001"
+            },
+            "PLATINUM": {
+              "tieredEventPriceUsd": "0.001"
+            },
+            "DIAMOND": {
+              "tieredEventPriceUsd": "0.001"
+            }
+          }
+        },
+        "filter-applied": {
+          "eventTitle": "Add-on: Date filter",
+          "eventDescription": "Extra cost per post scraped with a date filter.",
+          "isOneTimeEvent": false,
+          "eventTieredPricingUsd": {
+            "FREE": {
+              "tieredEventPriceUsd": "0.002"
+            },
+            "BRONZE": {
+              "tieredEventPriceUsd": "0.001"
+            },
+            "SILVER": {
+              "tieredEventPriceUsd": "0.0008"
+            },
+            "GOLD": {
+              "tieredEventPriceUsd": "0.0006"
+            },
+            "PLATINUM": {
+              "tieredEventPriceUsd": "0.0004"
+            },
+            "DIAMOND": {
+              "tieredEventPriceUsd": "0.0002"
+            }
+          }
+        }
+      }
+    }
+  },
+  "preflight": "passed"
+}

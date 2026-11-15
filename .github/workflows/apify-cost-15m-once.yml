@@ -1,0 +1,30 @@
+name: One-time isolated Apify 15 minute cost test
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: original-author-history-batch-01
+  cancel-in-progress: false
+jobs:
+  cost-test:
+    if: ${{ false }} # Completed one-time authorization; online execution disabled.
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: codex/social-pipeline-20261106
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Offline tests before authorized acquisition
+        run: python -m unittest discover -s scripts -p test_apify_cost_test.py
+      - name: Read-only audit of the two existing runs; no Actor starts
+        env:
+          AUTHORIZED_APIFY_COST_TEST: apify-15m-20261110-01
+          COST_TEST_OBSERVE_ONLY: 'true'
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/apify_cost_test.py

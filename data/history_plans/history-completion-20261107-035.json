@@ -1,0 +1,407 @@
+{
+  "batch_id": "history-completion-20261107-035",
+  "max_generations": 25,
+  "rule_version": "fork-7b626f2-ai-v1",
+  "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+  "posts": [
+    {
+      "key": "threads:4027848978889003863",
+      "content_hash": "6c8b359e03cebfa14b283c253e712c08e29fde59d855d9f49093c39801ae9966",
+      "post_id": "4027848978889003863",
+      "source": "threads",
+      "url": "https://www.threads.com/t/Dfly05LmVNX",
+      "published_at": "2026-11-11T06:03:56+00:00",
+      "display_time": "2026-11-11T14:03:56+08:00",
+      "unix_ms": 1794377036000,
+      "text": "我當初不停損亞翔，現在會從虧20萬變虧7萬\n我好心痛……………………",
+      "number": 1,
+      "members": [
+        {
+          "key": "threads:4027848978889003863",
+          "source": "threads",
+          "url": "https://www.threads.com/t/Dfly05LmVNX",
+          "published_at": "2026-11-11T06:03:56+00:00",
+          "post_id": "4027848978889003863"
+        }
+      ]
+    },
+    {
+      "key": "threads:4027935237988803561",
+      "content_hash": "dad61c7c52dbc364f3172ad211a84b24fecae0c123b6919e1d0b321b4eef64ba",
+      "post_id": "4027935237988803561",
+      "source": "threads",
+      "url": "https://www.threads.com/t/DfmGcIOmePp",
+      "published_at": "2026-11-11T08:55:19+00:00",
+      "display_time": "2026-11-11T16:55:19+08:00",
+      "unix_ms": 1794387319000,
+      "text": "我的981A投入比例過高了⋯ \n正在思考明天出一波轉646⋯⋯",
+      "number": 2,
+      "members": [
+        {
+          "key": "threads:4027935237988803561",
+          "source": "threads",
+          "url": "https://www.threads.com/t/DfmGcIOmePp",
+          "published_at": "2026-11-11T08:55:19+00:00",
+          "post_id": "4027935237988803561"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1710065987144656",
+      "content_hash": "0c678de1f056e8c5df454a1cbbc9d76801564e8880cd961905249431cd9ca789",
+      "post_id": "1710065987144656",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02emCqMda9tX6Vqa2oTFHGyLU9Nuiq9RqodsBkNYBvEWt7RZ94E5tqyurgzaKpmRfPl",
+      "published_at": "2026-11-11T17:11:27+00:00",
+      "display_time": "2026-11-12T01:11:27+08:00",
+      "unix_ms": 1794417087000,
+      "text": "各位觀眾\n我被帥到了\\(⊙ω⊙) G Shock果然天下無敵\n可以拍影片開箱了！ \n\n股票？ 談什麼股票？\n那東西不是就是一直漲的嗎\n#GMC2500",
+      "number": 3,
+      "members": [
+        {
+          "key": "facebook:1710065987144656",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02emCqMda9tX6Vqa2oTFHGyLU9Nuiq9RqodsBkNYBvEWt7RZ94E5tqyurgzaKpmRfPl",
+          "published_at": "2026-11-11T17:11:27+00:00",
+          "post_id": "1710065987144656"
+        }
+      ]
+    },
+    {
+      "key": "threads:4028185869932717304",
+      "content_hash": "9d4e09a4384c57e5ffcccdf60f4a4ec563bd1f30a048316953139753da39824f",
+      "post_id": "4028185869932717304",
+      "source": "threads",
+      "url": "https://www.threads.com/t/Dfm_bTalmT4",
+      "published_at": "2026-11-11T17:13:19+00:00",
+      "display_time": "2026-11-12T01:13:19+08:00",
+      "unix_ms": 1794417199000,
+      "text": "各位觀眾\n我被帥到了\\(⊙ω⊙) G Shock果然天下無敵\n可以拍影片開箱了！ \n\n股票？ 談什麼股票？\n那東西不是就是一直漲的嗎？",
+      "number": 4,
+      "members": [
+        {
+          "key": "threads:4028185869932717304",
+          "source": "threads",
+          "url": "https://www.threads.com/t/Dfm_bTalmT4",
+          "published_at": "2026-11-11T17:13:19+00:00",
+          "post_id": "4028185869932717304"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1710452580439330",
+      "content_hash": "304ae51d9fb943614a6272635261b8d31dad457cd654bd4ac11c76220a019635",
+      "post_id": "1710452580439330",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02Qi4U6vELYD1vfdEPUi5cdNbU6f4xf8U6kXxUVwCU9FwPSiC76NXCzEX8zRUSxVbZl",
+      "published_at": "2026-11-12T02:24:01+00:00",
+      "display_time": "2026-11-12T10:24:01+08:00",
+      "unix_ms": 1794450241000,
+      "text": "千點⋯⋯ 唉？ \n怎麼回事⋯⋯(;´༎ຶД༎ຶ`)\n\n等等等， 夜盤的600點咧？",
+      "number": 5,
+      "members": [
+        {
+          "key": "facebook:1710452580439330",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02Qi4U6vELYD1vfdEPUi5cdNbU6f4xf8U6kXxUVwCU9FwPSiC76NXCzEX8zRUSxVbZl",
+          "published_at": "2026-11-12T02:24:01+00:00",
+          "post_id": "1710452580439330"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1710543473763574",
+      "content_hash": "0e6f2ad3aef6cdd49651b221f4437996d9e6104352d87bf135db213ead207f25",
+      "post_id": "1710543473763574",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02CG5AP5gH66y44unMA4WQPRQ71qYCQQSoMT5L2FnwrgdKkYctU7pXrtoi9N3sDPnml",
+      "published_at": "2026-11-12T04:33:42+00:00",
+      "display_time": "2026-11-12T12:33:42+08:00",
+      "unix_ms": 1794458022000,
+      "text": "看來反彈就到這了_(:_」∠)_\n我以為只有個股會渣我 \n沒想到瑤姐你也要渣我嗎(;´༎ຶД༎ຶ`)",
+      "number": 6,
+      "members": [
+        {
+          "key": "facebook:1710543473763574",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02CG5AP5gH66y44unMA4WQPRQ71qYCQQSoMT5L2FnwrgdKkYctU7pXrtoi9N3sDPnml",
+          "published_at": "2026-11-12T04:33:42+00:00",
+          "post_id": "1710543473763574"
+        }
+      ]
+    },
+    {
+      "key": "threads:4028531458973464504",
+      "content_hash": "0901ea9ae560c6e2522e5a8d7a111c8f81ab0da941ff2b80d1083f2b104a9091",
+      "post_id": "4028531458973464504",
+      "source": "threads",
+      "url": "https://www.threads.com/t/DfoOASSmXe4",
+      "published_at": "2026-11-12T04:39:54+00:00",
+      "display_time": "2026-11-12T12:39:54+08:00",
+      "unix_ms": 1794458394000,
+      "text": "wtf is going on again!?????????????",
+      "number": 7,
+      "members": [
+        {
+          "key": "threads:4028531458973464504",
+          "source": "threads",
+          "url": "https://www.threads.com/t/DfoOASSmXe4",
+          "published_at": "2026-11-12T04:39:54+00:00",
+          "post_id": "4028531458973464504"
+        }
+      ]
+    },
+    {
+      "key": "threads:4028565970327512929",
+      "content_hash": "fdfe83e840a42c9d62562553a9059cc1b88e3b1cbcdec23d6d1a6aa2944d25e9",
+      "post_id": "4028565970327512929",
+      "source": "threads",
+      "url": "https://www.threads.com/t/DfoV2ffmSdh",
+      "published_at": "2026-11-12T05:48:28+00:00",
+      "display_time": "2026-11-12T13:48:28+08:00",
+      "unix_ms": 1794462508000,
+      "text": "打破迷信\n沒有什麼叫我賣就漲， 我們等明天\n創意是今天想當沖結果跌爛的產物",
+      "number": 8,
+      "members": [
+        {
+          "key": "threads:4028565970327512929",
+          "source": "threads",
+          "url": "https://www.threads.com/t/DfoV2ffmSdh",
+          "published_at": "2026-11-12T05:48:28+00:00",
+          "post_id": "4028565970327512929"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1710903840394204",
+      "content_hash": "9c5d5c9aabc016f5b71cf09d571c8f4634dfcfec7b86f2437098c1eac777946e",
+      "post_id": "1710903840394204",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02un9yDuaoe39bo8RKwQbEKmvqrXYDC4fZAFBMD2WxT3MS5KRHQ8H6rAHEEcpdywLcl",
+      "published_at": "2026-11-12T12:35:57+00:00",
+      "display_time": "2026-11-12T20:35:57+08:00",
+      "unix_ms": 1794486957000,
+      "text": "嗚嗚嗚 仁勳爸爸\n你可以不要再被爆料了嗎\n\n還有投資人！\n有問題的不是台GG！ 是別的G好嗎！",
+      "number": 9,
+      "members": [
+        {
+          "key": "facebook:1710903840394204",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02un9yDuaoe39bo8RKwQbEKmvqrXYDC4fZAFBMD2WxT3MS5KRHQ8H6rAHEEcpdywLcl",
+          "published_at": "2026-11-12T12:35:57+00:00",
+          "post_id": "1710903840394204"
+        }
+      ]
+    },
+    {
+      "key": "threads:4028773206264440076",
+      "content_hash": "c52628d73061d6be2e9383ed6d6e418d984082a21b4b71aa2a65e8b1583730ad",
+      "post_id": "4028773206264440076",
+      "source": "threads",
+      "url": "https://www.threads.com/t/DfpE-LAAOUM",
+      "published_at": "2026-11-12T12:40:13+00:00",
+      "display_time": "2026-11-12T20:40:13+08:00",
+      "unix_ms": 1794487213000,
+      "text": "嗚嗚嗚 仁勳爸爸\n你可以不要再被爆料了嗎\n\n還有投資人！\n有問題的不是台GG！ 是別的G好嗎！",
+      "number": 10,
+      "members": [
+        {
+          "key": "threads:4028773206264440076",
+          "source": "threads",
+          "url": "https://www.threads.com/t/DfpE-LAAOUM",
+          "published_at": "2026-11-12T12:40:13+00:00",
+          "post_id": "4028773206264440076"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1710977397053515",
+      "content_hash": "c418e59fcbc20b8265134f74abf204428eb147794e625654eac147a2855a79ab",
+      "post_id": "1710977397053515",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02NbXWbXRCuf6TFrxZWKowNVCLcR6cK2PN4JC2k1SuEcfEUgTPH7mtN8JfPjHGjZ2zl",
+      "published_at": "2026-11-12T13:59:30+00:00",
+      "display_time": "2026-11-12T21:59:30+08:00",
+      "unix_ms": 1794491970000,
+      "text": "爸爸⋯ 噢不， 黃仁勳辭職了\n他現在就只是個很有錢的中年男人了\n有錢人的私生活跟我毫無關聯",
+      "number": 11,
+      "members": [
+        {
+          "key": "facebook:1710977397053515",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02NbXWbXRCuf6TFrxZWKowNVCLcR6cK2PN4JC2k1SuEcfEUgTPH7mtN8JfPjHGjZ2zl",
+          "published_at": "2026-11-12T13:59:30+00:00",
+          "post_id": "1710977397053515"
+        }
+      ]
+    },
+    {
+      "key": "threads:4028902292942561181",
+      "content_hash": "4de7076f438ac5584341b6bb82299021da53db1f2c6f3175a810ffd552809825",
+      "post_id": "4028902292942561181",
+      "source": "threads",
+      "url": "https://www.threads.com/t/DfpiUoVmR-d",
+      "published_at": "2026-11-12T16:56:41+00:00",
+      "display_time": "2026-11-13T00:56:41+08:00",
+      "unix_ms": 1794502601000,
+      "text": "一上一下我快窮死⋯ \n訂閱到期的⋯拜託訂閱一下拯救我\n\n說我乞丐也沒關係▓",
+      "number": 12,
+      "members": [
+        {
+          "key": "threads:4028902292942561181",
+          "source": "threads",
+          "url": "https://www.threads.com/t/DfpiUoVmR-d",
+          "published_at": "2026-11-12T16:56:41+00:00",
+          "post_id": "4028902292942561181"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1711187147032540",
+      "content_hash": "7c2540edeaadb261786351d812453211bf1646a1dd3ef9e314c8c7af008642b7",
+      "post_id": "1711187147032540",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02AWHj3RuRgtZPvdPiZkQwGfqRJhW81qiAuGixwBpQU2vtVfHMgVUPHRCasqR3aizjl",
+      "published_at": "2026-11-12T17:45:26+00:00",
+      "display_time": "2026-11-13T01:45:26+08:00",
+      "unix_ms": 1794505526000,
+      "text": "最近有點心力交瘁\n一是股市一直虧錢，就算不亂買，手上的都綠油油⋯加上身上現金比例過低，不賣再抄底根本補不回來\n\n二是IG被banned掉一個帳號後，各項訂閱再次雪崩⋯新開的一點流量都沒有⋯想怪演算法，但是看其他人好像沒啥影響\n\n三是正職也是有點不順⋯ 一般生活也是一堆鳥事⋯髮線好像越來越明顯⋯睡眠品質也差 \n\n每個月被帳單+員工薪水追著跑⋯又不知道該怎麼改善這些問題😩 連大整都被說年金太大不建議(;´༎ຶД༎ຶ`）\n\n未來還是會多帶小助手出國拍拍照片，看能不能稍微改善IG流量⋯不然我的生活太無聊，吸引不到人也是問題\n也會找人教我化妝，然後也要學一下怎麼樣才能吸引異性\n至於 FB訂閱專區問了好多人，發現大家想要的什麼專屬進出對帳單啊～都有可能被請去喝茶⋯所以目前訂閱也只是有優先私訊回覆的好處？",
+      "number": 13,
+      "members": [
+        {
+          "key": "facebook:1711187147032540",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02AWHj3RuRgtZPvdPiZkQwGfqRJhW81qiAuGixwBpQU2vtVfHMgVUPHRCasqR3aizjl",
+          "published_at": "2026-11-12T17:45:26+00:00",
+          "post_id": "1711187147032540"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1711452657005989",
+      "content_hash": "bab7738f5ba54c4e7adff46f6ebc7a7e3ad982c50d915b072dd6caecb496e6bf",
+      "post_id": "1711452657005989",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0T1BsmxWfpEE1oFUqCu4uEmWFRzgJq3hn6BQvCEehmrG9wLHQTU3pLLqhWQN7HakSl",
+      "published_at": "2026-11-12T23:57:41+00:00",
+      "display_time": "2026-11-13T07:57:41+08:00",
+      "unix_ms": 1794527861000,
+      "text": "今天要崩崩了\n2%耶⋯ 這是要崩千點了吧？",
+      "number": 14,
+      "members": [
+        {
+          "key": "facebook:1711452657005989",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0T1BsmxWfpEE1oFUqCu4uEmWFRzgJq3hn6BQvCEehmrG9wLHQTU3pLLqhWQN7HakSl",
+          "published_at": "2026-11-12T23:57:41+00:00",
+          "post_id": "1711452657005989"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1711515410333047",
+      "content_hash": "3ec529b36bd702248521c57ff40111ee63a724edc584d73a409957312b0d327c",
+      "post_id": "1711515410333047",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid026b8bNeR6qcGWSBSSCyUysr6UfAmAPDz9wfjbtzjnUMFjsfUNHKbLyNV6jva3d8yYl",
+      "published_at": "2026-11-13T01:25:09+00:00",
+      "display_time": "2026-11-13T09:25:09+08:00",
+      "unix_ms": 1794533109000,
+      "text": "台股給我去爆炸啦！ \n最好啦！ 我昨天虧多少你知道嗎！！\n我直接噴50耶！ 這樣漲停對嗎！？ \n\n主力你們這樣真的不會太過份嗎？\n\n趕快爆炸啦 嗚嗚嗚😭",
+      "number": 15,
+      "members": [
+        {
+          "key": "facebook:1711515410333047",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid026b8bNeR6qcGWSBSSCyUysr6UfAmAPDz9wfjbtzjnUMFjsfUNHKbLyNV6jva3d8yYl",
+          "published_at": "2026-11-13T01:25:09+00:00",
+          "post_id": "1711515410333047"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1712186250265963",
+      "content_hash": "34c3d79959ddbac79083e131870701c525fc8d30ebd21003629cab056221238d",
+      "post_id": "1712186250265963",
+      "source": "facebook",
+      "url": "https://www.facebook.com/reel/2160900154802469/",
+      "published_at": "2026-11-13T15:21:14+00:00",
+      "display_time": "2026-11-13T23:21:14+08:00",
+      "unix_ms": 1794583274000,
+      "text": "希克你騙我\n你不是說劍插回去會重置時間回到過去嗎",
+      "number": 16,
+      "members": [
+        {
+          "key": "facebook:1712186250265963",
+          "source": "facebook",
+          "url": "https://www.facebook.com/reel/2160900154802469/",
+          "published_at": "2026-11-13T15:21:14+00:00",
+          "post_id": "1712186250265963"
+        }
+      ]
+    },
+    {
+      "key": "threads:4029579593664549218",
+      "content_hash": "d3d417869988217a95a04101eb74b1ba53852674fa50b3b56bcccd2bf654a7d9",
+      "post_id": "4029579593664549218",
+      "source": "threads",
+      "url": "https://www.threads.com/t/Dfr8UpyidFi",
+      "published_at": "2026-11-13T15:22:24+00:00",
+      "display_time": "2026-11-13T23:22:24+08:00",
+      "unix_ms": 1794583344000,
+      "text": "希克你騙我\n你不是說劍插回去會重置時間回到過去嗎",
+      "number": 17,
+      "members": [
+        {
+          "key": "threads:4029579593664549218",
+          "source": "threads",
+          "url": "https://www.threads.com/t/Dfr8UpyidFi",
+          "published_at": "2026-11-13T15:22:24+00:00",
+          "post_id": "4029579593664549218"
+        }
+      ]
+    },
+    {
+      "key": "threads:4029622132984581375",
+      "content_hash": "8f01296d7bf7b9df9c33968cfd3976b0127b518bf5fa1c8464c44b04c64e0b50",
+      "post_id": "4029622132984581375",
+      "source": "threads",
+      "url": "https://www.threads.com/t/DfsF_rnmQz_",
+      "published_at": "2026-11-13T16:46:53+00:00",
+      "display_time": "2026-11-14T00:46:53+08:00",
+      "unix_ms": 1794588413000,
+      "text": "看來準備崩盤了",
+      "number": 18,
+      "members": [
+        {
+          "key": "threads:4029622132984581375",
+          "source": "threads",
+          "url": "https://www.threads.com/t/DfsF_rnmQz_",
+          "published_at": "2026-11-13T16:46:53+00:00",
+          "post_id": "4029622132984581375"
+        }
+      ]
+    },
+    {
+      "key": "threads:4029927973335964218",
+      "content_hash": "aaf6911760977953db34fc5fcae73036a1295b9b0cdcb05336dce110cf22ed20",
+      "post_id": "4029927973335964218",
+      "source": "threads",
+      "url": "https://www.threads.com/t/DftLiPpGZo6",
+      "published_at": "2026-11-14T02:54:32+00:00",
+      "display_time": "2026-11-14T10:54:32+08:00",
+      "unix_ms": 1794624872000,
+      "text": "剛剛看了一下9-11月的合約單結算\n\n賭博真的是不好的",
+      "number": 19,
+      "members": [
+        {
+          "key": "threads:4029927973335964218",
+          "source": "threads",
+          "url": "https://www.threads.com/t/DftLiPpGZo6",
+          "published_at": "2026-11-14T02:54:32+00:00",
+          "post_id": "4029927973335964218"
+        }
+      ]
+    }
+  ]
+}

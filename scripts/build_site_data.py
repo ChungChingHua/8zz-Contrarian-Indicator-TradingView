@@ -2,12 +2,16 @@
 """
 build_site_data.py
 ──────────────────
+LEGACY ENGINE: not used by docs/index.html. For the audited dashboard, run
+    python scripts/build_audited_dashboard.py [--refresh-market]
+The legacy outcome/equity data below is retained only for compatibility tests.
+
 Parses all events embedded in 8zz-indicator.pine, computes win/loss
 outcomes using per-event tickers (from the evt_ticker array) via yfinance,
 and writes docs/events.json for the GitHub Pages dashboard.
 
 Two exit modes are computed in parallel:
-  • Mode A – Fixed 14 trading days after entry.
+  • Mode A – Legacy 17 bars with mixed-resolution fallback (NOT audited output).
   • Mode B – Flip-based exit: holds until the next direction flip fires
              (or today if still open).
 
@@ -29,13 +33,15 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from urllib.parse import quote
 
-import requests
+try:
+    import requests
+except ImportError:
+    requests = None
 
 try:
     import yfinance as yf
 except ImportError:
-    print("ERROR: yfinance not installed. Run: pip install yfinance")
-    sys.exit(1)
+    yf = None
 
 # ── Config ────────────────────────────────────────────────────────────────────
 ROOT = Path(__file__).resolve().parent.parent
@@ -72,6 +78,10 @@ def load_post_sources() -> dict[int, str]:
             if not post.get("investment_related") or not post.get("permalink_url"):
                 continue
             sources[int(post["unix_ms"])] = str(post["permalink_url"])
+    social = ROOT / "data" / "social_posts.json"
+    if social.exists():
+        for post in json.loads(social.read_text()).values():
+            sources.setdefault(post["unix_ms"], post["url"])
     return sources
 
 
@@ -118,7 +128,7 @@ def parse_events(pine_text: str) -> list[dict]:
                 "is_flip": False,  # set below
             }
         )
-    return events
+    return sorted(events, key=lambda e: e["unix_ms"])
 
 
 def mark_flips(events: list[dict]) -> list[dict]:
@@ -599,12 +609,8 @@ def compute_outcomes_mode_b(events: list[dict], all_prices: dict[str, dict[str, 
             flip["outcome"] = "open"
         elif pnl_pct > 0:
             flip["outcome"] = "win"
-        elif pnl_pct < 0 and flip["direction"] == -1:
-            # Only bearish (short) signals count as a loss when wrong;
-            # bullish (long) signals that fall slightly are treated as flat.
+        elif pnl_pct < 0:
             flip["outcome"] = "loss"
-        elif pnl_pct < 0 and flip["direction"] == 1:
-            flip["outcome"] = "flat"
         else:
             flip["outcome"] = "flat"
 
@@ -689,10 +695,8 @@ def compute_outcomes_mode_a(
 
         if pnl_pct_a > 0:
             flip["outcome_a"] = "win"
-        elif pnl_pct_a < 0 and flip["direction"] == -1:
+        elif pnl_pct_a < 0:
             flip["outcome_a"] = "loss"
-        elif pnl_pct_a < 0 and flip["direction"] == 1:
-            flip["outcome_a"] = "flat"
         else:
             flip["outcome_a"] = "flat"
 
@@ -710,8 +714,8 @@ def _build_mode_stats(
     losses = [f for f in resolved if f[outcome_key] == "loss"]
     open_flips = [f for f in flips if f.get(outcome_key) == "open"]
 
-    # Denominator: wins + losses + open (flat = 0% or long-side miss, excluded from rate)
-    denom = len(wins) + len(losses) + len(open_flips)
+    # Win rate uses closed non-zero trades; open/unknown/flat are reported separately.
+    denom = len(wins) + len(losses)
     win_rate = len(wins) / denom * 100 if denom else 0
     pnls = [p for f in resolved if (p := _finite_float(f.get(pnl_key))) is not None]
     avg_pnl = sum(pnls) / len(pnls) if pnls else 0
@@ -899,7 +903,7 @@ def main() -> None:
     first_dt = datetime.fromisoformat(events[0]["time_utc"])
     last_dt = datetime.now(timezone.utc) + timedelta(days=1)
     print(f"Fetching price history {first_dt.date()} → {last_dt.date()} …")
-    all_prices = fetch_all_prices(events, first_dt, last_dt)
+    all_prices = load_price_cache(unique_tickers) if "--offline" in sys.argv else fetch_all_prices(events, first_dt, last_dt)
 
     events = compute_outcomes_mode_b(events, all_prices)
     events = compute_outcomes_mode_a(events, all_prices, hold_bars=MODE_A_HOLD_BARS)
@@ -934,6 +938,7 @@ def main() -> None:
 
     output = {
         "stats": stats,
+        "market_data_mode": "cached_unverified_freshness" if "--offline" in sys.argv else "live",
         "events": events,
         "equity_curves": equity_curves,
         "sensitivity": sens,
@@ -957,3 +962,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

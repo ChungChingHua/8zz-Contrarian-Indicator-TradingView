@@ -1,0 +1,132 @@
+{
+  "simulation": true,
+  "external_apify_requests": 0,
+  "external_ai_requests": 0,
+  "telegram_send_requests": 0,
+  "stats": {
+    "settled": 4,
+    "wins": 1,
+    "losses": 2,
+    "ties": 1,
+    "open": 1,
+    "missing": 0,
+    "win_rate": 25.0,
+    "average": -2.777777777777779
+  },
+  "trades": [
+    {
+      "status": "已結算",
+      "trade": true,
+      "entry": {
+        "time": 1793597400000,
+        "price": 100
+      },
+      "exit": {
+        "time": 1793683800000,
+        "price": 90
+      },
+      "direction": 1,
+      "event_id": 1,
+      "pnl": -9.999999999999998,
+      "result": "敗"
+    },
+    {
+      "status": "已結算",
+      "trade": true,
+      "entry": {
+        "time": 1793683800000,
+        "price": 90
+      },
+      "exit": {
+        "time": 1793770200000,
+        "price": 100
+      },
+      "direction": -1,
+      "event_id": 2,
+      "pnl": -11.111111111111116,
+      "result": "敗"
+    },
+    {
+      "status": "已結算",
+      "trade": true,
+      "entry": {
+        "time": 1793770200000,
+        "price": 100
+      },
+      "exit": {
+        "time": 1793856600000,
+        "price": 100
+      },
+      "direction": 1,
+      "event_id": 3,
+      "pnl": 0.0,
+      "result": "平手"
+    },
+    {
+      "status": "已結算",
+      "trade": true,
+      "entry": {
+        "time": 1793856600000,
+        "price": 100
+      },
+      "exit": {
+        "time": 1793943000000,
+        "price": 90
+      },
+      "direction": -1,
+      "event_id": 4,
+      "pnl": 9.999999999999998,
+      "result": "勝"
+    },
+    {
+      "status": "未平倉",
+      "trade": true,
+      "entry": {
+        "time": 1793943000000,
+        "price": 90
+      },
+      "exit": null,
+      "direction": 1,
+      "event_id": 5,
+      "mark": {
+        "time": 1794202200000,
+        "price": 95
+      },
+      "floating": 5.555555555555558
+    }
+  ],
+  "curve": [
+    {
+      "time": 1793597400000,
+      "equity": 100.0,
+      "benchmark": 100.0
+    },
+    {
+      "time": 1793683800000,
+      "equity": 90.0,
+      "benchmark": 90.0
+    },
+    {
+      "time": 1793770200000,
+      "equity": 80.0,
+      "benchmark": 100.0
+    },
+    {
+      "time": 1793856600000,
+      "equity": 80.0,
+      "benchmark": 100.0
+    },
+    {
+      "time": 1793943000000,
+      "equity": 88.0,
+      "benchmark": 90.0
+    },
+    {
+      "time": 1794202200000,
+      "equity": 92.88888888888889,
+      "benchmark": 95.0
+    }
+  ],
+  "expected_final_equity": 92.8888888888889,
+  "notice": "Synthetic prices and posts, not investment results. Notification failure/crash cases verified in test_live_pipeline.py."
+}

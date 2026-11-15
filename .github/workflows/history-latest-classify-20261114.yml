@@ -1,0 +1,99 @@
+name: Classify latest saved history once 20261114
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: original-author-history-batch-01
+  cancel-in-progress: false
+jobs:
+  classify:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    env:
+      AUTHORIZED_LATEST_HISTORY: latest-history-20261114
+      AUTHORIZED_HISTORY_SCOPE: history-completion-20261107
+      AUTHORIZED_RESUME_ID: 20261114-media-repair-04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: codex/social-pipeline-20261106
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Offline regression before generation
+        run: python -m unittest discover -s scripts -p 'test*.py'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: history-latest-acquisition-cache-20261114
+          run-id: 43584846499
+          github-token: ${{ github.token }}
+          path: /tmp/8zz-history-media-cache
+      - name: Verify cache bytes before use
+        run: |
+          PYTHONPATH=scripts python - <<'PY'
+          import json
+          from history_cached_completion import prepare_restored_cache
+          print(json.dumps(prepare_restored_cache()))
+          PY
+      - name: Continue only never-dispatched posts; same free model and author rules
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          CHATANYWHERE_API_KEY: ${{ secrets.CHATANYWHERE_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/history_latest_classify_20261114.py
+      - name: Refresh actual known run costs without new starts
+        if: always()
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          PYTHONPATH=scripts python - <<'PY'
+          import json,os
+          from decimal import Decimal
+          import apify_cost_test as t
+          import history_completion as hc
+          import history_latest_acquire_20261114 as latest
+          from history_latest_classify_20261114 import Client
+          client=Client(os.environ.pop('APIFY_TOKEN'));docs=t.Docs(os.environ.pop('GH_TOKEN'))
+          state=docs.load(latest.PATH) or {};out={'runs':[],'actor_starts':0,'observed_at':hc.h.now(),'billing_finality':'API observation, not independently settled invoice; zero does not prove free service','actual_AI_points_deducted':None}
+          media=docs.load('data/history_media_repairs/20261114-media-repair-04.json') or {}
+          ids=[r['run_id'] for r in state.get('runs',[]) if r.get('run_id')]+[r['id'] for r in media.get('batches',[]) if r.get('id')]
+          for run_id in dict.fromkeys(ids):
+              row={'run_id':run_id}
+              try:
+                  run=client.request('/actor-runs/'+run_id)['data']
+                  row.update({k:t.plain(run.get(k)) for k in ('status','actId','buildId','buildNumber','startedAt','finishedAt','usageTotalUsd','externalChargedTotalUsd','usageUsd','chargedEventCounts')})
+              except Exception as exc:row.update(error_type=type(exc).__name__,http_status=getattr(exc,'status',None))
+              out['runs'].append(row)
+          costs=[r.get('usageTotalUsd') for r in out['runs']]
+          out['observed_run_total_usd']=str(sum((Decimal(str(v)) for v in costs),Decimal(0))) if all(v is not None for v in costs) else None
+          out['cost_basis']='usageTotalUsd once per run; do not add other fee fields'
+          try:
+              limits=client.request('/users/me/limits')['data'];maximum=limits.get('limits',{}).get('maxMonthlyUsageUsd');used=limits.get('current',{}).get('monthlyUsageUsd')
+              out['account_usage']={'maximum_usd':maximum,'used_usd':used,'derived_headroom_usd':None if maximum is None or used is None else str(max(Decimal(0),Decimal(str(maximum))-Decimal(str(used)))),'note':'Usage headroom, not cash balance or settled bill'}
+          except Exception as exc:out['account_usage']={'http_status':getattr(exc,'status',None),'error_type':type(exc).__name__,'remaining_allowance':None}
+          out['http_requests']=client.counts
+          docs.save('data/history_latest_costs_20261114.json',out)
+          print(json.dumps(t.plain(out)))
+          PY
+      - name: Preserve verified cache without signed URL queries
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: history-latest-classified-cache-20261114
+          path: /tmp/8zz-history-media-cache/
+          if-no-files-found: ignore
+          retention-days: 14
+      - name: Publish complete paired Pine and inventory from saved results only
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/history_completion.py publish-report
+      - name: Final offline regression
+        if: always()
+        run: python -m unittest discover -s scripts -p 'test*.py'

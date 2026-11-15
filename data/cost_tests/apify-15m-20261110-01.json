@@ -1,0 +1,382 @@
+{
+  "test_id": "apify-15m-20261110-01",
+  "status": "completed",
+  "actors": {
+    "facebook": {
+      "actor": "apify~facebook-posts-scraper",
+      "pricing": {
+        "pricingModel": "PAY_PER_EVENT",
+        "startedAt": "2026-03-11T14:56:37.208Z",
+        "minimalMaxTotalChargeUsd": "0.0062",
+        "pricingPerEvent": {
+          "actorChargeEvents": {
+            "post": {
+              "eventTitle": "Post",
+              "eventDescription": "Each post written to the dataset.",
+              "isOneTimeEvent": false,
+              "eventTieredPricingUsd": {
+                "FREE": {
+                  "tieredEventPriceUsd": "0.005"
+                },
+                "BRONZE": {
+                  "tieredEventPriceUsd": "0.004"
+                },
+                "SILVER": {
+                  "tieredEventPriceUsd": "0.0025"
+                },
+                "GOLD": {
+                  "tieredEventPriceUsd": "0.002"
+                },
+                "PLATINUM": {
+                  "tieredEventPriceUsd": "0.0016"
+                },
+                "DIAMOND": {
+                  "tieredEventPriceUsd": "0.0008"
+                }
+              },
+              "isPrimaryEvent": true
+            },
+            "actor-start": {
+              "eventTitle": "Actor start",
+              "eventDescription": "Flat charge for starting an Actor run.",
+              "isOneTimeEvent": true,
+              "eventTieredPricingUsd": {
+                "FREE": {
+                  "tieredEventPriceUsd": "0.001"
+                },
+                "BRONZE": {
+                  "tieredEventPriceUsd": "0.001"
+                },
+                "SILVER": {
+                  "tieredEventPriceUsd": "0.001"
+                },
+                "GOLD": {
+                  "tieredEventPriceUsd": "0.001"
+                },
+                "PLATINUM": {
+                  "tieredEventPriceUsd": "0.001"
+                },
+                "DIAMOND": {
+                  "tieredEventPriceUsd": "0.001"
+                }
+              }
+            },
+            "filter-applied": {
+              "eventTitle": "Add-on: Date filter",
+              "eventDescription": "Extra cost per post scraped with a date filter.",
+              "isOneTimeEvent": false,
+              "eventTieredPricingUsd": {
+                "FREE": {
+                  "tieredEventPriceUsd": "0.002"
+                },
+                "BRONZE": {
+                  "tieredEventPriceUsd": "0.001"
+                },
+                "SILVER": {
+                  "tieredEventPriceUsd": "0.0008"
+                },
+                "GOLD": {
+                  "tieredEventPriceUsd": "0.0006"
+                },
+                "PLATINUM": {
+                  "tieredEventPriceUsd": "0.0004"
+                },
+                "DIAMOND": {
+                  "tieredEventPriceUsd": "0.0002"
+                }
+              }
+            }
+          }
+        }
+      },
+      "defaultRunOptions": {
+        "build": "latest",
+        "timeoutSecs": 0,
+        "memoryMbytes": 4096
+      },
+      "status": "SUCCEEDED",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-10T06:08:58.944807Z",
+        "onlyPostsOlderThan": "2026-11-10T06:23:58.944807Z"
+      },
+      "id": "WuaouaiFfCjRf8fV5",
+      "startedAt": "2026-11-10T06:24:02.352Z",
+      "finishedAt": "2026-11-10T06:24:11.572Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "jkYbrreEgXuJQo9ex",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.008",
+      "chargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "accountedChargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "duration_seconds": "9.065",
+      "cost_observed_at": "2026-11-10T06:25:52.356036+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "result_count": 1,
+      "cost_category": "diagnostic_rows_present_not_zero_result_check",
+      "accepted_in_window": [],
+      "excluded": {
+        "other_author": 1
+      },
+      "accepted_count": 0,
+      "previous_cost_snapshots": [
+        {
+          "usageTotalUsd": "0.001",
+          "externalChargedTotalUsd": null,
+          "cost_observed_at": "2026-11-10T06:24:11.948445+00:00",
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          }
+        }
+      ],
+      "row_shape_audit": [
+        {
+          "field_names": [
+            "error",
+            "errorDescription",
+            "inputUrl"
+          ],
+          "has_post_id": false,
+          "has_publication_time": false,
+          "has_error": true,
+          "safe_error_code": "no_items",
+          "message_sha256": "7cb848f06235e5879d61ed6956a4d27ab80b47618814122046ae866424e5587c"
+        }
+      ],
+      "dataset_assessment": "One no_items diagnostic row, not a post; no post ID or publication time. Do not classify as a zero-result check or a retrieved article.",
+      "normalization_note": "Initial generic normalizer counted this diagnostic row under other_author; row-shape audit establishes it is an Actor diagnostic, not another author's post."
+    },
+    "threads": {
+      "actor": "automation-lab~threads-scraper",
+      "pricing": {
+        "pricingModel": "PAY_PER_EVENT",
+        "startedAt": "2026-08-25T20:07:35.923Z",
+        "pricingPerEvent": {
+          "actorChargeEvents": {
+            "start": {
+              "eventTitle": "Start",
+              "eventDescription": "One-time charge per run",
+              "isOneTimeEvent": true,
+              "eventTieredPricingUsd": {
+                "FREE": {
+                  "tieredEventPriceUsd": "0.02"
+                },
+                "BRONZE": {
+                  "tieredEventPriceUsd": "0.0174"
+                },
+                "SILVER": {
+                  "tieredEventPriceUsd": "0.0134"
+                },
+                "GOLD": {
+                  "tieredEventPriceUsd": "0.0104"
+                },
+                "PLATINUM": {
+                  "tieredEventPriceUsd": "0.007"
+                },
+                "DIAMOND": {
+                  "tieredEventPriceUsd": "0.0048"
+                }
+              }
+            },
+            "profile": {
+              "eventTitle": "Profile scraped",
+              "eventDescription": "Per profile extracted",
+              "isOneTimeEvent": false,
+              "eventTieredPricingUsd": {
+                "FREE": {
+                  "tieredEventPriceUsd": "0.005"
+                },
+                "BRONZE": {
+                  "tieredEventPriceUsd": "0.00435"
+                },
+                "SILVER": {
+                  "tieredEventPriceUsd": "0.00335"
+                },
+                "GOLD": {
+                  "tieredEventPriceUsd": "0.0026"
+                },
+                "PLATINUM": {
+                  "tieredEventPriceUsd": "0.00175"
+                },
+                "DIAMOND": {
+                  "tieredEventPriceUsd": "0.0012"
+                }
+              }
+            },
+            "post": {
+              "eventTitle": "Post extracted",
+              "eventDescription": "Per post extracted",
+              "isOneTimeEvent": false,
+              "eventTieredPricingUsd": {
+                "FREE": {
+                  "tieredEventPriceUsd": "0.005"
+                },
+                "BRONZE": {
+                  "tieredEventPriceUsd": "0.00435"
+                },
+                "SILVER": {
+                  "tieredEventPriceUsd": "0.00335"
+                },
+                "GOLD": {
+                  "tieredEventPriceUsd": "0.0026"
+                },
+                "PLATINUM": {
+                  "tieredEventPriceUsd": "0.00175"
+                },
+                "DIAMOND": {
+                  "tieredEventPriceUsd": "0.0012"
+                }
+              },
+              "isPrimaryEvent": true
+            }
+          }
+        }
+      },
+      "defaultRunOptions": {
+        "build": "latest",
+        "timeoutSecs": 900,
+        "memoryMbytes": 1024
+      },
+      "status": "SUCCEEDED",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-10T06:08:58.944807Z",
+        "postedBefore": "2026-11-10T06:23:58.944807Z"
+      },
+      "id": "p2343oHUCL4eFtBeA",
+      "startedAt": "2026-11-10T06:24:04.521Z",
+      "finishedAt": "2026-11-10T06:24:11.548Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "P6fChvHlSQ5GDjVgg",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": 0,
+      "chargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "accountedChargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "duration_seconds": "6.875",
+      "cost_observed_at": "2026-11-10T06:25:53.598520+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "result_count": 0,
+      "cost_category": "no_new_post_check",
+      "accepted_in_window": [],
+      "excluded": {},
+      "accepted_count": 0,
+      "previous_cost_snapshots": [
+        {
+          "usageTotalUsd": 0,
+          "externalChargedTotalUsd": null,
+          "cost_observed_at": "2026-11-10T06:24:14.032076+00:00",
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        }
+      ]
+    }
+  },
+  "cap_usd_per_run": "0.10",
+  "cap_documentation": "https://docs.apify.com/api/v2/actors-runs-post",
+  "maximum_starts": 2,
+  "automatic_retries": 0,
+  "formal_shas_before": {
+    "data/live_control.json": "ec8d2202928c1fa224cbc86929a0c281773cf150",
+    "data/live_posts.json": "0967ef424bce6791893e9a57bb952f80fd536e93",
+    "data/telegram_outbox.json": "92c46407988568161186231714a1e98de335baaa",
+    "data/history_completion_control.json": "0fbc1e9ebbaa60a9537d47400559115c1572c333",
+    "data/acquisition.json": "7a1ecdeaeef59eabaa22e47fb70c326589c83df4",
+    "data/social_posts.json": "25be466bde2d60d6f071a5f321ffbcec5d01d10d",
+    "data/new_events.json": "0637a088a01e8ddab3bf3fa98dbe804cbde1a0dc",
+    "data/social_report.json": "8e789bf292c16b7f058a8062d3fc0bf210894caf",
+    "docs/social-status.json": "8e789bf292c16b7f058a8062d3fc0bf210894caf",
+    "8zz-indicator.pine": "5d2a61dc91a84741fec24f3b4db262f7574ffc77",
+    "candidates/8zz-original-author-batch-01.pine": "cb5e43acdc5dc912162f14148bd4df5c81d93d9e"
+  },
+  "http_requests": {
+    "GET": 7,
+    "POST": 2
+  },
+  "start_utc": "2026-11-10T06:08:58.944807+00:00",
+  "end_utc": "2026-11-10T06:23:58.944807+00:00",
+  "start_taipei": "2026-11-10T14:08:58.944807+08:00",
+  "end_taipei": "2026-11-10T14:23:58.944807+08:00",
+  "monthly_runs_before": 6,
+  "reserved_starts": 2,
+  "monthly_runs_after": 8,
+  "formal_shas_after": {
+    "data/live_control.json": "ec8d2202928c1fa224cbc86929a0c281773cf150",
+    "data/live_posts.json": "0967ef424bce6791893e9a57bb952f80fd536e93",
+    "data/telegram_outbox.json": "92c46407988568161186231714a1e98de335baaa",
+    "data/history_completion_control.json": "0fbc1e9ebbaa60a9537d47400559115c1572c333",
+    "data/acquisition.json": "7a1ecdeaeef59eabaa22e47fb70c326589c83df4",
+    "data/social_posts.json": "25be466bde2d60d6f071a5f321ffbcec5d01d10d",
+    "data/new_events.json": "0637a088a01e8ddab3bf3fa98dbe804cbde1a0dc",
+    "data/social_report.json": "8e789bf292c16b7f058a8062d3fc0bf210894caf",
+    "docs/social-status.json": "8e789bf292c16b7f058a8062d3fc0bf210894caf",
+    "8zz-indicator.pine": "5d2a61dc91a84741fec24f3b4db262f7574ffc77",
+    "candidates/8zz-original-author-batch-01.pine": "cb5e43acdc5dc912162f14148bd4df5c81d93d9e"
+  },
+  "formal_state_unchanged": true,
+  "observation_http_requests": {
+    "GET": 3,
+    "POST": 0
+  },
+  "observation_formal_state_unchanged": true,
+  "cost_summary": {
+    "observed_total_usd": "0.008",
+    "billing_finality": "Not verified against a settled invoice. Facebook increased from 0.001 to 0.008 after initial run completion. Threads API currently reports zero; do not infer free execution.",
+    "start_requests": 2,
+    "additional_start_requests": 0,
+    "http_gets": 10,
+    "http_posts": 2,
+    "ai_requests": 0,
+    "telegram_requests": 0
+  }
+}

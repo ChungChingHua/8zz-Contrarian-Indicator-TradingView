@@ -1,0 +1,73 @@
+{
+  "id": "offline-ticker-metadata-20261115",
+  "at": "2026-11-15T09:24:01.672858+00:00",
+  "provider_requests": 0,
+  "reused_responses": 6,
+  "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+  "raw_responses_unchanged": true,
+  "generation_attempts_unchanged": true,
+  "audit": "data/offline_ticker_repair_20261115.json",
+  "recovered_technical_failures": 6,
+  "records": [
+    {
+      "key": "threads:3958223690278707712",
+      "ledger": "data/history_progress/history-completion-20261107-005.json",
+      "from_status": "technical_failure",
+      "raw_response_sha256": "a387468a5ef6db0dc84fbe6dd9640cbeeeaffe7a8413c13925759c078602fcd3",
+      "original_ai_ticker": "6282.TWO, 6269.TWO",
+      "direction": -1,
+      "strength": 2,
+      "to_status": "completed_signal"
+    },
+    {
+      "key": "facebook:1634810338003555",
+      "ledger": "data/history_progress/history-completion-20261107-010.json",
+      "from_status": "technical_failure",
+      "raw_response_sha256": "df1ba500a0c3a2f70e8525975a2eab9fbd0e74a40df800ede76204892fc5c065",
+      "original_ai_ticker": "APPL?",
+      "direction": 1,
+      "strength": 2,
+      "to_status": "completed_signal"
+    },
+    {
+      "key": "facebook:1700739848077270",
+      "ledger": "data/history_progress/history-completion-20261107-031.json",
+      "from_status": "technical_failure",
+      "raw_response_sha256": "be3914d07d0cee5a9b353161e70cd4b69be2f3582c809a392922eb2b97ede6bd",
+      "original_ai_ticker": "3026.TW;2327.TW",
+      "direction": 1,
+      "strength": 2,
+      "to_status": "completed_signal"
+    },
+    {
+      "key": "facebook:1700801464737775",
+      "ledger": "data/history_progress/history-completion-20261107-031.json",
+      "from_status": "technical_failure",
+      "raw_response_sha256": "845932c93fb436c59da6ff50943bd4a988424029554d6afe043b854b27013623",
+      "original_ai_ticker": "可轉換為1795.TW?",
+      "direction": 1,
+      "strength": 3,
+      "to_status": "completed_signal"
+    },
+    {
+      "key": "threads:4023406251229152584",
+      "ledger": "data/history_progress/history-completion-20261107-032.json",
+      "from_status": "technical_failure",
+      "raw_response_sha256": "3ac0a394952a71b4bf5bd14ed6e8fcc4290ae2185b51935d8dca2a05b6608e97",
+      "original_ai_ticker": "國巨",
+      "direction": -1,
+      "strength": 3,
+      "to_status": "completed_signal"
+    },
+    {
+      "key": "facebook:1711515410333047",
+      "ledger": "data/history_progress/history-completion-20261107-036.json",
+      "from_status": "technical_failure",
+      "raw_response_sha256": "08681d207e8164b83c1ca69a8109583e4e044ec091f1008d73522f08f8b6cb30",
+      "original_ai_ticker": "創意",
+      "direction": -1,
+      "strength": 3,
+      "to_status": "completed_signal"
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "session": "20261115-media-repair-02",
+  "batches": [
+    {
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "keys": [
+        "facebook:1702487071235881",
+        "facebook:1702731291211459",
+        "facebook:1702897424528179",
+        "facebook:1703163464501575",
+        "facebook:1703429887808266",
+        "facebook:1703740244443897",
+        "facebook:1703792734438648",
+        "facebook:1704945814323340",
+        "facebook:1705156784302243",
+        "facebook:1705237887627466"
+      ],
+      "status": "SUCCEEDED",
+      "posts": {
+        "facebook:1702487071235881": {
+          "status": "cached"
+        },
+        "facebook:1702731291211459": {
+          "status": "cached"
+        },
+        "facebook:1702897424528179": {
+          "status": "cached"
+        },
+        "facebook:1703163464501575": {
+          "status": "cached"
+        },
+        "facebook:1703429887808266": {
+          "status": "cached"
+        },
+        "facebook:1703740244443897": {
+          "status": "cached"
+        },
+        "facebook:1703792734438648": {
+          "status": "cached"
+        },
+        "facebook:1704945814323340": {
+          "status": "cached"
+        },
+        "facebook:1705156784302243": {
+          "status": "cached"
+        },
+        "facebook:1705237887627466": {
+          "status": "cached"
+        }
+      },
+      "empty_predecessor": {
+        "run_id": "aN1ESUqN4kVceCqBH",
+        "dataset_id": "yv2pVJKq2araXljnc",
+        "terminal_status": "ABORTED",
+        "dataset_items": 0,
+        "verified_at": "2026-11-15T09:03:34.639382+00:00",
+        "verification_method": "offline_pinned_previous_official_API_snapshot",
+        "source_git_commit": "c137481646469c46b42fde0ac2151c04181c9a14",
+        "source_path": "data/history_media_repairs/budget-audit-20261114.json",
+        "source_sha256": "be681da028b6c31e39ecb6db9247ceb396e94de109312dadac0be591aa30e4d5",
+        "provider_observed_at": "2026-11-14T07:06:12.077588+00:00",
+        "current_old_run_access": "not_queried; previous scoped token denied. This evidence describes the recorded terminal run, not a new API observation."
+      },
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0vzGJfezAr6mDRnz1VmhY5avBR5HhZXiRE5pxW7MrGstFaoUc1upnZZWXG1nD7BFjl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid035tHJPGrDoLRNT1A9XfjfBXvDSyrmn5iWmw2KR3FDGtACoaExAgTaYHC8v88ySNUWl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02FgHSPLV7qxuLxZPP3DLuZoNFMduPa9PpMuQ45gmmdEPFrPfgom5cGkwh8DeLcb1Kl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02o4AKSbPWCCPWpq62E1UnSNcUdfWCHRfSEAEruZ7RW4fH6sdqB6oXioXAGkmzVnCrl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0YAJxviLNDv2BGBsdTXgEsHe6YvfRZtgBC3yrc6WksVY3wPGiAc4RsAPYNtx8t1i5l"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid08wkUP46KGJHSyn1sEhxNV7GG8xZah94T9bVfGe5rfkr9FWtXq4ygRLkYDm9MAqfzl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid037J5afqWKJv53P9DQt53pwWgXp4e9Lbbwp3fJBQZWf4EPZfakWZGf2GMGHUuEHSdBl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02SKKe6t1xozYuPPTpT1dezwLh49AYvwJDQgqZpvHNx4eW9m8hhY127syMwEfwgA2Gl"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02HVzyozMABc2YGDoXvrdLj2mb7jaUXuuDMvBGvZyzwFeUVfkkyS3PU1wNRbkDrwg7l"
+          },
+          {
+            "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid035ydhaSUH8aqj99cm6yxckf9sbjK9Ez8udykEy2RmFBmFAYGpykhp2j2bBTnu8uvHl"
+          }
+        ],
+        "resultsLimit": 1
+      },
+      "id": "xPpzRUxhRvhRbi0Td",
+      "startedAt": "2026-11-15T09:03:41.527Z",
+      "finishedAt": "2026-11-15T09:03:53.511Z",
+      "buildId": "YrRcdVQKNazTl1teV",
+      "buildNumber": "0.0.421",
+      "defaultDatasetId": "Xpj7YDJcgS5TDMPe7",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "restartOnError": false,
+        "maxTotalChargeUsd": "4.643893",
+        "isMaxTotalChargeUsdSetByUser": false,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.051000000000000004",
+      "chargedEventCounts": {
+        "post": 10,
+        "actor-start": 1,
+        "filter-applied": 0
+      },
+      "accountedChargedEventCounts": {
+        "post": 10,
+        "actor-start": 1,
+        "filter-applied": 0
+      },
+      "duration_seconds": "11.819",
+      "cost_observed_at": "2026-11-15T09:05:40.007020+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution"
+    }
+  ],
+  "actor_starts_reserved": 1,
+  "ai_requests": 0,
+  "monthly_runs_before": 69,
+  "http_requests": {
+    "GET": 7,
+    "POST": 1
+  },
+  "updated_at": "2026-11-15T09:05:40.007070+00:00",
+  "verified_empty_predecessor": {
+    "run_id": "aN1ESUqN4kVceCqBH",
+    "dataset_id": "yv2pVJKq2araXljnc",
+    "terminal_status": "ABORTED",
+    "dataset_items": 0,
+    "verified_at": "2026-11-15T09:03:34.639382+00:00",
+    "verification_method": "offline_pinned_previous_official_API_snapshot",
+    "source_git_commit": "c137481646469c46b42fde0ac2151c04181c9a14",
+    "source_path": "data/history_media_repairs/budget-audit-20261114.json",
+    "source_sha256": "be681da028b6c31e39ecb6db9247ceb396e94de109312dadac0be591aa30e4d5",
+    "provider_observed_at": "2026-11-14T07:06:12.077588+00:00",
+    "current_old_run_access": "not_queried; previous scoped token denied. This evidence describes the recorded terminal run, not a new API observation."
+  },
+  "recovery_candidate_keys": [
+    "facebook:1702487071235881",
+    "facebook:1702731291211459",
+    "facebook:1702897424528179",
+    "facebook:1703163464501575",
+    "facebook:1703429887808266",
+    "facebook:1703740244443897",
+    "facebook:1703792734438648",
+    "facebook:1704945814323340",
+    "facebook:1705156784302243",
+    "facebook:1705237887627466"
+  ],
+  "recovery_note": "User authorized unfetched missing public posts. Recorded official terminal ABORTED/zero-post/empty-dataset evidence is pinned and hash verified. One new session attempt; no unknown or completed request is replayed.",
+  "monthly_runs_after": 70
+}

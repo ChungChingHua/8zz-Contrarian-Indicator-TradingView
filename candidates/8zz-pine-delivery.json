@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "events": 411,
+  "same_event_tuples": true,
+  "same_bar_policy": "latest_post_before_filters",
+  "data_cutoff_taipei": "2026-11-15T16:55:04.406470+08:00",
+  "event_fields_sha256": "d114e43944c2c9c7b9e8d7ebc6dc4e72757d9e6a6a958eb0a979d4707fe0876a",
+  "event_encoding": "packed-v1",
+  "packed_event_round_trip": true,
+  "strategy_default_end_date": "2026-11-13",
+  "tradingview_compiled": false,
+  "strategy_entry_quality": {
+    "default_minimum": 0,
+    "range": [
+      0,
+      100
+    ],
+    "inclusive": true,
+    "basis": "paired_indicator_score_at_signal",
+    "exits_unrestricted": true
+  },
+  "indicator": {
+    "path": "candidates/8zz-history-latest.pine",
+    "sha256": "118f980cce6656f82dd501c5122d005a9c7041dcb55fdecde04c338147a188dc"
+  },
+  "strategy": {
+    "path": "candidates/8zz-strategy-latest.pine",
+    "sha256": "cd35332f2175dc8897cf70c2bb06c3f241337a6cf1169398640c3c57e807d7d3"
+  }
+}

@@ -1,0 +1,676 @@
+{
+  "rules_version": "review-rules-v3",
+  "new_generation_requests": 0,
+  "raw_response_count": 9,
+  "formal_signal_written": false,
+  "count_scope": "10 original samples; acceptable means relevance/emotion at stated scope, not image verification or formal signal approval",
+  "counts": {
+    "acceptable": 6,
+    "pending_confirmation": 4,
+    "technical_failure": 0
+  },
+  "model_response_only_counts": {
+    "acceptable": 5,
+    "pending_confirmation": 4,
+    "technical_failure": 0
+  },
+  "records": [
+    {
+      "number": 1,
+      "key": "facebook:1696581131826475",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0euW28fo5eBPr4X7SsmhcDaoVxD1Un5iz7SkPvY23szM8j9mV73JoHmcVgzw8xs5el",
+      "display_time": "2026-10-30T08:05:00+08:00",
+      "scope": "quality_record_only",
+      "decision_origin": "cached_model_plus_offline_rules",
+      "raw_record_ref": {
+        "file": "data/quality_test_results.json",
+        "number": 1
+      },
+      "context_used": [],
+      "formal_signal_written": false,
+      "auto_retry": false,
+      "new_generation_requests": 0,
+      "model_answer_available": true,
+      "video_unanalysed": false,
+      "image_observations_verified": false,
+      "review_reasons": [],
+      "model_requery": {
+        "required_now": false,
+        "reason": "現有回應足以離線修正；圖片／代碼疑點先核證據，不需為清空或調整歸屬重新生成。"
+      },
+      "status": "acceptable",
+      "analysis_scope": "same_post_text_and_saved_image_observations",
+      "relevance": "investment",
+      "emotion": "panic",
+      "direction": 1,
+      "strength": 3,
+      "reason": "作者表示自己的BTC單已沒了、稱此波「狠恐怖」並建議他人要做好風控與停損，語氣表達強烈的驚恐與挫折。",
+      "asset_groups": {
+        "personal_assets": [
+          {
+            "name": "BTC",
+            "ticker": "",
+            "identity": "candidate",
+            "evidence": [
+              {
+                "source": "author_text",
+                "image_index": -1,
+                "quote": "連我的BTC單都沒了",
+                "status": "literal_text_match",
+                "human_verified": false
+              }
+            ],
+            "attribution_reason": "本人文字含可追溯的交易／持倉敘述；泛稱不等於具體股票已辨識",
+            "status": "text_evidence_only",
+            "human_image_verified": false
+          }
+        ],
+        "mentioned_targets": [],
+        "image_quotes": [
+          {
+            "name": "TSM",
+            "ticker": "TSM",
+            "identity": "candidate",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "TSM\n431.81 USD\n▼7.70 (1.75%)\n收盤價 | 2026/10/30 04:00 台北時間",
+                "sha256": "d9085f60d15ebcf0c33999f0dd03587b72838088c84e8d88f4b58b60d1be193f",
+                "status": "pending_image_confirmation",
+                "human_verified": false
+              }
+            ],
+            "attribution_reason": "圖片可見候選僅表示報價／畫面提及，不證明本人交易或持倉",
+            "status": "pending_image_confirmation",
+            "human_image_verified": false
+          }
+        ]
+      },
+      "corrections": []
+    },
+    {
+      "number": 2,
+      "key": "threads:3981333267379483868",
+      "url": "https://www.threads.com/@banini31/post/DdAiYM-mXTc",
+      "display_time": "2026-09-08T09:45:32+08:00",
+      "scope": "quality_record_only",
+      "decision_origin": "cached_model_plus_offline_rules",
+      "raw_record_ref": {
+        "file": "data/quality_test_results.json",
+        "number": 2
+      },
+      "context_used": [],
+      "formal_signal_written": false,
+      "auto_retry": false,
+      "new_generation_requests": 0,
+      "model_answer_available": true,
+      "video_unanalysed": false,
+      "image_observations_verified": false,
+      "review_reasons": [],
+      "model_requery": {
+        "required_now": false,
+        "reason": "現有回應足以離線修正；圖片／代碼疑點先核證據，不需為清空或調整歸屬重新生成。"
+      },
+      "status": "acceptable",
+      "analysis_scope": "same_post_text_and_saved_image_observations",
+      "relevance": "investment",
+      "emotion": "euphoria",
+      "direction": -1,
+      "strength": 2,
+      "reason": "文字呈現亢奮與歡呼語氣（「爽啦！」「賺錢了！」「加碼再賺！」），顯示作者對投資結果與繼續買進的積極情緒，情緒明顯但未顯示極端語詞程度。",
+      "asset_groups": {
+        "personal_assets": [],
+        "mentioned_targets": [],
+        "image_quotes": []
+      },
+      "corrections": []
+    },
+    {
+      "number": 3,
+      "key": "threads:3952464799527950315",
+      "url": "https://www.threads.com/@banini31/post/DbZ-ctLGVfr",
+      "display_time": "2026-07-30T13:49:02+08:00",
+      "scope": "quality_record_only",
+      "decision_origin": "cached_model_plus_offline_rules",
+      "raw_record_ref": {
+        "file": "data/quality_test_results.json",
+        "number": 3
+      },
+      "context_used": [],
+      "formal_signal_written": false,
+      "auto_retry": false,
+      "new_generation_requests": 0,
+      "model_answer_available": true,
+      "video_unanalysed": false,
+      "image_observations_verified": false,
+      "review_reasons": [
+        "完整原文缺少明確恐慌／痛苦證據；未停損、停不掉、無奈或顏文字本身不足，不改成中性"
+      ],
+      "model_requery": {
+        "required_now": false,
+        "reason": "先人工確認情緒閾值／發文當時可用脈絡；相同文字再問模型未必補足證據，本輪不重送。"
+      },
+      "status": "pending_confirmation",
+      "analysis_scope": "same_post_text_and_saved_image_observations",
+      "relevance": "investment",
+      "emotion": "undetermined",
+      "direction": null,
+      "strength": null,
+      "reason": "語句表現出無奈與負面情緒（尚未停損、對ETF採放任態度及無力的顏文字），顯示投資上的沮喪或焦慮，屬較明顯的恐慌/無奈情緒但未使用極端字眼。",
+      "asset_groups": {
+        "personal_assets": [
+          {
+            "name": "個股",
+            "ticker": "",
+            "identity": "asset_class_only",
+            "evidence": [
+              {
+                "source": "author_text",
+                "image_index": -1,
+                "quote": "原本價值300萬的個股還沒停損",
+                "status": "literal_text_match",
+                "human_verified": false
+              }
+            ],
+            "attribution_reason": "本人文字含可追溯的交易／持倉敘述；泛稱不等於具體股票已辨識",
+            "status": "text_evidence_only",
+            "human_image_verified": false
+          },
+          {
+            "name": "主動ETF",
+            "ticker": "",
+            "identity": "asset_class_only",
+            "evidence": [
+              {
+                "source": "author_text",
+                "image_index": -1,
+                "quote": "至於主動ETF.. 隨便他了_(:_」∠)_",
+                "status": "literal_text_match",
+                "human_verified": false
+              }
+            ],
+            "attribution_reason": "本人文字含可追溯的交易／持倉敘述；泛稱不等於具體股票已辨識",
+            "status": "text_evidence_only",
+            "human_image_verified": false
+          }
+        ],
+        "mentioned_targets": [],
+        "image_quotes": []
+      },
+      "corrections": []
+    },
+    {
+      "number": 4,
+      "key": "threads:4024468641932717746",
+      "url": "https://www.threads.com/t/DfZyOhEGS6y",
+      "display_time": "2026-11-06T22:07:49+08:00",
+      "scope": "quality_record_only",
+      "decision_origin": "cached_model_plus_offline_rules",
+      "raw_record_ref": {
+        "file": "data/quality_test_results.json",
+        "number": 4
+      },
+      "context_used": [],
+      "formal_signal_written": false,
+      "auto_retry": false,
+      "new_generation_requests": 0,
+      "model_answer_available": true,
+      "video_unanalysed": false,
+      "image_observations_verified": false,
+      "review_reasons": [
+        "投資相關性或情緒資訊不足；不改成確定中性／無關"
+      ],
+      "model_requery": {
+        "required_now": false,
+        "reason": "先人工確認情緒閾值／發文當時可用脈絡；相同文字再問模型未必補足證據，本輪不重送。"
+      },
+      "status": "pending_confirmation",
+      "analysis_scope": "same_post_text_and_saved_image_observations",
+      "relevance": "insufficient_information",
+      "emotion": "insufficient_information",
+      "direction": 0,
+      "strength": 1,
+      "reason": "文字與圖片主要為生活展示（手錶），僅有一句模糊的『看來下週穩了』，不足以判定為投資相關的亢奮或恐慌情緒。",
+      "asset_groups": {
+        "personal_assets": [],
+        "mentioned_targets": [],
+        "image_quotes": []
+      },
+      "corrections": []
+    },
+    {
+      "number": 5,
+      "key": "facebook:1640562917428297",
+      "url": "https://www.facebook.com/reel/29266616599605070/",
+      "display_time": "2026-08-30T23:11:29+08:00",
+      "scope": "quality_record_only",
+      "decision_origin": "offline_text_rule_no_model_response",
+      "raw_record_ref": {
+        "file": "data/quality_test_results.json",
+        "number": 5
+      },
+      "context_used": [],
+      "formal_signal_written": false,
+      "auto_retry": false,
+      "new_generation_requests": 0,
+      "model_answer_available": false,
+      "video_unanalysed": true,
+      "image_observations_verified": false,
+      "review_reasons": [],
+      "model_requery": {
+        "required_now": false,
+        "reason": "目前無需模型；若未來要求與AI結果同規格比較，須另授權一次文字限定判讀，明列影片未分析，不能把本筆規則結果冒充模型答案。"
+      },
+      "status": "acceptable",
+      "analysis_scope": "text_only_video_unanalysed",
+      "relevance": "unrelated",
+      "emotion": "not_applicable",
+      "direction": 0,
+      "strength": 1,
+      "reason": "完整原文主題為醫美業配與投資自己；股票名是引子，沒有明確本人投資恐慌或亢奮。僅文字規則判讀，影片未分析。",
+      "asset_groups": {
+        "personal_assets": [],
+        "mentioned_targets": [
+          {
+            "name": "欣興",
+            "ticker": "",
+            "evidence": [
+              {
+                "source": "author_text",
+                "quote": "買欣興，",
+                "status": "literal_text_match"
+              }
+            ],
+            "attribution_reason": "醫美文引子；沒有本人具體持倉證據",
+            "human_image_verified": false
+          },
+          {
+            "name": "康霈",
+            "ticker": "",
+            "evidence": [
+              {
+                "source": "author_text",
+                "quote": "買康霈，",
+                "status": "literal_text_match"
+              }
+            ],
+            "attribution_reason": "醫美文引子；沒有本人具體持倉證據",
+            "human_image_verified": false
+          }
+        ],
+        "image_quotes": []
+      },
+      "corrections": []
+    },
+    {
+      "number": 6,
+      "key": "facebook:1629435205207735",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0BaXyVMKvDPkLvQ1uJMQaU7TGmocjZxnvT3Z59xVvEd1XHk9HnbsbBVPFmCCBxBrYl",
+      "display_time": "2026-08-18T09:41:59+08:00",
+      "scope": "quality_record_only",
+      "decision_origin": "cached_model_plus_offline_rules",
+      "raw_record_ref": {
+        "file": "data/quality_test_results.json",
+        "number": 6
+      },
+      "context_used": [],
+      "formal_signal_written": false,
+      "auto_retry": false,
+      "new_generation_requests": 0,
+      "model_answer_available": true,
+      "video_unanalysed": false,
+      "image_observations_verified": false,
+      "review_reasons": [],
+      "model_requery": {
+        "required_now": false,
+        "reason": "現有回應足以離線修正；圖片／代碼疑點先核證據，不需為清空或調整歸屬重新生成。"
+      },
+      "status": "acceptable",
+      "analysis_scope": "same_post_text_and_saved_image_observations",
+      "relevance": "investment",
+      "emotion": "euphoria",
+      "direction": -1,
+      "strength": 2,
+      "reason": "文字帶有樂觀歡呼語氣（『今天穩了！大家一起跟我念！』）並以強烈目標性語句預期指數上漲（『一天100點，台股5萬點！』），屬投資亢奮情緒。情緒不是極端狂喜但明顯正向。",
+      "asset_groups": {
+        "personal_assets": [],
+        "mentioned_targets": [],
+        "image_quotes": [
+          {
+            "name": "台積電",
+            "ticker": "TSM",
+            "identity": "candidate",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "台積電 430.97 ▲4.62 ▲1.08% TSM",
+                "sha256": "b7b30f2f0a21338c9b3b2c623370a90ade9ee152b865001b4bb7de62bd4bdae2",
+                "status": "pending_image_confirmation",
+                "human_verified": false
+              }
+            ],
+            "attribution_reason": "圖片可見候選僅表示報價／畫面提及，不證明本人交易或持倉",
+            "status": "pending_image_confirmation",
+            "human_image_verified": false
+          },
+          {
+            "name": "鴻海",
+            "ticker": "",
+            "identity": "candidate",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "鴻海 16.21 ▼0.17 ▼1.04% HNHPF",
+                "sha256": "b7b30f2f0a21338c9b3b2c623370a90ade9ee152b865001b4bb7de62bd4bdae2",
+                "status": "pending_image_confirmation",
+                "human_verified": false
+              }
+            ],
+            "attribution_reason": "圖片可見候選僅表示報價／畫面提及，不證明本人交易或持倉",
+            "status": "pending_image_confirmation",
+            "human_image_verified": false
+          },
+          {
+            "name": "日月光",
+            "ticker": "ASX",
+            "identity": "candidate",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "日月光 39.91 ▲0.37 ▲0.94% ASX",
+                "sha256": "b7b30f2f0a21338c9b3b2c623370a90ade9ee152b865001b4bb7de62bd4bdae2",
+                "status": "pending_image_confirmation",
+                "human_verified": false
+              }
+            ],
+            "attribution_reason": "圖片可見候選僅表示報價／畫面提及，不證明本人交易或持倉",
+            "status": "pending_image_confirmation",
+            "human_image_verified": false
+          },
+          {
+            "name": "慧榮",
+            "ticker": "SIMO",
+            "identity": "candidate",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "慧榮 272.70 ▲3.80 ▲1.41% SIMO",
+                "sha256": "b7b30f2f0a21338c9b3b2c623370a90ade9ee152b865001b4bb7de62bd4bdae2",
+                "status": "pending_image_confirmation",
+                "human_verified": false
+              }
+            ],
+            "attribution_reason": "圖片可見候選僅表示報價／畫面提及，不證明本人交易或持倉",
+            "status": "pending_image_confirmation",
+            "human_image_verified": false
+          },
+          {
+            "name": "奇景光電",
+            "ticker": "HIMX",
+            "identity": "candidate",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "奇景光電 15.41 ▲0.18 ▲1.18% HIMX",
+                "sha256": "b7b30f2f0a21338c9b3b2c623370a90ade9ee152b865001b4bb7de62bd4bdae2",
+                "status": "pending_image_confirmation",
+                "human_verified": false
+              }
+            ],
+            "attribution_reason": "圖片可見候選僅表示報價／畫面提及，不證明本人交易或持倉",
+            "status": "pending_image_confirmation",
+            "human_image_verified": false
+          },
+          {
+            "name": "聯電",
+            "ticker": "UMC",
+            "identity": "candidate",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "聯電 19.53 ▲0.38 ▲1.98% UMC",
+                "sha256": "b7b30f2f0a21338c9b3b2c623370a90ade9ee152b865001b4bb7de62bd4bdae2",
+                "status": "pending_image_confirmation",
+                "human_verified": false
+              }
+            ],
+            "attribution_reason": "圖片可見候選僅表示報價／畫面提及，不證明本人交易或持倉",
+            "status": "pending_image_confirmation",
+            "human_image_verified": false
+          }
+        ]
+      },
+      "corrections": [
+        {
+          "field": "ticker",
+          "original": "HNHFP",
+          "processed": "",
+          "reason": "代碼與引用證據不一致；不自動猜改成另一代碼"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "key": "facebook:1610126397138616",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0ko7MYcc7amyA4Sc9AgTEh4DJkFqjczHmZhhDrazNQPqgSvkEF9JAkLQz8XKVmLMZl",
+      "display_time": "2026-07-27T12:05:07+08:00",
+      "scope": "quality_record_only",
+      "decision_origin": "cached_model_plus_offline_rules",
+      "raw_record_ref": {
+        "file": "data/quality_test_results.json",
+        "number": 7
+      },
+      "context_used": [],
+      "formal_signal_written": false,
+      "auto_retry": false,
+      "new_generation_requests": 0,
+      "model_answer_available": true,
+      "video_unanalysed": false,
+      "image_observations_verified": false,
+      "review_reasons": [
+        "原圖名字不可讀不影響明確文字情緒；描述性的圖片quote不當作逐字OCR或標的證據"
+      ],
+      "model_requery": {
+        "required_now": false,
+        "reason": "現有回應足以離線修正；圖片／代碼疑點先核證據，不需為清空或調整歸屬重新生成。"
+      },
+      "status": "acceptable",
+      "analysis_scope": "same_post_text_and_saved_image_observations",
+      "relevance": "investment",
+      "emotion": "panic",
+      "direction": 1,
+      "strength": 3,
+      "reason": "作者使用『我好痛苦』『目前貸款買的部分都是大虧』等詞，表達強烈投資痛苦與虧損無奈，屬恐慌/悲觀情緒。",
+      "asset_groups": {
+        "personal_assets": [],
+        "mentioned_targets": [],
+        "image_quotes": []
+      },
+      "corrections": []
+    },
+    {
+      "number": 8,
+      "key": "facebook:1703774981107090",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid03143n7ECXc3swjAwzFvjXJFrfksuaecAmRtRR5uV5yaYAvtNQVrh2WDpG1ciUKMXsl",
+      "display_time": "2026-11-06T09:15:20+08:00",
+      "scope": "quality_record_only",
+      "decision_origin": "cached_model_plus_offline_rules",
+      "raw_record_ref": {
+        "file": "data/quality_test_results.json",
+        "number": 8
+      },
+      "context_used": [],
+      "formal_signal_written": false,
+      "auto_retry": false,
+      "new_generation_requests": 0,
+      "model_answer_available": true,
+      "video_unanalysed": false,
+      "image_observations_verified": false,
+      "review_reasons": [
+        "完整原文缺少明確恐慌／痛苦證據；未停損、停不掉、無奈或顏文字本身不足，不改成中性"
+      ],
+      "model_requery": {
+        "required_now": false,
+        "reason": "先人工確認情緒閾值／發文當時可用脈絡；相同文字再問模型未必補足證據，本輪不重送。"
+      },
+      "status": "pending_confirmation",
+      "analysis_scope": "same_post_text_and_saved_image_observations",
+      "relevance": "investment",
+      "emotion": "undetermined",
+      "direction": null,
+      "strength": null,
+      "reason": "作者用自嘲語氣表示無法停損，暗含對止損無能為力與挫折感，屬負面投資情緒（恐慌/無奈）。",
+      "asset_groups": {
+        "personal_assets": [],
+        "mentioned_targets": [],
+        "image_quotes": [
+          {
+            "name": "亞翔",
+            "ticker": "6139",
+            "identity": "candidate",
+            "evidence": [
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "亞翔",
+                "sha256": "b019bdb27af1913d7e35530f2125afad34b530fa093cee97ff53420940f71fcc",
+                "status": "pending_image_confirmation",
+                "human_verified": false
+              },
+              {
+                "source": "image",
+                "image_index": 0,
+                "quote": "6139",
+                "sha256": "b019bdb27af1913d7e35530f2125afad34b530fa093cee97ff53420940f71fcc",
+                "status": "pending_image_confirmation",
+                "human_verified": false
+              }
+            ],
+            "attribution_reason": "圖片可見候選僅表示報價／畫面提及，不證明本人交易或持倉",
+            "status": "pending_image_confirmation",
+            "human_image_verified": false
+          }
+        ]
+      },
+      "corrections": [
+        {
+          "field": "relationship",
+          "name": "亞翔",
+          "original": "author_stance",
+          "processed": "image_quotes",
+          "reason": "圖片可見候選僅表示報價／畫面提及，不證明本人交易或持倉"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "key": "threads:4023888423198910089",
+      "url": "https://www.threads.com/@banini31/post/DfXuTOQk-aJ",
+      "display_time": "2026-11-06T02:55:01+08:00",
+      "scope": "quality_record_only",
+      "decision_origin": "cached_model_plus_offline_rules",
+      "raw_record_ref": {
+        "file": "data/quality_test_results.json",
+        "number": 9
+      },
+      "context_used": [],
+      "formal_signal_written": false,
+      "auto_retry": false,
+      "new_generation_requests": 0,
+      "model_answer_available": true,
+      "video_unanalysed": false,
+      "image_observations_verified": false,
+      "review_reasons": [
+        "投資相關性或情緒資訊不足；不改成確定中性／無關"
+      ],
+      "model_requery": {
+        "required_now": false,
+        "reason": "先人工確認情緒閾值／發文當時可用脈絡；相同文字再問模型未必補足證據，本輪不重送。"
+      },
+      "status": "pending_confirmation",
+      "analysis_scope": "same_post_text_and_saved_image_observations",
+      "relevance": "insufficient_information",
+      "emotion": "insufficient_information",
+      "direction": 0,
+      "strength": 1,
+      "reason": "文字表達恐慌但未提及投資、持股或交易；依規則情緒判斷需與投資脈絡連結，缺乏該脈絡故無法判定為投資恐慌或亢奮。",
+      "asset_groups": {
+        "personal_assets": [],
+        "mentioned_targets": [],
+        "image_quotes": []
+      },
+      "corrections": []
+    },
+    {
+      "number": 10,
+      "key": "threads:3946164126477408639",
+      "url": "https://www.threads.com/@banini31/post/DbDl12IE1l_",
+      "display_time": "2026-07-21T21:10:44+08:00",
+      "scope": "quality_record_only",
+      "decision_origin": "cached_model_plus_offline_rules",
+      "raw_record_ref": {
+        "file": "data/quality_test_results.json",
+        "number": 10
+      },
+      "context_used": [],
+      "formal_signal_written": false,
+      "auto_retry": false,
+      "new_generation_requests": 0,
+      "model_answer_available": true,
+      "video_unanalysed": false,
+      "image_observations_verified": false,
+      "review_reasons": [],
+      "model_requery": {
+        "required_now": false,
+        "reason": "現有回應足以離線修正；圖片／代碼疑點先核證據，不需為清空或調整歸屬重新生成。"
+      },
+      "status": "acceptable",
+      "analysis_scope": "same_post_text_and_saved_image_observations",
+      "relevance": "investment",
+      "emotion": "mixed",
+      "direction": 0,
+      "strength": 2,
+      "reason": "作者同時表達對部分停損導致大漲時不爽（負面/不滿）與為尚未止損而持續下跌感到痛苦（負面/焦慮），呈現矛盾且混合的情緒；語氣清楚但非極端。",
+      "asset_groups": {
+        "personal_assets": [],
+        "mentioned_targets": [
+          {
+            "name": "群創",
+            "ticker": "",
+            "identity": "candidate",
+            "evidence": [
+              {
+                "source": "author_text",
+                "image_index": -1,
+                "quote": "因為群創回到50， 獎金變成5萬了❤️",
+                "status": "literal_text_match",
+                "human_verified": false
+              }
+            ],
+            "attribution_reason": "名稱位於新聞／轉述／獎金段落，不能直接歸為本人持倉",
+            "status": "text_evidence_only",
+            "human_image_verified": false
+          }
+        ],
+        "image_quotes": []
+      },
+      "corrections": [
+        {
+          "field": "relationship",
+          "name": "群創",
+          "original": "author_stance",
+          "processed": "mentioned_targets",
+          "reason": "名稱位於新聞／轉述／獎金段落，不能直接歸為本人持倉"
+        }
+      ]
+    }
+  ],
+  "raw_file_sha256": "4ad2b7bccd898e461362b113d9f59657eb1c7a916e25d71593df9d466758cbba"
+}

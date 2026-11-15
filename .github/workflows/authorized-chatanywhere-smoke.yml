@@ -1,0 +1,11 @@
+name: Authorized ChatAnywhere one-shot smoke
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  consumed:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'One-shot authorization consumed. No secret injection, queries or content transmission.'

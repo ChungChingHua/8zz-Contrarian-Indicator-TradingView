@@ -1,0 +1,70 @@
+name: Bounded public media diagnosis 20261111
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: original-author-history-batch-01
+  cancel-in-progress: false
+jobs:
+  diagnose:
+    if: ${{ false }} # Three bounded diagnostic GETs completed; no rerun.
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: codex/social-pipeline-20261106
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: At most three public image GETs, no API credentials or generation
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          PYTHONPATH=scripts python - <<'PY'
+          import json,os,re,subprocess,urllib.parse
+          from datetime import datetime,timezone
+          from zoneinfo import ZoneInfo
+          from unittest.mock import patch
+          import safe_media
+          from history_batch_02 import prepare
+          from history_completion import Remote
+          keys=['facebook:1660785808739341','threads:3992201729433763729','threads:3992213198011063292']
+          source=json.loads(subprocess.run(['git','show','51e27179cc4fa3447ce9e011c2e7d194ad5a9520:data/social_posts.json'],check=True,capture_output=True).stdout)
+          original_request=safe_media.PinnedTLS.request
+          original_response=safe_media.PinnedTLS.getresponse
+          rows=[]
+          class ProbeBound(Exception):pass
+          for key in keys:
+              audit={'key':key,'image_http_requests':0,'images_downloaded':0,'images_sent_to_ai':0,'ai_requests':0}
+              def request(conn,method,url,*args,**kwargs):
+                  if audit['image_http_requests']>=1 or method!='GET':raise ProbeBound()
+                  audit['image_http_requests']+=1
+                  oe=urllib.parse.parse_qs(urllib.parse.urlsplit(url).query).get('oe',[])
+                  if oe and re.fullmatch('[A-Fa-f0-9]{8}',oe[0]):
+                      seconds=int(oe[0],16)
+                      audit['url_oe_timestamp_hint_taipei']=datetime.fromtimestamp(seconds,ZoneInfo('Asia/Taipei')).isoformat()
+                      audit['oe_semantics_verified']=False
+                  return original_request(conn,method,url,*args,**kwargs)
+              def response(conn):
+                  res=original_response(conn)
+                  audit['http_status']=res.status
+                  mime=res.getheader('Content-Type','').split(';')[0].strip().lower()
+                  audit['content_type']=mime if mime in ('image/jpeg','image/png','image/webp','text/plain','text/html','application/json') else 'other'
+                  return res
+              try:
+                  with patch.object(safe_media.PinnedTLS,'request',request),patch.object(safe_media.PinnedTLS,'getresponse',response):
+                      parts,scope=prepare(source[key])
+                  audit['images_downloaded']=len(parts)
+                  audit['result']='downloaded' if parts else 'not_downloaded'
+              except Exception as exc:
+                  audit['error_type']=type(exc).__name__
+                  audit['safe_reason']=str(exc) if isinstance(exc,ValueError) and re.fullmatch('[a-z_]+',str(exc)) else None
+              rows.append(audit)
+          report={'executed_at':datetime.now(timezone.utc).isoformat(),'probes':rows,'image_http_requests':sum(x['image_http_requests'] for x in rows),'ai_requests':0,'actor_starts':0,'note':'Existing pinned public-IP HTTPS transport, TLS verification, host/size/timeout guards retained; no redirects or raw URL/body/header logging. A successful download is not AI image analysis. oe is only a timestamp hint; expiration semantics unverified.'}
+          Remote(os.environ.pop('GH_TOKEN')).save('data/history_media_diagnostic_20261111.json',report)
+          print(json.dumps(report))
+          PY

@@ -1,0 +1,11 @@
+name: Authorized blind quality test (consumed)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  consumed:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Quality authorization consumed. No secrets or network; general pipeline remains paused.'

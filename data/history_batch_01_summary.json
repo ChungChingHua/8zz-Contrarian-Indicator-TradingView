@@ -1,0 +1,27 @@
+{
+  "selected": 5,
+  "successful_valid_responses": 5,
+  "signals": 2,
+  "no_signal": 2,
+  "pending_confirmation": 1,
+  "technical_failure": 0,
+  "unknown": 0,
+  "not_started_in_batch": 0,
+  "remaining_not_started_groups": 643,
+  "generation_attempts_reserved": 5,
+  "known_http_responses": 5,
+  "supplied_images": 1,
+  "unavailable_images": 2,
+  "unanalysed_videos": 1,
+  "recovered_input_failures": 1,
+  "reconciled_local_validation_failures": 1,
+  "model_queries": 0,
+  "other_provider_queries": 0,
+  "actual_points_deducted": null,
+  "service_reported_usage": {
+    "input_tokens": 13016,
+    "output_tokens": 706,
+    "total_tokens": 13722,
+    "reasoning_tokens": 0
+  }
+}

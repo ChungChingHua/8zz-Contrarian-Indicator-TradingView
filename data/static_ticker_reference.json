@@ -1,0 +1,16 @@
+{
+  "scope": "Static issuer/venue reference only, not sentiment context or subsequent prices",
+  "source_url": "https://openapi.twse.com.tw/v1/opendata/t187ap03_L",
+  "retrieved_at": "2026-11-07T19:09:09.766006+08:00",
+  "entries": [
+    {
+      "issuer_code": "6505",
+      "issuer_name": "台塑石化股份有限公司",
+      "issuer_shortname": "台塑化",
+      "venue": "TWSE",
+      "listing_date": "2003-12-26",
+      "incorrect_suffix_candidate": "6505.TWO",
+      "yfinance_ticker": "6505.TW"
+    }
+  ]
+}

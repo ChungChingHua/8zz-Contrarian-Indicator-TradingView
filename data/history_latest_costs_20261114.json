@@ -1,0 +1,53 @@
+{
+  "runs": [
+    {
+      "run_id": "1eDyx3uOHnTVfD5Ln",
+      "status": "SUCCEEDED",
+      "actId": "KoJrdxJCTtpon81KY",
+      "buildId": "YrRcdVQKNazTl1teV",
+      "buildNumber": "0.0.421",
+      "startedAt": "2026-11-14T10:21:12.422Z",
+      "finishedAt": "2026-11-14T10:21:38.860Z",
+      "usageTotalUsd": "0.14100000000000001",
+      "externalChargedTotalUsd": null,
+      "usageUsd": null,
+      "chargedEventCounts": {
+        "post": 20,
+        "actor-start": 1,
+        "filter-applied": 20
+      }
+    },
+    {
+      "run_id": "hinVUOAgNEM17Le6K",
+      "status": "SUCCEEDED",
+      "actId": "yacNYZpu9F3C8EATQ",
+      "buildId": "1MVQMWBVN6xDpnUfb",
+      "buildNumber": "0.1.72",
+      "startedAt": "2026-11-14T10:21:49.444Z",
+      "finishedAt": "2026-11-14T10:21:56.529Z",
+      "usageTotalUsd": "0.155",
+      "externalChargedTotalUsd": null,
+      "usageUsd": null,
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 27
+      }
+    }
+  ],
+  "actor_starts": 0,
+  "observed_at": "2026-11-14T10:30:25.763930+00:00",
+  "billing_finality": "API observation, not independently settled invoice; zero does not prove free service",
+  "actual_AI_points_deducted": null,
+  "observed_run_total_usd": "0.29600000000000001",
+  "cost_basis": "usageTotalUsd once per run; do not add other fee fields",
+  "account_usage": {
+    "http_status": 403,
+    "error_type": "Failure",
+    "remaining_allowance": null
+  },
+  "http_requests": {
+    "GET": 3,
+    "POST": 0
+  }
+}

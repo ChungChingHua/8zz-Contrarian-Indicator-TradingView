@@ -1,0 +1,16 @@
+name: Pause history continuation 20261112
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: read
+concurrency:
+  group: original-author-history-batch-01
+  cancel-in-progress: false
+jobs:
+  pause:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Pause only; no service requests or credentials
+        run: echo "History continuation paused for media-cost review"

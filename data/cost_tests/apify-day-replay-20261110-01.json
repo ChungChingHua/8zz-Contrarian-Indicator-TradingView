@@ -1,0 +1,5666 @@
+{
+  "test_id": "apify-day-replay-20261110-01",
+  "status": "completed",
+  "created_at": "2026-11-10T06:46:06.892986+00:00",
+  "maximum_starts": 40,
+  "cap_usd_per_start": "0.10",
+  "maximum_authorized_usd": "4.00",
+  "automatic_retries": 0,
+  "initial_test_cutoff_utc": "2026-11-09T05:30:00+00:00",
+  "simulated_cutoffs_utc": [
+    "2026-11-10T00:45:00+00:00",
+    "2026-11-10T01:00:00+00:00",
+    "2026-11-10T01:15:00+00:00",
+    "2026-11-10T01:30:00+00:00",
+    "2026-11-10T01:45:00+00:00",
+    "2026-11-10T02:00:00+00:00",
+    "2026-11-10T02:15:00+00:00",
+    "2026-11-10T02:30:00+00:00",
+    "2026-11-10T02:45:00+00:00",
+    "2026-11-10T03:00:00+00:00",
+    "2026-11-10T03:15:00+00:00",
+    "2026-11-10T03:30:00+00:00",
+    "2026-11-10T03:45:00+00:00",
+    "2026-11-10T04:00:00+00:00",
+    "2026-11-10T04:15:00+00:00",
+    "2026-11-10T04:30:00+00:00",
+    "2026-11-10T04:45:00+00:00",
+    "2026-11-10T05:00:00+00:00",
+    "2026-11-10T05:15:00+00:00",
+    "2026-11-10T05:30:00+00:00"
+  ],
+  "test_cursors": {
+    "facebook": "2026-11-10T05:30:00+00:00",
+    "threads": "2026-11-10T05:30:00+00:00"
+  },
+  "runs": [
+    {
+      "round": 1,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T08:45:00+08:00",
+      "base_start_utc": "2026-11-09T05:30:00+00:00",
+      "query_start_utc": "2026-11-09T03:30:00+00:00",
+      "query_end_utc": "2026-11-10T00:45:00+00:00",
+      "query_start_taipei": "2026-11-09T11:30:00+08:00",
+      "query_end_taipei": "2026-11-10T08:45:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-09T03:30:00Z",
+        "onlyPostsOlderThan": "2026-11-10T00:45:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "MXhmyJIHGVMwSRnIM",
+      "startedAt": "2026-11-10T06:46:13.387Z",
+      "finishedAt": "2026-11-10T06:46:22.726Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "UHKwnWr2Sc4feco4A",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.022",
+      "chargedEventCounts": {
+        "post": 3,
+        "actor-start": 1,
+        "filter-applied": 3
+      },
+      "accountedChargedEventCounts": {
+        "post": 3,
+        "actor-start": 1,
+        "filter-applied": 3
+      },
+      "duration_seconds": "9.185",
+      "cost_observed_at": "2026-11-10T06:57:33.890086+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:46:13.563921+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:46:24.880018+00:00",
+          "usageTotalUsd": "0.022",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 3,
+            "actor-start": 1,
+            "filter-applied": 3
+          },
+          "accountedChargedEventCounts": {
+            "post": 3,
+            "actor-start": 1,
+            "filter-applied": 3
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:33.890086+00:00",
+          "usageTotalUsd": "0.022",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 3,
+            "actor-start": 1,
+            "filter-applied": 3
+          },
+          "accountedChargedEventCounts": {
+            "post": 3,
+            "actor-start": 1,
+            "filter-applied": 3
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 3,
+      "valid_posts": 3,
+      "diagnostic_rows": 0,
+      "duplicates": 0,
+      "first_new": 3,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "facebook:1708163567334898",
+        "facebook:1707830474034874",
+        "facebook:1707722754045646"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 1,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T08:45:00+08:00",
+      "base_start_utc": "2026-11-09T05:30:00+00:00",
+      "query_start_utc": "2026-11-09T03:30:00+00:00",
+      "query_end_utc": "2026-11-10T00:45:00+00:00",
+      "query_start_taipei": "2026-11-09T11:30:00+08:00",
+      "query_end_taipei": "2026-11-10T08:45:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-09T03:30:00Z",
+        "postedBefore": "2026-11-10T00:45:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "TVMgaCk5hf6rxRD3Z",
+      "startedAt": "2026-11-10T06:46:32.043Z",
+      "finishedAt": "2026-11-10T06:46:37.880Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "0RjC7tCyhigAYg1De",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.035",
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 3
+      },
+      "accountedChargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 3
+      },
+      "duration_seconds": "5.677",
+      "cost_observed_at": "2026-11-10T06:57:35.311946+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:46:32.224335+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:46:38.316843+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:35.311946+00:00",
+          "usageTotalUsd": "0.035",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 3
+          },
+          "accountedChargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 3
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 3,
+      "valid_posts": 3,
+      "diagnostic_rows": 0,
+      "duplicates": 0,
+      "first_new": 3,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "threads:4026780710220697727",
+        "threads:4026685187656644582",
+        "threads:4026647813303313518"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 2,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T09:00:00+08:00",
+      "base_start_utc": "2026-11-10T00:45:00+00:00",
+      "query_start_utc": "2026-11-09T22:45:00+00:00",
+      "query_end_utc": "2026-11-10T01:00:00+00:00",
+      "query_start_taipei": "2026-11-10T06:45:00+08:00",
+      "query_end_taipei": "2026-11-10T09:00:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-09T22:45:00Z",
+        "onlyPostsOlderThan": "2026-11-10T01:00:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "QF6JdWnedlwwg4uPD",
+      "startedAt": "2026-11-10T06:46:45.421Z",
+      "finishedAt": "2026-11-10T06:46:50.959Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "UcJdOLVG6w6FpRbPm",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.008",
+      "chargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "accountedChargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "duration_seconds": "5.375",
+      "cost_observed_at": "2026-11-10T06:57:36.658716+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:46:45.591739+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:46:51.825016+00:00",
+          "usageTotalUsd": "0.001",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:36.658716+00:00",
+          "usageTotalUsd": "0.008",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 1,
+      "valid_posts": 1,
+      "diagnostic_rows": 0,
+      "duplicates": 1,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "facebook:1708163567334898"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 2,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T09:00:00+08:00",
+      "base_start_utc": "2026-11-10T00:45:00+00:00",
+      "query_start_utc": "2026-11-09T22:45:00+00:00",
+      "query_end_utc": "2026-11-10T01:00:00+00:00",
+      "query_start_taipei": "2026-11-10T06:45:00+08:00",
+      "query_end_taipei": "2026-11-10T09:00:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-09T22:45:00Z",
+        "postedBefore": "2026-11-10T01:00:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "iJlqii0dTKD8w4TIH",
+      "startedAt": "2026-11-10T06:46:58.649Z",
+      "finishedAt": "2026-11-10T06:47:05.495Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "9c8NrW42WydfXIgFL",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": 0,
+      "chargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "accountedChargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "duration_seconds": "6.551",
+      "cost_observed_at": "2026-11-10T06:57:38.241833+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:46:59.005376+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:47:10.294269+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:38.241833+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 0,
+      "valid_posts": 0,
+      "diagnostic_rows": 0,
+      "duplicates": 0,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 3,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T09:15:00+08:00",
+      "base_start_utc": "2026-11-10T01:00:00+00:00",
+      "query_start_utc": "2026-11-09T23:00:00+00:00",
+      "query_end_utc": "2026-11-10T01:15:00+00:00",
+      "query_start_taipei": "2026-11-10T07:00:00+08:00",
+      "query_end_taipei": "2026-11-10T09:15:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-09T23:00:00Z",
+        "onlyPostsOlderThan": "2026-11-10T01:15:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "ormQFzbtWeerOtiIJ",
+      "startedAt": "2026-11-10T06:47:17.233Z",
+      "finishedAt": "2026-11-10T06:47:22.349Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "kNiQTNGUi7vTbISlR",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.008",
+      "chargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "accountedChargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "duration_seconds": "4.967",
+      "cost_observed_at": "2026-11-10T06:57:39.484542+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:47:17.396144+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:47:23.518623+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:39.484542+00:00",
+          "usageTotalUsd": "0.008",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 1,
+      "valid_posts": 1,
+      "diagnostic_rows": 0,
+      "duplicates": 1,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "facebook:1708163567334898"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 3,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T09:15:00+08:00",
+      "base_start_utc": "2026-11-10T01:00:00+00:00",
+      "query_start_utc": "2026-11-09T23:00:00+00:00",
+      "query_end_utc": "2026-11-10T01:15:00+00:00",
+      "query_start_taipei": "2026-11-10T07:00:00+08:00",
+      "query_end_taipei": "2026-11-10T09:15:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-09T23:00:00Z",
+        "postedBefore": "2026-11-10T01:15:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "mswhTBTOhsYd8IJrg",
+      "startedAt": "2026-11-10T06:47:29.956Z",
+      "finishedAt": "2026-11-10T06:47:36.497Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "SNa8Bxc4BgH0dhGbq",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": 0,
+      "chargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "accountedChargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "duration_seconds": "6.376",
+      "cost_observed_at": "2026-11-10T06:57:40.914751+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:47:30.130701+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:47:41.422533+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:40.914751+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 0,
+      "valid_posts": 0,
+      "diagnostic_rows": 0,
+      "duplicates": 0,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 4,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T09:30:00+08:00",
+      "base_start_utc": "2026-11-10T01:15:00+00:00",
+      "query_start_utc": "2026-11-09T23:15:00+00:00",
+      "query_end_utc": "2026-11-10T01:30:00+00:00",
+      "query_start_taipei": "2026-11-10T07:15:00+08:00",
+      "query_end_taipei": "2026-11-10T09:30:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-09T23:15:00Z",
+        "onlyPostsOlderThan": "2026-11-10T01:30:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "ywZRkpSaAebFFevZ0",
+      "startedAt": "2026-11-10T06:47:47.586Z",
+      "finishedAt": "2026-11-10T06:48:03.399Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "3SxdPeHlsxW3SgrZP",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.015",
+      "chargedEventCounts": {
+        "post": 2,
+        "actor-start": 1,
+        "filter-applied": 2
+      },
+      "accountedChargedEventCounts": {
+        "post": 2,
+        "actor-start": 1,
+        "filter-applied": 2
+      },
+      "duration_seconds": "15.601",
+      "cost_observed_at": "2026-11-10T06:57:42.055808+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:47:47.795886+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:48:04.144252+00:00",
+          "usageTotalUsd": "0.015",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 2,
+            "actor-start": 1,
+            "filter-applied": 2
+          },
+          "accountedChargedEventCounts": {
+            "post": 2,
+            "actor-start": 1,
+            "filter-applied": 2
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:42.055808+00:00",
+          "usageTotalUsd": "0.015",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 2,
+            "actor-start": 1,
+            "filter-applied": 2
+          },
+          "accountedChargedEventCounts": {
+            "post": 2,
+            "actor-start": 1,
+            "filter-applied": 2
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 2,
+      "valid_posts": 2,
+      "diagnostic_rows": 0,
+      "duplicates": 1,
+      "first_new": 1,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "facebook:1708197577331497",
+        "facebook:1708163567334898"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 4,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T09:30:00+08:00",
+      "base_start_utc": "2026-11-10T01:15:00+00:00",
+      "query_start_utc": "2026-11-09T23:15:00+00:00",
+      "query_end_utc": "2026-11-10T01:30:00+00:00",
+      "query_start_taipei": "2026-11-10T07:15:00+08:00",
+      "query_end_taipei": "2026-11-10T09:30:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-09T23:15:00Z",
+        "postedBefore": "2026-11-10T01:30:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "CwQcq7PXI6qq7qINQ",
+      "startedAt": "2026-11-10T06:48:10.521Z",
+      "finishedAt": "2026-11-10T06:48:16.058Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "lfIHsp31BLfICrp5e",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": 0,
+      "chargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "accountedChargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "duration_seconds": "5.35",
+      "cost_observed_at": "2026-11-10T06:57:43.599378+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:48:10.707950+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:48:16.906826+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:43.599378+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 0,
+      "valid_posts": 0,
+      "diagnostic_rows": 0,
+      "duplicates": 0,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 5,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T09:45:00+08:00",
+      "base_start_utc": "2026-11-10T01:30:00+00:00",
+      "query_start_utc": "2026-11-09T23:30:00+00:00",
+      "query_end_utc": "2026-11-10T01:45:00+00:00",
+      "query_start_taipei": "2026-11-10T07:30:00+08:00",
+      "query_end_taipei": "2026-11-10T09:45:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-09T23:30:00Z",
+        "onlyPostsOlderThan": "2026-11-10T01:45:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "iFDNLcKhGtusw9yNA",
+      "startedAt": "2026-11-10T06:48:23.457Z",
+      "finishedAt": "2026-11-10T06:48:27.282Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "nBRNCHZbJipqIvDeQ",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.008",
+      "chargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "accountedChargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "duration_seconds": "3.682",
+      "cost_observed_at": "2026-11-10T06:57:44.981634+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:48:23.610069+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:48:29.791854+00:00",
+          "usageTotalUsd": "0.001",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:44.981634+00:00",
+          "usageTotalUsd": "0.008",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 1,
+      "valid_posts": 0,
+      "diagnostic_rows": 1,
+      "duplicates": 0,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {
+        "no_items": 1
+      },
+      "uncertain_rows": 0,
+      "post_keys": [],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 5,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T09:45:00+08:00",
+      "base_start_utc": "2026-11-10T01:30:00+00:00",
+      "query_start_utc": "2026-11-09T23:30:00+00:00",
+      "query_end_utc": "2026-11-10T01:45:00+00:00",
+      "query_start_taipei": "2026-11-10T07:30:00+08:00",
+      "query_end_taipei": "2026-11-10T09:45:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-09T23:30:00Z",
+        "postedBefore": "2026-11-10T01:45:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "DUOqGvzI1lb9BpeRl",
+      "startedAt": "2026-11-10T06:48:36.363Z",
+      "finishedAt": "2026-11-10T06:48:41.507Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "TkkplsrpcR93WbNyS",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": 0,
+      "chargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "accountedChargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "duration_seconds": "4.979",
+      "cost_observed_at": "2026-11-10T06:57:46.132967+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:48:36.543533+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:48:42.751061+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:46.132967+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 0,
+      "valid_posts": 0,
+      "diagnostic_rows": 0,
+      "duplicates": 0,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 6,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T10:00:00+08:00",
+      "base_start_utc": "2026-11-10T01:45:00+00:00",
+      "query_start_utc": "2026-11-09T23:45:00+00:00",
+      "query_end_utc": "2026-11-10T02:00:00+00:00",
+      "query_start_taipei": "2026-11-10T07:45:00+08:00",
+      "query_end_taipei": "2026-11-10T10:00:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-09T23:45:00Z",
+        "onlyPostsOlderThan": "2026-11-10T02:00:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "5ILbdTjXzMTzLwpkg",
+      "startedAt": "2026-11-10T06:48:49.296Z",
+      "finishedAt": "2026-11-10T06:49:21.402Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "qG0KBYErP8jPqNeRU",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.015",
+      "chargedEventCounts": {
+        "post": 2,
+        "actor-start": 1,
+        "filter-applied": 2
+      },
+      "accountedChargedEventCounts": {
+        "post": 2,
+        "actor-start": 1,
+        "filter-applied": 2
+      },
+      "duration_seconds": "31.959",
+      "cost_observed_at": "2026-11-10T06:57:47.367583+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:48:49.450477+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:49:26.276351+00:00",
+          "usageTotalUsd": "0.015",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 2,
+            "actor-start": 1,
+            "filter-applied": 2
+          },
+          "accountedChargedEventCounts": {
+            "post": 2,
+            "actor-start": 1,
+            "filter-applied": 2
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:47.367583+00:00",
+          "usageTotalUsd": "0.015",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 2,
+            "actor-start": 1,
+            "filter-applied": 2
+          },
+          "accountedChargedEventCounts": {
+            "post": 2,
+            "actor-start": 1,
+            "filter-applied": 2
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 2,
+      "valid_posts": 2,
+      "diagnostic_rows": 0,
+      "duplicates": 2,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "facebook:1708197577331497",
+        "facebook:1708163567334898"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 6,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T10:00:00+08:00",
+      "base_start_utc": "2026-11-10T01:45:00+00:00",
+      "query_start_utc": "2026-11-09T23:45:00+00:00",
+      "query_end_utc": "2026-11-10T02:00:00+00:00",
+      "query_start_taipei": "2026-11-10T07:45:00+08:00",
+      "query_end_taipei": "2026-11-10T10:00:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-09T23:45:00Z",
+        "postedBefore": "2026-11-10T02:00:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "PjmdrRN6cUY3uRFfI",
+      "startedAt": "2026-11-10T06:49:33.153Z",
+      "finishedAt": "2026-11-10T06:49:37.313Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "87alblJXJpvYDWFSD",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": 0,
+      "chargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "accountedChargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "duration_seconds": "3.998",
+      "cost_observed_at": "2026-11-10T06:57:48.804410+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:49:33.323464+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:49:39.650308+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:48.804410+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 0,
+      "valid_posts": 0,
+      "diagnostic_rows": 0,
+      "duplicates": 0,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 7,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T10:15:00+08:00",
+      "base_start_utc": "2026-11-10T02:00:00+00:00",
+      "query_start_utc": "2026-11-10T00:00:00+00:00",
+      "query_end_utc": "2026-11-10T02:15:00+00:00",
+      "query_start_taipei": "2026-11-10T08:00:00+08:00",
+      "query_end_taipei": "2026-11-10T10:15:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-10T00:00:00Z",
+        "onlyPostsOlderThan": "2026-11-10T02:15:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "hk3TteEjm3dbxBmCt",
+      "startedAt": "2026-11-10T06:49:47.065Z",
+      "finishedAt": "2026-11-10T06:49:53.317Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "eB51c0TCAWKyY9VTr",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.015",
+      "chargedEventCounts": {
+        "post": 2,
+        "actor-start": 1,
+        "filter-applied": 2
+      },
+      "accountedChargedEventCounts": {
+        "post": 2,
+        "actor-start": 1,
+        "filter-applied": 2
+      },
+      "duration_seconds": "6.098",
+      "cost_observed_at": "2026-11-10T06:57:50.177626+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:49:47.225761+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:49:53.528718+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 2,
+            "actor-start": 1,
+            "filter-applied": 2
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:50.177626+00:00",
+          "usageTotalUsd": "0.015",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 2,
+            "actor-start": 1,
+            "filter-applied": 2
+          },
+          "accountedChargedEventCounts": {
+            "post": 2,
+            "actor-start": 1,
+            "filter-applied": 2
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 2,
+      "valid_posts": 2,
+      "diagnostic_rows": 0,
+      "duplicates": 2,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "facebook:1708197577331497",
+        "facebook:1708163567334898"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 7,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T10:15:00+08:00",
+      "base_start_utc": "2026-11-10T02:00:00+00:00",
+      "query_start_utc": "2026-11-10T00:00:00+00:00",
+      "query_end_utc": "2026-11-10T02:15:00+00:00",
+      "query_start_taipei": "2026-11-10T08:00:00+08:00",
+      "query_end_taipei": "2026-11-10T10:15:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-10T00:00:00Z",
+        "postedBefore": "2026-11-10T02:15:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "8PbOhmSlYYa2xm7vJ",
+      "startedAt": "2026-11-10T06:50:00.541Z",
+      "finishedAt": "2026-11-10T06:50:05.678Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "bhWaauMkJ7QUFgfX8",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": 0,
+      "chargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "accountedChargedEventCounts": {
+        "start": 0,
+        "profile": 0,
+        "post": 0
+      },
+      "duration_seconds": "4.992",
+      "cost_observed_at": "2026-11-10T06:57:51.690799+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:50:00.697789+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:50:06.932807+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:51.690799+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 0,
+      "valid_posts": 0,
+      "diagnostic_rows": 0,
+      "duplicates": 0,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 8,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T10:30:00+08:00",
+      "base_start_utc": "2026-11-10T02:15:00+00:00",
+      "query_start_utc": "2026-11-10T00:15:00+00:00",
+      "query_end_utc": "2026-11-10T02:30:00+00:00",
+      "query_start_taipei": "2026-11-10T08:15:00+08:00",
+      "query_end_taipei": "2026-11-10T10:30:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-10T00:15:00Z",
+        "onlyPostsOlderThan": "2026-11-10T02:30:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "3QsJ1gtb6xToruZPS",
+      "startedAt": "2026-11-10T06:50:13.825Z",
+      "finishedAt": "2026-11-10T06:50:31.563Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "3zL40CbGUlQW3Qj5u",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.015",
+      "chargedEventCounts": {
+        "post": 2,
+        "actor-start": 1,
+        "filter-applied": 2
+      },
+      "accountedChargedEventCounts": {
+        "post": 2,
+        "actor-start": 1,
+        "filter-applied": 2
+      },
+      "duration_seconds": "17.584",
+      "cost_observed_at": "2026-11-10T06:57:52.958246+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:50:13.989657+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:50:35.800481+00:00",
+          "usageTotalUsd": "0.015",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 2,
+            "actor-start": 1,
+            "filter-applied": 2
+          },
+          "accountedChargedEventCounts": {
+            "post": 2,
+            "actor-start": 1,
+            "filter-applied": 2
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:52.958246+00:00",
+          "usageTotalUsd": "0.015",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 2,
+            "actor-start": 1,
+            "filter-applied": 2
+          },
+          "accountedChargedEventCounts": {
+            "post": 2,
+            "actor-start": 1,
+            "filter-applied": 2
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 2,
+      "valid_posts": 2,
+      "diagnostic_rows": 0,
+      "duplicates": 2,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "facebook:1708197577331497",
+        "facebook:1708163567334898"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 8,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T10:30:00+08:00",
+      "base_start_utc": "2026-11-10T02:15:00+00:00",
+      "query_start_utc": "2026-11-10T00:15:00+00:00",
+      "query_end_utc": "2026-11-10T02:30:00+00:00",
+      "query_start_taipei": "2026-11-10T08:15:00+08:00",
+      "query_end_taipei": "2026-11-10T10:30:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-10T00:15:00Z",
+        "postedBefore": "2026-11-10T02:30:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "pOhCLNgleFNllhKIs",
+      "startedAt": "2026-11-10T06:50:42.585Z",
+      "finishedAt": "2026-11-10T06:50:47.823Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "oGfwnsBJPSZGAEG4h",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.025",
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 1
+      },
+      "accountedChargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 1
+      },
+      "duration_seconds": "5.054",
+      "cost_observed_at": "2026-11-10T06:57:54.345366+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:50:42.765511+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:50:48.939885+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:54.345366+00:00",
+          "usageTotalUsd": "0.025",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 1
+          },
+          "accountedChargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 1
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 1,
+      "valid_posts": 1,
+      "diagnostic_rows": 0,
+      "duplicates": 0,
+      "first_new": 1,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "threads:4027013070392517757"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 9,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T10:45:00+08:00",
+      "base_start_utc": "2026-11-10T02:30:00+00:00",
+      "query_start_utc": "2026-11-10T00:30:00+00:00",
+      "query_end_utc": "2026-11-10T02:45:00+00:00",
+      "query_start_taipei": "2026-11-10T08:30:00+08:00",
+      "query_end_taipei": "2026-11-10T10:45:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-10T00:30:00Z",
+        "onlyPostsOlderThan": "2026-11-10T02:45:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "FmJMqtGYXG5Ei3djK",
+      "startedAt": "2026-11-10T06:50:55.427Z",
+      "finishedAt": "2026-11-10T06:51:00.478Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "ohluP8Xz3wBempwu6",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.008",
+      "chargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "accountedChargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "duration_seconds": "4.89",
+      "cost_observed_at": "2026-11-10T06:57:55.842730+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:50:55.574817+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:51:01.924567+00:00",
+          "usageTotalUsd": "0.001",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:55.842730+00:00",
+          "usageTotalUsd": "0.008",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 1,
+      "valid_posts": 1,
+      "diagnostic_rows": 0,
+      "duplicates": 1,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "facebook:1708197577331497"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 9,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T10:45:00+08:00",
+      "base_start_utc": "2026-11-10T02:30:00+00:00",
+      "query_start_utc": "2026-11-10T00:30:00+00:00",
+      "query_end_utc": "2026-11-10T02:45:00+00:00",
+      "query_start_taipei": "2026-11-10T08:30:00+08:00",
+      "query_end_taipei": "2026-11-10T10:45:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-10T00:30:00Z",
+        "postedBefore": "2026-11-10T02:45:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "WlibTWniKSYUOEyrC",
+      "startedAt": "2026-11-10T06:51:08.383Z",
+      "finishedAt": "2026-11-10T06:51:15.191Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "vzw2hzuT9waETxiU9",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.025",
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 1
+      },
+      "accountedChargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 1
+      },
+      "duration_seconds": "6.654",
+      "cost_observed_at": "2026-11-10T06:57:57.196256+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:51:08.540678+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:51:19.842986+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 1
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:57.196256+00:00",
+          "usageTotalUsd": "0.025",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 1
+          },
+          "accountedChargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 1
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 1,
+      "valid_posts": 1,
+      "diagnostic_rows": 0,
+      "duplicates": 1,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "threads:4027013070392517757"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 10,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T11:00:00+08:00",
+      "base_start_utc": "2026-11-10T02:45:00+00:00",
+      "query_start_utc": "2026-11-10T00:45:00+00:00",
+      "query_end_utc": "2026-11-10T03:00:00+00:00",
+      "query_start_taipei": "2026-11-10T08:45:00+08:00",
+      "query_end_taipei": "2026-11-10T11:00:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-10T00:45:00Z",
+        "onlyPostsOlderThan": "2026-11-10T03:00:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "mQuisgE588RM8u2r8",
+      "startedAt": "2026-11-10T06:51:26.416Z",
+      "finishedAt": "2026-11-10T06:51:33.781Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "kDfafzjKz2j0AnbI5",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.008",
+      "chargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "accountedChargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "duration_seconds": "7.18",
+      "cost_observed_at": "2026-11-10T06:57:58.911144+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:51:26.586123+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:51:37.958765+00:00",
+          "usageTotalUsd": "0.001",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:57:58.911144+00:00",
+          "usageTotalUsd": "0.008",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 1,
+      "valid_posts": 1,
+      "diagnostic_rows": 0,
+      "duplicates": 1,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "facebook:1708197577331497"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 10,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T11:00:00+08:00",
+      "base_start_utc": "2026-11-10T02:45:00+00:00",
+      "query_start_utc": "2026-11-10T00:45:00+00:00",
+      "query_end_utc": "2026-11-10T03:00:00+00:00",
+      "query_start_taipei": "2026-11-10T08:45:00+08:00",
+      "query_end_taipei": "2026-11-10T11:00:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-10T00:45:00Z",
+        "postedBefore": "2026-11-10T03:00:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "7uTdyKiApCagAMvPD",
+      "startedAt": "2026-11-10T06:51:45.591Z",
+      "finishedAt": "2026-11-10T06:51:52.129Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "cGxtsiOa6EV4aexbB",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.03",
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 2
+      },
+      "accountedChargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 2
+      },
+      "duration_seconds": "6.38",
+      "cost_observed_at": "2026-11-10T06:58:00.291608+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:51:45.773931+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:51:57.271872+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 2
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:00.291608+00:00",
+          "usageTotalUsd": "0.03",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 2
+          },
+          "accountedChargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 2
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 2,
+      "valid_posts": 2,
+      "diagnostic_rows": 0,
+      "duplicates": 1,
+      "first_new": 1,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "threads:4027027180417050470",
+        "threads:4027013070392517757"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 11,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T11:15:00+08:00",
+      "base_start_utc": "2026-11-10T03:00:00+00:00",
+      "query_start_utc": "2026-11-10T01:00:00+00:00",
+      "query_end_utc": "2026-11-10T03:15:00+00:00",
+      "query_start_taipei": "2026-11-10T09:00:00+08:00",
+      "query_end_taipei": "2026-11-10T11:15:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-10T01:00:00Z",
+        "onlyPostsOlderThan": "2026-11-10T03:15:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "ydaXEEODEYkxZ2lvb",
+      "startedAt": "2026-11-10T06:52:04.367Z",
+      "finishedAt": "2026-11-10T06:52:19.911Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "ugjUS4U24QcuPjsUc",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.008",
+      "chargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "accountedChargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "duration_seconds": "15.375",
+      "cost_observed_at": "2026-11-10T06:58:01.418085+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:52:04.542433+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:52:21.198647+00:00",
+          "usageTotalUsd": "0.001",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:01.418085+00:00",
+          "usageTotalUsd": "0.008",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 1,
+      "valid_posts": 1,
+      "diagnostic_rows": 0,
+      "duplicates": 1,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "facebook:1708197577331497"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 11,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T11:15:00+08:00",
+      "base_start_utc": "2026-11-10T03:00:00+00:00",
+      "query_start_utc": "2026-11-10T01:00:00+00:00",
+      "query_end_utc": "2026-11-10T03:15:00+00:00",
+      "query_start_taipei": "2026-11-10T09:00:00+08:00",
+      "query_end_taipei": "2026-11-10T11:15:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-10T01:00:00Z",
+        "postedBefore": "2026-11-10T03:15:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "p9xlcRwompwulTf98",
+      "startedAt": "2026-11-10T06:52:28.027Z",
+      "finishedAt": "2026-11-10T06:52:32.317Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "JLaGZ6P5tnqGrONcC",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.03",
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 2
+      },
+      "accountedChargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 2
+      },
+      "duration_seconds": "4.102",
+      "cost_observed_at": "2026-11-10T06:58:02.978273+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:52:28.213476+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:52:34.625956+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:02.978273+00:00",
+          "usageTotalUsd": "0.03",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 2
+          },
+          "accountedChargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 2
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 2,
+      "valid_posts": 2,
+      "diagnostic_rows": 0,
+      "duplicates": 2,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "threads:4027027180417050470",
+        "threads:4027013070392517757"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 12,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T11:30:00+08:00",
+      "base_start_utc": "2026-11-10T03:15:00+00:00",
+      "query_start_utc": "2026-11-10T01:15:00+00:00",
+      "query_end_utc": "2026-11-10T03:30:00+00:00",
+      "query_start_taipei": "2026-11-10T09:15:00+08:00",
+      "query_end_taipei": "2026-11-10T11:30:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-10T01:15:00Z",
+        "onlyPostsOlderThan": "2026-11-10T03:30:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "TDodssCJIiWLFrOIv",
+      "startedAt": "2026-11-10T06:52:42.285Z",
+      "finishedAt": "2026-11-10T06:52:45.890Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "O54Ajo2N3dk0AtPDH",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.008",
+      "chargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "accountedChargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "duration_seconds": "3.445",
+      "cost_observed_at": "2026-11-10T06:58:04.247243+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:52:42.431668+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:52:48.723729+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:04.247243+00:00",
+          "usageTotalUsd": "0.008",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 1,
+      "valid_posts": 1,
+      "diagnostic_rows": 0,
+      "duplicates": 1,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "facebook:1708197577331497"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 12,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T11:30:00+08:00",
+      "base_start_utc": "2026-11-10T03:15:00+00:00",
+      "query_start_utc": "2026-11-10T01:15:00+00:00",
+      "query_end_utc": "2026-11-10T03:30:00+00:00",
+      "query_start_taipei": "2026-11-10T09:15:00+08:00",
+      "query_end_taipei": "2026-11-10T11:30:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-10T01:15:00Z",
+        "postedBefore": "2026-11-10T03:30:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "TLmrNwdpdtT5t4rGy",
+      "startedAt": "2026-11-10T06:52:56.330Z",
+      "finishedAt": "2026-11-10T06:53:00.033Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "2AK2zHn3dNh6ZFLsD",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.03",
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 2
+      },
+      "accountedChargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 2
+      },
+      "duration_seconds": "3.554",
+      "cost_observed_at": "2026-11-10T06:58:05.445692+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:52:56.494445+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:53:02.871789+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 2
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:05.445692+00:00",
+          "usageTotalUsd": "0.03",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 2
+          },
+          "accountedChargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 2
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 2,
+      "valid_posts": 2,
+      "diagnostic_rows": 0,
+      "duplicates": 2,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "threads:4027027180417050470",
+        "threads:4027013070392517757"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 13,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T11:45:00+08:00",
+      "base_start_utc": "2026-11-10T03:30:00+00:00",
+      "query_start_utc": "2026-11-10T01:30:00+00:00",
+      "query_end_utc": "2026-11-10T03:45:00+00:00",
+      "query_start_taipei": "2026-11-10T09:30:00+08:00",
+      "query_end_taipei": "2026-11-10T11:45:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-10T01:30:00Z",
+        "onlyPostsOlderThan": "2026-11-10T03:45:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "b4TQdvZARxDfSNLwc",
+      "startedAt": "2026-11-10T06:53:10.211Z",
+      "finishedAt": "2026-11-10T06:53:14.967Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "Kqc383UgcXlKW8tto",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.008",
+      "chargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "accountedChargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "duration_seconds": "4.614",
+      "cost_observed_at": "2026-11-10T06:58:06.632413+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:53:10.362570+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:53:17.001061+00:00",
+          "usageTotalUsd": "0.001",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:06.632413+00:00",
+          "usageTotalUsd": "0.008",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 1,
+      "valid_posts": 0,
+      "diagnostic_rows": 1,
+      "duplicates": 0,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {
+        "no_items": 1
+      },
+      "uncertain_rows": 0,
+      "post_keys": [],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 13,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T11:45:00+08:00",
+      "base_start_utc": "2026-11-10T03:30:00+00:00",
+      "query_start_utc": "2026-11-10T01:30:00+00:00",
+      "query_end_utc": "2026-11-10T03:45:00+00:00",
+      "query_start_taipei": "2026-11-10T09:30:00+08:00",
+      "query_end_taipei": "2026-11-10T11:45:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-10T01:30:00Z",
+        "postedBefore": "2026-11-10T03:45:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "JhBwQD109rIaGvNSP",
+      "startedAt": "2026-11-10T06:53:25.200Z",
+      "finishedAt": "2026-11-10T06:53:30.130Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "Fet17jFpA53DTgiXu",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.03",
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 2
+      },
+      "accountedChargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 2
+      },
+      "duration_seconds": "4.771",
+      "cost_observed_at": "2026-11-10T06:58:07.788840+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:53:25.356221+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:53:31.725755+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:07.788840+00:00",
+          "usageTotalUsd": "0.03",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 2
+          },
+          "accountedChargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 2
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 2,
+      "valid_posts": 2,
+      "diagnostic_rows": 0,
+      "duplicates": 2,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "threads:4027027180417050470",
+        "threads:4027013070392517757"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 14,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T12:00:00+08:00",
+      "base_start_utc": "2026-11-10T03:45:00+00:00",
+      "query_start_utc": "2026-11-10T01:45:00+00:00",
+      "query_end_utc": "2026-11-10T04:00:00+00:00",
+      "query_start_taipei": "2026-11-10T09:45:00+08:00",
+      "query_end_taipei": "2026-11-10T12:00:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-10T01:45:00Z",
+        "onlyPostsOlderThan": "2026-11-10T04:00:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "ri6zWY7Qz8zCzhN3u",
+      "startedAt": "2026-11-10T06:53:40.065Z",
+      "finishedAt": "2026-11-10T06:53:43.734Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "XzZ1iwYYNbcYiD7Lo",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.008",
+      "chargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "accountedChargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "duration_seconds": "3.532",
+      "cost_observed_at": "2026-11-10T06:58:08.957120+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:53:40.211468+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:53:46.863800+00:00",
+          "usageTotalUsd": "0.001",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:08.957120+00:00",
+          "usageTotalUsd": "0.008",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 1,
+      "valid_posts": 0,
+      "diagnostic_rows": 1,
+      "duplicates": 0,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {
+        "no_items": 1
+      },
+      "uncertain_rows": 0,
+      "post_keys": [],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 14,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T12:00:00+08:00",
+      "base_start_utc": "2026-11-10T03:45:00+00:00",
+      "query_start_utc": "2026-11-10T01:45:00+00:00",
+      "query_end_utc": "2026-11-10T04:00:00+00:00",
+      "query_start_taipei": "2026-11-10T09:45:00+08:00",
+      "query_end_taipei": "2026-11-10T12:00:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-10T01:45:00Z",
+        "postedBefore": "2026-11-10T04:00:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "wrntgz0A8meWqn5a3",
+      "startedAt": "2026-11-10T06:53:54.235Z",
+      "finishedAt": "2026-11-10T06:54:02.321Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "PRbBDTAfIui0Zasmx",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.04",
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 4
+      },
+      "accountedChargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 4
+      },
+      "duration_seconds": "7.921",
+      "cost_observed_at": "2026-11-10T06:58:10.316483+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:53:54.384384+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:54:06.197169+00:00",
+          "usageTotalUsd": "0.04",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 4
+          },
+          "accountedChargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 4
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:10.316483+00:00",
+          "usageTotalUsd": "0.04",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 4
+          },
+          "accountedChargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 4
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 4,
+      "valid_posts": 3,
+      "diagnostic_rows": 0,
+      "duplicates": 2,
+      "first_new": 1,
+      "outside_window": 0,
+      "excluded": {
+        "reply_repost_or_unknown": 1
+      },
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "threads:4027056616092826145",
+        "threads:4027027180417050470",
+        "threads:4027013070392517757"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 15,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T12:15:00+08:00",
+      "base_start_utc": "2026-11-10T04:00:00+00:00",
+      "query_start_utc": "2026-11-10T02:00:00+00:00",
+      "query_end_utc": "2026-11-10T04:15:00+00:00",
+      "query_start_taipei": "2026-11-10T10:00:00+08:00",
+      "query_end_taipei": "2026-11-10T12:15:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-10T02:00:00Z",
+        "onlyPostsOlderThan": "2026-11-10T04:15:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "ftcalJJrLlsWml6JQ",
+      "startedAt": "2026-11-10T06:54:13.796Z",
+      "finishedAt": "2026-11-10T06:54:21.069Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "ZdN1cQluThVVoTskm",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.008",
+      "chargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "accountedChargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "duration_seconds": "7.139",
+      "cost_observed_at": "2026-11-10T06:58:11.465393+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:54:13.938023+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:54:25.361701+00:00",
+          "usageTotalUsd": "0.001",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:11.465393+00:00",
+          "usageTotalUsd": "0.008",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 1,
+      "valid_posts": 0,
+      "diagnostic_rows": 1,
+      "duplicates": 0,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {
+        "no_items": 1
+      },
+      "uncertain_rows": 0,
+      "post_keys": [],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 15,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T12:15:00+08:00",
+      "base_start_utc": "2026-11-10T04:00:00+00:00",
+      "query_start_utc": "2026-11-10T02:00:00+00:00",
+      "query_end_utc": "2026-11-10T04:15:00+00:00",
+      "query_start_taipei": "2026-11-10T10:00:00+08:00",
+      "query_end_taipei": "2026-11-10T12:15:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-10T02:00:00Z",
+        "postedBefore": "2026-11-10T04:15:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "q9dBLxmyUE8K6CTJg",
+      "startedAt": "2026-11-10T06:54:31.999Z",
+      "finishedAt": "2026-11-10T06:54:36.521Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "ZQlzsJI4lgqWE4hNI",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.04",
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 4
+      },
+      "accountedChargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 4
+      },
+      "duration_seconds": "4.323",
+      "cost_observed_at": "2026-11-10T06:58:12.753814+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:54:32.211113+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:54:38.747332+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:12.753814+00:00",
+          "usageTotalUsd": "0.04",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 4
+          },
+          "accountedChargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 4
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 4,
+      "valid_posts": 3,
+      "diagnostic_rows": 0,
+      "duplicates": 3,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {
+        "reply_repost_or_unknown": 1
+      },
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "threads:4027056616092826145",
+        "threads:4027027180417050470",
+        "threads:4027013070392517757"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 16,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T12:30:00+08:00",
+      "base_start_utc": "2026-11-10T04:15:00+00:00",
+      "query_start_utc": "2026-11-10T02:15:00+00:00",
+      "query_end_utc": "2026-11-10T04:30:00+00:00",
+      "query_start_taipei": "2026-11-10T10:15:00+08:00",
+      "query_end_taipei": "2026-11-10T12:30:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-10T02:15:00Z",
+        "onlyPostsOlderThan": "2026-11-10T04:30:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "bqSoY71uueYqAudp8",
+      "startedAt": "2026-11-10T06:54:46.099Z",
+      "finishedAt": "2026-11-10T06:55:13.621Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "0H4QnRJ7gHCjbSgh6",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.008",
+      "chargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "accountedChargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "duration_seconds": "27.284",
+      "cost_observed_at": "2026-11-10T06:58:13.916003+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:54:46.360567+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:55:18.223973+00:00",
+          "usageTotalUsd": "0.001",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:13.916003+00:00",
+          "usageTotalUsd": "0.008",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 1,
+      "valid_posts": 0,
+      "diagnostic_rows": 1,
+      "duplicates": 0,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {
+        "no_items": 1
+      },
+      "uncertain_rows": 0,
+      "post_keys": [],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 16,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T12:30:00+08:00",
+      "base_start_utc": "2026-11-10T04:15:00+00:00",
+      "query_start_utc": "2026-11-10T02:15:00+00:00",
+      "query_end_utc": "2026-11-10T04:30:00+00:00",
+      "query_start_taipei": "2026-11-10T10:15:00+08:00",
+      "query_end_taipei": "2026-11-10T12:30:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-10T02:15:00Z",
+        "postedBefore": "2026-11-10T04:30:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "qM9OH7YzoEZLCiKDx",
+      "startedAt": "2026-11-10T06:55:25.949Z",
+      "finishedAt": "2026-11-10T06:55:32.143Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "35hB3dGRm9tQLaho5",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.04",
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 4
+      },
+      "accountedChargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 4
+      },
+      "duration_seconds": "6.05",
+      "cost_observed_at": "2026-11-10T06:58:15.340729+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:55:26.118779+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:55:32.553864+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:15.340729+00:00",
+          "usageTotalUsd": "0.04",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 4
+          },
+          "accountedChargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 4
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 4,
+      "valid_posts": 3,
+      "diagnostic_rows": 0,
+      "duplicates": 3,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {
+        "reply_repost_or_unknown": 1
+      },
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "threads:4027056616092826145",
+        "threads:4027027180417050470",
+        "threads:4027013070392517757"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 17,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T12:45:00+08:00",
+      "base_start_utc": "2026-11-10T04:30:00+00:00",
+      "query_start_utc": "2026-11-10T02:30:00+00:00",
+      "query_end_utc": "2026-11-10T04:45:00+00:00",
+      "query_start_taipei": "2026-11-10T10:30:00+08:00",
+      "query_end_taipei": "2026-11-10T12:45:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-10T02:30:00Z",
+        "onlyPostsOlderThan": "2026-11-10T04:45:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "TytSeDcdjmUYAVPgh",
+      "startedAt": "2026-11-10T06:55:39.489Z",
+      "finishedAt": "2026-11-10T06:55:43.647Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "E8lKnxFvkDBadTnkb",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.008",
+      "chargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "accountedChargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "duration_seconds": "4.028",
+      "cost_observed_at": "2026-11-10T06:58:16.578398+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:55:39.623784+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:55:45.982584+00:00",
+          "usageTotalUsd": "0.001",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:16.578398+00:00",
+          "usageTotalUsd": "0.008",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 1,
+      "valid_posts": 0,
+      "diagnostic_rows": 1,
+      "duplicates": 0,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {
+        "no_items": 1
+      },
+      "uncertain_rows": 0,
+      "post_keys": [],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 17,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T12:45:00+08:00",
+      "base_start_utc": "2026-11-10T04:30:00+00:00",
+      "query_start_utc": "2026-11-10T02:30:00+00:00",
+      "query_end_utc": "2026-11-10T04:45:00+00:00",
+      "query_start_taipei": "2026-11-10T10:30:00+08:00",
+      "query_end_taipei": "2026-11-10T12:45:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-10T02:30:00Z",
+        "postedBefore": "2026-11-10T04:45:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "0QfL1dW12FgZnZIAT",
+      "startedAt": "2026-11-10T06:55:52.896Z",
+      "finishedAt": "2026-11-10T06:55:57.007Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "vxCM2J2AatJAM0AAK",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.035",
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 3
+      },
+      "accountedChargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 3
+      },
+      "duration_seconds": "3.949",
+      "cost_observed_at": "2026-11-10T06:58:17.867124+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:55:53.088880+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:55:59.386476+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:17.867124+00:00",
+          "usageTotalUsd": "0.035",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 3
+          },
+          "accountedChargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 3
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 3,
+      "valid_posts": 2,
+      "diagnostic_rows": 0,
+      "duplicates": 2,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {
+        "reply_repost_or_unknown": 1
+      },
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "threads:4027056616092826145",
+        "threads:4027027180417050470"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 18,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T13:00:00+08:00",
+      "base_start_utc": "2026-11-10T04:45:00+00:00",
+      "query_start_utc": "2026-11-10T02:45:00+00:00",
+      "query_end_utc": "2026-11-10T05:00:00+00:00",
+      "query_start_taipei": "2026-11-10T10:45:00+08:00",
+      "query_end_taipei": "2026-11-10T13:00:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-10T02:45:00Z",
+        "onlyPostsOlderThan": "2026-11-10T05:00:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "0D02MfXJcA9cfOQyH",
+      "startedAt": "2026-11-10T06:56:06.631Z",
+      "finishedAt": "2026-11-10T06:56:12.142Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "VJ0KtYivbbEjcR6sI",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.008",
+      "chargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "accountedChargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "duration_seconds": "5.334",
+      "cost_observed_at": "2026-11-10T06:58:19.254879+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:56:06.818424+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:56:13.067814+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:19.254879+00:00",
+          "usageTotalUsd": "0.008",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 1,
+      "valid_posts": 0,
+      "diagnostic_rows": 1,
+      "duplicates": 0,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {
+        "no_items": 1
+      },
+      "uncertain_rows": 0,
+      "post_keys": [],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 18,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T13:00:00+08:00",
+      "base_start_utc": "2026-11-10T04:45:00+00:00",
+      "query_start_utc": "2026-11-10T02:45:00+00:00",
+      "query_end_utc": "2026-11-10T05:00:00+00:00",
+      "query_start_taipei": "2026-11-10T10:45:00+08:00",
+      "query_end_taipei": "2026-11-10T13:00:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-10T02:45:00Z",
+        "postedBefore": "2026-11-10T05:00:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "WtSFzLrRdWNhy5gau",
+      "startedAt": "2026-11-10T06:56:19.995Z",
+      "finishedAt": "2026-11-10T06:56:25.175Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "EtxPiovBe1bYKtvHj",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.035",
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 3
+      },
+      "accountedChargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 3
+      },
+      "duration_seconds": "4.998",
+      "cost_observed_at": "2026-11-10T06:58:20.718400+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:56:20.186521+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:56:26.678510+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:20.718400+00:00",
+          "usageTotalUsd": "0.035",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 3
+          },
+          "accountedChargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 3
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 3,
+      "valid_posts": 2,
+      "diagnostic_rows": 0,
+      "duplicates": 2,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {
+        "reply_repost_or_unknown": 1
+      },
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "threads:4027056616092826145",
+        "threads:4027027180417050470"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 19,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T13:15:00+08:00",
+      "base_start_utc": "2026-11-10T05:00:00+00:00",
+      "query_start_utc": "2026-11-10T03:00:00+00:00",
+      "query_end_utc": "2026-11-10T05:15:00+00:00",
+      "query_start_taipei": "2026-11-10T11:00:00+08:00",
+      "query_end_taipei": "2026-11-10T13:15:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-10T03:00:00Z",
+        "onlyPostsOlderThan": "2026-11-10T05:15:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "Oj9NE5ScBXIT9vPC6",
+      "startedAt": "2026-11-10T06:56:34.446Z",
+      "finishedAt": "2026-11-10T06:56:38.874Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "ddd0X2054hkmheFgU",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.008",
+      "chargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "accountedChargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "duration_seconds": "4.273",
+      "cost_observed_at": "2026-11-10T06:58:21.971573+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:56:34.595844+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:56:40.879868+00:00",
+          "usageTotalUsd": "0.001",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 1,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:21.971573+00:00",
+          "usageTotalUsd": "0.008",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 1,
+      "valid_posts": 0,
+      "diagnostic_rows": 1,
+      "duplicates": 0,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {
+        "no_items": 1
+      },
+      "uncertain_rows": 0,
+      "post_keys": [],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 19,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T13:15:00+08:00",
+      "base_start_utc": "2026-11-10T05:00:00+00:00",
+      "query_start_utc": "2026-11-10T03:00:00+00:00",
+      "query_end_utc": "2026-11-10T05:15:00+00:00",
+      "query_start_taipei": "2026-11-10T11:00:00+08:00",
+      "query_end_taipei": "2026-11-10T13:15:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-10T03:00:00Z",
+        "postedBefore": "2026-11-10T05:15:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "kWt9Urhq4kCqkuhm8",
+      "startedAt": "2026-11-10T06:56:48.152Z",
+      "finishedAt": "2026-11-10T06:56:59.309Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "SDibc0bNQzz7hhJa9",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.03",
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 2
+      },
+      "accountedChargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 2
+      },
+      "duration_seconds": "10.981",
+      "cost_observed_at": "2026-11-10T06:58:23.387349+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:56:48.369230+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:56:59.842060+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:23.387349+00:00",
+          "usageTotalUsd": "0.03",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 2
+          },
+          "accountedChargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 2
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 2,
+      "valid_posts": 1,
+      "diagnostic_rows": 0,
+      "duplicates": 1,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {
+        "reply_repost_or_unknown": 1
+      },
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "threads:4027056616092826145"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 20,
+      "source": "facebook",
+      "actor": "apify~facebook-posts-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T13:30:00+08:00",
+      "base_start_utc": "2026-11-10T05:15:00+00:00",
+      "query_start_utc": "2026-11-10T03:15:00+00:00",
+      "query_end_utc": "2026-11-10T05:30:00+00:00",
+      "query_start_taipei": "2026-11-10T11:15:00+08:00",
+      "query_end_taipei": "2026-11-10T13:30:00+08:00",
+      "input": {
+        "startUrls": [
+          {
+            "url": "https://www.facebook.com/DieWithoutBang"
+          }
+        ],
+        "resultsLimit": 50,
+        "onlyPostsNewerThan": "2026-11-10T03:15:00Z",
+        "onlyPostsOlderThan": "2026-11-10T05:30:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "OOXjrQahLFqRxZtAL",
+      "startedAt": "2026-11-10T06:57:08.153Z",
+      "finishedAt": "2026-11-10T06:57:13.047Z",
+      "buildId": "ndtSgN95ZPtNihh5c",
+      "buildNumber": "0.0.413",
+      "defaultDatasetId": "bAPRHZOdDn2aowSTh",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 1024,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.008",
+      "chargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "accountedChargedEventCounts": {
+        "post": 1,
+        "actor-start": 1,
+        "filter-applied": 1
+      },
+      "duration_seconds": "4.687",
+      "cost_observed_at": "2026-11-10T06:58:24.794784+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:57:08.361351+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:57:14.811792+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          },
+          "accountedChargedEventCounts": {
+            "post": 0,
+            "actor-start": 0,
+            "filter-applied": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:24.794784+00:00",
+          "usageTotalUsd": "0.008",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          },
+          "accountedChargedEventCounts": {
+            "post": 1,
+            "actor-start": 1,
+            "filter-applied": 1
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 1,
+      "valid_posts": 0,
+      "diagnostic_rows": 1,
+      "duplicates": 0,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {},
+      "diagnostic_codes": {
+        "no_items": 1
+      },
+      "uncertain_rows": 0,
+      "post_keys": [],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    },
+    {
+      "round": 20,
+      "source": "threads",
+      "actor": "automation-lab~threads-scraper",
+      "simulated_cutoff_taipei": "2026-11-10T13:30:00+08:00",
+      "base_start_utc": "2026-11-10T05:15:00+00:00",
+      "query_start_utc": "2026-11-10T03:15:00+00:00",
+      "query_end_utc": "2026-11-10T05:30:00+00:00",
+      "query_start_taipei": "2026-11-10T11:15:00+08:00",
+      "query_end_taipei": "2026-11-10T13:30:00+08:00",
+      "input": {
+        "mode": "posts",
+        "usernames": [
+          "banini31"
+        ],
+        "maxPosts": 50,
+        "includeProfile": false,
+        "postedAfter": "2026-11-10T03:15:00Z",
+        "postedBefore": "2026-11-10T05:30:00Z"
+      },
+      "requested_options": {
+        "timeout": 180,
+        "memory": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.10",
+        "restartOnError": "false"
+      },
+      "status": "SUCCEEDED",
+      "id": "ttRbjiJIOVqzJI5Xw",
+      "startedAt": "2026-11-10T06:57:22.887Z",
+      "finishedAt": "2026-11-10T06:57:27.248Z",
+      "buildId": "u7xlWkUJn0xIkKQVC",
+      "buildNumber": "0.1.68",
+      "defaultDatasetId": "apkUUh7yza5eUzMxc",
+      "options": {
+        "build": "latest",
+        "timeoutSecs": 180,
+        "memoryMbytes": 512,
+        "maxItems": 50,
+        "maxTotalChargeUsd": "0.1",
+        "restartOnError": false,
+        "isMaxTotalChargeUsdSetByUser": true,
+        "diskMbytes": 1024
+      },
+      "usageTotalUsd": "0.03",
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 2
+      },
+      "accountedChargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 2
+      },
+      "duration_seconds": "4.155",
+      "cost_observed_at": "2026-11-10T06:58:26.086379+00:00",
+      "billing_finality": "not independently confirmed; zero is not proof of free execution",
+      "cap_message": false,
+      "cost_snapshots": [
+        {
+          "phase": "submission",
+          "observed_at": "2026-11-10T06:57:23.100954+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "completed_preliminary",
+          "observed_at": "2026-11-10T06:57:30.506728+00:00",
+          "usageTotalUsd": 0,
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 2
+          },
+          "accountedChargedEventCounts": {
+            "start": 0,
+            "profile": 0,
+            "post": 0
+          }
+        },
+        {
+          "phase": "final_readonly_refresh",
+          "observed_at": "2026-11-10T06:58:26.086379+00:00",
+          "usageTotalUsd": "0.03",
+          "usageUsd": null,
+          "externalChargedTotalUsd": null,
+          "chargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 2
+          },
+          "accountedChargedEventCounts": {
+            "start": 1,
+            "profile": 0,
+            "post": 2
+          }
+        }
+      ],
+      "cost_basis": "usageTotalUsd only; other fee fields are not added again",
+      "result_count": 2,
+      "valid_posts": 1,
+      "diagnostic_rows": 0,
+      "duplicates": 1,
+      "first_new": 0,
+      "outside_window": 0,
+      "excluded": {
+        "reply_repost_or_unknown": 1
+      },
+      "diagnostic_codes": {},
+      "uncertain_rows": 0,
+      "post_keys": [
+        "threads:4027056616092826145"
+      ],
+      "coverage_warning": "After-the-fact replay; cannot establish realtime completeness or detection latency.",
+      "final_cost_refreshed": true,
+      "incomplete_reasons": [],
+      "cursor_advanced_final": true
+    }
+  ],
+  "pricing": {
+    "facebook": {
+      "actor": "apify~facebook-posts-scraper",
+      "pricing": {
+        "pricingModel": "PAY_PER_EVENT",
+        "startedAt": "2026-03-11T14:56:37.208Z",
+        "minimalMaxTotalChargeUsd": "0.0062",
+        "pricingPerEvent": {
+          "actorChargeEvents": {
+            "post": {
+              "eventTitle": "Post",
+              "eventDescription": "Each post written to the dataset.",
+              "isOneTimeEvent": false,
+              "eventTieredPricingUsd": {
+                "FREE": {
+                  "tieredEventPriceUsd": "0.005"
+                },
+                "BRONZE": {
+                  "tieredEventPriceUsd": "0.004"
+                },
+                "SILVER": {
+                  "tieredEventPriceUsd": "0.0025"
+                },
+                "GOLD": {
+                  "tieredEventPriceUsd": "0.002"
+                },
+                "PLATINUM": {
+                  "tieredEventPriceUsd": "0.0016"
+                },
+                "DIAMOND": {
+                  "tieredEventPriceUsd": "0.0008"
+                }
+              },
+              "isPrimaryEvent": true
+            },
+            "actor-start": {
+              "eventTitle": "Actor start",
+              "eventDescription": "Flat charge for starting an Actor run.",
+              "isOneTimeEvent": true,
+              "eventTieredPricingUsd": {
+                "FREE": {
+                  "tieredEventPriceUsd": "0.001"
+                },
+                "BRONZE": {
+                  "tieredEventPriceUsd": "0.001"
+                },
+                "SILVER": {
+                  "tieredEventPriceUsd": "0.001"
+                },
+                "GOLD": {
+                  "tieredEventPriceUsd": "0.001"
+                },
+                "PLATINUM": {
+                  "tieredEventPriceUsd": "0.001"
+                },
+                "DIAMOND": {
+                  "tieredEventPriceUsd": "0.001"
+                }
+              }
+            },
+            "filter-applied": {
+              "eventTitle": "Add-on: Date filter",
+              "eventDescription": "Extra cost per post scraped with a date filter.",
+              "isOneTimeEvent": false,
+              "eventTieredPricingUsd": {
+                "FREE": {
+                  "tieredEventPriceUsd": "0.002"
+                },
+                "BRONZE": {
+                  "tieredEventPriceUsd": "0.001"
+                },
+                "SILVER": {
+                  "tieredEventPriceUsd": "0.0008"
+                },
+                "GOLD": {
+                  "tieredEventPriceUsd": "0.0006"
+                },
+                "PLATINUM": {
+                  "tieredEventPriceUsd": "0.0004"
+                },
+                "DIAMOND": {
+                  "tieredEventPriceUsd": "0.0002"
+                }
+              }
+            }
+          }
+        }
+      },
+      "defaultRunOptions": {
+        "build": "latest",
+        "timeoutSecs": 0,
+        "memoryMbytes": 4096
+      }
+    },
+    "threads": {
+      "actor": "automation-lab~threads-scraper",
+      "pricing": {
+        "pricingModel": "PAY_PER_EVENT",
+        "startedAt": "2026-08-25T20:07:35.923Z",
+        "pricingPerEvent": {
+          "actorChargeEvents": {
+            "start": {
+              "eventTitle": "Start",
+              "eventDescription": "One-time charge per run",
+              "isOneTimeEvent": true,
+              "eventTieredPricingUsd": {
+                "FREE": {
+                  "tieredEventPriceUsd": "0.02"
+                },
+                "BRONZE": {
+                  "tieredEventPriceUsd": "0.0174"
+                },
+                "SILVER": {
+                  "tieredEventPriceUsd": "0.0134"
+                },
+                "GOLD": {
+                  "tieredEventPriceUsd": "0.0104"
+                },
+                "PLATINUM": {
+                  "tieredEventPriceUsd": "0.007"
+                },
+                "DIAMOND": {
+                  "tieredEventPriceUsd": "0.0048"
+                }
+              }
+            },
+            "profile": {
+              "eventTitle": "Profile scraped",
+              "eventDescription": "Per profile extracted",
+              "isOneTimeEvent": false,
+              "eventTieredPricingUsd": {
+                "FREE": {
+                  "tieredEventPriceUsd": "0.005"
+                },
+                "BRONZE": {
+                  "tieredEventPriceUsd": "0.00435"
+                },
+                "SILVER": {
+                  "tieredEventPriceUsd": "0.00335"
+                },
+                "GOLD": {
+                  "tieredEventPriceUsd": "0.0026"
+                },
+                "PLATINUM": {
+                  "tieredEventPriceUsd": "0.00175"
+                },
+                "DIAMOND": {
+                  "tieredEventPriceUsd": "0.0012"
+                }
+              }
+            },
+            "post": {
+              "eventTitle": "Post extracted",
+              "eventDescription": "Per post extracted",
+              "isOneTimeEvent": false,
+              "eventTieredPricingUsd": {
+                "FREE": {
+                  "tieredEventPriceUsd": "0.005"
+                },
+                "BRONZE": {
+                  "tieredEventPriceUsd": "0.00435"
+                },
+                "SILVER": {
+                  "tieredEventPriceUsd": "0.00335"
+                },
+                "GOLD": {
+                  "tieredEventPriceUsd": "0.0026"
+                },
+                "PLATINUM": {
+                  "tieredEventPriceUsd": "0.00175"
+                },
+                "DIAMOND": {
+                  "tieredEventPriceUsd": "0.0012"
+                }
+              },
+              "isPrimaryEvent": true
+            }
+          }
+        }
+      },
+      "defaultRunOptions": {
+        "build": "latest",
+        "timeoutSecs": 900,
+        "memoryMbytes": 1024
+      }
+    }
+  },
+  "reserved_starts": 40,
+  "after_the_fact": true,
+  "posts_ledger": "data/cost_tests/apify-day-replay-20261110-01-posts.json",
+  "formal_shas_before": {
+    ".github/workflows/live-update.yml": "3a425b6d60c9a55323336f0dddf9357ad2dd0639",
+    "8zz-indicator.pine": "5d2a61dc91a84741fec24f3b4db262f7574ffc77",
+    "candidates/8zz-history-latest.pine": "cd6260682831c47f7d65c393d72e7320e53dc4dd",
+    "candidates/8zz-original-author-batch-01.pine": "cb5e43acdc5dc912162f14148bd4df5c81d93d9e",
+    "candidates/8zz-original-author-batch-02.pine": "2c26ec08ea8544cdc7985c8d5f45d369005bf8cd",
+    "data/acquisition.json": "7a1ecdeaeef59eabaa22e47fb70c326589c83df4",
+    "data/author-published-20260410.pine": "0ae81e3dd642afbb49703f48faf7553ac21f0f76",
+    "data/author_history_fix_verification.json": "9e466c98a9a400ae689bc4cd8f9678d38f6c56a2",
+    "data/author_history_reconciliation.json": "128916f603437cbe253820c5ce906d229cd43627",
+    "data/author_history_reconciliation_audit.json": "06508afe97b3e247e1b9e83d43e13b4e370356a0",
+    "data/author_standard_full_audit.json": "33bd7659a85ce6e6364dccfe9adad51da69192dd",
+    "data/dashboard_market.json": "c6891b289e2b132652bcf39561e882cc48af02bc",
+    "data/event_baseline_keys.json": "8ebee730735de5ec8ae21f300efd81ae763075a5",
+    "data/facebook_posts_2026-05-01_2026-07-20.json": "6ac7e933c8f1007a74f74a354696aa9d832351d2",
+    "data/historical-indicator.pine": "9e6eeac3281b28ea1a7bf9c3495a352c14e34ace",
+    "data/history_batch_01_plan.json": "dd10c60e228b156c4d463e0bea05d686d082d3bf",
+    "data/history_batch_01_summary.json": "4d73f0f3f8b9380d773d3326dcaa3e3136fb0732",
+    "data/history_batch_02_plan.json": "5bbb7fd1d1b65c825f897d5f0fb8ab5ae2d3260e",
+    "data/history_batch_02_summary.json": "2a20891bb335aecca4ef64876a4faeef33f269a0",
+    "data/history_completion_control.json": "0fbc1e9ebbaa60a9537d47400559115c1572c333",
+    "data/history_completion_inventory.json": "7169d1809c752df828ae9f07c6d1f26cfc7ed235",
+    "data/history_completion_summary.json": "26504eeb25077fe361ec5d077d95bc1c8024040b",
+    "data/history_incremental_posts.json": "f79e7919cd80ae5f0aaf17cdf58e83daa2e2daa1",
+    "data/history_manual_dispatch_verification.json": "87fc77b9e58bbd35daff373bf8b755c6b7d5ec18",
+    "data/history_plans/history-completion-20261107-001.json": "ca9e3ebc1f15d762e2abe0f133020ce6a7310bb9",
+    "data/history_plans/history-completion-20261107-002.json": "b99242fda04375f20e9d2b8adc6c295e173f4810",
+    "data/history_plans/history-completion-20261107-003.json": "1bfa206d344ab9a7910fb9ff5fcfdb42290da951",
+    "data/history_plans/history-completion-20261107-004.json": "bdb94e8ac17f84b35337251002e2ed50f01c41f8",
+    "data/history_plans/history-completion-20261107-005.json": "41ff5ae97bdcbf7894d74ffc388a0aa13096aa84",
+    "data/history_plans/history-completion-20261107-006.json": "ebd136c277246943a7c0df93a78c6fafd907b3a0",
+    "data/history_plans/history-completion-20261107-007.json": "1ff9099c763f1a1abb996da72626b7ed16319172",
+    "data/history_plans/history-completion-20261107-008.json": "b1260000318ca640e5781d6075cc83c9b7df060e",
+    "data/history_plans/history-completion-20261107-009.json": "d089476a61502b957a8638cdac6133a0b4cbcefd",
+    "data/history_plans/history-completion-20261107-010.json": "4e3bd6d45364938027e11d3632b0dcb89887acd9",
+    "data/history_plans/history-completion-20261107-011.json": "07cf3c2220ebdd8249804717c5d7e12517197835",
+    "data/history_plans/history-completion-20261107-012.json": "0091376a28fdf118e65e2c7469a205c142726e7f",
+    "data/history_plans/history-completion-20261107-013.json": "56d945e4e9940c817fcd3e1aee26940b13bb0d7f",
+    "data/history_plans/history-completion-20261107-014.json": "b8c24dcf6fdef34d366c752d7856a29263460f88",
+    "data/history_progress/history-completion-20261107-001.json": "2d8e74d62b035bd60aa160f2becfe825d3bd55f5",
+    "data/history_progress/history-completion-20261107-002.json": "459518a25240b94b26b08e0d8c242414c3853549",
+    "data/history_progress/history-completion-20261107-003.json": "5e4f27993c1d2ce7a4b4041d90241abdf4e5d4cb",
+    "data/history_progress/history-completion-20261107-004.json": "4ca3ca578187fc15689680cf773773dddc48de99",
+    "data/history_progress/history-completion-20261107-005.json": "60a20231e975ec7e4003c624d582c945dcdd43b2",
+    "data/history_progress/history-completion-20261107-006.json": "ea41f816f6e2e21409d91910d779c56fb18884fa",
+    "data/history_progress/history-completion-20261107-007.json": "26e400cd8c05ac4797ce7fbef7b7592d98d91edf",
+    "data/history_progress/history-completion-20261107-008.json": "be6fed0b20e79b3622260b1abb1ecfd5581f4a55",
+    "data/history_progress/history-completion-20261107-009.json": "550c9d41f4523ea8fcde11fedcaca6896d313a96",
+    "data/history_progress/history-completion-20261107-010.json": "8b06e8e9f0b6994c4d0b408ab1a4f126582f780c",
+    "data/history_progress/history-completion-20261107-011.json": "cb880b166dc1a6f63b1b6d64b3253663434d1726",
+    "data/history_progress/history-completion-20261107-012.json": "f8fdf48edf05d1fb3b53ca5d670f60af3866f084",
+    "data/history_progress/history-completion-20261107-013.json": "3e0031648a22c3fa8f55aa84f794623dd853ffbb",
+    "data/history_progress/history-completion-20261107-014.json": "a9b2f79243830c9f40b5bf58182d42c65de48452",
+    "data/history_progress/original-author-20261107-01.json": "baf66f1fa4fce84827c817aab97f50b0ebcd3b18",
+    "data/history_progress/original-author-20261107-02.json": "d8a66cf7c1829124f076979ef438fef78d8a6445",
+    "data/history_saved_response_revalidation.json": "b58000dacecde4c04a6b53287d4f7e1b58574c38",
+    "data/import_manifest.json": "033ddd1498d185296d6b224bf2d01621eabbf0c8",
+    "data/last_event_timestamp.json": "764cfc0f1d5b7f099709050964204c9842d37042",
+    "data/live_browser_validation.json": "66e1a8e31ae5d80c48074631b9f52c2054839bf0",
+    "data/live_control.json": "ec8d2202928c1fa224cbc86929a0c281773cf150",
+    "data/live_offline_validation.json": "357c13fb1825b81c28bceabf55f6ba338e7911d7",
+    "data/live_posts.json": "0967ef424bce6791893e9a57bb952f80fd536e93",
+    "data/live_settings.json": "04050d0567e66c99c5f1283342ea08f9ed9e0af5",
+    "data/manual_posts.example.txt": "d70c4e7f364c4d3960714be655878ea2c869d4d5",
+    "data/market_prices_cache.json": "e8c4de6c021a677712c5a4f9bf7d23de60ad73bf",
+    "data/new_events.json": "0637a088a01e8ddab3bf3fa98dbe804cbde1a0dc",
+    "data/online_paused.json": "bf28b31867e6875b02dd82286f935aee5b299719",
+    "data/original_author_policy.json": "f4e17a6c79f4d02697835ec95979252c98fb5131",
+    "data/original_policy_comparison.json": "1ff5536d43a8cae3adb7d053cc9775e4b6d6c1f2",
+    "data/quality_cached_review.json": "7d8ee7cc628431669b3f11293e3ac9090164fb10",
+    "data/quality_original_proposals.json": "af95534055ae3b2e6acfd60a41208b2acaeb0ccf",
+    "data/quality_rule_results.json": "a38dc13fd4970aa3884ba6ed2d2b25a6c6414ce2",
+    "data/quality_samples.json": "81396e32d38096b8ee68500415c9f73cd757ad28",
+    "data/quality_test_comparison.json": "e1af86125dd835a3fbd7ce624751b475704c11e5",
+    "data/quality_test_plan.json": "c81af0414c23b1ff6a6650f6e13c8ad3991cef5b",
+    "data/quality_test_results.json": "fecc470e641dfbefae9b3347447c4038c3861263",
+    "data/quality_test_review.json": "9d42f7bfe4b1be1f6ecb2346382402abcab6da1f",
+    "data/signal_events.json": "4d576c5b315aa222d454b0d02fc836ee482e6b62",
+    "data/social_chatanywhere_403_diagnostic_20261107.json": "dfc19f69060456e12800b4263602ba25ef0634df",
+    "data/social_chatanywhere_authorized_smoke_20261107.json": "3fde9bf80fc3aff5ecded5adf4f93ab0822aa32b",
+    "data/social_chatanywhere_minimal_20261107.json": "c30a84e9edd42c5f00153f04cdaffb286dd37b41",
+    "data/social_chatanywhere_preflight.json": "5735de963ad183c8dee224d374ad1383baa765ac",
+    "data/social_groups.json": "c484d6a1e514ff5b76891134e6f3f5453216b630",
+    "data/social_posts.json": "25be466bde2d60d6f071a5f321ffbcec5d01d10d",
+    "data/social_report.json": "8e789bf292c16b7f058a8062d3fc0bf210894caf",
+    "data/social_smoke_audit.json": "6172c8a7a97591dbb1bec6d948c763f71f2e2025",
+    "data/social_smoke_results.json": "093e4c44f21a56e65fe97fe195e5d32e627f2d87",
+    "data/social_validation.json": "6a8dc2f03099d1d7fe83499ebc3d0b2b94686bb4",
+    "data/static_ticker_reference.json": "ef26529a8183b9240c509140e8c52185129f4b60",
+    "data/telegram_outbox.json": "92c46407988568161186231714a1e98de335baaa",
+    "data/trading_calendar.json": "d0cd0f016f5681e5921759159fa02bdcb025e129",
+    "docs/social-status.json": "8e789bf292c16b7f058a8062d3fc0bf210894caf"
+  },
+  "apify_http_requests": {
+    "GET": 188,
+    "POST": 40
+  },
+  "updated_at": "2026-11-10T06:58:28.760237+00:00",
+  "monthly_runs_before": 8,
+  "uncertain_streak": {
+    "facebook": 0,
+    "threads": 0
+  },
+  "incomplete_windows": [],
+  "unattempted": [],
+  "costs": {
+    "platform_usd": {
+      "facebook": "0.202",
+      "threads": "0.455"
+    },
+    "observed_total_usd": "0.657",
+    "missing_costs": [],
+    "basis": "Sum usageTotalUsd once per run; do not add usageUsd/event charges/externalChargedTotalUsd.",
+    "billing_finality": "API observations only; not independently settled invoice. Zero does not establish free service.",
+    "monthly_estimates_usd": {
+      "20": "13.140",
+      "22": "14.454",
+      "23": "15.111"
+    }
+  },
+  "monthly_runs_after": 48,
+  "formal_shas_after": {
+    ".github/workflows/live-update.yml": "3a425b6d60c9a55323336f0dddf9357ad2dd0639",
+    "8zz-indicator.pine": "5d2a61dc91a84741fec24f3b4db262f7574ffc77",
+    "candidates/8zz-history-latest.pine": "cd6260682831c47f7d65c393d72e7320e53dc4dd",
+    "candidates/8zz-original-author-batch-01.pine": "cb5e43acdc5dc912162f14148bd4df5c81d93d9e",
+    "candidates/8zz-original-author-batch-02.pine": "2c26ec08ea8544cdc7985c8d5f45d369005bf8cd",
+    "data/acquisition.json": "7a1ecdeaeef59eabaa22e47fb70c326589c83df4",
+    "data/author-published-20260410.pine": "0ae81e3dd642afbb49703f48faf7553ac21f0f76",
+    "data/author_history_fix_verification.json": "9e466c98a9a400ae689bc4cd8f9678d38f6c56a2",
+    "data/author_history_reconciliation.json": "128916f603437cbe253820c5ce906d229cd43627",
+    "data/author_history_reconciliation_audit.json": "06508afe97b3e247e1b9e83d43e13b4e370356a0",
+    "data/author_standard_full_audit.json": "33bd7659a85ce6e6364dccfe9adad51da69192dd",
+    "data/dashboard_market.json": "c6891b289e2b132652bcf39561e882cc48af02bc",
+    "data/event_baseline_keys.json": "8ebee730735de5ec8ae21f300efd81ae763075a5",
+    "data/facebook_posts_2026-05-01_2026-07-20.json": "6ac7e933c8f1007a74f74a354696aa9d832351d2",
+    "data/historical-indicator.pine": "9e6eeac3281b28ea1a7bf9c3495a352c14e34ace",
+    "data/history_batch_01_plan.json": "dd10c60e228b156c4d463e0bea05d686d082d3bf",
+    "data/history_batch_01_summary.json": "4d73f0f3f8b9380d773d3326dcaa3e3136fb0732",
+    "data/history_batch_02_plan.json": "5bbb7fd1d1b65c825f897d5f0fb8ab5ae2d3260e",
+    "data/history_batch_02_summary.json": "2a20891bb335aecca4ef64876a4faeef33f269a0",
+    "data/history_completion_control.json": "0fbc1e9ebbaa60a9537d47400559115c1572c333",
+    "data/history_completion_inventory.json": "7169d1809c752df828ae9f07c6d1f26cfc7ed235",
+    "data/history_completion_summary.json": "26504eeb25077fe361ec5d077d95bc1c8024040b",
+    "data/history_incremental_posts.json": "f79e7919cd80ae5f0aaf17cdf58e83daa2e2daa1",
+    "data/history_manual_dispatch_verification.json": "87fc77b9e58bbd35daff373bf8b755c6b7d5ec18",
+    "data/history_plans/history-completion-20261107-001.json": "ca9e3ebc1f15d762e2abe0f133020ce6a7310bb9",
+    "data/history_plans/history-completion-20261107-002.json": "b99242fda04375f20e9d2b8adc6c295e173f4810",
+    "data/history_plans/history-completion-20261107-003.json": "1bfa206d344ab9a7910fb9ff5fcfdb42290da951",
+    "data/history_plans/history-completion-20261107-004.json": "bdb94e8ac17f84b35337251002e2ed50f01c41f8",
+    "data/history_plans/history-completion-20261107-005.json": "41ff5ae97bdcbf7894d74ffc388a0aa13096aa84",
+    "data/history_plans/history-completion-20261107-006.json": "ebd136c277246943a7c0df93a78c6fafd907b3a0",
+    "data/history_plans/history-completion-20261107-007.json": "1ff9099c763f1a1abb996da72626b7ed16319172",
+    "data/history_plans/history-completion-20261107-008.json": "b1260000318ca640e5781d6075cc83c9b7df060e",
+    "data/history_plans/history-completion-20261107-009.json": "d089476a61502b957a8638cdac6133a0b4cbcefd",
+    "data/history_plans/history-completion-20261107-010.json": "4e3bd6d45364938027e11d3632b0dcb89887acd9",
+    "data/history_plans/history-completion-20261107-011.json": "07cf3c2220ebdd8249804717c5d7e12517197835",
+    "data/history_plans/history-completion-20261107-012.json": "0091376a28fdf118e65e2c7469a205c142726e7f",
+    "data/history_plans/history-completion-20261107-013.json": "56d945e4e9940c817fcd3e1aee26940b13bb0d7f",
+    "data/history_plans/history-completion-20261107-014.json": "b8c24dcf6fdef34d366c752d7856a29263460f88",
+    "data/history_progress/history-completion-20261107-001.json": "2d8e74d62b035bd60aa160f2becfe825d3bd55f5",
+    "data/history_progress/history-completion-20261107-002.json": "459518a25240b94b26b08e0d8c242414c3853549",
+    "data/history_progress/history-completion-20261107-003.json": "5e4f27993c1d2ce7a4b4041d90241abdf4e5d4cb",
+    "data/history_progress/history-completion-20261107-004.json": "4ca3ca578187fc15689680cf773773dddc48de99",
+    "data/history_progress/history-completion-20261107-005.json": "60a20231e975ec7e4003c624d582c945dcdd43b2",
+    "data/history_progress/history-completion-20261107-006.json": "ea41f816f6e2e21409d91910d779c56fb18884fa",
+    "data/history_progress/history-completion-20261107-007.json": "26e400cd8c05ac4797ce7fbef7b7592d98d91edf",
+    "data/history_progress/history-completion-20261107-008.json": "be6fed0b20e79b3622260b1abb1ecfd5581f4a55",
+    "data/history_progress/history-completion-20261107-009.json": "550c9d41f4523ea8fcde11fedcaca6896d313a96",
+    "data/history_progress/history-completion-20261107-010.json": "8b06e8e9f0b6994c4d0b408ab1a4f126582f780c",
+    "data/history_progress/history-completion-20261107-011.json": "cb880b166dc1a6f63b1b6d64b3253663434d1726",
+    "data/history_progress/history-completion-20261107-012.json": "f8fdf48edf05d1fb3b53ca5d670f60af3866f084",
+    "data/history_progress/history-completion-20261107-013.json": "3e0031648a22c3fa8f55aa84f794623dd853ffbb",
+    "data/history_progress/history-completion-20261107-014.json": "a9b2f79243830c9f40b5bf58182d42c65de48452",
+    "data/history_progress/original-author-20261107-01.json": "baf66f1fa4fce84827c817aab97f50b0ebcd3b18",
+    "data/history_progress/original-author-20261107-02.json": "d8a66cf7c1829124f076979ef438fef78d8a6445",
+    "data/history_saved_response_revalidation.json": "b58000dacecde4c04a6b53287d4f7e1b58574c38",
+    "data/import_manifest.json": "033ddd1498d185296d6b224bf2d01621eabbf0c8",
+    "data/last_event_timestamp.json": "764cfc0f1d5b7f099709050964204c9842d37042",
+    "data/live_browser_validation.json": "66e1a8e31ae5d80c48074631b9f52c2054839bf0",
+    "data/live_control.json": "ec8d2202928c1fa224cbc86929a0c281773cf150",
+    "data/live_offline_validation.json": "357c13fb1825b81c28bceabf55f6ba338e7911d7",
+    "data/live_posts.json": "0967ef424bce6791893e9a57bb952f80fd536e93",
+    "data/live_settings.json": "04050d0567e66c99c5f1283342ea08f9ed9e0af5",
+    "data/manual_posts.example.txt": "d70c4e7f364c4d3960714be655878ea2c869d4d5",
+    "data/market_prices_cache.json": "e8c4de6c021a677712c5a4f9bf7d23de60ad73bf",
+    "data/new_events.json": "0637a088a01e8ddab3bf3fa98dbe804cbde1a0dc",
+    "data/online_paused.json": "bf28b31867e6875b02dd82286f935aee5b299719",
+    "data/original_author_policy.json": "f4e17a6c79f4d02697835ec95979252c98fb5131",
+    "data/original_policy_comparison.json": "1ff5536d43a8cae3adb7d053cc9775e4b6d6c1f2",
+    "data/quality_cached_review.json": "7d8ee7cc628431669b3f11293e3ac9090164fb10",
+    "data/quality_original_proposals.json": "af95534055ae3b2e6acfd60a41208b2acaeb0ccf",
+    "data/quality_rule_results.json": "a38dc13fd4970aa3884ba6ed2d2b25a6c6414ce2",
+    "data/quality_samples.json": "81396e32d38096b8ee68500415c9f73cd757ad28",
+    "data/quality_test_comparison.json": "e1af86125dd835a3fbd7ce624751b475704c11e5",
+    "data/quality_test_plan.json": "c81af0414c23b1ff6a6650f6e13c8ad3991cef5b",
+    "data/quality_test_results.json": "fecc470e641dfbefae9b3347447c4038c3861263",
+    "data/quality_test_review.json": "9d42f7bfe4b1be1f6ecb2346382402abcab6da1f",
+    "data/signal_events.json": "4d576c5b315aa222d454b0d02fc836ee482e6b62",
+    "data/social_chatanywhere_403_diagnostic_20261107.json": "dfc19f69060456e12800b4263602ba25ef0634df",
+    "data/social_chatanywhere_authorized_smoke_20261107.json": "3fde9bf80fc3aff5ecded5adf4f93ab0822aa32b",
+    "data/social_chatanywhere_minimal_20261107.json": "c30a84e9edd42c5f00153f04cdaffb286dd37b41",
+    "data/social_chatanywhere_preflight.json": "5735de963ad183c8dee224d374ad1383baa765ac",
+    "data/social_groups.json": "c484d6a1e514ff5b76891134e6f3f5453216b630",
+    "data/social_posts.json": "25be466bde2d60d6f071a5f321ffbcec5d01d10d",
+    "data/social_report.json": "8e789bf292c16b7f058a8062d3fc0bf210894caf",
+    "data/social_smoke_audit.json": "6172c8a7a97591dbb1bec6d948c763f71f2e2025",
+    "data/social_smoke_results.json": "093e4c44f21a56e65fe97fe195e5d32e627f2d87",
+    "data/social_validation.json": "6a8dc2f03099d1d7fe83499ebc3d0b2b94686bb4",
+    "data/static_ticker_reference.json": "ef26529a8183b9240c509140e8c52185129f4b60",
+    "data/telegram_outbox.json": "92c46407988568161186231714a1e98de335baaa",
+    "data/trading_calendar.json": "d0cd0f016f5681e5921759159fa02bdcb025e129",
+    "docs/social-status.json": "8e789bf292c16b7f058a8062d3fc0bf210894caf"
+  },
+  "formal_state_unchanged": true,
+  "unique_posts": 10
+}

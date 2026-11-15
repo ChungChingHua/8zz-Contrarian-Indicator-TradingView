@@ -1,0 +1,90 @@
+// This Pine Script™ is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © hansai-art / Group.G · Strategy conversion preserves the saved event judgments.
+// Research backtest only: historical post-time signals, not a live AI feed or broker connection.
+//@version=6
+strategy("8zz 延續版－第一批測試（策略）", overlay=true, max_labels_count=500,
+     pyramiding=0, initial_capital=700000, currency=currency.TWD,
+     default_qty_type=strategy.fixed, default_qty_value=1,
+     commission_type=strategy.commission.cash_per_contract, commission_value=250, slippage=0,
+     margin_long=0, margin_short=0, process_orders_on_close=true,
+     calc_on_every_tick=false, calc_on_order_fills=false)
+
+grpExec = "策略執行"
+exitMode = input.string("B｜反向訊號出場", "出場模式", options=["A｜固定K棒出場", "B｜反向訊號出場"], group=grpExec)
+holdBars = input.int(17, "A：固定持有日盤K棒數", minval=1, maxval=50, group=grpExec)
+allowShort = input.bool(true, "允許偏空訊號放空", group=grpExec)
+showSignals = input.bool(true, "顯示翻轉訊號（成交看策略箭頭）", group=grpExec)
+showPanel = input.bool(true, "顯示原生策略統計提示", group=grpExec)
+
+grpQuality = "進場品質門檻"
+minQualityScore = input.float(0.0, "新倉最低品質分數（含）", minval=0.0, maxval=100.0, step=1.0, group=grpQuality,
+     tooltip="0＝不限制。比較訊號發生時的原指標品質分數，不使用之後衰減的面板分數；僅限制開倉／反向新倉，不阻擋任何出場。仍只在方向翻轉時進場，不事後補單。分數不是勝率。")
+assetProfile = input.string("台股個股", "品質計分標的類型（與指標一致）", options=["ETF", "台股個股", "美股個股", "商品"], group=grpQuality,
+     tooltip="僅影響原指標品質加減分；預設與指標相同。請與指標的標的類型及濾網設定一致；本策略交易仍只限大台。")
+
+grpRisk = "風險出場（可獨立開關）"
+useAtrStop = input.bool(true, "啟用ATR固定停損", group=grpRisk)
+useTrailingStop = input.bool(true, "啟用獲利後移動停損", group=grpRisk)
+riskAtrLen = input.int(14, "停損ATR長度", minval=2, maxval=100, group=grpRisk)
+atrStopMult = input.float(2.0, "固定停損：進場ATR倍數", minval=0.1, step=0.1, group=grpRisk)
+trailActivationMult = input.float(1.0, "移動停損：獲利達進場ATR倍數後啟動", minval=0.1, step=0.1, group=grpRisk)
+trailDistanceMult = input.float(1.5, "移動停損：距有利極值的進場ATR倍數", minval=0.1, step=0.1, group=grpRisk,
+     tooltip="使用進場時已完成棒的ATR，持倉期間固定。收盤確認極值後更新停損，不回溯套用於該棒；只開此項時，啟動前沒有價格停損。")
+showRiskStop = input.bool(true, "顯示目前有效停損線", group=grpRisk)
+
+grpDates = "歷史測試範圍（只取日期，台北時間）"
+startDate = input.time(timestamp("01 Dec 2025 00:00 +0800"), "開始日期", group=grpDates)
+endDate = input.time(timestamp("__DEFAULT_END_TIMESTAMP__"), "截止日期（日盤收盤強制平倉）", group=grpDates,
+     tooltip="資料抓取截止：__DATA_CUTOFF_TAIPEI__。使用全部已保存事件；尚未判讀的貼文沒有訊號。截止日期請選有日盤行情的交易日，截止日收盤強制平倉。")
+
+grpFilters = "原有濾網（預設全部關閉）"
+useTrendFilter = input.bool(false, "EMA趨勢濾網", group=grpFilters)
+emaLen = input.int(55, "EMA長度", minval=5, maxval=300, group=grpFilters)
+useRsiFilter = input.bool(false, "RSI動能濾網", group=grpFilters)
+rsiLen = input.int(14, "RSI長度", minval=2, maxval=100, group=grpFilters)
+useVolFilter = input.bool(false, "ATR波動濾網", group=grpFilters)
+atrLen = input.int(14, "ATR長度", minval=2, maxval=100, group=grpFilters)
+minAtrPct = input.float(1.0, "最低ATR波動率 (%)", minval=0.1, maxval=20, group=grpFilters)
+useHtfConfirm = input.bool(false, "已完成高週期結構確認", group=grpFilters)
+htfTf = input.timeframe("240", "確認週期", group=grpFilters)
+
+__QUALITY_SCORING__
+string tz = "Asia/Taipei"
+bool modeA = exitMode == "A｜固定K棒出場"
+bool chartIsFutures = syminfo.type == "futures"
+bool futuresProfile = true
+bool correctContract = chartIsFutures and syminfo.currency == "TWD" and syminfo.pointvalue == 200
+// Native margin percentages are disabled; enforce fixed opening collateral below.
+// Collateral is not an expense. Maintenance margin / broker margin calls are not modeled.
+float marginPerContractTwd = 700000.0
+float fillCostPerContractTwd = 250.0
+int sessionStartHour = futuresProfile ? 8 : 9
+int sessionStartMinute = futuresProfile ? 45 : 0
+int sessionEndMinute = futuresProfile ? 45 : 30
+int startAt = timestamp(tz, year(startDate, tz), month(startDate, tz), dayofmonth(startDate, tz), 0, 0)
+int requestedEnd = timestamp(tz, year(endDate, tz), month(endDate, tz), dayofmonth(endDate, tz), 13, sessionEndMinute)
+int finishAt = requestedEnd
+// Compare the actual chart bar boundaries, not virtual bars rebased to a custom session.
+int dayStart = timestamp(tz, year(time, tz), month(time, tz), dayofmonth(time, tz), sessionStartHour, sessionStartMinute)
+int dayEnd = timestamp(tz, year(time, tz), month(time, tz), dayofmonth(time, tz), 13, sessionEndMinute)
+int localWeekday = dayofweek(time, tz)
+bool weekday = localWeekday >= dayofweek.monday and localWeekday <= dayofweek.friday
+// Some RTH feeds label the closing auction minute through 13:46 (TXF) / 13:31 (ETF).
+// This accepts only that final +1-minute marker, never a bar starting after dayEnd.
+bool closingMinuteMarker = time >= dayStart and time < dayEnd and time_close == dayEnd + 60 * 1000 and time_close - time <= 31 * 60 * 1000
+bool dayBar = weekday and time >= dayStart and time < dayEnd and (time_close <= dayEnd or closingMinuteMarker)
+// Logical signal cutoff remains the exchange day close. Native fill timestamps remain unchanged.
+int decisionClose = closingMinuteMarker ? dayEnd : time_close
+bool inWindow = decisionClose >= startAt and decisionClose <= finishAt
+
+float emaBasis = ta.ema(close, emaLen)
+float rsiValue = ta.rsi(close, rsiLen)
+float atrPct = ta.atr(atrLen) / close * 100
+// Previous completed HTF bar only; the offset prevents historical lookahead.
+float htfClose = request.security(syminfo.tickerid, htfTf, close[1], lookahead=barmerge.lookahead_on)
+float htfEma = request.security(syminfo.tickerid, htfTf, ta.ema(close, emaLen)[1], lookahead=barmerge.lookahead_on)
+float riskAtr = ta.atr(riskAtrLen)
+float orderQty = 1.0
+// Reserve the old position's closing fee on reversal; charge new-entry commission on fill.
+bool entryMarginReady = strategy.equity - math.abs(strategy.position_size) * fillCostPerContractTwd >= marginPerContractTwd * orderQty
+

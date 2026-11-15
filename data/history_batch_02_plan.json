@@ -1,0 +1,642 @@
+{
+  "batch_id": "original-author-20261107-02",
+  "max_generations": 20,
+  "rule_version": "fork-7b626f2-ai-v1",
+  "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
+  "selection_stats": {
+    "total_posts": 659,
+    "excluded_posts": 17,
+    "eligible_groups": 633,
+    "selected_groups": 20,
+    "deduplicated_posts": 9,
+    "skips": [
+      {
+        "key": "facebook:1604315791053010",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "threads:3945193370117864190",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "threads:3945215061657207424",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "threads:3945363065667705968",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "facebook:1604744667676789",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "threads:3945439042850755420",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "threads:3946164126477408639",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "facebook:1610126397138616",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "threads:3952464799527950315",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "facebook:1629435205207735",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "facebook:1640562917428297",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "threads:3981333267379483868",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "facebook:1696581131826475",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "threads:4023888423198910089",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "facebook:1703774981107090",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "facebook:1704381977713057",
+        "reason": "previously_tested_or_processed"
+      },
+      {
+        "key": "threads:4024468641932717746",
+        "reason": "previously_tested_or_processed"
+      }
+    ]
+  },
+  "excluded_keys": [
+    "facebook:1536154324535824",
+    "facebook:1536679554483301",
+    "facebook:1537845631033360",
+    "facebook:1538514367633153",
+    "facebook:1538991920918731",
+    "facebook:1539693307515259",
+    "facebook:1540185730799350",
+    "facebook:1540635517421038",
+    "facebook:1541449804006276",
+    "facebook:1542198540598069",
+    "facebook:1542833157201274",
+    "facebook:1543609673790289",
+    "facebook:1544311090386814",
+    "facebook:1544866770331246",
+    "facebook:1545417563609500",
+    "facebook:1546142300203693",
+    "facebook:1546772543474002",
+    "facebook:1547247783426478",
+    "facebook:1547911263360130",
+    "facebook:1548704413280815",
+    "facebook:1549349206549669",
+    "facebook:1550205909797332",
+    "facebook:1550685256416064",
+    "facebook:1551207156363874",
+    "facebook:1551950049622918",
+    "facebook:1552591706225419",
+    "facebook:1552879322863324",
+    "facebook:1554457499372173",
+    "facebook:1555375159280407",
+    "facebook:1556024792548777",
+    "facebook:1556907185793871",
+    "facebook:1557642372387019",
+    "facebook:1558274015657188",
+    "facebook:1558791042272152",
+    "facebook:1559478368870086",
+    "facebook:1561183555366234",
+    "facebook:1562057741945482",
+    "facebook:1562900535194536",
+    "facebook:1563569371794319",
+    "facebook:1564146875069902",
+    "facebook:1564824678335455",
+    "facebook:1565422994942290",
+    "facebook:1566188908199032",
+    "facebook:1566778344806755",
+    "facebook:1567839021367354",
+    "facebook:1568381801313076",
+    "facebook:1568968084587781",
+    "facebook:1569528581198398",
+    "facebook:1570147711136485",
+    "facebook:1571468411004415",
+    "facebook:1572292914255298",
+    "facebook:1574423347375588",
+    "facebook:1574954257322497",
+    "facebook:1575783853906204",
+    "facebook:1576218597196063",
+    "facebook:1577028027115120",
+    "facebook:1578044680346788",
+    "facebook:1579094776908445",
+    "facebook:1579913470159909",
+    "facebook:1580448706773052",
+    "facebook:1581303160020940",
+    "facebook:1582114449939811",
+    "facebook:1582623696555553",
+    "facebook:1583088246509098",
+    "facebook:1583844589766797",
+    "facebook:1584391149712141",
+    "facebook:1584889926328930",
+    "facebook:1586399539511302",
+    "facebook:1587400019411254",
+    "facebook:1588270199324236",
+    "facebook:1589010615916861",
+    "facebook:1589556885862234",
+    "facebook:1589969489154307",
+    "facebook:1591373539013902",
+    "facebook:1592607222223867",
+    "facebook:1593140455503877",
+    "facebook:1593629105455012",
+    "facebook:1594064942078095",
+    "facebook:1594854378665818",
+    "facebook:1595551428596113",
+    "facebook:1595808398570416",
+    "facebook:1597279251756664",
+    "facebook:1598096751674914",
+    "facebook:1598617358289520",
+    "facebook:1599323081552281",
+    "facebook:1599635361521053",
+    "facebook:1600173971467192",
+    "facebook:1600644981420091",
+    "facebook:1601194478031808",
+    "facebook:1601892307962025",
+    "facebook:1602245707926685",
+    "facebook:1603287757822480",
+    "facebook:1603850671099522",
+    "facebook:1604315791053010",
+    "facebook:1604359591048630",
+    "facebook:1604744667676789",
+    "facebook:1610126397138616",
+    "facebook:1629435205207735",
+    "facebook:1640562917428297",
+    "facebook:1696581131826475",
+    "facebook:1703774981107090",
+    "threads:3945193370117864190",
+    "threads:3945215061657207424",
+    "threads:3945363065667705968",
+    "threads:3945439042850755420",
+    "threads:3946164126477408639",
+    "threads:3952464799527950315",
+    "threads:3981333267379483868",
+    "threads:4023888423198910089",
+    "threads:4024468641932717746"
+  ],
+  "held_possible_duplicates": [
+    {
+      "key": "threads:3945439042850755420",
+      "existing_key": "facebook:1604744667676789",
+      "status": "pending_confirmation",
+      "reason": "Verbatim cross-platform mirror within 10s of an existing pending post; media equality unverified, not merged or resent."
+    }
+  ],
+  "posts": [
+    {
+      "key": "threads:3945817989224972591",
+      "content_hash": "645736552f9b692a6f3662887de04d95a81dbab9d4a06cfce6ee31282be79d17",
+      "post_id": "3945817989224972591",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbCXI4sGcEv",
+      "published_at": "2026-07-21T01:43:00+00:00",
+      "display_time": "2026-07-21T09:43:00+08:00",
+      "unix_ms": 1784598180000,
+      "text": "反彈而已啦\n只不過昨天停損的停完後漲了4%，今天又快漲停而已啦_(:_」∠)_",
+      "number": 1,
+      "members": [
+        {
+          "key": "threads:3945817989224972591",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbCXI4sGcEv",
+          "published_at": "2026-07-21T01:43:00+00:00",
+          "post_id": "3945817989224972591"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1605981107553145",
+      "content_hash": "c6cc989b00a27740d3fd99a7d2ba841ed9a2c2ebc23c63d1aa16076055068d4e",
+      "post_id": "1605981107553145",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid022q2yZZpAVQLZmkKg3gZzrsexRDCmgXDAQZC4WQKpbHqF2xJ8m8hVEPMWu7hxHpp6l",
+      "published_at": "2026-07-22T01:31:16+00:00",
+      "display_time": "2026-07-22T09:31:16+08:00",
+      "unix_ms": 1784683876000,
+      "text": "啊啊啊啊啊啊啊\n漲什麼漲啊啊啊！！！\n\n我買行了吧！ 我認錯！ 對不起\n兩天前不該停損⋯",
+      "number": 2,
+      "members": [
+        {
+          "key": "facebook:1605981107553145",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid022q2yZZpAVQLZmkKg3gZzrsexRDCmgXDAQZC4WQKpbHqF2xJ8m8hVEPMWu7hxHpp6l",
+          "published_at": "2026-07-22T01:31:16+00:00",
+          "post_id": "1605981107553145"
+        }
+      ]
+    },
+    {
+      "key": "threads:3946599942823965262",
+      "content_hash": "e3b6697356d88cac4e12e1b4669f243f0f186628df5c0f9f9ffdb7b123b8d3e3",
+      "post_id": "3946599942823965262",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbFI7zumXJO",
+      "published_at": "2026-07-22T03:36:37+00:00",
+      "display_time": "2026-07-22T11:36:37+08:00",
+      "unix_ms": 1784691397000,
+      "text": "你不能我買了之後漲幅就收斂了， PTSD啊",
+      "number": 3,
+      "members": [
+        {
+          "key": "threads:3946599942823965262",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbFI7zumXJO",
+          "published_at": "2026-07-22T03:36:37+00:00",
+          "post_id": "3946599942823965262"
+        }
+      ]
+    },
+    {
+      "key": "threads:3946650318310848111",
+      "content_hash": "5267964bc3ea3bd1202cd9c0da0c43fe868ebaa8de83c9ceb8de0ce5b1a75726",
+      "post_id": "3946650318310848111",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbFUY3jmbZv",
+      "published_at": "2026-07-22T05:16:42+00:00",
+      "display_time": "2026-07-22T13:16:42+08:00",
+      "unix_ms": 1784697402000,
+      "text": "請問目前快到一樓了， 後悔還來得及嗎？",
+      "number": 4,
+      "members": [
+        {
+          "key": "threads:3946650318310848111",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbFUY3jmbZv",
+          "published_at": "2026-07-22T05:16:42+00:00",
+          "post_id": "3946650318310848111"
+        }
+      ]
+    },
+    {
+      "key": "threads:3946957967252913143",
+      "content_hash": "c4aa24526a92d2317dc9019893bb337f69978a514b7add3fffc897fa0a5bba18",
+      "post_id": "3946957967252913143",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbGaVv9gfv3",
+      "published_at": "2026-07-22T15:27:58+00:00",
+      "display_time": "2026-07-22T23:27:58+08:00",
+      "unix_ms": 1784734078000,
+      "text": "啊啊啊啊啊啊 我剛剛看了夜盤\n我好怕啊啊😭😭😩😩😩😩\n\n這波會再上去吧？ 會吧.？",
+      "number": 5,
+      "members": [
+        {
+          "key": "threads:3946957967252913143",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbGaVv9gfv3",
+          "published_at": "2026-07-22T15:27:58+00:00",
+          "post_id": "3946957967252913143"
+        }
+      ]
+    },
+    {
+      "key": "threads:3947006811954571730",
+      "content_hash": "06aa5ee96e6ce9379e9cc696be7ff37eafca20784879d6d6b91c0c88e8e83719",
+      "post_id": "3947006811954571730",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbGlciImWnS",
+      "published_at": "2026-07-22T17:04:59+00:00",
+      "display_time": "2026-07-23T01:04:59+08:00",
+      "unix_ms": 1784739899000,
+      "text": "還有7小時上飛機， 我連桌上的晚餐都還沒整理\n行李箱還在櫃子里_(:_」∠)_",
+      "number": 6,
+      "members": [
+        {
+          "key": "threads:3947006811954571730",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbGlciImWnS",
+          "published_at": "2026-07-22T17:04:59+00:00",
+          "post_id": "3947006811954571730"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1606719554145967",
+      "content_hash": "8c0ca0424abe0e287f5957e7c47793708e4999612fc5e60c042b24379b386c8b",
+      "post_id": "1606719554145967",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0NNCZ1fqrgfef9GDCUZ5Jbo9pzHUQcRisDJAZosPEs2UZrEfWynBAfTqTJL9TsEynl",
+      "published_at": "2026-07-22T23:39:14+00:00",
+      "display_time": "2026-07-23T07:39:14+08:00",
+      "unix_ms": 1784763554000,
+      "text": "_(:_」∠)_⋯⋯ 我都忘記有松山機場這個東西⋯",
+      "number": 7,
+      "members": [
+        {
+          "key": "facebook:1606719554145967",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0NNCZ1fqrgfef9GDCUZ5Jbo9pzHUQcRisDJAZosPEs2UZrEfWynBAfTqTJL9TsEynl",
+          "published_at": "2026-07-22T23:39:14+00:00",
+          "post_id": "1606719554145967"
+        },
+        {
+          "key": "threads:3947205270439143776",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbHSkfAEylg",
+          "published_at": "2026-07-22T23:39:17+00:00",
+          "post_id": "3947205270439143776"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1606842420800347",
+      "content_hash": "1c9cbe62325dfac8221e3b8ed262ec7de90fca0dcfe8c941709b2971c65a85f4",
+      "post_id": "1606842420800347",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0aeFRTq5KpAgJCVuVQiEuTTXnc94vmtcJsNteqsAu9txyTYdGVMGUhcpQLrJB9oaZl",
+      "published_at": "2026-07-23T03:44:17+00:00",
+      "display_time": "2026-07-23T11:44:17+08:00",
+      "unix_ms": 1784778257000,
+      "text": "_(:_」∠)_⋯⋯⋯⋯⋯\n唉不是， 你不可喔這樣⋯ \n\n不行了， 我要去找李在明叫他別鬧了(;´༎ຶД༎ຶ`)",
+      "number": 8,
+      "members": [
+        {
+          "key": "facebook:1606842420800347",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0aeFRTq5KpAgJCVuVQiEuTTXnc94vmtcJsNteqsAu9txyTYdGVMGUhcpQLrJB9oaZl",
+          "published_at": "2026-07-23T03:44:17+00:00",
+          "post_id": "1606842420800347"
+        }
+      ]
+    },
+    {
+      "key": "threads:3947625854684204191",
+      "content_hash": "945cb1a6e3786f94dbf2d9c165967ed89f5e6496ed797c46b207668fb5a93fbc",
+      "post_id": "3947625854684204191",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbIyMymmYyf",
+      "published_at": "2026-07-23T13:34:55+00:00",
+      "display_time": "2026-07-23T21:34:55+08:00",
+      "unix_ms": 1784813695000,
+      "text": "miss me ?",
+      "number": 9,
+      "members": [
+        {
+          "key": "threads:3947625854684204191",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbIyMymmYyf",
+          "published_at": "2026-07-23T13:34:55+00:00",
+          "post_id": "3947625854684204191"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1607248130759776",
+      "content_hash": "36fba986c17b698a8f5201db85e364c5562944074d28b4974e0b83c593e867a3",
+      "post_id": "1607248130759776",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02coWhWJVm4XpWMFTPq6CJmF4H2nhrjVcz5iku3irbnU9xA5yco5acQfUBKUkBCKwUl",
+      "published_at": "2026-07-23T14:59:28+00:00",
+      "display_time": "2026-07-23T22:59:28+08:00",
+      "unix_ms": 1784818768000,
+      "text": "三星！爭氣點!\n海力士！ 爭氣一天啊！\n我明天就去拜訪你們～",
+      "number": 10,
+      "members": [
+        {
+          "key": "facebook:1607248130759776",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02coWhWJVm4XpWMFTPq6CJmF4H2nhrjVcz5iku3irbnU9xA5yco5acQfUBKUkBCKwUl",
+          "published_at": "2026-07-23T14:59:28+00:00",
+          "post_id": "1607248130759776"
+        },
+        {
+          "key": "threads:3947668440467313611",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbI74ftExPL",
+          "published_at": "2026-07-23T14:59:31+00:00",
+          "post_id": "3947668440467313611"
+        }
+      ]
+    },
+    {
+      "key": "threads:3947699000250536972",
+      "content_hash": "2e3485675cc639c21feaccb859dfdf530d1f26f4d9fe4cc61c6409acf3276219",
+      "post_id": "3947699000250536972",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbJC1MuGRQM",
+      "published_at": "2026-07-23T16:00:14+00:00",
+      "display_time": "2026-07-24T00:00:14+08:00",
+      "unix_ms": 1784822414000,
+      "text": "我這個時間點買北極星跟大樹， 總不可能虧錢了吧",
+      "number": 11,
+      "members": [
+        {
+          "key": "threads:3947699000250536972",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbJC1MuGRQM",
+          "published_at": "2026-07-23T16:00:14+00:00",
+          "post_id": "3947699000250536972"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1607648217386434",
+      "content_hash": "4c573cc0036440ca368a8facd8436904ce6cc2e83b16a664ecf67cd22bfb2a0a",
+      "post_id": "1607648217386434",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0in9Tznvb8uEHqiVKMQQktc8MeSqvuuZLyLjScLrPqgiRjRNUGvPgF7WSamf2Dk2ol",
+      "published_at": "2026-07-24T03:33:43+00:00",
+      "display_time": "2026-07-24T11:33:43+08:00",
+      "unix_ms": 1784864023000,
+      "text": "我要用我靈魂的顏色帶給韓國股市能量\n拜託不要再跌了⋯ 拜託⋯ 求求你\n我還有家要養房貸要付(;´༎ຶД༎ຶ`)",
+      "number": 12,
+      "members": [
+        {
+          "key": "facebook:1607648217386434",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0in9Tznvb8uEHqiVKMQQktc8MeSqvuuZLyLjScLrPqgiRjRNUGvPgF7WSamf2Dk2ol",
+          "published_at": "2026-07-24T03:33:43+00:00",
+          "post_id": "1607648217386434"
+        }
+      ]
+    },
+    {
+      "key": "threads:3948048048266133652",
+      "content_hash": "d83686b16712c9e36367a3e6d4c3e9e399c5df7bdf922a2ca076c8f321017e33",
+      "post_id": "3948048048266133652",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbKSMhBE8CU",
+      "published_at": "2026-07-24T03:33:45+00:00",
+      "display_time": "2026-07-24T11:33:45+08:00",
+      "unix_ms": 1784864025000,
+      "text": "我要用我靈魂的顏色帶給韓國股市能量\n拜託不要再跌了⋯ 拜託⋯ 求求你\n我還有家要養房貸要付(;´༎ຶД༎ຶ`)",
+      "number": 13,
+      "members": [
+        {
+          "key": "threads:3948048048266133652",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbKSMhBE8CU",
+          "published_at": "2026-07-24T03:33:45+00:00",
+          "post_id": "3948048048266133652"
+        }
+      ]
+    },
+    {
+      "key": "threads:3948133245594999910",
+      "content_hash": "ad158ea63ec1f0a7e8fbbd21a3026ba3abd1e2074d3148edb748bbd3f3df2c35",
+      "post_id": "3948133245594999910",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbKlkTNmZxm",
+      "published_at": "2026-07-24T06:23:01+00:00",
+      "display_time": "2026-07-24T14:23:01+08:00",
+      "unix_ms": 1784874181000,
+      "text": "我年紀到了 覺得半金跟全金其實很好看_(:_」∠)_",
+      "number": 14,
+      "members": [
+        {
+          "key": "threads:3948133245594999910",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbKlkTNmZxm",
+          "published_at": "2026-07-24T06:23:01+00:00",
+          "post_id": "3948133245594999910"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1607831314034791",
+      "content_hash": "58351a386306771423127f67947d4c747125dc4e73d6ae5b85807bf6cc0e9206",
+      "post_id": "1607831314034791",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0uB6WTipJfkrafvEgsJcPC3iK115TGwzPuw9ArZcz9dfiHiZACSNUda1J1yNgL82sl",
+      "published_at": "2026-07-24T09:05:57+00:00",
+      "display_time": "2026-07-24T17:05:57+08:00",
+      "unix_ms": 1784883957000,
+      "text": "股市震盪，心好累？ 不要怕！\n這次的乾爹是高速公路廣告牌王者： Dr情去！他來了！\n\n看股票看到天天流淚？\n孩子⋯是時候幫自己安排一點療癒時間了\n炎炎夏日，來一杯期間限定的夢幻手搖杯吧 👑\n人氣學生會長概念股，三種風味，一次收藏\n\nLevel 1- 普通口味\n溫柔系設計，新手友善，輕鬆上手\nLevel 2- 細嚼慢嚥\n追求更沉浸的紓壓體驗，細節滿滿，懂的人自然懂\nLevel 3- 老外狂喜\n為喜歡挑戰的收藏家準備的特別規格，滿足感直接拉滿\n\n不知道怎麼辦？\n小孩子才做選擇\n這次，三杯我全都要👍👍👍",
+      "number": 15,
+      "members": [
+        {
+          "key": "facebook:1607831314034791",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0uB6WTipJfkrafvEgsJcPC3iK115TGwzPuw9ArZcz9dfiHiZACSNUda1J1yNgL82sl",
+          "published_at": "2026-07-24T09:05:57+00:00",
+          "post_id": "1607831314034791"
+        }
+      ]
+    },
+    {
+      "key": "threads:3948215257516954367",
+      "content_hash": "e5020a6719f26aaa75904a41689124b4a578c7fbbaa1d5f8baecf6bdb87bcb2e",
+      "post_id": "3948215257516954367",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbK4NuxE1L_",
+      "published_at": "2026-07-24T09:05:58+00:00",
+      "display_time": "2026-07-24T17:05:58+08:00",
+      "unix_ms": 1784883958000,
+      "text": "股市震盪，心好累？ 不要怕！\n這次的乾爹是高速公路廣告牌王者： Dr情去！他來了！\n\n看股票看到天天流淚？\n孩子⋯是時候幫自己安排一點療癒時間了\n炎炎夏日，來一杯期間限定的夢幻手搖杯吧 👑\n人氣學生會長概念股，三種風味，一次收藏\n\nLevel 1- 普通口味\n溫柔系設計，新手友善，輕鬆上手\nLevel 2- 細嚼慢嚥\n追求更沉浸的紓壓體驗，細節滿滿，懂的人自然懂\nLevel 3- 老外狂喜\n為喜歡挑戰的收藏家準備的特別規格，滿足感直接拉滿\n\n不知道怎麼辦？\n小孩子才做選擇\n這次，三杯我全都要👍👍👍",
+      "number": 16,
+      "members": [
+        {
+          "key": "threads:3948215257516954367",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbK4NuxE1L_",
+          "published_at": "2026-07-24T09:05:58+00:00",
+          "post_id": "3948215257516954367"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1607974544020468",
+      "content_hash": "e23c6c500b71ab61f1831b330f1e0b57b46aa02ca4adb62f9262ec23d0e0dbe1",
+      "post_id": "1607974544020468",
+      "source": "facebook",
+      "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0Rihjnd2U7REmqh6HbhBr7GJKQMhCKtdRrHssaCZucMrWkrht4bB5fiR1KM5Zepahl",
+      "published_at": "2026-07-24T13:02:56+00:00",
+      "display_time": "2026-07-24T21:02:56+08:00",
+      "unix_ms": 1784898176000,
+      "text": "這個褲子好厲害！\n我有屁股了❤️❤️❤️❤️❤️❤️❤️\n然後就買了四條⋯ \n\n自備假屁股的褲子🤣",
+      "number": 17,
+      "members": [
+        {
+          "key": "facebook:1607974544020468",
+          "source": "facebook",
+          "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0Rihjnd2U7REmqh6HbhBr7GJKQMhCKtdRrHssaCZucMrWkrht4bB5fiR1KM5Zepahl",
+          "published_at": "2026-07-24T13:02:56+00:00",
+          "post_id": "1607974544020468"
+        }
+      ]
+    },
+    {
+      "key": "threads:3948334536887323420",
+      "content_hash": "c122ae80f6bd3213cff52dd115f2b8b60e13c8519d3f20636dae54c74afa7ccb",
+      "post_id": "3948334536887323420",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbLTVeVk0sc",
+      "published_at": "2026-07-24T13:02:57+00:00",
+      "display_time": "2026-07-24T21:02:57+08:00",
+      "unix_ms": 1784898177000,
+      "text": "這個褲子好厲害！\n我有屁股了❤️❤️❤️❤️❤️❤️❤️\n然後就買了四條⋯ \n\n自備假屁股的褲子🤣",
+      "number": 18,
+      "members": [
+        {
+          "key": "threads:3948334536887323420",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbLTVeVk0sc",
+          "published_at": "2026-07-24T13:02:57+00:00",
+          "post_id": "3948334536887323420"
+        }
+      ]
+    },
+    {
+      "key": "facebook:1608041354013787",
+      "content_hash": "4419c3231447f175ddfcb1e3fd7d3fb94e3406213ffd88f63cbc82e2a64b4d5e",
+      "post_id": "1608041354013787",
+      "source": "facebook",
+      "url": "https://www.facebook.com/reel/4176085482612149/",
+      "published_at": "2026-07-24T14:39:07+00:00",
+      "display_time": "2026-07-24T22:39:07+08:00",
+      "unix_ms": 1784903947000,
+      "text": "這魔棒的吊飾哪邊買🤣🤣🤣",
+      "number": 19,
+      "members": [
+        {
+          "key": "facebook:1608041354013787",
+          "source": "facebook",
+          "url": "https://www.facebook.com/reel/4176085482612149/",
+          "published_at": "2026-07-24T14:39:07+00:00",
+          "post_id": "1608041354013787"
+        }
+      ]
+    },
+    {
+      "key": "threads:3948429583524133025",
+      "content_hash": "f2021c2b2dfc03902cd2e90b18009f0e9fb3bf84bf9fdb60f073727da2f1125a",
+      "post_id": "3948429583524133025",
+      "source": "threads",
+      "url": "https://www.threads.com/@banini31/post/DbLo8lamXih",
+      "published_at": "2026-07-24T16:11:47+00:00",
+      "display_time": "2026-07-25T00:11:47+08:00",
+      "unix_ms": 1784909507000,
+      "text": "我是不是應該開一個投資的顯化課程",
+      "number": 20,
+      "members": [
+        {
+          "key": "threads:3948429583524133025",
+          "source": "threads",
+          "url": "https://www.threads.com/@banini31/post/DbLo8lamXih",
+          "published_at": "2026-07-24T16:11:47+00:00",
+          "post_id": "3948429583524133025"
+        }
+      ]
+    }
+  ],
+  "predecessor_git_blob_sha": {
+    "data/history_progress/original-author-20261107-01.json": "baf66f1fa4fce84827c817aab97f50b0ebcd3b18"
+  }
+}

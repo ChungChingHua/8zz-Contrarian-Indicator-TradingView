@@ -1,0 +1,449 @@
+{
+  "session": "20261114-media-repair-02",
+  "batches": [],
+  "actor_starts_reserved": 0,
+  "ai_requests": 0,
+  "monthly_runs_before": 64,
+  "http_requests": {
+    "GET": 0,
+    "POST": 0
+  },
+  "updated_at": "2026-11-14T07:14:25.413193+00:00",
+  "existing_media_preflight": [
+    {
+      "key": "facebook:1702487071235881",
+      "display_time": "2026-11-05T03:04:10+08:00",
+      "status": "held_media_unavailable",
+      "already_cached": false,
+      "error_type": "ValueError",
+      "reason": "media_http_status_rejected"
+    },
+    {
+      "key": "facebook:1702731291211459",
+      "display_time": "2026-11-05T09:23:04+08:00",
+      "status": "held_media_unavailable",
+      "already_cached": false,
+      "error_type": "ValueError",
+      "reason": "media_http_status_rejected"
+    },
+    {
+      "key": "threads:4023362009123385848",
+      "display_time": "2026-11-05T09:29:08+08:00",
+      "status": "ready",
+      "already_cached": true,
+      "images_supplied_if_sent": 1,
+      "media_scope": {
+        "analysis_scope": "text_and_images",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 1,
+        "image_evidence": [
+          {
+            "sha256": "ce02d6e7be4c051bd0222d6d4f82de1fa59e3d303bdf1a07c604538e8c842bcc",
+            "bytes": 129085,
+            "mime": "image/jpeg",
+            "attachment_index": 0
+          }
+        ],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": [],
+        "cache_verified": true,
+        "media_refresh_session": "20261114-media-repair-02"
+      }
+    },
+    {
+      "key": "threads:4023406251229152584",
+      "display_time": "2026-11-05T10:57:02+08:00",
+      "status": "ready",
+      "already_cached": true,
+      "images_supplied_if_sent": 1,
+      "media_scope": {
+        "analysis_scope": "text_and_images",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 1,
+        "image_evidence": [
+          {
+            "sha256": "e25ec89c2a8877e702bdb0d294bb2714f451c4226a229450daf85560bf58498f",
+            "bytes": 118514,
+            "mime": "image/jpeg",
+            "attachment_index": 0
+          }
+        ],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": [],
+        "cache_verified": true,
+        "media_refresh_session": "20261114-media-repair-02"
+      }
+    },
+    {
+      "key": "facebook:1702897424528179",
+      "display_time": "2026-11-05T13:17:14+08:00",
+      "status": "held_media_unavailable",
+      "already_cached": false,
+      "error_type": "ValueError",
+      "reason": "media_http_status_rejected"
+    },
+    {
+      "key": "threads:4023487463029312236",
+      "display_time": "2026-11-05T13:38:23+08:00",
+      "status": "ready",
+      "already_cached": true,
+      "images_supplied_if_sent": 1,
+      "media_scope": {
+        "analysis_scope": "text_and_images",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 1,
+        "image_evidence": [
+          {
+            "sha256": "078ef8e67f2d36158ffe41a48fbeb9a8c1746e0f18b1504d0c66134ad600105b",
+            "bytes": 97713,
+            "mime": "image/jpeg",
+            "attachment_index": 0
+          }
+        ],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": [],
+        "cache_verified": true,
+        "media_refresh_session": "20261114-media-repair-02"
+      }
+    },
+    {
+      "key": "threads:4023514051880026001",
+      "display_time": "2026-11-05T14:31:13+08:00",
+      "status": "ready",
+      "already_cached": false,
+      "images_supplied_if_sent": 0,
+      "media_scope": {
+        "analysis_scope": "text_only_no_attachments",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 0,
+        "image_evidence": [],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": []
+      }
+    },
+    {
+      "key": "facebook:1703163464501575",
+      "display_time": "2026-11-05T19:46:58+08:00",
+      "status": "held_media_unavailable",
+      "already_cached": false,
+      "error_type": "ValueError",
+      "reason": "media_http_status_rejected"
+    },
+    {
+      "key": "threads:4023673308822738059",
+      "display_time": "2026-11-05T19:47:38+08:00",
+      "status": "ready",
+      "already_cached": true,
+      "images_supplied_if_sent": 1,
+      "media_scope": {
+        "analysis_scope": "text_and_images",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 1,
+        "image_evidence": [
+          {
+            "sha256": "3e0729d3abc013462bb17718361486405beeb898ce265abb317ff26680251574",
+            "bytes": 85890,
+            "mime": "image/webp",
+            "attachment_index": 0
+          }
+        ],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": [],
+        "cache_verified": true,
+        "media_refresh_session": "20261114-media-repair-02"
+      }
+    },
+    {
+      "key": "facebook:1490457366336470",
+      "display_time": "2026-11-05T22:38:53+08:00",
+      "status": "ready",
+      "already_cached": false,
+      "images_supplied_if_sent": 0,
+      "media_scope": {
+        "analysis_scope": "text_only_video_unanalysed",
+        "unanalysed_media": [
+          {
+            "attachment_index": 0,
+            "kind": "video",
+            "status": "影片未分析"
+          }
+        ],
+        "media_failures": [],
+        "images_supplied": 0,
+        "image_evidence": [],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": []
+      }
+    },
+    {
+      "key": "facebook:1703338611150727",
+      "display_time": "2026-11-05T23:03:12+08:00",
+      "status": "ready",
+      "already_cached": false,
+      "images_supplied_if_sent": 0,
+      "media_scope": {
+        "analysis_scope": "text_only_no_attachments",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 0,
+        "image_evidence": [],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": []
+      }
+    },
+    {
+      "key": "threads:4023791850322304792",
+      "display_time": "2026-11-05T23:43:11+08:00",
+      "status": "ready",
+      "already_cached": false,
+      "images_supplied_if_sent": 0,
+      "media_scope": {
+        "analysis_scope": "text_only_video_unanalysed",
+        "unanalysed_media": [
+          {
+            "attachment_index": 0,
+            "kind": "video",
+            "status": "影片未分析"
+          }
+        ],
+        "media_failures": [],
+        "images_supplied": 0,
+        "image_evidence": [],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": []
+      }
+    },
+    {
+      "key": "facebook:1703372617813993",
+      "display_time": "2026-11-05T23:43:14+08:00",
+      "status": "ready",
+      "already_cached": false,
+      "images_supplied_if_sent": 0,
+      "media_scope": {
+        "analysis_scope": "text_only_video_unanalysed",
+        "unanalysed_media": [
+          {
+            "attachment_index": 0,
+            "kind": "video",
+            "status": "影片未分析"
+          }
+        ],
+        "media_failures": [],
+        "images_supplied": 0,
+        "image_evidence": [],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": []
+      }
+    },
+    {
+      "key": "threads:4023823803965107814",
+      "display_time": "2026-11-06T00:46:38+08:00",
+      "status": "ready",
+      "already_cached": false,
+      "images_supplied_if_sent": 0,
+      "media_scope": {
+        "analysis_scope": "text_only_no_attachments",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 0,
+        "image_evidence": [],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": []
+      }
+    },
+    {
+      "key": "facebook:1703429887808266",
+      "display_time": "2026-11-06T00:47:04+08:00",
+      "status": "held_media_unavailable",
+      "already_cached": false,
+      "error_type": "ValueError",
+      "reason": "media_http_status_rejected"
+    },
+    {
+      "key": "threads:4023835308781547008",
+      "display_time": "2026-11-06T01:09:30+08:00",
+      "status": "ready",
+      "already_cached": false,
+      "images_supplied_if_sent": 0,
+      "media_scope": {
+        "analysis_scope": "text_only_no_attachments",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 0,
+        "image_evidence": [],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": []
+      }
+    },
+    {
+      "key": "facebook:1703740244443897",
+      "display_time": "2026-11-06T08:26:00+08:00",
+      "status": "held_media_unavailable",
+      "already_cached": false,
+      "error_type": "ValueError",
+      "reason": "media_http_status_rejected"
+    },
+    {
+      "key": "threads:4024090220249602678",
+      "display_time": "2026-11-06T09:35:57+08:00",
+      "status": "held_media_unavailable",
+      "already_cached": false,
+      "error_type": "ValueError",
+      "reason": "media_http_status_rejected"
+    },
+    {
+      "key": "facebook:1703792734438648",
+      "display_time": "2026-11-06T09:40:10+08:00",
+      "status": "held_media_unavailable",
+      "already_cached": false,
+      "error_type": "ValueError",
+      "reason": "required_refreshed_images_unavailable"
+    },
+    {
+      "key": "threads:4024145772782621524",
+      "display_time": "2026-11-06T11:26:20+08:00",
+      "status": "ready",
+      "already_cached": false,
+      "images_supplied_if_sent": 0,
+      "media_scope": {
+        "analysis_scope": "text_only_no_attachments",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 0,
+        "image_evidence": [],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": []
+      }
+    },
+    {
+      "key": "threads:4024396519826903198",
+      "display_time": "2026-11-06T19:44:31+08:00",
+      "status": "ready",
+      "already_cached": false,
+      "images_supplied_if_sent": 0,
+      "media_scope": {
+        "analysis_scope": "text_only_no_attachments",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 0,
+        "image_evidence": [],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": []
+      }
+    },
+    {
+      "key": "facebook:1704519381032650",
+      "display_time": "2026-11-07T00:34:29+08:00",
+      "status": "ready",
+      "already_cached": false,
+      "images_supplied_if_sent": 0,
+      "media_scope": {
+        "analysis_scope": "text_only_video_unanalysed",
+        "unanalysed_media": [
+          {
+            "attachment_index": 0,
+            "kind": "video",
+            "status": "影片未分析"
+          }
+        ],
+        "media_failures": [],
+        "images_supplied": 0,
+        "image_evidence": [],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": []
+      }
+    },
+    {
+      "key": "threads:4024552660493334032",
+      "display_time": "2026-11-07T00:54:48+08:00",
+      "status": "ready",
+      "already_cached": false,
+      "images_supplied_if_sent": 0,
+      "media_scope": {
+        "analysis_scope": "text_only_video_unanalysed",
+        "unanalysed_media": [
+          {
+            "attachment_index": 0,
+            "kind": "video",
+            "status": "影片未分析"
+          }
+        ],
+        "media_failures": [],
+        "images_supplied": 0,
+        "image_evidence": [],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": []
+      }
+    },
+    {
+      "key": "facebook:1704945814323340",
+      "display_time": "2026-11-07T10:23:30+08:00",
+      "status": "held_media_unavailable",
+      "already_cached": false,
+      "error_type": "ValueError",
+      "reason": "media_http_status_rejected"
+    },
+    {
+      "key": "threads:4024966593813495052",
+      "display_time": "2026-11-07T14:37:09+08:00",
+      "status": "ready",
+      "already_cached": false,
+      "images_supplied_if_sent": 0,
+      "media_scope": {
+        "analysis_scope": "text_only_no_attachments",
+        "unanalysed_media": [],
+        "media_failures": [],
+        "images_supplied": 0,
+        "image_evidence": [],
+        "human_image_verified": false,
+        "source_note": "Only actual supplied images were read. Unavailable images/video not analysed; if visible text is insufficient, use pending_confirmation under original ambiguous-post rule.",
+        "non_media_album_container_indices": []
+      }
+    },
+    {
+      "key": "facebook:1705156784302243",
+      "display_time": "2026-11-07T15:09:17+08:00",
+      "status": "held_media_unavailable",
+      "already_cached": false,
+      "error_type": "ValueError",
+      "reason": "media_http_status_rejected"
+    },
+    {
+      "key": "facebook:1705237887627466",
+      "display_time": "2026-11-07T17:08:22+08:00",
+      "status": "held_media_unavailable",
+      "already_cached": false,
+      "error_type": "ValueError",
+      "reason": "media_http_status_rejected"
+    },
+    {
+      "key": "threads:4025043302263849308",
+      "display_time": "2026-11-07T17:09:34+08:00",
+      "status": "held_media_unavailable",
+      "already_cached": false,
+      "error_type": "ValueError",
+      "reason": "media_http_status_rejected"
+    }
+  ],
+  "monthly_runs_after": 64
+}
