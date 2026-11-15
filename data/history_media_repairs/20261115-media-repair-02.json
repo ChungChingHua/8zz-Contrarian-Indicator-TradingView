@@ -16,7 +16,7 @@
         "facebook:1705156784302243",
         "facebook:1705237887627466"
       ],
-      "status": "READY",
+      "status": "SUCCEEDED",
       "posts": {},
       "empty_predecessor": {
         "run_id": "aN1ESUqN4kVceCqBH",
@@ -68,7 +68,7 @@
       },
       "id": "xPpzRUxhRvhRbi0Td",
       "startedAt": "2026-11-15T09:03:41.527Z",
-      "finishedAt": null,
+      "finishedAt": "2026-11-15T09:03:53.511Z",
       "buildId": "YrRcdVQKNazTl1teV",
       "buildNumber": "0.0.421",
       "defaultDatasetId": "Xpj7YDJcgS5TDMPe7",
@@ -82,19 +82,19 @@
         "isMaxTotalChargeUsdSetByUser": false,
         "diskMbytes": 1024
       },
-      "usageTotalUsd": 0,
+      "usageTotalUsd": "0.026000000000000002",
       "chargedEventCounts": {
-        "post": 0,
-        "actor-start": 0,
+        "post": 9,
+        "actor-start": 1,
         "filter-applied": 0
       },
       "accountedChargedEventCounts": {
-        "post": 0,
-        "actor-start": 0,
+        "post": 5,
+        "actor-start": 1,
         "filter-applied": 0
       },
-      "duration_seconds": null,
-      "cost_observed_at": "2026-11-15T09:03:41.725418+00:00",
+      "duration_seconds": "11.819",
+      "cost_observed_at": "2026-11-15T09:03:55.857220+00:00",
       "billing_finality": "not independently confirmed; zero is not proof of free execution"
     }
   ],
@@ -102,10 +102,10 @@
   "ai_requests": 0,
   "monthly_runs_before": 69,
   "http_requests": {
-    "GET": 1,
+    "GET": 5,
     "POST": 1
   },
-  "updated_at": "2026-11-15T09:03:41.725437+00:00",
+  "updated_at": "2026-11-15T09:03:55.857241+00:00",
   "verified_empty_predecessor": {
     "run_id": "aN1ESUqN4kVceCqBH",
     "dataset_id": "yv2pVJKq2araXljnc",
