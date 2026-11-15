@@ -39,11 +39,18 @@
       },
       "finished_at": "2026-11-15T08:55:19.441Z",
       "possible_cost_truncation": false,
-      "dataset_id": "H5F2aKMwXvTbWVhx9"
+      "dataset_id": "H5F2aKMwXvTbWVhx9",
+      "counts": {
+        "fetched": 2,
+        "accepted": 2,
+        "new": 2,
+        "overlap": 0,
+        "excluded": {}
+      }
     }
   ],
   "apify_http_counts": {
-    "GET": 3,
+    "GET": 4,
     "POST": 1
   },
   "prior_control_snapshot": "data/history_completion_before_latest_20261115.json",
