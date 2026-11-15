@@ -1252,7 +1252,7 @@
     "facebook:1705237887627466"
   ],
   "existing_media_preflight_ledger": "data/history_media_repairs/20261114-media-repair-02.json",
-  "stop_reason": null,
+  "stop_reason": "prior_missing_media_not_verified_for_resend",
   "closure_reason": "chatanywhere_shared_24h_free_request_limit",
   "service_budget_statement": {
     "provider": "Apify",
