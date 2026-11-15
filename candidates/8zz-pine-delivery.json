@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "events": 398,
+  "events": 399,
   "same_event_tuples": true,
   "same_bar_policy": "latest_post_before_filters",
   "data_cutoff_taipei": "2026-11-15T16:55:04.406470+08:00",
-  "event_fields_sha256": "2d3e53c9cb4e0ba380d2789c79e4befdb731c2c0fb47af9e9b8e7cf1df47ebdb",
+  "event_fields_sha256": "999058a2143dc6bcf355d3dbd7145b1bd1a834dd20c6d46123dfafd66361f1e6",
   "event_encoding": "packed-v1",
   "packed_event_round_trip": true,
   "strategy_default_end_date": "2026-11-13",
@@ -21,10 +21,10 @@
   },
   "indicator": {
     "path": "candidates/8zz-history-latest.pine",
-    "sha256": "ce102642740366b712e0be8321fbe98fe74124a39dd4cb2c7c9e567c11082636"
+    "sha256": "f0978d16a334ecc7a04107ab2925108673ee28a7d1db4b5654b0b2cb6641ffe5"
   },
   "strategy": {
     "path": "candidates/8zz-strategy-latest.pine",
-    "sha256": "d2f7543a3688a9aa33cf9e5f77425dab100cfdc7edd9e0c420edc24db9ec596b"
+    "sha256": "5f0ca24139055fc2c0c8471b8afbd0deecf1298e090f7e31662efbf99707d26b"
   }
 }
