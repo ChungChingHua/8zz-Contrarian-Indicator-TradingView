@@ -1268,18 +1268,7 @@
       }
     }
   ],
-  "held_missing_media_keys": [
-    "facebook:1702487071235881",
-    "facebook:1702731291211459",
-    "facebook:1702897424528179",
-    "facebook:1703163464501575",
-    "facebook:1703429887808266",
-    "facebook:1703740244443897",
-    "facebook:1703792734438648",
-    "facebook:1704945814323340",
-    "facebook:1705156784302243",
-    "facebook:1705237887627466"
-  ],
+  "held_missing_media_keys": [],
   "existing_media_preflight_ledger": "data/history_media_repairs/20261114-media-repair-02.json",
   "stop_reason": null,
   "closure_reason": "chatanywhere_shared_24h_free_request_limit",
