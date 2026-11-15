@@ -7138,5 +7138,75 @@
     "record_key": null,
     "evidence": null,
     "reason": ""
+  },
+  {
+    "key": "facebook:1713402286811026",
+    "url": "https://www.facebook.com/reel/1654964376087063/",
+    "display_time": "2026-11-15T00:59:17+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4030353700266598712",
+    "url": "https://www.threads.com/t/DfusVYvkmE4",
+    "display_time": "2026-11-15T01:00:24+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4030449832615456486",
+    "url": "https://www.threads.com/t/DfvCMS-E67m",
+    "display_time": "2026-11-15T04:11:22+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4030642136806956039",
+    "url": "https://www.threads.com/t/Dfvt6sNGZwH",
+    "display_time": "2026-11-15T10:33:27+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4030720656484699170",
+    "url": "https://www.threads.com/t/Dfv_xTWmYwi",
+    "display_time": "2026-11-15T13:09:27+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "facebook:1714129566738298",
+    "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid035itqFRyiCGXafrFUVyhgEFfpybavuQ7gwVEHycxUpFqd4CdJWLwdZZn3CzpG4fj9l",
+    "display_time": "2026-11-15T15:30:34+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
+  },
+  {
+    "key": "threads:4030791985395698529",
+    "url": "https://www.threads.com/t/DfwP_RlAIth",
+    "display_time": "2026-11-15T15:31:11+08:00",
+    "status": "not_started",
+    "stored_status": null,
+    "record_key": null,
+    "evidence": null,
+    "reason": ""
   }
 ]
