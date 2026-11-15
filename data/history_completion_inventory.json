@@ -6366,21 +6366,21 @@
     "key": "facebook:1702487071235881",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0vzGJfezAr6mDRnz1VmhY5avBR5HhZXiRE5pxW7MrGstFaoUc1upnZZWXG1nD7BFjl",
     "display_time": "2026-11-05T03:04:10+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "pending_confirmation",
+    "stored_status": "pending_confirmation",
+    "record_key": "facebook:1702487071235881",
+    "evidence": "data/history_progress/history-completion-20261107-037.json",
+    "reason": "貼文內容混合個人自拍與模糊買賣描述，未明確表達持倉情緒或具體投資立場，依規則對此類模糊/無法判定投資相關之貼文跳過。"
   },
   {
     "key": "facebook:1702731291211459",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid035tHJPGrDoLRNT1A9XfjfBXvDSyrmn5iWmw2KR3FDGtACoaExAgTaYHC8v88ySNUWl",
     "display_time": "2026-11-05T09:23:04+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "facebook:1702731291211459",
+    "evidence": "data/history_progress/history-completion-20261107-037.json",
+    "reason": "發文者因五月以貸款加碼買進，語氣沮喪無法嘻嘻，顯示被套或重大損失的痛苦情緒，偏多訊號。"
   },
   {
     "key": "threads:4023362009123385848",
@@ -6406,11 +6406,11 @@
     "key": "facebook:1702897424528179",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02FgHSPLV7qxuLxZPP3DLuZoNFMduPa9PpMuQ45gmmdEPFrPfgom5cGkwh8DeLcb1Kl",
     "display_time": "2026-11-05T13:17:14+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "facebook:1702897424528179",
+    "evidence": "data/history_progress/history-completion-20261107-037.json",
+    "reason": "貼文明確表示當日被套且情緒極度悲傷（被騙、滿手鮮血、哭哭表情），為極端痛苦偏多訊號。"
   },
   {
     "key": "threads:4023487463029312236",
@@ -6436,11 +6436,11 @@
     "key": "facebook:1703163464501575",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02o4AKSbPWCCPWpq62E1UnSNcUdfWCHRfSEAEruZ7RW4fH6sdqB6oXioXAGkmzVnCrl",
     "display_time": "2026-11-05T19:46:58+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "facebook:1703163464501575",
+    "evidence": "data/history_progress/history-completion-20261107-037.json",
+    "reason": "發文提到貸款買股且目前大幅虧損，附上對帳單顯示總損益-415,390，情緒為痛苦/被套，且有真金白銀持倉截圖強度設為3。"
   },
   {
     "key": "threads:4023673308822738059",
@@ -6506,11 +6506,11 @@
     "key": "facebook:1703429887808266",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid0YAJxviLNDv2BGBsdTXgEsHe6YvfRZtgBC3yrc6WksVY3wPGiAc4RsAPYNtx8t1i5l",
     "display_time": "2026-11-06T00:47:04+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "facebook:1703429887808266",
+    "evidence": "data/history_progress/history-completion-20261107-037.json",
+    "reason": "發文者表示損失20%且情緒崩潰/放棄，為痛苦被套的心態，屬偏多（恐慌）訊號。"
   },
   {
     "key": "threads:4023835308781547008",
@@ -6539,11 +6539,11 @@
     "key": "facebook:1703740244443897",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid08wkUP46KGJHSyn1sEhxNV7GG8xZah94T9bVfGe5rfkr9FWtXq4ygRLkYDm9MAqfzl",
     "display_time": "2026-11-06T08:26:00+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "facebook:1703740244443897",
+    "evidence": "data/history_progress/history-completion-20261107-037.json",
+    "reason": "情緒悲觀、語氣沮喪且暗示大盤重挫與個人難過，屬於痛苦偏多傾向"
   },
   {
     "key": "facebook:1703774981107090",
@@ -6575,11 +6575,11 @@
     "key": "facebook:1703792734438648",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid037J5afqWKJv53P9DQt53pwWgXp4e9Lbbwp3fJBQZWf4EPZfakWZGf2GMGHUuEHSdBl",
     "display_time": "2026-11-06T09:40:10+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_signal",
+    "stored_status": "completed_signal",
+    "record_key": "facebook:1703792734438648",
+    "evidence": "data/history_progress/history-completion-20261107-037.json",
+    "reason": "發文者以自己的停損換取教訓並請求勿抄底，配合提供委託單截圖顯示已真實停損出場，情緒為痛苦與自責，屬強烈偏多訊號。"
   },
   {
     "key": "threads:4024145772782621524",
@@ -6653,11 +6653,11 @@
     "key": "facebook:1704945814323340",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02SKKe6t1xozYuPPTpT1dezwLh49AYvwJDQgqZpvHNx4eW9m8hhY127syMwEfwgA2Gl",
     "display_time": "2026-11-07T10:23:30+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "facebook:1704945814323340",
+    "evidence": "data/history_progress/history-completion-20261107-037.json",
+    "reason": "商品/服飾推廣貼文，與投資無關，跳過。"
   },
   {
     "key": "threads:4024966593813495052",
@@ -6673,21 +6673,21 @@
     "key": "facebook:1705156784302243",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid02HVzyozMABc2YGDoXvrdLj2mb7jaUXuuDMvBGvZyzwFeUVfkkyS3PU1wNRbkDrwg7l",
     "display_time": "2026-11-07T15:09:17+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "facebook:1705156784302243",
+    "evidence": "data/history_progress/history-completion-20261107-037.json",
+    "reason": "生活日常（買陶笛/商品擺拍），與投資無關，跳過。"
   },
   {
     "key": "facebook:1705237887627466",
     "url": "https://www.facebook.com/DieWithoutBang/posts/pfbid035ydhaSUH8aqj99cm6yxckf9sbjK9Ez8udykEy2RmFBmFAYGpykhp2j2bBTnu8uvHl",
     "display_time": "2026-11-07T17:08:22+08:00",
-    "status": "not_started",
-    "stored_status": null,
-    "record_key": null,
-    "evidence": null,
-    "reason": ""
+    "status": "completed_no_signal",
+    "stored_status": "completed_no_signal",
+    "record_key": "facebook:1705237887627466",
+    "evidence": "data/history_progress/history-completion-20261107-037.json",
+    "reason": "純遊戲/生活分享，與投資無關，跳過"
   },
   {
     "key": "threads:4025043302263849308",
