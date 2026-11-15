@@ -2,11 +2,11 @@
 
 本次因實際阻塞停止，**尚未補齊全部歷史判讀**。
 
-資料抓取截止 UTC 2026-11-14T10:21:07.585530+00:00（Asia/Taipei 為 2026-11-14T18:21:07.585530+08:00）；共 710 篇。已走訪至 2026-11-05T01:23:43+08:00，其中待確認／失敗另列；本輪最後有效回應 2026-11-12T21:59:30+08:00，最新事件 2026-11-12T13:48:28+08:00。
+資料抓取截止 UTC 2026-11-15T08:55:04.406470+00:00（Asia/Taipei 為 2026-11-15T16:55:04.406470+08:00）；共 717 篇。已走訪至 2026-11-05T01:23:43+08:00，其中待確認／失敗另列；本輪最後有效回應 2026-11-12T21:59:30+08:00，最新事件 2026-11-12T13:48:28+08:00。
 
 完整 Pine 398 事件 = 原歷史 151 + 累計新增 247；其中此歷史 scope 累計新增 242。本次續跑新增 18。
 
-狀態依來源貼文計：有訊號 249、無訊號 321、待確認 102、失敗 21、狀態不明 0、尚未處理 17（去重後 17 組）。跨平台同組會對應多筆貼文，但只產生一個事件。
+狀態依來源貼文計：有訊號 249、無訊號 321、待確認 102、失敗 21、狀態不明 0、尚未處理 24（去重後 24 組）。跨平台同組會對應多筆貼文，但只產生一個事件。
 
 本 scope 累計生成 HTTP 656 次，成功固定格式回應 640；7 筆 HTTP 回應無 usage，不假定其零 tokens。已回報用量輸入 1873697／輸出 103062／合計 1976759 tokens。實際點數扣除未知；即時免費請求／點數餘額與重設時刻若無服務回傳即為未知，先前阻塞保留於 control.blocker_history。
 
@@ -17,18 +17,18 @@
 ```json
 {
   "scope": "history-completion-20261107",
-  "cutoff_utc": "2026-11-14T10:21:07.585530+00:00",
-  "cutoff_taipei": "2026-11-14T18:21:07.585530+08:00",
+  "cutoff_utc": "2026-11-15T08:55:04.406470+00:00",
+  "cutoff_taipei": "2026-11-15T16:55:04.406470+08:00",
   "acquisition_completed": true,
-  "archive_posts": 710,
+  "archive_posts": 717,
   "data_range_by_source": {
     "facebook": {
       "first": "2026-07-20T08:32:36+08:00",
-      "latest_post": "2026-11-13T23:21:14+08:00"
+      "latest_post": "2026-11-15T15:30:34+08:00"
     },
     "threads": {
       "first": "2026-07-20T13:02:00+08:00",
-      "latest_post": "2026-11-14T10:54:32+08:00"
+      "latest_post": "2026-11-15T15:31:11+08:00"
     }
   },
   "post_status_counts": {
@@ -37,11 +37,11 @@
     "pending_confirmation": 102,
     "technical_failure": 14,
     "input_failure": 7,
-    "not_started": 17,
+    "not_started": 24,
     "unknown": 0
   },
-  "remaining_not_started_groups": 17,
-  "remaining_not_started_platform_posts": 17,
+  "remaining_not_started_groups": 24,
+  "remaining_not_started_platform_posts": 24,
   "latest_attempted_or_reviewed_date": "2026-11-13T00:56:41+08:00",
   "all_posts_visited_before_first_unstarted": "2026-11-05T01:23:43+08:00",
   "successfully_completed_contiguous_prefix": "2026-07-20T18:41:00+08:00",
@@ -104,38 +104,36 @@
   "http_responses_without_usage": 7,
   "service_reported_cached_input_tokens": 1289600,
   "apify_http_counts": {
-    "GET": 13,
+    "GET": 8,
     "POST": 2
   },
   "apify_runs": [
     {
       "source": "facebook",
-      "run_id": "1eDyx3uOHnTVfD5Ln",
+      "run_id": "7XocIieNSafu8En1Q",
       "status": "SUCCEEDED",
       "counts": {
-        "fetched": 20,
-        "accepted": 20,
-        "new": 20,
+        "fetched": 2,
+        "accepted": 2,
+        "new": 2,
         "overlap": 0,
         "excluded": {}
       },
       "reported_cost": {
-        "usageTotalUsd": 0.127
+        "usageTotalUsd": 0.001
       },
       "http_status": null
     },
     {
       "source": "threads",
-      "run_id": "hinVUOAgNEM17Le6K",
+      "run_id": "c37pGgiCfqvBLdZmv",
       "status": "SUCCEEDED",
       "counts": {
-        "fetched": 27,
-        "accepted": 24,
-        "new": 24,
+        "fetched": 5,
+        "accepted": 5,
+        "new": 5,
         "overlap": 0,
-        "excluded": {
-          "reply_repost_or_unknown": 3
-        }
+        "excluded": {}
       },
       "reported_cost": {
         "usageTotalUsd": 0
@@ -148,7 +146,17 @@
   "actual_points_deducted": null,
   "quota_headers": {},
   "stop_reason": "provider_access_quota_or_common_failure",
-  "service_quota_statement": null,
+  "service_quota_statement": {
+    "provider": "ChatAnywhere",
+    "http_status": 403,
+    "reported_limit": 100,
+    "reported_window": "current 24-hour window",
+    "shared_across_free_models": true,
+    "service_statement": "The shared free request limit is exhausted; this is not an Apify acquisition failure.",
+    "reset_at": null,
+    "actual_points_deducted": null,
+    "remaining_points": null
+  },
   "all_history_fully_classified": false,
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
   "provider_model_and_reasoning": "Service-reported gpt-5-mini / minimal, not independently verified",
@@ -178,7 +186,7 @@
     "saved_dataset_get_requests": 0,
     "actual_points_deducted": null,
     "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43585240072",
-    "stop_http_status": null,
+    "stop_http_status": 403,
     "status_count_transitions": {
       "completed_no_signal": 15,
       "completed_signal": 18,
@@ -187,11 +195,20 @@
       "technical_failure": 1
     },
     "recovered_zero_generation_inputs": 0,
+    "cache_artifact": {
+      "run_id": 43585240072,
+      "id": 14110406487,
+      "name": "history-latest-classified-cache-20261114",
+      "size_bytes": 2770906,
+      "expires_at": "2026-11-28T10:30:28Z",
+      "digest": "sha256:8cab10c08f0c4f8dcdbb59ac1549a8f36e322b01aa41183e57ff9d19a8531546"
+    },
     "media_repair_ledger": "data/history_media_repairs/20261114-media-repair-04.json",
     "media_repair_http_counts": {
       "GET": 1,
       "POST": 0
-    }
+    },
+    "images_supplied": 22
   }
 }
 ```
