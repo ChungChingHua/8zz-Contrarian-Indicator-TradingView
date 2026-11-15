@@ -1,0 +1,69 @@
+{
+  "runs": [
+    {
+      "run_id": "7XocIieNSafu8En1Q",
+      "status": "SUCCEEDED",
+      "actId": "KoJrdxJCTtpon81KY",
+      "buildId": "YrRcdVQKNazTl1teV",
+      "buildNumber": "0.0.421",
+      "startedAt": "2026-11-15T08:55:10.706Z",
+      "finishedAt": "2026-11-15T08:55:19.441Z",
+      "usageTotalUsd": "0.015",
+      "externalChargedTotalUsd": null,
+      "usageUsd": null,
+      "chargedEventCounts": {
+        "post": 2,
+        "actor-start": 1,
+        "filter-applied": 2
+      }
+    },
+    {
+      "run_id": "c37pGgiCfqvBLdZmv",
+      "status": "SUCCEEDED",
+      "actId": "yacNYZpu9F3C8EATQ",
+      "buildId": "YjucZXGASL25tEUHb",
+      "buildNumber": "0.1.74",
+      "startedAt": "2026-11-15T08:55:30.603Z",
+      "finishedAt": "2026-11-15T08:55:37.456Z",
+      "usageTotalUsd": "0.045",
+      "externalChargedTotalUsd": null,
+      "usageUsd": null,
+      "chargedEventCounts": {
+        "start": 1,
+        "profile": 0,
+        "post": 5
+      }
+    },
+    {
+      "run_id": "xPpzRUxhRvhRbi0Td",
+      "status": "SUCCEEDED",
+      "actId": "KoJrdxJCTtpon81KY",
+      "buildId": "YrRcdVQKNazTl1teV",
+      "buildNumber": "0.0.421",
+      "startedAt": "2026-11-15T09:03:41.527Z",
+      "finishedAt": "2026-11-15T09:03:53.511Z",
+      "usageTotalUsd": "0.051000000000000004",
+      "externalChargedTotalUsd": null,
+      "usageUsd": null,
+      "chargedEventCounts": {
+        "post": 10,
+        "actor-start": 1,
+        "filter-applied": 0
+      }
+    }
+  ],
+  "actor_starts": 0,
+  "observed_at": "2026-11-15T09:05:55.041776+00:00",
+  "billing_finality": "API observation, not independently settled invoice; zero does not prove free service",
+  "actual_AI_points_deducted": null,
+  "observed_run_total_usd": "0.111000000000000004",
+  "cost_basis": "usageTotalUsd once per run; do not add other fee fields",
+  "account_usage": {
+    "remaining_allowance": null,
+    "note": "Scoped account-limits access was previously denied; no repeat."
+  },
+  "http_requests": {
+    "GET": 3,
+    "POST": 0
+  }
+}
