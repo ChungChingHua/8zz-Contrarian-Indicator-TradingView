@@ -20,6 +20,9 @@
       "posts": {
         "facebook:1702487071235881": {
           "status": "cached"
+        },
+        "facebook:1702731291211459": {
+          "status": "cached"
         }
       },
       "empty_predecessor": {
@@ -109,7 +112,7 @@
     "GET": 6,
     "POST": 1
   },
-  "updated_at": "2026-11-15T09:03:58.450544+00:00",
+  "updated_at": "2026-11-15T09:03:59.906324+00:00",
   "verified_empty_predecessor": {
     "run_id": "aN1ESUqN4kVceCqBH",
     "dataset_id": "yv2pVJKq2araXljnc",
