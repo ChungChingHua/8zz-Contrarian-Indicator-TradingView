@@ -3,7 +3,7 @@
   "cutoff_utc": "2026-11-15T08:55:04.406470+00:00",
   "created_at": "2026-11-07T12:15:59.578797+00:00",
   "rule_sha256": "8ccd8bbe6388705261e7240897417683f2dc6e2016f5db9d5eca462533837162",
-  "closed": true,
+  "closed": false,
   "acquisition_completed": true,
   "sources": {
     "facebook": {
@@ -251,33 +251,28 @@
     }
   ],
   "current_session": {
-    "id": "20261115-media-repair-01",
-    "baseline_generation_attempts": 656,
-    "baseline_validated_responses": 640,
+    "id": "20261115-media-repair-02",
+    "baseline_generation_attempts": 670,
+    "baseline_validated_responses": 653,
     "baseline_usage": {
-      "input_tokens": 1873697,
-      "output_tokens": 103062,
-      "total_tokens": 1976759,
+      "input_tokens": 1912449,
+      "output_tokens": 104938,
+      "total_tokens": 2017387,
       "reasoning_tokens": 0
     },
-    "baseline_total_events": 398,
+    "baseline_total_events": 399,
     "baseline_status_counts": {
-      "pending_confirmation": 89,
-      "completed_no_signal": 313,
-      "completed_signal": 242,
-      "technical_failure": 12,
+      "pending_confirmation": 91,
+      "completed_no_signal": 323,
+      "completed_signal": 243,
+      "technical_failure": 13,
       "input_failure": 7
     },
     "recovered_zero_generation_inputs": 0,
     "actor_runs_started": 0,
     "saved_dataset_get_requests": 0,
-    "closed": true,
-    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43696697885",
-    "media_repair_ledger": "data/history_media_repairs/20261115-media-repair-01.json",
-    "media_repair_http_counts": {
-      "GET": 0,
-      "POST": 0
-    }
+    "closed": false,
+    "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43697338687"
   },
   "session_history": [
     {
@@ -1242,6 +1237,35 @@
       "images_supplied": 22,
       "images_with_validated_response": 21,
       "unanalysed_videos": 4
+    },
+    {
+      "id": "20261115-media-repair-01",
+      "baseline_generation_attempts": 656,
+      "baseline_validated_responses": 640,
+      "baseline_usage": {
+        "input_tokens": 1873697,
+        "output_tokens": 103062,
+        "total_tokens": 1976759,
+        "reasoning_tokens": 0
+      },
+      "baseline_total_events": 398,
+      "baseline_status_counts": {
+        "pending_confirmation": 89,
+        "completed_no_signal": 313,
+        "completed_signal": 242,
+        "technical_failure": 12,
+        "input_failure": 7
+      },
+      "recovered_zero_generation_inputs": 0,
+      "actor_runs_started": 0,
+      "saved_dataset_get_requests": 0,
+      "closed": true,
+      "run_url": "https://github.com/ChungChingHua/8zz-Contrarian-Indicator-TradingView/actions/runs/43696697885",
+      "media_repair_ledger": "data/history_media_repairs/20261115-media-repair-01.json",
+      "media_repair_http_counts": {
+        "GET": 0,
+        "POST": 0
+      }
     }
   ],
   "held_missing_media_keys": [
@@ -1257,7 +1281,7 @@
     "facebook:1705237887627466"
   ],
   "existing_media_preflight_ledger": "data/history_media_repairs/20261114-media-repair-02.json",
-  "stop_reason": "prior_missing_media_not_verified_for_resend",
+  "stop_reason": null,
   "closure_reason": "chatanywhere_shared_24h_free_request_limit",
   "service_budget_statement": {
     "provider": "Apify",
